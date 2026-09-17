@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.1...v1.0.2) (2026-09-17)
+
+### 🐛 Bug Fixes
+
+* bypass AppLovin MAX Unity Plugin ad readiness check and reward callbacks ([edf248c](https://github.com/SatanMerde/D-moniakPatches/commit/edf248cefb065c70c0fb1422a45fbfde2c9eeb2b))
+
 ## [1.0.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.0...v1.0.1) (2026-09-17)
 
 ### 🐛 Bug Fixes

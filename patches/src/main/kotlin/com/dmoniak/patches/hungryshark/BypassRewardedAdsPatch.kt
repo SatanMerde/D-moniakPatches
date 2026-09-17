@@ -2,9 +2,16 @@ package com.dmoniak.patches.hungryshark
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_HUNGRY_SHARK_WORLD
 
 private const val EXTENSION_CLASS = "Lcom/dmoniak/patches/extension/HungrySharkAdsRewardHelper;"
+
+private fun MutableMethod.safeAddInstructions(index: Int, smali: String) {
+    if (this.implementation != null) {
+        this.addInstructions(index, smali)
+    }
+}
 
 @Suppress("unused")
 val bypassRewardedAdsPatch = bytecodePatch(
@@ -19,7 +26,7 @@ val bypassRewardedAdsPatch = bytecodePatch(
     execute {
         // 1. Google Mobile Ads (AdMob)
         GoogleRewardedAdShowFingerprint.matchOrNull()?.let { match ->
-            match.method.addInstructions(
+            match.method.safeAddInstructions(
                 0,
                 """
                     invoke-static { p1, p2 }, $EXTENSION_CLASS->bypassGoogleRewardedAd(Ljava/lang/Object;Ljava/lang/Object;)V
@@ -30,16 +37,18 @@ val bypassRewardedAdsPatch = bytecodePatch(
 
         // 2. Google Mobile Ads Unity Plugin
         GoogleUnityRewardedAdShowFingerprint.matchOrNull()?.let { match ->
-            match.method.addInstructions(
+            match.method.safeAddInstructions(
                 0,
                 """
-                    invoke-static {}, $EXTENSION_CLASS->isAdReady()Z
+                    iget-object v0, p0, Lcom/google/unity/ads/UnityRewardedAd;->callback:Lcom/google/unity/ads/UnityRewardedAdCallback;
+                    invoke-static { v0 }, $EXTENSION_CLASS->bypassUnityRewardedAdCallback(Ljava/lang/Object;)V
+                    return-void
                 """
             )
         }
 
         GoogleUnityRewardedAdCanShowFingerprint.matchOrNull()?.let { match ->
-            match.method.addInstructions(
+            match.method.safeAddInstructions(
                 0,
                 """
                     const/4 v0, 0x1
@@ -50,7 +59,7 @@ val bypassRewardedAdsPatch = bytecodePatch(
 
         // 3. Unity Ads
         UnityAdsIsReadyFingerprint.matchOrNull()?.let { match ->
-            match.method.addInstructions(
+            match.method.safeAddInstructions(
                 0,
                 """
                     const/4 v0, 0x1
@@ -62,7 +71,7 @@ val bypassRewardedAdsPatch = bytecodePatch(
         UnityAdsShowFingerprint.matchOrNull()?.let { match ->
             val paramCount = match.method.parameterTypes.size
             if (paramCount >= 2) {
-                match.method.addInstructions(
+                match.method.safeAddInstructions(
                     0,
                     """
                         invoke-static { p1, p2 }, $EXTENSION_CLASS->bypassUnityAdsShow(Ljava/lang/Object;Ljava/lang/Object;)V
@@ -74,7 +83,7 @@ val bypassRewardedAdsPatch = bytecodePatch(
 
         // 4. AppLovin MAX
         MaxRewardedAdIsReadyFingerprint.matchOrNull()?.let { match ->
-            match.method.addInstructions(
+            match.method.safeAddInstructions(
                 0,
                 """
                     const/4 v0, 0x1
@@ -84,21 +93,31 @@ val bypassRewardedAdsPatch = bytecodePatch(
         }
 
         MaxRewardedAdShowFingerprint.matchOrNull()?.let { match ->
-            match.method.addInstructions(
+            match.method.safeAddInstructions(
                 0,
                 """
-                    invoke-static {}, $EXTENSION_CLASS->isAdReady()Z
+                    invoke-static { p0 }, $EXTENSION_CLASS->bypassMaxRewardedAd(Ljava/lang/Object;)V
+                    return-void
                 """
             )
         }
 
         // 5. IronSource
         IronSourceIsAvailableFingerprint.matchOrNull()?.let { match ->
-            match.method.addInstructions(
+            match.method.safeAddInstructions(
                 0,
                 """
                     const/4 v0, 0x1
                     return v0
+                """
+            )
+        }
+
+        IronSourceShowRewardedVideoFingerprint.matchOrNull()?.let { match ->
+            match.method.safeAddInstructions(
+                0,
+                """
+                    invoke-static {}, $EXTENSION_CLASS->isAdReady()Z
                 """
             )
         }

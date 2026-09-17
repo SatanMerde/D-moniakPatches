@@ -4,14 +4,19 @@ import android.app.Activity;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Extension helper for Hungry Shark World Morphe Patch.
- * Intercepts rewarded ad requests and immediately triggers completion callbacks
- * to grant the user rewards (coins, gems, revives, bonus chests) without playing ads.
+ * 
+ * DISCLAIMER:
+ * 100% AI Generated code for educational and research purposes only.
+ * No liability accepted.
  */
 public final class HungrySharkAdsRewardHelper {
 
@@ -21,11 +26,36 @@ public final class HungrySharkAdsRewardHelper {
     private HungrySharkAdsRewardHelper() {}
 
     /**
-     * Always returns true for ad availability checks so buttons are never disabled.
+     * Always returns true for ad availability / readiness checks.
      */
     public static boolean isAdReady() {
-        Log.i(TAG, "Ad availability check intercepted: returning ready = true");
+        Log.i(TAG, "Ad availability check intercepted: returning true");
         return true;
+    }
+
+    /**
+     * Intercepts AppLovin MaxRewardedAd.showAd(...) calls.
+     */
+    public static void bypassMaxRewardedAd(Object maxRewardedAdInstance) {
+        Log.i(TAG, "Bypassing AppLovin MaxRewardedAd.showAd...");
+        if (maxRewardedAdInstance == null) return;
+
+        MAIN_HANDLER.post(() -> {
+            try {
+                Object listener = findListenerInObject(maxRewardedAdInstance, "MaxRewardedAdListener");
+                if (listener == null) {
+                    listener = findListenerByMethod(maxRewardedAdInstance, "onUserRewarded");
+                }
+
+                if (listener != null) {
+                    bypassAppLovinMaxReward(listener, null);
+                } else {
+                    Log.w(TAG, "MaxRewardedAdListener not found on instance");
+                }
+            } catch (Throwable t) {
+                Log.e(TAG, "Error in bypassMaxRewardedAd", t);
+            }
+        });
     }
 
     /**
@@ -40,7 +70,6 @@ public final class HungrySharkAdsRewardHelper {
 
         MAIN_HANDLER.post(() -> {
             try {
-                // Find onUserEarnedReward(RewardItem)
                 for (Method m : listenerObj.getClass().getMethods()) {
                     if ("onUserEarnedReward".equals(m.getName()) && m.getParameterTypes().length == 1) {
                         Class<?> paramType = m.getParameterTypes()[0];
@@ -59,7 +88,6 @@ public final class HungrySharkAdsRewardHelper {
 
     /**
      * Intercepts Google Mobile Ads Unity plugin (UnityRewardedAd) show().
-     * Handles UnityRewardedAdCallback directly.
      */
     public static void bypassUnityRewardedAdCallback(Object callbackObj) {
         Log.i(TAG, "Bypassing Google UnityRewardedAd callback...");
@@ -67,7 +95,7 @@ public final class HungrySharkAdsRewardHelper {
 
         MAIN_HANDLER.post(() -> {
             try {
-                // 1. Trigger onUserEarnedReward(String, float)
+                // 1. onUserEarnedReward(String, float)
                 try {
                     Method onReward = callbackObj.getClass().getMethod("onUserEarnedReward", String.class, float.class);
                     onReward.invoke(callbackObj, "reward", 1.0f);
@@ -81,7 +109,7 @@ public final class HungrySharkAdsRewardHelper {
                     }
                 }
 
-                // 2. Trigger onAdDismissedFullScreenContent()
+                // 2. onAdDismissedFullScreenContent()
                 try {
                     Method onDismiss = callbackObj.getClass().getMethod("onAdDismissedFullScreenContent");
                     onDismiss.invoke(callbackObj);
@@ -105,7 +133,7 @@ public final class HungrySharkAdsRewardHelper {
             try {
                 Class<?> listenerClass = showListenerObj.getClass();
 
-                // Call onUnityAdsShowStart if available
+                // onUnityAdsShowStart
                 try {
                     for (Method m : listenerClass.getMethods()) {
                         if ("onUnityAdsShowStart".equals(m.getName()) && m.getParameterTypes().length == 1) {
@@ -115,7 +143,7 @@ public final class HungrySharkAdsRewardHelper {
                     }
                 } catch (Throwable ignored) {}
 
-                // Call onUnityAdsShowComplete(placementId, COMPLETED)
+                // onUnityAdsShowComplete(placementId, COMPLETED)
                 for (Method m : listenerClass.getMethods()) {
                     if ("onUnityAdsShowComplete".equals(m.getName()) && m.getParameterTypes().length == 2) {
                         Class<?> enumType = m.getParameterTypes()[1];
@@ -129,7 +157,7 @@ public final class HungrySharkAdsRewardHelper {
                             }
                         }
                         m.invoke(showListenerObj, placementId, completedEnum);
-                        Log.i(TAG, "Invoked UnityAds showListener.onUnityAdsShowComplete with COMPLETED");
+                        Log.i(TAG, "Invoked UnityAds onUnityAdsShowComplete with COMPLETED");
                         return;
                     }
                 }
@@ -143,30 +171,35 @@ public final class HungrySharkAdsRewardHelper {
      * Intercepts AppLovin MAX Rewarded ad callbacks.
      */
     public static void bypassAppLovinMaxReward(Object listenerObj, Object maxAdObj) {
-        Log.i(TAG, "Bypassing AppLovin MAX rewarded ad...");
+        Log.i(TAG, "Triggering AppLovin MAX rewarded callbacks...");
         if (listenerObj == null) return;
 
         MAIN_HANDLER.post(() -> {
             try {
                 // onUserRewarded(MaxAd, MaxReward)
                 for (Method m : listenerObj.getClass().getMethods()) {
-                    if ("onUserRewarded".equals(m.getName()) && m.getParameterTypes().length == 2) {
-                        Class<?> rewardClass = m.getParameterTypes()[1];
-                        Object dummyReward = createDummyMaxRewardProxy(rewardClass);
-                        m.invoke(listenerObj, maxAdObj, dummyReward);
-                        Log.i(TAG, "Invoked AppLovin onUserRewarded!");
+                    if ("onUserRewarded".equals(m.getName())) {
+                        Class<?>[] params = m.getParameterTypes();
+                        if (params.length == 2) {
+                            Object dummyReward = createDummyMaxRewardProxy(params[1]);
+                            m.invoke(listenerObj, maxAdObj, dummyReward);
+                            Log.i(TAG, "Invoked AppLovin onUserRewarded!");
+                        }
                     }
                 }
 
                 // onAdHidden(MaxAd)
                 for (Method m : listenerObj.getClass().getMethods()) {
-                    if ("onAdHidden".equals(m.getName()) && m.getParameterTypes().length == 1) {
-                        m.invoke(listenerObj, maxAdObj);
-                        Log.i(TAG, "Invoked AppLovin onAdHidden!");
+                    if ("onAdHidden".equals(m.getName())) {
+                        Class<?>[] params = m.getParameterTypes();
+                        if (params.length == 1) {
+                            m.invoke(listenerObj, maxAdObj);
+                            Log.i(TAG, "Invoked AppLovin onAdHidden!");
+                        }
                     }
                 }
             } catch (Throwable t) {
-                Log.e(TAG, "Error bypassing AppLovin MAX", t);
+                Log.e(TAG, "Error triggering AppLovin MAX callbacks", t);
             }
         });
     }
@@ -175,12 +208,11 @@ public final class HungrySharkAdsRewardHelper {
      * Intercepts IronSource Rewarded Video callbacks.
      */
     public static void bypassIronSourceReward(Object listenerObj, Object placementObj) {
-        Log.i(TAG, "Bypassing IronSource Rewarded Video...");
+        Log.i(TAG, "Triggering IronSource Rewarded Video callbacks...");
         if (listenerObj == null) return;
 
         MAIN_HANDLER.post(() -> {
             try {
-                // onRewardedVideoAdRewarded(Placement)
                 for (Method m : listenerObj.getClass().getMethods()) {
                     if ("onRewardedVideoAdRewarded".equals(m.getName())) {
                         m.invoke(listenerObj, placementObj);
@@ -188,7 +220,6 @@ public final class HungrySharkAdsRewardHelper {
                     }
                 }
 
-                // onRewardedVideoAdClosed()
                 for (Method m : listenerObj.getClass().getMethods()) {
                     if ("onRewardedVideoAdClosed".equals(m.getName()) && m.getParameterTypes().length == 0) {
                         m.invoke(listenerObj);
@@ -201,18 +232,75 @@ public final class HungrySharkAdsRewardHelper {
         });
     }
 
-    /**
-     * Generic fallback trigger to send reward message directly to Unity game objects if applicable.
-     */
-    public static void sendUnityRewardMessage(String gameObject, String methodName, String param) {
-        try {
-            Class<?> unityPlayerClass = Class.forName("com.unity3d.player.UnityPlayer");
-            Method sendMessage = unityPlayerClass.getMethod("UnitySendMessage", String.class, String.class, String.class);
-            sendMessage.invoke(null, gameObject, methodName, param != null ? param : "");
-            Log.i(TAG, "Sent UnitySendMessage to " + gameObject + "->" + methodName);
-        } catch (Throwable t) {
-            Log.d(TAG, "UnitySendMessage not available or failed: " + t.getMessage());
+    private static Object findListenerInObject(Object root, String targetInterfaceName) {
+        if (root == null) return null;
+        Set<Object> visited = new HashSet<>();
+        return searchFieldRecursive(root, targetInterfaceName, visited, 0);
+    }
+
+    private static Object searchFieldRecursive(Object current, String interfaceName, Set<Object> visited, int depth) {
+        if (current == null || depth > 3 || !visited.add(current)) return null;
+
+        for (Class<?> iface : current.getClass().getInterfaces()) {
+            if (iface.getName().contains(interfaceName)) {
+                return current;
+            }
         }
+
+        Class<?> clazz = current.getClass();
+        while (clazz != null && clazz != Object.class) {
+            for (Field field : clazz.getDeclaredFields()) {
+                try {
+                    field.setAccessible(true);
+                    Object val = field.get(current);
+                    if (val != null) {
+                        for (Class<?> iface : val.getClass().getInterfaces()) {
+                            if (iface.getName().contains(interfaceName)) {
+                                return val;
+                            }
+                        }
+                        if (depth < 2 && !isPrimitiveOrWrapper(val.getClass())) {
+                            Object found = searchFieldRecursive(val, interfaceName, visited, depth + 1);
+                            if (found != null) return found;
+                        }
+                    }
+                } catch (Throwable ignored) {}
+            }
+            clazz = clazz.getSuperclass();
+        }
+        return null;
+    }
+
+    private static Object findListenerByMethod(Object root, String methodName) {
+        if (root == null) return null;
+        Class<?> clazz = root.getClass();
+        while (clazz != null && clazz != Object.class) {
+            for (Field field : clazz.getDeclaredFields()) {
+                try {
+                    field.setAccessible(true);
+                    Object val = field.get(root);
+                    if (val != null) {
+                        for (Method m : val.getClass().getMethods()) {
+                            if (m.getName().equals(methodName)) {
+                                return val;
+                            }
+                        }
+                    }
+                } catch (Throwable ignored) {}
+            }
+            clazz = clazz.getSuperclass();
+        }
+        return null;
+    }
+
+    private static boolean isPrimitiveOrWrapper(Class<?> type) {
+        return type.isPrimitive() ||
+               type == String.class ||
+               type == Integer.class ||
+               type == Long.class ||
+               type == Boolean.class ||
+               type == Float.class ||
+               type == Double.class;
     }
 
     private static Object createDummyRewardItemProxy(Class<?> interfaceClass) {
@@ -220,32 +308,25 @@ public final class HungrySharkAdsRewardHelper {
         return Proxy.newProxyInstance(
             interfaceClass.getClassLoader(),
             new Class<?>[]{interfaceClass},
-            new InvocationHandler() {
-                @Override
-                public Object invoke(Object proxy, Method method, Object[] args) {
-                    String name = method.getName();
-                    if ("getAmount".equals(name)) return 1;
-                    if ("getType".equals(name)) return "reward";
-                    if ("toString".equals(name)) return "DummyRewardItem[amount=1, type=reward]";
-                    return null;
-                }
+            (proxy, method, args) -> {
+                String name = method.getName();
+                if ("getAmount".equals(name)) return 1;
+                if ("getType".equals(name)) return "reward";
+                return null;
             }
         );
     }
 
     private static Object createDummyMaxRewardProxy(Class<?> interfaceClass) {
-        if (!interfaceClass.isInterface()) return null;
+        if (interfaceClass == null || !interfaceClass.isInterface()) return null;
         return Proxy.newProxyInstance(
             interfaceClass.getClassLoader(),
             new Class<?>[]{interfaceClass},
-            new InvocationHandler() {
-                @Override
-                public Object invoke(Object proxy, Method method, Object[] args) {
-                    String name = method.getName();
-                    if ("getAmount".equals(name)) return 1;
-                    if ("getLabel".equals(name)) return "reward";
-                    return null;
-                }
+            (proxy, method, args) -> {
+                String name = method.getName();
+                if ("getAmount".equals(name)) return 1;
+                if ("getLabel".equals(name)) return "reward";
+                return null;
             }
         );
     }

@@ -4,11 +4,12 @@ import app.morphe.patcher.Fingerprint
 
 /**
  * Fingerprint for Google Mobile Ads RewardedAd.show(Activity, OnUserEarnedRewardListener).
+ * Strictly requires a non-null MethodImplementation to avoid abstract declarations.
  */
 object GoogleRewardedAdShowFingerprint : Fingerprint(
-    definingClass = "/RewardedAd;",
     name = "show",
-    parameters = listOf("Landroid/app/Activity;", "Lcom/google/android/gms/ads/OnUserEarnedRewardListener;")
+    parameters = listOf("Landroid/app/Activity;", "Lcom/google/android/gms/ads/OnUserEarnedRewardListener;"),
+    custom = { method, _ -> method.implementation != null }
 )
 
 /**
@@ -17,7 +18,8 @@ object GoogleRewardedAdShowFingerprint : Fingerprint(
 object GoogleUnityRewardedAdShowFingerprint : Fingerprint(
     definingClass = "Lcom/google/unity/ads/UnityRewardedAd;",
     name = "show",
-    parameters = emptyList()
+    parameters = emptyList(),
+    custom = { method, _ -> method.implementation != null }
 )
 
 /**
@@ -26,7 +28,8 @@ object GoogleUnityRewardedAdShowFingerprint : Fingerprint(
 object GoogleUnityRewardedAdCanShowFingerprint : Fingerprint(
     definingClass = "Lcom/google/unity/ads/UnityRewardedAd;",
     returnType = "Z",
-    name = "canShowAd"
+    name = "canShowAd",
+    custom = { method, _ -> method.implementation != null }
 )
 
 /**
@@ -34,7 +37,8 @@ object GoogleUnityRewardedAdCanShowFingerprint : Fingerprint(
  */
 object UnityAdsShowFingerprint : Fingerprint(
     definingClass = "Lcom/unity3d/ads/UnityAds;",
-    name = "show"
+    name = "show",
+    custom = { method, _ -> method.implementation != null }
 )
 
 /**
@@ -43,7 +47,8 @@ object UnityAdsShowFingerprint : Fingerprint(
 object UnityAdsIsReadyFingerprint : Fingerprint(
     definingClass = "Lcom/unity3d/ads/UnityAds;",
     name = "isReady",
-    returnType = "Z"
+    returnType = "Z",
+    custom = { method, _ -> method.implementation != null }
 )
 
 /**
@@ -51,7 +56,8 @@ object UnityAdsIsReadyFingerprint : Fingerprint(
  */
 object MaxRewardedAdShowFingerprint : Fingerprint(
     definingClass = "Lcom/applovin/mediation/ads/MaxRewardedAd;",
-    name = "showAd"
+    name = "showAd",
+    custom = { method, _ -> method.implementation != null }
 )
 
 /**
@@ -60,7 +66,8 @@ object MaxRewardedAdShowFingerprint : Fingerprint(
 object MaxRewardedAdIsReadyFingerprint : Fingerprint(
     definingClass = "Lcom/applovin/mediation/ads/MaxRewardedAd;",
     name = "isReady",
-    returnType = "Z"
+    returnType = "Z",
+    custom = { method, _ -> method.implementation != null }
 )
 
 /**
@@ -68,7 +75,8 @@ object MaxRewardedAdIsReadyFingerprint : Fingerprint(
  */
 object IronSourceShowRewardedVideoFingerprint : Fingerprint(
     definingClass = "Lcom/ironsource/mediationsdk/IronSource;",
-    name = "showRewardedVideo"
+    name = "showRewardedVideo",
+    custom = { method, _ -> method.implementation != null }
 )
 
 /**
@@ -77,5 +85,6 @@ object IronSourceShowRewardedVideoFingerprint : Fingerprint(
 object IronSourceIsAvailableFingerprint : Fingerprint(
     definingClass = "Lcom/ironsource/mediationsdk/IronSource;",
     name = "isRewardedVideoAvailable",
-    returnType = "Z"
+    returnType = "Z",
+    custom = { method, _ -> method.implementation != null }
 )

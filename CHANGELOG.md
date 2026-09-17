@@ -1,3 +1,9 @@
+## [1.0.8](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.7...v1.0.8) (2026-09-17)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** implement comprehensive multi-SDK ad bypass with register-safe parameter cloning ([0a8037d](https://github.com/SatanMerde/D-moniakPatches/commit/0a8037d752955afdeb0e4ce72f83d6e70d609f1a))
+
 ## [1.0.7](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.6...v1.0.7) (2026-09-17)
 
 ### 🐛 Bug Fixes

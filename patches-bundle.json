@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-17T08:12:03",
-  "description": "## [1.0.7](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.6...v1.0.7) (2026-09-17)\n\n### 🐛 Bug Fixes\n\n* **hungryshark:** eliminate JsonUtils dependency, use JSONObject(String) literal for MAX Unity events ([e543479](https://github.com/SatanMerde/D-moniakPatches/commit/e5434796915ad0a31f2312cd55065ab3ace5ce60))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.0.7/patches-1.0.7.mpp",
+  "created_at": "2026-09-17T08:35:09",
+  "description": "## [1.0.8](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.7...v1.0.8) (2026-09-17)\n\n### 🐛 Bug Fixes\n\n* **hungryshark:** implement comprehensive multi-SDK ad bypass with register-safe parameter cloning ([0a8037d](https://github.com/SatanMerde/D-moniakPatches/commit/0a8037d752955afdeb0e4ce72f83d6e70d609f1a))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.0.8/patches-1.0.8.mpp",
   "signature_download_url": "",
-  "version": "1.0.7"
+  "version": "1.0.8"
 }

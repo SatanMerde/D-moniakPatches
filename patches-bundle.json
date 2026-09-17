@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-17T06:16:13",
-  "description": "## [1.0.3](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.2...v1.0.3) (2026-09-17)\n\n### 🐛 Bug Fixes\n\n* restore billing and fix ad load lifecycle across MAX, Unity Ads and IronSource ([90da006](https://github.com/SatanMerde/D-moniakPatches/commit/90da00642dd7d6ad720a4d981fbe03f78f239a88))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.0.3/patches-1.0.3.mpp",
+  "created_at": "2026-09-17T06:47:56",
+  "description": "## [1.0.4](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.3...v1.0.4) (2026-09-17)\n\n### 🐛 Bug Fixes\n\n* intercept AppLovin MAX Unity Plugin ad readiness and reward callbacks ([6363f95](https://github.com/SatanMerde/D-moniakPatches/commit/6363f95cae7aaf4547fd046830378b54554635dd))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.0.4/patches-1.0.4.mpp",
   "signature_download_url": "",
-  "version": "1.0.3"
+  "version": "1.0.4"
 }

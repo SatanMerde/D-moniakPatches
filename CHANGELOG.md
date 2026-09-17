@@ -1,3 +1,9 @@
+## [1.0.5](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.4...v1.0.5) (2026-09-17)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** bypass video ad loading failures with universal readiness and synchronous MAX events ([406890a](https://github.com/SatanMerde/D-moniakPatches/commit/406890ae35e7483822721ecffcd3b9aca0d1debd))
+
 ## [1.0.4](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.3...v1.0.4) (2026-09-17)
 
 ### 🐛 Bug Fixes

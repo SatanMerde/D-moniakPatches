@@ -1,3 +1,9 @@
+## [1.0.6](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.5...v1.0.6) (2026-09-17)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** rewrite patch with direct smali injection (Nai64 approach) to bypass AppLovin MAX Unity rewarded ads ([d1a8ee2](https://github.com/SatanMerde/D-moniakPatches/commit/d1a8ee24dfb2126ef14d765a2272b7ede3d4412d))
+
 ## [1.0.5](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.4...v1.0.5) (2026-09-17)
 
 ### 🐛 Bug Fixes

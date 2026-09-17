@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.2...v1.0.3) (2026-09-17)
+
+### 🐛 Bug Fixes
+
+* restore billing and fix ad load lifecycle across MAX, Unity Ads and IronSource ([90da006](https://github.com/SatanMerde/D-moniakPatches/commit/90da00642dd7d6ad720a4d981fbe03f78f239a88))
+
 ## [1.0.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.1...v1.0.2) (2026-09-17)
 
 ### 🐛 Bug Fixes

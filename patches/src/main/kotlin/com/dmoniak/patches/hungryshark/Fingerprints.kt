@@ -4,7 +4,6 @@ import app.morphe.patcher.Fingerprint
 
 /**
  * Fingerprint for Google Mobile Ads RewardedAd.show(Activity, OnUserEarnedRewardListener).
- * Strictly requires a non-null MethodImplementation to avoid abstract declarations.
  */
 object GoogleRewardedAdShowFingerprint : Fingerprint(
     name = "show",
@@ -33,11 +32,20 @@ object GoogleUnityRewardedAdCanShowFingerprint : Fingerprint(
 )
 
 /**
- * Fingerprint for Unity Ads show(Activity, String, IUnityAdsShowListener).
+ * Fingerprint for Unity Ads show(Activity, String, ...).
  */
 object UnityAdsShowFingerprint : Fingerprint(
     definingClass = "Lcom/unity3d/ads/UnityAds;",
     name = "show",
+    custom = { method, _ -> method.implementation != null }
+)
+
+/**
+ * Fingerprint for Unity Ads load(String, IUnityAdsLoadListener).
+ */
+object UnityAdsLoadFingerprint : Fingerprint(
+    definingClass = "Lcom/unity3d/ads/UnityAds;",
+    name = "load",
     custom = { method, _ -> method.implementation != null }
 )
 
@@ -64,16 +72,25 @@ object UnityAdsIsReadyPlacementFingerprint : Fingerprint(
 )
 
 /**
- * Fingerprint for AppLovin MAX showAd() on native MaxRewardedAd.
+ * Fingerprint for AppLovin MAX setListener(MaxRewardedAdListener) on MaxRewardedAd.
  */
-object MaxRewardedAdShowFingerprint : Fingerprint(
+object MaxRewardedAdSetListenerFingerprint : Fingerprint(
     definingClass = "Lcom/applovin/mediation/ads/MaxRewardedAd;",
-    name = "showAd",
+    name = "setListener",
     custom = { method, _ -> method.implementation != null }
 )
 
 /**
- * Fingerprint for AppLovin MAX isReady() on native MaxRewardedAd.
+ * Fingerprint for AppLovin MAX loadAd() on MaxRewardedAd.
+ */
+object MaxRewardedAdLoadAdFingerprint : Fingerprint(
+    definingClass = "Lcom/applovin/mediation/ads/MaxRewardedAd;",
+    name = "loadAd",
+    custom = { method, _ -> method.implementation != null }
+)
+
+/**
+ * Fingerprint for AppLovin MAX isReady() on MaxRewardedAd.
  */
 object MaxRewardedAdIsReadyFingerprint : Fingerprint(
     definingClass = "Lcom/applovin/mediation/ads/MaxRewardedAd;",
@@ -83,71 +100,20 @@ object MaxRewardedAdIsReadyFingerprint : Fingerprint(
 )
 
 /**
- * Fingerprint for AppLovin MAX AppLovinSdk.isInitialized().
+ * Fingerprint for AppLovin MAX showAd(...) on native MaxRewardedAd.
  */
-object MaxSdkIsInitializedFingerprint : Fingerprint(
-    definingClass = "Lcom/applovin/sdk/AppLovinSdk;",
-    name = "isInitialized",
-    parameters = emptyList(),
-    returnType = "Z",
+object MaxRewardedAdShowFingerprint : Fingerprint(
+    definingClass = "Lcom/applovin/mediation/ads/MaxRewardedAd;",
+    name = "showAd",
     custom = { method, _ -> method.implementation != null }
 )
 
 /**
- * Fingerprint for AppLovin MAX Unity Plugin MaxUnityPlugin.isInitialized().
+ * Fingerprint for IronSource setRewardedVideoListener().
  */
-object MaxUnityPluginIsInitializedFingerprint : Fingerprint(
-    definingClass = "Lcom/applovin/mediation/unity/MaxUnityPlugin;",
-    name = "isInitialized",
-    parameters = emptyList(),
-    returnType = "Z",
-    custom = { method, _ -> method.implementation != null }
-)
-
-/**
- * Fingerprint for AppLovin MAX Unity Plugin MaxUnityPlugin.isRewardedAdReady(String).
- */
-object MaxUnityPluginIsRewardedAdReadyFingerprint : Fingerprint(
-    definingClass = "Lcom/applovin/mediation/unity/MaxUnityPlugin;",
-    name = "isRewardedAdReady",
-    returnType = "Z",
-    custom = { method, _ -> method.implementation != null }
-)
-
-/**
- * Fingerprint for AppLovin MAX Unity Plugin MaxUnityPlugin.showRewardedAd(String, String, String).
- */
-object MaxUnityPluginShowRewardedAdFingerprint : Fingerprint(
-    definingClass = "Lcom/applovin/mediation/unity/MaxUnityPlugin;",
-    name = "showRewardedAd",
-    custom = { method, _ -> method.implementation != null }
-)
-
-/**
- * Fingerprint for AppLovin MAX Unity Plugin MaxUnityPlugin.loadRewardedAd(String).
- */
-object MaxUnityPluginLoadRewardedAdFingerprint : Fingerprint(
-    definingClass = "Lcom/applovin/mediation/unity/MaxUnityPlugin;",
-    name = "loadRewardedAd",
-    custom = { method, _ -> method.implementation != null }
-)
-
-/**
- * Fingerprint for AppLovin MAX Unity Ad Manager MaxUnityAdManager.isRewardedAdReady(String).
- */
-object MaxUnityAdManagerIsRewardedAdReadyFingerprint : Fingerprint(
-    definingClass = "Lcom/applovin/mediation/unity/MaxUnityAdManager;",
-    name = "isRewardedAdReady",
-    returnType = "Z",
-    custom = { method, _ -> method.implementation != null }
-)
-
-/**
- * Fingerprint for AppLovin MAX Unity Ad Manager MaxUnityAdManager.showRewardedAd(String, String, String).
- */
-object MaxUnityAdManagerShowRewardedAdFingerprint : Fingerprint(
-    definingClass = "Lcom/applovin/mediation/unity/MaxUnityAdManager;",
-    name = "showRewardedAd",
+object IronSourceSetListenerFingerprint : Fingerprint(
+    definingClass = "Lcom/ironsource/mediationsdk/IronSource;",
+    name = "setRewardedVideoListener",
     custom = { method, _ -> method.implementation != null }
 )
 

@@ -4,6 +4,73 @@ import app.morphe.patcher.Fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 // ============================================================================
+// 0. Google Mobile Ads Unity Plugin (Primary for Hungry Shark World)
+// ============================================================================
+
+object GoogleUnityRewardedAdIsAvailableFingerprint : Fingerprint(
+    definingClass = "Lcom/google/unity/ads/UnityRewardedAd;",
+    name = "isAdAvailable",
+    returnType = "Z",
+    parameters = listOf("Ljava/lang/String;"),
+)
+
+object GoogleUnityRewardedAdLoadFingerprint : Fingerprint(
+    definingClass = "Lcom/google/unity/ads/UnityRewardedAd;",
+    name = "loadAd",
+    returnType = "V",
+    parameters = listOf("Ljava/lang/String;", "Lcom/google/android/gms/ads/AdRequest;"),
+)
+
+object GoogleUnityRewardedAdPollFingerprint : Fingerprint(
+    definingClass = "Lcom/google/unity/ads/UnityRewardedAd;",
+    name = "pollAd",
+    returnType = "V",
+    parameters = listOf("Ljava/lang/String;"),
+)
+
+object GoogleUnityRewardedAdShowFingerprint : Fingerprint(
+    definingClass = "Lcom/google/unity/ads/UnityRewardedAd;",
+    name = "show",
+    returnType = "V",
+    parameters = emptyList(),
+)
+
+object GoogleUnityRewardedAdPreloaderIsAvailableFingerprint : Fingerprint(
+    definingClass = "Lcom/google/unity/ads/UnityRewardedAdPreloader;",
+    name = "isAdAvailable",
+    returnType = "Z",
+    parameters = listOf("Ljava/lang/String;"),
+)
+
+object GoogleUnityRewardedAdPreloaderGetNumAdsFingerprint : Fingerprint(
+    definingClass = "Lcom/google/unity/ads/UnityRewardedAdPreloader;",
+    name = "getNumAdsAvailable",
+    returnType = "I",
+    parameters = listOf("Ljava/lang/String;"),
+)
+
+object GoogleUnityRewardedAdPreloaderPollFingerprint : Fingerprint(
+    definingClass = "Lcom/google/unity/ads/UnityRewardedAdPreloader;",
+    name = "pollAd",
+    returnType = "Lcom/google/unity/ads/UnityRewardedAd;",
+    parameters = listOf("Ljava/lang/String;", "Lcom/google/unity/ads/UnityRewardedAdCallback;"),
+)
+
+object GoogleUnityRewardedInterstitialAdLoadFingerprint : Fingerprint(
+    definingClass = "Lcom/google/unity/ads/UnityRewardedInterstitialAd;",
+    name = "loadAd",
+    returnType = "V",
+    parameters = listOf("Ljava/lang/String;", "Lcom/google/android/gms/ads/AdRequest;"),
+)
+
+object GoogleUnityRewardedInterstitialAdShowFingerprint : Fingerprint(
+    definingClass = "Lcom/google/unity/ads/UnityRewardedInterstitialAd;",
+    name = "show",
+    returnType = "V",
+    parameters = emptyList(),
+)
+
+// ============================================================================
 // 1. AppLovin MAX Unity Bridge (Unbound, matching Nai64)
 // ============================================================================
 

@@ -68,6 +68,16 @@ val bypassRewardedAdsPatch = bytecodePatch(
             )
         }
 
+        UnityAdsIsReadyPlacementFingerprint.matchOrNull()?.let { match ->
+            match.method.safeAddInstructions(
+                0,
+                """
+                    const/4 v0, 0x1
+                    return v0
+                """
+            )
+        }
+
         UnityAdsShowFingerprint.matchOrNull()?.let { match ->
             val paramCount = match.method.parameterTypes.size
             if (paramCount >= 2) {
@@ -81,7 +91,17 @@ val bypassRewardedAdsPatch = bytecodePatch(
             }
         }
 
-        // 4. AppLovin MAX
+        // 4. AppLovin MAX (Native Android SDK)
+        MaxSdkIsInitializedFingerprint.matchOrNull()?.let { match ->
+            match.method.safeAddInstructions(
+                0,
+                """
+                    const/4 v0, 0x1
+                    return v0
+                """
+            )
+        }
+
         MaxRewardedAdIsReadyFingerprint.matchOrNull()?.let { match ->
             match.method.safeAddInstructions(
                 0,
@@ -102,7 +122,67 @@ val bypassRewardedAdsPatch = bytecodePatch(
             )
         }
 
-        // 5. IronSource
+        // 5. AppLovin MAX (Unity Plugin Bridge - MaxUnityPlugin & MaxUnityAdManager)
+        MaxUnityPluginIsInitializedFingerprint.matchOrNull()?.let { match ->
+            match.method.safeAddInstructions(
+                0,
+                """
+                    const/4 v0, 0x1
+                    return v0
+                """
+            )
+        }
+
+        MaxUnityPluginIsRewardedAdReadyFingerprint.matchOrNull()?.let { match ->
+            match.method.safeAddInstructions(
+                0,
+                """
+                    const/4 v0, 0x1
+                    return v0
+                """
+            )
+        }
+
+        MaxUnityAdManagerIsRewardedAdReadyFingerprint.matchOrNull()?.let { match ->
+            match.method.safeAddInstructions(
+                0,
+                """
+                    const/4 v0, 0x1
+                    return v0
+                """
+            )
+        }
+
+        MaxUnityPluginLoadRewardedAdFingerprint.matchOrNull()?.let { match ->
+            match.method.safeAddInstructions(
+                0,
+                """
+                    invoke-static { p0 }, $EXTENSION_CLASS->bypassMaxUnityPluginLoad(Ljava/lang/String;)V
+                """
+            )
+        }
+
+        MaxUnityPluginShowRewardedAdFingerprint.matchOrNull()?.let { match ->
+            match.method.safeAddInstructions(
+                0,
+                """
+                    invoke-static { p0, p1, p2 }, $EXTENSION_CLASS->bypassMaxUnityPluginShow(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+                    return-void
+                """
+            )
+        }
+
+        MaxUnityAdManagerShowRewardedAdFingerprint.matchOrNull()?.let { match ->
+            match.method.safeAddInstructions(
+                0,
+                """
+                    invoke-static { p1, p2, p3 }, $EXTENSION_CLASS->bypassMaxUnityPluginShow(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+                    return-void
+                """
+            )
+        }
+
+        // 6. IronSource
         IronSourceIsAvailableFingerprint.matchOrNull()?.let { match ->
             match.method.safeAddInstructions(
                 0,

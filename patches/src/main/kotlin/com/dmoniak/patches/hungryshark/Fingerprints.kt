@@ -100,11 +100,77 @@ object MaxRewardedAdIsReadyFingerprint : Fingerprint(
 )
 
 /**
+ * Fingerprint for AppLovin MAX isReady() on internal MaxRewardedAdImpl.
+ */
+object MaxRewardedAdImplIsReadyFingerprint : Fingerprint(
+    definingClass = "Lcom/applovin/impl/mediation/ads/MaxRewardedAdImpl;",
+    name = "isReady",
+    returnType = "Z",
+    custom = { method, _ -> method.implementation != null }
+)
+
+/**
  * Fingerprint for AppLovin MAX showAd(...) on native MaxRewardedAd.
  */
 object MaxRewardedAdShowFingerprint : Fingerprint(
     definingClass = "Lcom/applovin/mediation/ads/MaxRewardedAd;",
     name = "showAd",
+    custom = { method, _ -> method.implementation != null }
+)
+
+/**
+ * Fingerprint for AppLovin MAX Unity Plugin MaxUnityPlugin.isRewardedAdReady(...).
+ */
+object MaxUnityPluginIsRewardedAdReadyFingerprint : Fingerprint(
+    definingClass = "Lcom/applovin/mediation/unity/MaxUnityPlugin;",
+    name = "isRewardedAdReady",
+    returnType = "Z",
+    custom = { method, _ -> method.implementation != null }
+)
+
+/**
+ * Fingerprint for AppLovin MAX Unity Plugin MaxUnityPlugin.loadRewardedAd(...).
+ */
+object MaxUnityPluginLoadRewardedAdFingerprint : Fingerprint(
+    definingClass = "Lcom/applovin/mediation/unity/MaxUnityPlugin;",
+    name = "loadRewardedAd",
+    custom = { method, _ -> method.implementation != null }
+)
+
+/**
+ * Fingerprint for AppLovin MAX Unity Plugin MaxUnityPlugin.showRewardedAd(...).
+ */
+object MaxUnityPluginShowRewardedAdFingerprint : Fingerprint(
+    definingClass = "Lcom/applovin/mediation/unity/MaxUnityPlugin;",
+    name = "showRewardedAd",
+    custom = { method, _ -> method.implementation != null }
+)
+
+/**
+ * Fingerprint for AppLovin MAX Unity Plugin MaxUnityAdManager.isRewardedAdReady(...).
+ */
+object MaxUnityAdManagerIsRewardedAdReadyFingerprint : Fingerprint(
+    definingClass = "Lcom/applovin/mediation/unity/MaxUnityAdManager;",
+    name = "isRewardedAdReady",
+    returnType = "Z",
+    custom = { method, _ -> method.implementation != null }
+)
+
+/**
+ * Fingerprint for AppLovin MAX Unity Plugin MaxUnityAdManager.loadRewardedAd(...).
+ */
+object MaxUnityAdManagerLoadRewardedAdFingerprint : Fingerprint(
+    definingClass = "Lcom/applovin/mediation/unity/MaxUnityAdManager;",
+    name = "loadRewardedAd",
+    custom = { method, _ -> method.implementation != null }
+)
+
+/**
+ * Fingerprint for AppLovin MAX Unity Plugin MaxUnityAdManager.showRewardedAd(...).
+ */
+object MaxUnityAdManagerShowRewardedAdFingerprint : Fingerprint(
+    definingClass = "Lcom/applovin/mediation/unity/MaxUnityAdManager;",
+    name = "showRewardedAd",
     custom = { method, _ -> method.implementation != null }
 )
 

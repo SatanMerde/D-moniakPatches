@@ -120,7 +120,7 @@ val bypassRewardedAdsPatch = bytecodePatch(
             }
         }
 
-        // 4. AppLovin MAX
+        // 4. AppLovin MAX (Native SDK)
         MaxRewardedAdSetListenerFingerprint.matchOrNull()?.let { match ->
             match.method.safeAddInstructions(
                 0,
@@ -143,6 +143,18 @@ val bypassRewardedAdsPatch = bytecodePatch(
             match.method.safeAddInstructions(
                 0,
                 """
+                    invoke-static {}, $EXTENSION_CLASS->isAdReady()Z
+                    const/4 v0, 0x1
+                    return v0
+                """
+            )
+        }
+
+        MaxRewardedAdImplIsReadyFingerprint.matchOrNull()?.let { match ->
+            match.method.safeAddInstructions(
+                0,
+                """
+                    invoke-static {}, $EXTENSION_CLASS->isAdReady()Z
                     const/4 v0, 0x1
                     return v0
                 """
@@ -157,6 +169,137 @@ val bypassRewardedAdsPatch = bytecodePatch(
                     return-void
                 """
             )
+        }
+
+        // 5. AppLovin MAX (Unity Plugin Bridge: MaxUnityPlugin & MaxUnityAdManager)
+        MaxUnityPluginIsRewardedAdReadyFingerprint.matchOrNull()?.let { match ->
+            match.method.safeAddInstructions(
+                0,
+                """
+                    invoke-static {}, $EXTENSION_CLASS->isAdReady()Z
+                    const/4 v0, 0x1
+                    return v0
+                """
+            )
+        }
+
+        MaxUnityAdManagerIsRewardedAdReadyFingerprint.matchOrNull()?.let { match ->
+            match.method.safeAddInstructions(
+                0,
+                """
+                    invoke-static { p0 }, $EXTENSION_CLASS->registerMaxUnityAdManager(Ljava/lang/Object;)V
+                    invoke-static {}, $EXTENSION_CLASS->isAdReady()Z
+                    const/4 v0, 0x1
+                    return v0
+                """
+            )
+        }
+
+        MaxUnityPluginLoadRewardedAdFingerprint.matchOrNull()?.let { match ->
+            val paramCount = match.method.parameterTypes.size
+            if (paramCount >= 1) {
+                match.method.safeAddInstructions(
+                    0,
+                    """
+                        invoke-static { p0 }, $EXTENSION_CLASS->bypassMaxUnityPluginLoad(Ljava/lang/Object;)V
+                    """
+                )
+            } else {
+                match.method.safeAddInstructions(
+                    0,
+                    """
+                        const-string v0, "rewardedVideo"
+                        invoke-static { v0 }, $EXTENSION_CLASS->bypassMaxUnityPluginLoad(Ljava/lang/Object;)V
+                    """
+                )
+            }
+        }
+
+        MaxUnityAdManagerLoadRewardedAdFingerprint.matchOrNull()?.let { match ->
+            val paramCount = match.method.parameterTypes.size
+            if (paramCount >= 1) {
+                match.method.safeAddInstructions(
+                    0,
+                    """
+                        invoke-static { p0 }, $EXTENSION_CLASS->registerMaxUnityAdManager(Ljava/lang/Object;)V
+                        invoke-static { p1 }, $EXTENSION_CLASS->bypassMaxUnityPluginLoad(Ljava/lang/Object;)V
+                    """
+                )
+            } else {
+                match.method.safeAddInstructions(
+                    0,
+                    """
+                        invoke-static { p0 }, $EXTENSION_CLASS->registerMaxUnityAdManager(Ljava/lang/Object;)V
+                        invoke-static {}, $EXTENSION_CLASS->onMaxRewardedAdLoad()V
+                    """
+                )
+            }
+        }
+
+        MaxUnityPluginShowRewardedAdFingerprint.matchOrNull()?.let { match ->
+            val paramCount = match.method.parameterTypes.size
+            when (paramCount) {
+                1 -> {
+                    match.method.safeAddInstructions(
+                        0,
+                        """
+                            invoke-static { p0 }, $EXTENSION_CLASS->bypassMaxUnityShow(Ljava/lang/Object;)V
+                            return-void
+                        """
+                    )
+                }
+                2 -> {
+                    match.method.safeAddInstructions(
+                        0,
+                        """
+                            invoke-static { p0, p1 }, $EXTENSION_CLASS->bypassMaxUnityShow(Ljava/lang/Object;Ljava/lang/Object;)V
+                            return-void
+                        """
+                    )
+                }
+                else -> {
+                    match.method.safeAddInstructions(
+                        0,
+                        """
+                            invoke-static { p0, p1, p2 }, $EXTENSION_CLASS->bypassMaxUnityShow(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+                            return-void
+                        """
+                    )
+                }
+            }
+        }
+
+        MaxUnityAdManagerShowRewardedAdFingerprint.matchOrNull()?.let { match ->
+            val paramCount = match.method.parameterTypes.size
+            when (paramCount) {
+                1 -> {
+                    match.method.safeAddInstructions(
+                        0,
+                        """
+                            invoke-static { p0, p1 }, $EXTENSION_CLASS->bypassMaxUnityManagerShow(Ljava/lang/Object;Ljava/lang/Object;)V
+                            return-void
+                        """
+                    )
+                }
+                2 -> {
+                    match.method.safeAddInstructions(
+                        0,
+                        """
+                            invoke-static { p0, p1, p2 }, $EXTENSION_CLASS->bypassMaxUnityManagerShow(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+                            return-void
+                        """
+                    )
+                }
+                else -> {
+                    match.method.safeAddInstructions(
+                        0,
+                        """
+                            invoke-static { p0, p1, p2, p3 }, $EXTENSION_CLASS->bypassMaxUnityManagerShow(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+                            return-void
+                        """
+                    )
+                }
+            }
         }
 
         // 5. IronSource

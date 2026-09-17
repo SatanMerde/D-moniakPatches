@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.HashSet;
 import java.util.Set;
+import org.json.JSONObject;
 
 /**
  * Extension helper for Hungry Shark World Morphe Patch.
@@ -25,16 +26,39 @@ public final class HungrySharkAdsRewardHelper {
     private static final String TAG = "D-moniakPatches";
     private static final Handler MAIN_HANDLER = new Handler(Looper.getMainLooper());
 
+    private static volatile Object sSavedMaxUnityAdManager = null;
     private static volatile Object sSavedMaxListener = null;
     private static volatile Object sSavedIronSourceListener = null;
+    private static volatile boolean sAdLoadedNotified = false;
 
     private HungrySharkAdsRewardHelper() {}
 
     /**
      * Always returns true for ad availability / readiness checks.
+     * Also proactively signals to Unity that rewarded ads are loaded and ready.
      */
     public static boolean isAdReady() {
         Log.i(TAG, "Ad availability check intercepted: returning true");
+        if (!sAdLoadedNotified) {
+            sAdLoadedNotified = true;
+            MAIN_HANDLER.post(() -> {
+                Object mgr = getMaxUnityAdManagerInstance();
+                if (mgr != null) {
+                    notifyMaxAdLoaded(mgr);
+                }
+                if (sSavedMaxListener != null && sSavedMaxListener != mgr) {
+                    notifyMaxAdLoaded(sSavedMaxListener);
+                }
+                try {
+                    JSONObject loadedJson = new JSONObject();
+                    loadedJson.put("name", "OnRewardedAdLoadedEvent");
+                    loadedJson.put("adUnitId", "rewardedAd");
+                    loadedJson.put("adFormat", "REWARDED");
+                    loadedJson.put("networkName", "AppLovin");
+                    sendMaxUnityEvent(loadedJson);
+                } catch (Throwable ignored) {}
+            });
+        }
         return true;
     }
 
@@ -53,13 +77,304 @@ public final class HungrySharkAdsRewardHelper {
     }
 
     /**
+     * Captured when MaxUnityAdManager methods are called (passing instance as p0).
+     */
+    public static void registerMaxUnityAdManager(Object manager) {
+        if (manager == null) return;
+        Log.i(TAG, "registerMaxUnityAdManager: " + manager.getClass().getName());
+        sSavedMaxUnityAdManager = manager;
+        if (sSavedMaxListener == null) {
+            sSavedMaxListener = manager;
+        }
+        MAIN_HANDLER.post(() -> notifyMaxAdLoaded(manager));
+    }
+
+    /**
      * Triggered when MaxRewardedAd.loadAd() is called by the game.
      */
     public static void onMaxRewardedAdLoad() {
         Log.i(TAG, "onMaxRewardedAdLoad called");
-        if (sSavedMaxListener != null) {
-            MAIN_HANDLER.post(() -> notifyMaxAdLoaded(sSavedMaxListener));
+        Object target = sSavedMaxUnityAdManager != null ? sSavedMaxUnityAdManager : sSavedMaxListener;
+        if (target != null) {
+            MAIN_HANDLER.post(() -> notifyMaxAdLoaded(target));
         }
+    }
+
+    /**
+     * Triggered when MaxUnityPlugin.loadRewardedAd or MaxUnityAdManager.loadRewardedAd is called.
+     */
+    public static void bypassMaxUnityPluginLoad(Object adUnitId) {
+        final String unitId = (adUnitId != null && !adUnitId.toString().trim().isEmpty())
+                ? adUnitId.toString().trim()
+                : "rewardedAd";
+        Log.i(TAG, "bypassMaxUnityPluginLoad called for adUnitId: " + unitId);
+
+        MAIN_HANDLER.post(() -> {
+            try {
+                Object mgr = getMaxUnityAdManagerInstance();
+                if (mgr != null) {
+                    notifyMaxAdLoaded(mgr);
+                }
+                if (sSavedMaxListener != null && sSavedMaxListener != mgr) {
+                    notifyMaxAdLoaded(sSavedMaxListener);
+                }
+
+                JSONObject loadedJson = new JSONObject();
+                loadedJson.put("name", "OnRewardedAdLoadedEvent");
+                loadedJson.put("adUnitId", unitId);
+                loadedJson.put("adFormat", "REWARDED");
+                loadedJson.put("networkName", "AppLovin");
+                sendMaxUnityEvent(loadedJson);
+            } catch (Throwable t) {
+                Log.e(TAG, "Error in bypassMaxUnityPluginLoad", t);
+            }
+        });
+    }
+
+    /**
+     * Overloads for static MaxUnityPlugin.showRewardedAd calls.
+     */
+    public static void bypassMaxUnityShow(Object p0) {
+        handleMaxUnityShow(p0, null, null);
+    }
+
+    public static void bypassMaxUnityShow(Object p0, Object p1) {
+        handleMaxUnityShow(p0, p1, null);
+    }
+
+    public static void bypassMaxUnityShow(Object p0, Object p1, Object p2) {
+        handleMaxUnityShow(p0, p1, p2);
+    }
+
+    /**
+     * Overloads for instance MaxUnityAdManager.showRewardedAd calls.
+     */
+    public static void bypassMaxUnityManagerShow(Object manager, Object p1) {
+        registerMaxUnityAdManager(manager);
+        handleMaxUnityShow(p1, null, null);
+    }
+
+    public static void bypassMaxUnityManagerShow(Object manager, Object p1, Object p2) {
+        registerMaxUnityAdManager(manager);
+        handleMaxUnityShow(p1, p2, null);
+    }
+
+    public static void bypassMaxUnityManagerShow(Object manager, Object p1, Object p2, Object p3) {
+        registerMaxUnityAdManager(manager);
+        handleMaxUnityShow(p1, p2, p3);
+    }
+
+    private static void handleMaxUnityShow(Object p0, Object p1, Object p2) {
+        final String adUnitId = (p0 != null && !p0.toString().trim().isEmpty()) ? p0.toString().trim() : "rewardedAd";
+        final String placement = (p1 != null) ? p1.toString() : "";
+        Log.i(TAG, "handleMaxUnityShow called for adUnitId: " + adUnitId + ", placement: " + placement);
+
+        Object listener = sSavedMaxUnityAdManager;
+        if (listener == null) {
+            listener = sSavedMaxListener;
+        }
+        if (listener == null) {
+            listener = getMaxUnityAdManagerInstance();
+        }
+
+        // 1. Invoke on listener / manager if available
+        if (listener != null) {
+            bypassAppLovinMaxReward(listener, null);
+        }
+
+        // 2. Also send raw MAX events directly to Unity bridge
+        MAIN_HANDLER.post(() -> {
+            try {
+                // 1. Displayed event
+                JSONObject displayJson = new JSONObject();
+                displayJson.put("name", "OnRewardedAdDisplayedEvent");
+                displayJson.put("adUnitId", adUnitId);
+                displayJson.put("adFormat", "REWARDED");
+                displayJson.put("networkName", "AppLovin");
+                displayJson.put("placement", placement);
+                sendMaxUnityEvent(displayJson);
+
+                // 2. Received Reward event after 50ms
+                MAIN_HANDLER.postDelayed(() -> {
+                    try {
+                        JSONObject rewardJson = new JSONObject();
+                        rewardJson.put("name", "OnRewardedAdReceivedRewardEvent");
+                        rewardJson.put("adUnitId", adUnitId);
+                        rewardJson.put("adFormat", "REWARDED");
+                        rewardJson.put("networkName", "AppLovin");
+                        rewardJson.put("placement", placement);
+                        rewardJson.put("rewardLabel", "reward");
+                        rewardJson.put("rewardAmount", 1);
+                        sendMaxUnityEvent(rewardJson);
+                        Log.i(TAG, "Sent OnRewardedAdReceivedRewardEvent to Unity!");
+
+                        // 3. Hidden event after another 50ms
+                        MAIN_HANDLER.postDelayed(() -> {
+                            try {
+                                JSONObject hiddenJson = new JSONObject();
+                                hiddenJson.put("name", "OnRewardedAdHiddenEvent");
+                                hiddenJson.put("adUnitId", adUnitId);
+                                hiddenJson.put("adFormat", "REWARDED");
+                                hiddenJson.put("networkName", "AppLovin");
+                                hiddenJson.put("placement", placement);
+                                sendMaxUnityEvent(hiddenJson);
+                                Log.i(TAG, "Sent OnRewardedAdHiddenEvent to Unity!");
+                            } catch (Throwable t) {
+                                Log.e(TAG, "Error sending hidden event", t);
+                            }
+                        }, 50);
+
+                    } catch (Throwable t) {
+                        Log.e(TAG, "Error sending reward event", t);
+                    }
+                }, 50);
+
+            } catch (Throwable t) {
+                Log.e(TAG, "Error in handleMaxUnityShow JSON dispatch", t);
+            }
+        });
+    }
+
+    /**
+     * Forwards an event JSONObject to Unity via AppLovin MAX Unity Plugin internal mechanisms.
+     */
+    public static void sendMaxUnityEvent(JSONObject eventProps) {
+        if (eventProps == null) return;
+        try {
+            boolean sent = false;
+            Object mgr = getMaxUnityAdManagerInstance();
+
+            // Strategy 1: MaxUnityAdManager.forwardUnityEvent
+            try {
+                Class<?> adManagerClass = (mgr != null) ? mgr.getClass() : Class.forName("com.applovin.mediation.unity.MaxUnityAdManager");
+                for (Method m : adManagerClass.getDeclaredMethods()) {
+                    if ("forwardUnityEvent".equals(m.getName()) && m.getParameterTypes().length == 1) {
+                        m.setAccessible(true);
+                        Class<?> paramType = m.getParameterTypes()[0];
+                        Object target = java.lang.reflect.Modifier.isStatic(m.getModifiers()) ? null : mgr;
+                        if (target != null || java.lang.reflect.Modifier.isStatic(m.getModifiers())) {
+                            if (paramType == String.class) {
+                                m.invoke(target, eventProps.toString());
+                            } else {
+                                m.invoke(target, eventProps);
+                            }
+                            sent = true;
+                            Log.i(TAG, "Sent MAX event via forwardUnityEvent: " + eventProps.optString("name"));
+                            break;
+                        }
+                    }
+                }
+            } catch (Throwable t) {
+                Log.d(TAG, "forwardUnityEvent attempt failed: " + t.getMessage());
+            }
+
+            // Strategy 2: backgroundCallback.onEvent(String)
+            if (!sent) {
+                try {
+                    Class<?> adManagerClass = (mgr != null) ? mgr.getClass() : Class.forName("com.applovin.mediation.unity.MaxUnityAdManager");
+                    for (Field f : adManagerClass.getDeclaredFields()) {
+                        if ("backgroundCallback".equals(f.getName())) {
+                            f.setAccessible(true);
+                            Object callback = java.lang.reflect.Modifier.isStatic(f.getModifiers()) ? f.get(null) : (mgr != null ? f.get(mgr) : null);
+                            if (callback != null) {
+                                for (Method m : callback.getClass().getMethods()) {
+                                    if ("onEvent".equals(m.getName()) && m.getParameterTypes().length == 1) {
+                                        m.invoke(callback, eventProps.toString());
+                                        sent = true;
+                                        Log.i(TAG, "Sent MAX event via backgroundCallback.onEvent: " + eventProps.optString("name"));
+                                        break;
+                                    }
+                                }
+                            }
+                            if (sent) break;
+                        }
+                    }
+                } catch (Throwable t) {
+                    Log.d(TAG, "backgroundCallback attempt failed: " + t.getMessage());
+                }
+            }
+
+            // Strategy 3: UnityPlayer.UnitySendMessage fallback
+            try {
+                Class<?> unityPlayerClass = Class.forName("com.unity3d.player.UnityPlayer");
+                Method sendMessageMethod = unityPlayerClass.getMethod("UnitySendMessage", String.class, String.class, String.class);
+                String[] gameObjects = {"MaxSdkCallbacks", "AppLovinMediationAdEvents", "AppLovinSdk"};
+                for (String go : gameObjects) {
+                    try {
+                        sendMessageMethod.invoke(null, go, "forwardUnityEvent", eventProps.toString());
+                        sendMessageMethod.invoke(null, go, "onEvent", eventProps.toString());
+                    } catch (Throwable ignored) {}
+                }
+            } catch (Throwable ignored) {}
+
+            if (!sent) {
+                Log.i(TAG, "Dispatched MAX event via all available strategies: " + eventProps.optString("name"));
+            }
+        } catch (Throwable t) {
+            Log.e(TAG, "Error in sendMaxUnityEvent", t);
+        }
+    }
+
+    /**
+     * Resolves the MaxUnityAdManager instance via reflection if not already captured.
+     */
+    public static Object getMaxUnityAdManagerInstance() {
+        if (sSavedMaxUnityAdManager != null) {
+            return sSavedMaxUnityAdManager;
+        }
+        try {
+            Class<?> pluginClass = Class.forName("com.applovin.mediation.unity.MaxUnityPlugin");
+            for (Field f : pluginClass.getDeclaredFields()) {
+                if (java.lang.reflect.Modifier.isStatic(f.getModifiers())) {
+                    f.setAccessible(true);
+                    Object val = f.get(null);
+                    if (val != null && val.getClass().getName().contains("MaxUnityAdManager")) {
+                        sSavedMaxUnityAdManager = val;
+                        return val;
+                    }
+                }
+            }
+            for (Method m : pluginClass.getDeclaredMethods()) {
+                if (java.lang.reflect.Modifier.isStatic(m.getModifiers()) && m.getParameterTypes().length == 0) {
+                    if (m.getReturnType().getName().contains("MaxUnityAdManager")) {
+                        m.setAccessible(true);
+                        Object val = m.invoke(null);
+                        if (val != null) {
+                            sSavedMaxUnityAdManager = val;
+                            return val;
+                        }
+                    }
+                }
+            }
+        } catch (Throwable ignored) {}
+
+        try {
+            Class<?> mgrClass = Class.forName("com.applovin.mediation.unity.MaxUnityAdManager");
+            for (Field f : mgrClass.getDeclaredFields()) {
+                if (java.lang.reflect.Modifier.isStatic(f.getModifiers())) {
+                    f.setAccessible(true);
+                    Object val = f.get(null);
+                    if (val != null && mgrClass.isInstance(val)) {
+                        sSavedMaxUnityAdManager = val;
+                        return val;
+                    }
+                }
+            }
+            for (Method m : mgrClass.getDeclaredMethods()) {
+                if (java.lang.reflect.Modifier.isStatic(m.getModifiers()) && m.getParameterTypes().length == 0) {
+                    if ("getInstance".equals(m.getName()) || "shared".equals(m.getName())) {
+                        m.setAccessible(true);
+                        Object val = m.invoke(null);
+                        if (val != null) {
+                            sSavedMaxUnityAdManager = val;
+                            return val;
+                        }
+                    }
+                }
+            }
+        } catch (Throwable ignored) {}
+
+        return sSavedMaxListener;
     }
 
     /**

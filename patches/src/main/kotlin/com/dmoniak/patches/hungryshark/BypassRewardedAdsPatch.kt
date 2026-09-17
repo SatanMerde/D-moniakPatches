@@ -7,6 +7,7 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction3rc
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.dmoniak.patches.hungryshark.util.cloneMethodWithAdditionalRegisters
 import com.dmoniak.patches.hungryshark.util.cloneParameters
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.hungryshark.util.fireRewardedAdCallbacks
@@ -23,6 +24,11 @@ val bypassRewardedAdsPatch = bytecodePatch(
     execute {
         val logger = Logger.getLogger(this::class.java.name)
         logger.info("Executing Bypass Rewarded Ads patch for Hungry Shark World...")
+
+        // 0. Google Unity Mobile Ads (Primary for Hungry Shark World)
+        if (applyGoogleUnityAdsStrategy(logger)) {
+            logger.info("Bypass Rewarded Ads: Google Unity Ads strategy applied.")
+        }
 
         // 1. AppLovin MAX Unity Bridge
         if (applyMaxUnityStrategy(logger)) {
@@ -335,3 +341,184 @@ private fun BytecodePatchContext.applyAdMobRewardedStrategy(logger: Logger) {
         logger.info("AdMob patch - patched $patchedCallSites call site(s)")
     }
 }
+
+/**
+ * Primary strategy for Google Mobile Ads Unity plugin (UnityRewardedAd & UnityRewardedAdPreloader).
+ * This is the exact ad SDK used by Hungry Shark World v8.1.6+.
+ */
+private fun BytecodePatchContext.applyGoogleUnityAdsStrategy(logger: Logger): Boolean {
+    var patched = false
+
+    val isAvailable = GoogleUnityRewardedAdIsAvailableFingerprint.methodOrNull
+    if (isAvailable != null) {
+        try {
+            isAvailable.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
+            logger.info("Google Unity Ads: UnityRewardedAd.isAdAvailable forced to true")
+            patched = true
+        } catch (e: Exception) {
+            logger.warning("Failed to patch UnityRewardedAd.isAdAvailable: ${e.message}")
+        }
+    }
+
+    val loadAd = GoogleUnityRewardedAdLoadFingerprint.methodOrNull
+    if (loadAd != null) {
+        try {
+            loadAd.addInstructions(
+                0,
+                """
+                iget-object v0, p0, Lcom/google/unity/ads/UnityRewardedAd;->callback:Lcom/google/unity/ads/UnityRewardedAdCallback;
+                if-eqz v0, :morphe_load_skip
+                invoke-interface {v0}, Lcom/google/unity/ads/UnityRewardedAdCallback;->onRewardedAdLoaded()V
+                :morphe_load_skip
+                return-void
+                """.trimIndent(),
+            )
+            logger.info("Google Unity Ads: UnityRewardedAd.loadAd patched to fire onRewardedAdLoaded")
+            patched = true
+        } catch (e: Exception) {
+            logger.warning("Failed to patch UnityRewardedAd.loadAd: ${e.message}")
+        }
+    }
+
+    val pollAd = GoogleUnityRewardedAdPollFingerprint.methodOrNull
+    if (pollAd != null) {
+        try {
+            pollAd.addInstructions(
+                0,
+                """
+                iget-object v0, p0, Lcom/google/unity/ads/UnityRewardedAd;->callback:Lcom/google/unity/ads/UnityRewardedAdCallback;
+                if-eqz v0, :morphe_poll_skip
+                invoke-interface {v0}, Lcom/google/unity/ads/UnityRewardedAdCallback;->onRewardedAdLoaded()V
+                :morphe_poll_skip
+                return-void
+                """.trimIndent(),
+            )
+            logger.info("Google Unity Ads: UnityRewardedAd.pollAd patched to fire onRewardedAdLoaded")
+            patched = true
+        } catch (e: Exception) {
+            logger.warning("Failed to patch UnityRewardedAd.pollAd: ${e.message}")
+        }
+    }
+
+    val show = GoogleUnityRewardedAdShowFingerprint.methodOrNull
+    if (show != null) {
+        try {
+            val clonedShow = cloneMethodWithAdditionalRegisters(show, 4)
+            clonedShow.addInstructions(
+                0,
+                """
+                iget-object v0, p0, Lcom/google/unity/ads/UnityRewardedAd;->fullScreenContentCallback:Lcom/google/android/gms/ads/FullScreenContentCallback;
+                if-eqz v0, :morphe_show_skip
+                invoke-virtual {v0}, Lcom/google/android/gms/ads/FullScreenContentCallback;->onAdShowedFullScreenContent()V
+                :morphe_show_skip
+                iget-object v1, p0, Lcom/google/unity/ads/UnityRewardedAd;->callback:Lcom/google/unity/ads/UnityRewardedAdCallback;
+                if-eqz v1, :morphe_earn_skip
+                const-string v2, "reward"
+                const/high16 v3, 0x3f800000    # 1.0f
+                invoke-interface {v1, v2, v3}, Lcom/google/unity/ads/UnityRewardedAdCallback;->onUserEarnedReward(Ljava/lang/String;F)V
+                :morphe_earn_skip
+                if-eqz v0, :morphe_dismiss_skip
+                invoke-virtual {v0}, Lcom/google/android/gms/ads/FullScreenContentCallback;->onAdDismissedFullScreenContent()V
+                :morphe_dismiss_skip
+                return-void
+                """.trimIndent(),
+            )
+            logger.info("Google Unity Ads: UnityRewardedAd.show patched with instant reward and dismissal")
+            patched = true
+        } catch (e: Exception) {
+            logger.warning("Failed to patch UnityRewardedAd.show: ${e.message}")
+        }
+    }
+
+    // Preloader support
+    val preloaderAvailable = GoogleUnityRewardedAdPreloaderIsAvailableFingerprint.methodOrNull
+    if (preloaderAvailable != null) {
+        try {
+            preloaderAvailable.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
+            logger.info("Google Unity Ads: UnityRewardedAdPreloader.isAdAvailable forced to true")
+            patched = true
+        } catch (e: Exception) {
+            logger.warning("Failed to patch UnityRewardedAdPreloader.isAdAvailable: ${e.message}")
+        }
+    }
+
+    val preloaderGetNum = GoogleUnityRewardedAdPreloaderGetNumAdsFingerprint.methodOrNull
+    if (preloaderGetNum != null) {
+        try {
+            preloaderGetNum.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
+            logger.info("Google Unity Ads: UnityRewardedAdPreloader.getNumAdsAvailable forced to 1")
+            patched = true
+        } catch (e: Exception) {
+            logger.warning("Failed to patch UnityRewardedAdPreloader.getNumAdsAvailable: ${e.message}")
+        }
+    }
+
+    val preloaderPoll = GoogleUnityRewardedAdPreloaderPollFingerprint.methodOrNull
+    if (preloaderPoll != null) {
+        try {
+            preloaderPoll.addInstructions(
+                0,
+                """
+                new-instance v0, Lcom/google/unity/ads/UnityRewardedAd;
+                iget-object v1, p0, Lcom/google/unity/ads/UnityRewardedAdPreloader;->activity:Landroid/app/Activity;
+                invoke-direct {v0, v1, p2}, Lcom/google/unity/ads/UnityRewardedAd;-><init>(Landroid/app/Activity;Lcom/google/unity/ads/UnityRewardedAdCallback;)V
+                if-eqz p2, :morphe_preloader_skip
+                invoke-interface {p2}, Lcom/google/unity/ads/UnityRewardedAdCallback;->onRewardedAdLoaded()V
+                :morphe_preloader_skip
+                return-object v0
+                """.trimIndent(),
+            )
+            logger.info("Google Unity Ads: UnityRewardedAdPreloader.pollAd patched to instantiate UnityRewardedAd")
+            patched = true
+        } catch (e: Exception) {
+            logger.warning("Failed to patch UnityRewardedAdPreloader.pollAd: ${e.message}")
+        }
+    }
+
+    // Rewarded Interstitial Ad support
+    val rwInterstitialLoad = GoogleUnityRewardedInterstitialAdLoadFingerprint.methodOrNull
+    if (rwInterstitialLoad != null) {
+        try {
+            rwInterstitialLoad.addInstructions(
+                0,
+                """
+                iget-object v0, p0, Lcom/google/unity/ads/UnityRewardedInterstitialAd;->callback:Lcom/google/unity/ads/UnityRewardedInterstitialAdCallback;
+                if-eqz v0, :morphe_load_skip
+                invoke-interface {v0}, Lcom/google/unity/ads/UnityRewardedInterstitialAdCallback;->onRewardedInterstitialAdLoaded()V
+                :morphe_load_skip
+                return-void
+                """.trimIndent(),
+            )
+            logger.info("Google Unity Ads: UnityRewardedInterstitialAd.loadAd patched to fire onRewardedInterstitialAdLoaded")
+            patched = true
+        } catch (e: Exception) {
+            logger.warning("Failed to patch UnityRewardedInterstitialAd.loadAd: ${e.message}")
+        }
+    }
+
+    val rwInterstitialShow = GoogleUnityRewardedInterstitialAdShowFingerprint.methodOrNull
+    if (rwInterstitialShow != null) {
+        try {
+            val clonedShow = cloneMethodWithAdditionalRegisters(rwInterstitialShow, 4)
+            clonedShow.addInstructions(
+                0,
+                """
+                iget-object v1, p0, Lcom/google/unity/ads/UnityRewardedInterstitialAd;->callback:Lcom/google/unity/ads/UnityRewardedInterstitialAdCallback;
+                if-eqz v1, :morphe_earn_skip
+                const-string v2, "reward"
+                const/high16 v3, 0x3f800000    # 1.0f
+                invoke-interface {v1, v2, v3}, Lcom/google/unity/ads/UnityRewardedInterstitialAdCallback;->onUserEarnedReward(Ljava/lang/String;F)V
+                :morphe_earn_skip
+                return-void
+                """.trimIndent(),
+            )
+            logger.info("Google Unity Ads: UnityRewardedInterstitialAd.show patched with reward callback")
+            patched = true
+        } catch (e: Exception) {
+            logger.warning("Failed to patch UnityRewardedInterstitialAd.show: ${e.message}")
+        }
+    }
+
+    return patched
+}
+

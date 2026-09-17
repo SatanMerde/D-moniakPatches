@@ -194,3 +194,20 @@ fun Method.cloneParameters(mutableClass: MutableClass): MutableMethod {
  */
 fun BytecodePatchContext.cloneParameters(method: Method): MutableMethod =
     method.cloneParameters(mutableClassDefBy(method.definingClass))
+
+/**
+ * Replaces the method in [BytecodePatchContext] with a cloned copy with [additionalRegisters] extra registers.
+ */
+fun BytecodePatchContext.cloneMethodWithAdditionalRegisters(
+    method: Method,
+    additionalRegisters: Int,
+): MutableMethod {
+    val mutableClass = mutableClassDefBy(method.definingClass)
+    val clonedMethod = method.cloneMutable(additionalRegisters = additionalRegisters)
+    mutableClass.methods.apply {
+        remove(method)
+        add(clonedMethod)
+    }
+    return clonedMethod
+}
+

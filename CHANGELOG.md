@@ -1,3 +1,9 @@
+## [1.0.9](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.8...v1.0.9) (2026-09-17)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** intercept Google Unity Mobile Ads RewardedAd to fix video load failure ([8e206f7](https://github.com/SatanMerde/D-moniakPatches/commit/8e206f7545dcb923b80d18249e34b350e42fd12e))
+
 ## [1.0.8](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.7...v1.0.8) (2026-09-17)
 
 ### 🐛 Bug Fixes

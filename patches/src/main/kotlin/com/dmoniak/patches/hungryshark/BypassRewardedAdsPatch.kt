@@ -58,6 +58,15 @@ val bypassRewardedAdsPatch = bytecodePatch(
         }
 
         // 3. Unity Ads
+        UnityAdsLoadFingerprint.matchOrNull()?.let { match ->
+            match.method.safeAddInstructions(
+                0,
+                """
+                    invoke-static { p0, p1 }, $EXTENSION_CLASS->bypassUnityAdsLoad(Ljava/lang/Object;Ljava/lang/Object;)V
+                """
+            )
+        }
+
         UnityAdsIsReadyFingerprint.matchOrNull()?.let { match ->
             match.method.safeAddInstructions(
                 0,
@@ -80,24 +89,52 @@ val bypassRewardedAdsPatch = bytecodePatch(
 
         UnityAdsShowFingerprint.matchOrNull()?.let { match ->
             val paramCount = match.method.parameterTypes.size
-            if (paramCount >= 2) {
-                match.method.safeAddInstructions(
-                    0,
-                    """
-                        invoke-static { p1, p2 }, $EXTENSION_CLASS->bypassUnityAdsShow(Ljava/lang/Object;Ljava/lang/Object;)V
-                        return-void
-                    """
-                )
+            when (paramCount) {
+                2 -> {
+                    match.method.safeAddInstructions(
+                        0,
+                        """
+                            invoke-static { p0, p1 }, $EXTENSION_CLASS->bypassUnityAdsShow(Ljava/lang/Object;Ljava/lang/Object;)V
+                            return-void
+                        """
+                    )
+                }
+                3 -> {
+                    match.method.safeAddInstructions(
+                        0,
+                        """
+                            invoke-static { p0, p1, p2 }, $EXTENSION_CLASS->bypassUnityAdsShow(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+                            return-void
+                        """
+                    )
+                }
+                4 -> {
+                    match.method.safeAddInstructions(
+                        0,
+                        """
+                            invoke-static { p0, p1, p2, p3 }, $EXTENSION_CLASS->bypassUnityAdsShow(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+                            return-void
+                        """
+                    )
+                }
             }
         }
 
-        // 4. AppLovin MAX (Native Android SDK)
-        MaxSdkIsInitializedFingerprint.matchOrNull()?.let { match ->
+        // 4. AppLovin MAX
+        MaxRewardedAdSetListenerFingerprint.matchOrNull()?.let { match ->
             match.method.safeAddInstructions(
                 0,
                 """
-                    const/4 v0, 0x1
-                    return v0
+                    invoke-static { p1 }, $EXTENSION_CLASS->registerMaxRewardedListener(Ljava/lang/Object;)V
+                """
+            )
+        }
+
+        MaxRewardedAdLoadAdFingerprint.matchOrNull()?.let { match ->
+            match.method.safeAddInstructions(
+                0,
+                """
+                    invoke-static {}, $EXTENSION_CLASS->onMaxRewardedAdLoad()V
                 """
             )
         }
@@ -122,67 +159,16 @@ val bypassRewardedAdsPatch = bytecodePatch(
             )
         }
 
-        // 5. AppLovin MAX (Unity Plugin Bridge - MaxUnityPlugin & MaxUnityAdManager)
-        MaxUnityPluginIsInitializedFingerprint.matchOrNull()?.let { match ->
+        // 5. IronSource
+        IronSourceSetListenerFingerprint.matchOrNull()?.let { match ->
             match.method.safeAddInstructions(
                 0,
                 """
-                    const/4 v0, 0x1
-                    return v0
+                    invoke-static { p0 }, $EXTENSION_CLASS->registerIronSourceListener(Ljava/lang/Object;)V
                 """
             )
         }
 
-        MaxUnityPluginIsRewardedAdReadyFingerprint.matchOrNull()?.let { match ->
-            match.method.safeAddInstructions(
-                0,
-                """
-                    const/4 v0, 0x1
-                    return v0
-                """
-            )
-        }
-
-        MaxUnityAdManagerIsRewardedAdReadyFingerprint.matchOrNull()?.let { match ->
-            match.method.safeAddInstructions(
-                0,
-                """
-                    const/4 v0, 0x1
-                    return v0
-                """
-            )
-        }
-
-        MaxUnityPluginLoadRewardedAdFingerprint.matchOrNull()?.let { match ->
-            match.method.safeAddInstructions(
-                0,
-                """
-                    invoke-static { p0 }, $EXTENSION_CLASS->bypassMaxUnityPluginLoad(Ljava/lang/String;)V
-                """
-            )
-        }
-
-        MaxUnityPluginShowRewardedAdFingerprint.matchOrNull()?.let { match ->
-            match.method.safeAddInstructions(
-                0,
-                """
-                    invoke-static { p0, p1, p2 }, $EXTENSION_CLASS->bypassMaxUnityPluginShow(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-                    return-void
-                """
-            )
-        }
-
-        MaxUnityAdManagerShowRewardedAdFingerprint.matchOrNull()?.let { match ->
-            match.method.safeAddInstructions(
-                0,
-                """
-                    invoke-static { p1, p2, p3 }, $EXTENSION_CLASS->bypassMaxUnityPluginShow(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-                    return-void
-                """
-            )
-        }
-
-        // 6. IronSource
         IronSourceIsAvailableFingerprint.matchOrNull()?.let { match ->
             match.method.safeAddInstructions(
                 0,
@@ -194,12 +180,25 @@ val bypassRewardedAdsPatch = bytecodePatch(
         }
 
         IronSourceShowRewardedVideoFingerprint.matchOrNull()?.let { match ->
-            match.method.safeAddInstructions(
-                0,
-                """
-                    invoke-static {}, $EXTENSION_CLASS->isAdReady()Z
-                """
-            )
+            val params = match.method.parameterTypes
+            if (params.isEmpty()) {
+                match.method.safeAddInstructions(
+                    0,
+                    """
+                        const-string v0, "rewardedVideo"
+                        invoke-static { v0 }, $EXTENSION_CLASS->bypassIronSourceReward(Ljava/lang/Object;)V
+                        return-void
+                    """
+                )
+            } else {
+                match.method.safeAddInstructions(
+                    0,
+                    """
+                        invoke-static { p0 }, $EXTENSION_CLASS->bypassIronSourceReward(Ljava/lang/Object;)V
+                        return-void
+                    """
+                )
+            }
         }
     }
 }

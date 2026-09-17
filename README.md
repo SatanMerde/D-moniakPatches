@@ -1,44 +1,46 @@
 # 🦈 D-moniak Patches
 
-Bundle de patchs [Morphe](https://github.com/morpheapp) créé par **SatanMerde**, incluant un patch dédié à **Hungry Shark World** (`com.ubisoft.hungrysharkworld`).
-
-## ❓ À propos / About
-
-Ce projet fournit des patchs modulaires pour applications Android utilisant le framework Morphe.
-
-Le premier patch intégré permet de **débloquer et réclamer instantanément toutes les récompenses publicitaires** (réanimations de requin lors d'un Game Over, doublement des pièces et gemmes, coffres quotidiens gratuits, spins de roue) **sans avoir à visionner la moindre publicité**.
+> [!IMPORTANT]
+> **⚠️ AVERTISSEMENT LÉGAL ET RESPONSABILITÉ / LEGAL DISCLAIMER :**
+> - **100% Généré par Intelligence Artificielle (IA) :** L'ensemble du code, de l'architecture et des patchs présents sur ce dépôt ont été conçus et rédigés intégralement par une IA.
+> - **Aucune Responsabilité :** L'auteur / créateur de ce dépôt GitHub ne saurait en aucun cas être tenu responsable de l'utilisation directe ou indirecte de ce projet, d'éventuels dysfonctionnements, de pertes de données, de sanctions ou de bannissements de comptes par des éditeurs tiers.
+> - **But Strictement Éducatif :** Ce dépôt est proposé **exclusivement à des fins éducatives et de recherche** en sécurité logicielle, afin d'étudier le fonctionnement interne du bytecode Dalvik/Dex, de l'architecture Smali et des mécanismes d'injection de code sur Android.
 
 ---
 
-### 📲 Comment utiliser ces patchs dans Morphe Manager
+Bundle de patchs pour le framework [Morphe](https://github.com/morpheapp), incluant le patch dédié à **Hungry Shark World** (`com.ubisoft.hungrysharkworld`).
 
-Cliquez sur le lien ci-dessous pour ajouter directement cette source de patchs à Morphe Manager :
+## ❓ À propos / About
 
-👉 **[Ajouter D-moniak Patches à Morphe Manager](https://morphe.software/add-source?github=SatanMerde/D-moniakPatches)**
+Ce projet fournit un patch modulaire permettant d'étudier et de débloquer les flux de récompenses publicitaires (réanimations gratuites lors d'un Game Over, doublement des pièces d'or et des gemmes, coffres de boutique et spins quotidiens) sans avoir à charger ni visionner les vidéos publicitaires.
 
-Ou manuellement dans **Morphe Manager** :
-1. Ouvrez Morphe Manager.
-2. Rendez-vous dans les paramètres des **Sources de patchs** (*Patch Sources*).
-3. Ajoutez la source GitHub : `SatanMerde/D-moniakPatches`.
-4. Sélectionnez l'application **Hungry Shark World** (`com.ubisoft.hungrysharkworld`).
-5. Sélectionnez le patch **Bypass Rewarded Ads**.
-6. Cliquez sur **Patcher**, puis installez l'APK généré.
+---
+
+### 📲 Comment utiliser ce patch dans Morphe Manager
+
+Pour ajouter cette source de patchs à **Morphe Manager** :
+
+👉 **[Ajouter D-moniak Patches à Morphe Manager (1-Clic)](https://morphe.software/add-source?github=SatanMerde/D-moniakPatches)**
+
+Ou manuellement dans l'application :
+1. Lancez **Morphe Manager**.
+2. Rendez-vous dans **Settings** (Paramètres) > **Patch Sources** (Sources de patchs).
+3. Ajoutez la source : `SatanMerde/D-moniakPatches`.
+4. Sélectionnez **Hungry Shark World** (`com.ubisoft.hungrysharkworld`).
+5. Cochez le patch **Bypass Rewarded Ads**.
+6. Cliquez sur **Patcher** puis procédez à l'installation.
 
 ---
 
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.0.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.0.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;1 patches total
-<details open>
-<summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
 
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Bypass Rewarded Ads](#bypass-rewarded-ads) | Allows claiming all ad rewards (free revives, coin/gem multipliers, shop chests, spins) immediately without watching ads in Hungry Shark World. |  |
+### 🦈 Hungry Shark World (`com.ubisoft.hungrysharkworld`)
 
-</details>
+| Nom du Patch | Description | Activé par défaut |
+| :--- | :--- | :---: |
+| **Bypass Rewarded Ads** | Permet de réclamer toutes les récompenses associées aux pubs (réanimations, pièces, gemmes, coffres) instantanément sans visionner de publicité. | ✅ |
 
 <!-- PATCHES_END -->
 
@@ -48,25 +50,21 @@ Ou manuellement dans **Morphe Manager** :
 
 Ce dépôt utilise le système de publication automatisé **Semantic Release** avec GitHub Actions :
 
-- **Branche `dev`** : Utilisée pour le développement et la création automatique de pré-releases.
+- **Branche `dev`** : Utilisée pour le développement et la génération automatique de pré-releases.
 - **Branche `main`** : Branche stable de production.
-- **Types de commits conventionnels** :
-  - `feat:` Déclenche une nouvelle version mineure avec release automatique.
-  - `fix:` Déclenche une version de correction (patch release).
-  - `chore:` Maintenance sans déclencher de publication publique.
+- **Commits conventionnels** :
+  - `feat:` Nouvelle fonctionnalité (déclenche une release mineure).
+  - `fix:` Correction de bug (déclenche une release corrective).
+  - `chore:` Maintenance interne sans création de release.
 
 ### Compilation locale
 
 ```bash
-# Compiler le bundle de patchs (.mpp)
 ./gradlew :patches:buildAndroid
 ```
-Le fichier `.mpp` résultant se trouve dans `patches/build/libs/patches-*.mpp` et peut être utilisé directement avec [Morphe Desktop](https://github.com/MorpheApp/morphe-desktop).
-
-> [!NOTE]
-> Pour compiler localement avec Gradle, vous devez configurer un GitHub Personal Access Token (PAT) avec le scope `read:packages` dans votre fichier `~/.gradle/gradle.properties` (`gpr.user` et `gpr.key`).
-> Lors de l'exécution sur GitHub Actions (`release.yml`), le token est fourni automatiquement.
+Le fichier résultant `.mpp` est généré dans `patches/build/libs/patches-*.mpp`.
 
 ## 📄 Licence
 
-Ce projet est sous licence [GNU General Public License v3.0](LICENSE).
+Ce projet est distribué sous licence [GNU General Public License v3.0](LICENSE).
+Ce logiciel est fourni « tel quel », sans garantie d'aucune sorte.

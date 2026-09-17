@@ -6,14 +6,84 @@ import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_HUNGRY_SHARK_WORLD
 
-private const val EXTENSION_CLASS = "Lcom/dmoniak/patches/extension/HungrySharkAdsRewardHelper;"
+// ============================================================================
+// Smali snippets for MAX Unity events (injected directly, no Java extension)
+// Matches the exact approach of Nai64/Nai64Patches AdsFreeRewardsPatch.kt
+// ============================================================================
 
-private fun MutableMethod.safeAddInstructions(index: Int, smali: String) {
-    if (this.implementation != null) {
-        this.addInstructions(index, smali.trimIndent())
-    }
-}
+/**
+ * Builds the smali block that sends the three MAX Unity lifecycle events
+ * (Displayed → ReceivedReward → Hidden) synchronously via the static
+ * MaxUnityAdManager.forwardUnityEvent(JSONObject) call.
+ *
+ * p1 must hold the adUnitId String register at call time.
+ * Returns: smali string ready for addInstructions(0, ...).
+ */
+private fun maxUnityShowSmali(adUnitIdParam: String): String = """
+    move-object/from16 v0, $adUnitIdParam
+    new-instance v1, Lorg/json/JSONObject;
+    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
+    const-string v2, "name"
+    const-string v3, "OnRewardedAdDisplayedEvent"
+    invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v2, "adUnitId"
+    invoke-static {v1, v2, v0}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v2, "adFormat"
+    const-string v3, "rewarded"
+    invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/applovin/mediation/unity/MaxUnityAdManager;->forwardUnityEvent(Lorg/json/JSONObject;)V
+    new-instance v1, Lorg/json/JSONObject;
+    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
+    const-string v2, "name"
+    const-string v3, "OnRewardedAdReceivedRewardEvent"
+    invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v2, "adUnitId"
+    invoke-static {v1, v2, v0}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v2, "adFormat"
+    const-string v3, "rewarded"
+    invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v2, "rewardLabel"
+    const-string v3, "reward"
+    invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v2, "rewardAmount"
+    const-string v3, "1"
+    invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/applovin/mediation/unity/MaxUnityAdManager;->forwardUnityEvent(Lorg/json/JSONObject;)V
+    new-instance v1, Lorg/json/JSONObject;
+    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
+    const-string v2, "name"
+    const-string v3, "OnRewardedAdHiddenEvent"
+    invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v2, "adUnitId"
+    invoke-static {v1, v2, v0}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v2, "adFormat"
+    const-string v3, "rewarded"
+    invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/applovin/mediation/unity/MaxUnityAdManager;->forwardUnityEvent(Lorg/json/JSONObject;)V
+    return-void
+""".trimIndent()
 
+/**
+ * Builds the smali block that sends OnRewardedAdLoadedEvent via
+ * MaxUnityAdManager.forwardUnityEvent(JSONObject).
+ */
+private fun maxUnityLoadSmali(adUnitIdParam: String): String = """
+    move-object/from16 v0, $adUnitIdParam
+    new-instance v1, Lorg/json/JSONObject;
+    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
+    const-string v2, "name"
+    const-string v3, "OnRewardedAdLoadedEvent"
+    invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v2, "adUnitId"
+    invoke-static {v1, v2, v0}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v2, "adFormat"
+    const-string v3, "rewarded"
+    invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/applovin/mediation/unity/MaxUnityAdManager;->forwardUnityEvent(Lorg/json/JSONObject;)V
+    return-void
+""".trimIndent()
+
+/** Force the method to return true (1) immediately. */
 private fun MutableMethod.forceReturnTrue() {
     if (this.implementation != null) {
         this.addInstructions(
@@ -26,6 +96,12 @@ private fun MutableMethod.forceReturnTrue() {
     }
 }
 
+private fun MutableMethod.safeAddInstructions(index: Int, smali: String) {
+    if (this.implementation != null) {
+        this.addInstructions(index, smali.trimIndent())
+    }
+}
+
 @Suppress("unused")
 val bypassRewardedAdsPatch = bytecodePatch(
     name = "Bypass Rewarded Ads",
@@ -34,7 +110,7 @@ val bypassRewardedAdsPatch = bytecodePatch(
 ) {
     compatibleWith(COMPATIBILITY_HUNGRY_SHARK_WORLD)
 
-    extendWith("extensions/extension.mpe")
+    // NOTE: No extendWith() — no Java extension needed; smali is injected directly.
 
     execute {
         val patchedMethods = mutableSetOf<String>()
@@ -49,149 +125,6 @@ val bypassRewardedAdsPatch = bytecodePatch(
         fun hookReadinessCheck(method: MutableMethod?) {
             method?.let { m ->
                 patchOnce(m, "isReady") { it.forceReturnTrue() }
-            }
-        }
-
-        fun hookLoadRewardedAd(method: MutableMethod?) {
-            method?.let { m ->
-                patchOnce(m, "loadRewardedAd") { target ->
-                    val isStatic = AccessFlags.STATIC.isSet(target.accessFlags)
-                    val paramCount = target.parameterTypes.size
-                    if (isStatic) {
-                        if (paramCount >= 1) {
-                            target.safeAddInstructions(
-                                0,
-                                """
-                                    invoke-static { p0 }, $EXTENSION_CLASS->bypassMaxUnityPluginLoad(Ljava/lang/Object;)V
-                                    return-void
-                                """
-                            )
-                        } else {
-                            target.safeAddInstructions(
-                                0,
-                                """
-                                    const-string v0, "rewardedAd"
-                                    invoke-static { v0 }, $EXTENSION_CLASS->bypassMaxUnityPluginLoad(Ljava/lang/Object;)V
-                                    return-void
-                                """
-                            )
-                        }
-                    } else {
-                        // Instance method: p0 is this
-                        if (paramCount >= 1) {
-                            target.safeAddInstructions(
-                                0,
-                                """
-                                    invoke-static { p0 }, $EXTENSION_CLASS->registerMaxUnityAdManager(Ljava/lang/Object;)V
-                                    invoke-static { p1 }, $EXTENSION_CLASS->bypassMaxUnityPluginLoad(Ljava/lang/Object;)V
-                                    return-void
-                                """
-                            )
-                        } else {
-                            target.safeAddInstructions(
-                                0,
-                                """
-                                    invoke-static { p0 }, $EXTENSION_CLASS->registerMaxUnityAdManager(Ljava/lang/Object;)V
-                                    const-string v0, "rewardedAd"
-                                    invoke-static { v0 }, $EXTENSION_CLASS->bypassMaxUnityPluginLoad(Ljava/lang/Object;)V
-                                    return-void
-                                """
-                            )
-                        }
-                    }
-                }
-            }
-        }
-
-        fun hookShowRewardedAd(method: MutableMethod?) {
-            method?.let { m ->
-                patchOnce(m, "showRewardedAd") { target ->
-                    val isStatic = AccessFlags.STATIC.isSet(target.accessFlags)
-                    val paramCount = target.parameterTypes.size
-                    if (isStatic) {
-                        when (paramCount) {
-                            0 -> {
-                                target.safeAddInstructions(
-                                    0,
-                                    """
-                                        const-string v0, "rewardedAd"
-                                        invoke-static { v0 }, $EXTENSION_CLASS->bypassMaxUnityShow(Ljava/lang/Object;)V
-                                        return-void
-                                    """
-                                )
-                            }
-                            1 -> {
-                                target.safeAddInstructions(
-                                    0,
-                                    """
-                                        invoke-static { p0 }, $EXTENSION_CLASS->bypassMaxUnityShow(Ljava/lang/Object;)V
-                                        return-void
-                                    """
-                                )
-                            }
-                            2 -> {
-                                target.safeAddInstructions(
-                                    0,
-                                    """
-                                        invoke-static { p0, p1 }, $EXTENSION_CLASS->bypassMaxUnityShow(Ljava/lang/Object;Ljava/lang/Object;)V
-                                        return-void
-                                    """
-                                )
-                            }
-                            else -> {
-                                target.safeAddInstructions(
-                                    0,
-                                    """
-                                        invoke-static { p0, p1, p2 }, $EXTENSION_CLASS->bypassMaxUnityShow(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-                                        return-void
-                                    """
-                                )
-                            }
-                        }
-                    } else {
-                        // Instance method: p0 is this
-                        when (paramCount) {
-                            0 -> {
-                                target.safeAddInstructions(
-                                    0,
-                                    """
-                                        invoke-static { p0 }, $EXTENSION_CLASS->registerMaxUnityAdManager(Ljava/lang/Object;)V
-                                        const-string v0, "rewardedAd"
-                                        invoke-static { v0 }, $EXTENSION_CLASS->bypassMaxUnityShow(Ljava/lang/Object;)V
-                                        return-void
-                                    """
-                                )
-                            }
-                            1 -> {
-                                target.safeAddInstructions(
-                                    0,
-                                    """
-                                        invoke-static { p0, p1 }, $EXTENSION_CLASS->bypassMaxUnityManagerShow(Ljava/lang/Object;Ljava/lang/Object;)V
-                                        return-void
-                                    """
-                                )
-                            }
-                            2 -> {
-                                target.safeAddInstructions(
-                                    0,
-                                    """
-                                        invoke-static { p0, p1, p2 }, $EXTENSION_CLASS->bypassMaxUnityManagerShow(Ljava/lang/Object;Ljava/lang/Object;)V
-                                        return-void
-                                    """
-                                )
-                            }
-                            else -> {
-                                target.safeAddInstructions(
-                                    0,
-                                    """
-                                        invoke-static { p0, p1, p2, p3 }, $EXTENSION_CLASS->bypassMaxUnityManagerShow(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-                                        return-void
-                                    """
-                                )
-                            }
-                        }
-                    }
-                }
             }
         }
 
@@ -217,120 +150,145 @@ val bypassRewardedAdsPatch = bytecodePatch(
         hookReadinessCheck(IronSourceAdsRewardedIsReadyPreciseFingerprint.matchOrNull()?.method)
 
         // ====================================================================
-        // 2. Intercept loadRewardedAd calls (immediately emit loaded & return)
+        // 2. Intercept loadRewardedAd — emit OnRewardedAdLoadedEvent then return
         // ====================================================================
-        hookLoadRewardedAd(LoadRewardedAdFingerprint.matchOrNull()?.method)
-        hookLoadRewardedAd(LoadRewardedAd0ArgFingerprint.matchOrNull()?.method)
-        hookLoadRewardedAd(MaxUnityPluginLoadRewardedAdFingerprint.matchOrNull()?.method)
-        hookLoadRewardedAd(MaxUnityAdManagerLoadRewardedAdFingerprint.matchOrNull()?.method)
 
-        // Native MAX loadAd
-        MaxRewardedAdLoadAdFingerprint.matchOrNull()?.let { match ->
-            patchOnce(match.method, "maxLoadAd") { m ->
-                m.safeAddInstructions(
+        // Primary: unbound 1-arg showRewardedAd/loadRewardedAd (Nai64 approach)
+        ShowRewardedAdFingerprint.matchOrNull()?.method?.let { m ->
+            patchOnce(m, "showRewardedAd-primary") { target ->
+                // p1 = adUnitId (String)
+                target.safeAddInstructions(0, maxUnityShowSmali("p1"))
+            }
+        }
+
+        LoadRewardedAdFingerprint.matchOrNull()?.method?.let { m ->
+            patchOnce(m, "loadRewardedAd-primary") { target ->
+                // p1 = adUnitId (String)
+                target.safeAddInstructions(0, maxUnityLoadSmali("p1"))
+            }
+        }
+
+        // Additional unbound variants (2- and 3-arg show, 0-arg load)
+        ShowRewardedAd3ArgFingerprint.matchOrNull()?.method?.let { m ->
+            patchOnce(m, "showRewardedAd-3arg") { target ->
+                target.safeAddInstructions(0, maxUnityShowSmali("p1"))
+            }
+        }
+
+        ShowRewardedAd2ArgFingerprint.matchOrNull()?.method?.let { m ->
+            patchOnce(m, "showRewardedAd-2arg") { target ->
+                target.safeAddInstructions(0, maxUnityShowSmali("p1"))
+            }
+        }
+
+        ShowRewardedAd1ArgFingerprint.matchOrNull()?.method?.let { m ->
+            patchOnce(m, "showRewardedAd-1arg") { target ->
+                target.safeAddInstructions(0, maxUnityShowSmali("p1"))
+            }
+        }
+
+        LoadRewardedAd0ArgFingerprint.matchOrNull()?.method?.let { m ->
+            patchOnce(m, "loadRewardedAd-0arg") { target ->
+                // No adUnitId param → use a literal string
+                target.safeAddInstructions(
                     0,
                     """
-                        invoke-static {}, $EXTENSION_CLASS->onMaxRewardedAdLoad()V
+                        const-string v0, "rewardedAd"
+                        new-instance v1, Lorg/json/JSONObject;
+                        invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
+                        const-string v2, "name"
+                        const-string v3, "OnRewardedAdLoadedEvent"
+                        invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+                        const-string v2, "adUnitId"
+                        invoke-static {v1, v2, v0}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+                        const-string v2, "adFormat"
+                        const-string v3, "rewarded"
+                        invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+                        invoke-static {v1}, Lcom/applovin/mediation/unity/MaxUnityAdManager;->forwardUnityEvent(Lorg/json/JSONObject;)V
                         return-void
                     """
                 )
             }
         }
 
-        // ====================================================================
-        // 3. Intercept showRewardedAd calls (immediately emit rewards & return)
-        // ====================================================================
-        hookShowRewardedAd(ShowRewardedAd3ArgFingerprint.matchOrNull()?.method)
-        hookShowRewardedAd(ShowRewardedAd2ArgFingerprint.matchOrNull()?.method)
-        hookShowRewardedAd(ShowRewardedAd1ArgFingerprint.matchOrNull()?.method)
-        hookShowRewardedAd(MaxUnityPluginShowRewardedAdFingerprint.matchOrNull()?.method)
-        hookShowRewardedAd(MaxUnityAdManagerShowRewardedAdFingerprint.matchOrNull()?.method)
-
-        // Native AppLovin MAX showAd
-        MaxRewardedAdSetListenerFingerprint.matchOrNull()?.let { match ->
-            patchOnce(match.method, "maxSetListener") { m ->
-                m.safeAddInstructions(
-                    0,
-                    """
-                        invoke-static { p1 }, $EXTENSION_CLASS->registerMaxRewardedListener(Ljava/lang/Object;)V
-                    """
-                )
-            }
-        }
-
-        MaxRewardedAdShowFingerprint.matchOrNull()?.let { match ->
-            patchOnce(match.method, "maxShowAd") { m ->
-                m.safeAddInstructions(
-                    0,
-                    """
-                        invoke-static { p0 }, $EXTENSION_CLASS->bypassMaxRewardedAd(Ljava/lang/Object;)V
+        // Explicit class bindings for MaxUnityPlugin / MaxUnityAdManager
+        MaxUnityPluginLoadRewardedAdFingerprint.matchOrNull()?.method?.let { m ->
+            patchOnce(m, "MaxUnityPlugin-load") { target ->
+                val isStatic = AccessFlags.STATIC.isSet(target.accessFlags)
+                val paramCount = target.parameterTypes.size
+                val adUnitParam = if (isStatic && paramCount >= 1) "p0"
+                                  else if (!isStatic && paramCount >= 1) "p1"
+                                  else null
+                if (adUnitParam != null) {
+                    target.safeAddInstructions(0, maxUnityLoadSmali(adUnitParam))
+                } else {
+                    target.safeAddInstructions(0, """
+                        const-string v0, "rewardedAd"
+                        new-instance v1, Lorg/json/JSONObject;
+                        invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
+                        const-string v2, "name"
+                        const-string v3, "OnRewardedAdLoadedEvent"
+                        invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+                        const-string v2, "adUnitId"
+                        invoke-static {v1, v2, v0}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+                        const-string v2, "adFormat"
+                        const-string v3, "rewarded"
+                        invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+                        invoke-static {v1}, Lcom/applovin/mediation/unity/MaxUnityAdManager;->forwardUnityEvent(Lorg/json/JSONObject;)V
                         return-void
-                    """
-                )
-            }
-        }
-
-        // ====================================================================
-        // 4. Unity Ads Interception
-        // ====================================================================
-        UnityAdsLoadFingerprint.matchOrNull()?.let { match ->
-            patchOnce(match.method, "unityAdsLoad") { m ->
-                m.safeAddInstructions(
-                    0,
-                    """
-                        invoke-static { p0, p1 }, $EXTENSION_CLASS->bypassUnityAdsLoad(Ljava/lang/Object;Ljava/lang/Object;)V
-                    """
-                )
-            }
-        }
-
-        UnityAdsShowFingerprint.matchOrNull()?.let { match ->
-            patchOnce(match.method, "unityAdsShow") { m ->
-                val paramCount = m.parameterTypes.size
-                when (paramCount) {
-                    2 -> {
-                        m.safeAddInstructions(
-                            0,
-                            """
-                                invoke-static { p0, p1 }, $EXTENSION_CLASS->bypassUnityAdsShow(Ljava/lang/Object;Ljava/lang/Object;)V
-                                return-void
-                            """
-                        )
-                    }
-                    3 -> {
-                        m.safeAddInstructions(
-                            0,
-                            """
-                                invoke-static { p0, p1, p2 }, $EXTENSION_CLASS->bypassUnityAdsShow(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-                                return-void
-                            """
-                        )
-                    }
-                    else -> {
-                        m.safeAddInstructions(
-                            0,
-                            """
-                                invoke-static { p0, p1, p2, p3 }, $EXTENSION_CLASS->bypassUnityAdsShow(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-                                return-void
-                            """
-                        )
-                    }
+                    """)
                 }
             }
         }
 
-        UnityRewardedAdShowFingerprint.matchOrNull()?.let { match ->
-            patchOnce(match.method, "unityRewardedAdShow") { m ->
-                m.safeAddInstructions(
-                    0,
-                    """
-                        invoke-static { p0, p1, p2, p3 }, $EXTENSION_CLASS->bypassUnityAdsShow(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+        MaxUnityAdManagerLoadRewardedAdFingerprint.matchOrNull()?.method?.let { m ->
+            patchOnce(m, "MaxUnityAdManager-load") { target ->
+                val isStatic = AccessFlags.STATIC.isSet(target.accessFlags)
+                val paramCount = target.parameterTypes.size
+                val adUnitParam = if (isStatic && paramCount >= 1) "p0"
+                                  else if (!isStatic && paramCount >= 1) "p1"
+                                  else null
+                if (adUnitParam != null) {
+                    target.safeAddInstructions(0, maxUnityLoadSmali(adUnitParam))
+                } else {
+                    target.safeAddInstructions(0, """
+                        const-string v0, "rewardedAd"
+                        new-instance v1, Lorg/json/JSONObject;
+                        invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
+                        const-string v2, "name"
+                        const-string v3, "OnRewardedAdLoadedEvent"
+                        invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+                        const-string v2, "adUnitId"
+                        invoke-static {v1, v2, v0}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+                        const-string v2, "adFormat"
+                        const-string v3, "rewarded"
+                        invoke-static {v1, v2, v3}, Lcom/applovin/impl/sdk/utils/JsonUtils;->putString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+                        invoke-static {v1}, Lcom/applovin/mediation/unity/MaxUnityAdManager;->forwardUnityEvent(Lorg/json/JSONObject;)V
                         return-void
-                    """
-                )
+                    """)
+                }
             }
         }
 
+        MaxUnityPluginShowRewardedAdFingerprint.matchOrNull()?.method?.let { m ->
+            patchOnce(m, "MaxUnityPlugin-show") { target ->
+                val isStatic = AccessFlags.STATIC.isSet(target.accessFlags)
+                val adUnitParam = if (isStatic) "p0" else "p1"
+                target.safeAddInstructions(0, maxUnityShowSmali(adUnitParam))
+            }
+        }
+
+        MaxUnityAdManagerShowRewardedAdFingerprint.matchOrNull()?.method?.let { m ->
+            patchOnce(m, "MaxUnityAdManager-show") { target ->
+                val isStatic = AccessFlags.STATIC.isSet(target.accessFlags)
+                val adUnitParam = if (isStatic) "p0" else "p1"
+                target.safeAddInstructions(0, maxUnityShowSmali(adUnitParam))
+            }
+        }
+
+        // ====================================================================
+        // 3. Unity Ads Interception (v3 RewardedAd + v4)
+        // ====================================================================
         UnityAdsV4Show3ArgFingerprint.matchOrNull()?.let { match ->
             patchOnce(match.method, "unityAdsV4Show3") { m ->
                 m.safeAddInstructions(
@@ -338,9 +296,9 @@ val bypassRewardedAdsPatch = bytecodePatch(
                     """
                         move-object/from16 v1, p2
                         move-object/from16 v2, p1
-                        invoke-interface { v1, v2 }, Lcom/unity3d/ads/IUnityAdsShowListener;->onUnityAdsShowStart(Ljava/lang/String;)V
+                        invoke-interface {v1, v2}, Lcom/unity3d/ads/IUnityAdsShowListener;->onUnityAdsShowStart(Ljava/lang/String;)V
                         sget-object v0, Lcom/unity3d/ads/UnityAds${'$'}UnityAdsShowCompletionState;->COMPLETED:Lcom/unity3d/ads/UnityAds${'$'}UnityAdsShowCompletionState;
-                        invoke-interface { v1, v2, v0 }, Lcom/unity3d/ads/IUnityAdsShowListener;->onUnityAdsShowComplete(Ljava/lang/String;Lcom/unity3d/ads/UnityAds${'$'}UnityAdsShowCompletionState;)V
+                        invoke-interface {v1, v2, v0}, Lcom/unity3d/ads/IUnityAdsShowListener;->onUnityAdsShowComplete(Ljava/lang/String;Lcom/unity3d/ads/UnityAds${'$'}UnityAdsShowCompletionState;)V
                         return-void
                     """
                 )
@@ -354,9 +312,26 @@ val bypassRewardedAdsPatch = bytecodePatch(
                     """
                         move-object/from16 v1, p3
                         move-object/from16 v2, p1
-                        invoke-interface { v1, v2 }, Lcom/unity3d/ads/IUnityAdsShowListener;->onUnityAdsShowStart(Ljava/lang/String;)V
+                        invoke-interface {v1, v2}, Lcom/unity3d/ads/IUnityAdsShowListener;->onUnityAdsShowStart(Ljava/lang/String;)V
                         sget-object v0, Lcom/unity3d/ads/UnityAds${'$'}UnityAdsShowCompletionState;->COMPLETED:Lcom/unity3d/ads/UnityAds${'$'}UnityAdsShowCompletionState;
-                        invoke-interface { v1, v2, v0 }, Lcom/unity3d/ads/IUnityAdsShowListener;->onUnityAdsShowComplete(Ljava/lang/String;Lcom/unity3d/ads/UnityAds${'$'}UnityAdsShowCompletionState;)V
+                        invoke-interface {v1, v2, v0}, Lcom/unity3d/ads/IUnityAdsShowListener;->onUnityAdsShowComplete(Ljava/lang/String;Lcom/unity3d/ads/UnityAds${'$'}UnityAdsShowCompletionState;)V
+                        return-void
+                    """
+                )
+            }
+        }
+
+        UnityRewardedAdShowFingerprint.matchOrNull()?.let { match ->
+            patchOnce(match.method, "unityRewardedAdShow") { m ->
+                m.safeAddInstructions(
+                    0,
+                    """
+                        move-object/from16 v0, p3
+                        move-object/from16 v1, p0
+                        invoke-interface {v0, v1}, Lcom/unity3d/ads/RewardedShowListener;->onRewarded(Lcom/unity3d/ads/RewardedAd;)V
+                        invoke-interface {v0, v1}, Lcom/unity3d/ads/ShowListener;->onStarted(Ljava/lang/Object;)V
+                        sget-object v2, Lcom/unity3d/ads/ShowFinishState;->COMPLETED:Lcom/unity3d/ads/ShowFinishState;
+                        invoke-interface {v0, v1, v2}, Lcom/unity3d/ads/ShowListener;->onCompleted(Ljava/lang/Object;Lcom/unity3d/ads/ShowFinishState;)V
                         return-void
                     """
                 )
@@ -364,49 +339,21 @@ val bypassRewardedAdsPatch = bytecodePatch(
         }
 
         // ====================================================================
-        // 5. IronSource Interception
+        // 4. IronSource Interception
         // ====================================================================
-        IronSourceSetListenerFingerprint.matchOrNull()?.let { match ->
-            patchOnce(match.method, "ironSourceSetListener") { m ->
-                m.safeAddInstructions(
-                    0,
-                    """
-                        invoke-static { p0 }, $EXTENSION_CLASS->registerIronSourceListener(Ljava/lang/Object;)V
-                    """
-                )
-            }
-        }
-
-        IronSourceShowRewardedVideoFingerprint.matchOrNull()?.let { match ->
-            patchOnce(match.method, "ironSourceShowRewardedVideo") { m ->
-                val params = m.parameterTypes
-                if (params.isEmpty()) {
-                    m.safeAddInstructions(
-                        0,
-                        """
-                            const-string v0, "rewardedVideo"
-                            invoke-static { v0 }, $EXTENSION_CLASS->bypassIronSourceReward(Ljava/lang/Object;)V
-                            return-void
-                        """
-                    )
-                } else {
-                    m.safeAddInstructions(
-                        0,
-                        """
-                            invoke-static { p0 }, $EXTENSION_CLASS->bypassIronSourceReward(Ljava/lang/Object;)V
-                            return-void
-                        """
-                    )
-                }
-            }
-        }
-
         IronSourceAdsRewardedShowPreciseFingerprint.matchOrNull()?.let { match ->
             patchOnce(match.method, "ironSourceAdsRewardedShowPrecise") { m ->
                 m.safeAddInstructions(
                     0,
                     """
-                        invoke-static { p0 }, $EXTENSION_CLASS->bypassIronSourceReward(Ljava/lang/Object;)V
+                        move-object/from16 v1, p0
+                        invoke-virtual {v1}, Lcom/unity3d/ironsourceads/rewarded/RewardedAd;->getListener()Lcom/unity3d/ironsourceads/rewarded/RewardedAdListener;
+                        move-result-object v0
+                        if-eqz v0, :morphe_isads_done
+                        invoke-interface {v0, v1}, Lcom/unity3d/ironsourceads/rewarded/RewardedAdListener;->onRewardedAdShown(Lcom/unity3d/ironsourceads/rewarded/RewardedAd;)V
+                        invoke-interface {v0, v1}, Lcom/unity3d/ironsourceads/rewarded/RewardedAdListener;->onUserEarnedReward(Lcom/unity3d/ironsourceads/rewarded/RewardedAd;)V
+                        invoke-interface {v0, v1}, Lcom/unity3d/ironsourceads/rewarded/RewardedAdListener;->onRewardedAdDismissed(Lcom/unity3d/ironsourceads/rewarded/RewardedAd;)V
+                        :morphe_isads_done
                         return-void
                     """
                 )
@@ -414,27 +361,19 @@ val bypassRewardedAdsPatch = bytecodePatch(
         }
 
         // ====================================================================
-        // 6. Google Mobile Ads (AdMob) Interception
+        // 5. Google Mobile Ads (Unity plugin UnityRewardedAd)
         // ====================================================================
-        GoogleRewardedAdShowFingerprint.matchOrNull()?.let { match ->
-            patchOnce(match.method, "adMobRewardedShow") { m ->
-                m.safeAddInstructions(
-                    0,
-                    """
-                        invoke-static { p1, p2 }, $EXTENSION_CLASS->bypassGoogleRewardedAd(Ljava/lang/Object;Ljava/lang/Object;)V
-                        return-void
-                    """
-                )
-            }
-        }
-
         GoogleUnityRewardedAdShowFingerprint.matchOrNull()?.let { match ->
             patchOnce(match.method, "googleUnityRewardedShow") { m ->
                 m.safeAddInstructions(
                     0,
                     """
                         iget-object v0, p0, Lcom/google/unity/ads/UnityRewardedAd;->callback:Lcom/google/unity/ads/UnityRewardedAdCallback;
-                        invoke-static { v0 }, $EXTENSION_CLASS->bypassUnityRewardedAdCallback(Ljava/lang/Object;)V
+                        if-eqz v0, :morphe_admob_done
+                        const-string v1, "reward"
+                        const/4 v2, 0x1
+                        invoke-virtual {v0, v1, v2}, Lcom/google/unity/ads/UnityRewardedAdCallback;->onUserEarnedReward(Ljava/lang/String;F)V
+                        :morphe_admob_done
                         return-void
                     """
                 )

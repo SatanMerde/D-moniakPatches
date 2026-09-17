@@ -1,3 +1,9 @@
+## [1.0.7](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.6...v1.0.7) (2026-09-17)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** eliminate JsonUtils dependency, use JSONObject(String) literal for MAX Unity events ([e543479](https://github.com/SatanMerde/D-moniakPatches/commit/e5434796915ad0a31f2312cd55065ab3ace5ce60))
+
 ## [1.0.6](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.5...v1.0.6) (2026-09-17)
 
 ### 🐛 Bug Fixes

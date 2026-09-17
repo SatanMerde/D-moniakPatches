@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-17T08:01:54",
-  "description": "## [1.0.6](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.5...v1.0.6) (2026-09-17)\n\n### 🐛 Bug Fixes\n\n* **hungryshark:** rewrite patch with direct smali injection (Nai64 approach) to bypass AppLovin MAX Unity rewarded ads ([d1a8ee2](https://github.com/SatanMerde/D-moniakPatches/commit/d1a8ee24dfb2126ef14d765a2272b7ede3d4412d))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.0.6/patches-1.0.6.mpp",
+  "created_at": "2026-09-17T08:12:03",
+  "description": "## [1.0.7](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.6...v1.0.7) (2026-09-17)\n\n### 🐛 Bug Fixes\n\n* **hungryshark:** eliminate JsonUtils dependency, use JSONObject(String) literal for MAX Unity events ([e543479](https://github.com/SatanMerde/D-moniakPatches/commit/e5434796915ad0a31f2312cd55065ab3ace5ce60))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.0.7/patches-1.0.7.mpp",
   "signature_download_url": "",
-  "version": "1.0.6"
+  "version": "1.0.7"
 }

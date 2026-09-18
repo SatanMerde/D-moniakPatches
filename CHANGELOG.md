@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.9...v1.1.0) (2026-09-18)
+
+### ✨ New Features
+
+* **hungryshark:** add Free Shopping patch for in-app purchases and shop unlocks ([5ae65e7](https://github.com/SatanMerde/D-moniakPatches/commit/5ae65e762d1e7c4114713545b69d8e2ac78fba79))
+
 ## [1.0.9](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.8...v1.0.9) (2026-09-17)
 
 ### 🐛 Bug Fixes

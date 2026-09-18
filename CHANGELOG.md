@@ -1,3 +1,9 @@
+## [1.1.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.1...v1.1.2) (2026-09-18)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** prevent loading freeze by removing intrusive startup lifecycle hooks ([99ddbce](https://github.com/SatanMerde/D-moniakPatches/commit/99ddbce2b71b0b6f3c1708bd52880b15bee7a707))
+
 ## [1.1.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.0...v1.1.1) (2026-09-18)
 
 ### 🐛 Bug Fixes

@@ -1,3 +1,9 @@
+## [1.1.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.0...v1.1.1) (2026-09-18)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** fix Free Shopping smali register errors and eliminate Google Play dialog ([02ad80c](https://github.com/SatanMerde/D-moniakPatches/commit/02ad80cf108ebaa5c45fa226ad5064bee72be7d0))
+
 ## [1.1.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.9...v1.1.0) (2026-09-18)
 
 ### ✨ New Features

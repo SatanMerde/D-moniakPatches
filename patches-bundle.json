@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-18T20:40:15",
-  "description": "## [1.1.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.0.9...v1.1.0) (2026-09-18)\n\n### ✨ New Features\n\n* **hungryshark:** add Free Shopping patch for in-app purchases and shop unlocks ([5ae65e7](https://github.com/SatanMerde/D-moniakPatches/commit/5ae65e762d1e7c4114713545b69d8e2ac78fba79))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.1.0/patches-1.1.0.mpp",
+  "created_at": "2026-09-18T21:00:07",
+  "description": "## [1.1.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.0...v1.1.1) (2026-09-18)\n\n### 🐛 Bug Fixes\n\n* **hungryshark:** fix Free Shopping smali register errors and eliminate Google Play dialog ([02ad80c](https://github.com/SatanMerde/D-moniakPatches/commit/02ad80cf108ebaa5c45fa226ad5064bee72be7d0))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.1.1/patches-1.1.1.mpp",
   "signature_download_url": "",
-  "version": "1.1.0"
+  "version": "1.1.1"
 }

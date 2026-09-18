@@ -1,3 +1,9 @@
+## [1.1.4-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.3...v1.1.4-dev.1) (2026-09-18)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** patch launchBillingFlow call sites in game code instead of BillingClient impl ([c588ead](https://github.com/SatanMerde/D-moniakPatches/commit/c588eade207719fd756f729231eb791b12b07655))
+
 ## [1.1.3](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.2...v1.1.3) (2026-09-18)
 
 ### 🐛 Bug Fixes

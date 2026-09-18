@@ -8,7 +8,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -29,21 +28,9 @@ public final class HungrySharkBillingHelper {
 
     private static final String TAG = "D-moniakPatches";
     private static final Handler MAIN_HANDLER = new Handler(Looper.getMainLooper());
-
-    private static final Set<Object> sRegisteredListeners = Collections.synchronizedSet(new HashSet<Object>());
-    private static volatile Object sSavedBillingClient = null;
     private static volatile Object sCachedOkBillingResult = null;
 
     private HungrySharkBillingHelper() {}
-
-    /**
-     * Registers a PurchasesUpdatedListener captured during initialization.
-     */
-    public static void registerPurchasesUpdatedListener(Object listener) {
-        if (listener == null) return;
-        Log.i(TAG, "registerPurchasesUpdatedListener: " + listener.getClass().getName());
-        sRegisteredListeners.add(listener);
-    }
 
     /**
      * Intercepts BillingClient.launchBillingFlow.
@@ -53,9 +40,6 @@ public final class HungrySharkBillingHelper {
      */
     public static Object handleLaunchBillingFlow(Object billingClient, Activity activity, Object billingFlowParams) {
         Log.i(TAG, "handleLaunchBillingFlow intercepted!");
-        if (billingClient != null) {
-            sSavedBillingClient = billingClient;
-        }
 
         // 1. Extract product SKU from billingFlowParams
         final String sku = extractSkuFromParams(billingFlowParams);
@@ -75,80 +59,95 @@ public final class HungrySharkBillingHelper {
         }
 
         final Object finalClient = billingClient;
+        final Activity finalActivity = activity;
         MAIN_HANDLER.post(new Runnable() {
             @Override
             public void run() {
-                deliverPurchasesUpdated(finalClient, okResult, purchasesList, sku);
+                deliverPurchasesUpdated(finalClient, finalActivity, okResult, purchasesList, sku);
             }
         });
 
         return okResult;
     }
 
-    /**
-     * Intercepts BillingClient.consumeAsync to immediately report consumable items as consumed.
-     * This allows purchasing consumables (gems, coins, pearls) multiple times.
-     */
-    public static void handleConsumeAsync(Object billingClient, Object consumeParams, final Object listener) {
-        Log.i(TAG, "handleConsumeAsync intercepted");
-        final Object okResult = buildOkBillingResult();
-        final String purchaseToken = extractPurchaseToken(consumeParams);
+    private static void deliverPurchasesUpdated(Object billingClient, Activity activity, Object billingResult, List<Object> purchases, String sku) {
+        Object listener = null;
+        if (billingClient != null) {
+            listener = findPurchasesUpdatedListener(billingClient);
+        }
+        if (listener == null && activity != null) {
+            listener = findPurchasesUpdatedListener(activity);
+        }
 
-        if (listener == null) return;
+        if (listener == null) {
+            Log.w(TAG, "Could not find PurchasesUpdatedListener instance to notify");
+            return;
+        }
 
-        MAIN_HANDLER.post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    for (Method m : listener.getClass().getMethods()) {
-                        if ("onConsumeResponse".equals(m.getName()) && m.getParameterTypes().length == 2) {
-                            m.invoke(listener, okResult, purchaseToken);
-                            Log.i(TAG, "onConsumeResponse invoked successfully for token: " + purchaseToken);
-                            return;
-                        }
-                    }
-                } catch (Throwable t) {
-                    Log.e(TAG, "Error invoking onConsumeResponse", t);
+        try {
+            for (Method m : listener.getClass().getMethods()) {
+                if ("onPurchasesUpdated".equals(m.getName()) && m.getParameterTypes().length == 2) {
+                    m.invoke(listener, billingResult, purchases);
+                    Log.i(TAG, "Successfully fired onPurchasesUpdated on: " + listener.getClass().getName() + " for SKU: " + sku);
+                    return;
                 }
             }
-        });
+        } catch (Throwable t) {
+            Log.e(TAG, "Error invoking onPurchasesUpdated on " + listener.getClass().getName(), t);
+        }
     }
 
-    /**
-     * Intercepts BillingClient.acknowledgePurchase to immediately report purchases as acknowledged.
-     */
-    public static void handleAcknowledgePurchase(Object billingClient, Object acknowledgePurchaseParams, final Object listener) {
-        Log.i(TAG, "handleAcknowledgePurchase intercepted");
-        final Object okResult = buildOkBillingResult();
+    private static Object findPurchasesUpdatedListener(Object root) {
+        if (root == null) return null;
+        Set<Object> visited = new HashSet<Object>();
+        return searchListenerRecursive(root, 0, visited);
+    }
 
-        if (listener == null) return;
+    private static Object searchListenerRecursive(Object obj, int depth, Set<Object> visited) {
+        if (obj == null || depth > 4 || visited.contains(obj)) return null;
+        visited.add(obj);
 
-        MAIN_HANDLER.post(new Runnable() {
-            @Override
-            public void run() {
+        if (isPurchasesUpdatedListener(obj)) {
+            return obj;
+        }
+
+        Class<?> curr = obj.getClass();
+        while (curr != null && curr != Object.class) {
+            for (Field f : curr.getDeclaredFields()) {
                 try {
-                    for (Method m : listener.getClass().getMethods()) {
-                        if ("onAcknowledgePurchaseResponse".equals(m.getName()) && m.getParameterTypes().length == 1) {
-                            m.invoke(listener, okResult);
-                            Log.i(TAG, "onAcknowledgePurchaseResponse invoked successfully");
-                            return;
+                    f.setAccessible(true);
+                    Object val = f.get(obj);
+                    if (val != null && !visited.contains(val)) {
+                        if (isPurchasesUpdatedListener(val)) {
+                            return val;
+                        }
+                        if (depth < 4 && !val.getClass().getName().startsWith("java.")) {
+                            Object nested = searchListenerRecursive(val, depth + 1, visited);
+                            if (nested != null) return nested;
                         }
                     }
-                } catch (Throwable t) {
-                    Log.e(TAG, "Error invoking onAcknowledgePurchaseResponse", t);
-                }
+                } catch (Throwable ignored) {}
             }
-        });
+            curr = curr.getSuperclass();
+        }
+        return null;
     }
 
-    // =========================================================================
-    // Internal Helper Methods
-    // =========================================================================
+    private static boolean isPurchasesUpdatedListener(Object obj) {
+        if (obj == null) return false;
+        try {
+            for (Method m : obj.getClass().getMethods()) {
+                if ("onPurchasesUpdated".equals(m.getName()) && m.getParameterTypes().length == 2) {
+                    return true;
+                }
+            }
+        } catch (Throwable ignored) {}
+        return false;
+    }
 
     private static String extractSkuFromParams(Object params) {
         if (params == null) return "com.ubisoft.hungrysharkworld.gems_pack_1";
 
-        // 1. Try regex on toString()
         try {
             String s = params.toString();
             if (s != null && !s.isEmpty()) {
@@ -164,7 +163,6 @@ public final class HungrySharkBillingHelper {
             }
         } catch (Throwable ignored) {}
 
-        // 2. Recursive reflection inspection
         Set<Object> visited = new HashSet<Object>();
         String sku = inspectForSku(params, 0, visited);
         if (sku != null && isValidSku(sku)) {
@@ -179,7 +177,6 @@ public final class HungrySharkBillingHelper {
         if (obj == null || depth > 3 || visited.contains(obj)) return null;
         visited.add(obj);
 
-        // Check methods
         try {
             for (Method m : obj.getClass().getMethods()) {
                 if (m.getParameterTypes().length == 0) {
@@ -206,7 +203,6 @@ public final class HungrySharkBillingHelper {
             }
         } catch (Throwable ignored) {}
 
-        // Check fields
         Class<?> curr = obj.getClass();
         while (curr != null && curr != Object.class) {
             for (Field f : curr.getDeclaredFields()) {
@@ -246,19 +242,6 @@ public final class HungrySharkBillingHelper {
         if (lower.equals("null") || lower.equals("true") || lower.equals("false")) return false;
         if (lower.startsWith("com.android.billingclient") || lower.startsWith("android.app")) return false;
         return true;
-    }
-
-    private static String extractPurchaseToken(Object consumeParams) {
-        if (consumeParams == null) return "morphe_token_" + System.currentTimeMillis();
-        try {
-            for (Method m : consumeParams.getClass().getMethods()) {
-                if ("getPurchaseToken".equals(m.getName()) && m.getParameterTypes().length == 0) {
-                    Object token = m.invoke(consumeParams);
-                    if (token != null) return token.toString();
-                }
-            }
-        } catch (Throwable ignored) {}
-        return "morphe_token_" + System.currentTimeMillis();
     }
 
     public static Object buildOkBillingResult() {
@@ -331,88 +314,5 @@ public final class HungrySharkBillingHelper {
             Log.e(TAG, "Failed to create fake Purchase", t);
         }
         return null;
-    }
-
-    private static void deliverPurchasesUpdated(Object billingClient, Object billingResult, List<Object> purchases, String sku) {
-        Set<Object> targets = new HashSet<Object>(sRegisteredListeners);
-        if (billingClient != null) {
-            Object clientListener = findPurchasesUpdatedListener(billingClient);
-            if (clientListener != null) {
-                targets.add(clientListener);
-            }
-        }
-        if (sSavedBillingClient != null && sSavedBillingClient != billingClient) {
-            Object clientListener = findPurchasesUpdatedListener(sSavedBillingClient);
-            if (clientListener != null) {
-                targets.add(clientListener);
-            }
-        }
-
-        if (targets.isEmpty()) {
-            Log.w(TAG, "No PurchasesUpdatedListener available to notify!");
-            return;
-        }
-
-        for (Object listener : targets) {
-            try {
-                for (Method m : listener.getClass().getMethods()) {
-                    if ("onPurchasesUpdated".equals(m.getName()) && m.getParameterTypes().length == 2) {
-                        m.invoke(listener, billingResult, purchases);
-                        Log.i(TAG, "Successfully fired onPurchasesUpdated on: " + listener.getClass().getName() + " for SKU: " + sku);
-                        break;
-                    }
-                }
-            } catch (Throwable t) {
-                Log.e(TAG, "Error invoking onPurchasesUpdated on " + listener.getClass().getName(), t);
-            }
-        }
-    }
-
-    private static Object findPurchasesUpdatedListener(Object billingClient) {
-        if (billingClient == null) return null;
-        Set<Object> visited = new HashSet<Object>();
-        return searchListenerRecursive(billingClient, 0, visited);
-    }
-
-    private static Object searchListenerRecursive(Object obj, int depth, Set<Object> visited) {
-        if (obj == null || depth > 3 || visited.contains(obj)) return null;
-        visited.add(obj);
-
-        if (isPurchasesUpdatedListener(obj)) {
-            return obj;
-        }
-
-        Class<?> curr = obj.getClass();
-        while (curr != null && curr != Object.class) {
-            for (Field f : curr.getDeclaredFields()) {
-                try {
-                    f.setAccessible(true);
-                    Object val = f.get(obj);
-                    if (val != null && !visited.contains(val)) {
-                        if (isPurchasesUpdatedListener(val)) {
-                            return val;
-                        }
-                        if (depth < 3 && !val.getClass().getName().startsWith("java.")) {
-                            Object nested = searchListenerRecursive(val, depth + 1, visited);
-                            if (nested != null) return nested;
-                        }
-                    }
-                } catch (Throwable ignored) {}
-            }
-            curr = curr.getSuperclass();
-        }
-        return null;
-    }
-
-    private static boolean isPurchasesUpdatedListener(Object obj) {
-        if (obj == null) return false;
-        try {
-            for (Method m : obj.getClass().getMethods()) {
-                if ("onPurchasesUpdated".equals(m.getName()) && m.getParameterTypes().length == 2) {
-                    return true;
-                }
-            }
-        } catch (Throwable ignored) {}
-        return false;
     }
 }

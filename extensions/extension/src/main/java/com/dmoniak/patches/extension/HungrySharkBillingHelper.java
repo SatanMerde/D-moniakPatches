@@ -32,6 +32,7 @@ public final class HungrySharkBillingHelper {
 
     private static final Set<Object> sRegisteredListeners = Collections.synchronizedSet(new HashSet<Object>());
     private static volatile Object sSavedBillingClient = null;
+    private static volatile Object sCachedOkBillingResult = null;
 
     private HungrySharkBillingHelper() {}
 
@@ -42,51 +43,6 @@ public final class HungrySharkBillingHelper {
         if (listener == null) return;
         Log.i(TAG, "registerPurchasesUpdatedListener: " + listener.getClass().getName());
         sRegisteredListeners.add(listener);
-    }
-
-    /**
-     * Always returns true for billing readiness checks.
-     */
-    public static boolean isBillingReady() {
-        Log.i(TAG, "isBillingReady intercepted: returning true");
-        return true;
-    }
-
-    /**
-     * Always returns true for receipt/signature verification checks.
-     */
-    public static boolean verifyPurchase(String base64PublicKey, String signedData, String signature) {
-        Log.i(TAG, "verifyPurchase check intercepted: returning true");
-        return true;
-    }
-
-    /**
-     * Intercepts BillingClient.startConnection to immediately report setup finished successfully.
-     */
-    public static void handleStartConnection(Object billingClient, final Object listener) {
-        Log.i(TAG, "handleStartConnection intercepted");
-        if (billingClient != null) {
-            sSavedBillingClient = billingClient;
-        }
-        if (listener == null) return;
-
-        final Object okResult = buildOkBillingResult();
-        MAIN_HANDLER.post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    for (Method m : listener.getClass().getMethods()) {
-                        if ("onBillingSetupFinished".equals(m.getName()) && m.getParameterTypes().length == 1) {
-                            m.invoke(listener, okResult);
-                            Log.i(TAG, "onBillingSetupFinished successfully invoked with OK");
-                            return;
-                        }
-                    }
-                } catch (Throwable t) {
-                    Log.e(TAG, "Error invoking onBillingSetupFinished", t);
-                }
-            }
-        });
     }
 
     /**
@@ -112,20 +68,19 @@ public final class HungrySharkBillingHelper {
         String packageName = (activity != null) ? activity.getPackageName() : "com.ubisoft.hungrysharkworld";
         Object purchase = createFakePurchase(sku, packageName);
 
-        // 4. Deliver purchase callback on Main Thread with a short delay (100ms)
-        // to let the calling game engine transition its billing state cleanly.
+        // 4. Deliver purchase callback on Main Thread
         final List<Object> purchasesList = new ArrayList<Object>();
         if (purchase != null) {
             purchasesList.add(purchase);
         }
 
         final Object finalClient = billingClient;
-        MAIN_HANDLER.postDelayed(new Runnable() {
+        MAIN_HANDLER.post(new Runnable() {
             @Override
             public void run() {
                 deliverPurchasesUpdated(finalClient, okResult, purchasesList, sku);
             }
-        }, 100);
+        });
 
         return okResult;
     }
@@ -307,18 +262,31 @@ public final class HungrySharkBillingHelper {
     }
 
     public static Object buildOkBillingResult() {
+        if (sCachedOkBillingResult != null) {
+            return sCachedOkBillingResult;
+        }
         try {
             Class<?> billingResultClass = Class.forName("com.android.billingclient.api.BillingResult");
-            Method newBuilderMethod = billingResultClass.getMethod("newBuilder");
-            Object builder = newBuilderMethod.invoke(null);
-            Method setResponseCodeMethod = builder.getClass().getMethod("setResponseCode", int.class);
-            setResponseCodeMethod.invoke(builder, 0); // 0 = BillingResponseCode.OK
-            Method buildMethod = builder.getClass().getMethod("build");
-            return buildMethod.invoke(builder);
+            for (Method m : billingResultClass.getMethods()) {
+                if ("newBuilder".equals(m.getName()) && m.getParameterTypes().length == 0) {
+                    Object builder = m.invoke(null);
+                    for (Method bm : builder.getClass().getMethods()) {
+                        if ("setResponseCode".equals(bm.getName()) && bm.getParameterTypes().length == 1) {
+                            bm.invoke(builder, 0); // 0 = OK
+                        }
+                    }
+                    for (Method bm : builder.getClass().getMethods()) {
+                        if ("build".equals(bm.getName()) && bm.getParameterTypes().length == 0) {
+                            sCachedOkBillingResult = bm.invoke(builder);
+                            return sCachedOkBillingResult;
+                        }
+                    }
+                }
+            }
         } catch (Throwable t) {
             Log.e(TAG, "Failed to build BillingResult via reflection", t);
-            return null;
         }
+        return null;
     }
 
     private static Object createFakePurchase(String sku, String packageName) {

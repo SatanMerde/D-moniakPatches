@@ -1,3 +1,9 @@
+## [1.1.5](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.4...v1.1.5) (2026-09-18)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** use FiveRegisterInstruction/RegisterRangeInstruction interfaces for call site matching ([ed269c2](https://github.com/SatanMerde/D-moniakPatches/commit/ed269c2d0f5adeaff508fff998a4c01237332227))
+
 ## [1.1.4](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.3...v1.1.4) (2026-09-18)
 
 ### 🐛 Bug Fixes

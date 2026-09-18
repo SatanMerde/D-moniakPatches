@@ -1,4 +1,4 @@
-## [1.1.3-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.2...v1.1.3-dev.1) (2026-09-18)
+## [1.1.3](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.2...v1.1.3) (2026-09-18)
 
 ### 🐛 Bug Fixes
 

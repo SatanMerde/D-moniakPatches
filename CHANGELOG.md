@@ -1,3 +1,9 @@
+## [1.1.6](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.5...v1.1.6) (2026-09-18)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** prevent VerifyError freeze with check-cast and complete billing lifecycle ([f5c6911](https://github.com/SatanMerde/D-moniakPatches/commit/f5c69118777a0f94a0d99c7a78dfda292ad9d235))
+
 ## [1.1.5](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.4...v1.1.5) (2026-09-18)
 
 ### 🐛 Bug Fixes

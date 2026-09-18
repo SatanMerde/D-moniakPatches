@@ -2,6 +2,7 @@ package com.dmoniak.patches.hungryshark
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_HUNGRY_SHARK_WORLD
 import java.util.logging.Logger
@@ -18,12 +19,9 @@ val freeShoppingPatch = bytecodePatch(
         logger.info("Executing Free Shopping / In-App Billing patch for Hungry Shark World...")
 
         var launchCount = 0
-        var readyCount = 0
         var consumeCount = 0
         var acknowledgeCount = 0
-        var startConnectionCount = 0
         var setListenerCount = 0
-        var verifyCount = 0
 
         classDefForEach { classDef ->
             val tl = classDef.type.lowercase()
@@ -37,9 +35,12 @@ val freeShoppingPatch = bytecodePatch(
 
                 val mName = method.name
                 val pTypes = method.parameterTypes
+                val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
 
                 // 1. launchBillingFlow(Activity, BillingFlowParams) -> BillingResult
-                if (mName == "launchBillingFlow" &&
+                // Intercepted only on non-static methods of BillingClient implementations
+                if (!isStatic &&
+                    mName == "launchBillingFlow" &&
                     method.returnType == "Lcom/android/billingclient/api/BillingResult;" &&
                     pTypes.size == 2
                 ) {
@@ -59,30 +60,9 @@ val freeShoppingPatch = bytecodePatch(
                     }
                 }
 
-                // 2. isReady() -> boolean
-                if (mName == "isReady" &&
-                    method.returnType == "Z" &&
-                    pTypes.isEmpty() &&
-                    classDef.type.contains("billingclient")
-                ) {
-                    try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
-                            invoke-static {}, Lcom/dmoniak/patches/extension/HungrySharkBillingHelper;->isBillingReady()Z
-                            move-result p0
-                            return p0
-                            """.trimIndent(),
-                        )
-                        readyCount++
-                    } catch (e: Exception) {
-                        logger.warning("Failed to patch isReady in ${classDef.type}: ${e.message}")
-                    }
-                }
-
-                // 3. consumeAsync(ConsumeParams, ConsumeResponseListener) -> void
-                if (mName == "consumeAsync" &&
+                // 2. consumeAsync(ConsumeParams, ConsumeResponseListener) -> void
+                if (!isStatic &&
+                    mName == "consumeAsync" &&
                     method.returnType == "V" &&
                     pTypes.size == 2
                 ) {
@@ -101,8 +81,9 @@ val freeShoppingPatch = bytecodePatch(
                     }
                 }
 
-                // 4. acknowledgePurchase(AcknowledgePurchaseParams, AcknowledgePurchaseResponseListener) -> void
-                if (mName == "acknowledgePurchase" &&
+                // 3. acknowledgePurchase(AcknowledgePurchaseParams, AcknowledgePurchaseResponseListener) -> void
+                if (!isStatic &&
+                    mName == "acknowledgePurchase" &&
                     method.returnType == "V" &&
                     pTypes.size == 2
                 ) {
@@ -121,29 +102,10 @@ val freeShoppingPatch = bytecodePatch(
                     }
                 }
 
-                // 5. startConnection(BillingClientStateListener) -> void
-                if (mName == "startConnection" &&
-                    method.returnType == "V" &&
-                    pTypes.size == 1 &&
-                    pTypes[0] == "Lcom/android/billingclient/api/BillingClientStateListener;"
-                ) {
-                    try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
-                            invoke-static/range {p0 .. p1}, Lcom/dmoniak/patches/extension/HungrySharkBillingHelper;->handleStartConnection(Ljava/lang/Object;Ljava/lang/Object;)V
-                            return-void
-                            """.trimIndent(),
-                        )
-                        startConnectionCount++
-                    } catch (e: Exception) {
-                        logger.warning("Failed to patch startConnection in ${classDef.type}: ${e.message}")
-                    }
-                }
-
-                // 6. setListener(PurchasesUpdatedListener) -> Builder
-                if (mName == "setListener" &&
+                // 4. setListener(PurchasesUpdatedListener) -> Builder
+                // Passive listener capture without modifying return or flow
+                if (!isStatic &&
+                    mName == "setListener" &&
                     pTypes.size == 1 &&
                     pTypes[0] == "Lcom/android/billingclient/api/PurchasesUpdatedListener;"
                 ) {
@@ -152,7 +114,7 @@ val freeShoppingPatch = bytecodePatch(
                         mutableMethod.addInstructions(
                             0,
                             """
-                            invoke-static/range {p1 .. p1}, Lcom/dmoniak/patches/extension/HungrySharkBillingHelper;->registerPurchasesUpdatedListener(Ljava/lang/Object;)V
+                            invoke-static {p1}, Lcom/dmoniak/patches/extension/HungrySharkBillingHelper;->registerPurchasesUpdatedListener(Ljava/lang/Object;)V
                             """.trimIndent(),
                         )
                         setListenerCount++
@@ -160,32 +122,10 @@ val freeShoppingPatch = bytecodePatch(
                         logger.warning("Failed to patch setListener in ${classDef.type}: ${e.message}")
                     }
                 }
-
-                // 7. verifyPurchase(String, String, String) -> boolean
-                if (mName == "verifyPurchase" &&
-                    method.returnType == "Z" &&
-                    pTypes.size == 3 &&
-                    pTypes.all { it == "Ljava/lang/String;" }
-                ) {
-                    try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
-                            invoke-static/range {p0 .. p2}, Lcom/dmoniak/patches/extension/HungrySharkBillingHelper;->verifyPurchase(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
-                            move-result p0
-                            return p0
-                            """.trimIndent(),
-                        )
-                        verifyCount++
-                    } catch (e: Exception) {
-                        logger.warning("Failed to patch verifyPurchase in ${classDef.type}: ${e.message}")
-                    }
-                }
             }
         }
 
-        logger.info("Free Shopping results: launchBillingFlow=$launchCount, isReady=$readyCount, consumeAsync=$consumeCount, acknowledgePurchase=$acknowledgeCount, startConnection=$startConnectionCount, setListener=$setListenerCount, verifyPurchase=$verifyCount")
+        logger.info("Free Shopping results: launchBillingFlow=$launchCount, consumeAsync=$consumeCount, acknowledgePurchase=$acknowledgeCount, setListener=$setListenerCount")
         logger.info("Free Shopping patch execution finished.")
     }
 }

@@ -3,9 +3,9 @@ package com.dmoniak.patches.hungryshark
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction3rc
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_HUNGRY_SHARK_WORLD
@@ -33,8 +33,9 @@ val freeShoppingPatch = bytecodePatch(
  * BillingClient.launchBillingFlow and prepends a hook that immediately returns
  * an OK BillingResult via the HungrySharkBillingHelper extension.
  *
- * This approach avoids modifying BillingClient implementation methods entirely,
- * preventing any Dalvik verifier issues during class loading at startup.
+ * Uses [FiveRegisterInstruction] and [RegisterRangeInstruction] interfaces instead
+ * of Builder-specific subtypes so that the check works on both immutable (Instruction35c)
+ * and mutable (BuilderInstruction35c) forms returned by classDef.methods.
  */
 private fun BytecodePatchContext.applyBillingCallSitePatch(logger: Logger): Int {
     var count = 0
@@ -57,7 +58,6 @@ private fun BytecodePatchContext.applyBillingCallSitePatch(logger: Logger): Int 
 
         for (method in classDef.methods) {
             val impl = method.implementation ?: continue
-
             val instructions = impl.instructions.toList()
             var didPatch = false
 
@@ -66,35 +66,34 @@ private fun BytecodePatchContext.applyBillingCallSitePatch(logger: Logger): Int 
                 if (ref.name != "launchBillingFlow") continue
                 if (ref.returnType != "Lcom/android/billingclient/api/BillingResult;") continue
 
-                // Extract registers from the call site instruction
+                // Use smali interfaces that match BOTH immutable (Instruction35c) and
+                // mutable (BuilderInstruction35c) instruction forms.
                 val clientReg: Int
                 val activityReg: Int
                 val paramsReg: Int
 
                 when (insn) {
-                    is BuilderInstruction35c -> {
+                    is FiveRegisterInstruction -> {
+                        // invoke-virtual / invoke-interface with up to 5 explicit registers
                         if (insn.registerCount < 3) continue
-                        clientReg = insn.registerC
-                        activityReg = insn.registerD
-                        paramsReg = insn.registerE
+                        clientReg  = insn.registerC  // p0: BillingClient instance (this)
+                        activityReg = insn.registerD  // p1: Activity
+                        paramsReg  = insn.registerE  // p2: BillingFlowParams
                     }
-                    is BuilderInstruction3rc -> {
-                        clientReg = insn.startRegister
+                    is RegisterRangeInstruction -> {
+                        // invoke-virtual/range or invoke-interface/range
+                        if (insn.registerCount < 3) continue
+                        clientReg  = insn.startRegister
                         activityReg = insn.startRegister + 1
-                        paramsReg = insn.startRegister + 2
+                        paramsReg  = insn.startRegister + 2
                     }
                     else -> continue
                 }
 
                 try {
                     val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    // Inject BEFORE the original launchBillingFlow call site
-                    // We call our helper, then skip the real call by jumping back
-                    // with the result already on the stack. But since we need to
-                    // properly replace the result, we inject an unconditional return.
-                    // 
-                    // Strategy: insert our call + return-object BEFORE the original call.
-                    // The original call becomes dead code (unreachable), which is valid.
+                    // Insert our helper call + immediate return BEFORE the original call site.
+                    // The original launchBillingFlow becomes unreachable dead code (valid in Dalvik).
                     mutableMethod.addInstructions(
                         index,
                         """
@@ -103,12 +102,13 @@ private fun BytecodePatchContext.applyBillingCallSitePatch(logger: Logger): Int 
                         return-object v$clientReg
                         """.trimIndent(),
                     )
+                    logger.info("Patched launchBillingFlow call site in ${classDef.type}.${method.name} at index $index")
                     count++
                     didPatch = true
                 } catch (e: Exception) {
                     logger.warning("Failed to patch call site in ${classDef.type}.${method.name}: ${e.message}")
                 }
-                if (didPatch) break // one patch per method is sufficient
+                if (didPatch) break // one call site per method is sufficient
             }
         }
     }

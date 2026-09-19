@@ -1,3 +1,9 @@
+## [1.1.10-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.9...v1.1.10-dev.1) (2026-09-19)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** make sku extraction null-safe and prevent exceptions in launch billing flow ([af7bbcb](https://github.com/SatanMerde/D-moniakPatches/commit/af7bbcba5a67625411ba0e39e7b51d80c228175e))
+
 ## [1.1.9](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.8...v1.1.9) (2026-09-19)
 
 ### 🐛 Bug Fixes

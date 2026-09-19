@@ -1,3 +1,9 @@
+## [1.1.11](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.10...v1.1.11) (2026-09-19)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** bypass ubisoft orion and houston validation to resolve shop freeze ([7cac43a](https://github.com/SatanMerde/D-moniakPatches/commit/7cac43ad61ebc8dd49b7276114cc2cae7274d1f0))
+
 ## [1.1.10](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.9...v1.1.10) (2026-09-19)
 
 ### 🐛 Bug Fixes

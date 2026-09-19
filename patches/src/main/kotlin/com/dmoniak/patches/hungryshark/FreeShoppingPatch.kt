@@ -61,7 +61,7 @@ val freeShoppingPatch = bytecodePatch(
                 """
                 invoke-virtual {v1}, Lcom/android/billingclient/api/BillingFlowParams;->${skuDetailsMethod.name}()Lcom/android/billingclient/api/SkuDetails;
                 move-result-object v3
-                if-nez v3, :morphe_sku_check_prop
+                if-eqz v3, :morphe_sku_check_prop
                 invoke-virtual {v3}, Lcom/android/billingclient/api/SkuDetails;->getSku()Ljava/lang/String;
                 move-result-object v3
                 goto :morphe_sku_done
@@ -71,7 +71,7 @@ val freeShoppingPatch = bytecodePatch(
                 logger.info("Extracting SKU via BillingFlowParams.${skuDetailsField.name}.getSku()")
                 """
                 iget-object v3, v1, Lcom/android/billingclient/api/BillingFlowParams;->${skuDetailsField.name}:Lcom/android/billingclient/api/SkuDetails;
-                if-nez v3, :morphe_sku_check_prop
+                if-eqz v3, :morphe_sku_check_prop
                 invoke-virtual {v3}, Lcom/android/billingclient/api/SkuDetails;->getSku()Ljava/lang/String;
                 move-result-object v3
                 goto :morphe_sku_done
@@ -82,6 +82,7 @@ val freeShoppingPatch = bytecodePatch(
                 """
                 invoke-virtual {v1}, Lcom/android/billingclient/api/BillingFlowParams;->${directSkuMethod.name}()Ljava/lang/String;
                 move-result-object v3
+                if-eqz v3, :morphe_sku_check_prop
                 goto :morphe_sku_done
                 """.trimIndent()
             }
@@ -89,7 +90,7 @@ val freeShoppingPatch = bytecodePatch(
                 logger.info("Extracting SKU via BillingFlowParams.${directSkuField.name}")
                 """
                 iget-object v3, v1, Lcom/android/billingclient/api/BillingFlowParams;->${directSkuField.name}:Ljava/lang/String;
-                move-result-object v3
+                if-eqz v3, :morphe_sku_check_prop
                 goto :morphe_sku_done
                 """.trimIndent()
             }
@@ -192,7 +193,30 @@ val freeShoppingPatch = bytecodePatch(
                         }
                     }
 
-                    // 1d. BillingClient.launchBillingFlow(Activity, BillingFlowParams) -> BillingResult
+                    // 1d. BillingClientImpl constructor(..., PurchasesUpdatedListener, ...) -> capture listener
+                    if (mName == "<init>" && pTypes.contains("Lcom/android/billingclient/api/PurchasesUpdatedListener;")) {
+                        try {
+                            val pIndex = pTypes.indexOf("Lcom/android/billingclient/api/PurchasesUpdatedListener;") + 1
+                            val clonedCtor = cloneMethodWithAdditionalRegisters(method, 4)
+                            clonedCtor.addInstructions(
+                                0,
+                                """
+                                move-object/from16 v2, p$pIndex
+                                if-eqz v2, :morphe_skip_ctor_listener
+                                invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
+                                move-result-object v0
+                                const-string v1, "morphe_billing_listener"
+                                invoke-virtual {v0, v1, v2}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+                                :morphe_skip_ctor_listener
+                                """.trimIndent(),
+                            )
+                            logger.info("Patched constructor with PurchasesUpdatedListener in ${classDef.type}")
+                        } catch (e: Exception) {
+                            logger.warning("Failed to patch constructor in ${classDef.type}: ${e.message}")
+                        }
+                    }
+
+                    // 1e. BillingClient.launchBillingFlow(Activity, BillingFlowParams) -> BillingResult
                     if (!isStatic &&
                         mName == "launchBillingFlow" &&
                         method.returnType == "Lcom/android/billingclient/api/BillingResult;" &&
@@ -247,42 +271,6 @@ val freeShoppingPatch = bytecodePatch(
                                 invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
                                 invoke-virtual {v8, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-                                if-eqz v2, :morphe_skip_broadcast
-                                new-instance v6, Landroid/content/Intent;
-                                const-string v4, "com.android.vending.billing.PURCHASES_UPDATED"
-                                invoke-direct {v6, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-                                invoke-virtual {v2}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
-                                move-result-object v4
-                                invoke-virtual {v6, v4}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
-
-                                const-string v4, "RESPONSE_CODE"
-                                const/4 v13, 0x0
-                                invoke-virtual {v6, v4, v13}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-                                const-string v4, "INAPP_PURCHASE_DATA"
-                                invoke-virtual {v6, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-                                const-string v4, "INAPP_DATA_SIGNATURE"
-                                const-string v14, "morphe_sig"
-                                invoke-virtual {v6, v4, v14}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-                                new-instance v9, Ljava/util/ArrayList;
-                                invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
-                                invoke-virtual {v9, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-                                const-string v4, "INAPP_PURCHASE_DATA_LIST"
-                                invoke-virtual {v6, v4, v9}, Landroid/content/Intent;->putStringArrayListExtra(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;
-
-                                new-instance v10, Ljava/util/ArrayList;
-                                invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
-                                const-string v14, "morphe_sig"
-                                invoke-virtual {v10, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-                                const-string v4, "INAPP_DATA_SIGNATURE_LIST"
-                                invoke-virtual {v6, v4, v10}, Landroid/content/Intent;->putStringArrayListExtra(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;
-
-                                invoke-virtual {v2, v6}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
-
-                                :morphe_skip_broadcast
                                 invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
                                 move-result-object v12
                                 const-string v4, "morphe_billing_listener"
@@ -290,6 +278,8 @@ val freeShoppingPatch = bytecodePatch(
                                 move-result-object v11
 
                                 if-eqz v11, :morphe_skip_direct_listener
+                                instance-of v4, v11, Lcom/android/billingclient/api/PurchasesUpdatedListener;
+                                if-eqz v4, :morphe_skip_direct_listener
                                 check-cast v11, Lcom/android/billingclient/api/PurchasesUpdatedListener;
                                 invoke-interface {v11, v0, v8}, Lcom/android/billingclient/api/PurchasesUpdatedListener;->onPurchasesUpdated(Lcom/android/billingclient/api/BillingResult;Ljava/util/List;)V
 
@@ -304,7 +294,7 @@ val freeShoppingPatch = bytecodePatch(
                         }
                     }
 
-                    // 1e. BillingClient.consumeAsync(ConsumeParams, ConsumeResponseListener) -> void
+                    // 1f. BillingClient.consumeAsync(ConsumeParams, ConsumeResponseListener) -> void
                     if (!isStatic &&
                         mName == "consumeAsync" &&
                         method.returnType == "V" &&
@@ -337,7 +327,7 @@ val freeShoppingPatch = bytecodePatch(
                         }
                     }
 
-                    // 1f. BillingClient.acknowledgePurchase(AcknowledgePurchaseParams, AcknowledgePurchaseResponseListener) -> void
+                    // 1g. BillingClient.acknowledgePurchase(AcknowledgePurchaseParams, AcknowledgePurchaseResponseListener) -> void
                     if (!isStatic &&
                         mName == "acknowledgePurchase" &&
                         method.returnType == "V" &&
@@ -386,7 +376,7 @@ val freeShoppingPatch = bytecodePatch(
                         mName.equals("buy", ignoreCase = true)
                     )
 
-                    // Capture listener instance and SKU in purchase(...)
+                    // Capture listener instance (if it implements PurchasesUpdatedListener) and SKU in purchase(...)
                     if (isPurchaseMethod) {
                         try {
                             val clonedCapture = cloneMethodWithAdditionalRegisters(method, 4)
@@ -403,11 +393,15 @@ val freeShoppingPatch = bytecodePatch(
                             clonedCapture.addInstructions(
                                 0,
                                 """
-                                move-object/from16 v2, p0
                                 invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
                                 move-result-object v0
+
+                                instance-of v2, p0, Lcom/android/billingclient/api/PurchasesUpdatedListener;
+                                if-eqz v2, :morphe_skip_save_listener
                                 const-string v1, "morphe_billing_listener"
-                                invoke-virtual {v0, v1, v2}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+                                invoke-virtual {v0, v1, p0}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+                                :morphe_skip_save_listener
+
                                 $saveSkuCode
                                 """.trimIndent(),
                             )

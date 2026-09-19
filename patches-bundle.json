@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-19T17:37:09",
-  "description": "## [1.1.11](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.10...v1.1.11) (2026-09-19)\n\n### 🐛 Bug Fixes\n\n* **hungryshark:** bypass ubisoft orion and houston validation to resolve shop freeze ([7cac43a](https://github.com/SatanMerde/D-moniakPatches/commit/7cac43ad61ebc8dd49b7276114cc2cae7274d1f0))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.1.11/patches-1.1.11.mpp",
+  "created_at": "2026-09-19T18:03:35",
+  "description": "## [1.1.12](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.11...v1.1.12) (2026-09-19)\n\n### 🐛 Bug Fixes\n\n* **hungryshark:** resolve loading screen hang by preserving initialise and fix purchase completion ([089831e](https://github.com/SatanMerde/D-moniakPatches/commit/089831e0fa3e9931e801014734ce5b05bee86832))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.1.12/patches-1.1.12.mpp",
   "signature_download_url": "",
-  "version": "1.1.11"
+  "version": "1.1.12"
 }

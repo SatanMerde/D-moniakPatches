@@ -1,3 +1,9 @@
+## [1.1.12](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.11...v1.1.12) (2026-09-19)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** resolve loading screen hang by preserving initialise and fix purchase completion ([089831e](https://github.com/SatanMerde/D-moniakPatches/commit/089831e0fa3e9931e801014734ce5b05bee86832))
+
 ## [1.1.11](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.10...v1.1.11) (2026-09-19)
 
 ### 🐛 Bug Fixes

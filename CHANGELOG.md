@@ -1,3 +1,9 @@
+## [1.1.9](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.8...v1.1.9) (2026-09-19)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** resolve shop purchase freeze via real sku extraction and purchases updated broadcast ([e461ece](https://github.com/SatanMerde/D-moniakPatches/commit/e461ecead7615c33b7b4c10463fa08527699996a))
+
 ## [1.1.8](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.7...v1.1.8) (2026-09-19)
 
 ### 🐛 Bug Fixes

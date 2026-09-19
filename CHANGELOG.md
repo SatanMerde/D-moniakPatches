@@ -1,3 +1,10 @@
+## [1.1.8](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.7...v1.1.8) (2026-09-19)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** fix constructor reference in billing listener capture ([153dde8](https://github.com/SatanMerde/D-moniakPatches/commit/153dde880e5e6bdb8c7c30bc2d9698d2fedfe8fa))
+* **hungryshark:** fix shop purchase freeze by capturing billing listener via system properties and correct list branch logic ([d139504](https://github.com/SatanMerde/D-moniakPatches/commit/d139504cf6cbb04b87599ed13cf7b6fcf239416c))
+
 ## [1.1.7](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.6...v1.1.7) (2026-09-19)
 
 ### 🐛 Bug Fixes

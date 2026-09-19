@@ -35,7 +35,7 @@ Ou manuellement dans l'application :
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.1.7](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.1.7)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;2 patches total
+> **[v1.1.8](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.1.8)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;2 patches total
 <details open>
 <summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>

@@ -130,6 +130,9 @@ val freeShoppingPatch = bytecodePatch(
                                 const/4 v2, 0x0
                                 invoke-virtual {v1, v2}, Lcom/android/billingclient/api/BillingResult${'$'}Builder;->setResponseCode(I)Lcom/android/billingclient/api/BillingResult${'$'}Builder;
                                 move-result-object v1
+                                const-string v2, "OK"
+                                invoke-virtual {v1, v2}, Lcom/android/billingclient/api/BillingResult${'$'}Builder;->setDebugMessage(Ljava/lang/String;)Lcom/android/billingclient/api/BillingResult${'$'}Builder;
+                                move-result-object v1
                                 invoke-virtual {v1}, Lcom/android/billingclient/api/BillingResult${'$'}Builder;->build()Lcom/android/billingclient/api/BillingResult;
                                 move-result-object v1
 
@@ -141,13 +144,14 @@ val freeShoppingPatch = bytecodePatch(
                                 :morphe_fallback
                                 iget-object v2, p0, Lcom/ubisoft/orion/monetisationcore/billing/GoogleBillingService;->monetisationEvents:Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;
                                 if-eqz v2, :morphe_done
-                                const-string v3, "REPLACE_SKU"
-                                const-string v5, "[{\"orderId\":\"GPA.1234-5678-9012-34567\",\"packageName\":\"com.ubisoft.hungrysharkworld\",\"productId\":\"REPLACE_SKU\",\"productIds\":[\"REPLACE_SKU\"],\"purchaseTime\":1700000000000,\"purchaseState\":1,\"purchaseToken\":\"morphe_token\",\"quantity\":1,\"acknowledged\":false,\"sku\":\"REPLACE_SKU\"}]"
-                                invoke-virtual {v5, v3, v0}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-                                move-result-object v5
+                                const-string v2, "REPLACE_SKU"
+                                const-string v4, "[{\"orderId\":\"GPA.1234-5678-9012-34567\",\"packageName\":\"com.ubisoft.hungrysharkworld\",\"productId\":\"REPLACE_SKU\",\"productIds\":[\"REPLACE_SKU\"],\"purchaseTime\":1700000000000,\"purchaseState\":1,\"purchaseToken\":\"morphe_token\",\"quantity\":1,\"acknowledged\":false,\"sku\":\"REPLACE_SKU\",\"signature\":\"morphe_sig\",\"originalJson\":\"{\\\"orderId\\\":\\\"GPA.1234-5678-9012-34567\\\",\\\"packageName\\\":\\\"com.ubisoft.hungrysharkworld\\\",\\\"productId\\\":\\\"REPLACE_SKU\\\",\\\"productIds\\\":[\\\"REPLACE_SKU\\\"],\\\"purchaseTime\\\":1700000000000,\\\"purchaseState\\\":1,\\\"purchaseToken\\\":\\\"morphe_token\\\",\\\"quantity\\\":1,\\\"acknowledged\\\":false}\"}]"
+                                invoke-virtual {v4, v2, v0}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                move-result-object v4
+                                iget-object v2, p0, Lcom/ubisoft/orion/monetisationcore/billing/GoogleBillingService;->monetisationEvents:Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;
                                 const/4 v1, 0x0
-                                const-string v4, "OK"
-                                invoke-interface {v2, v1, v4, v5}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnProductPurchasedListener(ILjava/lang/String;Ljava/lang/String;)V
+                                const-string v3, "OK"
+                                invoke-interface {v2, v1, v3, v4}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnProductPurchasedListener(ILjava/lang/String;Ljava/lang/String;)V
 
                                 :morphe_done
                                 return-void
@@ -195,6 +199,9 @@ val freeShoppingPatch = bytecodePatch(
                                 const/4 v2, 0x0
                                 invoke-virtual {v1, v2}, Lcom/android/billingclient/api/BillingResult${'$'}Builder;->setResponseCode(I)Lcom/android/billingclient/api/BillingResult${'$'}Builder;
                                 move-result-object v1
+                                const-string v2, "OK"
+                                invoke-virtual {v1, v2}, Lcom/android/billingclient/api/BillingResult${'$'}Builder;->setDebugMessage(Ljava/lang/String;)Lcom/android/billingclient/api/BillingResult${'$'}Builder;
+                                move-result-object v1
                                 invoke-virtual {v1}, Lcom/android/billingclient/api/BillingResult${'$'}Builder;->build()Lcom/android/billingclient/api/BillingResult;
                                 move-result-object v1
 
@@ -206,13 +213,14 @@ val freeShoppingPatch = bytecodePatch(
                                 :morphe_fallback2
                                 iget-object v2, p0, Lcom/ubisoft/orion/monetisationcore/billing/GoogleBillingService;->monetisationEvents:Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;
                                 if-eqz v2, :morphe_done2
-                                const-string v3, "REPLACE_SKU"
-                                const-string v5, "[{\"orderId\":\"GPA.1234-5678-9012-34567\",\"packageName\":\"com.ubisoft.hungrysharkworld\",\"productId\":\"REPLACE_SKU\",\"productIds\":[\"REPLACE_SKU\"],\"purchaseTime\":1700000000000,\"purchaseState\":1,\"purchaseToken\":\"morphe_token\",\"quantity\":1,\"acknowledged\":false,\"sku\":\"REPLACE_SKU\"}]"
-                                invoke-virtual {v5, v3, v0}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-                                move-result-object v5
+                                const-string v2, "REPLACE_SKU"
+                                const-string v4, "[{\"orderId\":\"GPA.1234-5678-9012-34567\",\"packageName\":\"com.ubisoft.hungrysharkworld\",\"productId\":\"REPLACE_SKU\",\"productIds\":[\"REPLACE_SKU\"],\"purchaseTime\":1700000000000,\"purchaseState\":1,\"purchaseToken\":\"morphe_token\",\"quantity\":1,\"acknowledged\":false,\"sku\":\"REPLACE_SKU\",\"signature\":\"morphe_sig\",\"originalJson\":\"{\\\"orderId\\\":\\\"GPA.1234-5678-9012-34567\\\",\\\"packageName\\\":\\\"com.ubisoft.hungrysharkworld\\\",\\\"productId\\\":\\\"REPLACE_SKU\\\",\\\"productIds\\\":[\\\"REPLACE_SKU\\\"],\\\"purchaseTime\\\":1700000000000,\\\"purchaseState\\\":1,\\\"purchaseToken\\\":\\\"morphe_token\\\",\\\"quantity\\\":1,\\\"acknowledged\\\":false}\"}]"
+                                invoke-virtual {v4, v2, v0}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                move-result-object v4
+                                iget-object v2, p0, Lcom/ubisoft/orion/monetisationcore/billing/GoogleBillingService;->monetisationEvents:Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;
                                 const/4 v1, 0x0
-                                const-string v4, "OK"
-                                invoke-interface {v2, v1, v4, v5}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnProductPurchasedListener(ILjava/lang/String;Ljava/lang/String;)V
+                                const-string v3, "OK"
+                                invoke-interface {v2, v1, v3, v4}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnProductPurchasedListener(ILjava/lang/String;Ljava/lang/String;)V
 
                                 :morphe_done2
                                 return-void
@@ -234,10 +242,33 @@ val freeShoppingPatch = bytecodePatch(
                                 """
                                 iget-object v0, p0, Lcom/ubisoft/orion/monetisationcore/billing/GoogleBillingService;->monetisationEvents:Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;
                                 if-eqz v0, :morphe_gbs_val_skip
+
+                                move-object v1, p3
+                                if-nez v1, :morphe_val_sku_ok
+                                invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
+                                move-result-object v2
+                                const-string v3, "morphe_last_sku"
+                                invoke-virtual {v2, v3}, Ljava/util/Properties;->get(Ljava/lang/Object;)Ljava/lang/Object;
+                                move-result-object v1
+                                check-cast v1, Ljava/lang/String;
+                                if-nez v1, :morphe_val_sku_ok
+                                const-string v1, "com.ubisoft.hungrysharkworld.gems_pack_1"
+
+                                :morphe_val_sku_ok
+                                invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
+                                move-result-object v2
+                                const-string v3, "morphe_last_sku"
+                                invoke-virtual {v2, v3, v1}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+                                const-string v2, "REPLACE_SKU"
+                                const-string v3, "{\"houstonTransactionId\":\"GPA.1234-5678-9012-34567\",\"HoustonTransactionId\":\"GPA.1234-5678-9012-34567\",\"ubisoftTransactionId\":\"GPA.1234-5678-9012-34567\",\"UbisoftTransactionId\":\"GPA.1234-5678-9012-34567\",\"entitlementId\":\"GPA.1234-5678-9012-34567\",\"EntitlementId\":\"GPA.1234-5678-9012-34567\",\"itemId\":\"REPLACE_SKU\",\"ItemId\":\"REPLACE_SKU\",\"productId\":\"REPLACE_SKU\",\"catalogItemId\":\"REPLACE_SKU\",\"redeemed\":true,\"Redeemed\":true,\"trialPeriod\":false,\"TrialPeriod\":false,\"status\":\"SUCCESS\",\"paymentState\":\"PURCHASED\",\"expiresDate\":\"\",\"expired\":false,\"autoRenewing\":false,\"renewalStatus\":\"\"}"
+                                invoke-virtual {v3, v2, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                move-result-object v3
+
                                 const/4 v1, 0x0
                                 const-string v2, "OK"
-                                const-string v3, "{\"houstonTransactionId\":\"GPA.1234-5678-9012-34567\",\"expiresDate\":\"\",\"expired\":false,\"autoRenewing\":false,\"renewalStatus\":\"\",\"trialPeriod\":false}"
                                 invoke-interface {v0, v1, v2, v3}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnValidatePurchaseListener(ILjava/lang/String;Ljava/lang/String;)V
+
                                 :morphe_gbs_val_skip
                                 return-void
                                 """.trimIndent(),
@@ -258,10 +289,26 @@ val freeShoppingPatch = bytecodePatch(
                                 """
                                 iget-object v0, p0, Lcom/ubisoft/orion/monetisationcore/billing/GoogleBillingService;->monetisationEvents:Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;
                                 if-eqz v0, :morphe_gbs_val2_skip
+
+                                invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
+                                move-result-object v2
+                                const-string v3, "morphe_last_sku"
+                                invoke-virtual {v2, v3}, Ljava/util/Properties;->get(Ljava/lang/Object;)Ljava/lang/Object;
+                                move-result-object v1
+                                check-cast v1, Ljava/lang/String;
+                                if-nez v1, :morphe_val2_sku_ok
+                                const-string v1, "com.ubisoft.hungrysharkworld.gems_pack_1"
+
+                                :morphe_val2_sku_ok
+                                const-string v2, "REPLACE_SKU"
+                                const-string v3, "{\"transactionId\":\"GPA.1234-5678-9012-34567\",\"TransactionId\":\"GPA.1234-5678-9012-34567\",\"ubisoftTransactionId\":\"GPA.1234-5678-9012-34567\",\"UbisoftTransactionId\":\"GPA.1234-5678-9012-34567\",\"orderId\":\"GPA.1234-5678-9012-34567\",\"bundleId\":\"com.ubisoft.hungrysharkworld\",\"paymentState\":\"PURCHASED\",\"isSandbox\":false,\"isExpired\":false,\"wasPreviouslyValidated\":true,\"entitlementId\":\"GPA.1234-5678-9012-34567\",\"EntitlementId\":\"GPA.1234-5678-9012-34567\",\"itemId\":\"REPLACE_SKU\",\"ItemId\":\"REPLACE_SKU\",\"productId\":\"REPLACE_SKU\",\"redeemed\":true,\"Redeemed\":true}"
+                                invoke-virtual {v3, v2, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                move-result-object v3
+
                                 const/4 v1, 0x0
                                 const-string v2, "OK"
-                                const-string v3, "{\"ubisoftTransactionId\":\"GPA.1234-5678-9012-34567\"}"
                                 invoke-interface {v0, v1, v2, v3}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnValidatePurchaseV2Listener(ILjava/lang/String;Ljava/lang/String;)V
+
                                 :morphe_gbs_val2_skip
                                 return-void
                                 """.trimIndent(),
@@ -282,6 +329,7 @@ val freeShoppingPatch = bytecodePatch(
                                 """
                                 iget-object v0, p0, Lcom/ubisoft/orion/monetisationcore/billing/GoogleBillingService;->monetisationEvents:Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;
                                 if-eqz v0, :morphe_gbs_comp_skip
+
                                 invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
                                 move-result-object v1
                                 const-string v2, "morphe_last_sku"
@@ -290,14 +338,17 @@ val freeShoppingPatch = bytecodePatch(
                                 check-cast v3, Ljava/lang/String;
                                 if-nez v3, :morphe_gbs_comp_sku_ok
                                 const-string v3, "com.ubisoft.hungrysharkworld.gems_pack_1"
+
                                 :morphe_gbs_comp_sku_ok
                                 const-string v2, "REPLACE_SKU"
-                                const-string v4, "{\"sku\":\"REPLACE_SKU\",\"orderId\":\"GPA.1234-5678-9012-34567\",\"packageName\":\"com.ubisoft.hungrysharkworld\",\"productId\":\"REPLACE_SKU\",\"productIds\":[\"REPLACE_SKU\"],\"purchaseTime\":1700000000000,\"purchaseState\":1,\"purchaseToken\":\"morphe_token\",\"quantity\":1,\"acknowledged\":true}"
+                                const-string v4, "{\"sku\":\"REPLACE_SKU\",\"productId\":\"REPLACE_SKU\",\"productIds\":[\"REPLACE_SKU\"],\"orderId\":\"GPA.1234-5678-9012-34567\",\"packageName\":\"com.ubisoft.hungrysharkworld\",\"purchaseTime\":1700000000000,\"purchaseState\":1,\"purchaseToken\":\"morphe_token\",\"quantity\":1,\"acknowledged\":true,\"signature\":\"morphe_sig\",\"originalJson\":\"{\\\"orderId\\\":\\\"GPA.1234-5678-9012-34567\\\",\\\"packageName\\\":\\\"com.ubisoft.hungrysharkworld\\\",\\\"productId\\\":\\\"REPLACE_SKU\\\",\\\"productIds\\\":[\\\"REPLACE_SKU\\\"],\\\"purchaseTime\\\":1700000000000,\\\"purchaseState\\\":1,\\\"purchaseToken\\\":\\\"morphe_token\\\",\\\"quantity\\\":1,\\\"acknowledged\\\":true}\",\"developerPayload\":\"\",\"autoRenewing\":false,\"obfuscatedProfileId\":\"\",\"obfuscatedAccountId\":\"\"}"
                                 invoke-virtual {v4, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
                                 move-result-object v4
+
                                 const/4 v1, 0x0
                                 const-string v2, "OK"
                                 invoke-interface {v0, v1, v2, v4}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnPurchaseCompletedListener(ILjava/lang/String;Ljava/lang/String;)V
+
                                 :morphe_gbs_comp_skip
                                 return-void
                                 """.trimIndent(),
@@ -318,10 +369,26 @@ val freeShoppingPatch = bytecodePatch(
                                 """
                                 iget-object v0, p0, Lcom/ubisoft/orion/monetisationcore/billing/GoogleBillingService;->monetisationEvents:Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;
                                 if-eqz v0, :morphe_gbs_ack_skip
+
+                                invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
+                                move-result-object v1
+                                const-string v2, "morphe_last_sku"
+                                invoke-virtual {v1, v2}, Ljava/util/Properties;->get(Ljava/lang/Object;)Ljava/lang/Object;
+                                move-result-object v3
+                                check-cast v3, Ljava/lang/String;
+                                if-nez v3, :morphe_gbs_ack_sku_ok
+                                const-string v3, "com.ubisoft.hungrysharkworld.gems_pack_1"
+
+                                :morphe_gbs_ack_sku_ok
+                                const-string v2, "REPLACE_SKU"
+                                const-string v4, "{\"sku\":\"REPLACE_SKU\",\"productId\":\"REPLACE_SKU\",\"productIds\":[\"REPLACE_SKU\"],\"orderId\":\"GPA.1234-5678-9012-34567\",\"packageName\":\"com.ubisoft.hungrysharkworld\",\"purchaseTime\":1700000000000,\"purchaseState\":1,\"purchaseToken\":\"morphe_token\",\"quantity\":1,\"acknowledged\":true,\"signature\":\"morphe_sig\",\"originalJson\":\"{\\\"orderId\\\":\\\"GPA.1234-5678-9012-34567\\\",\\\"packageName\\\":\\\"com.ubisoft.hungrysharkworld\\\",\\\"productId\\\":\\\"REPLACE_SKU\\\",\\\"productIds\\\":[\\\"REPLACE_SKU\\\"],\\\"purchaseTime\\\":1700000000000,\\\"purchaseState\\\":1,\\\"purchaseToken\\\":\\\"morphe_token\\\",\\\"quantity\\\":1,\\\"acknowledged\\\":true}\",\"developerPayload\":\"\",\"autoRenewing\":false,\"obfuscatedProfileId\":\"\",\"obfuscatedAccountId\":\"\"}"
+                                invoke-virtual {v4, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                move-result-object v4
+
                                 const/4 v1, 0x0
                                 const-string v2, "OK"
-                                const-string v3, "{\"orderId\":\"GPA.1234-5678-9012-34567\"}"
-                                invoke-interface {v0, v1, v2, v3}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnTransactionFinishedListener(ILjava/lang/String;Ljava/lang/String;)V
+                                invoke-interface {v0, v1, v2, v4}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnTransactionFinishedListener(ILjava/lang/String;Ljava/lang/String;)V
+
                                 :morphe_gbs_ack_skip
                                 return-void
                                 """.trimIndent(),
@@ -342,11 +409,27 @@ val freeShoppingPatch = bytecodePatch(
                                 """
                                 iget-object v0, p0, Lcom/ubisoft/orion/monetisationcore/billing/GoogleBillingService;->monetisationEvents:Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;
                                 if-eqz v0, :morphe_gbs_cons_skip
+
+                                invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
+                                move-result-object v1
+                                const-string v2, "morphe_last_sku"
+                                invoke-virtual {v1, v2}, Ljava/util/Properties;->get(Ljava/lang/Object;)Ljava/lang/Object;
+                                move-result-object v3
+                                check-cast v3, Ljava/lang/String;
+                                if-nez v3, :morphe_gbs_cons_sku_ok
+                                const-string v3, "com.ubisoft.hungrysharkworld.gems_pack_1"
+
+                                :morphe_gbs_cons_sku_ok
+                                const-string v2, "REPLACE_SKU"
+                                const-string v4, "{\"sku\":\"REPLACE_SKU\",\"productId\":\"REPLACE_SKU\",\"productIds\":[\"REPLACE_SKU\"],\"orderId\":\"GPA.1234-5678-9012-34567\",\"packageName\":\"com.ubisoft.hungrysharkworld\",\"purchaseTime\":1700000000000,\"purchaseState\":1,\"purchaseToken\":\"morphe_token\",\"quantity\":1,\"acknowledged\":true,\"signature\":\"morphe_sig\",\"originalJson\":\"{\\\"orderId\\\":\\\"GPA.1234-5678-9012-34567\\\",\\\"packageName\\\":\\\"com.ubisoft.hungrysharkworld\\\",\\\"productId\\\":\\\"REPLACE_SKU\\\",\\\"productIds\\\":[\\\"REPLACE_SKU\\\"],\\\"purchaseTime\\\":1700000000000,\\\"purchaseState\\\":1,\\\"purchaseToken\\\":\\\"morphe_token\\\",\\\"quantity\\\":1,\\\"acknowledged\\\":true}\",\"developerPayload\":\"\",\"autoRenewing\":false,\"obfuscatedProfileId\":\"\",\"obfuscatedAccountId\":\"\"}"
+                                invoke-virtual {v4, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                move-result-object v4
+
                                 const/4 v1, 0x0
                                 const-string v2, "OK"
                                 const-string v3, "morphe_token"
-                                const-string v4, "{\"orderId\":\"GPA.1234-5678-9012-34567\",\"packageName\":\"com.ubisoft.hungrysharkworld\",\"productId\":\"com.ubisoft.hungrysharkworld.gems_pack_1\",\"productIds\":[\"com.ubisoft.hungrysharkworld.gems_pack_1\"],\"purchaseTime\":1700000000000,\"purchaseState\":1,\"purchaseToken\":\"morphe_token\",\"quantity\":1,\"acknowledged\":true}"
                                 invoke-interface {v0, v1, v2, v3, v4}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnProductConsumedListener(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
                                 :morphe_gbs_cons_skip
                                 return-void
                                 """.trimIndent(),

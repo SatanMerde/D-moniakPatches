@@ -1,3 +1,9 @@
+## [1.1.7](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.6...v1.1.7) (2026-09-19)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** eliminate loading freeze and enable shop unlock via self-contained pure smali billing bypass ([b045062](https://github.com/SatanMerde/D-moniakPatches/commit/b0450629e9b7ffce35da13b6efb91d8dd7cd8a01))
+
 ## [1.1.6](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.5...v1.1.6) (2026-09-18)
 
 ### 🐛 Bug Fixes

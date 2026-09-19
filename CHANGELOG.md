@@ -1,3 +1,9 @@
+## [1.1.14](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.13...v1.1.14) (2026-09-19)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** clean method replacement for google billing service and preserve houston bytecode ([979538c](https://github.com/SatanMerde/D-moniakPatches/commit/979538cd12eab95c7e012e1bf0adc2887cd06839))
+
 ## [1.1.13](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.12...v1.1.13) (2026-09-19)
 
 ### 🐛 Bug Fixes

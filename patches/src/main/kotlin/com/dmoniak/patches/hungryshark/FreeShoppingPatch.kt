@@ -162,7 +162,7 @@ val freeShoppingPatch = bytecodePatch(
                     }
 
                     // 1d. BillingClientImpl constructor(..., PurchasesUpdatedListener, ...) -> capture listener
-                    if (method.isConstructor && pTypes.contains("Lcom/android/billingclient/api/PurchasesUpdatedListener;")) {
+                    if (mName == "<init>" && pTypes.contains("Lcom/android/billingclient/api/PurchasesUpdatedListener;")) {
                         try {
                             val pIndex = pTypes.indexOf("Lcom/android/billingclient/api/PurchasesUpdatedListener;") + 1
                             val clonedCtor = cloneMethodWithAdditionalRegisters(method, 4)
@@ -330,8 +330,8 @@ val freeShoppingPatch = bytecodePatch(
                     classDef.type.endsWith("/GooglePlayPurchasing;")
 
                 if (implementsListener) {
-                    // Capture listener instance in purchase(...) or constructor
-                    if (!isStatic && (mName == "purchase" || method.isConstructor)) {
+                    // Capture listener instance in purchase(...)
+                    if (!isStatic && mName == "purchase") {
                         try {
                             val clonedCapture = cloneMethodWithAdditionalRegisters(method, 4)
                             clonedCapture.addInstructions(

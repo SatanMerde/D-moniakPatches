@@ -368,29 +368,7 @@ val freeShoppingPatch = bytecodePatch(
                 // =========================================================================
                 if (classDef.type == "Lcom/ubisoft/orion/monetisationcore/billing/GoogleBillingService;") {
 
-                    // 2a. Capture PurchasesUpdatedListener in initialise(...)
-                    if (mName == "initialise" && pTypes.contains("Landroid/app/Activity;")) {
-                        try {
-                            val clonedInit = cloneMethodWithAdditionalRegisters(method, 4)
-                            clonedInit.addInstructions(
-                                0,
-                                """
-                                iget-object v0, p0, Lcom/ubisoft/orion/monetisationcore/billing/GoogleBillingService;->purchasesUpdatedListener:Lcom/android/billingclient/api/PurchasesUpdatedListener;
-                                if-eqz v0, :morphe_skip_init_listener
-                                invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
-                                move-result-object v1
-                                const-string v2, "morphe_billing_listener"
-                                invoke-virtual {v1, v2, v0}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-                                :morphe_skip_init_listener
-                                """.trimIndent(),
-                            )
-                            logger.info("Patched GoogleBillingService.initialise to capture PurchasesUpdatedListener")
-                        } catch (e: Exception) {
-                            logger.warning("Failed to patch GoogleBillingService.initialise: ${e.message}")
-                        }
-                    }
-
-                    // 2b. Directly dispatch purchase in purchaseProduct(String) and purchaseProductWithOffer(String, String)
+                    // 2a. Directly dispatch purchase in purchaseProduct(String) and purchaseProductWithOffer(String, String)
                     val isGbsPurchase = !isStatic && (
                         (mName == "purchaseProduct" && pTypes.size == 1 && pTypes[0] == "Ljava/lang/String;") ||
                         (mName == "purchaseProductWithOffer" && pTypes.size == 2 && pTypes[0] == "Ljava/lang/String;")
@@ -413,7 +391,7 @@ val freeShoppingPatch = bytecodePatch(
                                 invoke-virtual {v0, v1, v3}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
                                 iget-object v0, p0, Lcom/ubisoft/orion/monetisationcore/billing/GoogleBillingService;->purchasesUpdatedListener:Lcom/android/billingclient/api/PurchasesUpdatedListener;
-                                if-eqz v0, :morphe_skip_gbs_dispatch
+                                if-nez v0, :morphe_gbs_fallback
 
                                 invoke-static {}, Lcom/android/billingclient/api/BillingResult;->newBuilder()Lcom/android/billingclient/api/BillingResult${'$'}Builder;
                                 move-result-object v1
@@ -437,6 +415,18 @@ val freeShoppingPatch = bytecodePatch(
                                 invoke-virtual {v2, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
                                 invoke-interface {v0, v1, v2}, Lcom/android/billingclient/api/PurchasesUpdatedListener;->onPurchasesUpdated(Lcom/android/billingclient/api/BillingResult;Ljava/util/List;)V
+                                return-void
+
+                                :morphe_gbs_fallback
+                                iget-object v0, p0, Lcom/ubisoft/orion/monetisationcore/billing/GoogleBillingService;->monetisationEvents:Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;
+                                if-eqz v0, :morphe_skip_gbs_dispatch
+                                const/4 v1, 0x0
+                                const-string v2, "OK"
+                                const-string v4, "REPLACE_SKU"
+                                const-string v5, "[{\"orderId\":\"GPA.1234-5678-9012-34567\",\"packageName\":\"com.ubisoft.hungrysharkworld\",\"productId\":\"REPLACE_SKU\",\"productIds\":[\"REPLACE_SKU\"],\"purchaseTime\":1700000000000,\"purchaseState\":1,\"purchaseToken\":\"morphe_token\",\"quantity\":1,\"acknowledged\":false,\"sku\":\"REPLACE_SKU\"}]"
+                                invoke-virtual {v5, v4, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                move-result-object v5
+                                invoke-interface {v0, v1, v2, v5}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnProductPurchasedListener(ILjava/lang/String;Ljava/lang/String;)V
 
                                 :morphe_skip_gbs_dispatch
                                 return-void
@@ -449,7 +439,7 @@ val freeShoppingPatch = bytecodePatch(
                         }
                     }
 
-                    // 2c. Bypass validatePurchase in GoogleBillingService
+                    // 2b. Bypass validatePurchase in GoogleBillingService
                     if (!isStatic && mName == "validatePurchase" && method.returnType == "V") {
                         try {
                             val clonedVal = cloneMethodWithAdditionalRegisters(method, 6)
@@ -473,7 +463,7 @@ val freeShoppingPatch = bytecodePatch(
                         }
                     }
 
-                    // 2d. Bypass validatePurchaseV2 in GoogleBillingService
+                    // 2c. Bypass validatePurchaseV2 in GoogleBillingService
                     if (!isStatic && mName == "validatePurchaseV2" && method.returnType == "V") {
                         try {
                             val clonedVal2 = cloneMethodWithAdditionalRegisters(method, 6)
@@ -482,7 +472,7 @@ val freeShoppingPatch = bytecodePatch(
                                 """
                                 iget-object v0, p0, Lcom/ubisoft/orion/monetisationcore/billing/GoogleBillingService;->monetisationEvents:Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;
                                 if-eqz v0, :morphe_gbs_val2_skip
-                                const/16 v1, 0xc8
+                                const/4 v1, 0x0
                                 const-string v2, "OK"
                                 const-string v3, "{\"ubisoftTransactionId\":\"GPA.1234-5678-9012-34567\"}"
                                 invoke-interface {v0, v1, v2, v3}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnValidatePurchaseV2Listener(ILjava/lang/String;Ljava/lang/String;)V
@@ -497,7 +487,7 @@ val freeShoppingPatch = bytecodePatch(
                         }
                     }
 
-                    // 2e. Bypass completePurchase in GoogleBillingService
+                    // 2d. Bypass completePurchase in GoogleBillingService
                     if (!isStatic && mName == "completePurchase" && method.returnType == "V" && pTypes.size == 2) {
                         try {
                             val clonedComp = cloneMethodWithAdditionalRegisters(method, 8)
@@ -533,7 +523,7 @@ val freeShoppingPatch = bytecodePatch(
                         }
                     }
 
-                    // 2f. Bypass acknowledgePurchase(String) in GoogleBillingService
+                    // 2e. Bypass acknowledgePurchase(String) in GoogleBillingService
                     if (!isStatic && mName == "acknowledgePurchase" && pTypes.size == 1 && pTypes[0] == "Ljava/lang/String;") {
                         try {
                             val clonedAckStr = cloneMethodWithAdditionalRegisters(method, 6)
@@ -553,23 +543,6 @@ val freeShoppingPatch = bytecodePatch(
                             logger.info("Patched GoogleBillingService.acknowledgePurchase(String)")
                         } catch (e: Exception) {
                             logger.warning("Failed to patch GoogleBillingService.acknowledgePurchase: ${e.message}")
-                        }
-                    }
-
-                    // 2g. Force isStoreAvailable and isInitialised to true
-                    if (!isStatic && (mName == "isStoreAvailable" || mName == "isInitialised") && method.returnType == "Z" && pTypes.isEmpty()) {
-                        try {
-                            val mutableMethod = mutableClass.findMutableMethodOf(method)
-                            mutableMethod.addInstructions(
-                                0,
-                                """
-                                const/4 v0, 0x1
-                                return v0
-                                """.trimIndent(),
-                            )
-                            logger.info("Patched GoogleBillingService.$mName -> true")
-                        } catch (e: Exception) {
-                            logger.warning("Failed to patch GoogleBillingService.$mName: ${e.message}")
                         }
                     }
                 }
@@ -611,7 +584,7 @@ val freeShoppingPatch = bytecodePatch(
                                 """
                                 iget-object v0, p0, Lcom/ubisoft/orion/monetisationcore/houston/HoustonValidationV2;->monetisationEvents:Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;
                                 if-eqz v0, :morphe_hv2_skip
-                                const/16 v1, 0xc8
+                                const/4 v1, 0x0
                                 const-string v2, "OK"
                                 const-string v3, "{\"ubisoftTransactionId\":\"GPA.1234-5678-9012-34567\"}"
                                 invoke-interface {v0, v1, v2, v3}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnValidatePurchaseV2Listener(ILjava/lang/String;Ljava/lang/String;)V

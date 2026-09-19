@@ -1,3 +1,9 @@
+## [1.1.13](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.12...v1.1.13) (2026-09-19)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** guard onPurchasesUpdated against cold startup queries to fix loading hang ([45250df](https://github.com/SatanMerde/D-moniakPatches/commit/45250df8babba19c18c70af4f890c5fce2b2d887))
+
 ## [1.1.12](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.11...v1.1.12) (2026-09-19)
 
 ### 🐛 Bug Fixes

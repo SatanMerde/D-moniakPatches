@@ -260,6 +260,9 @@ val freeShoppingPatch = bytecodePatch(
                                 move-result-object v12
                                 const-string v4, "morphe_last_sku"
                                 invoke-virtual {v12, v4, v3}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+                                const-string v4, "morphe_pending"
+                                const-string v5, "1"
+                                invoke-virtual {v12, v4, v5}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
                                 const-string v4, "REPLACE_SKU"
                                 const-string v5, "{\"orderId\":\"GPA.1234-5678-9012-34567\",\"packageName\":\"com.ubisoft.hungrysharkworld\",\"productId\":\"REPLACE_SKU\",\"productIds\":[\"REPLACE_SKU\"],\"purchaseTime\":1700000000000,\"purchaseState\":1,\"purchaseToken\":\"morphe_token\",\"quantity\":1,\"acknowledged\":false}"
@@ -389,9 +392,12 @@ val freeShoppingPatch = bytecodePatch(
                                 move-result-object v0
                                 const-string v1, "morphe_last_sku"
                                 invoke-virtual {v0, v1, v3}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+                                const-string v1, "morphe_pending"
+                                const-string v2, "1"
+                                invoke-virtual {v0, v1, v2}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
                                 iget-object v0, p0, Lcom/ubisoft/orion/monetisationcore/billing/GoogleBillingService;->purchasesUpdatedListener:Lcom/android/billingclient/api/PurchasesUpdatedListener;
-                                if-nez v0, :morphe_gbs_fallback
+                                if-eqz v0, :morphe_gbs_fallback
 
                                 invoke-static {}, Lcom/android/billingclient/api/BillingResult;->newBuilder()Lcom/android/billingclient/api/BillingResult${'$'}Builder;
                                 move-result-object v1
@@ -626,6 +632,9 @@ val freeShoppingPatch = bytecodePatch(
                                 if-eqz v3, :morphe_skip_save_sku
                                 const-string v1, "morphe_last_sku"
                                 invoke-virtual {v0, v1, v3}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+                                const-string v1, "morphe_pending"
+                                const-string v2, "1"
+                                invoke-virtual {v0, v1, v2}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
                                 :morphe_skip_save_sku
                                 """.trimIndent()
                             } else ""
@@ -678,16 +687,19 @@ val freeShoppingPatch = bytecodePatch(
                                 move-result-object v0
                                 move-object/from16 p1, v0
 
-                                move-object/from16 v0, p2
-                                if-eqz v0, :morphe_p_create
-
-                                invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-                                move-result v1
-                                if-eqz v1, :morphe_p_skip
-
-                                :morphe_p_create
                                 invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
                                 move-result-object v0
+                                const-string v1, "morphe_pending"
+                                invoke-virtual {v0, v1}, Ljava/util/Properties;->get(Ljava/lang/Object;)Ljava/lang/Object;
+                                move-result-object v2
+
+                                if-eqz v2, :morphe_p_skip
+
+                                invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
+                                move-result-object v0
+                                const-string v1, "morphe_pending"
+                                invoke-virtual {v0, v1}, Ljava/util/Properties;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
                                 const-string v1, "morphe_last_sku"
                                 invoke-virtual {v0, v1}, Ljava/util/Properties;->get(Ljava/lang/Object;)Ljava/lang/Object;
                                 move-result-object v2

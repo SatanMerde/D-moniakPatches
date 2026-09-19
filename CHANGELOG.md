@@ -1,3 +1,9 @@
+## [1.1.15](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.14...v1.1.15) (2026-09-19)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** fix inverted branch conditions preventing shop callbacks from firing ([52525be](https://github.com/SatanMerde/D-moniakPatches/commit/52525be0d529ce6c8ea98c9394861d20ce43746b))
+
 ## [1.1.14](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.13...v1.1.14) (2026-09-19)
 
 ### 🐛 Bug Fixes

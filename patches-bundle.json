@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-18T22:06:16",
-  "description": "## [1.1.6](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.5...v1.1.6) (2026-09-18)\n\n### 🐛 Bug Fixes\n\n* **hungryshark:** prevent VerifyError freeze with check-cast and complete billing lifecycle ([f5c6911](https://github.com/SatanMerde/D-moniakPatches/commit/f5c69118777a0f94a0d99c7a78dfda292ad9d235))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.1.6/patches-1.1.6.mpp",
+  "created_at": "2026-09-19T07:07:13",
+  "description": "## [1.1.7](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.6...v1.1.7) (2026-09-19)\n\n### 🐛 Bug Fixes\n\n* **hungryshark:** eliminate loading freeze and enable shop unlock via self-contained pure smali billing bypass ([b045062](https://github.com/SatanMerde/D-moniakPatches/commit/b0450629e9b7ffce35da13b6efb91d8dd7cd8a01))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.1.7/patches-1.1.7.mpp",
   "signature_download_url": "",
-  "version": "1.1.6"
+  "version": "1.1.7"
 }

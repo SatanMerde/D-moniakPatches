@@ -347,7 +347,15 @@ val freeShoppingPatch = bytecodePatch(
 
                                 const/4 v1, 0x0
                                 const-string v2, "OK"
-                                invoke-interface {v0, v1, v2, v4}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnPurchaseCompletedListener(ILjava/lang/String;Ljava/lang/String;)V
+
+                                if-eqz p2, :morphe_gbs_comp_nonconsumable
+
+                                const-string v3, "morphe_token"
+                                invoke-interface {v0, v1, v2, v3, v4}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnProductConsumedListener(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+                                goto :morphe_gbs_comp_skip
+
+                                :morphe_gbs_comp_nonconsumable
+                                invoke-interface {v0, v1, v2, v4}, Lcom/ubisoft/orion/monetisationcore/MonetisationEvents;->OnTransactionFinishedListener(ILjava/lang/String;Ljava/lang/String;)V
 
                                 :morphe_gbs_comp_skip
                                 return-void

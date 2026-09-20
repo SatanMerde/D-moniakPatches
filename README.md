@@ -51,6 +51,15 @@ Ou manuellement dans l'application :
 
 ---
 
+## 💬 Signaler un bug ou demander un patch
+
+Vous rencontrez un dysfonctionnement ou vous souhaitez le support d'un nouveau jeu / patch ?
+
+- 🐛 **[Signaler un bug ou un problème](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml)** : si un patch ne fonctionne pas correctement ou fait planter l'application.
+- ✨ **[Demander un nouveau patch](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_request.yml)** : pour proposer l'ajout de nouvelles fonctionnalités ou le support d'un autre jeu / application.
+
+---
+
 ## 🛠️ Développement & Publication
 
 Ce dépôt utilise le système de publication automatisé **Semantic Release** avec GitHub Actions :

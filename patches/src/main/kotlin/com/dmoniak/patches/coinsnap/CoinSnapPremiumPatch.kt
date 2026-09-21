@@ -8,8 +8,8 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val coinSnapPremiumPatch = bytecodePatch(
-    name = "Unlock VIP",
-    description = "Unlocks CoinSnap VIP features including unlimited coin identifications, full grading and valuation, collection storage, and disables startup paywall prompts.",
+    name = "Unlock VIP (Experimental)",
+    description = "⚠️ [En cours de développement / Non testé] Unlocks CoinSnap VIP features including unlimited coin identifications, full grading and valuation, collection storage, and disables startup paywall prompts. (Experimental - Not yet tested on device).",
 ) {
     compatibleWith(COMPATIBILITY_COINSNAP)
 

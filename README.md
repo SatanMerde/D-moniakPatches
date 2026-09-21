@@ -65,7 +65,7 @@
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Unlock VIP](#unlock-vip) | Unlocks CoinSnap VIP features including unlimited coin identifications, full grading and valuation, collection storage, and disables startup paywall prompts. |  |
+| [Unlock VIP (Experimental)](#unlock-vip-experimental) | ⚠️ *(En cours de développement / Non testé)* Unlocks CoinSnap VIP features including unlimited coin identifications, full grading and valuation, collection storage, and disables startup paywall prompts. |  |
 
 </details>
 
@@ -80,7 +80,8 @@ Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morphe
 
 Ce projet permet d'étudier et de débloquer :
 - **Hungry Shark World :** Les flux de récompenses publicitaires (réanimations gratuites lors d'un Game Over, doublement des pièces d'or et des gemmes, coffres de boutique et tirages quotidiens) et les articles et achats intégrés dans la boutique du jeu (Free Shopping).
-- **CoinSnap :** L'accès aux fonctionnalités VIP Pro (identifications illimitées, estimation et cotation détaillées, stockage complet des collections de pièces, et suppression du paywall au démarrage).
+- **CoinSnap :** L'accès aux fonctionnalités VIP Pro (identifications illimitées, estimation et cotation détaillées, stockage complet des collections de pièces, et suppression du paywall au démarrage).  
+  > ⚠️ **Note CoinSnap :** Ce patch est actuellement **en cours de développement et n'a pas encore été testé en conditions réelles** sur un appareil physique. Vos retours sont les bienvenus !
 
 ### 📲 Comment utiliser dans Morphe Manager
 
@@ -127,7 +128,8 @@ Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, c
 
 This project allows studying and unlocking:
 - **Hungry Shark World:** Rewarded video ad flows (free revives on Game Over, doubling gold and gems, shop chests, daily spins) and in-game shop items and in-app purchases (Free Shopping).
-- **CoinSnap:** VIP Pro feature access (unlimited coin identifications, full valuation and grading reports, unlimited coin collection storage, and disabled startup paywall prompts).
+- **CoinSnap:** VIP Pro feature access (unlimited coin identifications, full valuation and grading reports, unlimited coin collection storage, and disabled startup paywall prompts).  
+  > ⚠️ **CoinSnap Notice:** This patch is currently **under active development and has not yet been tested in real-world conditions** on a physical device. Feedback and bug reports are welcome!
 
 ### 📲 How to Use in Morphe Manager
 

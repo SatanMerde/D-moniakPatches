@@ -47,7 +47,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.1.17](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.1.17)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;2 patches total
+> **[v1.1.17](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.1.17)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;3 patches total
 <details open>
 <summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -59,6 +59,16 @@
 
 </details>
 
+<details open>
+<summary>🪙 CoinSnap: Coin Identifier&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Unlock VIP](#unlock-vip) | Unlocks CoinSnap VIP features including unlimited coin identifications, full grading and valuation, collection storage, and disables startup paywall prompts. |  |
+
+</details>
+
 <!-- PATCHES_END -->
 
 ---
@@ -66,11 +76,11 @@
 ## 🇫🇷 Français
 
 ### ❓ À propos
-Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morpheapp), ciblant actuellement **Hungry Shark World** (`com.ubisoft.hungrysharkworld`).
+Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morpheapp), ciblant actuellement **Hungry Shark World** (`com.ubisoft.hungrysharkworld`) et **CoinSnap: Coin Identifier** (`com.coinidentifyer.ai`).
 
 Ce projet permet d'étudier et de débloquer :
-- Les flux de récompenses publicitaires (réanimations gratuites lors d'un Game Over, doublement des pièces d'or et des gemmes, coffres de boutique et tirages quotidiens) sans charger de vidéos publicitaires.
-- Les articles et achats intégrés dans la boutique du jeu (Free Shopping).
+- **Hungry Shark World :** Les flux de récompenses publicitaires (réanimations gratuites lors d'un Game Over, doublement des pièces d'or et des gemmes, coffres de boutique et tirages quotidiens) et les articles et achats intégrés dans la boutique du jeu (Free Shopping).
+- **CoinSnap :** L'accès aux fonctionnalités VIP Pro (identifications illimitées, estimation et cotation détaillées, stockage complet des collections de pièces, et suppression du paywall au démarrage).
 
 ### 📲 Comment utiliser dans Morphe Manager
 
@@ -113,11 +123,11 @@ Ce logiciel est fourni « tel quel », sans garantie d'aucune sorte.
 ## 🇬🇧 English
 
 ### ❓ About
-Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, currently targeting **Hungry Shark World** (`com.ubisoft.hungrysharkworld`).
+Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, currently targeting **Hungry Shark World** (`com.ubisoft.hungrysharkworld`) and **CoinSnap: Coin Identifier** (`com.coinidentifyer.ai`).
 
 This project allows studying and unlocking:
-- Rewarded video ad flows (free revives on Game Over, doubling gold and gems, shop chests, daily spins) without loading or watching video ads.
-- In-game shop items and in-app purchases (Free Shopping).
+- **Hungry Shark World:** Rewarded video ad flows (free revives on Game Over, doubling gold and gems, shop chests, daily spins) and in-game shop items and in-app purchases (Free Shopping).
+- **CoinSnap:** VIP Pro feature access (unlimited coin identifications, full valuation and grading reports, unlimited coin collection storage, and disabled startup paywall prompts).
 
 ### 📲 How to Use in Morphe Manager
 

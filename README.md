@@ -5,6 +5,21 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/SatanMerde/D-moniakPatches/stargazers">
+    <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
+  </a>
+  <a href="https://github.com/SatanMerde/D-moniakPatches/releases">
+    <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
+  </a>
+  <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
+    <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
+  </a>
+  <a href="https://github.com/SatanMerde/D-moniakPatches/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/SatanMerde/D-moniakPatches?style=for-the-badge&color=brightgreen" alt="License">
+  </a>
+</p>
+
+<p align="center">
   <a href="https://morphe.software/add-source?github=SatanMerde/D-moniakPatches">
     <img src="https://img.shields.io/badge/Morphe_Manager-Ajouter_la_source_%2F_Add_Source-007ACC?style=for-the-badge&logo=android" alt="Add Source to Morphe Manager">
   </a>

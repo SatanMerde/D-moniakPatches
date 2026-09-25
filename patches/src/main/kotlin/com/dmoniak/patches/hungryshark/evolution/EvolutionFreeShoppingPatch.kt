@@ -8,7 +8,7 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val evolutionFreeShoppingPatch = bytecodePatch(
-    name = "Free Shopping (Experimental)",
+    name = "Free Shopping - Evolution (Experimental)",
     description = "⚠️ [En cours de développement / Non testé] Unlocks shop items and in-app purchases in Hungry Shark Evolution by cleanly replacing billing service purchase methods and receipt validation. (Experimental - Not yet tested on device).",
 ) {
     compatibleWith(COMPATIBILITY_HUNGRY_SHARK_EVOLUTION)

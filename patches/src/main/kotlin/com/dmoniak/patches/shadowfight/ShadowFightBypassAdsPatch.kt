@@ -7,7 +7,7 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val shadowFightBypassAdsPatch = bytecodePatch(
-    name = "Bypass Rewarded Ads (Experimental)",
+    name = "Bypass Rewarded Ads - Shadow Fight 2 (Experimental)",
     description = "⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 2 for free energy refills and reward multipliers without watching ads. (Experimental - Not yet tested on device).",
 ) {
     compatibleWith(COMPATIBILITY_SHADOW_FIGHT_2)

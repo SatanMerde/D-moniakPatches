@@ -11,7 +11,7 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val shadowFightFreeShoppingPatch = bytecodePatch(
-    name = "Free Shopping (Experimental)",
+    name = "Free Shopping - Shadow Fight 2 (Experimental)",
     description = "⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and purchase verification in Shadow Fight 2 to simulate successful in-app purchases. (Experimental - Not yet tested on device).",
 ) {
     compatibleWith(COMPATIBILITY_SHADOW_FIGHT_2)

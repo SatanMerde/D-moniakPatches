@@ -1,3 +1,9 @@
+## [1.6.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.5.0...v1.6.0) (2026-09-25)
+
+### ✨ New Features
+
+* **patches:** disambiguate patch names across games to avoid bundle collision ([9a41e06](https://github.com/SatanMerde/D-moniakPatches/commit/9a41e06258be40dc929f62430b1689719e72adee))
+
 ## [1.5.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.4.0...v1.5.0) (2026-09-25)
 
 ### ✨ New Features

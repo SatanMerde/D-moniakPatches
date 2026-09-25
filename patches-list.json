@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "patches": [
     {
       "name": "Bypass Rewarded Ads",
@@ -31,7 +31,7 @@
     },
     {
       "name": "Bypass Rewarded Ads - Evolution (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Hungry Shark Evolution by emulating ad completion events. (Experimental - Not yet tested on device).",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Hungry Shark Evolution for free revives on Game Over, doubling gold and gems, daily spins, and treasure chests. (Experimental - Not yet tested on device).",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -52,7 +52,17 @@
               "description": null
             }
           ]
-        },
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Bypass Rewarded Ads - Heroes (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Hungry Shark Heroes for instant egg incubation and hatching, arena battle revives, and daily reward card multipliers. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
         {
           "packageName": "com.ubisoft.hungrysharkheroes",
           "name": "Hungry Shark Heroes",
@@ -74,8 +84,35 @@
       "options": []
     },
     {
-      "name": "Bypass Rewarded Ads - Shadow Fight (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 2, 3, Shades & Arena for free energy refills and reward multipliers without watching ads. (Experimental - Not yet tested on device).",
+      "name": "Bypass Rewarded Ads - Shades Roguelike (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shades: Shadow Fight Roguelike for instant in-run revives (Death Defy), free perk/shade rerolls, and extra rift keys. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.nekki.shadowfight.shades",
+          "name": "Shades: Shadow Fight Roguelike",
+          "description": "Shades: Shadow Fight Roguelike by NEKKI",
+          "apkFileType": null,
+          "appIconColor": "#7B1FA2",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Bypass Rewarded Ads - Shadow Fight 2 (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 2 for instant energy/stamina refills and post-duel coin multipliers without watching ads. (Experimental - Not yet tested on device).",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -96,24 +133,17 @@
               "description": null
             }
           ]
-        },
-        {
-          "packageName": "com.nekki.shadowfight2.specialedition",
-          "name": "Shadow Fight 2 Special Edition",
-          "description": "Shadow Fight 2 Special Edition by NEKKI",
-          "apkFileType": null,
-          "appIconColor": "#D84315",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        },
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Bypass Rewarded Ads - Shadow Fight 3 (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 3 for instant duel chest unlock timer skips, free booster card draws, bonus shadow energy, and quest multipliers. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
         {
           "packageName": "com.nekki.shadowfight3",
           "name": "Shadow Fight 3",
@@ -130,24 +160,17 @@
               "description": null
             }
           ]
-        },
-        {
-          "packageName": "com.nekki.shadowfight.shades",
-          "name": "Shades: Shadow Fight Roguelike",
-          "description": "Shades: Shadow Fight Roguelike by NEKKI",
-          "apkFileType": null,
-          "appIconColor": "#7B1FA2",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        },
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Bypass Rewarded Ads - Shadow Fight Arena (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 4: Arena for free roulette spins, warrior chest timer skips, and bonus hero card rewards. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
         {
           "packageName": "com.nekki.shadowfightarena",
           "name": "Shadow Fight 4: Arena",
@@ -197,7 +220,7 @@
     },
     {
       "name": "Free Shopping - Evolution (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Unlocks shop items and in-app purchases in Hungry Shark Evolution by cleanly replacing billing service purchase methods and receipt validation. (Experimental - Not yet tested on device).",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks sharks, baby sharks, accessories, and gem packs in Hungry Shark Evolution by cleanly replacing billing service purchase methods and receipt validation. (Experimental - Not yet tested on device).",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -218,7 +241,17 @@
               "description": null
             }
           ]
-        },
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping - Heroes (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks gem packs, shark training bundles, and reef expansions in Hungry Shark Heroes by cleanly replacing billing service purchase methods. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
         {
           "packageName": "com.ubisoft.hungrysharkheroes",
           "name": "Hungry Shark Heroes",
@@ -240,8 +273,62 @@
       "options": []
     },
     {
-      "name": "Free Shopping - Shadow Fight (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and purchase verification in Shadow Fight 2, 3, Shades & Arena to simulate successful in-app purchases. (Experimental - Not yet tested on device).",
+      "name": "Free Shopping - SF2 Special Edition (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient in Shadow Fight 2 Special Edition to unlock premium weapons, armor, and gems without grinding. Note: Special Edition has no ads and unlimited energy by design. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.nekki.shadowfight2.specialedition",
+          "name": "Shadow Fight 2 Special Edition",
+          "description": "Shadow Fight 2 Special Edition by NEKKI",
+          "apkFileType": null,
+          "appIconColor": "#D84315",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping - Shades Roguelike (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and store receipt validation in Shades: Shadow Fight Roguelike to unlock rift keys, gems, and rogue equipment sets. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.nekki.shadowfight.shades",
+          "name": "Shades: Shadow Fight Roguelike",
+          "description": "Shades: Shadow Fight Roguelike by NEKKI",
+          "apkFileType": null,
+          "appIconColor": "#7B1FA2",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping - Shadow Fight 2 (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and receipt validation in Shadow Fight 2 to unlock coins, gems, weapons, and armor in the Dojo store. (Experimental - Not yet tested on device).",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -262,24 +349,17 @@
               "description": null
             }
           ]
-        },
-        {
-          "packageName": "com.nekki.shadowfight2.specialedition",
-          "name": "Shadow Fight 2 Special Edition",
-          "description": "Shadow Fight 2 Special Edition by NEKKI",
-          "apkFileType": null,
-          "appIconColor": "#D84315",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        },
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping - Shadow Fight 3 (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and Banzai Games purchasing service in Shadow Fight 3 to simulate store purchases for booster packs and equipment in campaign mode. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
         {
           "packageName": "com.nekki.shadowfight3",
           "name": "Shadow Fight 3",
@@ -296,24 +376,17 @@
               "description": null
             }
           ]
-        },
-        {
-          "packageName": "com.nekki.shadowfight.shades",
-          "name": "Shades: Shadow Fight Roguelike",
-          "description": "Shades: Shadow Fight Roguelike by NEKKI",
-          "apkFileType": null,
-          "appIconColor": "#7B1FA2",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        },
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping - Shadow Fight Arena (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and client-side store verification in Shadow Fight 4: Arena to simulate in-app purchases. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
         {
           "packageName": "com.nekki.shadowfightarena",
           "name": "Shadow Fight 4: Arena",

@@ -1,3 +1,9 @@
+## [1.8.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.7.0...v1.8.0) (2026-09-25)
+
+### ✨ New Features
+
+* **patches:** tailor patches and descriptions specifically per application ([0db1353](https://github.com/SatanMerde/D-moniakPatches/commit/0db13538b0ed54b12dc5ee370d6eeeb1561b18b2))
+
 ## [1.7.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.6.0...v1.7.0) (2026-09-25)
 
 ### ✨ New Features

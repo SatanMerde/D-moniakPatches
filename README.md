@@ -47,7 +47,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.7.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.7.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;17 patches total
+> **[v1.8.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.8.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;16 patches total
 <details open>
 <summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -65,8 +65,8 @@
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Bypass Rewarded Ads - Evolution (Experimental)](#bypass-rewarded-ads-evolution-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Hungry Shark Evolution by emulating ad completion events. (Experimental - Not yet tested on device). |  |
-| [Free Shopping - Evolution (Experimental)](#free-shopping-evolution-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks shop items and in-app purchases in Hungry Shark Evolution by cleanly replacing billing service purchase methods and receipt validation. (Experimental - Not yet tested on device). |  |
+| [Bypass Rewarded Ads - Evolution (Experimental)](#bypass-rewarded-ads-evolution-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Hungry Shark Evolution for free revives on Game Over, doubling gold and gems, daily spins, and treasure chests. (Experimental - Not yet tested on device). |  |
+| [Free Shopping - Evolution (Experimental)](#free-shopping-evolution-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks sharks, baby sharks, accessories, and gem packs in Hungry Shark Evolution by cleanly replacing billing service purchase methods and receipt validation. (Experimental - Not yet tested on device). |  |
 
 </details>
 
@@ -76,41 +76,8 @@
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Bypass Rewarded Ads - Evolution (Experimental)](#bypass-rewarded-ads-evolution-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Hungry Shark Evolution by emulating ad completion events. (Experimental - Not yet tested on device). |  |
-| [Free Shopping - Evolution (Experimental)](#free-shopping-evolution-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks shop items and in-app purchases in Hungry Shark Evolution by cleanly replacing billing service purchase methods and receipt validation. (Experimental - Not yet tested on device). |  |
-
-</details>
-
-<details open>
-<summary>📦 Shadow Fight 2&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Bypass Rewarded Ads - Shadow Fight (Experimental)](#bypass-rewarded-ads-shadow-fight-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 2, 3, Shades & Arena for free energy refills and reward multipliers without watching ads. (Experimental - Not yet tested on device). |  |
-| [Free Shopping - Shadow Fight (Experimental)](#free-shopping-shadow-fight-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and purchase verification in Shadow Fight 2, 3, Shades & Arena to simulate successful in-app purchases. (Experimental - Not yet tested on device). |  |
-
-</details>
-
-<details open>
-<summary>📦 Shadow Fight 2 Special Edition&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Bypass Rewarded Ads - Shadow Fight (Experimental)](#bypass-rewarded-ads-shadow-fight-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 2, 3, Shades & Arena for free energy refills and reward multipliers without watching ads. (Experimental - Not yet tested on device). |  |
-| [Free Shopping - Shadow Fight (Experimental)](#free-shopping-shadow-fight-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and purchase verification in Shadow Fight 2, 3, Shades & Arena to simulate successful in-app purchases. (Experimental - Not yet tested on device). |  |
-
-</details>
-
-<details open>
-<summary>📦 Shadow Fight 3&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Bypass Rewarded Ads - Shadow Fight (Experimental)](#bypass-rewarded-ads-shadow-fight-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 2, 3, Shades & Arena for free energy refills and reward multipliers without watching ads. (Experimental - Not yet tested on device). |  |
-| [Free Shopping - Shadow Fight (Experimental)](#free-shopping-shadow-fight-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and purchase verification in Shadow Fight 2, 3, Shades & Arena to simulate successful in-app purchases. (Experimental - Not yet tested on device). |  |
+| [Bypass Rewarded Ads - Heroes (Experimental)](#bypass-rewarded-ads-heroes-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Hungry Shark Heroes for instant egg incubation and hatching, arena battle revives, and daily reward card multipliers. (Experimental - Not yet tested on device). |  |
+| [Free Shopping - Heroes (Experimental)](#free-shopping-heroes-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks gem packs, shark training bundles, and reef expansions in Hungry Shark Heroes by cleanly replacing billing service purchase methods. (Experimental - Not yet tested on device). |  |
 
 </details>
 
@@ -120,8 +87,30 @@
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Bypass Rewarded Ads - Shadow Fight (Experimental)](#bypass-rewarded-ads-shadow-fight-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 2, 3, Shades & Arena for free energy refills and reward multipliers without watching ads. (Experimental - Not yet tested on device). |  |
-| [Free Shopping - Shadow Fight (Experimental)](#free-shopping-shadow-fight-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and purchase verification in Shadow Fight 2, 3, Shades & Arena to simulate successful in-app purchases. (Experimental - Not yet tested on device). |  |
+| [Bypass Rewarded Ads - Shades Roguelike (Experimental)](#bypass-rewarded-ads-shades-roguelike-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shades: Shadow Fight Roguelike for instant in-run revives (Death Defy), free perk/shade rerolls, and extra rift keys. (Experimental - Not yet tested on device). |  |
+| [Free Shopping - Shades Roguelike (Experimental)](#free-shopping-shades-roguelike-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and store receipt validation in Shades: Shadow Fight Roguelike to unlock rift keys, gems, and rogue equipment sets. (Experimental - Not yet tested on device). |  |
+
+</details>
+
+<details open>
+<summary>📦 Shadow Fight 2&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Bypass Rewarded Ads - Shadow Fight 2 (Experimental)](#bypass-rewarded-ads-shadow-fight-2-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 2 for instant energy/stamina refills and post-duel coin multipliers without watching ads. (Experimental - Not yet tested on device). |  |
+| [Free Shopping - Shadow Fight 2 (Experimental)](#free-shopping-shadow-fight-2-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and receipt validation in Shadow Fight 2 to unlock coins, gems, weapons, and armor in the Dojo store. (Experimental - Not yet tested on device). |  |
+
+</details>
+
+<details open>
+<summary>📦 Shadow Fight 3&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Bypass Rewarded Ads - Shadow Fight 3 (Experimental)](#bypass-rewarded-ads-shadow-fight-3-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 3 for instant duel chest unlock timer skips, free booster card draws, bonus shadow energy, and quest multipliers. (Experimental - Not yet tested on device). |  |
+| [Free Shopping - Shadow Fight 3 (Experimental)](#free-shopping-shadow-fight-3-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and Banzai Games purchasing service in Shadow Fight 3 to simulate store purchases for booster packs and equipment in campaign mode. (Experimental - Not yet tested on device). |  |
 
 </details>
 
@@ -131,8 +120,18 @@
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Bypass Rewarded Ads - Shadow Fight (Experimental)](#bypass-rewarded-ads-shadow-fight-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 2, 3, Shades & Arena for free energy refills and reward multipliers without watching ads. (Experimental - Not yet tested on device). |  |
-| [Free Shopping - Shadow Fight (Experimental)](#free-shopping-shadow-fight-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and purchase verification in Shadow Fight 2, 3, Shades & Arena to simulate successful in-app purchases. (Experimental - Not yet tested on device). |  |
+| [Bypass Rewarded Ads - Shadow Fight Arena (Experimental)](#bypass-rewarded-ads-shadow-fight-arena-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 4: Arena for free roulette spins, warrior chest timer skips, and bonus hero card rewards. (Experimental - Not yet tested on device). |  |
+| [Free Shopping - Shadow Fight Arena (Experimental)](#free-shopping-shadow-fight-arena-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and client-side store verification in Shadow Fight 4: Arena to simulate in-app purchases. (Experimental - Not yet tested on device). |  |
+
+</details>
+
+<details open>
+<summary>📦 Shadow Fight 2 Special Edition&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Free Shopping - SF2 Special Edition (Experimental)](#free-shopping-sf2-special-edition-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient in Shadow Fight 2 Special Edition to unlock premium weapons, armor, and gems without grinding. Note: Special Edition has no ads and unlimited energy by design. (Experimental - Not yet tested on device). |  |
 
 </details>
 

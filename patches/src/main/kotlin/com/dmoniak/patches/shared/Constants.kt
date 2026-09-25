@@ -37,5 +37,33 @@ object Constants {
         description = "Shadow Fight 2 by NEKKI",
         appIconColor = 0xE65100
     )
+
+    val COMPATIBILITY_SHADOW_FIGHT_2_SE = Compatibility(
+        packageName = "com.nekki.shadowfight2.specialedition",
+        name = "Shadow Fight 2 Special Edition",
+        description = "Shadow Fight 2 Special Edition by NEKKI",
+        appIconColor = 0xD84315
+    )
+
+    val COMPATIBILITY_SHADOW_FIGHT_3 = Compatibility(
+        packageName = "com.nekki.shadowfight3",
+        name = "Shadow Fight 3",
+        description = "Shadow Fight 3 by NEKKI / Banzai Games",
+        appIconColor = 0xC2185B
+    )
+
+    val COMPATIBILITY_SHADOW_FIGHT_SHADES = Compatibility(
+        packageName = "com.nekki.shadowfight.shades",
+        name = "Shades: Shadow Fight Roguelike",
+        description = "Shades: Shadow Fight Roguelike by NEKKI",
+        appIconColor = 0x7B1FA2
+    )
+
+    val COMPATIBILITY_SHADOW_FIGHT_4 = Compatibility(
+        packageName = "com.nekki.shadowfightarena",
+        name = "Shadow Fight 4: Arena",
+        description = "Shadow Fight 4: Arena by NEKKI / Banzai Games",
+        appIconColor = 0x1976D2
+    )
 }
 

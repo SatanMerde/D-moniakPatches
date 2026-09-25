@@ -7,18 +7,26 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.hungryshark.util.replaceMethod
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SHADOW_FIGHT_2
+import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SHADOW_FIGHT_2_SE
+import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SHADOW_FIGHT_3
+import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SHADOW_FIGHT_4
+import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SHADOW_FIGHT_SHADES
 import java.util.logging.Logger
 
 @Suppress("unused")
 val shadowFightFreeShoppingPatch = bytecodePatch(
-    name = "Free Shopping - Shadow Fight 2 (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and purchase verification in Shadow Fight 2 to simulate successful in-app purchases. (Experimental - Not yet tested on device).",
+    name = "Free Shopping - Shadow Fight (Experimental)",
+    description = "⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and purchase verification in Shadow Fight 2, 3, Shades & Arena to simulate successful in-app purchases. (Experimental - Not yet tested on device).",
 ) {
     compatibleWith(COMPATIBILITY_SHADOW_FIGHT_2)
+    compatibleWith(COMPATIBILITY_SHADOW_FIGHT_2_SE)
+    compatibleWith(COMPATIBILITY_SHADOW_FIGHT_3)
+    compatibleWith(COMPATIBILITY_SHADOW_FIGHT_SHADES)
+    compatibleWith(COMPATIBILITY_SHADOW_FIGHT_4)
 
     execute {
         val logger = Logger.getLogger(this::class.java.name)
-        executeShadowFightFreeShoppingLogic(logger, "Shadow Fight 2")
+        executeShadowFightFreeShoppingLogic(logger, "Shadow Fight Saga")
     }
 }
 

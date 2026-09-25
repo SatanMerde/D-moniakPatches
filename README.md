@@ -11,6 +11,12 @@
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases">
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
+  <a href="#-liste-des-patchs--patches-list">
+    <img src="https://img.shields.io/badge/Patches-34-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+  </a>
+  <a href="#-liste-des-patchs--patches-list">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-12-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+  </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
   </a>

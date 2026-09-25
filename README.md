@@ -47,7 +47,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.3.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.3.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;3 patches total
+> **[v1.4.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.4.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;7 patches total
 <details open>
 <summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -56,6 +56,28 @@
 |----------|----------------|-----------|
 | [Bypass Rewarded Ads](#bypass-rewarded-ads) | Bypasses rewarded video ads in Hungry Shark World by emulating ad completion events. |  |
 | [Free Shopping](#free-shopping) | Unlocks shop items and in-app purchases in Hungry Shark World by cleanly replacing GoogleBillingService purchase methods and receipt validation. |  |
+
+</details>
+
+<details open>
+<summary>📦 Hungry Shark Evolution&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Bypass Rewarded Ads (Experimental)](#bypass-rewarded-ads-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Hungry Shark Evolution by emulating ad completion events. (Experimental - Not yet tested on device). |  |
+| [Free Shopping (Experimental)](#free-shopping-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks shop items and in-app purchases in Hungry Shark Evolution by cleanly replacing billing service purchase methods and receipt validation. (Experimental - Not yet tested on device). |  |
+
+</details>
+
+<details open>
+<summary>📦 Hungry Shark Heroes&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Bypass Rewarded Ads (Experimental)](#bypass-rewarded-ads-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Hungry Shark Evolution by emulating ad completion events. (Experimental - Not yet tested on device). |  |
+| [Free Shopping (Experimental)](#free-shopping-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks shop items and in-app purchases in Hungry Shark Evolution by cleanly replacing billing service purchase methods and receipt validation. (Experimental - Not yet tested on device). |  |
 
 </details>
 

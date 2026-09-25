@@ -1,3 +1,13 @@
+## [1.4.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.3.0...v1.4.0) (2026-09-25)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** import BytecodePatchContext in FreeShoppingPatch ([c2e46f2](https://github.com/SatanMerde/D-moniakPatches/commit/c2e46f24bc18da9f64766fb7d63e43a39b4afb8b))
+
+### ✨ New Features
+
+* **hungryshark:** add Hungry Shark Evolution patches (experimental) ([9e7e24c](https://github.com/SatanMerde/D-moniakPatches/commit/9e7e24c84e3a914a184c8b8cf5955bade692fd34))
+
 ## [1.3.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.2.0...v1.3.0) (2026-09-21)
 
 ### ✨ New Features

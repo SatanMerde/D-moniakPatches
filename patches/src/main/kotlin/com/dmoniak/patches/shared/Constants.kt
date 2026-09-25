@@ -30,4 +30,12 @@ object Constants {
         description = "CoinSnap: Coin Identifier by Glority Global Group",
         appIconColor = 0xF5A623
     )
+
+    val COMPATIBILITY_SHADOW_FIGHT_2 = Compatibility(
+        packageName = "com.nekki.shadowfight",
+        name = "Shadow Fight 2",
+        description = "Shadow Fight 2 by NEKKI",
+        appIconColor = 0xE65100
+    )
 }
+

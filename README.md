@@ -98,13 +98,15 @@
 ## 🇫🇷 Français
 
 ### ❓ À propos
-Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morpheapp), ciblant actuellement **Hungry Shark World** (`com.ubisoft.hungrysharkworld`), **Hungry Shark Evolution** (`com.fgol.HungrySharkEvolution`) et **CoinSnap: Coin Identifier** (`com.coinidentifyer.ai`).
+Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morpheapp), ciblant actuellement **Hungry Shark World** (`com.ubisoft.hungrysharkworld`), **Hungry Shark Evolution** (`com.fgol.HungrySharkEvolution`), **CoinSnap: Coin Identifier** (`com.coinidentifyer.ai`) et **Shadow Fight 2** (`com.nekki.shadowfight`).
 
 Ce projet permet d'étudier et de débloquer :
 - **Hungry Shark World & Evolution :** Les flux de récompenses publicitaires (réanimations gratuites lors d'un Game Over, doublement des pièces d'or et des gemmes, coffres de boutique et tirages quotidiens) et les articles et achats intégrés dans la boutique du jeu (Free Shopping).  
   > ⚠️ **Note Hungry Shark Evolution :** Les patchs pour Hungry Shark Evolution sont actuellement **en cours de développement et n'ont pas encore été testés en conditions réelles** sur un appareil physique.
 - **CoinSnap :** L'accès aux fonctionnalités VIP Pro (identifications illimitées, estimation et cotation détaillées, stockage complet des collections de pièces, et suppression du paywall au démarrage).  
   > ⚠️ **Note CoinSnap :** Ce patch est actuellement **en cours de développement et n'a pas encore été testé en conditions réelles** sur un appareil physique. Vos retours sont les bienvenus !
+- **Shadow Fight 2 :** Le contournement des publicités avec récompense pour recharger l'énergie instantanément et doubler les gains, ainsi que la simulation des achats dans la boutique intégrée (Free Shopping).  
+  > ⚠️ **Note Shadow Fight 2 :** Les patchs pour Shadow Fight 2 sont actuellement **en cours de développement et n'ont pas encore été testés en conditions réelles** sur un appareil physique.
 
 ### 📲 Comment utiliser dans Morphe Manager
 
@@ -114,7 +116,7 @@ Ou manuellement dans l'application :
 1. Lancez **Morphe Manager**.
 2. Rendez-vous dans **Settings** (Paramètres) > **Patch Sources** (Sources de patchs).
 3. Ajoutez la source : `SatanMerde/D-moniakPatches`.
-4. Sélectionnez **Hungry Shark World** (`com.ubisoft.hungrysharkworld`).
+4. Sélectionnez votre application ou jeu (ex. **Shadow Fight 2**).
 5. Cochez les patchs souhaités (**Bypass Rewarded Ads**, **Free Shopping**).
 6. Cliquez sur **Patcher** puis procédez à l'installation.
 
@@ -147,13 +149,15 @@ Ce logiciel est fourni « tel quel », sans garantie d'aucune sorte.
 ## 🇬🇧 English
 
 ### ❓ About
-Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, currently targeting **Hungry Shark World** (`com.ubisoft.hungrysharkworld`), **Hungry Shark Evolution** (`com.fgol.HungrySharkEvolution`), and **CoinSnap: Coin Identifier** (`com.coinidentifyer.ai`).
+Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, currently targeting **Hungry Shark World** (`com.ubisoft.hungrysharkworld`), **Hungry Shark Evolution** (`com.fgol.HungrySharkEvolution`), **CoinSnap: Coin Identifier** (`com.coinidentifyer.ai`), and **Shadow Fight 2** (`com.nekki.shadowfight`).
 
 This project allows studying and unlocking:
 - **Hungry Shark World & Evolution:** Rewarded video ad flows (free revives on Game Over, doubling gold and gems, shop chests, daily spins) and in-game shop items and in-app purchases (Free Shopping).  
   > ⚠️ **Hungry Shark Evolution Notice:** Patches for Hungry Shark Evolution are currently **under active development and have not yet been tested in real-world conditions** on a physical device.
 - **CoinSnap:** VIP Pro feature access (unlimited coin identifications, full valuation and grading reports, unlimited coin collection storage, and disabled startup paywall prompts).  
-  > ⚠️ **CoinSnap Notice:** This patch is currently **under active development and has not yet been tested in real-world conditions** on a physical device. Feedback and bug reports are welcome!
+  > ⚠️ **CoinSnap Notice:** This patch is currently **under active development and have not yet been tested in real-world conditions** on a physical device. Feedback and bug reports are welcome!
+- **Shadow Fight 2:** Bypassing rewarded video ads for instant energy refills and coin multipliers, plus in-app purchase simulation in the shop (Free Shopping).  
+  > ⚠️ **Shadow Fight 2 Notice:** Patches for Shadow Fight 2 are currently **under active development and have not yet been tested in real-world conditions** on a physical device.
 
 ### 📲 How to Use in Morphe Manager
 

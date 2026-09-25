@@ -47,7 +47,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.4.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.4.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;7 patches total
+> **[v1.5.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.5.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;9 patches total
 <details open>
 <summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -78,6 +78,17 @@
 |----------|----------------|-----------|
 | [Bypass Rewarded Ads (Experimental)](#bypass-rewarded-ads-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Hungry Shark Evolution by emulating ad completion events. (Experimental - Not yet tested on device). |  |
 | [Free Shopping (Experimental)](#free-shopping-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks shop items and in-app purchases in Hungry Shark Evolution by cleanly replacing billing service purchase methods and receipt validation. (Experimental - Not yet tested on device). |  |
+
+</details>
+
+<details open>
+<summary>📦 Shadow Fight 2&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Bypass Rewarded Ads (Experimental)](#bypass-rewarded-ads-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 2 for free energy refills and reward multipliers without watching ads. (Experimental - Not yet tested on device). |  |
+| [Free Shopping (Experimental)](#free-shopping-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and purchase verification in Shadow Fight 2 to simulate successful in-app purchases. (Experimental - Not yet tested on device). |  |
 
 </details>
 

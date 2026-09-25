@@ -1,3 +1,9 @@
+## [1.5.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.4.0...v1.5.0) (2026-09-25)
+
+### ✨ New Features
+
+* **shadowfight:** add Shadow Fight 2 experimental patches ([b7a7ab2](https://github.com/SatanMerde/D-moniakPatches/commit/b7a7ab21660203ed17f771b401fd3e90ce15fa16))
+
 ## [1.4.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.3.0...v1.4.0) (2026-09-25)
 
 ### 🐛 Bug Fixes

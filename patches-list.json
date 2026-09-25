@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "patches": [
     {
       "name": "Bypass Rewarded Ads",
@@ -74,6 +74,33 @@
       "options": []
     },
     {
+      "name": "Bypass Rewarded Ads (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 2 for free energy refills and reward multipliers without watching ads. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.nekki.shadowfight",
+          "name": "Shadow Fight 2",
+          "description": "Shadow Fight 2 by NEKKI",
+          "apkFileType": null,
+          "appIconColor": "#E65100",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Free Shopping",
       "description": "Unlocks shop items and in-app purchases in Hungry Shark World by cleanly replacing GoogleBillingService purchase methods and receipt validation.",
       "default": true,
@@ -130,6 +157,33 @@
           "description": "Hungry Shark Heroes by Ubisoft Entertainment / FGOL",
           "apkFileType": null,
           "appIconColor": "#005588",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and purchase verification in Shadow Fight 2 to simulate successful in-app purchases. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.nekki.shadowfight",
+          "name": "Shadow Fight 2",
+          "description": "Shadow Fight 2 by NEKKI",
+          "apkFileType": null,
+          "appIconColor": "#E65100",
           "signatures": null,
           "targets": [
             {

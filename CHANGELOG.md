@@ -1,3 +1,9 @@
+## [1.7.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.6.0...v1.7.0) (2026-09-25)
+
+### ✨ New Features
+
+* **shadowfight:** add full Shadow Fight saga support (2, 2 SE, 3, Shades, 4 Arena) ([5798c4e](https://github.com/SatanMerde/D-moniakPatches/commit/5798c4e8767a82ef1652ff9f505ad71f8d8dafbb))
+
 ## [1.6.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.5.0...v1.6.0) (2026-09-25)
 
 ### ✨ New Features

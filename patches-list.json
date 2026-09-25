@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "patches": [
     {
       "name": "Bypass Rewarded Ads",
@@ -15,6 +15,33 @@
           "description": "Hungry Shark World by Ubisoft Entertainment / FGOL",
           "apkFileType": null,
           "appIconColor": "#0088CC",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Bypass Rewarded Ads - Beach Buggy Racing (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Beach Buggy Racing for free spins of the Daily Fortune Wheel, post-race coin doublers, and instant ticket refills without viewing ads. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.vectorunit.cobalt.googleplay",
+          "name": "Beach Buggy Racing",
+          "description": "Beach Buggy Racing by Vector Unit",
+          "apkFileType": null,
+          "appIconColor": "#FF5722",
           "signatures": null,
           "targets": [
             {
@@ -69,6 +96,33 @@
           "description": "Hungry Shark Heroes by Ubisoft Entertainment / FGOL",
           "apkFileType": null,
           "appIconColor": "#005588",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Bypass Rewarded Ads - Robbery Bob (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Robbery Bob for free stealth utility gadgets (wind-up noisy toys, donuts, invisibility potions) and free level continues. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.chillingo.robberybobfree.android.row",
+          "name": "Robbery Bob",
+          "description": "Robbery Bob - Sneaky Sneak by Chillingo / Deca Games",
+          "apkFileType": null,
+          "appIconColor": "#4CAF50",
           "signatures": null,
           "targets": [
             {
@@ -192,6 +246,77 @@
       "options": []
     },
     {
+      "name": "Bypass Rewarded Ads - Vector 2 (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Vector 2 for free protocol revives upon death and instant datacore decryption without watching ads. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.nekki.vector2",
+          "name": "Vector 2",
+          "description": "Vector 2 by NEKKI",
+          "apkFileType": null,
+          "appIconColor": "#00E5FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Fast Gold Rush - Hungry Shark (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Accelerates Gold Rush gauge filling in Hungry Shark World and Evolution, triggering frenzy coin multipliers and invulnerability much faster. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.ubisoft.hungrysharkworld",
+          "name": "Hungry Shark World",
+          "description": "Hungry Shark World by Ubisoft Entertainment / FGOL",
+          "apkFileType": null,
+          "appIconColor": "#0088CC",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "packageName": "com.fgol.HungrySharkEvolution",
+          "name": "Hungry Shark Evolution",
+          "description": "Hungry Shark Evolution by Ubisoft Entertainment / FGOL",
+          "apkFileType": null,
+          "appIconColor": "#0077AA",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Free Shopping",
       "description": "Unlocks shop items and in-app purchases in Hungry Shark World by cleanly replacing GoogleBillingService purchase methods and receipt validation.",
       "default": true,
@@ -204,6 +329,33 @@
           "description": "Hungry Shark World by Ubisoft Entertainment / FGOL",
           "apkFileType": null,
           "appIconColor": "#0088CC",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping - Beach Buggy Racing (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and in-game purchase verification in Beach Buggy Racing to unlock car packages, gem bundles, and coin packs for free. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.vectorunit.cobalt.googleplay",
+          "name": "Beach Buggy Racing",
+          "description": "Beach Buggy Racing by Vector Unit",
+          "apkFileType": null,
+          "appIconColor": "#FF5722",
           "signatures": null,
           "targets": [
             {
@@ -258,6 +410,33 @@
           "description": "Hungry Shark Heroes by Ubisoft Entertainment / FGOL",
           "apkFileType": null,
           "appIconColor": "#005588",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping - Robbery Bob (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hooks Google Play Billing in Robbery Bob to unlock all thief outfits, ability upgrades, and utility packs for free. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.chillingo.robberybobfree.android.row",
+          "name": "Robbery Bob",
+          "description": "Robbery Bob - Sneaky Sneak by Chillingo / Deca Games",
+          "apkFileType": null,
+          "appIconColor": "#4CAF50",
           "signatures": null,
           "targets": [
             {
@@ -393,6 +572,347 @@
           "description": "Shadow Fight 4: Arena by NEKKI / Banzai Games",
           "apkFileType": null,
           "appIconColor": "#1976D2",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping - Vector 2 (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hooks Google Play Billing in Vector 2 to obtain upgrade chips, research tokens, and accelerator packs for free. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.nekki.vector2",
+          "name": "Vector 2",
+          "description": "Vector 2 by NEKKI",
+          "apkFileType": null,
+          "appIconColor": "#00E5FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Infinite Battery & Shields - Vector 2 (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Prevents armor kit battery and shield depletion in Vector 2, keeping protective shields active against lasers, floor mines, and electric hazards. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.nekki.vector2",
+          "name": "Vector 2",
+          "description": "Vector 2 by NEKKI",
+          "apkFileType": null,
+          "appIconColor": "#00E5FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Infinite Boost - Hungry Shark (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Disables boost meter depletion in Hungry Shark World and Hungry Shark Evolution, granting unlimited turbo swimming and continuous dash attacks without waiting for recharge. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.ubisoft.hungrysharkworld",
+          "name": "Hungry Shark World",
+          "description": "Hungry Shark World by Ubisoft Entertainment / FGOL",
+          "apkFileType": null,
+          "appIconColor": "#0088CC",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "packageName": "com.fgol.HungrySharkEvolution",
+          "name": "Hungry Shark Evolution",
+          "description": "Hungry Shark Evolution by Ubisoft Entertainment / FGOL",
+          "apkFileType": null,
+          "appIconColor": "#0077AA",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Infinite Energy - Shades Roguelike (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Prevents energy consumption when entering shadow rifts and acts in Shades: Shadow Fight Roguelike. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.nekki.shadowfight.shades",
+          "name": "Shades: Shadow Fight Roguelike",
+          "description": "Shades: Shadow Fight Roguelike by NEKKI",
+          "apkFileType": null,
+          "appIconColor": "#7B1FA2",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Infinite Energy - Shadow Fight 2 (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes the 5-point energy cap in Shadow Fight 2, preventing stamina depletion so you can play unlimited duels, tournaments, and boss fights without waiting. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.nekki.shadowfight",
+          "name": "Shadow Fight 2",
+          "description": "Shadow Fight 2 by NEKKI",
+          "apkFileType": null,
+          "appIconColor": "#E65100",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Infinite Race Tickets - Beach Buggy Racing (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Prevents race ticket depletion in Beach Buggy Racing, allowing unlimited participation in Career events and Championships without waiting for ticket recharge. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.vectorunit.cobalt.googleplay",
+          "name": "Beach Buggy Racing",
+          "description": "Beach Buggy Racing by Vector Unit",
+          "apkFileType": null,
+          "appIconColor": "#FF5722",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Instant Car Upgrades - Beach Buggy Racing (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Eliminates vehicle tuning delivery and upgrade wait timers in Beach Buggy Racing for immediate horsepower, acceleration, and handling boosts. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.vectorunit.cobalt.googleplay",
+          "name": "Beach Buggy Racing",
+          "description": "Beach Buggy Racing by Vector Unit",
+          "apkFileType": null,
+          "appIconColor": "#FF5722",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Instant Chest Unlock - Shadow Fight 3 (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Eliminates the 3-hour, 8-hour, and 24-hour countdown timers on duel chests in Shadow Fight 3 for instant opening and card collection. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.nekki.shadowfight3",
+          "name": "Shadow Fight 3",
+          "description": "Shadow Fight 3 by NEKKI / Banzai Games",
+          "apkFileType": null,
+          "appIconColor": "#C2185B",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Instant Equipment Delivery - Shadow Fight 2 (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes the real-time delivery wait timers when upgrading weapons, armor, and helmets at the Forge/Blacksmith in Shadow Fight 2. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.nekki.shadowfight",
+          "name": "Shadow Fight 2",
+          "description": "Shadow Fight 2 by NEKKI",
+          "apkFileType": null,
+          "appIconColor": "#E65100",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlimited Sprint & Stamina - Robbery Bob (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Disables Bob's sprint exhaustion in Robbery Bob, giving unlimited running stamina to escape guards, residents, and guard dogs without slowing down. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.chillingo.robberybobfree.android.row",
+          "name": "Robbery Bob",
+          "description": "Robbery Bob - Sneaky Sneak by Chillingo / Deca Games",
+          "apkFileType": null,
+          "appIconColor": "#4CAF50",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock All Chapters - Robbery Bob (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks all chapters and bonus heist levels in Robbery Bob (Suburbs, Secret Labs, Downtown, Felonious Felines) without requiring 3-star level progression. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.chillingo.robberybobfree.android.row",
+          "name": "Robbery Bob",
+          "description": "Robbery Bob - Sneaky Sneak by Chillingo / Deca Games",
+          "apkFileType": null,
+          "appIconColor": "#4CAF50",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Gear Matrix - Vector 2 (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks experimental equipment slots, booster upgrades, and datacore matrices in Vector 2 without research token gating. (Experimental - Not yet tested on device).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.nekki.vector2",
+          "name": "Vector 2",
+          "description": "Vector 2 by NEKKI",
+          "apkFileType": null,
+          "appIconColor": "#00E5FF",
           "signatures": null,
           "targets": [
             {

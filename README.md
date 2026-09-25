@@ -47,26 +47,43 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.8.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.8.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;16 patches total
+> **[v1.9.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.9.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;36 patches total
 <details open>
-<summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Bypass Rewarded Ads](#bypass-rewarded-ads) | Bypasses rewarded video ads in Hungry Shark World by emulating ad completion events. |  |
+| [Fast Gold Rush - Hungry Shark (Experimental)](#fast-gold-rush-hungry-shark-experimental) | ⚠️ [En cours de développement / Non testé] Accelerates Gold Rush gauge filling in Hungry Shark World and Evolution, triggering frenzy coin multipliers and invulnerability much faster. (Experimental - Not yet tested on device). |  |
 | [Free Shopping](#free-shopping) | Unlocks shop items and in-app purchases in Hungry Shark World by cleanly replacing GoogleBillingService purchase methods and receipt validation. |  |
+| [Infinite Boost - Hungry Shark (Experimental)](#infinite-boost-hungry-shark-experimental) | ⚠️ [En cours de développement / Non testé] Disables boost meter depletion in Hungry Shark World and Hungry Shark Evolution, granting unlimited turbo swimming and continuous dash attacks without waiting for recharge. (Experimental - Not yet tested on device). |  |
 
 </details>
 
 <details open>
-<summary>📦 Hungry Shark Evolution&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Beach Buggy Racing&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Bypass Rewarded Ads - Beach Buggy Racing (Experimental)](#bypass-rewarded-ads-beach-buggy-racing-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Beach Buggy Racing for free spins of the Daily Fortune Wheel, post-race coin doublers, and instant ticket refills without viewing ads. (Experimental - Not yet tested on device). |  |
+| [Free Shopping - Beach Buggy Racing (Experimental)](#free-shopping-beach-buggy-racing-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and in-game purchase verification in Beach Buggy Racing to unlock car packages, gem bundles, and coin packs for free. (Experimental - Not yet tested on device). |  |
+| [Infinite Race Tickets - Beach Buggy Racing (Experimental)](#infinite-race-tickets-beach-buggy-racing-experimental) | ⚠️ [En cours de développement / Non testé] Prevents race ticket depletion in Beach Buggy Racing, allowing unlimited participation in Career events and Championships without waiting for ticket recharge. (Experimental - Not yet tested on device). |  |
+| [Instant Car Upgrades - Beach Buggy Racing (Experimental)](#instant-car-upgrades-beach-buggy-racing-experimental) | ⚠️ [En cours de développement / Non testé] Eliminates vehicle tuning delivery and upgrade wait timers in Beach Buggy Racing for immediate horsepower, acceleration, and handling boosts. (Experimental - Not yet tested on device). |  |
+
+</details>
+
+<details open>
+<summary>📦 Hungry Shark Evolution&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Bypass Rewarded Ads - Evolution (Experimental)](#bypass-rewarded-ads-evolution-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Hungry Shark Evolution for free revives on Game Over, doubling gold and gems, daily spins, and treasure chests. (Experimental - Not yet tested on device). |  |
+| [Fast Gold Rush - Hungry Shark (Experimental)](#fast-gold-rush-hungry-shark-experimental) | ⚠️ [En cours de développement / Non testé] Accelerates Gold Rush gauge filling in Hungry Shark World and Evolution, triggering frenzy coin multipliers and invulnerability much faster. (Experimental - Not yet tested on device). |  |
 | [Free Shopping - Evolution (Experimental)](#free-shopping-evolution-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks sharks, baby sharks, accessories, and gem packs in Hungry Shark Evolution by cleanly replacing billing service purchase methods and receipt validation. (Experimental - Not yet tested on device). |  |
+| [Infinite Boost - Hungry Shark (Experimental)](#infinite-boost-hungry-shark-experimental) | ⚠️ [En cours de développement / Non testé] Disables boost meter depletion in Hungry Shark World and Hungry Shark Evolution, granting unlimited turbo swimming and continuous dash attacks without waiting for recharge. (Experimental - Not yet tested on device). |  |
 
 </details>
 
@@ -82,35 +99,52 @@
 </details>
 
 <details open>
-<summary>📦 Shades: Shadow Fight Roguelike&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Robbery Bob&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Bypass Rewarded Ads - Robbery Bob (Experimental)](#bypass-rewarded-ads-robbery-bob-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Robbery Bob for free stealth utility gadgets (wind-up noisy toys, donuts, invisibility potions) and free level continues. (Experimental - Not yet tested on device). |  |
+| [Free Shopping - Robbery Bob (Experimental)](#free-shopping-robbery-bob-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play Billing in Robbery Bob to unlock all thief outfits, ability upgrades, and utility packs for free. (Experimental - Not yet tested on device). |  |
+| [Unlimited Sprint & Stamina - Robbery Bob (Experimental)](#unlimited-sprint-stamina-robbery-bob-experimental) | ⚠️ [En cours de développement / Non testé] Disables Bob's sprint exhaustion in Robbery Bob, giving unlimited running stamina to escape guards, residents, and guard dogs without slowing down. (Experimental - Not yet tested on device). |  |
+| [Unlock All Chapters - Robbery Bob (Experimental)](#unlock-all-chapters-robbery-bob-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all chapters and bonus heist levels in Robbery Bob (Suburbs, Secret Labs, Downtown, Felonious Felines) without requiring 3-star level progression. (Experimental - Not yet tested on device). |  |
+
+</details>
+
+<details open>
+<summary>📦 Shades: Shadow Fight Roguelike&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Bypass Rewarded Ads - Shades Roguelike (Experimental)](#bypass-rewarded-ads-shades-roguelike-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shades: Shadow Fight Roguelike for instant in-run revives (Death Defy), free perk/shade rerolls, and extra rift keys. (Experimental - Not yet tested on device). |  |
 | [Free Shopping - Shades Roguelike (Experimental)](#free-shopping-shades-roguelike-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and store receipt validation in Shades: Shadow Fight Roguelike to unlock rift keys, gems, and rogue equipment sets. (Experimental - Not yet tested on device). |  |
+| [Infinite Energy - Shades Roguelike (Experimental)](#infinite-energy-shades-roguelike-experimental) | ⚠️ [En cours de développement / Non testé] Prevents energy consumption when entering shadow rifts and acts in Shades: Shadow Fight Roguelike. (Experimental - Not yet tested on device). |  |
 
 </details>
 
 <details open>
-<summary>📦 Shadow Fight 2&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Shadow Fight 2&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Bypass Rewarded Ads - Shadow Fight 2 (Experimental)](#bypass-rewarded-ads-shadow-fight-2-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 2 for instant energy/stamina refills and post-duel coin multipliers without watching ads. (Experimental - Not yet tested on device). |  |
 | [Free Shopping - Shadow Fight 2 (Experimental)](#free-shopping-shadow-fight-2-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and receipt validation in Shadow Fight 2 to unlock coins, gems, weapons, and armor in the Dojo store. (Experimental - Not yet tested on device). |  |
+| [Infinite Energy - Shadow Fight 2 (Experimental)](#infinite-energy-shadow-fight-2-experimental) | ⚠️ [En cours de développement / Non testé] Removes the 5-point energy cap in Shadow Fight 2, preventing stamina depletion so you can play unlimited duels, tournaments, and boss fights without waiting. (Experimental - Not yet tested on device). |  |
+| [Instant Equipment Delivery - Shadow Fight 2 (Experimental)](#instant-equipment-delivery-shadow-fight-2-experimental) | ⚠️ [En cours de développement / Non testé] Removes the real-time delivery wait timers when upgrading weapons, armor, and helmets at the Forge/Blacksmith in Shadow Fight 2. (Experimental - Not yet tested on device). |  |
 
 </details>
 
 <details open>
-<summary>📦 Shadow Fight 3&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Shadow Fight 3&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Bypass Rewarded Ads - Shadow Fight 3 (Experimental)](#bypass-rewarded-ads-shadow-fight-3-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 3 for instant duel chest unlock timer skips, free booster card draws, bonus shadow energy, and quest multipliers. (Experimental - Not yet tested on device). |  |
 | [Free Shopping - Shadow Fight 3 (Experimental)](#free-shopping-shadow-fight-3-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and Banzai Games purchasing service in Shadow Fight 3 to simulate store purchases for booster packs and equipment in campaign mode. (Experimental - Not yet tested on device). |  |
+| [Instant Chest Unlock - Shadow Fight 3 (Experimental)](#instant-chest-unlock-shadow-fight-3-experimental) | ⚠️ [En cours de développement / Non testé] Eliminates the 3-hour, 8-hour, and 24-hour countdown timers on duel chests in Shadow Fight 3 for instant opening and card collection. (Experimental - Not yet tested on device). |  |
 
 </details>
 
@@ -122,6 +156,19 @@
 |----------|----------------|-----------|
 | [Bypass Rewarded Ads - Shadow Fight Arena (Experimental)](#bypass-rewarded-ads-shadow-fight-arena-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 4: Arena for free roulette spins, warrior chest timer skips, and bonus hero card rewards. (Experimental - Not yet tested on device). |  |
 | [Free Shopping - Shadow Fight Arena (Experimental)](#free-shopping-shadow-fight-arena-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and client-side store verification in Shadow Fight 4: Arena to simulate in-app purchases. (Experimental - Not yet tested on device). |  |
+
+</details>
+
+<details open>
+<summary>📦 Vector 2&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Bypass Rewarded Ads - Vector 2 (Experimental)](#bypass-rewarded-ads-vector-2-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Vector 2 for free protocol revives upon death and instant datacore decryption without watching ads. (Experimental - Not yet tested on device). |  |
+| [Free Shopping - Vector 2 (Experimental)](#free-shopping-vector-2-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play Billing in Vector 2 to obtain upgrade chips, research tokens, and accelerator packs for free. (Experimental - Not yet tested on device). |  |
+| [Infinite Battery & Shields - Vector 2 (Experimental)](#infinite-battery-shields-vector-2-experimental) | ⚠️ [En cours de développement / Non testé] Prevents armor kit battery and shield depletion in Vector 2, keeping protective shields active against lasers, floor mines, and electric hazards. (Experimental - Not yet tested on device). |  |
+| [Unlock Gear Matrix - Vector 2 (Experimental)](#unlock-gear-matrix-vector-2-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks experimental equipment slots, booster upgrades, and datacore matrices in Vector 2 without research token gating. (Experimental - Not yet tested on device). |  |
 
 </details>
 

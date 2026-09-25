@@ -1,3 +1,9 @@
+## [1.9.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.8.0...v1.9.0) (2026-09-25)
+
+### ✨ New Features
+
+* **patches:** add tailored gameplay patches and support for Beach Buggy Racing, Robbery Bob, and Vector 2 ([3b26e16](https://github.com/SatanMerde/D-moniakPatches/commit/3b26e16e2eb7f3cc9a77f8c1f70b59efc6727553))
+
 ## [1.8.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.7.0...v1.8.0) (2026-09-25)
 
 ### ✨ New Features

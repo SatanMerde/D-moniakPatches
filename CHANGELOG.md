@@ -1,4 +1,98 @@
-## [1.1.10-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.9...v1.1.10-dev.1) (2026-09-19)
+## [1.9.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.8.0...v1.9.0) (2026-09-25)
+
+### ✨ New Features
+
+* **patches:** add tailored gameplay patches and support for Beach Buggy Racing, Robbery Bob, and Vector 2 ([3b26e16](https://github.com/SatanMerde/D-moniakPatches/commit/3b26e16e2eb7f3cc9a77f8c1f70b59efc6727553))
+
+## [1.8.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.7.0...v1.8.0) (2026-09-25)
+
+### ✨ New Features
+
+* **patches:** tailor patches and descriptions specifically per application ([0db1353](https://github.com/SatanMerde/D-moniakPatches/commit/0db13538b0ed54b12dc5ee370d6eeeb1561b18b2))
+
+## [1.7.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.6.0...v1.7.0) (2026-09-25)
+
+### ✨ New Features
+
+* **shadowfight:** add full Shadow Fight saga support (2, 2 SE, 3, Shades, 4 Arena) ([5798c4e](https://github.com/SatanMerde/D-moniakPatches/commit/5798c4e8767a82ef1652ff9f505ad71f8d8dafbb))
+
+## [1.6.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.5.0...v1.6.0) (2026-09-25)
+
+### ✨ New Features
+
+* **patches:** disambiguate patch names across games to avoid bundle collision ([9a41e06](https://github.com/SatanMerde/D-moniakPatches/commit/9a41e06258be40dc929f62430b1689719e72adee))
+
+## [1.5.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.4.0...v1.5.0) (2026-09-25)
+
+### ✨ New Features
+
+* **shadowfight:** add Shadow Fight 2 experimental patches ([b7a7ab2](https://github.com/SatanMerde/D-moniakPatches/commit/b7a7ab21660203ed17f771b401fd3e90ce15fa16))
+
+## [1.4.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.3.0...v1.4.0) (2026-09-25)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** import BytecodePatchContext in FreeShoppingPatch ([c2e46f2](https://github.com/SatanMerde/D-moniakPatches/commit/c2e46f24bc18da9f64766fb7d63e43a39b4afb8b))
+
+### ✨ New Features
+
+* **hungryshark:** add Hungry Shark Evolution patches (experimental) ([9e7e24c](https://github.com/SatanMerde/D-moniakPatches/commit/9e7e24c84e3a914a184c8b8cf5955bade692fd34))
+
+## [1.3.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.2.0...v1.3.0) (2026-09-21)
+
+### ✨ New Features
+
+* **coinsnap:** mark CoinSnap VIP patch as experimental and in development ([1f60895](https://github.com/SatanMerde/D-moniakPatches/commit/1f60895a1eabf961e4552d8ed57c88e57a60a4fe))
+
+## [1.2.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.17...v1.2.0) (2026-09-21)
+
+### ✨ New Features
+
+* **coinsnap:** add CoinSnap VIP Pro unlock patch ([0c6c60d](https://github.com/SatanMerde/D-moniakPatches/commit/0c6c60d61d528f04f112c3b16edde8195a7eee1c))
+
+## [1.1.17](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.16...v1.1.17) (2026-09-20)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** generate dynamic order IDs and fire proper completion callbacks ([cd2f24b](https://github.com/SatanMerde/D-moniakPatches/commit/cd2f24b05cb3d157a971248f8816927b838e5d80))
+
+## [1.1.16](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.15...v1.1.16) (2026-09-20)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** fire correct completion callback to allow repeated purchases ([8808175](https://github.com/SatanMerde/D-moniakPatches/commit/88081756d6c4a2a12edc4e88e4f06bbc252362bc))
+
+## [1.1.15](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.14...v1.1.15) (2026-09-19)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** fix inverted branch conditions preventing shop callbacks from firing ([52525be](https://github.com/SatanMerde/D-moniakPatches/commit/52525be0d529ce6c8ea98c9394861d20ce43746b))
+
+## [1.1.14](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.13...v1.1.14) (2026-09-19)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** clean method replacement for google billing service and preserve houston bytecode ([979538c](https://github.com/SatanMerde/D-moniakPatches/commit/979538cd12eab95c7e012e1bf0adc2887cd06839))
+
+## [1.1.13](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.12...v1.1.13) (2026-09-19)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** guard onPurchasesUpdated against cold startup queries to fix loading hang ([45250df](https://github.com/SatanMerde/D-moniakPatches/commit/45250df8babba19c18c70af4f890c5fce2b2d887))
+
+## [1.1.12](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.11...v1.1.12) (2026-09-19)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** resolve loading screen hang by preserving initialise and fix purchase completion ([089831e](https://github.com/SatanMerde/D-moniakPatches/commit/089831e0fa3e9931e801014734ce5b05bee86832))
+
+## [1.1.11](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.10...v1.1.11) (2026-09-19)
+
+### 🐛 Bug Fixes
+
+* **hungryshark:** bypass ubisoft orion and houston validation to resolve shop freeze ([7cac43a](https://github.com/SatanMerde/D-moniakPatches/commit/7cac43ad61ebc8dd49b7276114cc2cae7274d1f0))
+
+## [1.1.10](https://github.com/SatanMerde/D-moniakPatches/compare/v1.1.9...v1.1.10) (2026-09-19)
 
 ### 🐛 Bug Fixes
 

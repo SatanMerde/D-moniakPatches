@@ -2,43 +2,23 @@ package com.dmoniak.patches.shadowfight
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
-import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.hungryshark.util.replaceMethod
-import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SHADOW_FIGHT_2
-import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SHADOW_FIGHT_2_SE
-import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SHADOW_FIGHT_3
-import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SHADOW_FIGHT_4
-import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SHADOW_FIGHT_SHADES
 import java.util.logging.Logger
 
-@Suppress("unused")
-val shadowFightFreeShoppingPatch = bytecodePatch(
-    name = "Free Shopping - Shadow Fight (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and purchase verification in Shadow Fight 2, 3, Shades & Arena to simulate successful in-app purchases. (Experimental - Not yet tested on device).",
-) {
-    compatibleWith(COMPATIBILITY_SHADOW_FIGHT_2)
-    compatibleWith(COMPATIBILITY_SHADOW_FIGHT_2_SE)
-    compatibleWith(COMPATIBILITY_SHADOW_FIGHT_3)
-    compatibleWith(COMPATIBILITY_SHADOW_FIGHT_SHADES)
-    compatibleWith(COMPATIBILITY_SHADOW_FIGHT_4)
-
-    execute {
-        val logger = Logger.getLogger(this::class.java.name)
-        executeShadowFightFreeShoppingLogic(logger, "Shadow Fight Saga")
-    }
-}
-
+/**
+ * Shared Google Play Billing and store receipt verification hooks tailored for games in the Shadow Fight series.
+ */
 fun BytecodePatchContext.executeShadowFightFreeShoppingLogic(logger: Logger, gameName: String) {
-    logger.info("Executing Free Shopping patch for $gameName...")
+    logger.info("Executing Free Shopping patch specifically tailored for $gameName...")
 
     var isReadyCount = 0
     var responseCodeCount = 0
     var purchaseStateCount = 0
     var isAckCount = 0
     var verifyCount = 0
-    var unityIapCount = 0
+    var storeCount = 0
 
     classDefForEach { classDef ->
         val type = classDef.type
@@ -55,7 +35,7 @@ fun BytecodePatchContext.executeShadowFightFreeShoppingLogic(logger: Logger, gam
             val retType = method.returnType
 
             // =========================================================================
-            // 1. Google Play Billing Client Core Methods
+            // 1. Google Play Billing Client Core Methods (isReady, getResponseCode, etc.)
             // =========================================================================
             if (type.contains("billingclient")) {
                 // 1a. BillingClient.isReady() -> boolean (always ready)
@@ -70,9 +50,9 @@ fun BytecodePatchContext.executeShadowFightFreeShoppingLogic(logger: Logger, gam
                             """.trimIndent(),
                         )
                         isReadyCount++
-                        logger.info("Patched isReady in $type")
+                        logger.info("[$gameName] Patched isReady in $type")
                     } catch (e: Exception) {
-                        logger.warning("Failed to patch isReady in $type: ${e.message}")
+                        logger.warning("[$gameName] Failed to patch isReady in $type: ${e.message}")
                     }
                 }
 
@@ -88,9 +68,9 @@ fun BytecodePatchContext.executeShadowFightFreeShoppingLogic(logger: Logger, gam
                             """.trimIndent(),
                         )
                         responseCodeCount++
-                        logger.info("Patched BillingResult.getResponseCode in $type")
+                        logger.info("[$gameName] Patched BillingResult.getResponseCode in $type")
                     } catch (e: Exception) {
-                        logger.warning("Failed to patch getResponseCode: ${e.message}")
+                        logger.warning("[$gameName] Failed to patch getResponseCode: ${e.message}")
                     }
                 }
 
@@ -106,9 +86,9 @@ fun BytecodePatchContext.executeShadowFightFreeShoppingLogic(logger: Logger, gam
                             """.trimIndent(),
                         )
                         purchaseStateCount++
-                        logger.info("Patched Purchase.getPurchaseState in $type")
+                        logger.info("[$gameName] Patched Purchase.getPurchaseState in $type")
                     } catch (e: Exception) {
-                        logger.warning("Failed to patch getPurchaseState: ${e.message}")
+                        logger.warning("[$gameName] Failed to patch getPurchaseState: ${e.message}")
                     }
                 }
 
@@ -124,9 +104,9 @@ fun BytecodePatchContext.executeShadowFightFreeShoppingLogic(logger: Logger, gam
                             """.trimIndent(),
                         )
                         isAckCount++
-                        logger.info("Patched Purchase.isAcknowledged in $type")
+                        logger.info("[$gameName] Patched Purchase.isAcknowledged in $type")
                     } catch (e: Exception) {
-                        logger.warning("Failed to patch isAcknowledged: ${e.message}")
+                        logger.warning("[$gameName] Failed to patch isAcknowledged: ${e.message}")
                     }
                 }
             }
@@ -151,17 +131,17 @@ fun BytecodePatchContext.executeShadowFightFreeShoppingLogic(logger: Logger, gam
                         """.trimIndent(),
                     )
                     verifyCount++
-                    logger.info("Patched verification method ${type}->${mName}")
+                    logger.info("[$gameName] Patched verification method ${type}->${mName}")
                 } catch (e: Exception) {
-                    logger.warning("Failed to patch ${type}->${mName}: ${e.message}")
+                    logger.warning("[$gameName] Failed to patch ${type}->${mName}: ${e.message}")
                 }
             }
 
             // =========================================================================
-            // 3. Unity IAP / Nekki Store Helpers
+            // 3. Unity IAP, Banzai Games & Nekki Store Hooks
             // =========================================================================
-            if (type.contains("purchasing") || type.contains("billing") || type.contains("nekki")) {
-                // isPurchased() -> true
+            if (type.contains("purchasing") || type.contains("billing") || type.contains("banzai") || type.contains("nekki")) {
+                // isPurchased() / hasPurchased() -> true
                 if (!isStatic && (mName == "isPurchased" || mName == "hasPurchased") && retType == "Z" && pTypes.isEmpty()) {
                     try {
                         replaceMethod(
@@ -172,10 +152,10 @@ fun BytecodePatchContext.executeShadowFightFreeShoppingLogic(logger: Logger, gam
                             return v0
                             """.trimIndent(),
                         )
-                        unityIapCount++
-                        logger.info("Patched store method ${type}->${mName} -> true")
+                        storeCount++
+                        logger.info("[$gameName] Patched store method ${type}->${mName} -> true")
                     } catch (e: Exception) {
-                        logger.warning("Failed to patch ${type}->${mName}: ${e.message}")
+                        logger.warning("[$gameName] Failed to patch ${type}->${mName}: ${e.message}")
                     }
                 }
             }
@@ -183,8 +163,7 @@ fun BytecodePatchContext.executeShadowFightFreeShoppingLogic(logger: Logger, gam
     }
 
     logger.info(
-        "Shadow Fight 2 Free Shopping results: isReady=$isReadyCount, getResponseCode=$responseCodeCount, " +
-        "purchaseState=$purchaseStateCount, isAcknowledged=$isAckCount, verify=$verifyCount, unityIap=$unityIapCount."
+        "[$gameName] Free Shopping results: isReady=$isReadyCount, getResponseCode=$responseCodeCount, " +
+        "purchaseState=$purchaseStateCount, isAcknowledged=$isAckCount, verify=$verifyCount, store=$storeCount."
     )
-    logger.info("Free Shopping patch execution for $gameName finished.")
 }

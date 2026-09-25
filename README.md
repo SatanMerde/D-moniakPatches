@@ -156,12 +156,22 @@
 Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morpheapp), ciblant actuellement **Hungry Shark World** (`com.ubisoft.hungrysharkworld`), **Hungry Shark Evolution** (`com.fgol.HungrySharkEvolution`), **Hungry Shark Heroes** (`com.ubisoft.hungrysharkheroes`), **CoinSnap: Coin Identifier** (`com.coinidentifyer.ai`), ainsi que toute la saga **Shadow Fight** de NEKKI : **Shadow Fight 2** (`com.nekki.shadowfight`), **Shadow Fight 2 Special Edition** (`com.nekki.shadowfight2.specialedition`), **Shadow Fight 3** (`com.nekki.shadowfight3`), **Shades: Shadow Fight Roguelike** (`com.nekki.shadowfight.shades`) et **Shadow Fight 4: Arena** (`com.nekki.shadowfightarena`).
 
 Ce projet permet d'étudier et de débloquer :
-- **Hungry Shark World, Evolution & Heroes :** Les flux de récompenses publicitaires (réanimations gratuites lors d'un Game Over, doublement des pièces d'or et des gemmes, coffres de boutique et tirages quotidiens) et les articles et achats intégrés dans la boutique du jeu (Free Shopping).  
-  > ⚠️ **Note Hungry Shark Evolution & Heroes :** Les patchs pour Hungry Shark Evolution et Heroes sont actuellement **en cours de développement et n'ont pas encore été testés en conditions réelles** sur un appareil physique.
+- **Hungry Shark World & Evolution :** Réanimations gratuites en Game Over, doublement des pièces et gemmes, coffres de boutique et tirages quotidiens, ainsi que le déblocage des requins, bébés requins et packs de gemmes dans la boutique (Free Shopping).  
+  > ⚠️ **Note Hungry Shark Evolution :** Les patchs pour Hungry Shark Evolution sont actuellement **en cours de développement et n'ont pas encore été testés en conditions réelles** sur un appareil physique.
+- **Hungry Shark Heroes :** Réduction à 0 des temps d'incubation des œufs de requins, réanimations gratuites en arène de combat, et déblocage des bundles d'entraînement et d'extension du récif (Free Shopping).  
+  > ⚠️ **Note Hungry Shark Heroes :** Les patchs pour Hungry Shark Heroes sont actuellement **en cours de développement et n'ont pas encore été testés en conditions réelles** sur un appareil physique.
 - **CoinSnap :** L'accès aux fonctionnalités VIP Pro (identifications illimitées, estimation et cotation détaillées, stockage complet des collections de pièces, et suppression du paywall au démarrage).  
   > ⚠️ **Note CoinSnap :** Ce patch est actuellement **en cours de développement et n'a pas encore été testé en conditions réelles** sur un appareil physique. Vos retours sont les bienvenus !
-- **Saga Shadow Fight (2, 2 SE, 3, Shades & 4 Arena) :** Le contournement des publicités avec récompense pour recharger l'énergie instantanément et doubler les gains, ainsi que la simulation des achats dans la boutique intégrée (Free Shopping).  
-  > ⚠️ **Note Shadow Fight Saga :** Les patchs pour la saga Shadow Fight sont actuellement **en cours de développement et n'ont pas encore été testés en conditions réelles** sur un appareil physique.
+- **Shadow Fight 2 :** Recharge instantanée des 5 barres d'énergie/stamina, doublement des pièces d'or après duel, et déblocage de toutes les armes, armures et gemmes du Dojo (Free Shopping).  
+  > ⚠️ **Note Shadow Fight 2 :** Patchs en cours de développement, non testés sur appareil physique.
+- **Shadow Fight 2 Special Edition :** Édition payante sans aucune pub et à énergie illimitée par défaut. Le patch Free Shopping débloque immédiatement les équipements premium et gemmes sans farm intensif.  
+  > ⚠️ **Note SF2 Special Edition :** Patch en cours de développement, non testé sur appareil physique.
+- **Shadow Fight 3 :** Ouverture immédiate des coffres de duel sans attente, tirages gratuits de cartes booster, bonus d'énergie des ombres, et simulation d'achats en mode campagne (Free Shopping).  
+  > ⚠️ **Note Shadow Fight 3 :** Patchs en cours de développement, non testés sur appareil physique.
+- **Shades: Shadow Fight Roguelike :** Réanimation immédiate lors d'un run (Death Defy), relances gratuites de nuances/atouts, clés de faille gratuites, et déblocage de la boutique de nuances.  
+  > ⚠️ **Note Shades :** Patchs en cours de développement, non testés sur appareil physique.
+- **Shadow Fight 4: Arena :** Tours de roulette gratuits, ouverture instantanée des coffres de guerrier, cartes de héros bonus, et achats simulés dans l'arène.  
+  > ⚠️ **Note Shadow Fight Arena :** Patchs en cours de développement, non testés sur appareil physique.
 
 ### 📲 Comment utiliser dans Morphe Manager
 
@@ -207,12 +217,22 @@ Ce logiciel est fourni « tel quel », sans garantie d'aucune sorte.
 Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, currently targeting **Hungry Shark World** (`com.ubisoft.hungrysharkworld`), **Hungry Shark Evolution** (`com.fgol.HungrySharkEvolution`), **Hungry Shark Heroes** (`com.ubisoft.hungrysharkheroes`), **CoinSnap: Coin Identifier** (`com.coinidentifyer.ai`), and the entire **Shadow Fight** saga by NEKKI: **Shadow Fight 2** (`com.nekki.shadowfight`), **Shadow Fight 2 Special Edition** (`com.nekki.shadowfight2.specialedition`), **Shadow Fight 3** (`com.nekki.shadowfight3`), **Shades: Shadow Fight Roguelike** (`com.nekki.shadowfight.shades`), and **Shadow Fight 4: Arena** (`com.nekki.shadowfightarena`).
 
 This project allows studying and unlocking:
-- **Hungry Shark World, Evolution & Heroes:** Rewarded video ad flows (free revives on Game Over, doubling gold and gems, shop chests, daily spins) and in-game shop items and in-app purchases (Free Shopping).  
-  > ⚠️ **Hungry Shark Evolution & Heroes Notice:** Patches for Hungry Shark Evolution and Heroes are currently **under active development and have not yet been tested in real-world conditions** on a physical device.
+- **Hungry Shark World & Evolution:** Free revives on Game Over, doubling gold and gems, shop chests, daily spins, and unlocking all sharks, accessories, and gem packs (Free Shopping).  
+  > ⚠️ **Hungry Shark Evolution Notice:** Patches for Hungry Shark Evolution are currently **under active development and have not yet been tested in real-world conditions** on a physical device.
+- **Hungry Shark Heroes:** Instant egg incubation and hatching, arena battle revives, reward card multipliers, and shark training/reef expansions (Free Shopping).  
+  > ⚠️ **Hungry Shark Heroes Notice:** Patches for Hungry Shark Heroes are currently **under active development and have not yet been tested in real-world conditions** on a physical device.
 - **CoinSnap:** VIP Pro feature access (unlimited coin identifications, full valuation and grading reports, unlimited coin collection storage, and disabled startup paywall prompts).  
   > ⚠️ **CoinSnap Notice:** This patch is currently **under active development and have not yet been tested in real-world conditions** on a physical device. Feedback and bug reports are welcome!
-- **Shadow Fight Saga (2, 2 SE, 3, Shades & 4 Arena):** Bypassing rewarded video ads for instant energy refills and coin multipliers, plus in-app purchase simulation in the shop (Free Shopping).  
-  > ⚠️ **Shadow Fight Saga Notice:** Patches for the Shadow Fight saga are currently **under active development and have not yet been tested in real-world conditions** on a physical device.
+- **Shadow Fight 2:** Instant energy/stamina refills, post-duel coin multipliers, and Dojo shop equipment/weapons/gem unlocks (Free Shopping).  
+  > ⚠️ **Shadow Fight 2 Notice:** Patches under active development, not yet tested on physical device.
+- **Shadow Fight 2 Special Edition:** Premium paid edition with zero ads and unlimited energy built-in. Free Shopping patch unlocks premium gear and gems without grinding.  
+  > ⚠️ **SF2 Special Edition Notice:** Patch under active development, not yet tested on physical device.
+- **Shadow Fight 3:** Instant duel chest timer skips, free booster card draws, bonus shadow energy, quest multipliers, and campaign gear shop unlocks (Free Shopping).  
+  > ⚠️ **Shadow Fight 3 Notice:** Patches under active development, not yet tested on physical device.
+- **Shades: Shadow Fight Roguelike:** Instant in-run revives (Death Defy), free shade/perk rerolls, bonus rift keys, and rogue equipment set shop unlocks (Free Shopping).  
+  > ⚠️ **Shades Notice:** Patches under active development, not yet tested on physical device.
+- **Shadow Fight 4: Arena:** Free roulette spins, instant warrior chest timer skips, bonus hero card draws, and arena store preview simulation (Free Shopping).  
+  > ⚠️ **Shadow Fight Arena Notice:** Patches under active development, not yet tested on physical device.
 
 ### 📲 How to Use in Morphe Manager
 

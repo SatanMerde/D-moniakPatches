@@ -65,5 +65,26 @@ object Constants {
         description = "Shadow Fight 4: Arena by NEKKI / Banzai Games",
         appIconColor = 0x1976D2
     )
+
+    val COMPATIBILITY_BEACH_BUGGY_RACING = Compatibility(
+        packageName = "com.vectorunit.cobalt.googleplay",
+        name = "Beach Buggy Racing",
+        description = "Beach Buggy Racing by Vector Unit",
+        appIconColor = 0xFF5722
+    )
+
+    val COMPATIBILITY_ROBBERY_BOB = Compatibility(
+        packageName = "com.chillingo.robberybobfree.android.row",
+        name = "Robbery Bob",
+        description = "Robbery Bob - Sneaky Sneak by Chillingo / Deca Games",
+        appIconColor = 0x4CAF50
+    )
+
+    val COMPATIBILITY_VECTOR_2 = Compatibility(
+        packageName = "com.nekki.vector2",
+        name = "Vector 2",
+        description = "Vector 2 by NEKKI",
+        appIconColor = 0x00E5FF
+    )
 }
 

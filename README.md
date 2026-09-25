@@ -152,25 +152,51 @@
 ## 🇫🇷 Français
 
 ### ❓ À propos
-Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morpheapp), ciblant actuellement **Hungry Shark World** (`com.ubisoft.hungrysharkworld`), **Hungry Shark Evolution** (`com.fgol.HungrySharkEvolution`), **Hungry Shark Heroes** (`com.ubisoft.hungrysharkheroes`), **CoinSnap: Coin Identifier** (`com.coinidentifyer.ai`), ainsi que toute la saga **Shadow Fight** de NEKKI : **Shadow Fight 2** (`com.nekki.shadowfight`), **Shadow Fight 2 Special Edition** (`com.nekki.shadowfight2.specialedition`), **Shadow Fight 3** (`com.nekki.shadowfight3`), **Shades: Shadow Fight Roguelike** (`com.nekki.shadowfight.shades`) et **Shadow Fight 4: Arena** (`com.nekki.shadowfightarena`).
+Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morpheapp), ciblant des jeux et applications populaires **100% absents du catalogue de patchs officiel d'Awesome Morphe** :
+- **Hungry Shark Series :** Hungry Shark World (`com.ubisoft.hungrysharkworld`), Hungry Shark Evolution (`com.fgol.HungrySharkEvolution`), Hungry Shark Heroes (`com.ubisoft.hungrysharkheroes`).
+- **Shadow Fight Series :** Shadow Fight 2 (`com.nekki.shadowfight`), Shadow Fight 2 Special Edition (`com.nekki.shadowfight2.specialedition`), Shadow Fight 3 (`com.nekki.shadowfight3`), Shades: Shadow Fight Roguelike (`com.nekki.shadowfight.shades`), Shadow Fight 4: Arena (`com.nekki.shadowfightarena`).
+- **Beach Buggy Racing :** (`com.vectorunit.cobalt.googleplay`)
+- **Robbery Bob :** (`com.chillingo.robberybobfree.android.row`)
+- **Vector 2 :** (`com.nekki.vector2`)
+- **CoinSnap: Coin Identifier :** (`com.coinidentifyer.ai`)
 
-Ce projet permet d'étudier et de débloquer :
-- **Hungry Shark World & Evolution :** Réanimations gratuites en Game Over, doublement des pièces et gemmes, coffres de boutique et tirages quotidiens, ainsi que le déblocage des requins, bébés requins et packs de gemmes dans la boutique (Free Shopping).  
-  > ⚠️ **Note Hungry Shark Evolution :** Les patchs pour Hungry Shark Evolution sont actuellement **en cours de développement et n'ont pas encore été testés en conditions réelles** sur un appareil physique.
-- **Hungry Shark Heroes :** Réduction à 0 des temps d'incubation des œufs de requins, réanimations gratuites en arène de combat, et déblocage des bundles d'entraînement et d'extension du récif (Free Shopping).  
-  > ⚠️ **Note Hungry Shark Heroes :** Les patchs pour Hungry Shark Heroes sont actuellement **en cours de développement et n'ont pas encore été testés en conditions réelles** sur un appareil physique.
-- **CoinSnap :** L'accès aux fonctionnalités VIP Pro (identifications illimitées, estimation et cotation détaillées, stockage complet des collections de pièces, et suppression du paywall au démarrage).  
-  > ⚠️ **Note CoinSnap :** Ce patch est actuellement **en cours de développement et n'a pas encore été testé en conditions réelles** sur un appareil physique. Vos retours sont les bienvenus !
-- **Shadow Fight 2 :** Recharge instantanée des 5 barres d'énergie/stamina, doublement des pièces d'or après duel, et déblocage de toutes les armes, armures et gemmes du Dojo (Free Shopping).  
-  > ⚠️ **Note Shadow Fight 2 :** Patchs en cours de développement, non testés sur appareil physique.
-- **Shadow Fight 2 Special Edition :** Édition payante sans aucune pub et à énergie illimitée par défaut. Le patch Free Shopping débloque immédiatement les équipements premium et gemmes sans farm intensif.  
-  > ⚠️ **Note SF2 Special Edition :** Patch en cours de développement, non testé sur appareil physique.
-- **Shadow Fight 3 :** Ouverture immédiate des coffres de duel sans attente, tirages gratuits de cartes booster, bonus d'énergie des ombres, et simulation d'achats en mode campagne (Free Shopping).  
-  > ⚠️ **Note Shadow Fight 3 :** Patchs en cours de développement, non testés sur appareil physique.
-- **Shades: Shadow Fight Roguelike :** Réanimation immédiate lors d'un run (Death Defy), relances gratuites de nuances/atouts, clés de faille gratuites, et déblocage de la boutique de nuances.  
-  > ⚠️ **Note Shades :** Patchs en cours de développement, non testés sur appareil physique.
-- **Shadow Fight 4: Arena :** Tours de roulette gratuits, ouverture instantanée des coffres de guerrier, cartes de héros bonus, et achats simulés dans l'arène.  
-  > ⚠️ **Note Shadow Fight Arena :** Patchs en cours de développement, non testés sur appareil physique.
+Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
+- **Hungry Shark (World & Evolution) :**
+  - **Infinite Boost :** Jauge de turbo infinie, nage et charges sous-marines à vitesse maximale sans épuisement du boost.
+  - **Fast Gold Rush :** Remplissage ultra-rapide de la jauge de ruée vers l'or (Gold Rush) pour multiplier les pièces en mode frénésie.
+  - **Bypass Rewarded Ads :** Réanimations gratuites en Game Over, doublement des récompenses sans regarder de vidéo publicitaire.
+  - **Free Shopping :** Déblocage des requins, familiers, accessoires et packs de gemmes.
+- **Hungry Shark Heroes :** Réduction à 0 des temps d'incubation des œufs de requins, réanimations gratuites en arène de combat, et déblocage de l'extension de récif.
+- **Shadow Fight 2 :**
+  - **Infinite Energy :** Suppression de la limite d'énergie (5/5), duels et tournois illimités sans attendre 10 minutes par combat.
+  - **Instant Equipment Delivery :** Suppression des comptes à rebours de livraison de la forge lors de l'amélioration des armes et armures.
+  - **Bypass Rewarded Ads & Free Shopping :** Recharge d'énergie publicitaire instantanée et déblocage d'armes/armures du Dojo.
+- **Shadow Fight 2 Special Edition :** Édition premium sans pub avec déblocage Free Shopping des équipements légendaires.
+- **Shadow Fight 3 :**
+  - **Instant Chest Unlock :** Suppression des décomptes d'attente de 3h, 8h et 24h sur les coffres de duel.
+  - **Bypass Rewarded Ads & Free Shopping :** Tirages booster et packs de cartes sans publicité ni micro-paiements.
+- **Shades: Shadow Fight Roguelike :**
+  - **Infinite Energy :** Énergie infinie pour enchaîner les failles d'ombres sans temps de recharge.
+  - **Bypass Rewarded Ads & Free Shopping :** Réanimation Death Defy gratuite, relances gratuites de nuances.
+- **Shadow Fight 4: Arena :** Tours de roulette gratuits, ouverture immédiate des coffres de guerrier, et cartes bonus.
+- **Beach Buggy Racing (NOUVEAU - 0 patch sur Awesome Morphe) :**
+  - **Infinite Race Tickets :** Les 5 tickets de course restent pleins en permanence pour jouer en Carrière et Championnats sans arrêt.
+  - **Instant Car Upgrades :** Suppression des temps d'attente lors de l'amélioration de la vitesse, de l'accélération et de la tenue de route des karts.
+  - **Bypass Rewarded Ads :** Tours gratuits de la Roue de la Fortune Quotidienne, doublement des gains de pièces et tickets gratuits sans pub.
+  - **Free Shopping :** Déblocage des bolides, packs de gemmes et capacités spéciales des pilotes.
+- **Robbery Bob (NOUVEAU - 0 patch sur Awesome Morphe) :**
+  - **Unlimited Sprint & Stamina :** Bob ne s'essouffle plus en courant ! Sprint illimité à pleine vitesse pour semer les gardes et les chiens.
+  - **Unlock All Chapters :** Déblocage instantané de tous les chapitres (Banlieue, Laboratoires secrets, Centre-ville, Félineries félonnes).
+  - **Bypass Rewarded Ads :** Gadgets furtifs gratuits (potions d'invisibilité, donuts, jouets sonores) et reprises de niveau sans pub.
+  - **Free Shopping :** Déblocage des costumes de voleur et des améliorations d'équipements.
+- **Vector 2 (NOUVEAU - 0 patch sur Awesome Morphe) :**
+  - **Infinite Battery & Shields :** Les charges des kits d'armure et de boucliers ne se déchargent jamais, protégeant le coureur contre les lasers et mines.
+  - **Unlock Gear Matrix :** Déblocage des emplacements d'équipements expérimentaux et matrices de datacores sans verrouillage de recherche.
+  - **Bypass Rewarded Ads :** Réanimations d'urgence gratuites lors des runs et décryptage instantané des datacores sans vidéo.
+  - **Free Shopping :** Jetons de recherche, accélérateurs et puces de mise à niveau gratuits.
+- **CoinSnap :** Déblocage VIP Pro (identifications illimitées, cotations et évaluations détaillées, suppression du paywall).
+
+> ⚠️ **Note Générale :** Tous les nouveaux patchs indiqués `(Experimental)` sont **en cours de développement et non encore validés par test sur appareil physique**.
 
 ### 📲 Comment utiliser dans Morphe Manager
 
@@ -180,8 +206,8 @@ Ou manuellement dans l'application :
 1. Lancez **Morphe Manager**.
 2. Rendez-vous dans **Settings** (Paramètres) > **Patch Sources** (Sources de patchs).
 3. Ajoutez la source : `SatanMerde/D-moniakPatches`.
-4. Sélectionnez votre application ou jeu (ex. **Shadow Fight 2**, **Shadow Fight 3**, etc.).
-5. Cochez les patchs souhaités (**Bypass Rewarded Ads**, **Free Shopping**).
+4. Sélectionnez votre application ou jeu (ex. **Beach Buggy Racing**, **Robbery Bob**, **Vector 2**, **Hungry Shark**, etc.).
+5. Cochez les patchs souhaités.
 6. Cliquez sur **Patcher** puis procédez à l'installation.
 
 ### 💬 Signaler un bug ou demander un patch
@@ -213,31 +239,54 @@ Ce logiciel est fourni « tel quel », sans garantie d'aucune sorte.
 ## 🇬🇧 English
 
 ### ❓ About
-Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, currently targeting **Hungry Shark World** (`com.ubisoft.hungrysharkworld`), **Hungry Shark Evolution** (`com.fgol.HungrySharkEvolution`), **Hungry Shark Heroes** (`com.ubisoft.hungrysharkheroes`), **CoinSnap: Coin Identifier** (`com.coinidentifyer.ai`), and the entire **Shadow Fight** saga by NEKKI: **Shadow Fight 2** (`com.nekki.shadowfight`), **Shadow Fight 2 Special Edition** (`com.nekki.shadowfight2.specialedition`), **Shadow Fight 3** (`com.nekki.shadowfight3`), **Shades: Shadow Fight Roguelike** (`com.nekki.shadowfight.shades`), and **Shadow Fight 4: Arena** (`com.nekki.shadowfightarena`).
+Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, targeting popular apps and games **100% absent from the official Awesome Morphe catalog**:
+- **Hungry Shark Series:** Hungry Shark World (`com.ubisoft.hungrysharkworld`), Hungry Shark Evolution (`com.fgol.HungrySharkEvolution`), Hungry Shark Heroes (`com.ubisoft.hungrysharkheroes`).
+- **Shadow Fight Series:** Shadow Fight 2 (`com.nekki.shadowfight`), Shadow Fight 2 Special Edition (`com.nekki.shadowfight2.specialedition`), Shadow Fight 3 (`com.nekki.shadowfight3`), Shades: Shadow Fight Roguelike (`com.nekki.shadowfight.shades`), Shadow Fight 4: Arena (`com.nekki.shadowfightarena`).
+- **Beach Buggy Racing:** (`com.vectorunit.cobalt.googleplay`)
+- **Robbery Bob:** (`com.chillingo.robberybobfree.android.row`)
+- **Vector 2:** (`com.nekki.vector2`)
+- **CoinSnap: Coin Identifier:** (`com.coinidentifyer.ai`)
 
-This project allows studying and unlocking:
-- **Hungry Shark World & Evolution:** Free revives on Game Over, doubling gold and gems, shop chests, daily spins, and unlocking all sharks, accessories, and gem packs (Free Shopping).  
-  > ⚠️ **Hungry Shark Evolution Notice:** Patches for Hungry Shark Evolution are currently **under active development and have not yet been tested in real-world conditions** on a physical device.
-- **Hungry Shark Heroes:** Instant egg incubation and hatching, arena battle revives, reward card multipliers, and shark training/reef expansions (Free Shopping).  
-  > ⚠️ **Hungry Shark Heroes Notice:** Patches for Hungry Shark Heroes are currently **under active development and have not yet been tested in real-world conditions** on a physical device.
-- **CoinSnap:** VIP Pro feature access (unlimited coin identifications, full valuation and grading reports, unlimited coin collection storage, and disabled startup paywall prompts).  
-  > ⚠️ **CoinSnap Notice:** This patch is currently **under active development and have not yet been tested in real-world conditions** on a physical device. Feedback and bug reports are welcome!
-- **Shadow Fight 2:** Instant energy/stamina refills, post-duel coin multipliers, and Dojo shop equipment/weapons/gem unlocks (Free Shopping).  
-  > ⚠️ **Shadow Fight 2 Notice:** Patches under active development, not yet tested on physical device.
-- **Shadow Fight 2 Special Edition:** Premium paid edition with zero ads and unlimited energy built-in. Free Shopping patch unlocks premium gear and gems without grinding.  
-  > ⚠️ **SF2 Special Edition Notice:** Patch under active development, not yet tested on physical device.
-- **Shadow Fight 3:** Instant duel chest timer skips, free booster card draws, bonus shadow energy, quest multipliers, and campaign gear shop unlocks (Free Shopping).  
-  > ⚠️ **Shadow Fight 3 Notice:** Patches under active development, not yet tested on physical device.
-- **Shades: Shadow Fight Roguelike:** Instant in-run revives (Death Defy), free shade/perk rerolls, bonus rift keys, and rogue equipment set shop unlocks (Free Shopping).  
-  > ⚠️ **Shades Notice:** Patches under active development, not yet tested on physical device.
-- **Shadow Fight 4: Arena:** Free roulette spins, instant warrior chest timer skips, bonus hero card draws, and arena store preview simulation (Free Shopping).  
-  > ⚠️ **Shadow Fight Arena Notice:** Patches under active development, not yet tested on physical device.
+This project provides gameplay-specific patches tailored to each game:
+- **Hungry Shark (World & Evolution):**
+  - **Infinite Boost:** Turbo boost gauge never drains, allowing continuous underwater swimming and dashes at maximum speed.
+  - **Fast Gold Rush:** Rapidly charges the Gold Rush frenzy meter for frequent coin multipliers and invulnerability.
+  - **Bypass Rewarded Ads & Free Shopping:** Free revives on Game Over, doubled rewards, and shop item unlocks.
+- **Shadow Fight 2:**
+  - **Infinite Energy:** Removes the 5-point stamina limit; duel endlessly without waiting 10 minutes per fight.
+  - **Instant Equipment Delivery:** Skips forge delivery timers when upgrading weapons, armor, and helmets.
+  - **Bypass Rewarded Ads & Free Shopping:** Instant energy refills and full Dojo equipment store unlocks.
+- **Shadow Fight 3:**
+  - **Instant Chest Unlock:** Eliminates 3-hour, 8-hour, and 24-hour countdown timers on duel chests.
+  - **Bypass Rewarded Ads & Free Shopping:** Free booster pack card draws and in-game shop items.
+- **Shades: Shadow Fight Roguelike:**
+  - **Infinite Energy:** Endless rift runs without waiting for stamina recharge.
+  - **Bypass Rewarded Ads & Free Shopping:** Free Death Defy revives and perk rerolls.
+- **Beach Buggy Racing (NEW - 0 patches on Awesome Morphe):**
+  - **Infinite Race Tickets:** Race tickets remain perpetually at 5/5 for nonstop Career and Championship play.
+  - **Instant Car Upgrades:** Tuning wait times eliminated for top speed, acceleration, handling, and toughness.
+  - **Bypass Rewarded Ads:** Free spins on the Daily Fortune Wheel, post-race coin doublers, and instant ticket fills without ads.
+  - **Free Shopping:** Unlocks cars, gem bundles, coin packs, and driver power-ups.
+- **Robbery Bob (NEW - 0 patches on Awesome Morphe):**
+  - **Unlimited Sprint & Stamina:** Bob never runs out of breath; sprint continuously away from guards, cameras, and guard dogs.
+  - **Unlock All Chapters:** Immediate access to all chapters and bonus heist levels without 3-star level gating.
+  - **Bypass Rewarded Ads:** Free stealth gadgets (invisibility potions, donuts, wind-up toys) and level retries without ads.
+  - **Free Shopping:** Free thief costumes and stealth ability upgrades.
+- **Vector 2 (NEW - 0 patches on Awesome Morphe):**
+  - **Infinite Battery & Shields:** Armor kit batteries and defensive shields never deplete, protecting the runner from lethal lasers and mines.
+  - **Unlock Gear Matrix:** Unlocks experimental equipment slots and datacore upgrade matrices.
+  - **Bypass Rewarded Ads:** Free protocol revives upon death and instant datacore decryption without ads.
+  - **Free Shopping:** Free upgrade chips, research tokens, and accelerator packs.
+- **CoinSnap:** VIP Pro unlock (unlimited identifications, full coin valuation and grading, disabled startup paywall).
+
+> ⚠️ **General Notice:** All new patches marked `(Experimental)` are **under active development and have not yet been tested in real-world conditions** on physical devices.
 
 ### 📲 How to Use in Morphe Manager
 
 👉 **[Add D-moniak Patches to Morphe Manager (1-Click)](https://morphe.software/add-source?github=SatanMerde/D-moniakPatches)**
 
 Or manually in the app:
+
 1. Open **Morphe Manager**.
 2. Navigate to **Settings** > **Patch Sources**.
 3. Add source: `SatanMerde/D-moniakPatches`.

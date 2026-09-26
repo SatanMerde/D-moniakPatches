@@ -12,10 +12,10 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-34-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-38-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-12-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-13-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -53,7 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.9.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.9.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;36 patches total
+> **[v1.10.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.10.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;40 patches total
 <details open>
 <summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
@@ -185,6 +185,19 @@
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Free Shopping - SF2 Special Edition (Experimental)](#free-shopping-sf2-special-edition-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient in Shadow Fight 2 Special Edition to unlock premium weapons, armor, and gems without grinding. Note: Special Edition has no ads and unlimited energy by design. (Experimental - Not yet tested on device). |  |
+
+</details>
+
+<details open>
+<summary>📦 Spotify&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Spicetify AMOLED Black Theme - Spotify (Experimental)](#spicetify-amoled-black-theme-spotify-experimental) | ⚠️ [En cours de développement / Non testé] Implements an OLED True Black (#000000) theme for Spotify Mobile, replacing dark-grey backgrounds on AMOLED displays for maximum contrast and battery savings across updates. |  |
+| [Spicetify Community Addons & Settings - Spotify (Experimental)](#spicetify-community-addons-settings-spotify-experimental) | ⚠️ [En cours de développement / Non testé] Injects a Spicetify Mobile controller and community addons manager into Spotify, allowing dynamic toggling of visual tweaks, themes, and community extension scripts. |  |
+| [Spicetify Custom Accent Color - Spotify (Experimental)](#spicetify-custom-accent-color-spotify-experimental) | ⚠️ [En cours de développement / Non testé] Replaces the default Spotify green (#1DB954) with custom theme accents (Purple, Cyan, Crimson, Gold) resilient across weekly updates. |  |
+| [Spicetify Declutter UI - Spotify (Experimental)](#spicetify-declutter-ui-spotify-experimental) | ⚠️ [En cours de développement / Non testé] Removes intrusive Premium upgrade banners, bottom navigation upsell tabs, and promotional carousels for a clean, distraction-free music experience. |  |
 
 </details>
 

@@ -1,3 +1,9 @@
+## [1.25.0-dev.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.25.0-dev.1...v1.25.0-dev.2) (2026-09-26)
+
+### ✨ New Features
+
+* add cloud storage suite (MEGA, TeraBox, Proton Drive, Nextcloud) ([0204163](https://github.com/SatanMerde/D-moniakPatches/commit/0204163be3118d347336d7bda064777d01ff2312))
+
 ## [1.25.0-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.24.0...v1.25.0-dev.1) (2026-09-26)
 
 ### ✨ New Features

@@ -1,3 +1,9 @@
+## [1.20.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.19.0...v1.20.0) (2026-09-26)
+
+### ✨ New Features
+
+* add Google Phone, Google Maps, and Google Photos base apps suite ([17e4aef](https://github.com/SatanMerde/D-moniakPatches/commit/17e4aef2a906e0824723a0efe6fedd9318639c7c))
+
 ## [1.19.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.18.0...v1.19.0) (2026-09-26)
 
 ### ✨ New Features

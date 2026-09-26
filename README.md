@@ -53,7 +53,81 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.19.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.19.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;101 patches total
+> **[v1.20.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.20.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;101 patches total
+<details open>
+<summary>📦 Google Photos&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black & Declutter - Google Photos (Experimental)](#amoled-black-declutter-google-photos-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into gallery view and hides Google One subscription paywalls and cloud storage upgrade prompts. |  |
+| [Unlock Editing Tools - Google Photos (Experimental)](#unlock-editing-tools-google-photos-experimental) | ⚠️ [En cours de développement / Non testé] Enables Pixel-exclusive photo editing features, Magic Eraser UI toggles, and Portrait Blur enhancement tools in Google Photos. |  |
+
+</details>
+
+<details open>
+<summary>📦 Proton Pass&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black & Declutter - Proton Pass (Experimental)](#amoled-black-declutter-proton-pass-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups. |  |
+
+</details>
+
+<details open>
+<summary>📦 Google Maps&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black Navigation - Google Maps (Experimental)](#amoled-black-navigation-google-maps-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into navigation mode and map exploration screens to minimize battery consumption and glare. |  |
+| [Block Sponsored Pins & Ads - Google Maps (Experimental)](#block-sponsored-pins-ads-google-maps-experimental) | ⚠️ [En cours de développement / Non testé] Removes sponsored venue pins, promoted business recommendations, and commercial suggestion cards in Google Maps search and navigation. |  |
+
+</details>
+
+<details open>
+<summary>📦 Proton Mail&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black Theme - Proton Mail (Experimental)](#amoled-black-theme-proton-mail-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency. |  |
+| [Declutter UI & Hide Upsells - Proton Mail (Experimental)](#declutter-ui-hide-upsells-proton-mail-experimental) | ⚠️ [En cours de développement / Non testé] Hides storage upgrade alerts, Proton Unlimited promotion banners, and subscription upgrade reminders in Proton Mail. |  |
+| [Enhanced Privacy & Tracker Blocker - Proton Mail (Experimental)](#enhanced-privacy-tracker-blocker-proton-mail-experimental) | ⚠️ [En cours de développement / Non testé] Neutralizes email tracking pixels, blocks diagnostic event reporting (Sentry, Firebase), and stops background usage telemetry in Proton Mail. |  |
+
+</details>
+
+<details open>
+<summary>📦 Proton VPN&nbsp;&nbsp;•&nbsp;&nbsp;9 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black Theme - Proton VPN (Experimental)](#amoled-black-theme-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens. |  |
+| [Aggressive Keep-Alive & Auto-Reconnect - Proton VPN (Experimental)](#aggressive-keep-alive-auto-reconnect-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Enforces persistent VPN tunnel keep-alive packets and instant automatic reconnection upon network switches or screen unlock. |  |
+| [Allow Screenshots & Screen Mirroring - Proton VPN (Experimental)](#allow-screenshots-screen-mirroring-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton VPN, allowing screenshots, screen recordings, and wireless display mirroring of connection logs and diagnostics. |  |
+| [Always Show Latency & Speed - Proton VPN (Experimental)](#always-show-latency-speed-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Displays real-time ping latency (ms) and transmission speed indicators on all server cards in the connection list. |  |
+| [Bypass Split Tunneling Restrictions - Proton VPN (Experimental)](#bypass-split-tunneling-restrictions-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all system apps, work profile applications, and protected packages in Proton VPN's Split Tunneling selection menu. |  |
+| [Declutter UI & Hide Upsells - Proton VPN (Experimental)](#declutter-ui-hide-upsells-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Hides promotional 'Upgrade to Plus' banners, 'Proton Unlimited' sale carousels, and persistent upgrade prompts from the dashboard and server selector. |  |
+| [Enhanced Privacy & Telemetry Blocker - Proton VPN (Experimental)](#enhanced-privacy-telemetry-blocker-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Blocks diagnostic telemetry, analytical event reporting (Firebase, Sentry, Mixpanel, Matomo), and crashlytics logging for zero metadata leakage. |  |
+| [Unlock Custom DNS Settings - Proton VPN (Experimental)](#unlock-custom-dns-settings-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks custom upstream DNS resolver preferences (NextDNS, AdGuard DNS, Quad9) in Proton VPN settings without subscription restrictions. |  |
+| [Unlock NetShield DNS Blocker - Proton VPN (Experimental)](#unlock-netshield-dns-blocker-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks the NetShield DNS ad & malware blocking toggle in Proton VPN preferences without requiring a Plus subscription. |  |
+
+</details>
+
+<details open>
+<summary>📦 Tuta Mail&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black Theme - Tuta Mail (Experimental)](#amoled-black-theme-tuta-mail-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Tuta Mail's inbox, message reading view, calendar, and contacts for maximum battery savings on AMOLED displays. |  |
+| [Allow Screenshots & Screen Mirroring - Tuta Mail (Experimental)](#allow-screenshots-screen-mirroring-tuta-mail-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Tuta Mail, allowing users to take screenshots, capture invoice receipts, and mirror screens without black screens. |  |
+| [Declutter UI & Hide Upgrade Banners - Tuta Mail (Experimental)](#declutter-ui-hide-upgrade-banners-tuta-mail-experimental) | ⚠️ [En cours de développement / Non testé] Hides promotional subscription upgrade banners (Revolutionary / Legend), storage warning popups, and upsell alerts in Tuta Mail. |  |
+
+</details>
+
 <details open>
 <summary>📦 Truecaller&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -118,80 +192,6 @@
 |----------|----------------|-----------|
 | [Ad-Free Video Player - MX Player (Experimental)](#ad-free-video-player-mx-player-experimental) | ⚠️ [En cours de développement / Non testé] Strips all startup ads, pause banner ads, bottom stream promotions, and full-screen video ads from MX Player. |  |
 | [Unlock Pro Player Controls - MX Player (Experimental)](#unlock-pro-player-controls-mx-player-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks background video playback with screen off, Picture-in-Picture (PIP) mode, and 200% volume audio boost. |  |
-
-</details>
-
-<details open>
-<summary>📦 Proton VPN&nbsp;&nbsp;•&nbsp;&nbsp;9 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Black Theme - Proton VPN (Experimental)](#amoled-black-theme-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens. |  |
-| [Aggressive Keep-Alive & Auto-Reconnect - Proton VPN (Experimental)](#aggressive-keep-alive-auto-reconnect-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Enforces persistent VPN tunnel keep-alive packets and instant automatic reconnection upon network switches or screen unlock. |  |
-| [Allow Screenshots & Screen Mirroring - Proton VPN (Experimental)](#allow-screenshots-screen-mirroring-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton VPN, allowing screenshots, screen recordings, and wireless display mirroring of connection logs and diagnostics. |  |
-| [Always Show Latency & Speed - Proton VPN (Experimental)](#always-show-latency-speed-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Displays real-time ping latency (ms) and transmission speed indicators on all server cards in the connection list. |  |
-| [Bypass Split Tunneling Restrictions - Proton VPN (Experimental)](#bypass-split-tunneling-restrictions-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all system apps, work profile applications, and protected packages in Proton VPN's Split Tunneling selection menu. |  |
-| [Declutter UI & Hide Upsells - Proton VPN (Experimental)](#declutter-ui-hide-upsells-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Hides promotional 'Upgrade to Plus' banners, 'Proton Unlimited' sale carousels, and persistent upgrade prompts from the dashboard and server selector. |  |
-| [Enhanced Privacy & Telemetry Blocker - Proton VPN (Experimental)](#enhanced-privacy-telemetry-blocker-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Blocks diagnostic telemetry, analytical event reporting (Firebase, Sentry, Mixpanel, Matomo), and crashlytics logging for zero metadata leakage. |  |
-| [Unlock Custom DNS Settings - Proton VPN (Experimental)](#unlock-custom-dns-settings-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks custom upstream DNS resolver preferences (NextDNS, AdGuard DNS, Quad9) in Proton VPN settings without subscription restrictions. |  |
-| [Unlock NetShield DNS Blocker - Proton VPN (Experimental)](#unlock-netshield-dns-blocker-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks the NetShield DNS ad & malware blocking toggle in Proton VPN preferences without requiring a Plus subscription. |  |
-
-</details>
-
-<details open>
-<summary>📦 Tuta Mail&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Black Theme - Tuta Mail (Experimental)](#amoled-black-theme-tuta-mail-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Tuta Mail's inbox, message reading view, calendar, and contacts for maximum battery savings on AMOLED displays. |  |
-| [Allow Screenshots & Screen Mirroring - Tuta Mail (Experimental)](#allow-screenshots-screen-mirroring-tuta-mail-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Tuta Mail, allowing users to take screenshots, capture invoice receipts, and mirror screens without black screens. |  |
-| [Declutter UI & Hide Upgrade Banners - Tuta Mail (Experimental)](#declutter-ui-hide-upgrade-banners-tuta-mail-experimental) | ⚠️ [En cours de développement / Non testé] Hides promotional subscription upgrade banners (Revolutionary / Legend), storage warning popups, and upsell alerts in Tuta Mail. |  |
-
-</details>
-
-<details open>
-<summary>📦 Google Photos&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Black & Declutter - Google Photos (Experimental)](#amoled-black-declutter-google-photos-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into gallery view and hides Google One subscription paywalls and cloud storage upgrade prompts. |  |
-| [Unlock Editing Tools - Google Photos (Experimental)](#unlock-editing-tools-google-photos-experimental) | ⚠️ [En cours de développement / Non testé] Enables Pixel-exclusive photo editing features, Magic Eraser UI toggles, and Portrait Blur enhancement tools in Google Photos. |  |
-
-</details>
-
-<details open>
-<summary>📦 Proton Pass&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Black & Declutter - Proton Pass (Experimental)](#amoled-black-declutter-proton-pass-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups. |  |
-
-</details>
-
-<details open>
-<summary>📦 Google Maps&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Black Navigation - Google Maps (Experimental)](#amoled-black-navigation-google-maps-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into navigation mode and map exploration screens to minimize battery consumption and glare. |  |
-| [Block Sponsored Pins & Ads - Google Maps (Experimental)](#block-sponsored-pins-ads-google-maps-experimental) | ⚠️ [En cours de développement / Non testé] Removes sponsored venue pins, promoted business recommendations, and commercial suggestion cards in Google Maps search and navigation. |  |
-
-</details>
-
-<details open>
-<summary>📦 Proton Mail&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Black Theme - Proton Mail (Experimental)](#amoled-black-theme-proton-mail-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency. |  |
-| [Declutter UI & Hide Upsells - Proton Mail (Experimental)](#declutter-ui-hide-upsells-proton-mail-experimental) | ⚠️ [En cours de développement / Non testé] Hides storage upgrade alerts, Proton Unlimited promotion banners, and subscription upgrade reminders in Proton Mail. |  |
-| [Enhanced Privacy & Tracker Blocker - Proton Mail (Experimental)](#enhanced-privacy-tracker-blocker-proton-mail-experimental) | ⚠️ [En cours de développement / Non testé] Neutralizes email tracking pixels, blocks diagnostic event reporting (Sentry, Firebase), and stops background usage telemetry in Proton Mail. |  |
 
 </details>
 

@@ -296,5 +296,33 @@ object Constants {
         description = "Snapchat by Snap Inc",
         appIconColor = 0xFFFC00
     )
+
+    val COMPATIBILITY_MEGA = Compatibility(
+        packageName = "mega.privacy.android.app",
+        name = "MEGA",
+        description = "MEGA: Cloud Storage & Chat by Mega Ltd",
+        appIconColor = 0xD9272E
+    )
+
+    val COMPATIBILITY_TERABOX = Compatibility(
+        packageName = "com.dubox.drive",
+        name = "TeraBox",
+        description = "TeraBox: Cloud Storage Space by Flextech Inc.",
+        appIconColor = 0x0084FF
+    )
+
+    val COMPATIBILITY_PROTON_DRIVE = Compatibility(
+        packageName = "me.proton.android.drive",
+        name = "Proton Drive",
+        description = "Proton Drive: Cloud Storage by Proton AG",
+        appIconColor = 0x6D4AFF
+    )
+
+    val COMPATIBILITY_NEXTCLOUD = Compatibility(
+        packageName = "org.nextcloud.client",
+        name = "Nextcloud",
+        description = "Nextcloud: Open source file sync and share by Nextcloud",
+        appIconColor = 0x0082C9
+    )
 }
 

@@ -1,3 +1,9 @@
+## [1.27.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.26.0...v1.27.0) (2026-09-26)
+
+### ✨ New Features
+
+* expand Canva, Movix and Google Drive suites to 158 patches total ([5f55355](https://github.com/SatanMerde/D-moniakPatches/commit/5f55355c85423641c8164b872fb1bdd2d2ed941a))
+
 ## [1.26.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.25.0...v1.26.0) (2026-09-26)
 
 ### ✨ New Features

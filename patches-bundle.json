@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-26T11:20:04",
-  "description": "## [1.26.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.25.0...v1.26.0) (2026-09-26)\n\n### ✨ New Features\n\n* add Canva, Movix and Google Drive patch suites (145 patches, 49 apps) ([97ba158](https://github.com/SatanMerde/D-moniakPatches/commit/97ba15809ceedc83f2d15ecf9ba833d35be635f5))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.26.0/patches-1.26.0.mpp",
+  "created_at": "2026-09-26T12:51:20",
+  "description": "## [1.27.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.26.0...v1.27.0) (2026-09-26)\n\n### ✨ New Features\n\n* expand Canva, Movix and Google Drive suites to 158 patches total ([5f55355](https://github.com/SatanMerde/D-moniakPatches/commit/5f55355c85423641c8164b872fb1bdd2d2ed941a))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.27.0/patches-1.27.0.mpp",
   "signature_download_url": "",
-  "version": "1.26.0"
+  "version": "1.27.0"
 }

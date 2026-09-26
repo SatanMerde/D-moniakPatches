@@ -1,3 +1,9 @@
+## [1.28.3](https://github.com/SatanMerde/D-moniakPatches/compare/v1.28.2...v1.28.3) (2026-09-26)
+
+### 🐛 Bug Fixes
+
+* **movix:** switch to evaluateJavascript and inject via setInjectedJavaScriptBeforeContentLoaded ([7ad7820](https://github.com/SatanMerde/D-moniakPatches/commit/7ad7820d81f717521ebf743b7a0a7e281e2158f8))
+
 ## [1.28.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.28.1...v1.28.2) (2026-09-26)
 
 ### 🐛 Bug Fixes

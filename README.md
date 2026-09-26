@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-145-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-158-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-49-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -53,7 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.26.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.26.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;147 patches total
+> **[v1.26.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.26.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;160 patches total
 <details open>
 <summary>📦 Alto's Adventure&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -79,12 +79,16 @@
 </details>
 
 <details open>
-<summary>📦 Canva&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Canva&nbsp;&nbsp;•&nbsp;&nbsp;6 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [AMOLED Dark Theme & Declutter - Canva (Experimental)](#amoled-dark-theme-declutter-canva-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Canva design workspace and dashboard, and hides Canva Pro trial banners and upgrade reminders. |  |
+| [Ad-Free & Hide Upgrade Popups - Canva (Experimental)](#ad-free-hide-upgrade-popups-canva-experimental) | ⚠️ [En cours de développement / Non testé] Strips in-editor upgrade dialogs, Pro upsell cards in template galleries, subscription CTAs on element detail drawers, and interstitial purchase popups throughout Canva. |  |
+| [Remove Watermarks on Free Elements - Canva (Experimental)](#remove-watermarks-on-free-elements-canva-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses watermark rendering on Canva freemium design elements, stock photos, and templates, allowing clean export of designs without Pro subscription watermarks. |  |
+| [Unlimited Brand Kit Slots - Canva (Experimental)](#unlimited-brand-kit-slots-canva-experimental) | ⚠️ [En cours de développement / Non testé] Removes the Brand Kit slot limit, allowing unlimited custom color palettes, font sets, and logo libraries without a Canva Pro or Teams subscription. |  |
+| [Unlock Canva Pro Features (Experimental)](#unlock-canva-pro-features-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Canva Pro premium templates, exclusive fonts, advanced design elements, and premium content library without an active Pro subscription. |  |
 | [Unlock High Quality Export - Canva (Experimental)](#unlock-high-quality-export-canva-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks maximum export resolution sliders, transparent background PNG option, and bypasses premium element watermark restrictions. |  |
 
 </details>
@@ -124,13 +128,18 @@
 </details>
 
 <details open>
-<summary>📦 Google Drive&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Google Drive&nbsp;&nbsp;•&nbsp;&nbsp;7 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [AMOLED Dark Theme & Declutter - Google Drive (Experimental)](#amoled-dark-theme-declutter-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Google Drive file list, folder browser, and detail views, and hides Google One storage upsell banners and upgrade prompts. |  |
 | [Allow Screenshots & Secure Share - Google Drive (Experimental)](#allow-screenshots-secure-share-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Google Drive to allow screenshots and screen recording of documents, spreadsheets, and presentation previews. |  |
+| [Bypass Storage Quota Alerts - Google Drive (Experimental)](#bypass-storage-quota-alerts-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Suppresses storage quota threshold alerts, 15 GB full warnings, and upload-blocking dialogs that prevent uploading new files when Google storage is at or near its limit. |  |
+| [Force Dark Theme System-Wide - Google Drive (Experimental)](#force-dark-theme-system-wide-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Forces pure OLED dark theme (#000000) across all Google Drive screens including file browser, folder views, sharing dialogs, and document detail drawers regardless of system theme. |  |
+| [Remove Ads & Promotional Banners - Google Drive (Experimental)](#remove-ads-promotional-banners-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Removes Google One upsell banners, Workspace promotional cards, storage upgrade prompts, and sponsored suggestions from the Drive home feed and search results. |  |
+| [Unlock Offline Mode Without WiFi - Google Drive (Experimental)](#unlock-offline-mode-without-wifi-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Forces Google Drive offline sync and file access to work on mobile data connections by bypassing the WiFi-only restriction enforced during offline content synchronization. |  |
+| [Unlock PDF Editor & Advanced Sharing - Google Drive (Experimental)](#unlock-pdf-editor-advanced-sharing-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks inline PDF editing, annotation tools, advanced link-sharing permission levels, and extended expiry options for shared files without a Workspace subscription. |  |
 
 </details>
 
@@ -242,13 +251,17 @@
 </details>
 
 <details open>
-<summary>📦 Movix&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Movix&nbsp;&nbsp;•&nbsp;&nbsp;6 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [AMOLED Black Player & Picture-in-Picture - Movix (Experimental)](#amoled-black-player-picture-in-picture-movix-experimental) | ⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into Movix catalog and unlocks Picture-in-Picture (PiP) and background audio playback. |  |
 | [Block Video Ads & Interstitials - Movix (Experimental)](#block-video-ads-interstitials-movix-experimental) | ⚠️ [En cours de développement / Non testé] Strips video pre-roll and mid-roll ads, banner ads, and redirect popups across Movix movie and series player screens. |  |
+| [Bypass Download Restrictions - Movix (Experimental)](#bypass-download-restrictions-movix-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses offline download tier restrictions to allow downloading any movie or series episode for offline viewing without a Premium subscription, and removes download quality caps. |  |
+| [Disable Auto-Pause on Background - Movix (Experimental)](#disable-auto-pause-on-background-movix-experimental) | ⚠️ [En cours de développement / Non testé] Prevents Movix from automatically pausing or stopping video playback when the app transitions to the background, enabling audio-only listening and uninterrupted casting. |  |
+| [Force HD & 4K Quality Unlock - Movix (Experimental)](#force-hd-4k-quality-unlock-movix-experimental) | ⚠️ [En cours de développement / Non testé] Forces maximum available video quality (HD 1080p / 4K) on all content regardless of subscription tier or network quality detection thresholds. |  |
+| [Unlock Premium Subscription - Movix (Experimental)](#unlock-premium-subscription-movix-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses Movix VIP/Premium subscription checks to unlock all premium and exclusive content, series, and movie libraries without an active paid subscription. |  |
 
 </details>
 
@@ -729,6 +742,10 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **Canva (NOUVEAU - 100M+ créateurs & designers) :**
   - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) pour l'espace de création et l'accueil, et masquage des bannières promotionnelles et rappels d'essai Canva Pro.
   - **Unlock High Quality Export :** Débloque les curseurs de résolution maximale d'exportation, l'exportation PNG avec fond transparent et contourne les restrictions de filigrane.
+  - **Unlock Canva Pro Features :** Débloque les templates Pro, polices exclusives et bibliothèque d'éléments premium sans abonnement actif.
+  - **Remove Watermarks on Free Elements :** Contourne le rendu des filigranes sur les éléments freemium et photos de stock pour un export propre.
+  - **Unlimited Brand Kit Slots :** Supprime la limite de kits de marque pour des palettes de couleurs, jeux de polices et bibliothèques de logos illimités.
+  - **Ad-Free & Hide Upgrade Popups :** Supprime les popups d'upgrade, les bannières Pro et les CTA d'achat dans l'éditeur et les galeries.
 - **ChatGPT (NOUVEAU - 100M+ d'utilisateurs IA) :**
   - **AMOLED Dark Theme & Declutter :** Remplace les fonds gris foncé par un véritable noir pur OLED (#000000) dans les conversations et masque les bannières promotionnelles de passage à ChatGPT Plus.
   - **Allow Screenshots & Copy :** Supprime la restriction Android FLAG_SECURE pour autoriser les captures d'écran et enregistrements vidéo des réponses dans les conversations, et débloque les limites de copie de texte.
@@ -743,8 +760,13 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
   - **Allow Screenshots & UI Tweaks :** Supprime les restrictions de capture d'écran FLAG_SECURE sur les fenêtres de discussion et optimise la discrétion de l'overlay flottant.
   - **Disable Response Haptics :** Coupe les vibrations haptiques répétitives pendant le streaming des réponses de l'IA.
 - **Google Drive (NOUVEAU - 15 Milliards+ de téléchargements) :**
-  - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) pour l'explorateur de fichiers Drive et les panneaux de détails, et masquage des bannières promotionnelles de mise à niveau Google One et des alertes de quota de stockage.
-  - **Allow Screenshots & Secure Share :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran des documents, feuilles de calcul et aperçus de présentation.
+  - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) pour l'explorateur de fichiers Drive et les panneaux de détails.
+  - **Allow Screenshots & Secure Share :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran des documents et feuilles de calcul.
+  - **Force Dark Theme System-Wide :** Force le thème sombre sur l'ensemble des écrans Drive.
+  - **Bypass Storage Quota Alerts :** Supprime les blocages d'upload liés aux alertes de quota de 15 Go.
+  - **Remove Ads & Promotional Banners :** Supprime les promotions Google One et les suggestions Workspace.
+  - **Unlock Offline Mode Without WiFi :** Force le mode hors-ligne sur données mobiles.
+  - **Unlock PDF Editor & Advanced Sharing :** Débloque l'édition PDF inline, les annotations et le partage avancé.
 - **Google Maps (NOUVEAU - 10 Milliards+ de téléchargements) :**
   - **Block Sponsored Pins & Ads :** Supprime les épingles d'entreprises sponsorisées sur la carte, les suggestions publicitaires et les cartes promotionnelles pendant la recherche et le trajet.
   - **AMOLED Black Navigation :** Active un thème noir pur OLED (#000000) pour la navigation GPS virage par virage et l'exploration de carte, réduisant la consommation de batterie et l'éblouissement nocturne.
@@ -768,6 +790,10 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **Movix (NOUVEAU - Streaming Films & Séries) :**
   - **Block Video Ads & Interstitials :** Élimination totale des pré-rolls et coupures vidéo publicitaires, des bannières et des popups de redirection intempestifs sur tous les lecteurs vidéo de films et séries.
   - **AMOLED Black Player & Picture-in-Picture :** Infiltre un noir profond OLED (#000000) dans le catalogue et débloque le mode Picture-in-Picture (PiP) ainsi que la lecture audio en arrière-plan.
+  - **Unlock Premium Subscription :** Contourne les vérifications d'abonnement VIP/Premium pour débloquer tout le contenu exclusif films et séries.
+  - **Force HD & 4K Quality Unlock :** Force la qualité maximale (HD 1080p / 4K) quel que soit le niveau d'abonnement ou la détection réseau.
+  - **Disable Auto-Pause on Background :** Empêche la mise en pause automatique de la lecture quand l'app passe en arrière-plan.
+  - **Bypass Download Restrictions :** Débloque le téléchargement hors-ligne de tous les films et séries sans abonnement Premium.
 - **MX Player (NOUVEAU - 1 Milliard+ de téléchargements) :**
   - **Ad-Free Video Player :** Suppression des bannières dans la liste des dossiers de vidéos et élimination des pubs pop-up lors de la mise en pause.
   - **Unlock Background Playback :** Débloque la lecture audio en arrière-plan écran éteint et le mode Picture-in-Picture (PiP) sans abonnement MX Pro.
@@ -1001,6 +1027,10 @@ This project provides gameplay-specific patches tailored to each game:
 - **Canva (NEW - 100M+ creators & designers):**
   - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into Canva design workspace and dashboard, and hides Canva Pro trial banners and upgrade reminders.
   - **Unlock High Quality Export:** Unlocks maximum export resolution sliders, transparent background PNG option, and bypasses premium element watermark restrictions.
+  - **Unlock Canva Pro Features:** Unlocks Pro templates, exclusive fonts, and premium element library without an active Pro subscription.
+  - **Remove Watermarks on Free Elements:** Bypasses watermark rendering on freemium design elements and stock photos for clean exports.
+  - **Unlimited Brand Kit Slots:** Removes the Brand Kit slot limit for unlimited custom color palettes, font sets, and logo libraries.
+  - **Ad-Free & Hide Upgrade Popups:** Strips in-editor upgrade dialogs, Pro upsell cards, and subscription CTAs throughout Canva.
 - **ChatGPT (NEW - 100M+ AI users):**
   - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into ChatGPT conversations and hides 'Upgrade to ChatGPT Plus' marketing banners.
   - **Allow Screenshots & Copy:** Removes Android FLAG_SECURE window restrictions to allow screenshots and screen recording inside conversations and prevents copy restrictions.
@@ -1015,8 +1045,13 @@ This project provides gameplay-specific patches tailored to each game:
   - **Allow Screenshots & UI Tweaks:** Bypasses FLAG_SECURE window restrictions on chat windows and streamlines floating overlay behavior.
   - **Disable Response Haptics:** Suppresses repetitive haptic buzzes while the AI streams text and markdown responses.
 - **Google Drive (NEW - 15 Billion+ downloads):**
-  - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into Google Drive file list, folder browser, and document detail views, and hides Google One storage upsell banners and quota alerts.
-  - **Allow Screenshots & Secure Share:** Removes Android FLAG_SECURE window restrictions in Google Drive to allow screenshots and screen recording of documents, spreadsheets, and presentation previews.
+  - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into Google Drive file list, folder browser, and document detail views.
+  - **Allow Screenshots & Secure Share:** Removes Android FLAG_SECURE restrictions in Google Drive for screenshots of documents and spreadsheets.
+  - **Force Dark Theme System-Wide:** Forces pure OLED dark theme across all Drive screens regardless of system theme setting.
+  - **Bypass Storage Quota Alerts:** Suppresses 15 GB storage full warnings and upload-blocking dialogs.
+  - **Remove Ads & Promotional Banners:** Removes Google One upsell banners, Workspace promo cards, and sponsored suggestions.
+  - **Unlock Offline Mode Without WiFi:** Bypasses WiFi-only restrictions for offline file sync on mobile data.
+  - **Unlock PDF Editor & Advanced Sharing:** Unlocks inline PDF editing, annotation tools, and advanced link-sharing options.
 - **Google Maps (NEW - 10 Billion+ downloads):**
   - **Block Sponsored Pins & Ads:** Removes sponsored business pins from map layers, promotional suggestion cards, and contextual search ads during navigation.
   - **AMOLED Black Navigation:** Forces pure OLED black (#000000) night theme during turn-by-turn guidance and map browsing, reducing battery consumption on OLED displays.
@@ -1040,6 +1075,10 @@ This project provides gameplay-specific patches tailored to each game:
 - **Movix (NEW - Movies & Series Streaming):**
   - **Block Video Ads & Interstitials:** Completely eliminates pre-roll and mid-roll video ads, banners, and intrusive redirect popups across all movie and series player screens.
   - **AMOLED Black Player & Picture-in-Picture:** Injects true OLED pitch black (#000000) into the Movix catalog and unlocks Picture-in-Picture (PiP) mode and background audio playback.
+  - **Unlock Premium Subscription:** Bypasses VIP/Premium subscription checks to unlock all exclusive content, series, and movie libraries.
+  - **Force HD & 4K Quality Unlock:** Forces maximum video quality (HD 1080p / 4K) on all content regardless of subscription tier or network thresholds.
+  - **Disable Auto-Pause on Background:** Prevents automatic video pause when the app enters the background, enabling audio-only listening.
+  - **Bypass Download Restrictions:** Unlocks offline download of any movie or series episode without a Premium subscription.
 - **MX Player (NEW - 1 Billion+ downloads):**
   - **Ad-Free Video Player:** Removes ads in the video folder list and pause-screen overlay popups.
   - **Unlock Background Playback:** Unlocks background audio playback with screen off and Picture-in-Picture (PiP) mode without MX Player Pro.

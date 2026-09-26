@@ -597,6 +597,33 @@
       "options": []
     },
     {
+      "name": "Ad-Free & Hide Upgrade Popups - Canva (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips in-editor upgrade dialogs, Pro upsell cards in template galleries, subscription CTAs on element detail drawers, and interstitial purchase popups throughout Canva.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.canva.editor",
+          "name": "Canva",
+          "description": "Canva: Design, Photo & Video by Canva",
+          "apkFileType": null,
+          "appIconColor": "#00C4CC",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Ad-Free Speedtest - Speedtest by Ookla (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Removes banner ads, video survey ads, and post-speedtest sponsored surveys and promotional cards from Speedtest by Ookla.",
       "default": true,
@@ -1326,6 +1353,33 @@
       "options": []
     },
     {
+      "name": "Bypass Download Restrictions - Movix (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses offline download tier restrictions to allow downloading any movie or series episode for offline viewing without a Premium subscription, and removes download quality caps.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.movix.app",
+          "name": "Movix",
+          "description": "Movix: Movies & Series Streaming",
+          "apkFileType": null,
+          "appIconColor": "#E50914",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Bypass Rewarded Ads",
       "description": "Bypasses rewarded video ads in Hungry Shark World by emulating ad completion events.",
       "default": true,
@@ -1677,6 +1731,33 @@
       "options": []
     },
     {
+      "name": "Bypass Storage Quota Alerts - Google Drive (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Suppresses storage quota threshold alerts, 15 GB full warnings, and upload-blocking dialogs that prevent uploading new files when Google storage is at or near its limit.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.docs",
+          "name": "Google Drive",
+          "description": "Google Drive: Free Cloud Storage by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#1FA463",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Clean Links & Fast Copy - Perplexity (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Strips tracking redirects from cited web sources in Perplexity answers and enables one-tap formatted markdown export.",
       "default": true,
@@ -1905,6 +1986,33 @@
           "description": "Pinterest: Discover and Save Creative Ideas by Pinterest",
           "apkFileType": null,
           "appIconColor": "#E60023",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Auto-Pause on Background - Movix (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Prevents Movix from automatically pausing or stopping video playback when the app transitions to the background, enabling audio-only listening and uninterrupted casting.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.movix.app",
+          "name": "Movix",
+          "description": "Movix: Movies & Series Streaming",
+          "apkFileType": null,
+          "appIconColor": "#E50914",
           "signatures": null,
           "targets": [
             {
@@ -2219,6 +2327,60 @@
           "description": "Hungry Shark Evolution by Ubisoft Entertainment / FGOL",
           "apkFileType": null,
           "appIconColor": "#0077AA",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Force Dark Theme System-Wide - Google Drive (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Forces pure OLED dark theme (#000000) across all Google Drive screens including file browser, folder views, sharing dialogs, and document detail drawers regardless of system theme.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.docs",
+          "name": "Google Drive",
+          "description": "Google Drive: Free Cloud Storage by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#1FA463",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Force HD & 4K Quality Unlock - Movix (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Forces maximum available video quality (HD 1080p / 4K) on all content regardless of subscription tier or network quality detection thresholds.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.movix.app",
+          "name": "Movix",
+          "description": "Movix: Movies & Series Streaming",
+          "apkFileType": null,
+          "appIconColor": "#E50914",
           "signatures": null,
           "targets": [
             {
@@ -2926,6 +3088,33 @@
       "options": []
     },
     {
+      "name": "Remove Ads & Promotional Banners - Google Drive (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes Google One upsell banners, Workspace promotional cards, storage upgrade prompts, and sponsored suggestions from the Drive home feed and search results.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.docs",
+          "name": "Google Drive",
+          "description": "Google Drive: Free Cloud Storage by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#1FA463",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Remove Promoted Pins & Shopping Ads - Pinterest (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Strips sponsored promoted pins, affiliate shopping product carousels, and paid recommendations from Pinterest home and search feeds.",
       "default": true,
@@ -2938,6 +3127,33 @@
           "description": "Pinterest: Discover and Save Creative Ideas by Pinterest",
           "apkFileType": null,
           "appIconColor": "#E60023",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Remove Watermarks on Free Elements - Canva (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses watermark rendering on Canva freemium design elements, stock photos, and templates, allowing clean export of designs without Pro subscription watermarks.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.canva.editor",
+          "name": "Canva",
+          "description": "Canva: Design, Photo & Video by Canva",
+          "apkFileType": null,
+          "appIconColor": "#00C4CC",
           "signatures": null,
           "targets": [
             {
@@ -3178,6 +3394,33 @@
       "options": []
     },
     {
+      "name": "Unlimited Brand Kit Slots - Canva (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes the Brand Kit slot limit, allowing unlimited custom color palettes, font sets, and logo libraries without a Canva Pro or Teams subscription.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.canva.editor",
+          "name": "Canva",
+          "description": "Canva: Design, Photo & Video by Canva",
+          "apkFileType": null,
+          "appIconColor": "#00C4CC",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlimited Hearts - Duolingo (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Disables hearts/lives loss when making mistakes during language lessons in Duolingo, enabling infinite learning sessions without waiting or paywalls.",
       "default": true,
@@ -3244,6 +3487,33 @@
           "description": "Robbery Bob - Sneaky Sneak by Chillingo / Deca Games",
           "apkFileType": null,
           "appIconColor": "#4CAF50",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Canva Pro Features (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks Canva Pro premium templates, exclusive fonts, advanced design elements, and premium content library without an active Pro subscription.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.canva.editor",
+          "name": "Canva",
+          "description": "Canva: Design, Photo & Video by Canva",
+          "apkFileType": null,
+          "appIconColor": "#00C4CC",
           "signatures": null,
           "targets": [
             {
@@ -3502,6 +3772,60 @@
       "options": []
     },
     {
+      "name": "Unlock Offline Mode Without WiFi - Google Drive (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Forces Google Drive offline sync and file access to work on mobile data connections by bypassing the WiFi-only restriction enforced during offline content synchronization.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.docs",
+          "name": "Google Drive",
+          "description": "Google Drive: Free Cloud Storage by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#1FA463",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock PDF Editor & Advanced Sharing - Google Drive (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks inline PDF editing, annotation tools, advanced link-sharing permission levels, and extended expiry options for shared files without a Workspace subscription.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.docs",
+          "name": "Google Drive",
+          "description": "Google Drive: Free Cloud Storage by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#1FA463",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock Premium & Gold Features - Truecaller (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Enables Truecaller Premium and Gold caller ID themes, advanced spam blocking filters, and who-viewed-my-profile indicator UI.",
       "default": true,
@@ -3514,6 +3838,33 @@
           "description": "Truecaller: Caller ID & Block Spam by Truecaller",
           "apkFileType": null,
           "appIconColor": "#0087FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Premium Subscription - Movix (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses Movix VIP/Premium subscription checks to unlock all premium and exclusive content, series, and movie libraries without an active paid subscription.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.movix.app",
+          "name": "Movix",
+          "description": "Movix: Movies & Series Streaming",
+          "apkFileType": null,
+          "appIconColor": "#E50914",
           "signatures": null,
           "targets": [
             {

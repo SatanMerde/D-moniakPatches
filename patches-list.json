@@ -3,6 +3,519 @@
   "version": "1.21.0",
   "patches": [
     {
+      "name": "Ad-Free & Clean Dialer - Truecaller (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes intrusive post-call ads, banner ads inside the call history and dialer tabs, and promotional Gold upsells.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.truecaller",
+          "name": "Truecaller",
+          "description": "Truecaller: Caller ID & Block Spam by Truecaller",
+          "apkFileType": null,
+          "appIconColor": "#0087FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Ad-Free & Clean UI - Shazam (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes banner ads, sponsored artist recommendations, and Apple Music promotional upsell popups in Shazam.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.shazam.android",
+          "name": "Shazam",
+          "description": "Shazam: Identify & Discover Music by Apple Inc. / Shazam",
+          "apkFileType": null,
+          "appIconColor": "#0088FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Ad-Free & Declutter - Duolingo (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Blocks interstitial video ads shown between lessons and disables intrusive Super Duolingo subscription promotional popups.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.duolingo",
+          "name": "Duolingo",
+          "description": "Duolingo: Language Lessons by Duolingo",
+          "apkFileType": null,
+          "appIconColor": "#58CC02",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Ad-Free Speedtest - Speedtest by Ookla (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes banner ads, video survey ads, and post-speedtest sponsored surveys and promotional cards from Speedtest by Ookla.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.zwanoo.android.speedtest",
+          "name": "Speedtest",
+          "description": "Speedtest by Ookla by Ookla LLC",
+          "apkFileType": null,
+          "appIconColor": "#141526",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Ad-Free Turbo VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes full-screen video ads on connect and disconnect, banner ads at the bottom of the interface, and intrusive interstitial popups.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "free.vpn.unblock.proxy.turbovpn",
+          "name": "Turbo VPN",
+          "description": "Turbo VPN - Secure VPN Proxy by Innovative Connecting",
+          "apkFileType": null,
+          "appIconColor": "#FF6D00",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Ad-Free Video Player - MX Player (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips all startup ads, pause banner ads, bottom stream promotions, and full-screen video ads from MX Player.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.mxtech.videoplayer.ad",
+          "name": "MX Player",
+          "description": "MX Player: Video Player & Streaming by MX Media / Time Internet",
+          "apkFileType": null,
+          "appIconColor": "#0078FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Aggressive Keep-Alive & Auto-Reconnect - Proton VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Enforces persistent VPN tunnel keep-alive packets and instant automatic reconnection upon network switches or screen unlock.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonvpn.android",
+          "name": "Proton VPN",
+          "description": "Proton VPN: Fast & Secure by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Allow Saving Restricted Media - Telegram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses 'Copying and forwarding is not allowed' channel restrictions, allowing users to save photos, videos, and copy text from restricted channels.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.telegram.messenger",
+          "name": "Telegram",
+          "description": "Telegram Messenger by Telegram FZ-LLC",
+          "apkFileType": null,
+          "appIconColor": "#24A1DE",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Allow Screenshots & Anti-Screen Security - Snapchat (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE restrictions on Snapchat chat and media viewer activities, allowing screen capture without black screen restrictions.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.snapchat.android",
+          "name": "Snapchat",
+          "description": "Snapchat by Snap Inc",
+          "apkFileType": null,
+          "appIconColor": "#FFFC00",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Allow Screenshots & Block Telemetry - Perplexity (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window protections and disables background analytics/telemetry tracking calls (Adjust, Datadog, Mixpanel) in Perplexity.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ai.perplexity.app.android",
+          "name": "Perplexity",
+          "description": "Perplexity: Where Knowledge Begins by Perplexity AI",
+          "apkFileType": null,
+          "appIconColor": "#20B2AA",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Allow Screenshots & Copy - ChatGPT (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions to allow screenshots and screen recording inside conversations and prevents copy restrictions.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.openai.chatgpt",
+          "name": "ChatGPT",
+          "description": "ChatGPT: The official AI assistant by OpenAI",
+          "apkFileType": null,
+          "appIconColor": "#10A37F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Allow Screenshots & Screen Mirroring - Proton VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton VPN, allowing screenshots, screen recordings, and wireless display mirroring of connection logs and diagnostics.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonvpn.android",
+          "name": "Proton VPN",
+          "description": "Proton VPN: Fast & Secure by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Allow Screenshots & Screen Mirroring - Tuta Mail (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Tuta Mail, allowing users to take screenshots, capture invoice receipts, and mirror screens without black screens.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "de.tutao.tutanota",
+          "name": "Tuta Mail",
+          "description": "Tuta Mail: Secure & Private Email by Tutao GmbH",
+          "apkFileType": null,
+          "appIconColor": "#C70000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Allow Screenshots & Screen Security Bypass - Session (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window flags in Session Private Messenger, enabling screenshots, receipts saving, and screen recording inside conversations.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "network.loki.messenger",
+          "name": "Session",
+          "description": "Session: Private Messenger by Oxen Privacy Tech / The Session Foundation",
+          "apkFileType": null,
+          "appIconColor": "#00E599",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Allow Screenshots & Screen Security Bypass - Signal (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses Android FLAG_SECURE window restrictions in Signal, allowing users to take screenshots and record screens even when Screen Security is enforced.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.thoughtcrime.securesms",
+          "name": "Signal",
+          "description": "Signal Private Messenger by Signal Foundation",
+          "apkFileType": null,
+          "appIconColor": "#3A76F0",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Allow Screenshots & Screen Security Bypass - SimpleX (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Neutralizes FLAG_SECURE window flags in SimpleX Chat, allowing screenshots and screen sharing without black screens.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "chat.simplex.app",
+          "name": "SimpleX Chat",
+          "description": "SimpleX Chat: Private Messenger with No User IDs by SimpleX Chat Ltd",
+          "apkFileType": null,
+          "appIconColor": "#7E3FF2",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Allow Screenshots & UI Tweaks - Google Gemini (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window flags in Google Gemini to allow capturing chat responses and enhances privacy in floating assistant overlays.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.bard",
+          "name": "Google Gemini",
+          "description": "Google Gemini: Your AI Assistant by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#4285F4",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Always Show Latency & Speed - Proton VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Displays real-time ping latency (ms) and transmission speed indicators on all server cards in the connection list.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonvpn.android",
+          "name": "Proton VPN",
+          "description": "Proton VPN: Fast & Secure by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Always-On Auto Shazam - Shazam (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Keeps Auto Shazam background listening continuously active without battery optimization pauses or auto-timeout limits.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.shazam.android",
+          "name": "Shazam",
+          "description": "Shazam: Identify & Discover Music by Apple Inc. / Shazam",
+          "apkFileType": null,
+          "appIconColor": "#0088FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "AMOLED Black & Declutter - Google Photos (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into gallery view and hides Google One subscription paywalls and cloud storage upgrade prompts.",
       "default": true,
@@ -246,18 +759,18 @@
       "options": []
     },
     {
-      "name": "Ad-Free & Clean Dialer - Truecaller (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Removes intrusive post-call ads, banner ads inside the call history and dialer tabs, and promotional Gold upsells.",
+      "name": "AMOLED Dark Theme & Declutter - Snapchat (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Snapchat chat screens and hides sponsored Discover tiles and intrusive Spotlight ads.",
       "default": true,
       "category": null,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.truecaller",
-          "name": "Truecaller",
-          "description": "Truecaller: Caller ID & Block Spam by Truecaller",
+          "packageName": "com.snapchat.android",
+          "name": "Snapchat",
+          "description": "Snapchat by Snap Inc",
           "apkFileType": null,
-          "appIconColor": "#0087FF",
+          "appIconColor": "#FFFC00",
           "signatures": null,
           "targets": [
             {
@@ -273,18 +786,18 @@
       "options": []
     },
     {
-      "name": "Ad-Free & Clean UI - Shazam (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Removes banner ads, sponsored artist recommendations, and Apple Music promotional upsell popups in Shazam.",
+      "name": "AMOLED Dark Theme & Hide Donation Nags - Signal (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Signal chat threads and settings, and suppresses donor badges and 'Support Signal' donation reminders.",
       "default": true,
       "category": null,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.shazam.android",
-          "name": "Shazam",
-          "description": "Shazam: Identify & Discover Music by Apple Inc. / Shazam",
+          "packageName": "org.thoughtcrime.securesms",
+          "name": "Signal",
+          "description": "Signal Private Messenger by Signal Foundation",
           "apkFileType": null,
-          "appIconColor": "#0088FF",
+          "appIconColor": "#3A76F0",
           "signatures": null,
           "targets": [
             {
@@ -300,18 +813,18 @@
       "options": []
     },
     {
-      "name": "Ad-Free & Declutter - Duolingo (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Blocks interstitial video ads shown between lessons and disables intrusive Super Duolingo subscription promotional popups.",
+      "name": "AMOLED Dark Theme - Session (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into Session chat threads, community rooms, and message views to maximize battery savings.",
       "default": true,
       "category": null,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.duolingo",
-          "name": "Duolingo",
-          "description": "Duolingo: Language Lessons by Duolingo",
+          "packageName": "network.loki.messenger",
+          "name": "Session",
+          "description": "Session: Private Messenger by Oxen Privacy Tech / The Session Foundation",
           "apkFileType": null,
-          "appIconColor": "#58CC02",
+          "appIconColor": "#00E599",
           "signatures": null,
           "targets": [
             {
@@ -327,18 +840,18 @@
       "options": []
     },
     {
-      "name": "Ad-Free Speedtest - Speedtest by Ookla (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Removes banner ads, video survey ads, and post-speedtest sponsored surveys and promotional cards from Speedtest by Ookla.",
+      "name": "AMOLED Dark Theme - SimpleX (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Replaces dark grey backgrounds with pure OLED pitch black (#000000) across SimpleX Chat conversation screens and network status monitors.",
       "default": true,
       "category": null,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "org.zwanoo.android.speedtest",
-          "name": "Speedtest",
-          "description": "Speedtest by Ookla by Ookla LLC",
+          "packageName": "chat.simplex.app",
+          "name": "SimpleX Chat",
+          "description": "SimpleX Chat: Private Messenger with No User IDs by SimpleX Chat Ltd",
           "apkFileType": null,
-          "appIconColor": "#141526",
+          "appIconColor": "#7E3FF2",
           "signatures": null,
           "targets": [
             {
@@ -354,261 +867,18 @@
       "options": []
     },
     {
-      "name": "Ad-Free Turbo VPN (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Removes full-screen video ads on connect and disconnect, banner ads at the bottom of the interface, and intrusive interstitial popups.",
+      "name": "Block Ads & Hide Stories - Telegram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes sponsored messages in public channels, hides stories carousel from the chat list, and eliminates Telegram Premium upgrade reminders.",
       "default": true,
       "category": null,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "free.vpn.unblock.proxy.turbovpn",
-          "name": "Turbo VPN",
-          "description": "Turbo VPN - Secure VPN Proxy by Innovative Connecting",
+          "packageName": "org.telegram.messenger",
+          "name": "Telegram",
+          "description": "Telegram Messenger by Telegram FZ-LLC",
           "apkFileType": null,
-          "appIconColor": "#FF6D00",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Ad-Free Video Player - MX Player (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Strips all startup ads, pause banner ads, bottom stream promotions, and full-screen video ads from MX Player.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.mxtech.videoplayer.ad",
-          "name": "MX Player",
-          "description": "MX Player: Video Player & Streaming by MX Media / Time Internet",
-          "apkFileType": null,
-          "appIconColor": "#0078FF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Aggressive Keep-Alive & Auto-Reconnect - Proton VPN (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Enforces persistent VPN tunnel keep-alive packets and instant automatic reconnection upon network switches or screen unlock.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "ch.protonvpn.android",
-          "name": "Proton VPN",
-          "description": "Proton VPN: Fast & Secure by Proton AG",
-          "apkFileType": null,
-          "appIconColor": "#6D4AFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Allow Screenshots & Block Telemetry - Perplexity (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window protections and disables background analytics/telemetry tracking calls (Adjust, Datadog, Mixpanel) in Perplexity.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "ai.perplexity.app.android",
-          "name": "Perplexity",
-          "description": "Perplexity: Where Knowledge Begins by Perplexity AI",
-          "apkFileType": null,
-          "appIconColor": "#20B2AA",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Allow Screenshots & Copy - ChatGPT (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions to allow screenshots and screen recording inside conversations and prevents copy restrictions.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.openai.chatgpt",
-          "name": "ChatGPT",
-          "description": "ChatGPT: The official AI assistant by OpenAI",
-          "apkFileType": null,
-          "appIconColor": "#10A37F",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Allow Screenshots & Screen Mirroring - Proton VPN (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton VPN, allowing screenshots, screen recordings, and wireless display mirroring of connection logs and diagnostics.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "ch.protonvpn.android",
-          "name": "Proton VPN",
-          "description": "Proton VPN: Fast & Secure by Proton AG",
-          "apkFileType": null,
-          "appIconColor": "#6D4AFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Allow Screenshots & Screen Mirroring - Tuta Mail (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Tuta Mail, allowing users to take screenshots, capture invoice receipts, and mirror screens without black screens.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "de.tutao.tutanota",
-          "name": "Tuta Mail",
-          "description": "Tuta Mail: Secure & Private Email by Tutao GmbH",
-          "apkFileType": null,
-          "appIconColor": "#C70000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Allow Screenshots & UI Tweaks - Google Gemini (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window flags in Google Gemini to allow capturing chat responses and enhances privacy in floating assistant overlays.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.apps.bard",
-          "name": "Google Gemini",
-          "description": "Google Gemini: Your AI Assistant by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#4285F4",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Always Show Latency & Speed - Proton VPN (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Displays real-time ping latency (ms) and transmission speed indicators on all server cards in the connection list.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "ch.protonvpn.android",
-          "name": "Proton VPN",
-          "description": "Proton VPN: Fast & Secure by Proton AG",
-          "apkFileType": null,
-          "appIconColor": "#6D4AFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Always-On Auto Shazam - Shazam (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Keeps Auto Shazam background listening continuously active without battery optimization pauses or auto-timeout limits.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.shazam.android",
-          "name": "Shazam",
-          "description": "Shazam: Identify & Discover Music by Apple Inc. / Shazam",
-          "apkFileType": null,
-          "appIconColor": "#0088FF",
+          "appIconColor": "#24A1DE",
           "signatures": null,
           "targets": [
             {

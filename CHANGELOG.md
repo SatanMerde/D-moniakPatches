@@ -1,3 +1,9 @@
+## [1.28.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.28.1...v1.28.2) (2026-09-26)
+
+### 🐛 Bug Fixes
+
+* **movix:** completely eliminate 'Une pub et c\'est parti' modal via VIP storage locking, fetch mock and Radix dialog killer ([9af40e5](https://github.com/SatanMerde/D-moniakPatches/commit/9af40e5dde1c41cceb2a7254005b916f8c52dfb4))
+
 ## [1.28.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.28.0...v1.28.1) (2026-09-26)
 
 ### 🐛 Bug Fixes

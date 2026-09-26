@@ -1,3 +1,9 @@
+## [1.31.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.30.0...v1.31.0) (2026-09-26)
+
+### ✨ New Features
+
+* add patch suites for useful apps (CamScanner, Flightradar24, PictureThis, AllTrails, Windy) ([9fc0274](https://github.com/SatanMerde/D-moniakPatches/commit/9fc02743f3778affa1ddee9bfd286f05b6735dff))
+
 ## [1.30.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.29.0...v1.30.0) (2026-09-26)
 
 ### ✨ New Features

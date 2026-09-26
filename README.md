@@ -12,10 +12,10 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-204-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-214-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-69-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-74-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -53,7 +53,18 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.30.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.30.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;208 patches total
+> **[v1.31.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.31.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;218 patches total
+<details open>
+<summary>📦 AllTrails&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Promo Screens - AllTrails (Experimental)](#block-ads-promo-screens-alltrails-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade screens, rating dialogs, and banner advertisements in AllTrails. |  |
+| [Unlock AllTrails+ & Offline Maps - AllTrails (Experimental)](#unlock-alltrails-offline-maps-alltrails-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks AllTrails+ (Pro) features: offline topo map downloads, wrong-turn navigation alerts, real-time 3D trail previews, and satellite heatmaps. |  |
+
+</details>
+
 <details open>
 <summary>📦 Alto's Adventure&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -100,6 +111,17 @@
 | [Clean New Tab & Disable Brave News - Brave (Experimental)](#clean-new-tab-disable-brave-news-brave-experimental) | ⚠️ [En cours de développement / Non testé] Removes Brave News feed, sponsored background wallpaper images, sponsored top tiles, and trending widgets on the New Tab page. |  |
 | [Disable Rewards & Crypto Wallet - Brave (Experimental)](#disable-rewards-crypto-wallet-brave-experimental) | ⚠️ [En cours de développement / Non testé] Disables Brave Rewards (BAT), crypto wallet icon, Web3 onboarding prompts, and token badges for a cleaner UI. |  |
 | [Force Aggressive Shields & Anti-Adblock Bypass - Brave (Experimental)](#force-aggressive-shields-anti-adblock-bypass-brave-experimental) | ⚠️ [En cours de développement / Non testé] Forces aggressive ad/tracker blocking mode by default, strips URL tracking query parameters, and bypasses anti-adblock detection scripts in Brave. |  |
+
+</details>
+
+<details open>
+<summary>📦 CamScanner&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Promo Screens - CamScanner (Experimental)](#block-ads-promo-screens-camscanner-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional cloud storage popups, interstitial video ads, and rating dialogues in CamScanner. |  |
+| [Unlock Premium & Remove Watermarks - CamScanner (Experimental)](#unlock-premium-remove-watermarks-camscanner-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks CamScanner Premium features: removes 'Scanned with CamScanner' watermark on PDFs, enables HD scan quality, unlimited OCR text extraction, and electronic signatures. |  |
 
 </details>
 
@@ -205,6 +227,17 @@
 | [Disable Telemetry & Pocket Stories - Firefox (Experimental)](#disable-telemetry-pocket-stories-firefox-experimental) | ⚠️ [En cours de développement / Non testé] Completely disables Mozilla telemetry, Glean analytics, sponsored Pocket stories, and sponsored search shortcuts on Firefox mobile. |  |
 | [Pure AMOLED Dark Theme - Firefox (Experimental)](#pure-amoled-dark-theme-firefox-experimental) | ⚠️ [En cours de développement / Non testé] Forces a true pitch-black (#000000) AMOLED dark theme across the browser UI, new tab homepage, toolbar, and reader mode. |  |
 | [Unlock Full Add-ons Catalog - Firefox (Experimental)](#unlock-full-add-ons-catalog-firefox-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks full Mozilla Add-ons (AMO) catalog installation on mobile Firefox without requiring Custom Add-on Collections. |  |
+
+</details>
+
+<details open>
+<summary>📦 Flightradar24&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Promo Screens - Flightradar24 (Experimental)](#block-ads-promo-screens-flightradar24-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade dialogs, map banner advertisements, and sponsored popups in Flightradar24. |  |
+| [Unlock Silver & Gold Features - Flightradar24 (Experimental)](#unlock-silver-gold-features-flightradar24-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Flightradar24 Gold & Silver features: extended flight history, unlimited 3D cockpit views, aeronautical charts, oceanic tracks, and weather radar overlays. |  |
 
 </details>
 
@@ -444,6 +477,17 @@
 |----------|----------------|-----------|
 | [Block Ads & Promo Screens - Photomath (Experimental)](#block-ads-promo-screens-photomath-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade screens, rating dialogs, and subscription prompts in Photomath. |  |
 | [Unlock Photomath Plus - Photomath (Experimental)](#unlock-photomath-plus-photomath-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Photomath Plus features: deep step-by-step mathematical explanations, animated calculation walkthroughs, and textbook solutions. |  |
+
+</details>
+
+<details open>
+<summary>📦 PictureThis&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Paywall Prompts - PictureThis (Experimental)](#block-ads-paywall-prompts-picturethis-experimental) | ⚠️ [En cours de développement / Non testé] Strips startup subscription paywalls, rating prompts, and banner ads in PictureThis. |  |
+| [Unlock Premium & Plant Disease Diagnosis - PictureThis (Experimental)](#unlock-premium-plant-disease-diagnosis-picturethis-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks PictureThis Premium features: unlimited plant identifications, full disease diagnosis, botanist plant care guides, and bypasses startup paywall prompts. |  |
 
 </details>
 
@@ -862,6 +906,17 @@
 |----------|----------------|-----------|
 | [Declutter UI & Hide Pro Upsells - Windscribe (Experimental)](#declutter-ui-hide-pro-upsells-windscribe-experimental) | ⚠️ [En cours de développement / Non testé] Hides Pro upgrade ribbons, promotional sales alerts, and persistent upgrade banners in the main location list. |  |
 | [Enhanced Privacy & Telemetry Blocker - Windscribe (Experimental)](#enhanced-privacy-telemetry-blocker-windscribe-experimental) | ⚠️ [En cours de développement / Non testé] Neutralizes background diagnostic reporting, error analytics, and tracking telemetry endpoints for maximum anonymity. |  |
+
+</details>
+
+<details open>
+<summary>📦 Windy.com&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Promo Screens - Windy.com (Experimental)](#block-ads-promo-screens-windy-com-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade banners, rating popups, and subscription modals in Windy.com. |  |
+| [Unlock Windy Premium - Windy.com (Experimental)](#unlock-windy-premium-windy-com-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Windy Premium features: 1-hour forecast step resolution, 16-day extended forecast, high-res satellite radar archive, route planner, and unlimited alerts. |  |
 
 </details>
 

@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.30.0",
+  "version": "1.31.0",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -1407,6 +1407,33 @@
       "options": []
     },
     {
+      "name": "Block Ads & Paywall Prompts - PictureThis (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips startup subscription paywalls, rating prompts, and banner ads in PictureThis.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "cn.danatech.xingseus",
+          "name": "PictureThis",
+          "description": "PictureThis: Plant & Flower Identifier by Glority Global Group",
+          "apkFileType": null,
+          "appIconColor": "#4CAF50",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Block Ads & Promo Popups - Memrise (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Strips promotional upgrade popups, trial reminders, and subscription banners in Memrise.",
       "default": true,
@@ -1463,6 +1490,87 @@
           "description": "Stellarium Mobile: Star Map by Noctua Software",
           "apkFileType": null,
           "appIconColor": "#1A237E",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block Ads & Promo Screens - AllTrails (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips promotional upgrade screens, rating dialogs, and banner advertisements in AllTrails.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.alltrails.alltrails",
+          "name": "AllTrails",
+          "description": "AllTrails: Hike, Bike & Run Outdoor GPS Navigation by AllTrails",
+          "apkFileType": null,
+          "appIconColor": "#388E3C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block Ads & Promo Screens - CamScanner (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips promotional cloud storage popups, interstitial video ads, and rating dialogues in CamScanner.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.intsig.camscanner",
+          "name": "CamScanner",
+          "description": "CamScanner: PDF Scanner & Document OCR by INTSIG",
+          "apkFileType": null,
+          "appIconColor": "#009688",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block Ads & Promo Screens - Flightradar24 (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips promotional upgrade dialogs, map banner advertisements, and sponsored popups in Flightradar24.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.flightradar24free",
+          "name": "Flightradar24",
+          "description": "Flightradar24: Live Flight Tracker & Radar by Flightradar24 AB",
+          "apkFileType": null,
+          "appIconColor": "#FBC02D",
           "signatures": null,
           "targets": [
             {
@@ -1544,6 +1652,33 @@
           "description": "Photomath: Camera Calculator & Math Solver by Google LLC",
           "apkFileType": null,
           "appIconColor": "#D32F2F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block Ads & Promo Screens - Windy.com (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips promotional upgrade banners, rating popups, and subscription modals in Windy.com.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.windyty.android",
+          "name": "Windy.com",
+          "description": "Windy.com: Weather & Wind Radar Forecast by Windyty SE",
+          "apkFileType": null,
+          "appIconColor": "#0288D1",
           "signatures": null,
           "targets": [
             {
@@ -4518,6 +4653,33 @@
       "options": []
     },
     {
+      "name": "Unlock AllTrails+ & Offline Maps - AllTrails (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks AllTrails+ (Pro) features: offline topo map downloads, wrong-turn navigation alerts, real-time 3D trail previews, and satellite heatmaps.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.alltrails.alltrails",
+          "name": "AllTrails",
+          "description": "AllTrails: Hike, Bike & Run Outdoor GPS Navigation by AllTrails",
+          "apkFileType": null,
+          "appIconColor": "#388E3C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock Canva Pro Features (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Unlocks Canva Pro premium templates, exclusive fonts, advanced design elements, and premium content library without an active Pro subscription.",
       "default": true,
@@ -5075,6 +5237,60 @@
       "options": []
     },
     {
+      "name": "Unlock Premium & Plant Disease Diagnosis - PictureThis (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks PictureThis Premium features: unlimited plant identifications, full disease diagnosis, botanist plant care guides, and bypasses startup paywall prompts.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "cn.danatech.xingseus",
+          "name": "PictureThis",
+          "description": "PictureThis: Plant & Flower Identifier by Glority Global Group",
+          "apkFileType": null,
+          "appIconColor": "#4CAF50",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Premium & Remove Watermarks - CamScanner (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks CamScanner Premium features: removes 'Scanned with CamScanner' watermark on PDFs, enables HD scan quality, unlimited OCR text extraction, and electronic signatures.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.intsig.camscanner",
+          "name": "CamScanner",
+          "description": "CamScanner: PDF Scanner & Document OCR by INTSIG",
+          "apkFileType": null,
+          "appIconColor": "#009688",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock Premium & Unlimited Hints - World Map Quiz (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Unlocks the Premium edition, all continental maps, flag & capital quiz modes, and provides unlimited hint tokens in World Map Quiz.",
       "default": true,
@@ -5264,6 +5480,33 @@
       "options": []
     },
     {
+      "name": "Unlock Silver & Gold Features - Flightradar24 (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks Flightradar24 Gold & Silver features: extended flight history, unlimited 3D cockpit views, aeronautical charts, oceanic tracks, and weather radar overlays.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.flightradar24free",
+          "name": "Flightradar24",
+          "description": "Flightradar24: Live Flight Tracker & Radar by Flightradar24 AB",
+          "apkFileType": null,
+          "appIconColor": "#FBC02D",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock Snapchat+ Features - Snapchat (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Unlocks client-side Snapchat+ UI features: custom app icons, post-view emojis, best friends pin badges, and dark mode controls.",
       "default": true,
@@ -5438,6 +5681,33 @@
           "description": "TeraBox: Cloud Storage Space by Flextech Inc.",
           "apkFileType": null,
           "appIconColor": "#0084FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Windy Premium - Windy.com (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks Windy Premium features: 1-hour forecast step resolution, 16-day extended forecast, high-res satellite radar archive, route planner, and unlimited alerts.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.windyty.android",
+          "name": "Windy.com",
+          "description": "Windy.com: Weather & Wind Radar Forecast by Windyty SE",
+          "apkFileType": null,
+          "appIconColor": "#0288D1",
           "signatures": null,
           "targets": [
             {

@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.22.0-dev.1",
+  "version": "1.22.0",
   "patches": [
     {
       "name": "AMOLED Black & Declutter - Google Photos (Experimental)",
@@ -840,6 +840,33 @@
       "options": []
     },
     {
+      "name": "Always Show Speedometer & Compass - Google Maps (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Forces the real-time GPS speedometer and compass navigation overlay to stay permanently visible on screen regardless of speed or route type.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.maps",
+          "name": "Google Maps",
+          "description": "Google Maps: Navigate & Explore by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#34A853",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Always-On Auto Shazam - Shazam (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Keeps Auto Shazam background listening continuously active without battery optimization pauses or auto-timeout limits.",
       "default": true,
@@ -1326,6 +1353,33 @@
       "options": []
     },
     {
+      "name": "Clean Links & Fast Copy - Perplexity (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips tracking redirects from cited web sources in Perplexity answers and enables one-tap formatted markdown export.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ai.perplexity.app.android",
+          "name": "Perplexity",
+          "description": "Perplexity: Where Knowledge Begins by Perplexity AI",
+          "apkFileType": null,
+          "appIconColor": "#20B2AA",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Declutter Feed & Hide Trials - Strava (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Hides persistent 'Start Free Trial' promotional banners, sponsored club challenges, and upsell carousels in the activity feed.",
       "default": true,
@@ -1542,6 +1596,60 @@
       "options": []
     },
     {
+      "name": "Disable Proximity Sensor - Telegram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Prevents the proximity sensor from turning off the display or switching audio output while listening to voice and video messages.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.telegram.messenger",
+          "name": "Telegram",
+          "description": "Telegram Messenger by Telegram FZ-LLC",
+          "apkFileType": null,
+          "appIconColor": "#24A1DE",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Response Haptics - Google Gemini (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Silences excessive continuous vibration buzzing during token streaming and AI response generation in Google Gemini.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.bard",
+          "name": "Google Gemini",
+          "description": "Google Gemini: Your AI Assistant by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#4285F4",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Disable Storage Warnings - Google Photos (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Suppresses intrusive cloud storage full popups, Google One subscription reminders, and backup disabled warnings in Google Photos.",
       "default": true,
@@ -1581,6 +1689,33 @@
           "description": "Phone by Google: Caller ID & Spam Protection by Google LLC",
           "apkFileType": null,
           "appIconColor": "#1A73E8",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enhanced Privacy & Disable Typing - Signal (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Prevents sending outgoing typing indicators and suppresses read receipt delivery confirmations for enhanced conversation privacy.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.thoughtcrime.securesms",
+          "name": "Signal",
+          "description": "Signal Private Messenger by Signal Foundation",
+          "apkFileType": null,
+          "appIconColor": "#3A76F0",
           "signatures": null,
           "targets": [
             {
@@ -1662,6 +1797,33 @@
           "description": "Proton Mail: Encrypted Email by Proton AG",
           "apkFileType": null,
           "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enhanced Spam & Detailed Caller ID - Phone by Google (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Enforces strict spam call blocking and reveals complete telecom carrier and geographical location details for incoming numbers.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.dialer",
+          "name": "Phone by Google",
+          "description": "Phone by Google: Caller ID & Spam Protection by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#1A73E8",
           "signatures": null,
           "targets": [
             {
@@ -2359,6 +2521,33 @@
       "options": []
     },
     {
+      "name": "Keep Screen On During Generation - ChatGPT (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Keeps the screen illuminated and active while ChatGPT is streaming responses and code snippets, preventing device sleep during long answers.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.openai.chatgpt",
+          "name": "ChatGPT",
+          "description": "ChatGPT: The official AI assistant by OpenAI",
+          "apkFileType": null,
+          "appIconColor": "#10A37F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Pixel Spoof for Unlimited Backup - Google Photos (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Spoofs the device model as an original Google Pixel to activate unlimited original-quality photo and video cloud storage backup in Google Photos.",
       "default": true,
@@ -2560,6 +2749,33 @@
           "description": "Spotify: Music and Podcasts by Spotify AB",
           "apkFileType": null,
           "appIconColor": "#1DB954",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Start on Chat & Battery Saver - Snapchat (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Configures Snapchat to launch directly on the Chat conversation feed instead of opening the battery-draining camera viewfinder on startup.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.snapchat.android",
+          "name": "Snapchat",
+          "description": "Snapchat by Snap Inc",
+          "apkFileType": null,
+          "appIconColor": "#FFFC00",
           "signatures": null,
           "targets": [
             {
@@ -3028,6 +3244,33 @@
           "description": "Duolingo: Language Lessons by Duolingo",
           "apkFileType": null,
           "appIconColor": "#58CC02",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Unlimited Pinned Chats - Telegram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses the 5 pinned chats limit in Telegram, allowing users to pin unlimited chats and channels without Telegram Premium.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.telegram.messenger",
+          "name": "Telegram",
+          "description": "Telegram Messenger by Telegram FZ-LLC",
+          "apkFileType": null,
+          "appIconColor": "#24A1DE",
           "signatures": null,
           "targets": [
             {

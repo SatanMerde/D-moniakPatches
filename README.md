@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-117-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-126-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-42-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -53,160 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.22.0-dev.1](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.22.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;119 patches total
-<details open>
-<summary>📦 Google Photos&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Black & Declutter - Google Photos (Experimental)](#amoled-black-declutter-google-photos-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into gallery view and hides Google One subscription paywalls and cloud storage upgrade prompts. |  |
-| [Disable Storage Warnings - Google Photos (Experimental)](#disable-storage-warnings-google-photos-experimental) | ⚠️ [En cours de développement / Non testé] Suppresses intrusive cloud storage full popups, Google One subscription reminders, and backup disabled warnings in Google Photos. |  |
-| [Pixel Spoof for Unlimited Backup - Google Photos (Experimental)](#pixel-spoof-for-unlimited-backup-google-photos-experimental) | ⚠️ [En cours de développement / Non testé] Spoofs the device model as an original Google Pixel to activate unlimited original-quality photo and video cloud storage backup in Google Photos. |  |
-| [Unlock Editing Tools - Google Photos (Experimental)](#unlock-editing-tools-google-photos-experimental) | ⚠️ [En cours de développement / Non testé] Enables Pixel-exclusive photo editing features, Magic Eraser UI toggles, and Portrait Blur enhancement tools in Google Photos. |  |
-
-</details>
-
-<details open>
-<summary>📦 Proton Pass&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Black & Declutter - Proton Pass (Experimental)](#amoled-black-declutter-proton-pass-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups. |  |
-
-</details>
-
-<details open>
-<summary>📦 Google Maps&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Black Navigation - Google Maps (Experimental)](#amoled-black-navigation-google-maps-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into navigation mode and map exploration screens to minimize battery consumption and glare. |  |
-| [Block Sponsored Pins & Ads - Google Maps (Experimental)](#block-sponsored-pins-ads-google-maps-experimental) | ⚠️ [En cours de développement / Non testé] Removes sponsored venue pins, promoted business recommendations, and commercial suggestion cards in Google Maps search and navigation. |  |
-
-</details>
-
-<details open>
-<summary>📦 Proton Mail&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Black Theme - Proton Mail (Experimental)](#amoled-black-theme-proton-mail-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency. |  |
-| [Declutter UI & Hide Upsells - Proton Mail (Experimental)](#declutter-ui-hide-upsells-proton-mail-experimental) | ⚠️ [En cours de développement / Non testé] Hides storage upgrade alerts, Proton Unlimited promotion banners, and subscription upgrade reminders in Proton Mail. |  |
-| [Enhanced Privacy & Tracker Blocker - Proton Mail (Experimental)](#enhanced-privacy-tracker-blocker-proton-mail-experimental) | ⚠️ [En cours de développement / Non testé] Neutralizes email tracking pixels, blocks diagnostic event reporting (Sentry, Firebase), and stops background usage telemetry in Proton Mail. |  |
-
-</details>
-
-<details open>
-<summary>📦 Proton VPN&nbsp;&nbsp;•&nbsp;&nbsp;9 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Black Theme - Proton VPN (Experimental)](#amoled-black-theme-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens. |  |
-| [Aggressive Keep-Alive & Auto-Reconnect - Proton VPN (Experimental)](#aggressive-keep-alive-auto-reconnect-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Enforces persistent VPN tunnel keep-alive packets and instant automatic reconnection upon network switches or screen unlock. |  |
-| [Allow Screenshots & Screen Mirroring - Proton VPN (Experimental)](#allow-screenshots-screen-mirroring-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton VPN, allowing screenshots, screen recordings, and wireless display mirroring of connection logs and diagnostics. |  |
-| [Always Show Latency & Speed - Proton VPN (Experimental)](#always-show-latency-speed-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Displays real-time ping latency (ms) and transmission speed indicators on all server cards in the connection list. |  |
-| [Bypass Split Tunneling Restrictions - Proton VPN (Experimental)](#bypass-split-tunneling-restrictions-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all system apps, work profile applications, and protected packages in Proton VPN's Split Tunneling selection menu. |  |
-| [Declutter UI & Hide Upsells - Proton VPN (Experimental)](#declutter-ui-hide-upsells-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Hides promotional 'Upgrade to Plus' banners, 'Proton Unlimited' sale carousels, and persistent upgrade prompts from the dashboard and server selector. |  |
-| [Enhanced Privacy & Telemetry Blocker - Proton VPN (Experimental)](#enhanced-privacy-telemetry-blocker-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Blocks diagnostic telemetry, analytical event reporting (Firebase, Sentry, Mixpanel, Matomo), and crashlytics logging for zero metadata leakage. |  |
-| [Unlock Custom DNS Settings - Proton VPN (Experimental)](#unlock-custom-dns-settings-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks custom upstream DNS resolver preferences (NextDNS, AdGuard DNS, Quad9) in Proton VPN settings without subscription restrictions. |  |
-| [Unlock NetShield DNS Blocker - Proton VPN (Experimental)](#unlock-netshield-dns-blocker-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks the NetShield DNS ad & malware blocking toggle in Proton VPN preferences without requiring a Plus subscription. |  |
-
-</details>
-
-<details open>
-<summary>📦 Tuta Mail&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Black Theme - Tuta Mail (Experimental)](#amoled-black-theme-tuta-mail-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Tuta Mail's inbox, message reading view, calendar, and contacts for maximum battery savings on AMOLED displays. |  |
-| [Allow Screenshots & Screen Mirroring - Tuta Mail (Experimental)](#allow-screenshots-screen-mirroring-tuta-mail-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Tuta Mail, allowing users to take screenshots, capture invoice receipts, and mirror screens without black screens. |  |
-| [Declutter UI & Hide Upgrade Banners - Tuta Mail (Experimental)](#declutter-ui-hide-upgrade-banners-tuta-mail-experimental) | ⚠️ [En cours de développement / Non testé] Hides promotional subscription upgrade banners (Revolutionary / Legend), storage warning popups, and upsell alerts in Tuta Mail. |  |
-
-</details>
-
-<details open>
-<summary>📦 ChatGPT&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Dark Theme & Declutter - ChatGPT (Experimental)](#amoled-dark-theme-declutter-chatgpt-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure pitch black (#000000) for OLED screens in ChatGPT conversations and hides 'Upgrade to ChatGPT Plus' marketing banners. |  |
-| [Allow Screenshots & Copy - ChatGPT (Experimental)](#allow-screenshots-copy-chatgpt-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions to allow screenshots and screen recording inside conversations and prevents copy restrictions. |  |
-
-</details>
-
-<details open>
-<summary>📦 Google Gemini&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Dark Theme & Declutter - Google Gemini (Experimental)](#amoled-dark-theme-declutter-google-gemini-experimental) | ⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) across Gemini chat surfaces and removes 'Try Gemini Advanced' upgrade suggestions. |  |
-| [Allow Screenshots & UI Tweaks - Google Gemini (Experimental)](#allow-screenshots-ui-tweaks-google-gemini-experimental) | ⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window flags in Google Gemini to allow capturing chat responses and enhances privacy in floating assistant overlays. |  |
-
-</details>
-
-<details open>
-<summary>📦 Perplexity&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Dark Theme & Declutter - Perplexity (Experimental)](#amoled-dark-theme-declutter-perplexity-experimental) | ⚠️ [En cours de développement / Non testé] Replaces gray backgrounds with pure OLED black (#000000) in Perplexity search threads and removes 'Try Pro' upgrade banners. |  |
-| [Allow Screenshots & Block Telemetry - Perplexity (Experimental)](#allow-screenshots-block-telemetry-perplexity-experimental) | ⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window protections and disables background analytics/telemetry tracking calls (Adjust, Datadog, Mixpanel) in Perplexity. |  |
-
-</details>
-
-<details open>
-<summary>📦 Snapchat&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Dark Theme & Declutter - Snapchat (Experimental)](#amoled-dark-theme-declutter-snapchat-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Snapchat chat screens and hides sponsored Discover tiles and intrusive Spotlight ads. |  |
-| [Allow Screenshots & Anti-Screen Security - Snapchat (Experimental)](#allow-screenshots-anti-screen-security-snapchat-experimental) | ⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE restrictions on Snapchat chat and media viewer activities, allowing screen capture without black screen restrictions. |  |
-
-</details>
-
-<details open>
-<summary>📦 Signal&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Dark Theme & Hide Donation Nags - Signal (Experimental)](#amoled-dark-theme-hide-donation-nags-signal-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Signal chat threads and settings, and suppresses donor badges and 'Support Signal' donation reminders. |  |
-| [Allow Screenshots & Screen Security Bypass - Signal (Experimental)](#allow-screenshots-screen-security-bypass-signal-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses Android FLAG_SECURE window restrictions in Signal, allowing users to take screenshots and record screens even when Screen Security is enforced. |  |
-
-</details>
-
-<details open>
-<summary>📦 Session&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Dark Theme - Session (Experimental)](#amoled-dark-theme-session-experimental) | ⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into Session chat threads, community rooms, and message views to maximize battery savings. |  |
-| [Allow Screenshots & Screen Security Bypass - Session (Experimental)](#allow-screenshots-screen-security-bypass-session-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window flags in Session Private Messenger, enabling screenshots, receipts saving, and screen recording inside conversations. |  |
-
-</details>
-
-<details open>
-<summary>📦 SimpleX Chat&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Dark Theme - SimpleX (Experimental)](#amoled-dark-theme-simplex-experimental) | ⚠️ [En cours de développement / Non testé] Replaces dark grey backgrounds with pure OLED pitch black (#000000) across SimpleX Chat conversation screens and network status monitors. |  |
-| [Allow Screenshots & Screen Security Bypass - SimpleX (Experimental)](#allow-screenshots-screen-security-bypass-simplex-experimental) | ⚠️ [En cours de développement / Non testé] Neutralizes FLAG_SECURE window flags in SimpleX Chat, allowing screenshots and screen sharing without black screens. |  |
-
-</details>
-
+> **[v1.22.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.22.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;128 patches total
 <details open>
 <summary>📦 Truecaller&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -275,13 +122,174 @@
 </details>
 
 <details open>
-<summary>📦 Telegram&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Proton VPN&nbsp;&nbsp;•&nbsp;&nbsp;9 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black Theme - Proton VPN (Experimental)](#amoled-black-theme-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens. |  |
+| [Aggressive Keep-Alive & Auto-Reconnect - Proton VPN (Experimental)](#aggressive-keep-alive-auto-reconnect-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Enforces persistent VPN tunnel keep-alive packets and instant automatic reconnection upon network switches or screen unlock. |  |
+| [Allow Screenshots & Screen Mirroring - Proton VPN (Experimental)](#allow-screenshots-screen-mirroring-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton VPN, allowing screenshots, screen recordings, and wireless display mirroring of connection logs and diagnostics. |  |
+| [Always Show Latency & Speed - Proton VPN (Experimental)](#always-show-latency-speed-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Displays real-time ping latency (ms) and transmission speed indicators on all server cards in the connection list. |  |
+| [Bypass Split Tunneling Restrictions - Proton VPN (Experimental)](#bypass-split-tunneling-restrictions-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all system apps, work profile applications, and protected packages in Proton VPN's Split Tunneling selection menu. |  |
+| [Declutter UI & Hide Upsells - Proton VPN (Experimental)](#declutter-ui-hide-upsells-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Hides promotional 'Upgrade to Plus' banners, 'Proton Unlimited' sale carousels, and persistent upgrade prompts from the dashboard and server selector. |  |
+| [Enhanced Privacy & Telemetry Blocker - Proton VPN (Experimental)](#enhanced-privacy-telemetry-blocker-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Blocks diagnostic telemetry, analytical event reporting (Firebase, Sentry, Mixpanel, Matomo), and crashlytics logging for zero metadata leakage. |  |
+| [Unlock Custom DNS Settings - Proton VPN (Experimental)](#unlock-custom-dns-settings-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks custom upstream DNS resolver preferences (NextDNS, AdGuard DNS, Quad9) in Proton VPN settings without subscription restrictions. |  |
+| [Unlock NetShield DNS Blocker - Proton VPN (Experimental)](#unlock-netshield-dns-blocker-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks the NetShield DNS ad & malware blocking toggle in Proton VPN preferences without requiring a Plus subscription. |  |
+
+</details>
+
+<details open>
+<summary>📦 Telegram&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Allow Saving Restricted Media - Telegram (Experimental)](#allow-saving-restricted-media-telegram-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses 'Copying and forwarding is not allowed' channel restrictions, allowing users to save photos, videos, and copy text from restricted channels. |  |
 | [Block Ads & Hide Stories - Telegram (Experimental)](#block-ads-hide-stories-telegram-experimental) | ⚠️ [En cours de développement / Non testé] Removes sponsored messages in public channels, hides stories carousel from the chat list, and eliminates Telegram Premium upgrade reminders. |  |
+| [Disable Proximity Sensor - Telegram (Experimental)](#disable-proximity-sensor-telegram-experimental) | ⚠️ [En cours de développement / Non testé] Prevents the proximity sensor from turning off the display or switching audio output while listening to voice and video messages. |  |
+| [Unlock Unlimited Pinned Chats - Telegram (Experimental)](#unlock-unlimited-pinned-chats-telegram-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses the 5 pinned chats limit in Telegram, allowing users to pin unlimited chats and channels without Telegram Premium. |  |
+
+</details>
+
+<details open>
+<summary>📦 Snapchat&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Dark Theme & Declutter - Snapchat (Experimental)](#amoled-dark-theme-declutter-snapchat-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Snapchat chat screens and hides sponsored Discover tiles and intrusive Spotlight ads. |  |
+| [Allow Screenshots & Anti-Screen Security - Snapchat (Experimental)](#allow-screenshots-anti-screen-security-snapchat-experimental) | ⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE restrictions on Snapchat chat and media viewer activities, allowing screen capture without black screen restrictions. |  |
+| [Start on Chat & Battery Saver - Snapchat (Experimental)](#start-on-chat-battery-saver-snapchat-experimental) | ⚠️ [En cours de développement / Non testé] Configures Snapchat to launch directly on the Chat conversation feed instead of opening the battery-draining camera viewfinder on startup. |  |
+
+</details>
+
+<details open>
+<summary>📦 Perplexity&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Dark Theme & Declutter - Perplexity (Experimental)](#amoled-dark-theme-declutter-perplexity-experimental) | ⚠️ [En cours de développement / Non testé] Replaces gray backgrounds with pure OLED black (#000000) in Perplexity search threads and removes 'Try Pro' upgrade banners. |  |
+| [Allow Screenshots & Block Telemetry - Perplexity (Experimental)](#allow-screenshots-block-telemetry-perplexity-experimental) | ⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window protections and disables background analytics/telemetry tracking calls (Adjust, Datadog, Mixpanel) in Perplexity. |  |
+| [Clean Links & Fast Copy - Perplexity (Experimental)](#clean-links-fast-copy-perplexity-experimental) | ⚠️ [En cours de développement / Non testé] Strips tracking redirects from cited web sources in Perplexity answers and enables one-tap formatted markdown export. |  |
+
+</details>
+
+<details open>
+<summary>📦 ChatGPT&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Dark Theme & Declutter - ChatGPT (Experimental)](#amoled-dark-theme-declutter-chatgpt-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure pitch black (#000000) for OLED screens in ChatGPT conversations and hides 'Upgrade to ChatGPT Plus' marketing banners. |  |
+| [Allow Screenshots & Copy - ChatGPT (Experimental)](#allow-screenshots-copy-chatgpt-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions to allow screenshots and screen recording inside conversations and prevents copy restrictions. |  |
+| [Keep Screen On During Generation - ChatGPT (Experimental)](#keep-screen-on-during-generation-chatgpt-experimental) | ⚠️ [En cours de développement / Non testé] Keeps the screen illuminated and active while ChatGPT is streaming responses and code snippets, preventing device sleep during long answers. |  |
+
+</details>
+
+<details open>
+<summary>📦 Tuta Mail&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black Theme - Tuta Mail (Experimental)](#amoled-black-theme-tuta-mail-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Tuta Mail's inbox, message reading view, calendar, and contacts for maximum battery savings on AMOLED displays. |  |
+| [Allow Screenshots & Screen Mirroring - Tuta Mail (Experimental)](#allow-screenshots-screen-mirroring-tuta-mail-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Tuta Mail, allowing users to take screenshots, capture invoice receipts, and mirror screens without black screens. |  |
+| [Declutter UI & Hide Upgrade Banners - Tuta Mail (Experimental)](#declutter-ui-hide-upgrade-banners-tuta-mail-experimental) | ⚠️ [En cours de développement / Non testé] Hides promotional subscription upgrade banners (Revolutionary / Legend), storage warning popups, and upsell alerts in Tuta Mail. |  |
+
+</details>
+
+<details open>
+<summary>📦 Session&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Dark Theme - Session (Experimental)](#amoled-dark-theme-session-experimental) | ⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into Session chat threads, community rooms, and message views to maximize battery savings. |  |
+| [Allow Screenshots & Screen Security Bypass - Session (Experimental)](#allow-screenshots-screen-security-bypass-session-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window flags in Session Private Messenger, enabling screenshots, receipts saving, and screen recording inside conversations. |  |
+
+</details>
+
+<details open>
+<summary>📦 Signal&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Dark Theme & Hide Donation Nags - Signal (Experimental)](#amoled-dark-theme-hide-donation-nags-signal-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Signal chat threads and settings, and suppresses donor badges and 'Support Signal' donation reminders. |  |
+| [Allow Screenshots & Screen Security Bypass - Signal (Experimental)](#allow-screenshots-screen-security-bypass-signal-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses Android FLAG_SECURE window restrictions in Signal, allowing users to take screenshots and record screens even when Screen Security is enforced. |  |
+| [Enhanced Privacy & Disable Typing - Signal (Experimental)](#enhanced-privacy-disable-typing-signal-experimental) | ⚠️ [En cours de développement / Non testé] Prevents sending outgoing typing indicators and suppresses read receipt delivery confirmations for enhanced conversation privacy. |  |
+
+</details>
+
+<details open>
+<summary>📦 SimpleX Chat&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Dark Theme - SimpleX (Experimental)](#amoled-dark-theme-simplex-experimental) | ⚠️ [En cours de développement / Non testé] Replaces dark grey backgrounds with pure OLED pitch black (#000000) across SimpleX Chat conversation screens and network status monitors. |  |
+| [Allow Screenshots & Screen Security Bypass - SimpleX (Experimental)](#allow-screenshots-screen-security-bypass-simplex-experimental) | ⚠️ [En cours de développement / Non testé] Neutralizes FLAG_SECURE window flags in SimpleX Chat, allowing screenshots and screen sharing without black screens. |  |
+
+</details>
+
+<details open>
+<summary>📦 Google Gemini&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Dark Theme & Declutter - Google Gemini (Experimental)](#amoled-dark-theme-declutter-google-gemini-experimental) | ⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) across Gemini chat surfaces and removes 'Try Gemini Advanced' upgrade suggestions. |  |
+| [Allow Screenshots & UI Tweaks - Google Gemini (Experimental)](#allow-screenshots-ui-tweaks-google-gemini-experimental) | ⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window flags in Google Gemini to allow capturing chat responses and enhances privacy in floating assistant overlays. |  |
+| [Disable Response Haptics - Google Gemini (Experimental)](#disable-response-haptics-google-gemini-experimental) | ⚠️ [En cours de développement / Non testé] Silences excessive continuous vibration buzzing during token streaming and AI response generation in Google Gemini. |  |
+
+</details>
+
+<details open>
+<summary>📦 Google Maps&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black Navigation - Google Maps (Experimental)](#amoled-black-navigation-google-maps-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into navigation mode and map exploration screens to minimize battery consumption and glare. |  |
+| [Always Show Speedometer & Compass - Google Maps (Experimental)](#always-show-speedometer-compass-google-maps-experimental) | ⚠️ [En cours de développement / Non testé] Forces the real-time GPS speedometer and compass navigation overlay to stay permanently visible on screen regardless of speed or route type. |  |
+| [Block Sponsored Pins & Ads - Google Maps (Experimental)](#block-sponsored-pins-ads-google-maps-experimental) | ⚠️ [En cours de développement / Non testé] Removes sponsored venue pins, promoted business recommendations, and commercial suggestion cards in Google Maps search and navigation. |  |
+
+</details>
+
+<details open>
+<summary>📦 Google Photos&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black & Declutter - Google Photos (Experimental)](#amoled-black-declutter-google-photos-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into gallery view and hides Google One subscription paywalls and cloud storage upgrade prompts. |  |
+| [Disable Storage Warnings - Google Photos (Experimental)](#disable-storage-warnings-google-photos-experimental) | ⚠️ [En cours de développement / Non testé] Suppresses intrusive cloud storage full popups, Google One subscription reminders, and backup disabled warnings in Google Photos. |  |
+| [Pixel Spoof for Unlimited Backup - Google Photos (Experimental)](#pixel-spoof-for-unlimited-backup-google-photos-experimental) | ⚠️ [En cours de développement / Non testé] Spoofs the device model as an original Google Pixel to activate unlimited original-quality photo and video cloud storage backup in Google Photos. |  |
+| [Unlock Editing Tools - Google Photos (Experimental)](#unlock-editing-tools-google-photos-experimental) | ⚠️ [En cours de développement / Non testé] Enables Pixel-exclusive photo editing features, Magic Eraser UI toggles, and Portrait Blur enhancement tools in Google Photos. |  |
+
+</details>
+
+<details open>
+<summary>📦 Proton Pass&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black & Declutter - Proton Pass (Experimental)](#amoled-black-declutter-proton-pass-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups. |  |
+
+</details>
+
+<details open>
+<summary>📦 Proton Mail&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black Theme - Proton Mail (Experimental)](#amoled-black-theme-proton-mail-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency. |  |
+| [Declutter UI & Hide Upsells - Proton Mail (Experimental)](#declutter-ui-hide-upsells-proton-mail-experimental) | ⚠️ [En cours de développement / Non testé] Hides storage upgrade alerts, Proton Unlimited promotion banners, and subscription upgrade reminders in Proton Mail. |  |
+| [Enhanced Privacy & Tracker Blocker - Proton Mail (Experimental)](#enhanced-privacy-tracker-blocker-proton-mail-experimental) | ⚠️ [En cours de développement / Non testé] Neutralizes email tracking pixels, blocks diagnostic event reporting (Sentry, Firebase), and stops background usage telemetry in Proton Mail. |  |
 
 </details>
 
@@ -490,12 +498,13 @@
 </details>
 
 <details open>
-<summary>📦 Phone by Google&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Phone by Google&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Enable Call Recording - Phone by Google (Experimental)](#enable-call-recording-phone-by-google-experimental) | ⚠️ [En cours de développement / Non testé] Enables native call recording buttons and settings in Google Phone, bypassing regional carrier and country restrictions. |  |
+| [Enhanced Spam & Detailed Caller ID - Phone by Google (Experimental)](#enhanced-spam-detailed-caller-id-phone-by-google-experimental) | ⚠️ [En cours de développement / Non testé] Enforces strict spam call blocking and reveals complete telecom carrier and geographical location details for incoming numbers. |  |
 | [Silence Call Recording Warning - Phone by Google (Experimental)](#silence-call-recording-warning-phone-by-google-experimental) | ⚠️ [En cours de développement / Non testé] Mutes the audible 'This call is now being recorded' audio announcement tone when starting and stopping call recording. |  |
 
 </details>
@@ -714,9 +723,11 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **Téléphone par Google (Phone - NOUVEAU - 1 Milliard+ de téléchargements) :**
   - **Enable Call Recording :** Débloque les paramètres et le bouton natif d'enregistrement d'appels dans l'application Téléphone de Google, contournant les restrictions géographiques et d'opérateurs.
   - **Silence Call Recording Warning :** Neutralise et coupe le message vocal d'avertissement sonore (« Cet appel est désormais enregistré ») diffusé au début et à la fin de l'enregistrement.
+  - **Enhanced Spam & Detailed Caller ID :** Active le filtrage strict des spams téléphoniques et affiche l'opérateur d'origine et la localisation géographique précise des numéros entrants.
 - **Google Maps (NOUVEAU - 10 Milliards+ de téléchargements) :**
   - **Block Sponsored Pins & Ads :** Supprime les épingles d'entreprises sponsorisées sur la carte, les suggestions publicitaires et les cartes promotionnelles pendant la recherche et le trajet.
   - **AMOLED Black Navigation :** Active un thème noir pur OLED (#000000) pour la navigation GPS virage par virage et l'exploration de carte, réduisant la consommation de batterie et l'éblouissement nocturne.
+  - **Always Show Speedometer & Compass :** Maintient le compteur de vitesse GPS en temps réel et la boussole affichés en permanence à l'écran en mode guidage.
 - **Google Photos (NOUVEAU - 5 Milliards+ de téléchargements) :**
   - **Unlock Editing Tools :** Débloque les outils d'édition avancés réservés aux Google Pixel (Gomme magique, Éclairage portrait, Ciel dynamique, Flou d'arrière-plan).
   - **AMOLED Black & Declutter :** Thème noir pur OLED (#000000) dans la galerie et masquage des bannières d'abonnement Google One et d'achat d'espace de stockage.
@@ -725,18 +736,24 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **ChatGPT (NOUVEAU - 100M+ d'utilisateurs IA) :**
   - **AMOLED Dark Theme & Declutter :** Remplace les fonds gris foncé par un véritable noir pur OLED (#000000) dans les conversations et masque les bannières promotionnelles de passage à ChatGPT Plus.
   - **Allow Screenshots & Copy :** Supprime la restriction Android FLAG_SECURE pour autoriser les captures d'écran et enregistrements vidéo des réponses dans les conversations, et débloque les limites de copie de texte.
+  - **Keep Screen On During Generation :** Maintient l'écran allumé pendant la génération continue de réponses et blocs de code pour éviter la mise en veille.
 - **Perplexity (NOUVEAU - 50M+ d'utilisateurs IA) :**
   - **AMOLED Dark Theme & Declutter :** Applique un thème noir absolu (#000000) dans les fils de recherche et réponses, et élimine les bannières persistantes d'abonnement Perplexity Pro.
   - **Allow Screenshots & Block Telemetry :** Supprime la restriction FLAG_SECURE pour permettre les captures d'écran et neutralise les SDKs d'analyse et de télémétrie tiers (Adjust, Datadog, Mixpanel).
+  - **Clean Links & Fast Copy :** Supprime les redirections de traçage sur les liens des sources web et active la copie rapide au format Markdown propre.
 - **Google Gemini (NOUVEAU - Assistant IA) :**
   - **AMOLED Dark Theme & Declutter :** Infiltre un noir profond OLED (#000000) dans les interfaces de discussion Gemini et masque les incitations à passer à Gemini Advanced.
   - **Allow Screenshots & UI Tweaks :** Supprime les restrictions de capture d'écran FLAG_SECURE sur les fenêtres de discussion et optimise la discrétion de l'overlay flottant.
+  - **Disable Response Haptics :** Coupe les vibrations haptiques répétitives pendant le streaming des réponses de l'IA.
 - **Telegram (NOUVEAU - 1 Milliard+ d'utilisateurs) :**
   - **Block Ads & Hide Stories :** Supprime les messages sponsorisés dans les canaux publics, masque le carrousel des stories au-dessus des discussions et désactive les alertes Telegram Premium.
   - **Allow Saving Restricted Media :** Contourne la protection anti-copie (« Le transfert et la copie ne sont pas autorisés ») des canaux restreints pour permettre la sauvegarde des photos, vidéos et la copie de texte.
+  - **Unlock Unlimited Pinned Chats :** Débloque la limite des 5 discussions épinglées pour permettre d'épingler un nombre illimité de conversations et canaux sans Telegram Premium.
+  - **Disable Proximity Sensor :** Empêche le capteur de proximité d'éteindre l'écran ou de basculer l'audio vers l'écouteur lors de l'écoute de messages vocaux ou vidéo.
 - **Signal (NOUVEAU - 100M+ d'utilisateurs) :**
   - **Allow Screenshots & Screen Security Bypass :** Neutralise la restriction Android FLAG_SECURE pour autoriser les captures d'écran et enregistrements d'écran même quand la Sécurité d'écran est imposée.
   - **AMOLED Dark Theme & Hide Donation Nags :** Remplace les fonds gris par un noir absolu (#000000) et supprime les bannières d'appel aux dons et badges de donateurs.
+  - **Enhanced Privacy & Disable Typing :** Empêche l'envoi des indicateurs de saisie en direct et supprime la notification de confirmation de lecture.
 - **Session (NOUVEAU - Messagerie Privée Décentralisée) :**
   - **Allow Screenshots & Screen Security Bypass :** Supprime la protection de fenêtre FLAG_SECURE pour permettre les captures d'écran de conversations, reçus et l'enregistrement vidéo sans écran noir.
   - **AMOLED Dark Theme :** Infiltre un noir profond (#000000) dans les conversations individuelles et salons communautaires.
@@ -746,6 +763,7 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **Snapchat (NOUVEAU - 1 Milliard+ de téléchargements) :**
   - **AMOLED Dark Theme & Declutter :** Applique un thème noir pur OLED (#000000) sur les écrans de chat et masque les vignettes sponsorisées Discover et publicités Spotlight.
   - **Allow Screenshots & Anti-Screen Security :** Neutralise les restrictions FLAG_SECURE sur les vues de chat et de médias pour autoriser la capture d'écran sans écran noir.
+  - **Start on Chat & Battery Saver :** Lance Snapchat directement sur le fil des conversations privées au lieu d'ouvrir le viseur appareil photo énergivore au démarrage.
 
 > ⚠️ **Note Générale :** Tous les nouveaux patchs indiqués `(Experimental)` sont **en cours de développement et non encore validés par test sur appareil physique**.
 
@@ -933,9 +951,11 @@ This project provides gameplay-specific patches tailored to each game:
 - **Phone by Google (NEW - 1 Billion+ downloads):**
   - **Enable Call Recording:** Enables native call recording buttons and settings in Google Phone, bypassing regional carrier and country restrictions.
   - **Silence Call Recording Warning:** Mutes the audible 'This call is now being recorded' audio announcement tone when starting and stopping call recording.
+  - **Enhanced Spam & Detailed Caller ID:** Enforces strict spam call blocking and reveals complete telecom carrier and geographical location details for incoming numbers.
 - **Google Maps (NEW - 10 Billion+ downloads):**
   - **Block Sponsored Pins & Ads:** Removes sponsored venue pins, promoted business recommendations, and commercial suggestion cards in Google Maps search and navigation.
   - **AMOLED Black Navigation:** Injects pure OLED pitch black (#000000) into navigation mode and map exploration screens to minimize battery consumption and glare.
+  - **Always Show Speedometer & Compass:** Forces the real-time GPS speedometer and compass navigation overlay to stay permanently visible on screen regardless of speed or route type.
 - **Google Photos (NEW - 5 Billion+ downloads):**
   - **Unlock Editing Tools:** Enables Pixel-exclusive photo editing features, Magic Eraser UI toggles, and Portrait Blur enhancement tools in Google Photos.
   - **AMOLED Black & Declutter:** Injects pure OLED pitch black (#000000) into gallery view and hides Google One subscription paywalls and cloud storage upgrade prompts.
@@ -944,18 +964,24 @@ This project provides gameplay-specific patches tailored to each game:
 - **ChatGPT (NEW - 100M+ AI users):**
   - **AMOLED Dark Theme & Declutter:** Injects pure pitch black (#000000) for OLED screens in ChatGPT conversations and hides 'Upgrade to ChatGPT Plus' marketing banners.
   - **Allow Screenshots & Copy:** Removes Android FLAG_SECURE window restrictions to allow screenshots and screen recording inside conversations and prevents copy restrictions.
+  - **Keep Screen On During Generation:** Keeps the screen illuminated and active while ChatGPT is streaming responses and code snippets, preventing device sleep during long answers.
 - **Perplexity (NEW - 50M+ AI users):**
   - **AMOLED Dark Theme & Declutter:** Replaces gray backgrounds with pure OLED black (#000000) in Perplexity search threads and removes 'Try Pro' upgrade banners.
   - **Allow Screenshots & Block Telemetry:** Removes FLAG_SECURE window protections and disables background analytics/telemetry tracking calls (Adjust, Datadog, Mixpanel) in Perplexity.
+  - **Clean Links & Fast Copy:** Strips tracking redirects from cited web sources in Perplexity answers and enables one-tap formatted markdown export.
 - **Google Gemini (NEW - AI Assistant):**
   - **AMOLED Dark Theme & Declutter:** Injects true OLED pitch black (#000000) across Gemini chat surfaces and removes 'Try Gemini Advanced' upgrade suggestions.
   - **Allow Screenshots & UI Tweaks:** Removes FLAG_SECURE window flags in Google Gemini to allow capturing chat responses and enhances privacy in floating assistant overlays.
+  - **Disable Response Haptics:** Silences excessive continuous vibration buzzing during token streaming and AI response generation in Google Gemini.
 - **Telegram (NEW - 1 Billion+ users):**
   - **Block Ads & Hide Stories:** Removes sponsored messages in public channels, hides stories carousel from the chat list, and eliminates Telegram Premium upgrade reminders.
   - **Allow Saving Restricted Media:** Bypasses 'Copying and forwarding is not allowed' channel restrictions, allowing users to save photos, videos, and copy text from restricted channels.
+  - **Unlock Unlimited Pinned Chats:** Bypasses the 5 pinned chats limit in Telegram, allowing users to pin unlimited chats and channels without Telegram Premium.
+  - **Disable Proximity Sensor:** Prevents the proximity sensor from turning off the display or switching audio output while listening to voice and video messages.
 - **Signal (NEW - 100M+ users):**
   - **Allow Screenshots & Screen Security Bypass:** Bypasses Android FLAG_SECURE window restrictions in Signal, allowing users to take screenshots and record screens even when Screen Security is enforced.
   - **AMOLED Dark Theme & Hide Donation Nags:** Injects pure OLED pitch black (#000000) into Signal chat threads and settings, and suppresses donor badges and 'Support Signal' donation reminders.
+  - **Enhanced Privacy & Disable Typing:** Prevents sending outgoing typing indicators and suppresses read receipt delivery confirmations for enhanced conversation privacy.
 - **Session (NEW - Private Decentralized Messenger):**
   - **Allow Screenshots & Screen Security Bypass:** Removes Android FLAG_SECURE window flags in Session Private Messenger, enabling screenshots, receipts saving, and screen recording inside conversations.
   - **AMOLED Dark Theme:** Injects true OLED pitch black (#000000) into Session chat threads, community rooms, and message views to maximize battery savings.
@@ -965,6 +991,7 @@ This project provides gameplay-specific patches tailored to each game:
 - **Snapchat (NEW - 1 Billion+ downloads):**
   - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into Snapchat chat screens and hides sponsored Discover tiles and intrusive Spotlight ads.
   - **Allow Screenshots & Anti-Screen Security:** Removes FLAG_SECURE restrictions on Snapchat chat and media viewer activities, allowing screen capture without black screen restrictions.
+  - **Start on Chat & Battery Saver:** Configures Snapchat to launch directly on the Chat conversation feed instead of opening the battery-draining camera viewfinder on startup.
 
 > ⚠️ **General Notice:** All new patches marked `(Experimental)` are **under active development and have not yet been tested in real-world conditions** on physical devices.
 

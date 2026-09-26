@@ -1,9 +1,8 @@
-## [1.22.0-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.21.0...v1.22.0-dev.1) (2026-09-26)
+## [1.22.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.21.0...v1.22.0) (2026-09-26)
 
 ### ✨ New Features
 
 * add messaging apps suite (Telegram, Signal, Session, SimpleX, Snapchat) ([b3f17a2](https://github.com/SatanMerde/D-moniakPatches/commit/b3f17a2caee026ff90176eefef00d973a5c43358))
-* add premium and pro feature patches for Duolingo, Waze, SoundCloud, and Pinterest ([6074d38](https://github.com/SatanMerde/D-moniakPatches/commit/6074d381fcbeeb913a385b389a556546ad33bcae))
 
 ## [1.21.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.20.0...v1.21.0) (2026-09-26)
 

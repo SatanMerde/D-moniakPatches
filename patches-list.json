@@ -1,7 +1,115 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.18.0",
+  "version": "1.19.0",
   "patches": [
+    {
+      "name": "AMOLED Black & Declutter - Proton Pass (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "proton.android.pass",
+          "name": "Proton Pass",
+          "description": "Proton Pass: Password Manager by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black Theme - Proton Mail (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonmail.android",
+          "name": "Proton Mail",
+          "description": "Proton Mail: Encrypted Email by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black Theme - Proton VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonvpn.android",
+          "name": "Proton VPN",
+          "description": "Proton VPN: Fast & Secure by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black Theme - Tuta Mail (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Tuta Mail's inbox, message reading view, calendar, and contacts for maximum battery savings on AMOLED displays.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "de.tutao.tutanota",
+          "name": "Tuta Mail",
+          "description": "Tuta Mail: Secure & Private Email by Tutao GmbH",
+          "apkFileType": null,
+          "appIconColor": "#C70000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
     {
       "name": "Ad-Free & Clean Dialer - Truecaller (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Removes intrusive post-call ads, banner ads inside the call history and dialer tabs, and promotional Gold upsells.",
@@ -285,114 +393,6 @@
           "description": "Shazam: Identify & Discover Music by Apple Inc. / Shazam",
           "apkFileType": null,
           "appIconColor": "#0088FF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Black & Declutter - Proton Pass (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "proton.android.pass",
-          "name": "Proton Pass",
-          "description": "Proton Pass: Password Manager by Proton AG",
-          "apkFileType": null,
-          "appIconColor": "#6D4AFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Black Theme - Proton Mail (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "ch.protonmail.android",
-          "name": "Proton Mail",
-          "description": "Proton Mail: Encrypted Email by Proton AG",
-          "apkFileType": null,
-          "appIconColor": "#6D4AFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Black Theme - Proton VPN (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "ch.protonvpn.android",
-          "name": "Proton VPN",
-          "description": "Proton VPN: Fast & Secure by Proton AG",
-          "apkFileType": null,
-          "appIconColor": "#6D4AFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Black Theme - Tuta Mail (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Tuta Mail's inbox, message reading view, calendar, and contacts for maximum battery savings on AMOLED displays.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "de.tutao.tutanota",
-          "name": "Tuta Mail",
-          "description": "Tuta Mail: Secure & Private Email by Tutao GmbH",
-          "apkFileType": null,
-          "appIconColor": "#C70000",
           "signatures": null,
           "targets": [
             {

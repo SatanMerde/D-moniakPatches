@@ -1,3 +1,9 @@
+## [1.19.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.18.0...v1.19.0) (2026-09-26)
+
+### ✨ New Features
+
+* add Tuta Mail suite and expand Proton VPN patches suite ([6040fbb](https://github.com/SatanMerde/D-moniakPatches/commit/6040fbbb1ea0c8a1d9135ca0d2de4ed7745a029e))
+
 ## [1.18.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.17.0...v1.18.0) (2026-09-26)
 
 ### ✨ New Features

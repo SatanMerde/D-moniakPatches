@@ -111,6 +111,33 @@
       "options": []
     },
     {
+      "name": "Ad-Free Turbo VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes full-screen video ads on connect and disconnect, banner ads at the bottom of the interface, and intrusive interstitial popups.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "free.vpn.unblock.proxy.turbovpn",
+          "name": "Turbo VPN",
+          "description": "Turbo VPN - Secure VPN Proxy by Innovative Connecting",
+          "apkFileType": null,
+          "appIconColor": "#FF6D00",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Ad-Free Video Player - MX Player (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Strips all startup ads, pause banner ads, bottom stream promotions, and full-screen video ads from MX Player.",
       "default": true,
@@ -150,6 +177,33 @@
           "description": "Shazam: Identify & Discover Music by Apple Inc. / Shazam",
           "apkFileType": null,
           "appIconColor": "#0088FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black Theme - Proton VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonvpn.android",
+          "name": "Proton VPN",
+          "description": "Proton VPN: Fast & Secure by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
           "signatures": null,
           "targets": [
             {
@@ -597,6 +651,87 @@
       "options": []
     },
     {
+      "name": "Declutter UI & Hide Pro Upsells - Windscribe (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hides Pro upgrade ribbons, promotional sales alerts, and persistent upgrade banners in the main location list.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.windscribe.vpn",
+          "name": "Windscribe",
+          "description": "Windscribe VPN by Windscribe Security",
+          "apkFileType": null,
+          "appIconColor": "#152238",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Declutter UI & Hide Upsells - Proton VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hides promotional 'Upgrade to Plus' banners, 'Proton Unlimited' sale carousels, and persistent upgrade prompts from the dashboard and server selector.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonvpn.android",
+          "name": "Proton VPN",
+          "description": "Proton VPN: Fast & Secure by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Declutter UI & Hide VIP Upsells - Turbo VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hides aggressive VIP subscription popups, floating gift chests, and promotional banners for a clean connection interface.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "free.vpn.unblock.proxy.turbovpn",
+          "name": "Turbo VPN",
+          "description": "Turbo VPN - Secure VPN Proxy by Innovative Connecting",
+          "apkFileType": null,
+          "appIconColor": "#FF6D00",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Direct Media Download - Pinterest (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Enables native high-resolution image and video downloading directly from pins without watermarks or third-party scrapers.",
       "default": true,
@@ -609,6 +744,60 @@
           "description": "Pinterest: Discover and Save Creative Ideas by Pinterest",
           "apkFileType": null,
           "appIconColor": "#E60023",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enhanced Privacy & Telemetry Blocker - Proton VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Blocks diagnostic telemetry, analytical event reporting (Firebase, Sentry, Mixpanel, Matomo), and crashlytics logging for zero metadata leakage.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonvpn.android",
+          "name": "Proton VPN",
+          "description": "Proton VPN: Fast & Secure by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enhanced Privacy & Telemetry Blocker - Windscribe (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Neutralizes background diagnostic reporting, error analytics, and tracking telemetry endpoints for maximum anonymity.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.windscribe.vpn",
+          "name": "Windscribe",
+          "description": "Windscribe VPN by Windscribe Security",
+          "apkFileType": null,
+          "appIconColor": "#152238",
           "signatures": null,
           "targets": [
             {

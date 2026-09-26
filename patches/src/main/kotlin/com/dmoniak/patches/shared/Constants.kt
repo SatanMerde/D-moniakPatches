@@ -177,5 +177,26 @@ object Constants {
         description = "Speedtest by Ookla by Ookla LLC",
         appIconColor = 0x141526
     )
+
+    val COMPATIBILITY_PROTON_VPN = Compatibility(
+        packageName = "ch.protonvpn.android",
+        name = "Proton VPN",
+        description = "Proton VPN: Fast & Secure by Proton AG",
+        appIconColor = 0x6D4AFF
+    )
+
+    val COMPATIBILITY_TURBO_VPN = Compatibility(
+        packageName = "free.vpn.unblock.proxy.turbovpn",
+        name = "Turbo VPN",
+        description = "Turbo VPN - Secure VPN Proxy by Innovative Connecting",
+        appIconColor = 0xFF6D00
+    )
+
+    val COMPATIBILITY_WINDSCRIBE = Compatibility(
+        packageName = "com.windscribe.vpn",
+        name = "Windscribe",
+        description = "Windscribe VPN by Windscribe Security",
+        appIconColor = 0x152238
+    )
 }
 

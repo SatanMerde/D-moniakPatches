@@ -12,10 +12,10 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-65-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-73-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-21-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-25-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -53,7 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.15.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.15.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;67 patches total
+> **[v1.15.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.15.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;75 patches total
 <details open>
 <summary>📦 Truecaller&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -85,6 +85,17 @@
 | [Ad-Free & Declutter - Duolingo (Experimental)](#ad-free-declutter-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Blocks interstitial video ads shown between lessons and disables intrusive Super Duolingo subscription promotional popups. |  |
 | [Unlimited Hearts - Duolingo (Experimental)](#unlimited-hearts-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Disables hearts/lives loss when making mistakes during language lessons in Duolingo, enabling infinite learning sessions without waiting or paywalls. |  |
 | [Unlock Super Features - Duolingo (Experimental)](#unlock-super-features-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Super Duolingo practice hub modes, unlimited Legendary test attempts without gem expenditure, and mistake review sessions. |  |
+
+</details>
+
+<details open>
+<summary>📦 Speedtest&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Ad-Free Speedtest - Speedtest by Ookla (Experimental)](#ad-free-speedtest-speedtest-by-ookla-experimental) | ⚠️ [En cours de développement / Non testé] Removes banner ads, video survey ads, and post-speedtest sponsored surveys and promotional cards from Speedtest by Ookla. |  |
+| [Premium VPN & Unlimited Data - Speedtest by Ookla (Experimental)](#premium-vpn-unlimited-data-speedtest-by-ookla-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks unlimited Speedtest VPN bandwidth indicators, bypasses the monthly 2GB free quota limit, and enables full server location selection. |  |
 
 </details>
 
@@ -137,6 +148,17 @@
 </details>
 
 <details open>
+<summary>📦 Alto's Adventure&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Bypass Rewarded Ads - Alto's Adventure (Experimental)](#bypass-rewarded-ads-alto-s-adventure-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses video ads in Alto's Adventure for free crash revives, free coin doublers at run end, and removes intrusive interstitial popups. |  |
+| [Infinite Wingsuit & Long Scarf - Alto's Adventure (Experimental)](#infinite-wingsuit-long-scarf-alto-s-adventure-experimental) | ⚠️ [En cours de développement / Non testé] Provides unlimited wingsuit flight duration and keeps the scarf at maximum length without requiring endless trick combos in Alto's Adventure. |  |
+
+</details>
+
+<details open>
 <summary>📦 Beach Buggy Racing&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
@@ -170,6 +192,17 @@
 |----------|----------------|-----------|
 | [Bypass Rewarded Ads - Heroes (Experimental)](#bypass-rewarded-ads-heroes-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Hungry Shark Heroes for instant egg incubation and hatching, arena battle revives, and daily reward card multipliers. (Experimental - Not yet tested on device). |  |
 | [Free Shopping - Heroes (Experimental)](#free-shopping-heroes-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks gem packs, shark training bundles, and reef expansions in Hungry Shark Heroes by cleanly replacing billing service purchase methods. (Experimental - Not yet tested on device). |  |
+
+</details>
+
+<details open>
+<summary>📦 Hill Climb Racing&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Bypass Rewarded Ads - Hill Climb Racing (Experimental)](#bypass-rewarded-ads-hill-climb-racing-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Hill Climb Racing for free post-race coin doublers, instant driver revives, and free tuning crates. |  |
+| [Infinite Fuel - Hill Climb Racing (Experimental)](#infinite-fuel-hill-climb-racing-experimental) | ⚠️ [En cours de développement / Non testé] Prevents fuel gauge depletion in Hill Climb Racing, allowing endless hill climbing and stunt driving without engine stall. |  |
 
 </details>
 
@@ -281,6 +314,17 @@
 </details>
 
 <details open>
+<summary>📦 Jetpack Joyride&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Infinite Vehicle Shield - Jetpack Joyride (Experimental)](#infinite-vehicle-shield-jetpack-joyride-experimental) | ⚠️ [En cours de développement / Non testé] Keeps Barry's vehicle and gadget shields permanently active in Jetpack Joyride, preventing destruction upon contact with zappers, missiles, and laser fields. |  |
+| [Unlock Gadgets & Upgrades - Jetpack Joyride (Experimental)](#unlock-gadgets-upgrades-jetpack-joyride-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all Stash gadgets (Coin Magnet, Gravity Belt, Air Barrys, etc.) and maxes out vehicle coin magnets without spending coins. |  |
+
+</details>
+
+<details open>
 <summary>📦 Spotify&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
@@ -342,6 +386,10 @@ Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morphe
 - **Strava :** (`com.strava`)
 - **Truecaller :** (`com.truecaller`)
 - **MX Player :** (`com.mxtech.videoplayer.ad`)
+- **Hill Climb Racing :** (`com.fingersoft.hillclimb`)
+- **Jetpack Joyride :** (`com.halfbrick.jetpackjoyride`)
+- **Alto's Adventure :** (`com.noodlecake.altosadventure`)
+- **Speedtest by Ookla :** (`org.zwanoo.android.speedtest`)
 
 Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **🌐 Patchs Universels (Compatibles avec TOUTES les applications) :**
@@ -419,6 +467,18 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **MX Player (NOUVEAU - 1 Milliard+ de téléchargements) :**
   - **Ad-Free Video Player :** Suppression radicale de toutes les publicités vidéo au démarrage, en pause et dans la liste de fichiers.
   - **Unlock Pro Player Controls :** Déblocage de la lecture en arrière-plan écran éteint, du mode Picture-in-Picture (PiP) et de l'amplification sonore à 200%.
+- **Hill Climb Racing (NOUVEAU - 500M+ téléchargements) :**
+  - **Infinite Fuel :** La jauge d'essence ne se vide jamais (maintenue à 100%), permettant de conduire sans risque de panne sèche.
+  - **Bypass Rewarded Ads :** Contourne les vidéos publicitaires pour doubler gratuitement les pièces, réanimer le pilote et débloquer les coffres d'améliorations.
+- **Jetpack Joyride (NOUVEAU - 500M+ téléchargements) :**
+  - **Infinite Vehicle Shield :** Boucliers de véhicules et gadgets actifs en permanence contre les missiles, lasers et arcs électriques.
+  - **Unlock Gadgets & Upgrades :** Débloque l'ensemble des gadgets de la Réserve (Aimant, Bottes gravité, etc.) et maximise les niveaux d'amélioration sans pièces.
+- **Alto's Adventure (NOUVEAU - 50M+ téléchargements) :**
+  - **Infinite Wingsuit & Long Scarf :** Vol wingsuit illimité et écharpe infiniment déployée sans avoir à enchaîner des figures complexes.
+  - **Bypass Rewarded Ads :** Réanimations gratuites dans les ravins, doublement des pièces ramassées et neutralisation des interstitiels.
+- **Speedtest by Ookla (NOUVEAU - 500M+ téléchargements) :**
+  - **Ad-Free Speedtest :** Suppression intégrale des publicités interstitielles, bannières et cartes d'enquêtes sponsorisées post-test.
+  - **Premium VPN & Unlimited Data :** Débloque l'accès VPN illimité sans quota mensuel de 2 Go et permet le choix de tous les serveurs mondiaux.
 
 > ⚠️ **Note Générale :** Tous les nouveaux patchs indiqués `(Experimental)` sont **en cours de développement et non encore validés par test sur appareil physique**.
 
@@ -479,6 +539,10 @@ Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, t
 - **Strava:** (`com.strava`)
 - **Truecaller:** (`com.truecaller`)
 - **MX Player:** (`com.mxtech.videoplayer.ad`)
+- **Hill Climb Racing:** (`com.fingersoft.hillclimb`)
+- **Jetpack Joyride:** (`com.halfbrick.jetpackjoyride`)
+- **Alto's Adventure:** (`com.noodlecake.altosadventure`)
+- **Speedtest by Ookla:** (`org.zwanoo.android.speedtest`)
 
 This project provides gameplay-specific patches tailored to each game:
 - **🌐 Universal Patches (Compatible with ALL applications):**
@@ -552,6 +616,18 @@ This project provides gameplay-specific patches tailored to each game:
 - **MX Player (NEW - 1 Billion+ downloads):**
   - **Ad-Free Video Player:** Strips all startup ads, pause banner ads, and full-screen video ads.
   - **Unlock Pro Player Controls:** Enables background video playback with screen off, Picture-in-Picture (PiP), and 200% audio boost.
+- **Hill Climb Racing (NEW - 500M+ downloads):**
+  - **Infinite Fuel:** Prevents fuel gauge depletion, keeping the gas tank full for endless climbing without engine stalls.
+  - **Bypass Rewarded Ads:** Bypasses rewarded video ads for free post-race coin doublers, instant driver revives, and free tuning crates.
+- **Jetpack Joyride (NEW - 500M+ downloads):**
+  - **Infinite Vehicle Shield:** Keeps Barry's vehicle and gadget shields permanently active, protecting against zappers, missiles, and laser fields.
+  - **Unlock Gadgets & Upgrades:** Unlocks all Stash gadgets (Coin Magnet, Gravity Belt, Air Barrys, etc.) and maxes out vehicle magnets without coins.
+- **Alto's Adventure (NEW - 50M+ downloads):**
+  - **Infinite Wingsuit & Long Scarf:** Provides unlimited wingsuit flight duration and keeps the scarf at maximum length without requiring endless trick combos.
+  - **Bypass Rewarded Ads:** Free chasm crash revives, free run-end coin doublers, and removes intrusive interstitial popups.
+- **Speedtest by Ookla (NEW - 500M+ downloads):**
+  - **Ad-Free Speedtest:** Strips banner ads, video survey ads, and post-speedtest sponsored surveys and promotional cards.
+  - **Premium VPN & Unlimited Data:** Unlocks unlimited Speedtest VPN bandwidth indicators, bypasses the monthly 2GB free quota limit, and enables full server location selection.
 
 > ⚠️ **General Notice:** All new patches marked `(Experimental)` are **under active development and have not yet been tested in real-world conditions** on physical devices.
 

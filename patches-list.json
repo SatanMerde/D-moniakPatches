@@ -84,6 +84,33 @@
       "options": []
     },
     {
+      "name": "Ad-Free Speedtest - Speedtest by Ookla (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes banner ads, video survey ads, and post-speedtest sponsored surveys and promotional cards from Speedtest by Ookla.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.zwanoo.android.speedtest",
+          "name": "Speedtest",
+          "description": "Speedtest by Ookla by Ookla LLC",
+          "apkFileType": null,
+          "appIconColor": "#141526",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Ad-Free Video Player - MX Player (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Strips all startup ads, pause banner ads, bottom stream promotions, and full-screen video ads from MX Player.",
       "default": true,
@@ -219,6 +246,33 @@
       "options": []
     },
     {
+      "name": "Bypass Rewarded Ads - Alto's Adventure (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses video ads in Alto's Adventure for free crash revives, free coin doublers at run end, and removes intrusive interstitial popups.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.noodlecake.altosadventure",
+          "name": "Alto's Adventure",
+          "description": "Alto's Adventure by Noodlecake / Team Alto",
+          "apkFileType": null,
+          "appIconColor": "#2E7D32",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Bypass Rewarded Ads - Beach Buggy Racing (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Beach Buggy Racing for free spins of the Daily Fortune Wheel, post-race coin doublers, and instant ticket refills without viewing ads. (Experimental - Not yet tested on device).",
       "default": true,
@@ -285,6 +339,33 @@
           "description": "Hungry Shark Heroes by Ubisoft Entertainment / FGOL",
           "apkFileType": null,
           "appIconColor": "#005588",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Bypass Rewarded Ads - Hill Climb Racing (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Hill Climb Racing for free post-race coin doublers, instant driver revives, and free tuning crates.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.fingersoft.hillclimb",
+          "name": "Hill Climb Racing",
+          "description": "Hill Climb Racing by Fingersoft",
+          "apkFileType": null,
+          "appIconColor": "#D32F2F",
           "signatures": null,
           "targets": [
             {
@@ -1036,6 +1117,33 @@
       "options": []
     },
     {
+      "name": "Infinite Fuel - Hill Climb Racing (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Prevents fuel gauge depletion in Hill Climb Racing, allowing endless hill climbing and stunt driving without engine stall.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.fingersoft.hillclimb",
+          "name": "Hill Climb Racing",
+          "description": "Hill Climb Racing by Fingersoft",
+          "apkFileType": null,
+          "appIconColor": "#D32F2F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Infinite Race Tickets - Beach Buggy Racing (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Prevents race ticket depletion in Beach Buggy Racing, allowing unlimited participation in Career events and Championships without waiting for ticket recharge. (Experimental - Not yet tested on device).",
       "default": true,
@@ -1048,6 +1156,60 @@
           "description": "Beach Buggy Racing by Vector Unit",
           "apkFileType": null,
           "appIconColor": "#FF5722",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Infinite Vehicle Shield - Jetpack Joyride (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Keeps Barry's vehicle and gadget shields permanently active in Jetpack Joyride, preventing destruction upon contact with zappers, missiles, and laser fields.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.halfbrick.jetpackjoyride",
+          "name": "Jetpack Joyride",
+          "description": "Jetpack Joyride by Halfbrick Studios",
+          "apkFileType": null,
+          "appIconColor": "#FF9800",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Infinite Wingsuit & Long Scarf - Alto's Adventure (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Provides unlimited wingsuit flight duration and keeps the scarf at maximum length without requiring endless trick combos in Alto's Adventure.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.noodlecake.altosadventure",
+          "name": "Alto's Adventure",
+          "description": "Alto's Adventure by Noodlecake / Team Alto",
+          "apkFileType": null,
+          "appIconColor": "#2E7D32",
           "signatures": null,
           "targets": [
             {
@@ -1129,6 +1291,33 @@
           "description": "Shadow Fight 2 by NEKKI",
           "apkFileType": null,
           "appIconColor": "#E65100",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Premium VPN & Unlimited Data - Speedtest by Ookla (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks unlimited Speedtest VPN bandwidth indicators, bypasses the monthly 2GB free quota limit, and enables full server location selection.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.zwanoo.android.speedtest",
+          "name": "Speedtest",
+          "description": "Speedtest by Ookla by Ookla LLC",
+          "apkFileType": null,
+          "appIconColor": "#141526",
           "signatures": null,
           "targets": [
             {
@@ -1462,6 +1651,33 @@
           "description": "Waze Navigation & Live Traffic by Waze / Google",
           "apkFileType": null,
           "appIconColor": "#33CCFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Gadgets & Upgrades - Jetpack Joyride (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks all Stash gadgets (Coin Magnet, Gravity Belt, Air Barrys, etc.) and maxes out vehicle coin magnets without spending coins.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.halfbrick.jetpackjoyride",
+          "name": "Jetpack Joyride",
+          "description": "Jetpack Joyride by Halfbrick Studios",
+          "apkFileType": null,
+          "appIconColor": "#FF9800",
           "signatures": null,
           "targets": [
             {

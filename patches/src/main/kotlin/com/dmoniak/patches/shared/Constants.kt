@@ -149,5 +149,33 @@ object Constants {
         description = "MX Player: Video Player & Streaming by MX Media / Time Internet",
         appIconColor = 0x0078FF
     )
+
+    val COMPATIBILITY_HILL_CLIMB = Compatibility(
+        packageName = "com.fingersoft.hillclimb",
+        name = "Hill Climb Racing",
+        description = "Hill Climb Racing by Fingersoft",
+        appIconColor = 0xD32F2F
+    )
+
+    val COMPATIBILITY_JETPACK_JOYRIDE = Compatibility(
+        packageName = "com.halfbrick.jetpackjoyride",
+        name = "Jetpack Joyride",
+        description = "Jetpack Joyride by Halfbrick Studios",
+        appIconColor = 0xFF9800
+    )
+
+    val COMPATIBILITY_ALTOS_ADVENTURE = Compatibility(
+        packageName = "com.noodlecake.altosadventure",
+        name = "Alto's Adventure",
+        description = "Alto's Adventure by Noodlecake / Team Alto",
+        appIconColor = 0x2E7D32
+    )
+
+    val COMPATIBILITY_SPEEDTEST = Compatibility(
+        packageName = "org.zwanoo.android.speedtest",
+        name = "Speedtest",
+        description = "Speedtest by Ookla by Ookla LLC",
+        appIconColor = 0x141526
+    )
 }
 

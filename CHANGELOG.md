@@ -1,3 +1,9 @@
+## [1.24.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.23.0...v1.24.0) (2026-09-26)
+
+### ✨ New Features
+
+* add Pro and Premium feature unlocks for Telegram, Snapchat, Signal, Session, and SimpleX ([3c9b5d3](https://github.com/SatanMerde/D-moniakPatches/commit/3c9b5d354dd7a78e05aed37035807e6920360aa6))
+
 ## [1.23.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.22.0...v1.23.0) (2026-09-26)
 
 ### ✨ New Features

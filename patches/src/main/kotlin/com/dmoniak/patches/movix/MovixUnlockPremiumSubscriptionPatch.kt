@@ -25,6 +25,52 @@ fun BytecodePatchContext.executeMovixUnlockPremiumLogic(logger: Logger) {
     logger.info("Executing Unlock Premium Subscription patch for Movix...")
     var hookedPoints = 0
 
+    val vipScript = "javascript:(function(){ try { " +
+        "if (typeof Storage !== 'undefined') { try { " +
+        "var g = Storage.prototype.getItem; " +
+        "Storage.prototype.getItem = function(k) { " +
+        "if (k === 'is_vip') return 'true'; " +
+        "if (k === 'access_code') return 'VIP_LIFETIME_BYPASS'; " +
+        "if (k === 'access_code_expires') return '2099-12-31T23:59:59.999Z'; " +
+        "return g.apply(this, arguments); " +
+        "}; " +
+        "var s = Storage.prototype.setItem; " +
+        "Storage.prototype.setItem = function(k, v) { " +
+        "if (k === 'is_vip' && v === 'false') return s.call(this, k, 'true'); " +
+        "return s.apply(this, arguments); " +
+        "}; " +
+        "var r = Storage.prototype.removeItem; " +
+        "Storage.prototype.removeItem = function(k) { " +
+        "if (k === 'is_vip' || k === 'access_code' || k === 'access_code_expires') return; " +
+        "return r.apply(this, arguments); " +
+        "}; " +
+        "} catch(e) {} } " +
+        "try { " +
+        "localStorage.setItem('is_vip', 'true'); " +
+        "localStorage.setItem('access_code', 'VIP_LIFETIME_BYPASS'); " +
+        "localStorage.setItem('access_code_expires', '2099-12-31T23:59:59.999Z'); " +
+        "} catch(e) {} " +
+        "try { " +
+        "if (typeof window !== 'undefined' && typeof window.fetch === 'function' && !window._movixFetchHooked) { " +
+        "window._movixFetchHooked = true; " +
+        "var origFetch = window.fetch; " +
+        "window.fetch = function(url, opts) { " +
+        "var u = String(url || ''); " +
+        "if (u.indexOf('check-vip') !== -1) { " +
+        "return Promise.resolve(new Response(JSON.stringify({ vip: true, expiresAt: '2099-12-31T23:59:59.999Z' }), { status: 200, headers: { 'Content-Type': 'application/json' } })); " +
+        "} " +
+        "return origFetch.apply(this, arguments); " +
+        "}; " +
+        "} } catch(e) {} " +
+        "if (typeof window !== 'undefined') { " +
+        "window.isVip = true; window.hasVipAccess = true; " +
+        "try { " +
+        "window.dispatchEvent(new Event('storage')); " +
+        "window.dispatchEvent(new CustomEvent('vipStatusChanged', { detail: { vip: true } })); " +
+        "} catch(e) {} " +
+        "} " +
+        "} catch(err) {} })();"
+
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support")) return@classDefForEach
@@ -41,7 +87,7 @@ fun BytecodePatchContext.executeMovixUnlockPremiumLogic(logger: Logger) {
                         mutableMethod.addInstructions(
                             0,
                             """
-                            const-string v0, "javascript:(function(){ try { localStorage.setItem('movix_vip', 'true'); localStorage.setItem('vip_status', 'lifetime'); localStorage.setItem('vip_tier', 'vip_plus'); window.isVip=true; window.hasVipAccess=true; } catch(e){} })();"
+                            const-string v0, "$vipScript"
                             invoke-virtual {p1, v0}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
                             """.trimIndent()
                         )
@@ -49,6 +95,28 @@ fun BytecodePatchContext.executeMovixUnlockPremiumLogic(logger: Logger) {
                         logger.info("[Movix Premium] Injected VIP storage tokens in: ${classDef.type}->${method.name}")
                     } catch (e: Exception) {
                         logger.warning("[Movix Premium] Failed to hook onPageFinished: ${e.message}")
+                    }
+                }
+            }
+        }
+
+        if (classDef.type.contains("RNCWebView") && !classDef.type.contains("Manager") && !classDef.type.contains("Client")) {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+                if (method.name == "callInjectedJavaScript" && method.returnType == "V" && method.parameterTypes.isEmpty()) {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        mutableMethod.addInstructions(
+                            0,
+                            """
+                            const-string v0, "$vipScript"
+                            invoke-virtual {p0, v0}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.info("[Movix Premium] Injected VIP script in callInjectedJavaScript: ${classDef.type}->${method.name}")
+                    } catch (e: Exception) {
+                        logger.warning("[Movix Premium] Failed to hook callInjectedJavaScript: ${e.message}")
                     }
                 }
             }

@@ -1,3 +1,9 @@
+## [1.15.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.14.0...v1.15.0) (2026-09-26)
+
+### ✨ New Features
+
+* add 6 universal patches for AMOLED, rotation, screen on, 120Hz, haptics, and webview debugging ([0e0373f](https://github.com/SatanMerde/D-moniakPatches/commit/0e0373fc15d542e630bd209379d92e2a430f790a))
+
 ## [1.14.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.13.0...v1.14.0) (2026-09-26)
 
 ### ✨ New Features

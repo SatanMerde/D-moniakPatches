@@ -1,3 +1,9 @@
+## [1.10.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.9.0...v1.10.0) (2026-09-26)
+
+### ✨ New Features
+
+* **spotify:** add Spicetify Mobile patch suite (AMOLED, custom accents, declutter, addons) ([b86d6a9](https://github.com/SatanMerde/D-moniakPatches/commit/b86d6a95abd27e99140248cd166c8980cd440365))
+
 ## [1.9.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.8.0...v1.9.0) (2026-09-25)
 
 ### ✨ New Features

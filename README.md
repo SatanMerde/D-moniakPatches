@@ -228,6 +228,8 @@ Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morphe
 - **Spotify Mobile (Spicetify Suite - NOUVEAU) :** (`com.spotify.music`)
 
 Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
+- **🌐 Patch Universel (Compatible avec TOUTES les applications) :**
+  - **Universal App Clone :** Permet d'installer et d'exécuter l'application patchée côte à côte avec l'application originale officielle sur le même téléphone (Dual Install / Clônage sans conflit de ContentProvider ni de signature).
 - **Spotify Mobile (Spicetify Suite Mobile - 0 patch sur Awesome Morphe) :**
   - **Spicetify AMOLED Black Theme :** Thème noir absolu (#000000) pour écrans OLED/AMOLED, remplaçant les fonds gris foncé pour un contraste saisissant et des économies de batterie.
   - **Spicetify Custom Accent Color :** Remplace le vert Spotify standard (#1DB954) par des teintes personnalisées (Violet Électrique Spicetify, Cyan Cyberpunk, Rose Sakura, Crimson).
@@ -321,6 +323,8 @@ Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, t
 - **Spotify Mobile (Spicetify Suite - NEW):** (`com.spotify.music`)
 
 This project provides gameplay-specific patches tailored to each game:
+- **🌐 Universal Patch (Compatible with ALL applications):**
+  - **Universal App Clone:** Enables side-by-side dual installation for any app, allowing the official unmodified app and the patched version to run simultaneously on the same device without signature or provider collisions.
 - **Spotify Mobile (Spicetify Suite Mobile - 0 patches on Awesome Morphe):**
   - **Spicetify AMOLED Black Theme:** True OLED Black (#000000) theme, replacing default dark-gray backgrounds for deep contrast and battery savings across weekly updates.
   - **Spicetify Custom Accent Color:** Replaces standard Spotify green (#1DB954) with custom theme accents (Electric Violet, Cyberpunk Cyan, Sakura Pink, Crimson).

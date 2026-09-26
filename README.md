@@ -12,10 +12,10 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-51-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-59-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-17-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-21-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -53,43 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.13.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.13.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;53 patches total
-<details open>
-<summary>📦 Duolingo&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Ad-Free & Declutter - Duolingo (Experimental)](#ad-free-declutter-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Blocks interstitial video ads shown between lessons and disables intrusive Super Duolingo subscription promotional popups. |  |
-| [Unlimited Hearts - Duolingo (Experimental)](#unlimited-hearts-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Disables hearts/lives loss when making mistakes during language lessons in Duolingo, enabling infinite learning sessions without waiting or paywalls. |  |
-| [Unlock Super Features - Duolingo (Experimental)](#unlock-super-features-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Super Duolingo practice hub modes, unlimited Legendary test attempts without gem expenditure, and mistake review sessions. |  |
-
-</details>
-
-<details open>
-<summary>📦 SoundCloud&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Block Audio & Stream Ads - SoundCloud (Experimental)](#block-audio-stream-ads-soundcloud-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses interstitial audio ads between music tracks and removes sponsored promoted tracks from the SoundCloud audio stream. |  |
-| [Declutter UI & Hide Go+ Upsells - SoundCloud (Experimental)](#declutter-ui-hide-go-upsells-soundcloud-experimental) | ⚠️ [En cours de développement / Non testé] Hides persistent 'Try SoundCloud Go+' upgrade promotions, subscription nag cards, and declutters stream navigation. |  |
-| [Unlock HQ Audio & Premium Controls - SoundCloud (Experimental)](#unlock-hq-audio-premium-controls-soundcloud-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks High Quality (HQ) audio streaming selector in playback settings, enables variable playback speed, and unlocks premium player controls. |  |
-
-</details>
-
-<details open>
-<summary>📦 Waze&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Block Zero-Speed Ads & Sponsored Pins - Waze (Experimental)](#block-zero-speed-ads-sponsored-pins-waze-experimental) | ⚠️ [En cours de développement / Non testé] Prevents full-screen commercial banner popups from appearing when the vehicle is stopped at traffic lights or in congestion, and hides sponsored venue pins from the navigation map. |  |
-| [Exact Radar & Speed Camera Alerts - Waze (Experimental)](#exact-radar-speed-camera-alerts-waze-experimental) | ⚠️ [En cours de développement / Non testé] Restores exact speed camera and radar distance notifications in Waze, replacing vague hazard zone circles with pinpoint accuracy alerts. |  |
-| [Unlock Exclusive Moods & Car Icons - Waze (Experimental)](#unlock-exclusive-moods-car-icons-waze-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all exclusive driver moods, special vehicle avatars, and internal voice/audio themes without requiring event points or milestones. |  |
-
-</details>
-
+> **[v1.13.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.13.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;59 patches total
 <details open>
 <summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
@@ -269,6 +233,98 @@
 
 </details>
 
+<details open>
+<summary>📦 Duolingo&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Ad-Free & Declutter - Duolingo (Experimental)](#ad-free-declutter-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Blocks interstitial video ads shown between lessons and disables intrusive Super Duolingo subscription promotional popups. |  |
+| [Unlimited Hearts - Duolingo (Experimental)](#unlimited-hearts-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Disables hearts/lives loss when making mistakes during language lessons in Duolingo, enabling infinite learning sessions without waiting or paywalls. |  |
+| [Unlock Super Features - Duolingo (Experimental)](#unlock-super-features-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Super Duolingo practice hub modes, unlimited Legendary test attempts without gem expenditure, and mistake review sessions. |  |
+
+</details>
+
+<details open>
+<summary>📦 Waze&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Zero-Speed Ads & Sponsored Pins - Waze (Experimental)](#block-zero-speed-ads-sponsored-pins-waze-experimental) | ⚠️ [En cours de développement / Non testé] Prevents full-screen commercial banner popups from appearing when the vehicle is stopped at traffic lights or in congestion, and hides sponsored venue pins from the navigation map. |  |
+| [Exact Radar & Speed Camera Alerts - Waze (Experimental)](#exact-radar-speed-camera-alerts-waze-experimental) | ⚠️ [En cours de développement / Non testé] Restores exact speed camera and radar distance notifications in Waze, replacing vague hazard zone circles with pinpoint accuracy alerts. |  |
+| [Unlock Exclusive Moods & Car Icons - Waze (Experimental)](#unlock-exclusive-moods-car-icons-waze-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all exclusive driver moods, special vehicle avatars, and internal voice/audio themes without requiring event points or milestones. |  |
+
+</details>
+
+<details open>
+<summary>📦 SoundCloud&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Audio & Stream Ads - SoundCloud (Experimental)](#block-audio-stream-ads-soundcloud-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses interstitial audio ads between music tracks and removes sponsored promoted tracks from the SoundCloud audio stream. |  |
+| [Declutter UI & Hide Go+ Upsells - SoundCloud (Experimental)](#declutter-ui-hide-go-upsells-soundcloud-experimental) | ⚠️ [En cours de développement / Non testé] Hides persistent 'Try SoundCloud Go+' upgrade promotions, subscription nag cards, and declutters stream navigation. |  |
+| [Unlock HQ Audio & Premium Controls - SoundCloud (Experimental)](#unlock-hq-audio-premium-controls-soundcloud-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks High Quality (HQ) audio streaming selector in playback settings, enables variable playback speed, and unlocks premium player controls. |  |
+
+</details>
+
+<details open>
+<summary>📦 Pinterest&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Direct Media Download - Pinterest (Experimental)](#direct-media-download-pinterest-experimental) | ⚠️ [En cours de développement / Non testé] Enables native high-resolution image and video downloading directly from pins without watermarks or third-party scrapers. |  |
+| [Remove Promoted Pins & Shopping Ads - Pinterest (Experimental)](#remove-promoted-pins-shopping-ads-pinterest-experimental) | ⚠️ [En cours de développement / Non testé] Strips sponsored promoted pins, affiliate shopping product carousels, and paid recommendations from Pinterest home and search feeds. |  |
+| [Unlock Creator & Pro Tools - Pinterest (Experimental)](#unlock-creator-pro-tools-pinterest-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Pinterest Creator and Pro business dashboard analytics, advanced pin inspector, and rich pin creation preview tools. |  |
+
+</details>
+
+<details open>
+<summary>📦 Shazam&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Ad-Free & Clean UI - Shazam (Experimental)](#ad-free-clean-ui-shazam-experimental) | ⚠️ [En cours de développement / Non testé] Removes banner ads, sponsored artist recommendations, and Apple Music promotional upsell popups in Shazam. |  |
+| [Always-On Auto Shazam - Shazam (Experimental)](#always-on-auto-shazam-shazam-experimental) | ⚠️ [En cours de développement / Non testé] Keeps Auto Shazam background listening continuously active without battery optimization pauses or auto-timeout limits. |  |
+
+</details>
+
+<details open>
+<summary>📦 Strava&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Declutter Feed & Hide Trials - Strava (Experimental)](#declutter-feed-hide-trials-strava-experimental) | ⚠️ [En cours de développement / Non testé] Hides persistent 'Start Free Trial' promotional banners, sponsored club challenges, and upsell carousels in the activity feed. |  |
+| [Unlock Pro & Subscriber Analytics - Strava (Experimental)](#unlock-pro-subscriber-analytics-strava-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks 3D terrain route previews, custom segment leaderboard analytics, relative effort metrics, and training log insights. |  |
+
+</details>
+
+<details open>
+<summary>📦 Truecaller&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Ad-Free & Clean Dialer - Truecaller (Experimental)](#ad-free-clean-dialer-truecaller-experimental) | ⚠️ [En cours de développement / Non testé] Removes intrusive post-call ads, banner ads inside the call history and dialer tabs, and promotional Gold upsells. |  |
+| [Unlock Premium & Gold Features - Truecaller (Experimental)](#unlock-premium-gold-features-truecaller-experimental) | ⚠️ [En cours de développement / Non testé] Enables Truecaller Premium and Gold caller ID themes, advanced spam blocking filters, and who-viewed-my-profile indicator UI. |  |
+
+</details>
+
+<details open>
+<summary>📦 MX Player&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Ad-Free Video Player - MX Player (Experimental)](#ad-free-video-player-mx-player-experimental) | ⚠️ [En cours de développement / Non testé] Strips all startup ads, pause banner ads, bottom stream promotions, and full-screen video ads from MX Player. |  |
+| [Unlock Pro Player Controls - MX Player (Experimental)](#unlock-pro-player-controls-mx-player-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks background video playback with screen off, Picture-in-Picture (PIP) mode, and 200% volume audio boost. |  |
+
+</details>
+
 <!-- PATCHES_END -->
 
 ---
@@ -288,6 +344,10 @@ Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morphe
 - **Waze :** (`com.waze`)
 - **SoundCloud :** (`com.soundcloud.android`)
 - **Pinterest :** (`com.pinterest`)
+- **Shazam :** (`com.shazam.android`)
+- **Strava :** (`com.strava`)
+- **Truecaller :** (`com.truecaller`)
+- **MX Player :** (`com.mxtech.videoplayer.ad`)
 
 Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **🌐 Patch Universel (Compatible avec TOUTES les applications) :**
@@ -347,6 +407,18 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
   - **Remove Promoted Pins & Shopping Ads :** Masque les épingles sponsorisées et les bannières d'achats sponsorisés dans le fil et la recherche.
   - **Direct Media Download :** Téléchargement natif direct des photos et vidéos en pleine résolution sans filigrane.
   - **Unlock Creator & Pro Tools :** Débloque le tableau de bord analytics Créateur/Pro et l'inspecteur d'épingles avancées.
+- **Shazam (NOUVEAU - 500M+ téléchargements) :**
+  - **Ad-Free & Clean UI :** Supprime les bannières publicitaires et les popups promotionnels Apple Music pour une identification musicale instantanée et fluide.
+  - **Always-On Auto Shazam :** Maintient l'écoute automatique en arrière-plan active en permanence sans coupure due à l'économie de batterie.
+- **Strava (NOUVEAU - 100M+ sportifs) :**
+  - **Unlock Pro & Subscriber Analytics :** Débloque les cartes de parcours en relief 3D, l'analyse comparative des segments et les métriques d'effort relatif.
+  - **Declutter Feed & Hide Trials :** Masque les invitations incessantes à souscrire à l'essai gratuit et les défis sponsorisés.
+- **Truecaller (NOUVEAU - 1 Milliard+ de téléchargements) :**
+  - **Ad-Free & Clean Dialer :** Élimine les publicités plein écran après chaque appel téléphonique et nettoie l'historique des appels.
+  - **Unlock Premium & Gold Features :** Débloque l'affichage du badge Premium/Gold et les filtres de blocage de spam avancés.
+- **MX Player (NOUVEAU - 1 Milliard+ de téléchargements) :**
+  - **Ad-Free Video Player :** Suppression radicale de toutes les publicités vidéo au démarrage, en pause et dans la liste de fichiers.
+  - **Unlock Pro Player Controls :** Déblocage de la lecture en arrière-plan écran éteint, du mode Picture-in-Picture (PiP) et de l'amplification sonore à 200%.
 
 > ⚠️ **Note Générale :** Tous les nouveaux patchs indiqués `(Experimental)` sont **en cours de développement et non encore validés par test sur appareil physique**.
 
@@ -403,6 +475,10 @@ Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, t
 - **Waze:** (`com.waze`)
 - **SoundCloud:** (`com.soundcloud.android`)
 - **Pinterest:** (`com.pinterest`)
+- **Shazam:** (`com.shazam.android`)
+- **Strava:** (`com.strava`)
+- **Truecaller:** (`com.truecaller`)
+- **MX Player:** (`com.mxtech.videoplayer.ad`)
 
 This project provides gameplay-specific patches tailored to each game:
 - **🌐 Universal Patch (Compatible with ALL applications):**
@@ -458,6 +534,18 @@ This project provides gameplay-specific patches tailored to each game:
   - **Remove Promoted Pins & Shopping Ads:** Filters out sponsored promoted pins and affiliate shopping cards from feeds and search.
   - **Direct Media Download:** Native high-resolution image and video downloads directly from pins without third-party tools.
   - **Unlock Creator & Pro Tools:** Unlocks Creator and Pro business analytics dashboard, pin inspector, and rich preview tools.
+- **Shazam (NEW - 500M+ downloads):**
+  - **Ad-Free & Clean UI:** Eliminates banner ads and Apple Music promo prompts for clean instant music recognition.
+  - **Always-On Auto Shazam:** Keeps background Auto-Shazam active indefinitely without battery saver pauses.
+- **Strava (NEW - 100M+ athletes):**
+  - **Unlock Pro & Subscriber Analytics:** Unlocks 3D terrain route previews, custom segment leaderboard analytics, and relative effort metrics.
+  - **Declutter Feed & Hide Trials:** Removes persistent free trial popups and sponsored feed challenges.
+- **Truecaller (NEW - 1 Billion+ downloads):**
+  - **Ad-Free & Clean Dialer:** Removes intrusive post-call ads and call log banner ads.
+  - **Unlock Premium & Gold Features:** Enables Premium/Gold caller ID styles and advanced spam protection filters.
+- **MX Player (NEW - 1 Billion+ downloads):**
+  - **Ad-Free Video Player:** Strips all startup ads, pause banner ads, and full-screen video ads.
+  - **Unlock Pro Player Controls:** Enables background video playback with screen off, Picture-in-Picture (PiP), and 200% audio boost.
 
 > ⚠️ **General Notice:** All new patches marked `(Experimental)` are **under active development and have not yet been tested in real-world conditions** on physical devices.
 

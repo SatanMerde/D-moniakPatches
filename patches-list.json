@@ -3,6 +3,60 @@
   "version": "1.13.0",
   "patches": [
     {
+      "name": "Ad-Free & Clean Dialer - Truecaller (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes intrusive post-call ads, banner ads inside the call history and dialer tabs, and promotional Gold upsells.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.truecaller",
+          "name": "Truecaller",
+          "description": "Truecaller: Caller ID & Block Spam by Truecaller",
+          "apkFileType": null,
+          "appIconColor": "#0087FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Ad-Free & Clean UI - Shazam (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes banner ads, sponsored artist recommendations, and Apple Music promotional upsell popups in Shazam.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.shazam.android",
+          "name": "Shazam",
+          "description": "Shazam: Identify & Discover Music by Apple Inc. / Shazam",
+          "apkFileType": null,
+          "appIconColor": "#0088FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Ad-Free & Declutter - Duolingo (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Blocks interstitial video ads shown between lessons and disables intrusive Super Duolingo subscription promotional popups.",
       "default": true,
@@ -15,6 +69,60 @@
           "description": "Duolingo: Language Lessons by Duolingo",
           "apkFileType": null,
           "appIconColor": "#58CC02",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Ad-Free Video Player - MX Player (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips all startup ads, pause banner ads, bottom stream promotions, and full-screen video ads from MX Player.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.mxtech.videoplayer.ad",
+          "name": "MX Player",
+          "description": "MX Player: Video Player & Streaming by MX Media / Time Internet",
+          "apkFileType": null,
+          "appIconColor": "#0078FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Always-On Auto Shazam - Shazam (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Keeps Auto Shazam background listening continuously active without battery optimization pauses or auto-timeout limits.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.shazam.android",
+          "name": "Shazam",
+          "description": "Shazam: Identify & Discover Music by Apple Inc. / Shazam",
+          "apkFileType": null,
+          "appIconColor": "#0088FF",
           "signatures": null,
           "targets": [
             {
@@ -339,6 +447,33 @@
           "description": "Vector 2 by NEKKI",
           "apkFileType": null,
           "appIconColor": "#00E5FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Declutter Feed & Hide Trials - Strava (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hides persistent 'Start Free Trial' promotional banners, sponsored club challenges, and upsell carousels in the activity feed.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.strava",
+          "name": "Strava",
+          "description": "Strava: Run, Ride, Hike & Train by Strava Inc.",
+          "apkFileType": null,
+          "appIconColor": "#FC4C02",
           "signatures": null,
           "targets": [
             {
@@ -1327,6 +1462,87 @@
           "description": "SoundCloud: Play Music & Songs by SoundCloud Global Limited & Co KG",
           "apkFileType": null,
           "appIconColor": "#FF5500",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Premium & Gold Features - Truecaller (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Enables Truecaller Premium and Gold caller ID themes, advanced spam blocking filters, and who-viewed-my-profile indicator UI.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.truecaller",
+          "name": "Truecaller",
+          "description": "Truecaller: Caller ID & Block Spam by Truecaller",
+          "apkFileType": null,
+          "appIconColor": "#0087FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Pro & Subscriber Analytics - Strava (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks 3D terrain route previews, custom segment leaderboard analytics, relative effort metrics, and training log insights.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.strava",
+          "name": "Strava",
+          "description": "Strava: Run, Ride, Hike & Train by Strava Inc.",
+          "apkFileType": null,
+          "appIconColor": "#FC4C02",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Pro Player Controls - MX Player (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks background video playback with screen off, Picture-in-Picture (PIP) mode, and 200% volume audio boost.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.mxtech.videoplayer.ad",
+          "name": "MX Player",
+          "description": "MX Player: Video Player & Streaming by MX Media / Time Internet",
+          "apkFileType": null,
+          "appIconColor": "#0078FF",
           "signatures": null,
           "targets": [
             {

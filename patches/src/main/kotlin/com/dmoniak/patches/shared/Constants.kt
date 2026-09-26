@@ -121,5 +121,33 @@ object Constants {
         description = "Pinterest: Discover and Save Creative Ideas by Pinterest",
         appIconColor = 0xE60023
     )
+
+    val COMPATIBILITY_SHAZAM = Compatibility(
+        packageName = "com.shazam.android",
+        name = "Shazam",
+        description = "Shazam: Identify & Discover Music by Apple Inc. / Shazam",
+        appIconColor = 0x0088FF
+    )
+
+    val COMPATIBILITY_STRAVA = Compatibility(
+        packageName = "com.strava",
+        name = "Strava",
+        description = "Strava: Run, Ride, Hike & Train by Strava Inc.",
+        appIconColor = 0xFC4C02
+    )
+
+    val COMPATIBILITY_TRUECALLER = Compatibility(
+        packageName = "com.truecaller",
+        name = "Truecaller",
+        description = "Truecaller: Caller ID & Block Spam by Truecaller",
+        appIconColor = 0x0087FF
+    )
+
+    val COMPATIBILITY_MX_PLAYER = Compatibility(
+        packageName = "com.mxtech.videoplayer.ad",
+        name = "MX Player",
+        description = "MX Player: Video Player & Streaming by MX Media / Time Internet",
+        appIconColor = 0x0078FF
+    )
 }
 

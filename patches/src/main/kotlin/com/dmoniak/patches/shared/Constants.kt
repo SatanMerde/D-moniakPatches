@@ -485,6 +485,41 @@ object Constants {
         description = "Peak: Brain Games & Cognitive Training by Brainbow",
         appIconColor = 0x00ACC1
     )
+
+    val COMPATIBILITY_CAMSCANNER = Compatibility(
+        packageName = "com.intsig.camscanner",
+        name = "CamScanner",
+        description = "CamScanner: PDF Scanner & Document OCR by INTSIG",
+        appIconColor = 0x009688
+    )
+
+    val COMPATIBILITY_FLIGHTRADAR24 = Compatibility(
+        packageName = "com.flightradar24free",
+        name = "Flightradar24",
+        description = "Flightradar24: Live Flight Tracker & Radar by Flightradar24 AB",
+        appIconColor = 0xFBC02D
+    )
+
+    val COMPATIBILITY_PICTURETHIS = Compatibility(
+        packageName = "cn.danatech.xingseus",
+        name = "PictureThis",
+        description = "PictureThis: Plant & Flower Identifier by Glority Global Group",
+        appIconColor = 0x4CAF50
+    )
+
+    val COMPATIBILITY_ALLTRAILS = Compatibility(
+        packageName = "com.alltrails.alltrails",
+        name = "AllTrails",
+        description = "AllTrails: Hike, Bike & Run Outdoor GPS Navigation by AllTrails",
+        appIconColor = 0x388E3C
+    )
+
+    val COMPATIBILITY_WINDY = Compatibility(
+        packageName = "com.windyty.android",
+        name = "Windy.com",
+        description = "Windy.com: Weather & Wind Radar Forecast by Windyty SE",
+        appIconColor = 0x0288D1
+    )
 }
 
 

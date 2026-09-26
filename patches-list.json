@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.31.0",
+  "version": "1.32.0",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -489,6 +489,60 @@
       "options": []
     },
     {
+      "name": "AMOLED Dark Theme - Claude AI (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Forces deep AMOLED pure black theme for Claude AI, optimizing contrast and reducing battery consumption on OLED displays.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.anthropic.claude",
+          "name": "Claude",
+          "description": "Claude: AI Assistant by Anthropic",
+          "apkFileType": null,
+          "appIconColor": "#D97706",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme - Euria AI (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Forces deep AMOLED pure black background in Euria AI dark mode, enhancing battery efficiency and contrast on OLED screens.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.infomaniak.euria",
+          "name": "Euria",
+          "description": "Euria: Sovereign AI Assistant by Infomaniak",
+          "apkFileType": null,
+          "appIconColor": "#4F46E5",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "AMOLED Dark Theme - Nextcloud (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Replaces dark gray theme with pure pitch black (#000000) for OLED screens in Nextcloud file explorer, uploads monitor, and media gallery.",
       "default": true,
@@ -555,6 +609,33 @@
           "description": "SimpleX Chat: Private Messenger with No User IDs by SimpleX Chat Ltd",
           "apkFileType": null,
           "appIconColor": "#7E3FF2",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Pure Black Theme - Bitwarden (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Forces deep AMOLED pure black backgrounds across Bitwarden's vault interface, reducing OLED power draw and eye strain.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.x8bit.bitwarden",
+          "name": "Bitwarden",
+          "description": "Bitwarden: Password Manager & Authenticator by Bitwarden Inc.",
+          "apkFileType": null,
+          "appIconColor": "#175DDC",
           "signatures": null,
           "targets": [
             {
@@ -960,6 +1041,33 @@
           "description": "Proton Drive: Cloud Storage by Proton AG",
           "apkFileType": null,
           "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Allow Screenshots & Screen Capture - Bitwarden (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Disables FLAG_SECURE window restrictions to permit taking screenshots and screen recordings in Bitwarden.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.x8bit.bitwarden",
+          "name": "Bitwarden",
+          "description": "Bitwarden: Password Manager & Authenticator by Bitwarden Inc.",
+          "apkFileType": null,
+          "appIconColor": "#175DDC",
           "signatures": null,
           "targets": [
             {
@@ -1559,6 +1667,33 @@
       "options": []
     },
     {
+      "name": "Block Ads & Promo Screens - DeepL (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips promotional upgrade screens, rating dialogs, and subscription banners in DeepL.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.deepl.mobile.android",
+          "name": "DeepL",
+          "description": "DeepL Translate: Accurate Multilingual Translator by DeepL SE",
+          "apkFileType": null,
+          "appIconColor": "#0F2B46",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Block Ads & Promo Screens - Flightradar24 (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Strips promotional upgrade dialogs, map banner advertisements, and sponsored popups in Flightradar24.",
       "default": true,
@@ -1694,6 +1829,33 @@
       "options": []
     },
     {
+      "name": "Block Ads & Promo Screens - hide.me VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips promotional upgrade dialogues, rating prompts, and subscription banners in hide.me VPN.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "hideme.android.vpn",
+          "name": "hide.me VPN",
+          "description": "hide.me VPN: The Privacy Guard by eVenture Limited",
+          "apkFileType": null,
+          "appIconColor": "#00A3E0",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Block Ads & Promotional Popups - Subway Surfers (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Strips interstitial video ads, post-run banners, forced video revives, and promotional popup screens in Subway Surfers.",
       "default": true,
@@ -1760,6 +1922,33 @@
           "description": "Dan The Man: Action Platformer by Halfbrick Studios",
           "apkFileType": null,
           "appIconColor": "#F57C00",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block Ads & Video Interruptions - VPN.lat (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips interstitial video ads before server connection, bottom banners, and promotional popups in VPN.lat.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.vpn.lat",
+          "name": "VPN.lat",
+          "description": "VPN.lat: Unlimited Fast VPN Proxy",
+          "apkFileType": null,
+          "appIconColor": "#2979FF",
           "signatures": null,
           "targets": [
             {
@@ -2882,6 +3071,33 @@
       "options": []
     },
     {
+      "name": "Disable Telemetry & Tracking - Claude AI (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Disables client-side analytical telemetry, performance metrics reporting, and tracker SDK calls in Claude AI.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.anthropic.claude",
+          "name": "Claude",
+          "description": "Claude: AI Assistant by Anthropic",
+          "apkFileType": null,
+          "appIconColor": "#D97706",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Enable Call Recording - Phone by Google (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Enables native call recording buttons and settings in Google Phone, bypassing regional carrier and country restrictions.",
       "default": true,
@@ -3888,6 +4104,33 @@
       "options": []
     },
     {
+      "name": "Open Links in External Browser - Euria AI (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Opens reference citations and external links directly in the system's default browser rather than an embedded webview.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.infomaniak.euria",
+          "name": "Euria",
+          "description": "Euria: Sovereign AI Assistant by Infomaniak",
+          "apkFileType": null,
+          "appIconColor": "#4F46E5",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Pixel Spoof for Unlimited Backup - Google Photos (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Spoofs the device model as an original Google Pixel to activate unlimited original-quality photo and video cloud storage backup in Google Photos.",
       "default": true,
@@ -4734,6 +4977,33 @@
       "options": []
     },
     {
+      "name": "Unlock Client Features & Dark Mode - hide.me VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks client-side features, AMOLED dark theme, and DNS leak test utilities in hide.me VPN.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "hideme.android.vpn",
+          "name": "hide.me VPN",
+          "description": "hide.me VPN: The Privacy Guard by eVenture Limited",
+          "apkFileType": null,
+          "appIconColor": "#00A3E0",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock Creator & Pro Tools - Pinterest (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Unlocks Pinterest Creator and Pro business dashboard analytics, advanced pin inspector, and rich pin creation preview tools.",
       "default": true,
@@ -5318,6 +5588,33 @@
       "options": []
     },
     {
+      "name": "Unlock Premium Server Locations - VPN.lat (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks all country server locations and bypasses VIP / rewarded server checks in VPN.lat.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.vpn.lat",
+          "name": "VPN.lat",
+          "description": "VPN.lat: Unlimited Fast VPN Proxy",
+          "apkFileType": null,
+          "appIconColor": "#2979FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock Premium Subscription - Movix (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Bypasses Movix VIP/Premium subscription checks to unlock all premium and exclusive content, series, and movie libraries without an active paid subscription.",
       "default": true,
@@ -5330,6 +5627,33 @@
           "description": "Movix: Movies & Series Streaming",
           "apkFileType": null,
           "appIconColor": "#E50914",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Pro & Formality - DeepL (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks DeepL Pro client features: tone/formality customization (formal/informal), extended character limits, and dictionary features.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.deepl.mobile.android",
+          "name": "DeepL",
+          "description": "DeepL Translate: Accurate Multilingual Translator by DeepL SE",
+          "apkFileType": null,
+          "appIconColor": "#0F2B46",
           "signatures": null,
           "targets": [
             {

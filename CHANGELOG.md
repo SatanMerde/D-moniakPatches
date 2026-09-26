@@ -1,3 +1,9 @@
+## [1.32.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.31.0...v1.32.0) (2026-09-26)
+
+### ✨ New Features
+
+* add patch suites for VPN.lat, hide.me VPN, Claude AI, Euria AI, Bitwarden, DeepL ([4f0ad64](https://github.com/SatanMerde/D-moniakPatches/commit/4f0ad64cab7dab330df6c2ae2d8724dfd8d5f315))
+
 ## [1.31.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.30.0...v1.31.0) (2026-09-26)
 
 ### ✨ New Features

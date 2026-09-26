@@ -12,10 +12,10 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-214-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-226-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-74-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-80-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -53,7 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.31.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.31.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;218 patches total
+> **[v1.32.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.32.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;230 patches total
 <details open>
 <summary>📦 AllTrails&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -98,6 +98,17 @@
 | [Free Shopping - Beach Buggy Racing (Experimental)](#free-shopping-beach-buggy-racing-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and in-game purchase verification in Beach Buggy Racing to unlock car packages, gem bundles, and coin packs for free. (Experimental - Not yet tested on device). |  |
 | [Infinite Race Tickets - Beach Buggy Racing (Experimental)](#infinite-race-tickets-beach-buggy-racing-experimental) | ⚠️ [En cours de développement / Non testé] Prevents race ticket depletion in Beach Buggy Racing, allowing unlimited participation in Career events and Championships without waiting for ticket recharge. (Experimental - Not yet tested on device). |  |
 | [Instant Car Upgrades - Beach Buggy Racing (Experimental)](#instant-car-upgrades-beach-buggy-racing-experimental) | ⚠️ [En cours de développement / Non testé] Eliminates vehicle tuning delivery and upgrade wait timers in Beach Buggy Racing for immediate horsepower, acceleration, and handling boosts. (Experimental - Not yet tested on device). |  |
+
+</details>
+
+<details open>
+<summary>📦 Bitwarden&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Pure Black Theme - Bitwarden (Experimental)](#amoled-pure-black-theme-bitwarden-experimental) | ⚠️ [En cours de développement / Non testé] Forces deep AMOLED pure black backgrounds across Bitwarden's vault interface, reducing OLED power draw and eye strain. |  |
+| [Allow Screenshots & Screen Capture - Bitwarden (Experimental)](#allow-screenshots-screen-capture-bitwarden-experimental) | ⚠️ [En cours de développement / Non testé] Disables FLAG_SECURE window restrictions to permit taking screenshots and screen recordings in Bitwarden. |  |
 
 </details>
 
@@ -153,6 +164,17 @@
 </details>
 
 <details open>
+<summary>📦 Claude&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Dark Theme - Claude AI (Experimental)](#amoled-dark-theme-claude-ai-experimental) | ⚠️ [En cours de développement / Non testé] Forces deep AMOLED pure black theme for Claude AI, optimizing contrast and reducing battery consumption on OLED displays. |  |
+| [Disable Telemetry & Tracking - Claude AI (Experimental)](#disable-telemetry-tracking-claude-ai-experimental) | ⚠️ [En cours de développement / Non testé] Disables client-side analytical telemetry, performance metrics reporting, and tracker SDK calls in Claude AI. |  |
+
+</details>
+
+<details open>
 <summary>📦 CoinSnap&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
@@ -196,6 +218,17 @@
 </details>
 
 <details open>
+<summary>📦 DeepL&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Promo Screens - DeepL (Experimental)](#block-ads-promo-screens-deepl-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade screens, rating dialogs, and subscription banners in DeepL. |  |
+| [Unlock Pro & Formality - DeepL (Experimental)](#unlock-pro-formality-deepl-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks DeepL Pro client features: tone/formality customization (formal/informal), extended character limits, and dictionary features. |  |
+
+</details>
+
+<details open>
 <summary>📦 Doodle Jump&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
@@ -215,6 +248,17 @@
 | [Ad-Free & Declutter - Duolingo (Experimental)](#ad-free-declutter-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Blocks interstitial video ads shown between lessons and disables intrusive Super Duolingo subscription promotional popups. |  |
 | [Unlimited Hearts - Duolingo (Experimental)](#unlimited-hearts-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Disables hearts/lives loss when making mistakes during language lessons in Duolingo, enabling infinite learning sessions without waiting or paywalls. |  |
 | [Unlock Super Features - Duolingo (Experimental)](#unlock-super-features-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Super Duolingo practice hub modes, unlimited Legendary test attempts without gem expenditure, and mistake review sessions. |  |
+
+</details>
+
+<details open>
+<summary>📦 Euria&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Dark Theme - Euria AI (Experimental)](#amoled-dark-theme-euria-ai-experimental) | ⚠️ [En cours de développement / Non testé] Forces deep AMOLED pure black background in Euria AI dark mode, enhancing battery efficiency and contrast on OLED screens. |  |
+| [Open Links in External Browser - Euria AI (Experimental)](#open-links-in-external-browser-euria-ai-experimental) | ⚠️ [En cours de développement / Non testé] Opens reference citations and external links directly in the system's default browser rather than an embedded webview. |  |
 
 </details>
 
@@ -313,6 +357,17 @@
 | [Disable Storage Warnings - Google Photos (Experimental)](#disable-storage-warnings-google-photos-experimental) | ⚠️ [En cours de développement / Non testé] Suppresses intrusive cloud storage full popups, Google One subscription reminders, and backup disabled warnings in Google Photos. |  |
 | [Pixel Spoof for Unlimited Backup - Google Photos (Experimental)](#pixel-spoof-for-unlimited-backup-google-photos-experimental) | ⚠️ [En cours de développement / Non testé] Spoofs the device model as an original Google Pixel to activate unlimited original-quality photo and video cloud storage backup in Google Photos. |  |
 | [Unlock Editing Tools - Google Photos (Experimental)](#unlock-editing-tools-google-photos-experimental) | ⚠️ [En cours de développement / Non testé] Enables Pixel-exclusive photo editing features, Magic Eraser UI toggles, and Portrait Blur enhancement tools in Google Photos. |  |
+
+</details>
+
+<details open>
+<summary>📦 hide.me VPN&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Promo Screens - hide.me VPN (Experimental)](#block-ads-promo-screens-hide-me-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade dialogues, rating prompts, and subscription banners in hide.me VPN. |  |
+| [Unlock Client Features & Dark Mode - hide.me VPN (Experimental)](#unlock-client-features-dark-mode-hide-me-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks client-side features, AMOLED dark theme, and DNS leak test utilities in hide.me VPN. |  |
 
 </details>
 
@@ -883,6 +938,17 @@
 |----------|----------------|-----------|
 | [Force Background Audio Playback - VLC (Experimental)](#force-background-audio-playback-vlc-experimental) | ⚠️ [En cours de développement / Non testé] Forces audio playback to stay active in the background when exiting the video player, minimizing the app, or locking the device. |  |
 | [Pure AMOLED Dark Theme & Declutter - VLC (Experimental)](#pure-amoled-dark-theme-declutter-vlc-experimental) | ⚠️ [En cours de développement / Non testé] Forces a pitch-black AMOLED dark theme, hides tips and audio/video discovery clutter across the VLC player UI. |  |
+
+</details>
+
+<details open>
+<summary>📦 VPN.lat&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Video Interruptions - VPN.lat (Experimental)](#block-ads-video-interruptions-vpn-lat-experimental) | ⚠️ [En cours de développement / Non testé] Strips interstitial video ads before server connection, bottom banners, and promotional popups in VPN.lat. |  |
+| [Unlock Premium Server Locations - VPN.lat (Experimental)](#unlock-premium-server-locations-vpn-lat-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all country server locations and bypasses VIP / rewarded server checks in VPN.lat. |  |
 
 </details>
 

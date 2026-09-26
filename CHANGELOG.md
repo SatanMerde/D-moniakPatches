@@ -1,3 +1,10 @@
+## [1.21.0-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.20.0...v1.21.0-dev.1) (2026-09-26)
+
+### ✨ New Features
+
+* add AI apps suite (ChatGPT, Perplexity, Google Gemini) and expand Google Photos patches ([649c5d9](https://github.com/SatanMerde/D-moniakPatches/commit/649c5d98953ed31435f0161b210f92284f5c8238))
+* add premium and pro feature patches for Duolingo, Waze, SoundCloud, and Pinterest ([6074d38](https://github.com/SatanMerde/D-moniakPatches/commit/6074d381fcbeeb913a385b389a556546ad33bcae))
+
 ## [1.20.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.19.0...v1.20.0) (2026-09-26)
 
 ### ✨ New Features

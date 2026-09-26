@@ -1,3 +1,10 @@
+## [1.26.0-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.25.0...v1.26.0-dev.1) (2026-09-26)
+
+### ✨ New Features
+
+* add Canva, Movix and Google Drive patch suites (145 patches, 49 apps) ([97ba158](https://github.com/SatanMerde/D-moniakPatches/commit/97ba15809ceedc83f2d15ecf9ba833d35be635f5))
+* add premium and pro feature patches for Duolingo, Waze, SoundCloud, and Pinterest ([6074d38](https://github.com/SatanMerde/D-moniakPatches/commit/6074d381fcbeeb913a385b389a556546ad33bcae))
+
 ## [1.25.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.24.0...v1.25.0) (2026-09-26)
 
 ### ✨ New Features

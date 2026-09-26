@@ -345,5 +345,33 @@ object Constants {
         description = "Movix: Movies & Series Streaming",
         appIconColor = 0xE50914
     )
+
+    val COMPATIBILITY_BRAVE = Compatibility(
+        packageName = "com.brave.browser",
+        name = "Brave Browser",
+        description = "Brave Browser: Fast, AdBlocker & Private Web Browser by Brave Software",
+        appIconColor = 0xFB542B
+    )
+
+    val COMPATIBILITY_FIREFOX = Compatibility(
+        packageName = "org.mozilla.firefox",
+        name = "Firefox",
+        description = "Firefox: Fast, Private & Safe Web Browser by Mozilla",
+        appIconColor = 0xFF7139
+    )
+
+    val COMPATIBILITY_TWITCH = Compatibility(
+        packageName = "tv.twitch.android.app",
+        name = "Twitch",
+        description = "Twitch: Live Game Streaming & Esports by Twitch Interactive",
+        appIconColor = 0x9146FF
+    )
+
+    val COMPATIBILITY_VLC = Compatibility(
+        packageName = "org.videolan.vlc",
+        name = "VLC",
+        description = "VLC for Android: Fast, Open-Source Media Player by VideoLAN",
+        appIconColor = 0xFF8800
+    )
 }
 

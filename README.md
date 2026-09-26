@@ -1,258 +1,104 @@
 # 🦈 D-moniak Patches
 
-<p align="center">
-  <b>Suite modulaire de patchs pour le framework Morphe</b><br>
-  <i>Next-generation modular patch bundle for the Morphe framework • 80+ apps & jeux supportés</i>
+Collection de patchs pour [Morphe](https://github.com/morpheapp), axée sur des applications et jeux populaires absents du catalogue officiel.
+
+<p align="left">
+  <a href="https://github.com/SatanMerde/D-moniakPatches"><img src="https://img.shields.io/badge/Patches-233-8A2BE2?style=flat-square" alt="Patches"></a>
+  <a href="https://github.com/SatanMerde/D-moniakPatches"><img src="https://img.shields.io/badge/Apps_Support%C3%A9es-80-00C853?style=flat-square" alt="Apps"></a>
+  <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest"><img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=flat-square&color=blueviolet" alt="Release"></a>
+  <a href="https://github.com/SatanMerde/D-moniakPatches/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-GPLv3-blue?style=flat-square" alt="License"></a>
 </p>
 
-<p align="center">
-  <a href="#-français"><b>🇫🇷 Français</b></a> &nbsp;•&nbsp; 
-  <a href="#-english"><b>🇬🇧 English</b></a> &nbsp;•&nbsp; 
-  <a href="#-points-forts"><b>✨ Points Forts</b></a> &nbsp;•&nbsp; 
-  <a href="#-applications-supportées"><b>📱 Apps Supportées</b></a> &nbsp;•&nbsp; 
-  <a href="#-installation--utilisation"><b>🚀 Installation</b></a> &nbsp;•&nbsp; 
-  <a href="#-liste-des-patchs--patches-list"><b>🩹 Liste des Patchs</b></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/SatanMerde/D-moniakPatches/stargazers">
-    <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
-  </a>
-  <a href="https://github.com/SatanMerde/D-moniakPatches/releases">
-    <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
-  </a>
-  <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-233-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
-  </a>
-  <a href="#-applications-supportées">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-80-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
-  </a>
-  <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
-    <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
-  </a>
-  <a href="https://github.com/SatanMerde/D-moniakPatches/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/SatanMerde/D-moniakPatches?style=for-the-badge&color=brightgreen" alt="License">
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://morphe.software/add-source?github=SatanMerde/D-moniakPatches">
-    <img src="https://img.shields.io/badge/Morphe_Manager-Ajouter_la_source_%2F_Add_Source-007ACC?style=for-the-badge&logo=android" alt="Add Source to Morphe Manager">
-  </a>
-</p>
+👉 **[Ajouter à Morphe Manager (1-Clic)](https://morphe.software/add-source?github=SatanMerde/D-moniakPatches)** • [Signaler un problème](https://github.com/SatanMerde/D-moniakPatches/issues) • [Aller aux patchs](#-liste-des-patchs--patches-list)
 
 ---
 
-> [!IMPORTANT]
-> ### ⚠️ AVERTISSEMENT LÉGAL, PRÉVENTION & IA / LEGAL DISCLAIMER & AI NOTICE
->
-> **🇫🇷 Français :**
-> - 🤖 **Projet généré par Intelligence Artificielle (IA) :** L'entièreté du code source, de l'architecture et des patchs de ce dépôt a été conçue et rédigée par une IA. Des erreurs, bugs ou comportements inattendus sont possibles.
-> - 🧪 **Statut Expérimental :** Les patchs marqués `(Experimental)` n'ont **pas encore été testés sur appareils réels** et sont en cours de développement.
-> - ⚠️ **Risque de Bannissement :** Toute modification d'application comporte un risque de détection ou de suspension/bannissement de compte par les éditeurs tiers. À utiliser à vos propres risques.
-> - ⚖️ **Responsabilité :** Ce projet est distribué exclusivement à des fins éducatives et de recherche en sécurité logicielle. Vous êtes seul responsable de son utilisation.
-> - 🐛 **Signaler un bug :** Vous constatez un dysfonctionnement ? Ouvrez un ticket sur [GitHub Issues](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml).
->
-> <br>
->
-> **🇬🇧 English :**
-> - 🤖 **AI-Generated Project:** All code, architecture, and patches in this repository were entirely created by AI. Bugs or unexpected behaviors may occur.
-> - 🧪 **Experimental Status:** Patches marked `(Experimental)` have **not been tested on physical devices** and are under active development.
-> - ⚠️ **Account Ban Risk:** Modifying apps may violate terms of service and lead to account bans or penalties. Use at your own risk.
-> - ⚖️ **Liability:** This project is provided strictly for educational and security research purposes. You are solely responsible for its use.
-> - 🐛 **Report Issues:** Found a bug or broken patch? Please open a ticket on [GitHub Issues](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml).
+> [!NOTE]
+> **Avertissement & statut du projet :**  
+> Ce dépôt est expérimental et développé avec l'aide d'outils d'IA. La majorité des patchs marqués `(Experimental)` n'ont pas encore été testés sur tous les modèles d'appareils ni sur toutes les versions d'APK. Comme pour toute modification d'application, il existe un risque de bug ou de restriction de compte par certains éditeurs. Si un patch fait planter une application, n'hésitez pas à [ouvrir un ticket](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml) avec les détails pour qu'on puisse corriger.
 
 ---
 
-## 🇫🇷 Français
-
-### 🌟 À propos
-**D-moniak Patches** est un bundle de patchs tiers et autonome conçu pour l'écosystème **[Morphe](https://github.com/morpheapp)**.  
-Il apporte **233 patchs exclusifs** couvrant plus de **80 applications et jeux mobiles majeurs**, entièrement **absents** du catalogue officiel Awesome Morphe.
-
----
-
-### ✨ Points Forts
-
-| Catégorie | Fonctionnalités clés |
-| :--- | :--- |
-| 🎮 **Jeux & Arcade** | • **Free Shopping** (déblocage de contenu/achats in-game)<br>• **Bypass Rewarded Ads** (réanimations & bonus sans pub)<br>• **Ressources infinies** (carburant, vies, tickets, énergie) |
-| 🛡️ **Confidentialité & Ad-Block** | • **Anti-Adblock & Zéro Pub** (Twitch, Brave, SoundCloud, Waze, Truecaller...)<br>• **Blocage de la télémétrie** et des traceurs analytiques<br>• **Suppression des bannières promotionnelles** et incitations aux abonnements |
-| 🎨 **Interface & AMOLED** | • **Thème Noir Pur OLED (#000000)** pour économiser la batterie<br>• **Épuration de l'interface** (masquage des flux inutiles et éléments encombrants)<br>• **Suppression de FLAG_SECURE** pour autoriser captures d'écran et enregistrements |
-| ⚡ **Productivité & Déblocages** | • **Enregistrement natif d'appels** sans alerte vocale sur *Phone by Google*<br>• **Export Haute Résolution** et sans filigrane sur *Canva* / *CamScanner*<br>• **Vies illimitées & révisions Super** sur *Duolingo* |
-| 🌐 **Patchs Universels** | • **Universal App Clone** (double installation côte à côte)<br>• **Forçage 120Hz / 144Hz**, rotation libre, écran toujours allumé |
+## Sommaire
+- [Comment l'utiliser](#-comment-lutiliser)
+- [Ce que propose ce dépôt](#-ce-que-propose-ce-dépôt)
+- [Applications prises en charge](#-applications-prises-en-charge)
+- [Compilation locale](#-compilation-locale)
+- [English Summary](#-english-summary)
+- [Liste complète des patchs](#-liste-des-patchs--patches-list)
 
 ---
 
-### 📱 Applications Supportées
+## 📲 Comment l'utiliser
 
-<details open>
-<summary><b>🎮 Jeux & Arcade (21 jeux)</b></summary>
-<br>
+### Méthode 1 : Ajout en 1-clic (recommandé)
+Depuis votre téléphone Android avec Morphe Manager installé, cliquez sur :  
+👉 **[Ajouter la source D-moniakPatches](https://morphe.software/add-source?github=SatanMerde/D-moniakPatches)**
 
-| Jeu | Patchs phares inclus |
-| :--- | :--- |
-| **Alto's Adventure** | Vol wingsuit illimité, écharpe infinie, bypass des pubs de crash |
-| **Beach Buggy Racing** | Tickets de course infinis, améliorations instantanées, Free Shopping |
-| **Hill Climb Racing** | Carburant infini, zéro panne, doublement gratuit des pièces |
-| **Hungry Shark (Evolution / World / Heroes)** | Achats gratuits boutique, réanimations infinies, incubation instantanée |
-| **Jetpack Joyride** | Bouclier & réanimations illimitées, bandit-manchot gratuit |
-| **Robbery Bob** | Invisibilité & discrétion totale, pièces infinies, tous costumes débloqués |
-| **Shadow Fight Suite (2, 2 SE, 3, 4 Arena, Shades)** | Énergie infinie, Free Shopping armes & armures, passes gratuits |
-| **Vector 2** | Batterie & bouclier infinis, décryptage instantané, matrice débloquée |
-| **Arcade Classics** *(Angry Birds, Crossy Road, Cut the Rope, Dan The Man, Doodle Jump, Fruit Ninja, Geometry Dash, Plants vs. Zombies, Subway Surfers, Temple Run 2)* | Bypass des pubs de réanimation, doubleurs de pièces, items et niveaux débloqués |
-
-</details>
-
-<details>
-<summary><b>🤖 Intelligence Artificielle & Productivité (11 apps)</b></summary>
-<br>
-
-| Application | Patchs phares inclus |
-| :--- | :--- |
-| **ChatGPT** | Thème AMOLED noir pur, capture d'écran autorisée, maintien de l'écran allumé |
-| **Google Gemini** | Thème OLED #000000, masquage incitations Gemini Advanced, haptique discrète |
-| **Perplexity AI** | AMOLED noir absolu, captures d'écran autorisées, interface Pro Search |
-| **Claude & Euria** | Thème sombre pur, contournement des limitations de capture |
-| **Canva** | Export haute résolution débloqué, suppression des filigranes, Brand Kit illimité |
-| **CamScanner** | Suppression du filigrane PDF, scan HD, OCR illimité, zéro pub |
-| **Duolingo** | Vies / cœurs infinis, entraînement Super débloqué, zéro pub entre leçons |
-| **DeepL & Photomath** | Déblocage des options de traduction & résolution avancées |
-| **CoinSnap & PictureThis** | Déblocage VIP Pro (identifications et évaluations illimitées sans paywall) |
-
-</details>
-
-<details>
-<summary><b>💬 Messagerie & Réseaux Sociaux (8 apps)</b></summary>
-<br>
-
-| Application | Patchs phares inclus |
-| :--- | :--- |
-| **Signal Private Messenger** | Thème AMOLED, captures d'écran autorisées, clavier incognito forcé |
-| **Telegram** | Blocage des pubs, masquage des Stories, épinglage illimité de discussions |
-| **Snapchat** | Thème AMOLED, démarrage direct sur le chat, captures d'écran autorisées |
-| **Session & SimpleX Chat** | Thème noir pur OLED, capture d'écran & export de médias autorisés |
-| **Pinterest** | Blocage des épingles sponsorisées, téléchargement direct de photos/vidéos HD |
-
-</details>
-
-<details>
-<summary><b>🎵 Médias & Streaming (8 apps)</b></summary>
-<br>
-
-| Application | Patchs phares inclus |
-| :--- | :--- |
-| **Twitch** | Blocage complet des pubs vidéo (pre-roll & mid-roll), audio en arrière-plan |
-| **Spotify Mobile** | Thème Spicetify AMOLED, couleur d'accentuation personnalisée, épuration UI |
-| **SoundCloud** | Zéro pub audio, suppression des promotions Go+, streaming Haute Qualité (HQ) |
-| **MX Player & Movix** | Zéro pub, lecture en arrière-plan / Picture-in-Picture, déblocage HD/4K |
-| **Shazam** | Zéro pub, mode Auto-Shazam AMOLED pour économiser la batterie |
-| **VLC** | Thème pur AMOLED #000000 et épuration de l'onboarding |
-
-</details>
-
-<details>
-<summary><b>🔐 VPN, Sécurité & Confidentialité (11 apps)</b></summary>
-<br>
-
-| Application | Patchs phares inclus |
-| :--- | :--- |
-| **Proton Suite (VPN, Mail, Pass, Drive)** | Épuration des bandeaux d'achat, AMOLED pur, captures d'écran autorisées |
-| **Bitwarden** | Thème AMOLED noir pur, capture d'écran du coffre-fort autorisée, bypass HTTP |
-| **Windscribe VPN** | Épuration de l'interface, blocage de la télémétrie de diagnostic |
-| **Turbo VPN, VPN.lat, hide.me VPN** | Suppression des vidéos publicitaires de connexion, keep-alive anti-déconnexion |
-| **Tuta Mail** | Thème noir OLED, suppression des bandeaux d'abonnement |
-
-</details>
-
-<details>
-<summary><b>🚗 Navigation, Utilitaires & Voyage (22 apps)</b></summary>
-<br>
-
-| Application | Patchs phares inclus |
-| :--- | :--- |
-| **Waze** | Blocage des pubs au feu rouge & épingles sponsorisées, alertes radars précises |
-| **Google Maps** | Suppression des épingles publicitaires, navigation nocturne AMOLED noir pur |
-| **Google Photos** | Outils de retouche Pixel débloqués (Gomme magique, Flou), AMOLED pur |
-| **Google Drive** | Thème AMOLED noir absolu, capture d'écran autorisée sur documents |
-| **Phone by Google (Téléphone)** | Enregistrement d'appel natif activé sans annonce vocale d'avertissement |
-| **Firefox & Brave Browser** | Extensions AMO complètes sur mobile, boucliers agressifs, zéro pub/télémétrie |
-| **Speedtest by Ookla** | Suppression complète des pubs, VPN illimité sans quota |
-| **Flightradar24, Stellarium, Windy.com** | Déblocage des calques météo / satellite haute résolution, zéro pub |
-| **Truecaller, MEGA, Nextcloud, TeraBox** | Suppression des pubs plein écran, captures d'écran autorisées |
-
-</details>
-
-<details>
-<summary><b>🌐 Patchs Universels (Compatibles avec TOUTES les apps)</b></summary>
-<br>
-
-| Patch | Description |
-| :--- | :--- |
-| **Universal App Clone** | Permet d'installer l'application modifiée en parallèle de l'officielle (Dual Install) |
-| **Universal AMOLED Black Theme** | Force un noir absolu (#000000) pour écrans OLED sur toute application |
-| **Universal Enable Screen Rotation** | Débloque la rotation paysage sur les applications bloquées en portrait |
-| **Universal Keep Screen On** | Empêche l'extinction automatique de l'écran tant que l'app est au premier plan |
-| **Universal High Refresh Rate 120Hz**| Force 90Hz / 120Hz / 144Hz sur les applications bridées à 60Hz |
-| **Universal Disable Haptics** | Coupe les vibrations du vibreur pour préserver la batterie |
-| **Universal WebView Debugging** | Active `chrome://inspect` pour inspecter le code des applications hybrides |
-
-</details>
-
----
-
-### 🚀 Installation & Utilisation
-
-#### Méthode 1 : Ajout en 1 Clic (Recommandé)
-Cliquez directement sur ce bouton depuis votre smartphone Android disposant de Morphe Manager :
-
-<p align="center">
-  <a href="https://morphe.software/add-source?github=SatanMerde/D-moniakPatches">
-    <img src="https://img.shields.io/badge/Morphe_Manager-Ajouter_la_source-007ACC?style=for-the-badge&logo=android" alt="Ajouter la source">
-  </a>
-</p>
-
-#### Méthode 2 : Ajout manuel dans Morphe Manager
+### Méthode 2 : Ajout manuel
 1. Ouvrez **Morphe Manager**.
-2. Rendez-vous dans **Paramètres** (`Settings`) > **Sources de patchs** (`Patch Sources`).
-3. Appuyez sur **Ajouter une source** et saisissez :  
-   `SatanMerde/D-moniakPatches`
-4. Sélectionnez l'application ou le jeu souhaité, cochez les patchs voulus et lancez le patch !
+2. Allez dans **Paramètres** (`Settings`) > **Sources de patchs** (`Patch Sources`).
+3. Appuyez sur **Ajouter** et entrez : `SatanMerde/D-moniakPatches`.
+4. Choisissez votre application ou jeu, cochez les patchs voulus et patchez.
 
-#### Méthode 3 : Compilation locale
+---
+
+## 💡 Ce que propose ce dépôt
+
+Ce bundle regroupe **233 patchs** pensés pour débloquer, épurer ou améliorer l'usage au quotidien :
+
+- **Jeux (offline & arcade) :** Contournement des pubs de récompense (revives gratuits, doublement des pièces sans vidéo), achats in-game bypassés, vies ou énergie infinies (*Alto's Adventure, Beach Buggy Racing, Hill Climb Racing, Hungry Shark, Jetpack Joyride, Robbery Bob, Shadow Fight 2/3/4, Vector 2...*).
+- **Zéro pub & vie privée :** Suppression des vidéos interstitielles, bannières et popups d'abonnement (*Twitch, Brave, SoundCloud, Waze, Truecaller, Turbo VPN, Speedtest...*).
+- **Thèmes AMOLED & confort :** Fonds noir pur OLED (#000000) pour économiser la batterie, et retrait de la restriction FLAG_SECURE pour autoriser les captures d'écran (*ChatGPT, Gemini, Drive, Maps, Perplexity, Bitwarden, Proton...*).
+- **Déblocages utiles :** Enregistrement d'appel natif sans bip vocal d'avertissement (*Phone by Google*), export haute résolution sans watermark (*Canva, CamScanner*), cœurs illimités (*Duolingo*).
+- **Patchs universels :** Clônage d'application côte-à-côte (double install), 120Hz forcé, rotation libre, écran maintenu allumé.
+
+---
+
+## 📦 Applications prises en charge
+
+<details>
+<summary><b>Afficher les 80 applications par catégorie</b></summary>
+
+- **Jeux mobiles (21) :** Alto's Adventure, Angry Birds Classic, Beach Buggy Racing, Crossy Road, Cut the Rope, Dan The Man, Doodle Jump, Fruit Ninja, Geometry Dash, Hill Climb Racing, Hungry Shark (Evolution, Heroes, World), Jetpack Joyride, Plants vs. Zombies, Robbery Bob, Shades, Shadow Fight 2, Shadow Fight 2 Special Edition, Shadow Fight 3, Shadow Fight 4: Arena, Subway Surfers, Temple Run 2, Vector 2, World Map Quiz.
+- **IA & Productivité (11) :** Canva, CamScanner, ChatGPT, Claude, CoinSnap, DeepL, Duolingo, Euria, Google Gemini, Perplexity, Photomath, PictureThis.
+- **Réseaux & Messagerie (8) :** Pinterest, Session, Signal, SimpleX Chat, Snapchat, Telegram.
+- **Audio, Vidéo & Streaming (8) :** Movix, MX Player, Shazam, SoundCloud, Spotify (Spicetify), Twitch, VLC.
+- **VPN & Sécurité (11) :** Bitwarden, hide.me VPN, Proton Drive, Proton Mail, Proton Pass, Proton VPN, Turbo VPN, Tuta Mail, VPN.lat, Windscribe.
+- **Navigation, Outils & Voyage (22) :** AllTrails, Firefox, Brave Browser, Flightradar24, Google Drive, Google Maps, Google Photos, Phone by Google (Téléphone), MEGA, Memrise, Nextcloud, Peak, Speedtest, Stellarium, Strava, TeraBox, Truecaller, Waze, Windy.com.
+- **Universel :** Compatible avec n'importe quelle application Android.
+
+</details>
+
+---
+
+## 🛠️ Compilation locale
+
+Si vous souhaitez modifier le code ou générer le bundle `.mpp` vous-même :
+
 ```bash
 git clone https://github.com/SatanMerde/D-moniakPatches.git
 cd D-moniakPatches
 ./gradlew :patches:buildAndroid
 ```
-Le bundle compilé se trouvera dans `patches/build/libs/patches-*.mpp`.
+Le fichier compilé sera généré dans `patches/build/libs/patches-*.mpp`.
 
 ---
 
-### 💬 Support & Contribution
-- 🐛 **[Signaler un bug](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml)** : si un patch ne fonctionne pas correctement ou fait planter l'application.
-- ✨ **[Demander un patch](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_request.yml)** : pour proposer l'ajout de nouvelles fonctionnalités ou le support d'une nouvelle application.
-- 💡 **Pull Requests** : Les contributions sont les bienvenues ! Merci de respecter les commits conventionnels (`feat:`, `fix:`, `chore:`).
+## 🇬🇧 English Summary
 
----
+**D-moniak Patches** is a community patch repository for [Morphe](https://github.com/morpheapp), bringing 230+ patches across 80+ Android apps and games not present in the official catalog.
 
-## 🇬🇧 English
+### Highlights
+- **Mobile Games:** Skip rewarded video ads (free revives, coin doublers), bypass in-game store checks, infinite fuel/stamina (*Alto's Adventure, Hill Climb Racing, Hungry Shark, Shadow Fight series, Vector 2...*).
+- **Adblock & Declutter:** Remove interstitial ads, promotional cards, and upsells (*Twitch, Brave, SoundCloud, Waze, Truecaller, Turbo VPN...*).
+- **AMOLED & Privacy:** Pure black (#000000) themes and remove FLAG_SECURE screenshot limits (*ChatGPT, Gemini, Drive, Maps, Perplexity, Bitwarden, Proton...*).
+- **Productivity Tweaks:** Native call recording without disclaimer (*Google Dialer*), watermark-free export (*Canva, CamScanner*), unlimited hearts (*Duolingo*).
+- **Universal Patches:** App cloning (dual install), forced 120Hz, keep screen awake, and free screen rotation for any app.
 
-### 🌟 About
-**D-moniak Patches** is an independent, third-party patch repository built for the **[Morphe](https://github.com/morpheapp)** ecosystem.  
-It provides **233 exclusive patches** across **80+ popular mobile apps and games** that are **100% missing** from the official Awesome Morphe catalog.
-
-### ✨ Key Capabilities
-- 🎮 **Gaming & Offline Modding:** Free in-game shopping hooks, rewarded ad bypasses (free revives & double rewards), infinite stamina/fuel/tickets for Alto's Adventure, Beach Buggy Racing, Hill Climb Racing, Shadow Fight series, Hungry Shark...
-- 🛡️ **Ad-Blocking & Privacy:** Strips video ads, sponsored pins, and tracking telemetry across Twitch, Brave, SoundCloud, Waze, Truecaller, Turbo VPN...
-- 🎨 **Pure AMOLED Theming:** True pitch-black (#000000) OLED backgrounds and UI decluttering for ChatGPT, Gemini, Drive, Maps, Perplexity, Bitwarden...
-- ⚡ **Pro Feature Unlocks:** Call recording without disclaimer on Phone by Google, watermark-free high-res export on Canva/CamScanner, unlimited hearts on Duolingo...
-- 🌐 **Universal Engine:** Side-by-side app cloning, forced 120Hz/144Hz high refresh rates, keep-screen-on, and unlocked orientation for ANY Android app.
-
-### 🚀 Quick Start
-1. Tap the **[1-Click Add Source Link](https://morphe.software/add-source?github=SatanMerde/D-moniakPatches)** on your Android device with Morphe Manager installed.
-2. Or manually add `SatanMerde/D-moniakPatches` in **Settings** > **Patch Sources**.
-3. Select your application, pick desired patches, and enjoy!
+### How to use
+- **1-Click:** [Add to Morphe Manager](https://morphe.software/add-source?github=SatanMerde/D-moniakPatches)
+- **Manual:** Open Morphe Manager > **Settings** > **Patch Sources** > add `SatanMerde/D-moniakPatches`.
 
 ---
 

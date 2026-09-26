@@ -1,3 +1,9 @@
+## [1.28.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.28.0...v1.28.1) (2026-09-26)
+
+### 🐛 Bug Fixes
+
+* **movix:** implement real React Native WebView bytecode hooks for Movix ad blocking and feature unlock ([e99f6c8](https://github.com/SatanMerde/D-moniakPatches/commit/e99f6c8048178023ddabd9e37af3c614b1bc0649))
+
 ## [1.28.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.27.0...v1.28.0) (2026-09-26)
 
 ### ✨ New Features

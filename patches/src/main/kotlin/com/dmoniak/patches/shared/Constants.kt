@@ -373,5 +373,76 @@ object Constants {
         description = "VLC for Android: Fast, Open-Source Media Player by VideoLAN",
         appIconColor = 0xFF8800
     )
+
+    val COMPATIBILITY_SUBWAY_SURFERS = Compatibility(
+        packageName = "com.kiloo.subwaysurf",
+        name = "Subway Surfers",
+        description = "Subway Surfers by SYBO Games / Kiloo",
+        appIconColor = 0x00D26A
+    )
+
+    val COMPATIBILITY_TEMPLE_RUN_2 = Compatibility(
+        packageName = "com.imangi.templerun2",
+        name = "Temple Run 2",
+        description = "Temple Run 2 by Imangi Studios",
+        appIconColor = 0x00A859
+    )
+
+    val COMPATIBILITY_PLANTS_VS_ZOMBIES = Compatibility(
+        packageName = "com.ea.game.pvzfree_row",
+        name = "Plants vs. Zombies",
+        description = "Plants vs. Zombies FREE by Electronic Arts / PopCap",
+        appIconColor = 0x8BC34A
+    )
+
+    val COMPATIBILITY_CUT_THE_ROPE = Compatibility(
+        packageName = "com.zeptolab.ctr.ads",
+        name = "Cut the Rope",
+        description = "Cut the Rope by ZeptoLab",
+        appIconColor = 0x7CB342
+    )
+
+    val COMPATIBILITY_FRUIT_NINJA = Compatibility(
+        packageName = "com.halfbrick.fruitninja",
+        name = "Fruit Ninja",
+        description = "Fruit Ninja by Halfbrick Studios",
+        appIconColor = 0xE53935
+    )
+
+    val COMPATIBILITY_CROSSY_ROAD = Compatibility(
+        packageName = "com.yodo1.crossyroad",
+        name = "Crossy Road",
+        description = "Crossy Road by Hipster Whale",
+        appIconColor = 0x3F51B5
+    )
+
+    val COMPATIBILITY_GEOMETRY_DASH = Compatibility(
+        packageName = "com.robtopx.geometryjump",
+        name = "Geometry Dash",
+        description = "Geometry Dash by RobTop Games",
+        appIconColor = 0xFFEB3B
+    )
+
+    val COMPATIBILITY_DOODLE_JUMP = Compatibility(
+        packageName = "com.lima.doodlejump",
+        name = "Doodle Jump",
+        description = "Doodle Jump by Lima Sky LLC",
+        appIconColor = 0xCDDC39
+    )
+
+    val COMPATIBILITY_ANGRY_BIRDS = Compatibility(
+        packageName = "com.rovio.baba",
+        name = "Angry Birds Classic",
+        description = "Angry Birds Classic by Rovio Entertainment",
+        appIconColor = 0xD32F2F
+    )
+
+    val COMPATIBILITY_DAN_THE_MAN = Compatibility(
+        packageName = "com.halfbrick.dantheman",
+        name = "Dan The Man",
+        description = "Dan The Man: Action Platformer by Halfbrick Studios",
+        appIconColor = 0xF57C00
+    )
 }
+
 

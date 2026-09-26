@@ -198,5 +198,19 @@ object Constants {
         description = "Windscribe VPN by Windscribe Security",
         appIconColor = 0x152238
     )
+
+    val COMPATIBILITY_PROTON_MAIL = Compatibility(
+        packageName = "ch.protonmail.android",
+        name = "Proton Mail",
+        description = "Proton Mail: Encrypted Email by Proton AG",
+        appIconColor = 0x6D4AFF
+    )
+
+    val COMPATIBILITY_PROTON_PASS = Compatibility(
+        packageName = "proton.android.pass",
+        name = "Proton Pass",
+        description = "Proton Pass: Password Manager by Proton AG",
+        appIconColor = 0x6D4AFF
+    )
 }
 

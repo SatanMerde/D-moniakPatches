@@ -219,5 +219,26 @@ object Constants {
         description = "Tuta Mail: Secure & Private Email by Tutao GmbH",
         appIconColor = 0xC70000
     )
+
+    val COMPATIBILITY_GOOGLE_PHONE = Compatibility(
+        packageName = "com.google.android.dialer",
+        name = "Phone by Google",
+        description = "Phone by Google: Caller ID & Spam Protection by Google LLC",
+        appIconColor = 0x1A73E8
+    )
+
+    val COMPATIBILITY_GOOGLE_MAPS = Compatibility(
+        packageName = "com.google.android.apps.maps",
+        name = "Google Maps",
+        description = "Google Maps: Navigate & Explore by Google LLC",
+        appIconColor = 0x34A853
+    )
+
+    val COMPATIBILITY_GOOGLE_PHOTOS = Compatibility(
+        packageName = "com.google.android.apps.photos",
+        name = "Google Photos",
+        description = "Google Photos: Photo & Video Storage by Google LLC",
+        appIconColor = 0xEA4335
+    )
 }
 

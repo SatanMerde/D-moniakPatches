@@ -1,3 +1,9 @@
+## [1.23.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.22.0...v1.23.0) (2026-09-26)
+
+### ✨ New Features
+
+* expand patches for Telegram, Signal, Snapchat, ChatGPT, Perplexity, Gemini, Maps, and Google Phone ([350cff0](https://github.com/SatanMerde/D-moniakPatches/commit/350cff0e819fd283ef6d92e6c4bd298f9ed9d0c2))
+
 ## [1.22.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.21.0...v1.22.0) (2026-09-26)
 
 ### ✨ New Features

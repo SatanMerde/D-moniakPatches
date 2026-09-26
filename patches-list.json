@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "patches": [
     {
       "name": "Bypass Rewarded Ads",
@@ -952,6 +952,15 @@
           ]
         }
       ],
+      "options": []
+    },
+    {
+      "name": "Universal App Clone (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Enables side-by-side dual installation for any app, allowing the official unmodified app and the patched version to run simultaneously on the same device without signature or provider collisions.",
+      "default": false,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": null,
       "options": []
     },
     {

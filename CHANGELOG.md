@@ -1,3 +1,9 @@
+## [1.11.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.10.0...v1.11.0) (2026-09-26)
+
+### ✨ New Features
+
+* **universal:** add Universal App Clone patch for side-by-side dual installation ([0d7055b](https://github.com/SatanMerde/D-moniakPatches/commit/0d7055b70fb4a3c23fbb1a11dd569bcc8fc27768))
+
 ## [1.10.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.9.0...v1.10.0) (2026-09-26)
 
 ### ✨ New Features

@@ -1234,6 +1234,60 @@
       "options": []
     },
     {
+      "name": "Unlock Creator & Pro Tools - Pinterest (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks Pinterest Creator and Pro business dashboard analytics, advanced pin inspector, and rich pin creation preview tools.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.pinterest",
+          "name": "Pinterest",
+          "description": "Pinterest: Discover and Save Creative Ideas by Pinterest",
+          "apkFileType": null,
+          "appIconColor": "#E60023",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Exclusive Moods & Car Icons - Waze (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks all exclusive driver moods, special vehicle avatars, and internal voice/audio themes without requiring event points or milestones.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.waze",
+          "name": "Waze",
+          "description": "Waze Navigation & Live Traffic by Waze / Google",
+          "apkFileType": null,
+          "appIconColor": "#33CCFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock Gear Matrix - Vector 2 (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Unlocks experimental equipment slots, booster upgrades, and datacore matrices in Vector 2 without research token gating. (Experimental - Not yet tested on device).",
       "default": true,
@@ -1246,6 +1300,60 @@
           "description": "Vector 2 by NEKKI",
           "apkFileType": null,
           "appIconColor": "#00E5FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock HQ Audio & Premium Controls - SoundCloud (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks High Quality (HQ) audio streaming selector in playback settings, enables variable playback speed, and unlocks premium player controls.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.soundcloud.android",
+          "name": "SoundCloud",
+          "description": "SoundCloud: Play Music & Songs by SoundCloud Global Limited & Co KG",
+          "apkFileType": null,
+          "appIconColor": "#FF5500",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Super Features - Duolingo (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks Super Duolingo practice hub modes, unlimited Legendary test attempts without gem expenditure, and mistake review sessions.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.duolingo",
+          "name": "Duolingo",
+          "description": "Duolingo: Language Lessons by Duolingo",
+          "apkFileType": null,
+          "appIconColor": "#58CC02",
           "signatures": null,
           "targets": [
             {

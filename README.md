@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-47-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-51-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-17-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -53,40 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.12.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.12.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;49 patches total
-<details open>
-<summary>📦 Duolingo&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Ad-Free & Declutter - Duolingo (Experimental)](#ad-free-declutter-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Blocks interstitial video ads shown between lessons and disables intrusive Super Duolingo subscription promotional popups. |  |
-| [Unlimited Hearts - Duolingo (Experimental)](#unlimited-hearts-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Disables hearts/lives loss when making mistakes during language lessons in Duolingo, enabling infinite learning sessions without waiting or paywalls. |  |
-
-</details>
-
-<details open>
-<summary>📦 SoundCloud&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Block Audio & Stream Ads - SoundCloud (Experimental)](#block-audio-stream-ads-soundcloud-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses interstitial audio ads between music tracks and removes sponsored promoted tracks from the SoundCloud audio stream. |  |
-| [Declutter UI & Hide Go+ Upsells - SoundCloud (Experimental)](#declutter-ui-hide-go-upsells-soundcloud-experimental) | ⚠️ [En cours de développement / Non testé] Hides persistent 'Try SoundCloud Go+' upgrade promotions, subscription nag cards, and declutters stream navigation. |  |
-
-</details>
-
-<details open>
-<summary>📦 Waze&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Block Zero-Speed Ads & Sponsored Pins - Waze (Experimental)](#block-zero-speed-ads-sponsored-pins-waze-experimental) | ⚠️ [En cours de développement / Non testé] Prevents full-screen commercial banner popups from appearing when the vehicle is stopped at traffic lights or in congestion, and hides sponsored venue pins from the navigation map. |  |
-| [Exact Radar & Speed Camera Alerts - Waze (Experimental)](#exact-radar-speed-camera-alerts-waze-experimental) | ⚠️ [En cours de développement / Non testé] Restores exact speed camera and radar distance notifications in Waze, replacing vague hazard zone circles with pinpoint accuracy alerts. |  |
-
-</details>
-
+> **[v1.12.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.12.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;51 patches total
 <details open>
 <summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
@@ -265,6 +232,56 @@
 
 </details>
 
+<<<<<<< HEAD
+=======
+<details open>
+<summary>📦 Duolingo&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Ad-Free & Declutter - Duolingo (Experimental)](#ad-free-declutter-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Blocks interstitial video ads shown between lessons and disables intrusive Super Duolingo subscription promotional popups. |  |
+| [Unlimited Hearts - Duolingo (Experimental)](#unlimited-hearts-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Disables hearts/lives loss when making mistakes during language lessons in Duolingo, enabling infinite learning sessions without waiting or paywalls. |  |
+| [Unlock Super Features - Duolingo (Experimental)](#unlock-super-features-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Super Duolingo practice hub modes, unlimited Legendary test attempts without gem expenditure, and mistake review sessions. |  |
+
+</details>
+
+<details open>
+<summary>📦 Waze&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Zero-Speed Ads & Sponsored Pins - Waze (Experimental)](#block-zero-speed-ads-sponsored-pins-waze-experimental) | ⚠️ [En cours de développement / Non testé] Prevents full-screen commercial banner popups from appearing when the vehicle is stopped at traffic lights or in congestion, and hides sponsored venue pins from the navigation map. |  |
+| [Exact Radar & Speed Camera Alerts - Waze (Experimental)](#exact-radar-speed-camera-alerts-waze-experimental) | ⚠️ [En cours de développement / Non testé] Restores exact speed camera and radar distance notifications in Waze, replacing vague hazard zone circles with pinpoint accuracy alerts. |  |
+| [Unlock Exclusive Moods & Car Icons - Waze (Experimental)](#unlock-exclusive-moods-car-icons-waze-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all exclusive driver moods, special vehicle avatars, and internal voice/audio themes without requiring event points or milestones. |  |
+
+</details>
+
+<details open>
+<summary>📦 SoundCloud&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Audio & Stream Ads - SoundCloud (Experimental)](#block-audio-stream-ads-soundcloud-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses interstitial audio ads between music tracks and removes sponsored promoted tracks from the SoundCloud audio stream. |  |
+| [Declutter UI & Hide Go+ Upsells - SoundCloud (Experimental)](#declutter-ui-hide-go-upsells-soundcloud-experimental) | ⚠️ [En cours de développement / Non testé] Hides persistent 'Try SoundCloud Go+' upgrade promotions, subscription nag cards, and declutters stream navigation. |  |
+| [Unlock HQ Audio & Premium Controls - SoundCloud (Experimental)](#unlock-hq-audio-premium-controls-soundcloud-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks High Quality (HQ) audio streaming selector in playback settings, enables variable playback speed, and unlocks premium player controls. |  |
+
+</details>
+
+<details open>
+<summary>📦 Pinterest&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Direct Media Download - Pinterest (Experimental)](#direct-media-download-pinterest-experimental) | ⚠️ [En cours de développement / Non testé] Enables native high-resolution image and video downloading directly from pins without watermarks or third-party scrapers. |  |
+| [Remove Promoted Pins & Shopping Ads - Pinterest (Experimental)](#remove-promoted-pins-shopping-ads-pinterest-experimental) | ⚠️ [En cours de développement / Non testé] Strips sponsored promoted pins, affiliate shopping product carousels, and paid recommendations from Pinterest home and search feeds. |  |
+| [Unlock Creator & Pro Tools - Pinterest (Experimental)](#unlock-creator-pro-tools-pinterest-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Pinterest Creator and Pro business dashboard analytics, advanced pin inspector, and rich pin creation preview tools. |  |
+
+</details>
+
 <!-- PATCHES_END -->
 
 ---
@@ -330,15 +347,19 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **Duolingo (NOUVEAU - 500M+ téléchargements) :**
   - **Unlimited Hearts :** Cœurs et vies illimités ! Ne perdez plus jamais de cœur en cas d'erreur pendant vos leçons de langues.
   - **Ad-Free & Declutter :** Suppression des publicités vidéo interstitielles après chaque leçon et masquage des popups promotionnels Super Duolingo.
+  - **Unlock Super Features :** Déblocage des fonctionnalités Super Duolingo (Hub d'entraînement, révision des erreurs, et passage des niveaux Légendaires sans dépenser de gemmes).
 - **Waze (NOUVEAU - 100M+ conducteurs) :**
   - **Block Zero-Speed Ads & Sponsored Pins :** Bloque les bannières publicitaires invasives et les logos de marques sponsorisées qui s'affichent à l'arrêt au feu rouge ou dans les bouchons.
   - **Exact Radar & Speed Camera Alerts :** Restaure l'alerte et la distance précise des radars fixes et mobiles au lieu des zones vagues.
+  - **Unlock Exclusive Moods & Car Icons :** Débloque toutes les humeurs exclusives (Monstres, Rétro, VIP) et avatars de véhicules pour personnaliser votre profil de conducteur.
 - **SoundCloud (NOUVEAU - 100M+ auditeurs) :**
   - **Block Audio & Stream Ads :** Bloque les coupures publicitaires audio entre les morceaux et élimine les pistes sponsorisées du flux.
   - **Declutter UI & Hide Go+ Upsells :** Supprime les incitations insistantes à passer à l'abonnement SoundCloud Go+.
+  - **Unlock HQ Audio & Premium Controls :** Débloque le sélecteur de streaming audio Haute Qualité (HQ) dans les paramètres et les contrôles de lecture avancés (vitesse variable).
 - **Pinterest (NOUVEAU - 1 Milliard+ de téléchargements) :**
   - **Remove Promoted Pins & Shopping Ads :** Masque les épingles sponsorisées et les bannières d'achats sponsorisés dans le fil et la recherche.
   - **Direct Media Download :** Téléchargement natif direct des photos et vidéos en pleine résolution sans filigrane.
+  - **Unlock Creator & Pro Tools :** Débloque le tableau de bord analytics Créateur/Pro et l'inspecteur d'épingles avancées.
 
 > ⚠️ **Note Générale :** Tous les nouveaux patchs indiqués `(Experimental)` sont **en cours de développement et non encore validés par test sur appareil physique**.
 
@@ -437,15 +458,19 @@ This project provides gameplay-specific patches tailored to each game:
 - **Duolingo (NEW - 500M+ downloads):**
   - **Unlimited Hearts:** Infinite hearts and lives; mistakes during lessons never deplete your health, ensuring seamless uninterrupted learning.
   - **Ad-Free & Declutter:** Eliminates post-lesson video interstitial ads and Super Duolingo subscription paywalls.
+  - **Unlock Super Features:** Unlocks Super Duolingo Practice Hub modes, mistakes review, and Legendary challenges without gem expenditure.
 - **Waze (NEW - 100M+ drivers):**
   - **Block Zero-Speed Ads & Sponsored Pins:** Stops full-screen commercial banners and branded venue pins from popping up when stopped at traffic lights or congestion.
   - **Exact Radar & Speed Camera Alerts:** Restores pinpoint accuracy distance alerts for fixed and mobile speed cameras instead of obfuscated hazard zones.
+  - **Unlock Exclusive Moods & Car Icons:** Unlocks all exclusive driver moods (Monsters, Retro, VIP) and vehicle avatars.
 - **SoundCloud (NEW - 100M+ listeners):**
   - **Block Audio & Stream Ads:** Blocks interstitial audio ads between music tracks and removes sponsored tracks from your stream.
   - **Declutter UI & Hide Go+ Upsells:** Cleans up navigation and eliminates persistent SoundCloud Go+ upgrade prompts.
+  - **Unlock HQ Audio & Premium Controls:** Unlocks the High Quality (HQ) audio streaming selector in playback preferences and variable speed controls.
 - **Pinterest (NEW - 1 Billion+ downloads):**
   - **Remove Promoted Pins & Shopping Ads:** Filters out sponsored promoted pins and affiliate shopping cards from feeds and search.
   - **Direct Media Download:** Native high-resolution image and video downloads directly from pins without third-party tools.
+  - **Unlock Creator & Pro Tools:** Unlocks Creator and Pro business analytics dashboard, pin inspector, and rich preview tools.
 
 > ⚠️ **General Notice:** All new patches marked `(Experimental)` are **under active development and have not yet been tested in real-world conditions** on physical devices.
 

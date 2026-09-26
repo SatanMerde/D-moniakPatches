@@ -93,5 +93,33 @@ object Constants {
         description = "Spotify: Music and Podcasts by Spotify AB",
         appIconColor = 0x1DB954
     )
+
+    val COMPATIBILITY_DUOLINGO = Compatibility(
+        packageName = "com.duolingo",
+        name = "Duolingo",
+        description = "Duolingo: Language Lessons by Duolingo",
+        appIconColor = 0x58CC02
+    )
+
+    val COMPATIBILITY_WAZE = Compatibility(
+        packageName = "com.waze",
+        name = "Waze",
+        description = "Waze Navigation & Live Traffic by Waze / Google",
+        appIconColor = 0x33CCFF
+    )
+
+    val COMPATIBILITY_SOUNDCLOUD = Compatibility(
+        packageName = "com.soundcloud.android",
+        name = "SoundCloud",
+        description = "SoundCloud: Play Music & Songs by SoundCloud Global Limited & Co KG",
+        appIconColor = 0xFF5500
+    )
+
+    val COMPATIBILITY_PINTEREST = Compatibility(
+        packageName = "com.pinterest",
+        name = "Pinterest",
+        description = "Pinterest: Discover and Save Creative Ideas by Pinterest",
+        appIconColor = 0xE60023
+    )
 }
 

@@ -443,6 +443,48 @@ object Constants {
         description = "Dan The Man: Action Platformer by Halfbrick Studios",
         appIconColor = 0xF57C00
     )
+
+    val COMPATIBILITY_STELLARIUM = Compatibility(
+        packageName = "com.noctuasoftware.stellarium_free",
+        name = "Stellarium Mobile",
+        description = "Stellarium Mobile: Star Map Planetarium by Noctua Software",
+        appIconColor = 0x1A237E
+    )
+
+    val COMPATIBILITY_STELLARIUM_ALT = Compatibility(
+        packageName = "com.noctuasoftware.stellarium",
+        name = "Stellarium Mobile (Alt)",
+        description = "Stellarium Mobile: Star Map by Noctua Software",
+        appIconColor = 0x1A237E
+    )
+
+    val COMPATIBILITY_WORLD_MAP_QUIZ = Compatibility(
+        packageName = "com.qbis.guessthecountry",
+        name = "World Map Quiz",
+        description = "World Map Quiz: Geography & Capitals by Qbis Studio",
+        appIconColor = 0x2E7D32
+    )
+
+    val COMPATIBILITY_PHOTOMATH = Compatibility(
+        packageName = "com.microblink.photomath",
+        name = "Photomath",
+        description = "Photomath: Camera Calculator & Math Solver by Google LLC",
+        appIconColor = 0xD32F2F
+    )
+
+    val COMPATIBILITY_MEMRISE = Compatibility(
+        packageName = "com.memrise.android.memrisecompanion",
+        name = "Memrise",
+        description = "Memrise: Language Learning & Native Speaker Practice by Memrise",
+        appIconColor = 0xFFA000
+    )
+
+    val COMPATIBILITY_PEAK = Compatibility(
+        packageName = "com.brainbow.peak.app",
+        name = "Peak",
+        description = "Peak: Brain Games & Cognitive Training by Brainbow",
+        appIconColor = 0x00ACC1
+    )
 }
 
 

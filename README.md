@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-126-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-131-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-42-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -53,7 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.23.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.23.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;128 patches total
+> **[v1.23.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.23.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;133 patches total
 <details open>
 <summary>📦 Google Photos&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
@@ -168,7 +168,7 @@
 </details>
 
 <details open>
-<summary>📦 Snapchat&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<summary>📦 Snapchat&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
@@ -176,11 +176,12 @@
 | [AMOLED Dark Theme & Declutter - Snapchat (Experimental)](#amoled-dark-theme-declutter-snapchat-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Snapchat chat screens and hides sponsored Discover tiles and intrusive Spotlight ads. |  |
 | [Allow Screenshots & Anti-Screen Security - Snapchat (Experimental)](#allow-screenshots-anti-screen-security-snapchat-experimental) | ⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE restrictions on Snapchat chat and media viewer activities, allowing screen capture without black screen restrictions. |  |
 | [Start on Chat & Battery Saver - Snapchat (Experimental)](#start-on-chat-battery-saver-snapchat-experimental) | ⚠️ [En cours de développement / Non testé] Configures Snapchat to launch directly on the Chat conversation feed instead of opening the battery-draining camera viewfinder on startup. |  |
+| [Unlock Snapchat+ Features - Snapchat (Experimental)](#unlock-snapchat-features-snapchat-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks client-side Snapchat+ UI features: custom app icons, post-view emojis, best friends pin badges, and dark mode controls. |  |
 
 </details>
 
 <details open>
-<summary>📦 Signal&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<summary>📦 Signal&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
@@ -188,28 +189,31 @@
 | [AMOLED Dark Theme & Hide Donation Nags - Signal (Experimental)](#amoled-dark-theme-hide-donation-nags-signal-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Signal chat threads and settings, and suppresses donor badges and 'Support Signal' donation reminders. |  |
 | [Allow Screenshots & Screen Security Bypass - Signal (Experimental)](#allow-screenshots-screen-security-bypass-signal-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses Android FLAG_SECURE window restrictions in Signal, allowing users to take screenshots and record screens even when Screen Security is enforced. |  |
 | [Enhanced Privacy & Disable Typing - Signal (Experimental)](#enhanced-privacy-disable-typing-signal-experimental) | ⚠️ [En cours de développement / Non testé] Prevents sending outgoing typing indicators and suppresses read receipt delivery confirmations for enhanced conversation privacy. |  |
+| [Unlock Supporter & Donor Badge - Signal (Experimental)](#unlock-supporter-donor-badge-signal-experimental) | ⚠️ [En cours de développement / Non testé] Activates the client-side Signal Sustainer / Supporter profile badge and unlocks exclusive supporter avatar rings and custom app icons. |  |
 
 </details>
 
 <details open>
-<summary>📦 Session&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Session&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [AMOLED Dark Theme - Session (Experimental)](#amoled-dark-theme-session-experimental) | ⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into Session chat threads, community rooms, and message views to maximize battery savings. |  |
 | [Allow Screenshots & Screen Security Bypass - Session (Experimental)](#allow-screenshots-screen-security-bypass-session-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window flags in Session Private Messenger, enabling screenshots, receipts saving, and screen recording inside conversations. |  |
+| [Unlock Pro & Supporter Themes - Session (Experimental)](#unlock-pro-supporter-themes-session-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Session Supporter badges, animated community avatars, and custom premium accent themes in Session Private Messenger. |  |
 
 </details>
 
 <details open>
-<summary>📦 SimpleX Chat&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 SimpleX Chat&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [AMOLED Dark Theme - SimpleX (Experimental)](#amoled-dark-theme-simplex-experimental) | ⚠️ [En cours de développement / Non testé] Replaces dark grey backgrounds with pure OLED pitch black (#000000) across SimpleX Chat conversation screens and network status monitors. |  |
 | [Allow Screenshots & Screen Security Bypass - SimpleX (Experimental)](#allow-screenshots-screen-security-bypass-simplex-experimental) | ⚠️ [En cours de développement / Non testé] Neutralizes FLAG_SECURE window flags in SimpleX Chat, allowing screenshots and screen sharing without black screens. |  |
+| [Unlock Pro & Multi-Profile Switching - SimpleX (Experimental)](#unlock-pro-multi-profile-switching-simplex-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks instant multi-profile quick switching, quantum-resistant encryption toggles, and donor profile styling in SimpleX Chat. |  |
 
 </details>
 
@@ -281,7 +285,7 @@
 </details>
 
 <details open>
-<summary>📦 Telegram&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<summary>📦 Telegram&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
@@ -289,6 +293,7 @@
 | [Allow Saving Restricted Media - Telegram (Experimental)](#allow-saving-restricted-media-telegram-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses 'Copying and forwarding is not allowed' channel restrictions, allowing users to save photos, videos, and copy text from restricted channels. |  |
 | [Block Ads & Hide Stories - Telegram (Experimental)](#block-ads-hide-stories-telegram-experimental) | ⚠️ [En cours de développement / Non testé] Removes sponsored messages in public channels, hides stories carousel from the chat list, and eliminates Telegram Premium upgrade reminders. |  |
 | [Disable Proximity Sensor - Telegram (Experimental)](#disable-proximity-sensor-telegram-experimental) | ⚠️ [En cours de développement / Non testé] Prevents the proximity sensor from turning off the display or switching audio output while listening to voice and video messages. |  |
+| [Unlock Telegram Premium Features - Telegram (Experimental)](#unlock-telegram-premium-features-telegram-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks client-side Telegram Premium features: exclusive app icons, animated reactions, voice-to-text transcription toggle, and doubled chat folders. |  |
 | [Unlock Unlimited Pinned Chats - Telegram (Experimental)](#unlock-unlimited-pinned-chats-telegram-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses the 5 pinned chats limit in Telegram, allowing users to pin unlimited chats and channels without Telegram Premium. |  |
 
 </details>
@@ -750,20 +755,30 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
   - **Allow Saving Restricted Media :** Contourne la protection anti-copie (« Le transfert et la copie ne sont pas autorisés ») des canaux restreints pour permettre la sauvegarde des photos, vidéos et la copie de texte.
   - **Unlock Unlimited Pinned Chats :** Débloque la limite des 5 discussions épinglées pour permettre d'épingler un nombre illimité de conversations et canaux sans Telegram Premium.
   - **Disable Proximity Sensor :** Empêche le capteur de proximité d'éteindre l'écran ou de basculer l'audio vers l'écouteur lors de l'écoute de messages vocaux ou vidéo.
+  - **Unlock Telegram Premium Features :** Débloque côté client les fonctionnalités Telegram Premium (icônes d'application exclusives, réactions animées, bouton de transcription audio en texte et doublement des dossiers de discussion).
+  - **Unlock Telegram Premium Features :** Débloque côté client les fonctionnalités Telegram Premium (icônes d'application exclusives, réactions animées, bouton de transcription audio en texte et doublement des dossiers de discussion).
 - **Signal (NOUVEAU - 100M+ d'utilisateurs) :**
   - **Allow Screenshots & Screen Security Bypass :** Neutralise la restriction Android FLAG_SECURE pour autoriser les captures d'écran et enregistrements d'écran même quand la Sécurité d'écran est imposée.
   - **AMOLED Dark Theme & Hide Donation Nags :** Remplace les fonds gris par un noir absolu (#000000) et supprime les bannières d'appel aux dons et badges de donateurs.
   - **Enhanced Privacy & Disable Typing :** Empêche l'envoi des indicateurs de saisie en direct et supprime la notification de confirmation de lecture.
+  - **Unlock Supporter & Donor Badge :** Débloque le badge de profil Donateur / Soutien Signal, l'anneau d'avatar exclusif et les icônes d'application des donateurs côté client.
+  - **Unlock Supporter & Donor Badge :** Débloque le badge de profil Donateur / Soutien Signal, l'anneau d'avatar exclusif et les icônes d'application des donateurs côté client.
 - **Session (NOUVEAU - Messagerie Privée Décentralisée) :**
   - **Allow Screenshots & Screen Security Bypass :** Supprime la protection de fenêtre FLAG_SECURE pour permettre les captures d'écran de conversations, reçus et l'enregistrement vidéo sans écran noir.
   - **AMOLED Dark Theme :** Infiltre un noir profond (#000000) dans les conversations individuelles et salons communautaires.
+  - **Unlock Pro & Supporter Themes :** Débloque les badges de soutien Session, les avatars communautaires animés et les thèmes d'accentuation Pro.
+  - **Unlock Pro & Supporter Themes :** Débloque les badges de soutien Session, les avatars communautaires animés et les thèmes d'accentuation Pro.
 - **SimpleX Chat (NOUVEAU - Sans identifiant utilisateur) :**
   - **Allow Screenshots & Screen Security Bypass :** Désactive le verrouillage FLAG_SECURE pour permettre la prise de captures d'écran sans restriction.
   - **AMOLED Dark Theme :** Thème noir pur OLED (#000000) pour l'ensemble des discussions et moniteurs réseau.
+  - **Unlock Pro & Multi-Profile Switching :** Débloque le basculement rapide multi-profils, les paramètres avancés de chiffrement résistant au quantique et le style de profil bienfaiteur.
+  - **Unlock Pro & Multi-Profile Switching :** Débloque le basculement rapide multi-profils, les paramètres avancés de chiffrement résistant au quantique et le style de profil bienfaiteur.
 - **Snapchat (NOUVEAU - 1 Milliard+ de téléchargements) :**
   - **AMOLED Dark Theme & Declutter :** Applique un thème noir pur OLED (#000000) sur les écrans de chat et masque les vignettes sponsorisées Discover et publicités Spotlight.
   - **Allow Screenshots & Anti-Screen Security :** Neutralise les restrictions FLAG_SECURE sur les vues de chat et de médias pour autoriser la capture d'écran sans écran noir.
   - **Start on Chat & Battery Saver :** Lance Snapchat directement sur le fil des conversations privées au lieu d'ouvrir le viseur appareil photo énergivore au démarrage.
+  - **Unlock Snapchat+ Features :** Débloque les options d'interface Snapchat+ côté client (icônes d'application exclusives, émojis post-visionnage, badges d'épinglage des meilleurs amis et contrôles du thème sombre).
+  - **Unlock Snapchat+ Features :** Débloque les options d'interface Snapchat+ côté client (icônes d'application exclusives, émojis post-visionnage, badges d'épinglage des meilleurs amis et contrôles du thème sombre).
 
 > ⚠️ **Note Générale :** Tous les nouveaux patchs indiqués `(Experimental)` sont **en cours de développement et non encore validés par test sur appareil physique**.
 
@@ -978,20 +993,30 @@ This project provides gameplay-specific patches tailored to each game:
   - **Allow Saving Restricted Media:** Bypasses 'Copying and forwarding is not allowed' channel restrictions, allowing users to save photos, videos, and copy text from restricted channels.
   - **Unlock Unlimited Pinned Chats:** Bypasses the 5 pinned chats limit in Telegram, allowing users to pin unlimited chats and channels without Telegram Premium.
   - **Disable Proximity Sensor:** Prevents the proximity sensor from turning off the display or switching audio output while listening to voice and video messages.
+  - **Unlock Telegram Premium Features:** Unlocks client-side Telegram Premium features: exclusive app icons, animated reactions, voice-to-text transcription toggle, and doubled chat folders.
+  - **Unlock Telegram Premium Features:** Unlocks client-side Telegram Premium features: exclusive app icons, animated reactions, voice-to-text transcription toggle, and doubled chat folders.
 - **Signal (NEW - 100M+ users):**
   - **Allow Screenshots & Screen Security Bypass:** Bypasses Android FLAG_SECURE window restrictions in Signal, allowing users to take screenshots and record screens even when Screen Security is enforced.
   - **AMOLED Dark Theme & Hide Donation Nags:** Injects pure OLED pitch black (#000000) into Signal chat threads and settings, and suppresses donor badges and 'Support Signal' donation reminders.
   - **Enhanced Privacy & Disable Typing:** Prevents sending outgoing typing indicators and suppresses read receipt delivery confirmations for enhanced conversation privacy.
+  - **Unlock Supporter & Donor Badge:** Activates the client-side Signal Sustainer / Supporter profile badge and unlocks exclusive supporter avatar rings and custom app icons.
+  - **Unlock Supporter & Donor Badge:** Activates the client-side Signal Sustainer / Supporter profile badge and unlocks exclusive supporter avatar rings and custom app icons.
 - **Session (NEW - Private Decentralized Messenger):**
   - **Allow Screenshots & Screen Security Bypass:** Removes Android FLAG_SECURE window flags in Session Private Messenger, enabling screenshots, receipts saving, and screen recording inside conversations.
   - **AMOLED Dark Theme:** Injects true OLED pitch black (#000000) into Session chat threads, community rooms, and message views to maximize battery savings.
+  - **Unlock Pro & Supporter Themes:** Unlocks Session Supporter badges, animated community avatars, and custom premium accent themes in Session Private Messenger.
+  - **Unlock Pro & Supporter Themes:** Unlocks Session Supporter badges, animated community avatars, and custom premium accent themes in Session Private Messenger.
 - **SimpleX Chat (NEW - 100% Private No User IDs):**
   - **Allow Screenshots & Screen Security Bypass:** Neutralizes FLAG_SECURE window flags in SimpleX Chat, allowing screenshots and screen sharing without black screens.
   - **AMOLED Dark Theme:** Replaces dark grey backgrounds with pure OLED pitch black (#000000) across SimpleX Chat conversation screens and network status monitors.
+  - **Unlock Pro & Multi-Profile Switching:** Unlocks instant multi-profile quick switching, quantum-resistant encryption toggles, and donor profile styling in SimpleX Chat.
+  - **Unlock Pro & Multi-Profile Switching:** Unlocks instant multi-profile quick switching, quantum-resistant encryption toggles, and donor profile styling in SimpleX Chat.
 - **Snapchat (NEW - 1 Billion+ downloads):**
   - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into Snapchat chat screens and hides sponsored Discover tiles and intrusive Spotlight ads.
   - **Allow Screenshots & Anti-Screen Security:** Removes FLAG_SECURE restrictions on Snapchat chat and media viewer activities, allowing screen capture without black screen restrictions.
   - **Start on Chat & Battery Saver:** Configures Snapchat to launch directly on the Chat conversation feed instead of opening the battery-draining camera viewfinder on startup.
+  - **Unlock Snapchat+ Features:** Unlocks client-side Snapchat+ UI features: custom app icons, post-view emojis, best friends pin badges, and dark mode controls.
+  - **Unlock Snapchat+ Features:** Unlocks client-side Snapchat+ UI features: custom app icons, post-view emojis, best friends pin badges, and dark mode controls.
 
 > ⚠️ **General Notice:** All new patches marked `(Experimental)` are **under active development and have not yet been tested in real-world conditions** on physical devices.
 

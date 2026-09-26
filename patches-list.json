@@ -3178,6 +3178,33 @@
       "options": []
     },
     {
+      "name": "Unlock Pro & Multi-Profile Switching - SimpleX (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks instant multi-profile quick switching, quantum-resistant encryption toggles, and donor profile styling in SimpleX Chat.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "chat.simplex.app",
+          "name": "SimpleX Chat",
+          "description": "SimpleX Chat: Private Messenger with No User IDs by SimpleX Chat Ltd",
+          "apkFileType": null,
+          "appIconColor": "#7E3FF2",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock Pro & Subscriber Analytics - Strava (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Unlocks 3D terrain route previews, custom segment leaderboard analytics, relative effort metrics, and training log insights.",
       "default": true,
@@ -3190,6 +3217,33 @@
           "description": "Strava: Run, Ride, Hike & Train by Strava Inc.",
           "apkFileType": null,
           "appIconColor": "#FC4C02",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Pro & Supporter Themes - Session (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks Session Supporter badges, animated community avatars, and custom premium accent themes in Session Private Messenger.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "network.loki.messenger",
+          "name": "Session",
+          "description": "Session: Private Messenger by Oxen Privacy Tech / The Session Foundation",
+          "apkFileType": null,
+          "appIconColor": "#00E599",
           "signatures": null,
           "targets": [
             {
@@ -3232,6 +3286,33 @@
       "options": []
     },
     {
+      "name": "Unlock Snapchat+ Features - Snapchat (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks client-side Snapchat+ UI features: custom app icons, post-view emojis, best friends pin badges, and dark mode controls.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.snapchat.android",
+          "name": "Snapchat",
+          "description": "Snapchat by Snap Inc",
+          "apkFileType": null,
+          "appIconColor": "#FFFC00",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock Super Features - Duolingo (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Unlocks Super Duolingo practice hub modes, unlimited Legendary test attempts without gem expenditure, and mistake review sessions.",
       "default": true,
@@ -3244,6 +3325,60 @@
           "description": "Duolingo: Language Lessons by Duolingo",
           "apkFileType": null,
           "appIconColor": "#58CC02",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Supporter & Donor Badge - Signal (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Activates the client-side Signal Sustainer / Supporter profile badge and unlocks exclusive supporter avatar rings and custom app icons.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.thoughtcrime.securesms",
+          "name": "Signal",
+          "description": "Signal Private Messenger by Signal Foundation",
+          "apkFileType": null,
+          "appIconColor": "#3A76F0",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Telegram Premium Features - Telegram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks client-side Telegram Premium features: exclusive app icons, animated reactions, voice-to-text transcription toggle, and doubled chat folders.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.telegram.messenger",
+          "name": "Telegram",
+          "description": "Telegram Messenger by Telegram FZ-LLC",
+          "apkFileType": null,
+          "appIconColor": "#24A1DE",
           "signatures": null,
           "targets": [
             {

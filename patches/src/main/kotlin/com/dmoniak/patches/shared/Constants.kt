@@ -261,5 +261,40 @@ object Constants {
         description = "Google Gemini: Your AI Assistant by Google LLC",
         appIconColor = 0x4285F4
     )
+
+    val COMPATIBILITY_TELEGRAM = Compatibility(
+        packageName = "org.telegram.messenger",
+        name = "Telegram",
+        description = "Telegram Messenger by Telegram FZ-LLC",
+        appIconColor = 0x24A1DE
+    )
+
+    val COMPATIBILITY_SIGNAL = Compatibility(
+        packageName = "org.thoughtcrime.securesms",
+        name = "Signal",
+        description = "Signal Private Messenger by Signal Foundation",
+        appIconColor = 0x3A76F0
+    )
+
+    val COMPATIBILITY_SESSION = Compatibility(
+        packageName = "network.loki.messenger",
+        name = "Session",
+        description = "Session: Private Messenger by Oxen Privacy Tech / The Session Foundation",
+        appIconColor = 0x00E599
+    )
+
+    val COMPATIBILITY_SIMPLEX = Compatibility(
+        packageName = "chat.simplex.app",
+        name = "SimpleX Chat",
+        description = "SimpleX Chat: Private Messenger with No User IDs by SimpleX Chat Ltd",
+        appIconColor = 0x7E3FF2
+    )
+
+    val COMPATIBILITY_SNAPCHAT = Compatibility(
+        packageName = "com.snapchat.android",
+        name = "Snapchat",
+        description = "Snapchat by Snap Inc",
+        appIconColor = 0xFFFC00
+    )
 }
 

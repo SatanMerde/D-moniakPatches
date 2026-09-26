@@ -1,3 +1,9 @@
+## [1.30.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.29.0...v1.30.0) (2026-09-26)
+
+### ✨ New Features
+
+* add patch suites for useful apps (Stellarium Mobile, World Map Quiz, Photomath, Memrise, Peak) ([1b2cb1b](https://github.com/SatanMerde/D-moniakPatches/commit/1b2cb1b872d5a8ad2ad305bf7cea7ff17063b938))
+
 ## [1.29.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.28.3...v1.29.0) (2026-09-26)
 
 ### ✨ New Features

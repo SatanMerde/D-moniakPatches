@@ -12,10 +12,10 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-194-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-204-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-63-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-69-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -53,7 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.29.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.29.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;196 patches total
+> **[v1.30.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.30.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;208 patches total
 <details open>
 <summary>📦 Alto's Adventure&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -354,6 +354,17 @@
 </details>
 
 <details open>
+<summary>📦 Memrise&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Promo Popups - Memrise (Experimental)](#block-ads-promo-popups-memrise-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade popups, trial reminders, and subscription banners in Memrise. |  |
+| [Unlock Memrise Pro - Memrise (Experimental)](#unlock-memrise-pro-memrise-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Memrise Pro: all language courses, Learn with Locals native speaker clips, grammar bot, difficult words reviews, and offline downloads. |  |
+
+</details>
+
+<details open>
 <summary>📦 Movix&nbsp;&nbsp;•&nbsp;&nbsp;6 patches</summary>
 <br>
 
@@ -391,6 +402,17 @@
 </details>
 
 <details open>
+<summary>📦 Peak&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Promo Screens - Peak Brain Training (Experimental)](#block-ads-promo-screens-peak-brain-training-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional subscription prompts, rating alerts, and video ads in Peak Brain Training. |  |
+| [Unlock Peak Pro - Peak Brain Training (Experimental)](#unlock-peak-pro-peak-brain-training-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Peak Pro: all 45+ cognitive brain games, unlimited daily workouts, advanced brain analytics, and personalized coach training modules. |  |
+
+</details>
+
+<details open>
 <summary>📦 Perplexity&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
@@ -411,6 +433,17 @@
 | [Enable Call Recording - Phone by Google (Experimental)](#enable-call-recording-phone-by-google-experimental) | ⚠️ [En cours de développement / Non testé] Enables native call recording buttons and settings in Google Phone, bypassing regional carrier and country restrictions. |  |
 | [Enhanced Spam & Detailed Caller ID - Phone by Google (Experimental)](#enhanced-spam-detailed-caller-id-phone-by-google-experimental) | ⚠️ [En cours de développement / Non testé] Enforces strict spam call blocking and reveals complete telecom carrier and geographical location details for incoming numbers. |  |
 | [Silence Call Recording Warning - Phone by Google (Experimental)](#silence-call-recording-warning-phone-by-google-experimental) | ⚠️ [En cours de développement / Non testé] Mutes the audible 'This call is now being recorded' audio announcement tone when starting and stopping call recording. |  |
+
+</details>
+
+<details open>
+<summary>📦 Photomath&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Promo Screens - Photomath (Experimental)](#block-ads-promo-screens-photomath-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade screens, rating dialogs, and subscription prompts in Photomath. |  |
+| [Unlock Photomath Plus - Photomath (Experimental)](#unlock-photomath-plus-photomath-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Photomath Plus features: deep step-by-step mathematical explanations, animated calculation walkthroughs, and textbook solutions. |  |
 
 </details>
 
@@ -658,6 +691,28 @@
 </details>
 
 <details open>
+<summary>📦 Stellarium Mobile&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Promo Popups - Stellarium Mobile (Experimental)](#block-ads-promo-popups-stellarium-mobile-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade dialogues, rating prompts, and banner notices in Stellarium Mobile. |  |
+| [Unlock Plus & Gaia Star Catalog - Stellarium Mobile (Experimental)](#unlock-plus-gaia-star-catalog-stellarium-mobile-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Stellarium Plus subscription features: Gaia DR3 star catalog (1.8+ billion stars), full deep-sky objects (DSO), high-res planetary textures, satellite tracking, and telescope control. |  |
+
+</details>
+
+<details open>
+<summary>📦 Stellarium Mobile (Alt)&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Promo Popups - Stellarium Mobile (Experimental)](#block-ads-promo-popups-stellarium-mobile-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade dialogues, rating prompts, and banner notices in Stellarium Mobile. |  |
+| [Unlock Plus & Gaia Star Catalog - Stellarium Mobile (Experimental)](#unlock-plus-gaia-star-catalog-stellarium-mobile-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Stellarium Plus subscription features: Gaia DR3 star catalog (1.8+ billion stars), full deep-sky objects (DSO), high-res planetary textures, satellite tracking, and telescope control. |  |
+
+</details>
+
+<details open>
 <summary>📦 Strava&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
@@ -807,6 +862,17 @@
 |----------|----------------|-----------|
 | [Declutter UI & Hide Pro Upsells - Windscribe (Experimental)](#declutter-ui-hide-pro-upsells-windscribe-experimental) | ⚠️ [En cours de développement / Non testé] Hides Pro upgrade ribbons, promotional sales alerts, and persistent upgrade banners in the main location list. |  |
 | [Enhanced Privacy & Telemetry Blocker - Windscribe (Experimental)](#enhanced-privacy-telemetry-blocker-windscribe-experimental) | ⚠️ [En cours de développement / Non testé] Neutralizes background diagnostic reporting, error analytics, and tracking telemetry endpoints for maximum anonymity. |  |
+
+</details>
+
+<details open>
+<summary>📦 World Map Quiz&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Video Interruptions - World Map Quiz (Experimental)](#block-ads-video-interruptions-world-map-quiz-experimental) | ⚠️ [En cours de développement / Non testé] Strips interstitial ads between rounds, banner ads, and video prompts in World Map Quiz. |  |
+| [Unlock Premium & Unlimited Hints - World Map Quiz (Experimental)](#unlock-premium-unlimited-hints-world-map-quiz-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks the Premium edition, all continental maps, flag & capital quiz modes, and provides unlimited hint tokens in World Map Quiz. |  |
 
 </details>
 

@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.18.0-dev.1",
+  "version": "1.18.0",
   "patches": [
     {
       "name": "AMOLED Black & Declutter - Proton Pass (Experimental)",
@@ -273,6 +273,60 @@
       "options": []
     },
     {
+      "name": "Allow Screenshots & Screen Mirroring - Proton VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton VPN, allowing screenshots, screen recordings, and wireless display mirroring of connection logs and diagnostics.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonvpn.android",
+          "name": "Proton VPN",
+          "description": "Proton VPN: Fast & Secure by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Allow Screenshots & Screen Mirroring - Tuta Mail (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Tuta Mail, allowing users to take screenshots, capture invoice receipts, and mirror screens without black screens.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "de.tutao.tutanota",
+          "name": "Tuta Mail",
+          "description": "Tuta Mail: Secure & Private Email by Tutao GmbH",
+          "apkFileType": null,
+          "appIconColor": "#C70000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Always Show Latency & Speed - Proton VPN (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Displays real-time ping latency (ms) and transmission speed indicators on all server cards in the connection list.",
       "default": true,
@@ -312,6 +366,114 @@
           "description": "Shazam: Identify & Discover Music by Apple Inc. / Shazam",
           "apkFileType": null,
           "appIconColor": "#0088FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black & Declutter - Proton Pass (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "proton.android.pass",
+          "name": "Proton Pass",
+          "description": "Proton Pass: Password Manager by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black Theme - Proton Mail (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonmail.android",
+          "name": "Proton Mail",
+          "description": "Proton Mail: Encrypted Email by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black Theme - Proton VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonvpn.android",
+          "name": "Proton VPN",
+          "description": "Proton VPN: Fast & Secure by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black Theme - Tuta Mail (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Tuta Mail's inbox, message reading view, calendar, and contacts for maximum battery savings on AMOLED displays.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "de.tutao.tutanota",
+          "name": "Tuta Mail",
+          "description": "Tuta Mail: Secure & Private Email by Tutao GmbH",
+          "apkFileType": null,
+          "appIconColor": "#C70000",
           "signatures": null,
           "targets": [
             {
@@ -705,6 +867,33 @@
       "options": []
     },
     {
+      "name": "Bypass Split Tunneling Restrictions - Proton VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks all system apps, work profile applications, and protected packages in Proton VPN's Split Tunneling selection menu.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonvpn.android",
+          "name": "Proton VPN",
+          "description": "Proton VPN: Fast & Secure by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Declutter Feed & Hide Trials - Strava (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Hides persistent 'Start Free Trial' promotional banners, sponsored club challenges, and upsell carousels in the activity feed.",
       "default": true,
@@ -771,6 +960,33 @@
           "description": "Windscribe VPN by Windscribe Security",
           "apkFileType": null,
           "appIconColor": "#152238",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Declutter UI & Hide Upgrade Banners - Tuta Mail (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hides promotional subscription upgrade banners (Revolutionary / Legend), storage warning popups, and upsell alerts in Tuta Mail.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "de.tutao.tutanota",
+          "name": "Tuta Mail",
+          "description": "Tuta Mail: Secure & Private Email by Tutao GmbH",
+          "apkFileType": null,
+          "appIconColor": "#C70000",
           "signatures": null,
           "targets": [
             {
@@ -1975,6 +2191,33 @@
           "description": "Pinterest: Discover and Save Creative Ideas by Pinterest",
           "apkFileType": null,
           "appIconColor": "#E60023",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Custom DNS Settings - Proton VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks custom upstream DNS resolver preferences (NextDNS, AdGuard DNS, Quad9) in Proton VPN settings without subscription restrictions.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonvpn.android",
+          "name": "Proton VPN",
+          "description": "Proton VPN: Fast & Secure by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
           "signatures": null,
           "targets": [
             {

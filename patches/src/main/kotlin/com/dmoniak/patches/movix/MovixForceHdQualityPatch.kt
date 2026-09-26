@@ -10,8 +10,8 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val movixForceHdQualityPatch = bytecodePatch(
-    name = "Force HD & 4K Quality Unlock - Movix (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Forces maximum available video quality (HD 1080p / 4K) on all content regardless of subscription tier or network quality detection thresholds.",
+    name = "Force HD & 4K Quality Unlock - Movix",
+    description = "Forces maximum available video quality (HD 1080p / 4K) on all content regardless of subscription tier or network quality detection thresholds.",
 ) {
     compatibleWith(COMPATIBILITY_MOVIX)
 

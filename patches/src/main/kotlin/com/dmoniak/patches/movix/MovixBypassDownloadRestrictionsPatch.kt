@@ -10,8 +10,8 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val movixBypassDownloadRestrictionsPatch = bytecodePatch(
-    name = "Bypass Download Restrictions - Movix (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Bypasses offline download tier restrictions to allow downloading any movie or series episode for offline viewing without a Premium subscription, and removes download quality caps.",
+    name = "Bypass Download Restrictions - Movix",
+    description = "Bypasses offline download tier restrictions to allow downloading any movie or series episode for offline viewing without a Premium subscription, and removes download quality caps.",
 ) {
     compatibleWith(COMPATIBILITY_MOVIX)
 

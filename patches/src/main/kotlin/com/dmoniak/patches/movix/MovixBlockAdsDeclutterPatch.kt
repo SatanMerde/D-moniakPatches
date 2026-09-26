@@ -10,8 +10,8 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val movixBlockAdsDeclutterPatch = bytecodePatch(
-    name = "Block Video Ads & Interstitials - Movix (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Strips video pre-roll and mid-roll ads, banner ads, and redirect popups across Movix movie and series player screens.",
+    name = "Block Video Ads & Interstitials - Movix",
+    description = "Strips video pre-roll and mid-roll ads, banner ads, and redirect popups across Movix movie and series player screens.",
 ) {
     compatibleWith(COMPATIBILITY_MOVIX)
 

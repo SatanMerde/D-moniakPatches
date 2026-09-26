@@ -10,8 +10,8 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val movixAmoledPlayerControlsPatch = bytecodePatch(
-    name = "AMOLED Black Player & Picture-in-Picture - Movix (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into Movix catalog and unlocks Picture-in-Picture (PiP) and background audio playback.",
+    name = "AMOLED Black Player & Picture-in-Picture - Movix",
+    description = "Injects true OLED pitch black (#000000) into Movix catalog and unlocks Picture-in-Picture (PiP) and background audio playback.",
 ) {
     compatibleWith(COMPATIBILITY_MOVIX)
 

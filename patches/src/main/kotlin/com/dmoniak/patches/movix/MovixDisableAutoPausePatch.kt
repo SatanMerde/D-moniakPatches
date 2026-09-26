@@ -10,8 +10,8 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val movixDisableAutoPausePatch = bytecodePatch(
-    name = "Disable Auto-Pause on Background - Movix (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Prevents Movix from automatically pausing or stopping video playback when the app transitions to the background, enabling audio-only listening and uninterrupted casting.",
+    name = "Disable Auto-Pause on Background - Movix",
+    description = "Prevents Movix from automatically pausing or stopping video playback when the app transitions to the background, enabling audio-only listening and uninterrupted casting.",
 ) {
     compatibleWith(COMPATIBILITY_MOVIX)
 

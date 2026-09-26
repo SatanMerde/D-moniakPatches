@@ -10,8 +10,8 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val movixUnlockPremiumSubscriptionPatch = bytecodePatch(
-    name = "Unlock Premium Subscription - Movix (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Bypasses Movix VIP/Premium subscription checks to unlock all premium and exclusive content, series, and movie libraries without an active paid subscription.",
+    name = "Unlock Premium Subscription - Movix",
+    description = "Bypasses Movix VIP/Premium subscription checks to unlock all premium and exclusive content, series, and movie libraries without an active paid subscription.",
 ) {
     compatibleWith(COMPATIBILITY_MOVIX)
 

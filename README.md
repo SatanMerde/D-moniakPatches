@@ -19,8 +19,14 @@
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Patches-239-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
+  <a href="#-patchs-validés--fonctionnels--tested--functional-patches">
+    <img src="https://img.shields.io/badge/Fonctionnels-10-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
+  </a>
+  <a href="#-patchs-expérimentaux--en-développement--experimental-patches-ai-generated">
+    <img src="https://img.shields.io/badge/Expérimentaux-229-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+  </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-80-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-80-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -41,10 +47,10 @@
 ### 📖 Présentation du projet / Project Overview
 
 **🇫🇷 Français :**  
-**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble plus de **239 patchs** pour **80 applications et jeux Android** populaires qui ne sont pas inclus dans le catalogue officiel de Morphe (jeux hors-ligne, réseaux sociaux, outils IA, messagerie, thèmes AMOLED, suppression de publicités et patchs universels). L'ensemble de ce dépôt est entièrement conçu et géré par Intelligence Artificielle (IA).
+**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble **239 patchs** pour **80 applications et jeux Android** populaires, clairement séparés entre **patchs validés & fonctionnels** (testés sur appareil réel : Hungry Shark World, Movix) et **patchs expérimentaux** (en cours de développement, générés par IA).
 
 **🇬🇧 English :**  
-**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **239+ patches** for **80 popular Android apps and games** that are not available in the official Morphe catalog (offline games, social networks, AI tools, messengers, AMOLED dark themes, ad-blocking, and universal patches). This entire repository is conceived and maintained by Artificial Intelligence (AI).
+**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **239 patches** for **80 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware: Hungry Shark World, Movix) and **experimental patches** (currently under development, AI-generated).
 
 ---
 
@@ -111,7 +117,50 @@ Un problème constaté ou une suggestion de nouveau patch ? / Experiencing an is
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.33.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.33.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;239 patches total
+> **[v1.33.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.33.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**239 patchs au total** (10 validés & fonctionnels • 229 expérimentaux)
+
+---
+
+### ✅ Patchs validés & fonctionnels / Tested & Functional Patches
+
+> [!TIP]
+> **🇫🇷 Français :** Ces patchs ont été rigoureusement testés et confirmés pleinement opérationnels sur appareil réel.  
+> **🇬🇧 English :** These patches have been thoroughly tested and confirmed fully functional on real hardware.
+
+<details open>
+<summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Bypass Rewarded Ads](#bypass-rewarded-ads) | Bypasses rewarded video ads in Hungry Shark World by emulating ad completion events. |
+| [Fast Gold Rush - Hungry Shark World](#fast-gold-rush-hungry-shark-world) | Accelerates Gold Rush gauge filling in Hungry Shark World, triggering frenzy coin multipliers and invulnerability much faster. |
+| [Free Shopping](#free-shopping) | Unlocks shop items and in-app purchases in Hungry Shark World by cleanly replacing GoogleBillingService purchase methods and receipt validation. |
+| [Infinite Boost - Hungry Shark World](#infinite-boost-hungry-shark-world) | Disables boost meter depletion in Hungry Shark World, granting unlimited turbo swimming and continuous dash attacks without waiting for recharge. |
+</details>
+
+<details open>
+<summary>📦 Movix&nbsp;&nbsp;•&nbsp;&nbsp;6 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [AMOLED Black Player & Picture-in-Picture - Movix](#amoled-black-player-picture-in-picture-movix) | Injects true OLED pitch black (#000000) into Movix catalog and unlocks Picture-in-Picture (PiP) and background audio playback. |
+| [Block Video Ads & Interstitials - Movix](#block-video-ads-interstitials-movix) | Strips video pre-roll and mid-roll ads, banner ads, and redirect popups across Movix movie and series player screens. |
+| [Bypass Download Restrictions - Movix](#bypass-download-restrictions-movix) | Bypasses offline download tier restrictions to allow downloading any movie or series episode for offline viewing without a Premium subscription, and removes download quality caps. |
+| [Disable Auto-Pause on Background - Movix](#disable-auto-pause-on-background-movix) | Prevents Movix from automatically pausing or stopping video playback when the app transitions to the background, enabling audio-only listening and uninterrupted casting. |
+| [Force HD & 4K Quality Unlock - Movix](#force-hd-4k-quality-unlock-movix) | Forces maximum available video quality (HD 1080p / 4K) on all content regardless of subscription tier or network quality detection thresholds. |
+| [Unlock Premium Subscription - Movix](#unlock-premium-subscription-movix) | Bypasses Movix VIP/Premium subscription checks to unlock all premium and exclusive content, series, and movie libraries without an active paid subscription. |
+</details>
+
+---
+
+### 🧪 Patchs expérimentaux & en développement / Experimental Patches (AI-generated)
+
+> [!WARNING]
+> **🇫🇷 Français :** Les patchs ci-dessous sont générés par IA et sont **en cours de développement / non testés sur appareils réels**. Des bugs, instabilités ou fermetures inopinées peuvent survenir. N'hésitez pas à [signaler tout dysfonctionnement](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml).  
+> **🇬🇧 English :** The patches below are AI-generated and **currently under development / untested on real devices**. Bugs, crashes, or unexpected behaviors may occur. Feel free to [report any issues](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml).
+
 <details open>
 <summary>📦 AllTrails&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -442,18 +491,6 @@ Un problème constaté ou une suggestion de nouveau patch ? / Experiencing an is
 </details>
 
 <details open>
-<summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description |
-|----------|----------------|
-| [Bypass Rewarded Ads](#bypass-rewarded-ads) | Bypasses rewarded video ads in Hungry Shark World by emulating ad completion events. |
-| [Fast Gold Rush - Hungry Shark (Experimental)](#fast-gold-rush-hungry-shark-experimental) | ⚠️ [En cours de développement / Non testé] Accelerates Gold Rush gauge filling in Hungry Shark World and Evolution, triggering frenzy coin multipliers and invulnerability much faster. (Experimental - Not yet tested on device). |
-| [Free Shopping](#free-shopping) | Unlocks shop items and in-app purchases in Hungry Shark World by cleanly replacing GoogleBillingService purchase methods and receipt validation. |
-| [Infinite Boost - Hungry Shark (Experimental)](#infinite-boost-hungry-shark-experimental) | ⚠️ [En cours de développement / Non testé] Disables boost meter depletion in Hungry Shark World and Hungry Shark Evolution, granting unlimited turbo swimming and continuous dash attacks without waiting for recharge. (Experimental - Not yet tested on device). |
-</details>
-
-<details open>
 <summary>📦 Jetpack Joyride&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
@@ -483,20 +520,6 @@ Un problème constaté ou une suggestion de nouveau patch ? / Experiencing an is
 |----------|----------------|
 | [Block Ads & Promo Popups - Memrise (Experimental)](#block-ads-promo-popups-memrise-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade popups, trial reminders, and subscription banners in Memrise. |
 | [Unlock Memrise Pro - Memrise (Experimental)](#unlock-memrise-pro-memrise-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Memrise Pro: all language courses, Learn with Locals native speaker clips, grammar bot, difficult words reviews, and offline downloads. |
-</details>
-
-<details open>
-<summary>📦 Movix&nbsp;&nbsp;•&nbsp;&nbsp;6 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description |
-|----------|----------------|
-| [AMOLED Black Player & Picture-in-Picture - Movix (Experimental)](#amoled-black-player-picture-in-picture-movix-experimental) | ⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into Movix catalog and unlocks Picture-in-Picture (PiP) and background audio playback. |
-| [Block Video Ads & Interstitials - Movix (Experimental)](#block-video-ads-interstitials-movix-experimental) | ⚠️ [En cours de développement / Non testé] Strips video pre-roll and mid-roll ads, banner ads, and redirect popups across Movix movie and series player screens. |
-| [Bypass Download Restrictions - Movix (Experimental)](#bypass-download-restrictions-movix-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses offline download tier restrictions to allow downloading any movie or series episode for offline viewing without a Premium subscription, and removes download quality caps. |
-| [Disable Auto-Pause on Background - Movix (Experimental)](#disable-auto-pause-on-background-movix-experimental) | ⚠️ [En cours de développement / Non testé] Prevents Movix from automatically pausing or stopping video playback when the app transitions to the background, enabling audio-only listening and uninterrupted casting. |
-| [Force HD & 4K Quality Unlock - Movix (Experimental)](#force-hd-4k-quality-unlock-movix-experimental) | ⚠️ [En cours de développement / Non testé] Forces maximum available video quality (HD 1080p / 4K) on all content regardless of subscription tier or network quality detection thresholds. |
-| [Unlock Premium Subscription - Movix (Experimental)](#unlock-premium-subscription-movix-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses Movix VIP/Premium subscription checks to unlock all premium and exclusive content, series, and movie libraries without an active paid subscription. |
 </details>
 
 <details open>

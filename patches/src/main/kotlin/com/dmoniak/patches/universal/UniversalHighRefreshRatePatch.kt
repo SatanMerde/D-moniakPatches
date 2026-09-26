@@ -10,7 +10,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val universalHighRefreshRatePatch = bytecodePatch(
     name = "Universal High Refresh Rate 120Hz (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Forces high refresh rate display mode (90Hz, 120Hz, or 144Hz) in apps and games that are otherwise capped at 60Hz.",
+    description = "⚠️ [En cours de développement / Non testé] Forces high refresh rate display mode (90Hz, 120Hz, or 144Hz) in apps and games by configuring WindowManager.LayoutParams.preferredRefreshRate and hooking framerate getters.",
 ) {
     // Universal patch: No compatibleWith() call. Applies to any app.
 
@@ -33,17 +33,44 @@ fun BytecodePatchContext.executeUniversalHighRefreshRateLogic(logger: Logger) {
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
-            val mName = method.name.lowercase()
+            val mName = method.name
+            val mNameLower = mName.lowercase()
             val retType = method.returnType
             val pTypes = method.parameterTypes
 
-            // 1. Hook target/max frame rate getters returning int (e.g. return 120 fps)
+            // 1. Hook Activity.onCreate / onResume to set WindowManager.LayoutParams.preferredRefreshRate = 120.0f
+            if (!isStatic && (mName == "onCreate" || mName == "onResume") && tl.contains("activity")) {
+                try {
+                    val mutableMethod = mutableClass.findMutableMethodOf(method)
+                    mutableMethod.addInstructions(
+                        0,
+                        """
+                        invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+                        move-result-object v0
+                        if-nez v0, :morphe_fps_skip
+                        invoke-virtual {v0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager${'$'}LayoutParams;
+                        move-result-object v1
+                        if-nez v1, :morphe_fps_skip
+                        const/high16 v2, 0x42f00000
+                        iput v2, v1, Landroid/view/WindowManager${'$'}LayoutParams;->preferredRefreshRate:F
+                        invoke-virtual {v0, v1}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager${'$'}LayoutParams;)V
+                        :morphe_fps_skip
+                        """.trimIndent()
+                    )
+                    hookedPoints++
+                    logger.fine("[Universal 120Hz] Configured window refresh rate in ${classDef.type}->${method.name}")
+                } catch (e: Exception) {
+                    logger.fine("[Universal 120Hz] Skip activity hook: ${e.message}")
+                }
+            }
+
+            // 2. Hook target/max frame rate getters returning int (e.g. return 120 fps)
             if (!isStatic && (
-                mName == "gettargetfps" ||
-                mName == "getmaxframerate" ||
-                mName == "gettargetframerate" ||
-                mName == "getdesiredfps" ||
-                mName == "getrefreshratecap"
+                mNameLower == "gettargetfps" ||
+                mNameLower == "getmaxframerate" ||
+                mNameLower == "gettargetframerate" ||
+                mNameLower == "getdesiredfps" ||
+                mNameLower == "getrefreshratecap"
             ) && retType == "I" && pTypes.isEmpty()) {
                 try {
                     val mutableMethod = mutableClass.findMutableMethodOf(method)
@@ -57,14 +84,14 @@ fun BytecodePatchContext.executeUniversalHighRefreshRateLogic(logger: Logger) {
                     hookedPoints++
                     logger.info("[Universal 120Hz] Boosted target fps to 120 in ${classDef.type}->${method.name}")
                 } catch (e: Exception) {
-                    logger.warning("[Universal 120Hz] Failed to hook ${method.name}: ${e.message}")
+                    logger.fine("[Universal 120Hz] Failed to hook ${method.name}: ${e.message}")
                 }
             }
 
-            // 2. Hook float refresh rate getters (e.g. 120.0f)
+            // 3. Hook float refresh rate getters (e.g. 120.0f)
             if (!isStatic && (
-                mName == "gettargetrefreshrate" ||
-                mName == "getpreferredrefreshrate"
+                mNameLower == "gettargetrefreshrate" ||
+                mNameLower == "getpreferredrefreshrate"
             ) && retType == "F" && pTypes.isEmpty()) {
                 try {
                     val mutableMethod = mutableClass.findMutableMethodOf(method)
@@ -78,7 +105,7 @@ fun BytecodePatchContext.executeUniversalHighRefreshRateLogic(logger: Logger) {
                     hookedPoints++
                     logger.info("[Universal 120Hz] Boosted refresh rate float to 120.0f in ${classDef.type}->${method.name}")
                 } catch (e: Exception) {
-                    logger.warning("[Universal 120Hz] Failed to hook ${method.name}: ${e.message}")
+                    logger.fine("[Universal 120Hz] Failed to hook ${method.name}: ${e.message}")
                 }
             }
         }

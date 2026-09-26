@@ -27,7 +27,7 @@ fun BytecodePatchContext.executeTelegramUnlockPremiumLogic(logger: Logger) {
 
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()
-        if (tl.contains("androidx") || tl.contains("android/support")) return@classDefForEach
+        if (!tl.contains("org/telegram/")) return@classDefForEach
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
@@ -37,15 +37,8 @@ fun BytecodePatchContext.executeTelegramUnlockPremiumLogic(logger: Logger) {
             val mName = method.name.lowercase()
             val retType = method.returnType
 
-            // Hook client-side Premium user status and feature flags
-            if (!isStatic && (
-                mName == "ispremium" ||
-                mName == "isuserpremium" ||
-                mName == "haspremiumfeatures" ||
-                mName == "canusepremiumstickers" ||
-                mName == "canusecustomappicons" ||
-                mName == "isvoicetotextenabled"
-            ) && retType == "Z") {
+            // Hook Telegram's UserConfig.isPremium() and client-side feature flags
+            if ((mName == "ispremium" || mName.contains("isuserpremium") || mName.contains("haspremium")) && retType == "Z") {
                 try {
                     val mutableMethod = mutableClass.findMutableMethodOf(method)
                     mutableMethod.addInstructions(
@@ -56,12 +49,12 @@ fun BytecodePatchContext.executeTelegramUnlockPremiumLogic(logger: Logger) {
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.info("[Telegram Premium] Unlocked Premium flag in: ${classDef.type}->${method.name}")
+                    logger.info("[Telegram Premium] Unlocked Premium check: ${classDef.type}->${method.name}")
                 } catch (e: Exception) {
-                    logger.warning("[Telegram Premium] Failed to hook ${method.name}: ${e.message}")
+                    logger.fine("[Telegram Premium] Failed to hook ${method.name}: ${e.message}")
                 }
             }
         }
     }
-    logger.info("[Telegram Unlock Premium] Total hooks applied: $hookedPoints")
+    logger.info("[Telegram Premium] Total premium hooks applied: $hookedPoints")
 }

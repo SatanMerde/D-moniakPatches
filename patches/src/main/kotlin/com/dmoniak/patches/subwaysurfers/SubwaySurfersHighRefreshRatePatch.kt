@@ -3,7 +3,6 @@ package com.dmoniak.patches.subwaysurfers
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.AccessFlags
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SUBWAY_SURFERS
 import java.util.logging.Logger
@@ -11,7 +10,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val subwaySurfersHighRefreshRatePatch = bytecodePatch(
     name = "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Forces 120Hz/90Hz high refresh rate target framerate in Subway Surfers, eliminating input lag and frame pacing stutters.",
+    description = "⚠️ [En cours de développement / Non testé] Forces 120Hz display refresh rate in Subway Surfers by configuring WindowManager.LayoutParams.preferredRefreshRate on the game activity.",
 ) {
     compatibleWith(COMPATIBILITY_SUBWAY_SURFERS)
 
@@ -27,61 +26,39 @@ fun BytecodePatchContext.executeSubwaySurfersHighRefreshRateLogic(logger: Logger
 
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()
-        if (tl.contains("androidx") || tl.contains("android/support") || tl.contains("com/google")) return@classDefForEach
+        val isActivity = tl.contains("activity") || tl.contains("unityplayer")
+        if (!isActivity) return@classDefForEach
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
-            val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
-            val mName = method.name.lowercase()
-            val retType = method.returnType
-
-            // 1. Force target frame rate getters to 120 FPS
-            if (!isStatic && (
-                mName == "gettargetframerate" ||
-                mName == "gettargetfps" ||
-                mName == "getmaxframerate" ||
-                mName == "getrefreshrate"
-            ) && retType == "I") {
+            val mName = method.name
+            if (mName == "onCreate" || mName == "onResume") {
                 try {
                     val mutableMethod = mutableClass.findMutableMethodOf(method)
                     mutableMethod.addInstructions(
                         0,
                         """
-                        const/16 v0, 0x78
-                        return v0
+                        invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+                        move-result-object v0
+                        if-nez v0, :morphe_fps_skip
+                        invoke-virtual {v0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager${'$'}LayoutParams;
+                        move-result-object v1
+                        if-nez v1, :morphe_fps_skip
+                        const/high16 v2, 0x42f00000
+                        iput v2, v1, Landroid/view/WindowManager${'$'}LayoutParams;->preferredRefreshRate:F
+                        invoke-virtual {v0, v1}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager${'$'}LayoutParams;)V
+                        :morphe_fps_skip
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.info("[SubwaySurfers FPS] Forced 120 FPS in: ${classDef.type}->${method.name}")
+                    logger.info("[SubwaySurfers FPS] Injected 120Hz window configuration into ${classDef.type}->${method.name}")
                 } catch (e: Exception) {
-                    logger.warning("[SubwaySurfers FPS] Failed to hook ${method.name}: ${e.message}")
-                }
-            }
-
-            // 2. High refresh rate boolean flags
-            if (!isStatic && (
-                mName == "ishighrefreshratesupported" ||
-                mName == "is120fpsenabled" ||
-                mName == "canusehighrefreshrate"
-            ) && retType == "Z") {
-                try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
-                        const/4 v0, 0x1
-                        return v0
-                        """.trimIndent()
-                    )
-                    hookedPoints++
-                    logger.info("[SubwaySurfers FPS] Enabled high refresh flag in: ${classDef.type}->${method.name}")
-                } catch (e: Exception) {
-                    logger.warning("[SubwaySurfers FPS] Failed to hook ${method.name}: ${e.message}")
+                    logger.fine("[SubwaySurfers FPS] Skip ${method.name}: ${e.message}")
                 }
             }
         }
     }
-    logger.info("[SubwaySurfers FPS] Total high refresh rate hooks applied: $hookedPoints")
+    logger.info("[SubwaySurfers FPS] Total refresh rate hooks applied: $hookedPoints")
 }

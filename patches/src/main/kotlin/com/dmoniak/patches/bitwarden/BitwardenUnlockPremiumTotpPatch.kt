@@ -11,7 +11,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val bitwardenUnlockPremiumTotpPatch = bytecodePatch(
     name = "Unlock Premium & Integrated TOTP 2FA - Bitwarden (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Unlocks Bitwarden Premium features: generates integrated 2FA TOTP authentication codes directly inside vault items, unlocks vault health reports, and enables priority attachment management.",
+    description = "⚠️ [En cours de développement / Non testé] Unlocks Bitwarden Premium features: enables integrated 2FA TOTP code generation and displays vault security report indicators in Bitwarden.",
 ) {
     compatibleWith(COMPATIBILITY_BITWARDEN)
 
@@ -26,8 +26,11 @@ fun BytecodePatchContext.executeBitwardenUnlockPremiumTotpLogic(logger: Logger) 
     var hookedPoints = 0
 
     classDefForEach { classDef ->
-        val tl = classDef.type.lowercase()
-        if (tl.contains("androidx") || tl.contains("android/support") || tl.contains("com/google")) return@classDefForEach
+        val type = classDef.type
+        val tl = type.lowercase()
+
+        // Focus specifically on Bitwarden application and vault domain classes
+        if (!tl.contains("bitwarden")) return@classDefForEach
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
@@ -39,15 +42,10 @@ fun BytecodePatchContext.executeBitwardenUnlockPremiumTotpLogic(logger: Logger) 
 
             // Premium status & TOTP authenticator feature access
             if (!isStatic && (
-                mName == "haspremium" ||
-                mName == "ispremium" ||
-                mName == "haspremiumaccess" ||
+                mName.contains("premium") ||
+                mName.contains("totp") ||
                 mName == "canusetotp" ||
-                mName == "istotpenabled" ||
-                mName == "canaccessvaulthealthreports" ||
-                mName == "canaccessreports" ||
-                mName == "hasemergencyaccess" ||
-                mName == "ispremiumfromorganization"
+                mName == "istotpenabled"
             ) && retType == "Z") {
                 try {
                     val mutableMethod = mutableClass.findMutableMethodOf(method)
@@ -59,12 +57,12 @@ fun BytecodePatchContext.executeBitwardenUnlockPremiumTotpLogic(logger: Logger) 
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.info("[Bitwarden Premium/TOTP] Forced Premium/TOTP access in: ${classDef.type}->${method.name}")
+                    logger.info("[Bitwarden Premium] Enabled feature in: ${classDef.type}->${method.name}")
                 } catch (e: Exception) {
-                    logger.warning("[Bitwarden Premium/TOTP] Failed to hook ${method.name}: ${e.message}")
+                    logger.fine("[Bitwarden Premium] Failed to hook ${method.name}: ${e.message}")
                 }
             }
         }
     }
-    logger.info("[Bitwarden Premium/TOTP] Total Premium hooks applied: $hookedPoints")
+    logger.info("[Bitwarden Premium] Total premium hooks applied: $hookedPoints")
 }

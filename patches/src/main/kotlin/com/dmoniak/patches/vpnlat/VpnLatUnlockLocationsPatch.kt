@@ -1,17 +1,15 @@
 package com.dmoniak.patches.vpnlat
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
+import com.dmoniak.patches.shared.BillingHookHelper.executeGooglePlayBillingBypass
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_VPN_LAT
 import java.util.logging.Logger
 
 @Suppress("unused")
 val vpnLatUnlockLocationsPatch = bytecodePatch(
     name = "Unlock Premium Server Locations - VPN.lat (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Unlocks all country server locations and bypasses VIP / rewarded server checks in VPN.lat.",
+    description = "⚠️ [En cours de développement / Non testé] Hooks Google Play Billing to bypass VIP subscription verification for premium server locations and ad-free connections in VPN.lat.",
 ) {
     compatibleWith(COMPATIBILITY_VPN_LAT)
 
@@ -23,46 +21,6 @@ val vpnLatUnlockLocationsPatch = bytecodePatch(
 
 fun BytecodePatchContext.executeVpnLatUnlockLocationsLogic(logger: Logger) {
     logger.info("Executing Unlock Premium Server Locations patch for VPN.lat...")
-    var hookedPoints = 0
-
-    classDefForEach { classDef ->
-        val tl = classDef.type.lowercase()
-        if (tl.contains("androidx") || tl.contains("android/support") || tl.contains("com/google")) return@classDefForEach
-
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
-
-        for (method in classDef.methods.toList()) {
-            if (method.implementation == null) continue
-            val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
-            val mName = method.name.lowercase()
-            val retType = method.returnType
-
-            // Premium / Server availability boolean flags
-            if (!isStatic && (
-                mName == "isvip" ||
-                mName == "ispremium" ||
-                mName == "ispro" ||
-                mName == "isserveravailable" ||
-                mName == "canconnecttoserver" ||
-                mName == "iscountryunlocked" ||
-                mName == "isrewardedserverunlocked"
-            ) && retType == "Z") {
-                try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
-                        const/4 v0, 0x1
-                        return v0
-                        """.trimIndent()
-                    )
-                    hookedPoints++
-                    logger.info("[VPN.lat VIP] Forced server availability in: ${classDef.type}->${method.name}")
-                } catch (e: Exception) {
-                    logger.warning("[VPN.lat VIP] Failed to hook ${method.name}: ${e.message}")
-                }
-            }
-        }
-    }
-    logger.info("[VPN.lat VIP] Total server unlock hooks applied: $hookedPoints")
+    val hookedPoints = executeGooglePlayBillingBypass(logger, "VPN.lat")
+    logger.info("[VPN.lat VIP] Total billing hooks applied: $hookedPoints")
 }

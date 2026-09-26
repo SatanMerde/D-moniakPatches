@@ -1,3 +1,9 @@
+## [1.22.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.21.0...v1.22.0) (2026-09-26)
+
+### ✨ New Features
+
+* add messaging apps suite (Telegram, Signal, Session, SimpleX, Snapchat) ([b3f17a2](https://github.com/SatanMerde/D-moniakPatches/commit/b3f17a2caee026ff90176eefef00d973a5c43358))
+
 ## [1.21.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.20.0...v1.21.0) (2026-09-26)
 
 ### ✨ New Features

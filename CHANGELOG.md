@@ -1,3 +1,9 @@
+## [1.16.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.15.0...v1.16.0) (2026-09-26)
+
+### ✨ New Features
+
+* add Hill Climb Racing, Jetpack Joyride, Alto's Adventure, and Speedtest patches suite ([071e03a](https://github.com/SatanMerde/D-moniakPatches/commit/071e03ae5a6ec1247d7be66b6f07547d89e7e441))
+
 ## [1.15.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.14.0...v1.15.0) (2026-09-26)
 
 ### ✨ New Features

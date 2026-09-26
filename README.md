@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-238-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-233-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-80-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -34,23 +34,15 @@
 ---
 
 <p align="center">
-  <b>Suite de patchs avancés pour Morphe Manager & ReVanced</b><br>
-  Blocage des publicités • Déblocage VIP & In-App • Thèmes AMOLED • 120 FPS • Épuration d'interface
+  <sub>🤖 <i>Projet communautaire généré par IA / AI-Generated Project. Un bug ou une suggestion ? <a href="https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml">Ouvrez un ticket sur GitHub Issues</a> !</i></sub>
 </p>
-
-> [!NOTE]
-> ### ℹ️ Transparence & Informations utiles
-> - 🤖 **Projet assisté par IA :** Le code et l'architecture des patchs sont développés avec l'assistance d'une IA.
-> - 🧪 **Statut Expérimental :** Les patchs marqués `(Expérimental)` sont des nouveautés en cours d'amélioration, non testées sur tous les modèles d'appareils. Des bugs ou instabilités peuvent parfois survenir.
-> - ⚠️ **Responsabilité :** Comme pour tout modding d'applications, l'utilisation se fait sous votre propre responsabilité (notamment sur les jeux avec synchronisation en ligne).
-> - 💬 **Signalement de bugs :** Un patch ne fonctionne pas ou fait crasher l'app ? [Signalez-le sur GitHub Issues](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml) pour qu'il soit examiné et corrigé rapidement !
 
 ---
 
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.33.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.33.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;242 patches total
+> **[v1.33.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.33.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;233 patches total
 <details open>
 <summary>📦 AllTrails&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -112,12 +104,11 @@
 </details>
 
 <details open>
-<summary>📦 Brave Browser&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<summary>📦 Brave Browser&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Background Playback - Brave (Experimental)](#background-playback-brave-experimental) | ⚠️ [En cours de développement / Non testé] Enables background audio and video playback when switching apps or locking the screen in Brave Browser. |  |
 | [Clean New Tab & Disable Brave News - Brave (Experimental)](#clean-new-tab-disable-brave-news-brave-experimental) | ⚠️ [En cours de développement / Non testé] Removes Brave News feed, sponsored background wallpaper images, sponsored top tiles, and trending widgets on the New Tab page. |  |
 | [Disable Rewards & Crypto Wallet - Brave (Experimental)](#disable-rewards-crypto-wallet-brave-experimental) | ⚠️ [En cours de développement / Non testé] Disables Brave Rewards (BAT), crypto wallet icon, Web3 onboarding prompts, and token badges for a cleaner UI. |  |
 | [Force Aggressive Shields & Anti-Adblock Bypass - Brave (Experimental)](#force-aggressive-shields-anti-adblock-bypass-brave-experimental) | ⚠️ [En cours de développement / Non testé] Forces aggressive ad/tracker blocking mode by default, strips URL tracking query parameters, and bypasses anti-adblock detection scripts in Brave. |  |
@@ -313,18 +304,13 @@
 </details>
 
 <details open>
-<summary>📦 Google Drive&nbsp;&nbsp;•&nbsp;&nbsp;7 patches</summary>
+<summary>📦 Google Drive&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [AMOLED Dark Theme & Declutter - Google Drive (Experimental)](#amoled-dark-theme-declutter-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Google Drive file list, folder browser, and detail views, and hides Google One storage upsell banners and upgrade prompts. |  |
 | [Allow Screenshots & Secure Share - Google Drive (Experimental)](#allow-screenshots-secure-share-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Google Drive to allow screenshots and screen recording of documents, spreadsheets, and presentation previews. |  |
-| [Bypass Storage Quota Alerts - Google Drive (Experimental)](#bypass-storage-quota-alerts-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Suppresses storage quota threshold alerts, 15 GB full warnings, and upload-blocking dialogs that prevent uploading new files when Google storage is at or near its limit. |  |
-| [Force Dark Theme System-Wide - Google Drive (Experimental)](#force-dark-theme-system-wide-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Forces pure OLED dark theme (#000000) across all Google Drive screens including file browser, folder views, sharing dialogs, and document detail drawers regardless of system theme. |  |
-| [Remove Ads & Promotional Banners - Google Drive (Experimental)](#remove-ads-promotional-banners-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Removes Google One upsell banners, Workspace promotional cards, storage upgrade prompts, and sponsored suggestions from the Drive home feed and search results. |  |
-| [Unlock Offline Mode Without WiFi - Google Drive (Experimental)](#unlock-offline-mode-without-wifi-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Forces Google Drive offline sync and file access to work on mobile data connections by bypassing the WiFi-only restriction enforced during offline content synchronization. |  |
-| [Unlock PDF Editor & Advanced Sharing - Google Drive (Experimental)](#unlock-pdf-editor-advanced-sharing-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks inline PDF editing, annotation tools, advanced link-sharing permission levels, and extended expiry options for shared files without a Workspace subscription. |  |
 
 </details>
 
@@ -611,7 +597,7 @@
 </details>
 
 <details open>
-<summary>📦 Proton VPN&nbsp;&nbsp;•&nbsp;&nbsp;9 patches</summary>
+<summary>📦 Proton VPN&nbsp;&nbsp;•&nbsp;&nbsp;7 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
@@ -619,8 +605,6 @@
 | [AMOLED Black Theme - Proton VPN (Experimental)](#amoled-black-theme-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens. |  |
 | [Aggressive Keep-Alive & Auto-Reconnect - Proton VPN (Experimental)](#aggressive-keep-alive-auto-reconnect-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Enforces persistent VPN tunnel keep-alive packets and instant automatic reconnection upon network switches or screen unlock. |  |
 | [Allow Screenshots & Screen Mirroring - Proton VPN (Experimental)](#allow-screenshots-screen-mirroring-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton VPN, allowing screenshots, screen recordings, and wireless display mirroring of connection logs and diagnostics. |  |
-| [Always Show Latency & Speed - Proton VPN (Experimental)](#always-show-latency-speed-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Displays real-time ping latency (ms) and transmission speed indicators on all server cards in the connection list. |  |
-| [Bypass Split Tunneling Restrictions - Proton VPN (Experimental)](#bypass-split-tunneling-restrictions-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all system apps, work profile applications, and protected packages in Proton VPN's Split Tunneling selection menu. |  |
 | [Declutter UI & Hide Upsells - Proton VPN (Experimental)](#declutter-ui-hide-upsells-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Hides promotional 'Upgrade to Plus' banners, 'Proton Unlimited' sale carousels, and persistent upgrade prompts from the dashboard and server selector. |  |
 | [Enhanced Privacy & Telemetry Blocker - Proton VPN (Experimental)](#enhanced-privacy-telemetry-blocker-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Blocks diagnostic telemetry, analytical event reporting (Firebase, Sentry, Mixpanel, Matomo), and crashlytics logging for zero metadata leakage. |  |
 | [Unlock Custom DNS Settings - Proton VPN (Experimental)](#unlock-custom-dns-settings-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks custom upstream DNS resolver preferences (NextDNS, AdGuard DNS, Quad9) in Proton VPN settings without subscription restrictions. |  |
@@ -938,12 +922,11 @@
 </details>
 
 <details open>
-<summary>📦 VLC&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 VLC&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Force Background Audio Playback - VLC (Experimental)](#force-background-audio-playback-vlc-experimental) | ⚠️ [En cours de développement / Non testé] Forces audio playback to stay active in the background when exiting the video player, minimizing the app, or locking the device. |  |
 | [Pure AMOLED Dark Theme & Declutter - VLC (Experimental)](#pure-amoled-dark-theme-declutter-vlc-experimental) | ⚠️ [En cours de développement / Non testé] Forces a pitch-black AMOLED dark theme, hides tips and audio/video discovery clutter across the VLC player UI. |  |
 
 </details>
@@ -1102,7 +1085,6 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
   - **Bypass Rewarded Ads :** Tours gratuits de la Roue de la Fortune Quotidienne, doublement des gains de pièces et tickets gratuits sans pub.
   - **Free Shopping :** Déblocage des bolides, packs de gemmes et capacités spéciales des pilotes.
 - **Brave Browser (NOUVEAU - 100M+ téléchargements) :**
-  - **Lecture en arrière-plan :** Permet la lecture audio et vidéo en arrière-plan et écran éteint sans coupure.
   - **Désactiver Récompenses & Portefeuille Crypto :** Supprime l'icône BAT, le portefeuille Web3 et les popups d'onboarding pour une interface épurée.
   - **Page Nouvel Onglet Propre :** Élimine le flux Brave News, les fonds d'écran sponsorisés et les tuiles promotionnelles.
   - **Bouclier Agressif & Anti-Adblock Bypass :** Force le blocage agressif des pisteurs/pubs, nettoie les paramètres de tracking d'URL et neutralise les scripts anti-bloqueurs.
@@ -1133,11 +1115,6 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **Google Drive (NOUVEAU - 15 Milliards+ de téléchargements) :**
   - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) pour l'explorateur de fichiers Drive et les panneaux de détails.
   - **Allow Screenshots & Secure Share :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran des documents et feuilles de calcul.
-  - **Force Dark Theme System-Wide :** Force le thème sombre sur l'ensemble des écrans Drive.
-  - **Bypass Storage Quota Alerts :** Supprime les blocages d'upload liés aux alertes de quota de 15 Go.
-  - **Remove Ads & Promotional Banners :** Supprime les promotions Google One et les suggestions Workspace.
-  - **Unlock Offline Mode Without WiFi :** Force le mode hors-ligne sur données mobiles.
-  - **Unlock PDF Editor & Advanced Sharing :** Débloque l'édition PDF inline, les annotations et le partage avancé.
 - **Google Maps (NOUVEAU - 10 Milliards+ de téléchargements) :**
   - **Block Sponsored Pins & Ads :** Supprime les épingles d'entreprises sponsorisées sur la carte, les suggestions publicitaires et les cartes promotionnelles pendant la recherche et le trajet.
   - **AMOLED Black Navigation :** Active un thème noir pur OLED (#000000) pour la navigation GPS virage par virage et l'exploration de carte, réduisant la consommation de batterie et l'éblouissement nocturne.
@@ -1276,7 +1253,6 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
   - **Lecture en Arrière-plan & Mode Audio :** Débloque l'écoute audio en arrière-plan et le mode Picture-in-Picture sans interruption.
   - **Filtre de Chat & Masquage des Overlays :** Masque les alertes de Train de la Housse (Hype Train), les dons de Bits et épure le chat.
 - **VLC (NOUVEAU - 100M+ téléchargements) :**
-  - **Forcer la Lecture Audio en Arrière-plan :** Maintient automatiquement l'audio actif lors de la sortie du lecteur vidéo ou au verrouillage de l'appareil.
   - **Thème Pur AMOLED & Épuration UI :** Thème noir pur #000000 pour dalles OLED et masquage des astuces d'onboarding.
 - **Vector 2 (NOUVEAU - 0 patch sur Awesome Morphe) :**
   - **Infinite Battery & Shields :** Les charges des kits d'armure et de boucliers ne se déchargent jamais, protégeant le coureur contre les lasers et mines.
@@ -1407,7 +1383,6 @@ This project provides gameplay-specific patches tailored to each game:
   - **Bypass Rewarded Ads:** Free daily fortune wheel spins, coin doublers, and instant tickets without watching ads.
   - **Free Shopping:** Unlocks premium cars, gem bundles, and special driver abilities.
 - **Brave Browser (NEW - 100M+ downloads):**
-  - **Background Playback:** Enables background audio and video playback when switching apps or locking the screen.
   - **Disable Rewards & Crypto Wallet:** Removes BAT rewards icon, Web3 crypto wallet entries, and onboarding prompts for a clean UI.
   - **Clean New Tab Page:** Removes Brave News feed, sponsored wallpapers, and promotional top tiles.
   - **Aggressive Shields & Anti-Adblock Bypass:** Forces aggressive ad/tracker blocking, strips URL tracking parameters, and bypasses anti-adblock scripts.
@@ -1434,11 +1409,6 @@ This project provides gameplay-specific patches tailored to each game:
 - **Google Drive (NEW - 15 Billion+ downloads):**
   - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into Google Drive file list, folder browser, and document detail views.
   - **Allow Screenshots & Secure Share:** Removes Android FLAG_SECURE restrictions in Google Drive for screenshots of documents and spreadsheets.
-  - **Force Dark Theme System-Wide:** Forces pure OLED dark theme across all Drive screens regardless of system theme setting.
-  - **Bypass Storage Quota Alerts:** Suppresses 15 GB storage full warnings and upload-blocking dialogs.
-  - **Remove Ads & Promotional Banners:** Removes Google One upsell banners, Workspace promo cards, and sponsored suggestions.
-  - **Unlock Offline Mode Without WiFi:** Bypasses WiFi-only restrictions for offline file sync on mobile data.
-  - **Unlock PDF Editor & Advanced Sharing:** Unlocks inline PDF editing, annotation tools, and advanced link-sharing options.
 - **Google Maps (NEW - 10 Billion+ downloads):**
   - **Block Sponsored Pins & Ads:** Removes sponsored business pins from map layers, promotional suggestion cards, and contextual search ads during navigation.
   - **AMOLED Black Navigation:** Forces pure OLED black (#000000) night theme during turn-by-turn guidance and map browsing, reducing battery consumption on OLED displays.
@@ -1577,7 +1547,6 @@ This project provides gameplay-specific patches tailored to each game:
   - **Background & Audio-Only Playback:** Unlocks seamless background audio playback and Picture-in-Picture (PiP) mode.
   - **Chat Filter & Declutter Overlays:** Suppresses Hype Train popups, hides Bits cheering banners, and declutters live stream overlays.
 - **VLC (NEW - 100M+ downloads):**
-  - **Force Background Audio Playback:** Keeps media audio playing seamlessly when exiting video player or locking device screen.
   - **Pure AMOLED Dark Theme & Declutter:** Pure black #000000 theme for OLED displays and hides discovery hints/tips.
 - **Vector 2 (NEW - 0 patches on Awesome Morphe):**
   - **Infinite Battery & Shields:** Armor kit charges and shield energy never drain, keeping the runner fully protected against lasers and mines.
@@ -1593,7 +1562,7 @@ This project provides gameplay-specific patches tailored to each game:
   - **Enhanced Privacy & Telemetry Blocker:** Neutralizes background diagnostic reporting, error analytics, and tracking telemetry endpoints for maximum anonymity.
 
 > [!TIP]
-> 💡 Un problème avec un patch ou une suggestion ? Ouvrez directement un ticket sur [GitHub Issues](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml) !
+> 💡 **Besoin d'aide ou un bug constaté ?** N'hésitez pas à ouvrir un ticket sur [GitHub Issues](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml) pour nous le signaler !
 
 ### 📲 How to Use in Morphe Manager
 

@@ -1,3 +1,9 @@
+## [1.29.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.28.3...v1.29.0) (2026-09-26)
+
+### ✨ New Features
+
+* add patch suites for 10 mythical mobile games (Subway Surfers, PvZ, Temple Run 2, Fruit Ninja, etc.) ([71f9e31](https://github.com/SatanMerde/D-moniakPatches/commit/71f9e31a5f6f25464bb95077c35de54ccb3c44c8))
+
 ## [1.28.3](https://github.com/SatanMerde/D-moniakPatches/compare/v1.28.2...v1.28.3) (2026-09-26)
 
 ### 🐛 Bug Fixes

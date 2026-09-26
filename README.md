@@ -12,10 +12,10 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-170-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-194-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-53-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-63-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -53,7 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.28.3](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.28.3)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;172 patches total
+> **[v1.29.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.29.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;196 patches total
 <details open>
 <summary>📦 Alto's Adventure&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -62,6 +62,18 @@
 |----------|----------------|-----------|
 | [Bypass Rewarded Ads - Alto's Adventure (Experimental)](#bypass-rewarded-ads-alto-s-adventure-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses video ads in Alto's Adventure for free crash revives, free coin doublers at run end, and removes intrusive interstitial popups. |  |
 | [Infinite Wingsuit & Long Scarf - Alto's Adventure (Experimental)](#infinite-wingsuit-long-scarf-alto-s-adventure-experimental) | ⚠️ [En cours de développement / Non testé] Provides unlimited wingsuit flight duration and keeps the scarf at maximum length without requiring endless trick combos in Alto's Adventure. |  |
+
+</details>
+
+<details open>
+<summary>📦 Angry Birds Classic&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Video Promos - Angry Birds Classic (Experimental)](#block-ads-video-promos-angry-birds-classic-experimental) | ⚠️ [En cours de développement / Non testé] Strips interstitial ads, pause-screen banners, and promotional popups in Angry Birds Classic. |  |
+| [Unlimited Mighty Eagle & Power-ups - Angry Birds Classic (Experimental)](#unlimited-mighty-eagle-power-ups-angry-birds-classic-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks the Mighty Eagle permanently with zero cooldown timer, and provides unlimited power-ups (Sling Scope, King Sling, Super Seeds, Birdquake). |  |
+| [Unlock All Episodes & Golden Eggs - Angry Birds Classic (Experimental)](#unlock-all-episodes-golden-eggs-angry-birds-classic-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all legendary episodes, level packs, and Golden Egg secret stages in Angry Birds Classic. |  |
 
 </details>
 
@@ -129,6 +141,50 @@
 </details>
 
 <details open>
+<summary>📦 Crossy Road&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Video Promos - Crossy Road (Experimental)](#block-ads-video-promos-crossy-road-experimental) | ⚠️ [En cours de développement / Non testé] Strips video advertisements, post-death revival popups, and banner ads in Crossy Road. |  |
+| [Unlock All Characters & Figurines - Crossy Road (Experimental)](#unlock-all-characters-figurines-crossy-road-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all characters, mystery mascots, secret figurines, and provides free prize machine tokens in Crossy Road. |  |
+
+</details>
+
+<details open>
+<summary>📦 Cut the Rope&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Video Interruptions - Cut the Rope (Experimental)](#block-ads-video-interruptions-cut-the-rope-experimental) | ⚠️ [En cours de développement / Non testé] Strips video advertisements, interstitial banners between puzzle boxes, and promotional popups in Cut the Rope. |  |
+| [Unlock All Boxes & Superpowers - Cut the Rope (Experimental)](#unlock-all-boxes-superpowers-cut-the-rope-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all level boxes, seasons, Om Nom candies, and unlocks unlimited superpowers (candy magnets & telekinesis) in Cut the Rope. |  |
+
+</details>
+
+<details open>
+<summary>📦 Dan The Man&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Video Interruptions - Dan The Man (Experimental)](#block-ads-video-interruptions-dan-the-man-experimental) | ⚠️ [En cours de développement / Non testé] Strips checkpoint ads, post-stage video ads, bottom banners, and promotional popups in Dan The Man. |  |
+| [Unlock All Characters & Upgrades - Dan The Man (Experimental)](#unlock-all-characters-upgrades-dan-the-man-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all heroes (Dan, Josie, Barry Steakfries), combat abilities, costumes, and boosts gold coins in Dan The Man. |  |
+
+</details>
+
+<details open>
+<summary>📦 Doodle Jump&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Game-Over Popups - Doodle Jump (Experimental)](#block-ads-game-over-popups-doodle-jump-experimental) | ⚠️ [En cours de développement / Non testé] Strips post-game interstitial ads, bottom banner advertisements, and sponsored promotions in Doodle Jump. |  |
+| [Unlock All Themes & Outfits - Doodle Jump (Experimental)](#unlock-all-themes-outfits-doodle-jump-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all legendary world themes (Ninja, Space, Underwater, Jungle, Halloween, Christmas) and outfits in Doodle Jump. |  |
+
+</details>
+
+<details open>
 <summary>📦 Duolingo&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
@@ -149,6 +205,28 @@
 | [Disable Telemetry & Pocket Stories - Firefox (Experimental)](#disable-telemetry-pocket-stories-firefox-experimental) | ⚠️ [En cours de développement / Non testé] Completely disables Mozilla telemetry, Glean analytics, sponsored Pocket stories, and sponsored search shortcuts on Firefox mobile. |  |
 | [Pure AMOLED Dark Theme - Firefox (Experimental)](#pure-amoled-dark-theme-firefox-experimental) | ⚠️ [En cours de développement / Non testé] Forces a true pitch-black (#000000) AMOLED dark theme across the browser UI, new tab homepage, toolbar, and reader mode. |  |
 | [Unlock Full Add-ons Catalog - Firefox (Experimental)](#unlock-full-add-ons-catalog-firefox-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks full Mozilla Add-ons (AMO) catalog installation on mobile Firefox without requiring Custom Add-on Collections. |  |
+
+</details>
+
+<details open>
+<summary>📦 Fruit Ninja&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Promo Screens - Fruit Ninja (Experimental)](#block-ads-promo-screens-fruit-ninja-experimental) | ⚠️ [En cours de développement / Non testé] Strips interstitial video ads, post-game banner popups, and promotional screens in Fruit Ninja. |  |
+| [Unlock All Blades & Dojos - Fruit Ninja (Experimental)](#unlock-all-blades-dojos-fruit-ninja-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all swords, mythical blades, custom dojos, and power-up accessories in Fruit Ninja. |  |
+
+</details>
+
+<details open>
+<summary>📦 Geometry Dash&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Practice Music Hack & Bypass - Geometry Dash (Experimental)](#practice-music-hack-bypass-geometry-dash-experimental) | ⚠️ [En cours de développement / Non testé] Plays the real level soundtrack instead of the default repetitive practice loop song when playing in Practice Mode. |  |
+| [Unlock All Levels & Icons - Geometry Dash (Experimental)](#unlock-all-levels-icons-geometry-dash-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all official levels (including Demon stages), custom icons, ships, balls, UFOs, waves, trails, and colors in Geometry Dash. |  |
 
 </details>
 
@@ -345,6 +423,18 @@
 | [Direct Media Download - Pinterest (Experimental)](#direct-media-download-pinterest-experimental) | ⚠️ [En cours de développement / Non testé] Enables native high-resolution image and video downloading directly from pins without watermarks or third-party scrapers. |  |
 | [Remove Promoted Pins & Shopping Ads - Pinterest (Experimental)](#remove-promoted-pins-shopping-ads-pinterest-experimental) | ⚠️ [En cours de développement / Non testé] Strips sponsored promoted pins, affiliate shopping product carousels, and paid recommendations from Pinterest home and search feeds. |  |
 | [Unlock Creator & Pro Tools - Pinterest (Experimental)](#unlock-creator-pro-tools-pinterest-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Pinterest Creator and Pro business dashboard analytics, advanced pin inspector, and rich pin creation preview tools. |  |
+
+</details>
+
+<details open>
+<summary>📦 Plants vs. Zombies&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Interstitials & EA Promo Ads - Plants vs. Zombies (Experimental)](#block-interstitials-ea-promo-ads-plants-vs-zombies-experimental) | ⚠️ [En cours de développement / Non testé] Strips interstitial video ads between levels, bottom banners, and EA promotional popups across Plants vs. Zombies. |  |
+| [Max Sun & Instant Seed Recharge - Plants vs. Zombies (Experimental)](#max-sun-instant-seed-recharge-plants-vs-zombies-experimental) | ⚠️ [En cours de développement / Non testé] Eliminates plant packet cooldown timers for instant replanting and accelerates sun drops across Plants vs. Zombies levels. |  |
+| [Unlock Mini-Games, Puzzles & Survival - Plants vs. Zombies (Experimental)](#unlock-mini-games-puzzles-survival-plants-vs-zombies-experimental) | ⚠️ [En cours de développement / Non testé] Instantly unlocks Mini-Games, I, Zombie, Vasebreaker puzzles, Survival mode, and Zen Garden in Plants vs. Zombies without completing Adventure mode. |  |
 
 </details>
 
@@ -579,6 +669,18 @@
 </details>
 
 <details open>
+<summary>📦 Subway Surfers&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)](#120-fps-high-refresh-rate-low-latency-subway-surfers-experimental) | ⚠️ [En cours de développement / Non testé] Forces 120Hz/90Hz high refresh rate target framerate in Subway Surfers, eliminating input lag and frame pacing stutters. |  |
+| [Block Ads & Promotional Popups - Subway Surfers (Experimental)](#block-ads-promotional-popups-subway-surfers-experimental) | ⚠️ [En cours de développement / Non testé] Strips interstitial video ads, post-run banners, forced video revives, and promotional popup screens in Subway Surfers. |  |
+| [Unlock Characters & Hoverboards - Subway Surfers (Experimental)](#unlock-characters-hoverboards-subway-surfers-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses character and hoverboard ownership verification to unlock all runners, outfits, and boards in Subway Surfers. |  |
+
+</details>
+
+<details open>
 <summary>📦 Telegram&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
 
@@ -589,6 +691,18 @@
 | [Disable Proximity Sensor - Telegram (Experimental)](#disable-proximity-sensor-telegram-experimental) | ⚠️ [En cours de développement / Non testé] Prevents the proximity sensor from turning off the display or switching audio output while listening to voice and video messages. |  |
 | [Unlock Telegram Premium Features - Telegram (Experimental)](#unlock-telegram-premium-features-telegram-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks client-side Telegram Premium features: exclusive app icons, animated reactions, voice-to-text transcription toggle, and doubled chat folders. |  |
 | [Unlock Unlimited Pinned Chats - Telegram (Experimental)](#unlock-unlimited-pinned-chats-telegram-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses the 5 pinned chats limit in Telegram, allowing users to pin unlimited chats and channels without Telegram Premium. |  |
+
+</details>
+
+<details open>
+<summary>📦 Temple Run 2&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [120 FPS High Refresh Rate - Temple Run 2 (Experimental)](#120-fps-high-refresh-rate-temple-run-2-experimental) | ⚠️ [En cours de développement / Non testé] Forces 120Hz high framerate rendering in Temple Run 2 for smooth corner turns and swipe sensitivity. |  |
+| [Block Ads & Death Interstitials - Temple Run 2 (Experimental)](#block-ads-death-interstitials-temple-run-2-experimental) | ⚠️ [En cours de développement / Non testé] Eliminates post-death full-screen ads, video revive popups, and banner ads in Temple Run 2. |  |
+| [Unlock Runners & Outfits - Temple Run 2 (Experimental)](#unlock-runners-outfits-temple-run-2-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses character and costume paywalls to unlock all idols, characters, and costumes in Temple Run 2. |  |
 
 </details>
 

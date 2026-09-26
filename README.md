@@ -12,10 +12,10 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-80-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-87-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-28-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-30-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -53,19 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.17.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.17.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;82 patches total
-<details open>
-<summary>📦 Proton VPN&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED Black Theme - Proton VPN (Experimental)](#amoled-black-theme-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens. |  |
-| [Declutter UI & Hide Upsells - Proton VPN (Experimental)](#declutter-ui-hide-upsells-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Hides promotional 'Upgrade to Plus' banners, 'Proton Unlimited' sale carousels, and persistent upgrade prompts from the dashboard and server selector. |  |
-| [Enhanced Privacy & Telemetry Blocker - Proton VPN (Experimental)](#enhanced-privacy-telemetry-blocker-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Blocks diagnostic telemetry, analytical event reporting (Firebase, Sentry, Mixpanel, Matomo), and crashlytics logging for zero metadata leakage. |  |
-
-</details>
-
+> **[v1.17.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.17.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;89 patches total
 <details open>
 <summary>📦 Truecaller&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -130,6 +118,43 @@
 |----------|----------------|-----------|
 | [Ad-Free Video Player - MX Player (Experimental)](#ad-free-video-player-mx-player-experimental) | ⚠️ [En cours de développement / Non testé] Strips all startup ads, pause banner ads, bottom stream promotions, and full-screen video ads from MX Player. |  |
 | [Unlock Pro Player Controls - MX Player (Experimental)](#unlock-pro-player-controls-mx-player-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks background video playback with screen off, Picture-in-Picture (PIP) mode, and 200% volume audio boost. |  |
+
+</details>
+
+<details open>
+<summary>📦 Proton VPN&nbsp;&nbsp;•&nbsp;&nbsp;6 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black Theme - Proton VPN (Experimental)](#amoled-black-theme-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens. |  |
+| [Aggressive Keep-Alive & Auto-Reconnect - Proton VPN (Experimental)](#aggressive-keep-alive-auto-reconnect-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Enforces persistent VPN tunnel keep-alive packets and instant automatic reconnection upon network switches or screen unlock. |  |
+| [Always Show Latency & Speed - Proton VPN (Experimental)](#always-show-latency-speed-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Displays real-time ping latency (ms) and transmission speed indicators on all server cards in the connection list. |  |
+| [Declutter UI & Hide Upsells - Proton VPN (Experimental)](#declutter-ui-hide-upsells-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Hides promotional 'Upgrade to Plus' banners, 'Proton Unlimited' sale carousels, and persistent upgrade prompts from the dashboard and server selector. |  |
+| [Enhanced Privacy & Telemetry Blocker - Proton VPN (Experimental)](#enhanced-privacy-telemetry-blocker-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Blocks diagnostic telemetry, analytical event reporting (Firebase, Sentry, Mixpanel, Matomo), and crashlytics logging for zero metadata leakage. |  |
+| [Unlock NetShield DNS Blocker - Proton VPN (Experimental)](#unlock-netshield-dns-blocker-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks the NetShield DNS ad & malware blocking toggle in Proton VPN preferences without requiring a Plus subscription. |  |
+
+</details>
+
+<details open>
+<summary>📦 Proton Pass&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black & Declutter - Proton Pass (Experimental)](#amoled-black-declutter-proton-pass-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups. |  |
+
+</details>
+
+<details open>
+<summary>📦 Proton Mail&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black Theme - Proton Mail (Experimental)](#amoled-black-theme-proton-mail-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency. |  |
+| [Declutter UI & Hide Upsells - Proton Mail (Experimental)](#declutter-ui-hide-upsells-proton-mail-experimental) | ⚠️ [En cours de développement / Non testé] Hides storage upgrade alerts, Proton Unlimited promotion banners, and subscription upgrade reminders in Proton Mail. |  |
+| [Enhanced Privacy & Tracker Blocker - Proton Mail (Experimental)](#enhanced-privacy-tracker-blocker-proton-mail-experimental) | ⚠️ [En cours de développement / Non testé] Neutralizes email tracking pixels, blocks diagnostic event reporting (Sentry, Firebase), and stops background usage telemetry in Proton Mail. |  |
 
 </details>
 
@@ -427,6 +452,8 @@ Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morphe
 - **Proton VPN :** (`ch.protonvpn.android`)
 - **Turbo VPN :** (`free.vpn.unblock.proxy.turbovpn`)
 - **Windscribe VPN :** (`com.windscribe.vpn`)
+- **Proton Mail :** (`ch.protonmail.android`)
+- **Proton Pass :** (`proton.android.pass`)
 
 Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **🌐 Patchs Universels (Compatibles avec TOUTES les applications) :**
@@ -516,10 +543,19 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **Speedtest by Ookla (NOUVEAU - 500M+ téléchargements) :**
   - **Ad-Free Speedtest :** Suppression intégrale des publicités interstitielles, bannières et cartes d'enquêtes sponsorisées post-test.
   - **Premium VPN & Unlimited Data :** Débloque l'accès VPN illimité sans quota mensuel de 2 Go et permet le choix de tous les serveurs mondiaux.
-- **Proton VPN (NOUVEAU - 50M+ téléchargements) :**
+- **Proton VPN (50M+ téléchargements) :**
   - **Declutter UI & Hide Upsells :** Masque les bannières persistantes d'invitation à passer à Proton Plus, les carrousels promotionnels de vente et les alertes d'abonnement.
   - **Enhanced Privacy & Telemetry Blocker :** Bloque la télémétrie de diagnostic interne, le traçage d'événements (Firebase, Sentry, Mixpanel, Matomo) et les journaux Crashlytics pour zéro fuite de métadonnées.
   - **AMOLED Black Theme :** Remplace les arrière-plans ardoise par un noir pur OLED (#000000) dans les listes de serveurs, fiches de connexion et paramètres.
+  - **Unlock NetShield DNS Blocker :** Débloque l'option de filtrage DNS NetShield (bloqueur de publicités et de malwares) dans les préférences sans abonnement Plus.
+  - **Always Show Latency & Speed :** Affiche le ping de latence réel (ms) et les débits en direct sur toutes les cartes de serveurs.
+  - **Aggressive Keep-Alive & Auto-Reconnect :** Maintient le tunnel VPN actif en continu avec des paquets keep-alive et reconnecte automatiquement sans délai.
+- **Proton Mail (NOUVEAU - 10M+ téléchargements) :**
+  - **Declutter UI & Hide Upsells :** Masque les alertes de saturation de stockage, les bannières d'abonnement Proton Unlimited et les incitations d'achat.
+  - **Enhanced Privacy & Tracker Blocker :** Bloque les pixels espions de suivi dans les emails, coupe la télémétrie d'utilisation et les rapports de plantage.
+  - **AMOLED Black Theme :** Fond noir pur OLED (#000000) dans la boîte de réception, la vue de lecture de message et les menus.
+- **Proton Pass (NOUVEAU - 1M+ téléchargements) :**
+  - **AMOLED Black & Declutter :** Thème noir pur OLED (#000000) pour les coffres-forts de mots de passe et masquage des bannières promotionnelles Proton Pass Plus.
 - **Turbo VPN (NOUVEAU - 100M+ téléchargements) :**
   - **Ad-Free Turbo VPN :** Suppression complète des vidéos publicitaires plein écran lors de la connexion et déconnexion, des bannières inférieures et des popups interstitiels.
   - **Declutter UI & Hide VIP Upsells :** Élimine les popups d'achat agressifs pour l'abonnement VIP, les coffres flottants promotionnels et simplifie l'interface.
@@ -593,6 +629,8 @@ Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, t
 - **Proton VPN:** (`ch.protonvpn.android`)
 - **Turbo VPN:** (`free.vpn.unblock.proxy.turbovpn`)
 - **Windscribe VPN:** (`com.windscribe.vpn`)
+- **Proton Mail:** (`ch.protonmail.android`)
+- **Proton Pass:** (`proton.android.pass`)
 
 This project provides gameplay-specific patches tailored to each game:
 - **🌐 Universal Patches (Compatible with ALL applications):**
@@ -678,10 +716,19 @@ This project provides gameplay-specific patches tailored to each game:
 - **Speedtest by Ookla (NEW - 500M+ downloads):**
   - **Ad-Free Speedtest:** Strips banner ads, video survey ads, and post-speedtest sponsored surveys and promotional cards.
   - **Premium VPN & Unlimited Data:** Unlocks unlimited Speedtest VPN bandwidth indicators, bypasses the monthly 2GB free quota limit, and enables full server location selection.
-- **Proton VPN (NEW - 50M+ downloads):**
+- **Proton VPN (50M+ downloads):**
   - **Declutter UI & Hide Upsells:** Hides promotional 'Upgrade to Plus' banners, 'Proton Unlimited' sale carousels, and persistent upgrade prompts from the dashboard and server selector.
   - **Enhanced Privacy & Telemetry Blocker:** Blocks diagnostic telemetry, analytical event reporting (Firebase, Sentry, Mixpanel, Matomo), and crashlytics logging for zero metadata leakage.
   - **AMOLED Black Theme:** Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens.
+  - **Unlock NetShield DNS Blocker:** Unlocks the NetShield DNS ad & malware blocking toggle in Proton VPN preferences without requiring a Plus subscription.
+  - **Always Show Latency & Speed:** Displays real-time ping latency (ms) and transmission speed indicators on all server cards in the connection list.
+  - **Aggressive Keep-Alive & Auto-Reconnect:** Enforces persistent VPN tunnel keep-alive packets and instant automatic reconnection upon network switches or screen unlock.
+- **Proton Mail (NEW - 10M+ downloads):**
+  - **Declutter UI & Hide Upsells:** Hides storage upgrade alerts, Proton Unlimited promotion banners, and subscription upgrade reminders in Proton Mail.
+  - **Enhanced Privacy & Tracker Blocker:** Neutralizes email tracking pixels, blocks diagnostic event reporting (Sentry, Firebase), and stops background usage telemetry in Proton Mail.
+  - **AMOLED Black Theme:** Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency.
+- **Proton Pass (NEW - 1M+ downloads):**
+  - **AMOLED Black & Declutter:** Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups.
 - **Turbo VPN (NEW - 100M+ downloads):**
   - **Ad-Free Turbo VPN:** Removes full-screen video ads on connect and disconnect, banner ads at the bottom of the interface, and intrusive interstitial popups.
   - **Declutter UI & Hide VIP Upsells:** Hides aggressive VIP subscription popups, floating gift chests, and promotional banners for a clean connection interface.

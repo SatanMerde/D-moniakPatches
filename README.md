@@ -12,10 +12,10 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-73-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-80-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-25-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-28-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -53,7 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.16.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.16.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;75 patches total
+> **[v1.16.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.16.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;82 patches total
 <details open>
 <summary>📦 Truecaller&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -100,6 +100,17 @@
 </details>
 
 <details open>
+<summary>📦 Turbo VPN&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Ad-Free Turbo VPN (Experimental)](#ad-free-turbo-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Removes full-screen video ads on connect and disconnect, banner ads at the bottom of the interface, and intrusive interstitial popups. |  |
+| [Declutter UI & Hide VIP Upsells - Turbo VPN (Experimental)](#declutter-ui-hide-vip-upsells-turbo-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Hides aggressive VIP subscription popups, floating gift chests, and promotional banners for a clean connection interface. |  |
+
+</details>
+
+<details open>
 <summary>📦 MX Player&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
@@ -107,6 +118,18 @@
 |----------|----------------|-----------|
 | [Ad-Free Video Player - MX Player (Experimental)](#ad-free-video-player-mx-player-experimental) | ⚠️ [En cours de développement / Non testé] Strips all startup ads, pause banner ads, bottom stream promotions, and full-screen video ads from MX Player. |  |
 | [Unlock Pro Player Controls - MX Player (Experimental)](#unlock-pro-player-controls-mx-player-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks background video playback with screen off, Picture-in-Picture (PIP) mode, and 200% volume audio boost. |  |
+
+</details>
+
+<details open>
+<summary>📦 Proton VPN&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black Theme - Proton VPN (Experimental)](#amoled-black-theme-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens. |  |
+| [Declutter UI & Hide Upsells - Proton VPN (Experimental)](#declutter-ui-hide-upsells-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Hides promotional 'Upgrade to Plus' banners, 'Proton Unlimited' sale carousels, and persistent upgrade prompts from the dashboard and server selector. |  |
+| [Enhanced Privacy & Telemetry Blocker - Proton VPN (Experimental)](#enhanced-privacy-telemetry-blocker-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Blocks diagnostic telemetry, analytical event reporting (Firebase, Sentry, Mixpanel, Matomo), and crashlytics logging for zero metadata leakage. |  |
 
 </details>
 
@@ -292,6 +315,17 @@
 </details>
 
 <details open>
+<summary>📦 Windscribe&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Declutter UI & Hide Pro Upsells - Windscribe (Experimental)](#declutter-ui-hide-pro-upsells-windscribe-experimental) | ⚠️ [En cours de développement / Non testé] Hides Pro upgrade ribbons, promotional sales alerts, and persistent upgrade banners in the main location list. |  |
+| [Enhanced Privacy & Telemetry Blocker - Windscribe (Experimental)](#enhanced-privacy-telemetry-blocker-windscribe-experimental) | ⚠️ [En cours de développement / Non testé] Neutralizes background diagnostic reporting, error analytics, and tracking telemetry endpoints for maximum anonymity. |  |
+
+</details>
+
+<details open>
 <summary>📦 Pinterest&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
@@ -390,6 +424,9 @@ Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morphe
 - **Jetpack Joyride :** (`com.halfbrick.jetpackjoyride`)
 - **Alto's Adventure :** (`com.noodlecake.altosadventure`)
 - **Speedtest by Ookla :** (`org.zwanoo.android.speedtest`)
+- **Proton VPN :** (`ch.protonvpn.android`)
+- **Turbo VPN :** (`free.vpn.unblock.proxy.turbovpn`)
+- **Windscribe VPN :** (`com.windscribe.vpn`)
 
 Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **🌐 Patchs Universels (Compatibles avec TOUTES les applications) :**
@@ -479,6 +516,16 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **Speedtest by Ookla (NOUVEAU - 500M+ téléchargements) :**
   - **Ad-Free Speedtest :** Suppression intégrale des publicités interstitielles, bannières et cartes d'enquêtes sponsorisées post-test.
   - **Premium VPN & Unlimited Data :** Débloque l'accès VPN illimité sans quota mensuel de 2 Go et permet le choix de tous les serveurs mondiaux.
+- **Proton VPN (NOUVEAU - 50M+ téléchargements) :**
+  - **Declutter UI & Hide Upsells :** Masque les bannières persistantes d'invitation à passer à Proton Plus, les carrousels promotionnels de vente et les alertes d'abonnement.
+  - **Enhanced Privacy & Telemetry Blocker :** Bloque la télémétrie de diagnostic interne, le traçage d'événements (Firebase, Sentry, Mixpanel, Matomo) et les journaux Crashlytics pour zéro fuite de métadonnées.
+  - **AMOLED Black Theme :** Remplace les arrière-plans ardoise par un noir pur OLED (#000000) dans les listes de serveurs, fiches de connexion et paramètres.
+- **Turbo VPN (NOUVEAU - 100M+ téléchargements) :**
+  - **Ad-Free Turbo VPN :** Suppression complète des vidéos publicitaires plein écran lors de la connexion et déconnexion, des bannières inférieures et des popups interstitiels.
+  - **Declutter UI & Hide VIP Upsells :** Élimine les popups d'achat agressifs pour l'abonnement VIP, les coffres flottants promotionnels et simplifie l'interface.
+- **Windscribe VPN (NOUVEAU - 10M+ téléchargements) :**
+  - **Declutter UI & Hide Pro Upsells :** Masque les rubans promotionnels Pro, les alertes de réductions et les bannières d'incitation à l'achat dans la liste des emplacements.
+  - **Enhanced Privacy & Telemetry Blocker :** Neutralise les rapports d'erreurs en arrière-plan, les métriques d'analyse et les points de terminaison de télémétrie.
 
 > ⚠️ **Note Générale :** Tous les nouveaux patchs indiqués `(Experimental)` sont **en cours de développement et non encore validés par test sur appareil physique**.
 
@@ -543,6 +590,9 @@ Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, t
 - **Jetpack Joyride:** (`com.halfbrick.jetpackjoyride`)
 - **Alto's Adventure:** (`com.noodlecake.altosadventure`)
 - **Speedtest by Ookla:** (`org.zwanoo.android.speedtest`)
+- **Proton VPN:** (`ch.protonvpn.android`)
+- **Turbo VPN:** (`free.vpn.unblock.proxy.turbovpn`)
+- **Windscribe VPN:** (`com.windscribe.vpn`)
 
 This project provides gameplay-specific patches tailored to each game:
 - **🌐 Universal Patches (Compatible with ALL applications):**
@@ -628,6 +678,16 @@ This project provides gameplay-specific patches tailored to each game:
 - **Speedtest by Ookla (NEW - 500M+ downloads):**
   - **Ad-Free Speedtest:** Strips banner ads, video survey ads, and post-speedtest sponsored surveys and promotional cards.
   - **Premium VPN & Unlimited Data:** Unlocks unlimited Speedtest VPN bandwidth indicators, bypasses the monthly 2GB free quota limit, and enables full server location selection.
+- **Proton VPN (NEW - 50M+ downloads):**
+  - **Declutter UI & Hide Upsells:** Hides promotional 'Upgrade to Plus' banners, 'Proton Unlimited' sale carousels, and persistent upgrade prompts from the dashboard and server selector.
+  - **Enhanced Privacy & Telemetry Blocker:** Blocks diagnostic telemetry, analytical event reporting (Firebase, Sentry, Mixpanel, Matomo), and crashlytics logging for zero metadata leakage.
+  - **AMOLED Black Theme:** Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens.
+- **Turbo VPN (NEW - 100M+ downloads):**
+  - **Ad-Free Turbo VPN:** Removes full-screen video ads on connect and disconnect, banner ads at the bottom of the interface, and intrusive interstitial popups.
+  - **Declutter UI & Hide VIP Upsells:** Hides aggressive VIP subscription popups, floating gift chests, and promotional banners for a clean connection interface.
+- **Windscribe VPN (NEW - 10M+ downloads):**
+  - **Declutter UI & Hide Pro Upsells:** Hides Pro upgrade ribbons, promotional sales alerts, and persistent upgrade banners in the main location list.
+  - **Enhanced Privacy & Telemetry Blocker:** Neutralizes background diagnostic reporting, error analytics, and tracking telemetry endpoints for maximum anonymity.
 
 > ⚠️ **General Notice:** All new patches marked `(Experimental)` are **under active development and have not yet been tested in real-world conditions** on physical devices.
 

@@ -1,3 +1,10 @@
+## [1.18.0-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.17.0...v1.18.0-dev.1) (2026-09-26)
+
+### ✨ New Features
+
+* add advanced Proton VPN, Proton Mail, and Proton Pass patches suite ([21f6335](https://github.com/SatanMerde/D-moniakPatches/commit/21f6335c02825e9fedbe866516755537d60434c6))
+* add premium and pro feature patches for Duolingo, Waze, SoundCloud, and Pinterest ([6074d38](https://github.com/SatanMerde/D-moniakPatches/commit/6074d381fcbeeb913a385b389a556546ad33bcae))
+
 ## [1.17.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.16.0...v1.17.0) (2026-09-26)
 
 ### ✨ New Features

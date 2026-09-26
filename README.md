@@ -12,10 +12,10 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-131-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-139-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-42-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-46-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -53,7 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.25.0-dev.1](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.25.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;133 patches total
+> **[v1.24.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.24.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;141 patches total
 <details open>
 <summary>📦 Alto's Adventure&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -209,6 +209,17 @@
 </details>
 
 <details open>
+<summary>📦 MEGA&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Dark Theme & Declutter - MEGA (Experimental)](#amoled-dark-theme-declutter-mega-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into MEGA cloud file browser, transfer queue, and settings, and hides Pro upgrade promotion banners. |  |
+| [Allow Screenshots & Export - MEGA (Experimental)](#allow-screenshots-export-mega-experimental) | ⚠️ [En cours de développement / Non testé] Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions. |  |
+
+</details>
+
+<details open>
 <summary>📦 MX Player&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
@@ -216,6 +227,17 @@
 |----------|----------------|-----------|
 | [Ad-Free Video Player - MX Player (Experimental)](#ad-free-video-player-mx-player-experimental) | ⚠️ [En cours de développement / Non testé] Strips all startup ads, pause banner ads, bottom stream promotions, and full-screen video ads from MX Player. |  |
 | [Unlock Pro Player Controls - MX Player (Experimental)](#unlock-pro-player-controls-mx-player-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks background video playback with screen off, Picture-in-Picture (PIP) mode, and 200% volume audio boost. |  |
+
+</details>
+
+<details open>
+<summary>📦 Nextcloud&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Dark Theme - Nextcloud (Experimental)](#amoled-dark-theme-nextcloud-experimental) | ⚠️ [En cours de développement / Non testé] Replaces dark gray theme with pure pitch black (#000000) for OLED screens in Nextcloud file explorer, uploads monitor, and media gallery. |  |
+| [Allow Screenshots & Bypass Lockout - Nextcloud (Experimental)](#allow-screenshots-bypass-lockout-nextcloud-experimental) | ⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window protections in Nextcloud to enable screenshots and screen recording even when app passcode lock is configured. |  |
 
 </details>
 
@@ -252,6 +274,17 @@
 | [Direct Media Download - Pinterest (Experimental)](#direct-media-download-pinterest-experimental) | ⚠️ [En cours de développement / Non testé] Enables native high-resolution image and video downloading directly from pins without watermarks or third-party scrapers. |  |
 | [Remove Promoted Pins & Shopping Ads - Pinterest (Experimental)](#remove-promoted-pins-shopping-ads-pinterest-experimental) | ⚠️ [En cours de développement / Non testé] Strips sponsored promoted pins, affiliate shopping product carousels, and paid recommendations from Pinterest home and search feeds. |  |
 | [Unlock Creator & Pro Tools - Pinterest (Experimental)](#unlock-creator-pro-tools-pinterest-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Pinterest Creator and Pro business dashboard analytics, advanced pin inspector, and rich pin creation preview tools. |  |
+
+</details>
+
+<details open>
+<summary>📦 Proton Drive&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED Black & Declutter - Proton Drive (Experimental)](#amoled-black-declutter-proton-drive-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Drive file vaults and hides storage quota warning banners and Proton Unlimited upgrade prompts. |  |
+| [Allow Screenshots & Privacy - Proton Drive (Experimental)](#allow-screenshots-privacy-proton-drive-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton Drive, allowing screenshots and screen recording of previewed documents and media. |  |
 
 </details>
 
@@ -489,6 +522,17 @@
 </details>
 
 <details open>
+<summary>📦 TeraBox&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Block Ads & Hide VIP Nags - TeraBox (Experimental)](#block-ads-hide-vip-nags-terabox-experimental) | ⚠️ [En cours de développement / Non testé] Strips video startup ads, cloud storage interstitial banners, and persistent TeraBox Premium VIP subscription nag popups. |  |
+| [Unlock Video Player Speed & Controls - TeraBox (Experimental)](#unlock-video-player-speed-controls-terabox-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks background video playback, 1080p/original video quality streaming selector, and variable playback speeds without TeraBox Premium. |  |
+
+</details>
+
+<details open>
 <summary>📦 Truecaller&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
@@ -595,10 +639,22 @@ Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morphe
 - **Hungry Shark Heroes :** (com.ubisoft.hungrysharkheroes)
 - **Hungry Shark World :** (com.ubisoft.hungrysharkworld)
 - **Jetpack Joyride :** (com.halfbrick.jetpackjoyride)
+- **MEGA :** (mega.privacy.android.app)
+- **Nextcloud (NOUVEAU - 5M+ d'utilisateurs Cloud Privé) :**
+  - **AMOLED Dark Theme :** Infiltre un noir profond (#000000) pour écrans OLED dans l'explorateur de fichiers, la galerie de médias et le moniteur de synchronisation.
+  - **Allow Screenshots & Bypass Lockout :** Neutralise la protection de fenêtre FLAG_SECURE pour autoriser les captures d'écran même avec le verrouillage par code configuré.
 - **MX Player :** (com.mxtech.videoplayer.ad)
+- **MEGA (NOUVEAU - 100M+ de téléchargements) :**
+  - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) pour l'explorateur de fichiers cloud, la file des transferts et les paramètres, et masquage des bannières promotionnelles Pro.
+  - **Allow Screenshots & Export :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran des documents et photos et débloque l'export local.
+- **Nextcloud :** (org.nextcloud.client)
 - **Perplexity AI :** (i.perplexity.app.android)
 - **Phone by Google (Téléphone) :** (com.google.android.dialer)
 - **Pinterest :** (com.pinterest)
+- **Proton Drive (NOUVEAU - 5M+ de téléchargements) :**
+  - **AMOLED Black & Declutter :** Noir pur OLED (#000000) dans les coffres-forts de fichiers et masquage des alertes de quota et bannières Proton Unlimited.
+  - **Allow Screenshots & Privacy :** Supprime la protection FLAG_SECURE pour permettre les captures d'écran et la duplication d'écran des documents et aperçus.
+- **Proton Drive :** (me.proton.android.drive)
 - **Proton Mail :** (ch.protonmail.android)
 - **Proton Pass :** (proton.android.pass)
 - **Proton VPN :** (ch.protonvpn.android)
@@ -762,6 +818,9 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
   - **Unlock Unlimited Pinned Chats :** Débloque la limite des 5 discussions épinglées pour permettre d'épingler un nombre illimité de conversations et canaux sans Telegram Premium.
   - **Disable Proximity Sensor :** Empêche le capteur de proximité d'éteindre l'écran ou de basculer l'audio vers l'écouteur lors de l'écoute de messages vocaux ou vidéo.
   - **Unlock Telegram Premium Features :** Débloque côté client les fonctionnalités Telegram Premium (icônes d'application exclusives, réactions animées, bouton de transcription audio en texte et doublement des dossiers de discussion).
+- **TeraBox (NOUVEAU - 100M+ de téléchargements) :**
+  - **Block Ads & Hide VIP Nags :** Suppression des vidéos publicitaires au lancement, des interstitiels de stockage et des popups insistants d'abonnement VIP.
+  - **Unlock Video Player Speed & Controls :** Déblocage de la lecture vidéo en arrière-plan écran éteint, du sélecteur de résolution 1080p/Originale et de la vitesse de lecture sans abonnement Premium.
 - **Truecaller (NOUVEAU - 1 Milliard+ de téléchargements) :**
   - **Ad-Free & Clean Dialer :** Élimine les publicités plein écran après chaque appel téléphonique et nettoie l'historique des appels.
   - **Unlock Premium & Gold Features :** Débloque l'affichage du badge Premium/Gold et les filtres de blocage de spam avancés.
@@ -846,10 +905,22 @@ Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, t
 - **Hungry Shark Heroes:** (com.ubisoft.hungrysharkheroes)
 - **Hungry Shark World:** (com.ubisoft.hungrysharkworld)
 - **Jetpack Joyride:** (com.halfbrick.jetpackjoyride)
+- **MEGA:** (mega.privacy.android.app)
+- **Nextcloud (NEW - 5M+ Private Cloud users):**
+  - **AMOLED Dark Theme:** Replaces dark gray theme with pure pitch black (#000000) for OLED screens in Nextcloud file explorer, uploads monitor, and media gallery.
+  - **Allow Screenshots & Bypass Lockout:** Removes FLAG_SECURE window protections in Nextcloud to enable screenshots and screen recording even when app passcode lock is configured.
 - **MX Player:** (com.mxtech.videoplayer.ad)
+- **MEGA (NEW - 100M+ downloads):**
+  - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into MEGA cloud file browser, transfer queue, and settings, and hides Pro upgrade promotion banners.
+  - **Allow Screenshots & Export:** Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions.
+- **Nextcloud:** (org.nextcloud.client)
 - **Perplexity AI:** (i.perplexity.app.android)
 - **Phone by Google:** (com.google.android.dialer)
 - **Pinterest:** (com.pinterest)
+- **Proton Drive (NEW - 5M+ downloads):**
+  - **AMOLED Black & Declutter:** Injects pure OLED pitch black (#000000) into Proton Drive file vaults and hides storage quota warning banners and Proton Unlimited upgrade prompts.
+  - **Allow Screenshots & Privacy:** Removes Android FLAG_SECURE window restrictions in Proton Drive, allowing screenshots and screen recording of previewed documents and media.
+- **Proton Drive:** (me.proton.android.drive)
 - **Proton Mail:** (ch.protonmail.android)
 - **Proton Pass:** (proton.android.pass)
 - **Proton VPN:** (ch.protonvpn.android)
@@ -1013,6 +1084,9 @@ This project provides gameplay-specific patches tailored to each game:
   - **Unlock Unlimited Pinned Chats:** Bypasses the 5 pinned chats limit in Telegram, allowing users to pin unlimited chats and channels without Telegram Premium.
   - **Disable Proximity Sensor:** Prevents the proximity sensor from turning off the display or switching audio output while listening to voice and video messages.
   - **Unlock Telegram Premium Features:** Unlocks client-side Telegram Premium features: exclusive app icons, animated reactions, voice-to-text transcription toggle, and doubled chat folders.
+- **TeraBox (NEW - 100M+ downloads):**
+  - **Block Ads & Hide VIP Nags:** Strips video startup ads, cloud storage interstitial banners, and persistent TeraBox Premium VIP subscription nag popups.
+  - **Unlock Video Player Speed & Controls:** Unlocks background video playback, 1080p/original video quality streaming selector, and variable playback speeds without TeraBox Premium.
 - **Truecaller (NEW - 1 Billion+ downloads):**
   - **Ad-Free & Clean Dialer:** Removes intrusive post-call ads and call log banner ads.
   - **Unlock Premium & Gold Features:** Enables Premium/Gold caller ID styles and advanced spam protection filters.

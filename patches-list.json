@@ -3,357 +3,6 @@
   "version": "1.25.0-dev.1",
   "patches": [
     {
-      "name": "AMOLED Black & Declutter - Google Photos (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into gallery view and hides Google One subscription paywalls and cloud storage upgrade prompts.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.apps.photos",
-          "name": "Google Photos",
-          "description": "Google Photos: Photo & Video Storage by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#EA4335",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Black & Declutter - Proton Pass (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "proton.android.pass",
-          "name": "Proton Pass",
-          "description": "Proton Pass: Password Manager by Proton AG",
-          "apkFileType": null,
-          "appIconColor": "#6D4AFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Black Navigation - Google Maps (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into navigation mode and map exploration screens to minimize battery consumption and glare.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.apps.maps",
-          "name": "Google Maps",
-          "description": "Google Maps: Navigate & Explore by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#34A853",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Black Theme - Proton Mail (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "ch.protonmail.android",
-          "name": "Proton Mail",
-          "description": "Proton Mail: Encrypted Email by Proton AG",
-          "apkFileType": null,
-          "appIconColor": "#6D4AFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Black Theme - Proton VPN (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "ch.protonvpn.android",
-          "name": "Proton VPN",
-          "description": "Proton VPN: Fast & Secure by Proton AG",
-          "apkFileType": null,
-          "appIconColor": "#6D4AFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Black Theme - Tuta Mail (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Tuta Mail's inbox, message reading view, calendar, and contacts for maximum battery savings on AMOLED displays.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "de.tutao.tutanota",
-          "name": "Tuta Mail",
-          "description": "Tuta Mail: Secure & Private Email by Tutao GmbH",
-          "apkFileType": null,
-          "appIconColor": "#C70000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme & Declutter - ChatGPT (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Injects pure pitch black (#000000) for OLED screens in ChatGPT conversations and hides 'Upgrade to ChatGPT Plus' marketing banners.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.openai.chatgpt",
-          "name": "ChatGPT",
-          "description": "ChatGPT: The official AI assistant by OpenAI",
-          "apkFileType": null,
-          "appIconColor": "#10A37F",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme & Declutter - Google Gemini (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) across Gemini chat surfaces and removes 'Try Gemini Advanced' upgrade suggestions.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.apps.bard",
-          "name": "Google Gemini",
-          "description": "Google Gemini: Your AI Assistant by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#4285F4",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme & Declutter - Perplexity (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Replaces gray backgrounds with pure OLED black (#000000) in Perplexity search threads and removes 'Try Pro' upgrade banners.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "ai.perplexity.app.android",
-          "name": "Perplexity",
-          "description": "Perplexity: Where Knowledge Begins by Perplexity AI",
-          "apkFileType": null,
-          "appIconColor": "#20B2AA",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme & Declutter - Snapchat (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Snapchat chat screens and hides sponsored Discover tiles and intrusive Spotlight ads.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.snapchat.android",
-          "name": "Snapchat",
-          "description": "Snapchat by Snap Inc",
-          "apkFileType": null,
-          "appIconColor": "#FFFC00",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme & Hide Donation Nags - Signal (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Signal chat threads and settings, and suppresses donor badges and 'Support Signal' donation reminders.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "org.thoughtcrime.securesms",
-          "name": "Signal",
-          "description": "Signal Private Messenger by Signal Foundation",
-          "apkFileType": null,
-          "appIconColor": "#3A76F0",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme - Session (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into Session chat threads, community rooms, and message views to maximize battery savings.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "network.loki.messenger",
-          "name": "Session",
-          "description": "Session: Private Messenger by Oxen Privacy Tech / The Session Foundation",
-          "apkFileType": null,
-          "appIconColor": "#00E599",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme - SimpleX (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Replaces dark grey backgrounds with pure OLED pitch black (#000000) across SimpleX Chat conversation screens and network status monitors.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "chat.simplex.app",
-          "name": "SimpleX Chat",
-          "description": "SimpleX Chat: Private Messenger with No User IDs by SimpleX Chat Ltd",
-          "apkFileType": null,
-          "appIconColor": "#7E3FF2",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
       "name": "Ad-Free & Clean Dialer - Truecaller (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Removes intrusive post-call ads, banner ads inside the call history and dialer tabs, and promotional Gold upsells.",
       "default": true,
@@ -624,6 +273,33 @@
       "options": []
     },
     {
+      "name": "Allow Screenshots & Bypass Lockout - Nextcloud (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window protections in Nextcloud to enable screenshots and screen recording even when app passcode lock is configured.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.nextcloud.client",
+          "name": "Nextcloud",
+          "description": "Nextcloud: Open source file sync and share by Nextcloud",
+          "apkFileType": null,
+          "appIconColor": "#0082C9",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Allow Screenshots & Copy - ChatGPT (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions to allow screenshots and screen recording inside conversations and prevents copy restrictions.",
       "default": true,
@@ -636,6 +312,60 @@
           "description": "ChatGPT: The official AI assistant by OpenAI",
           "apkFileType": null,
           "appIconColor": "#10A37F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Allow Screenshots & Export - MEGA (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "mega.privacy.android.app",
+          "name": "MEGA",
+          "description": "MEGA: Cloud Storage & Chat by Mega Ltd",
+          "apkFileType": null,
+          "appIconColor": "#D9272E",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Allow Screenshots & Privacy - Proton Drive (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton Drive, allowing screenshots and screen recording of previewed documents and media.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "me.proton.android.drive",
+          "name": "Proton Drive",
+          "description": "Proton Drive: Cloud Storage by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
           "signatures": null,
           "targets": [
             {
@@ -894,6 +624,438 @@
       "options": []
     },
     {
+      "name": "AMOLED Black & Declutter - Google Photos (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into gallery view and hides Google One subscription paywalls and cloud storage upgrade prompts.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.photos",
+          "name": "Google Photos",
+          "description": "Google Photos: Photo & Video Storage by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#EA4335",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black & Declutter - Proton Drive (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Drive file vaults and hides storage quota warning banners and Proton Unlimited upgrade prompts.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "me.proton.android.drive",
+          "name": "Proton Drive",
+          "description": "Proton Drive: Cloud Storage by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black & Declutter - Proton Pass (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "proton.android.pass",
+          "name": "Proton Pass",
+          "description": "Proton Pass: Password Manager by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black Navigation - Google Maps (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into navigation mode and map exploration screens to minimize battery consumption and glare.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.maps",
+          "name": "Google Maps",
+          "description": "Google Maps: Navigate & Explore by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#34A853",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black Theme - Proton Mail (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonmail.android",
+          "name": "Proton Mail",
+          "description": "Proton Mail: Encrypted Email by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black Theme - Proton VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonvpn.android",
+          "name": "Proton VPN",
+          "description": "Proton VPN: Fast & Secure by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black Theme - Tuta Mail (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Tuta Mail's inbox, message reading view, calendar, and contacts for maximum battery savings on AMOLED displays.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "de.tutao.tutanota",
+          "name": "Tuta Mail",
+          "description": "Tuta Mail: Secure & Private Email by Tutao GmbH",
+          "apkFileType": null,
+          "appIconColor": "#C70000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Declutter - ChatGPT (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure pitch black (#000000) for OLED screens in ChatGPT conversations and hides 'Upgrade to ChatGPT Plus' marketing banners.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.openai.chatgpt",
+          "name": "ChatGPT",
+          "description": "ChatGPT: The official AI assistant by OpenAI",
+          "apkFileType": null,
+          "appIconColor": "#10A37F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Declutter - Google Gemini (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) across Gemini chat surfaces and removes 'Try Gemini Advanced' upgrade suggestions.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.bard",
+          "name": "Google Gemini",
+          "description": "Google Gemini: Your AI Assistant by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#4285F4",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Declutter - MEGA (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into MEGA cloud file browser, transfer queue, and settings, and hides Pro upgrade promotion banners.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "mega.privacy.android.app",
+          "name": "MEGA",
+          "description": "MEGA: Cloud Storage & Chat by Mega Ltd",
+          "apkFileType": null,
+          "appIconColor": "#D9272E",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Declutter - Perplexity (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Replaces gray backgrounds with pure OLED black (#000000) in Perplexity search threads and removes 'Try Pro' upgrade banners.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ai.perplexity.app.android",
+          "name": "Perplexity",
+          "description": "Perplexity: Where Knowledge Begins by Perplexity AI",
+          "apkFileType": null,
+          "appIconColor": "#20B2AA",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Declutter - Snapchat (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Snapchat chat screens and hides sponsored Discover tiles and intrusive Spotlight ads.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.snapchat.android",
+          "name": "Snapchat",
+          "description": "Snapchat by Snap Inc",
+          "apkFileType": null,
+          "appIconColor": "#FFFC00",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Hide Donation Nags - Signal (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Signal chat threads and settings, and suppresses donor badges and 'Support Signal' donation reminders.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.thoughtcrime.securesms",
+          "name": "Signal",
+          "description": "Signal Private Messenger by Signal Foundation",
+          "apkFileType": null,
+          "appIconColor": "#3A76F0",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme - Nextcloud (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Replaces dark gray theme with pure pitch black (#000000) for OLED screens in Nextcloud file explorer, uploads monitor, and media gallery.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.nextcloud.client",
+          "name": "Nextcloud",
+          "description": "Nextcloud: Open source file sync and share by Nextcloud",
+          "apkFileType": null,
+          "appIconColor": "#0082C9",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme - Session (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into Session chat threads, community rooms, and message views to maximize battery savings.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "network.loki.messenger",
+          "name": "Session",
+          "description": "Session: Private Messenger by Oxen Privacy Tech / The Session Foundation",
+          "apkFileType": null,
+          "appIconColor": "#00E599",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme - SimpleX (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Replaces dark grey backgrounds with pure OLED pitch black (#000000) across SimpleX Chat conversation screens and network status monitors.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "chat.simplex.app",
+          "name": "SimpleX Chat",
+          "description": "SimpleX Chat: Private Messenger with No User IDs by SimpleX Chat Ltd",
+          "apkFileType": null,
+          "appIconColor": "#7E3FF2",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Block Ads & Hide Stories - Telegram (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Removes sponsored messages in public channels, hides stories carousel from the chat list, and eliminates Telegram Premium upgrade reminders.",
       "default": true,
@@ -906,6 +1068,33 @@
           "description": "Telegram Messenger by Telegram FZ-LLC",
           "apkFileType": null,
           "appIconColor": "#24A1DE",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block Ads & Hide VIP Nags - TeraBox (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips video startup ads, cloud storage interstitial banners, and persistent TeraBox Premium VIP subscription nag popups.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.dubox.drive",
+          "name": "TeraBox",
+          "description": "TeraBox: Cloud Storage Space by Flextech Inc.",
+          "apkFileType": null,
+          "appIconColor": "#0084FF",
           "signatures": null,
           "targets": [
             {
@@ -3406,6 +3595,33 @@
           "description": "Telegram Messenger by Telegram FZ-LLC",
           "apkFileType": null,
           "appIconColor": "#24A1DE",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Video Player Speed & Controls - TeraBox (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks background video playback, 1080p/original video quality streaming selector, and variable playback speeds without TeraBox Premium.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.dubox.drive",
+          "name": "TeraBox",
+          "description": "TeraBox: Cloud Storage Space by Flextech Inc.",
+          "apkFileType": null,
+          "appIconColor": "#0084FF",
           "signatures": null,
           "targets": [
             {

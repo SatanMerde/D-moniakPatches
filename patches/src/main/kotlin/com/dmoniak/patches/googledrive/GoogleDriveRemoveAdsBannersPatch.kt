@@ -1,4 +1,4 @@
-﻿package com.dmoniak.patches.googledrive
+package com.dmoniak.patches.googledrive
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
@@ -10,8 +10,8 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val googleDriveRemoveAdsBannersPatch = bytecodePatch(
-    name = "Remove Ads & Promotional Banners - Google Drive (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Removes Google One upsell banners, Workspace promotional cards, storage upgrade prompts, and sponsored suggestions from the Drive home feed and search results.",
+    name = "Remove Ads & Google One Upsell Banners - Google Drive",
+    description = "Removes Google One upsell banners, storage upgrade warning cards, Workspace promotional tiles, and sponsored suggestion chips across Google Drive.",
 ) {
     compatibleWith(COMPATIBILITY_GOOGLE_DRIVE)
 
@@ -22,11 +22,12 @@ val googleDriveRemoveAdsBannersPatch = bytecodePatch(
 }
 
 fun BytecodePatchContext.executeGoogleDriveRemoveAdsBannersLogic(logger: Logger) {
-    logger.info("Executing Remove Ads & Promotional Banners patch for Google Drive...")
+    logger.info("Executing Remove Ads & Google One Banners patch for Google Drive...")
     var hookedPoints = 0
 
     classDefForEach { classDef ->
-        val tl = classDef.type.lowercase()
+        val type = classDef.type
+        val tl = type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support")) return@classDefForEach
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
@@ -37,12 +38,17 @@ fun BytecodePatchContext.executeGoogleDriveRemoveAdsBannersLogic(logger: Logger)
             val mName = method.name.lowercase()
             val retType = method.returnType
 
+            // 1. Suppress promo, upsell, and storage banner visibility flags -> false
             if (!isStatic && (
                 mName == "shouldshowgoogleonebanner" ||
+                mName == "shouldshowstorageupgradebanner" ||
+                mName == "isstoragequotabannervisible" ||
                 mName == "shouldshowworkspacepromo" ||
                 mName == "issponsoredcontentvisible" ||
-                mName == "shouldshowsuggestedupgradetile" ||
-                mName == "isdrivepromotionbannervisible"
+                mName == "shouldpromptgoogleoneupgrade" ||
+                mName == "isoneupselldialogshown" ||
+                mName == "isdrivepromotionbannervisible" ||
+                mName == "isstoragewarningactive"
             ) && retType == "Z") {
                 try {
                     val mutableMethod = mutableClass.findMutableMethodOf(method)
@@ -54,12 +60,35 @@ fun BytecodePatchContext.executeGoogleDriveRemoveAdsBannersLogic(logger: Logger)
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.info("[Drive Ads] Removed promo banner in: ${classDef.type}->${method.name}")
+                    logger.info("[Drive Ads] Suppressed upsell/promo banner in: ${type}->${method.name}")
+                } catch (e: Exception) {
+                    logger.warning("[Drive Ads] Failed to hook ${method.name}: ${e.message}")
+                }
+            }
+
+            // 2. Mark account as already having Google One / active plan to permanently silence sales prompts -> true
+            if (!isStatic && (
+                mName == "hasgoogleone" ||
+                mName == "isgoogleonesubscriber" ||
+                mName == "haspaidstorageplan" ||
+                mName == "ispremiumstorageactive"
+            ) && retType == "Z") {
+                try {
+                    val mutableMethod = mutableClass.findMutableMethodOf(method)
+                    mutableMethod.addInstructions(
+                        0,
+                        """
+                        const/4 v0, 0x1
+                        return v0
+                        """.trimIndent()
+                    )
+                    hookedPoints++
+                    logger.info("[Drive Ads] Forced Google One active status in: ${type}->${method.name}")
                 } catch (e: Exception) {
                     logger.warning("[Drive Ads] Failed to hook ${method.name}: ${e.message}")
                 }
             }
         }
     }
-    logger.info("[Google Drive Remove Ads] Total hooks applied: $hookedPoints")
+    logger.info("[Google Drive Remove Ads] Total upsell suppression hooks applied: $hookedPoints")
 }

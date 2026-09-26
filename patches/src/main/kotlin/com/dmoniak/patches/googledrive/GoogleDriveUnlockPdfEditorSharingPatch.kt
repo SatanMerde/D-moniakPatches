@@ -1,4 +1,4 @@
-﻿package com.dmoniak.patches.googledrive
+package com.dmoniak.patches.googledrive
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
@@ -10,8 +10,8 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val googleDriveUnlockPdfEditorSharingPatch = bytecodePatch(
-    name = "Unlock PDF Editor & Advanced Sharing - Google Drive (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Unlocks inline PDF editing, annotation tools, advanced link-sharing permission levels, and extended expiry options for shared files without a Workspace subscription.",
+    name = "Unlock PDF Editor, Annotations & Advanced Sharing - Google Drive",
+    description = "Unlocks the integrated PDF drawing and annotation toolbar (pen, highlighter, text notes, signatures) and enables advanced link sharing permissions and expiration settings in Google Drive.",
 ) {
     compatibleWith(COMPATIBILITY_GOOGLE_DRIVE)
 
@@ -26,7 +26,8 @@ fun BytecodePatchContext.executeGoogleDriveUnlockPdfEditorSharingLogic(logger: L
     var hookedPoints = 0
 
     classDefForEach { classDef ->
-        val tl = classDef.type.lowercase()
+        val type = classDef.type
+        val tl = type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support")) return@classDefForEach
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
@@ -37,12 +38,18 @@ fun BytecodePatchContext.executeGoogleDriveUnlockPdfEditorSharingLogic(logger: L
             val mName = method.name.lowercase()
             val retType = method.returnType
 
+            // PDF Annotation & Advanced Sharing capability flags
             if (!isStatic && (
                 mName == "ispdfeditorenabled" ||
                 mName == "canusepdfannotations" ||
+                mName == "haspdfannotationtools" ||
+                mName == "canannotatepdf" ||
+                mName == "cansignpdf" ||
+                mName == "isinkannotationenabled" ||
                 mName == "isadvancedsharingenabled" ||
                 mName == "cansetsharingexpiry" ||
-                mName == "hasworkspacesharingfeatures"
+                mName == "hasworkspacesharingfeatures" ||
+                mName == "islinkexpirationpermitted"
             ) && retType == "Z") {
                 try {
                     val mutableMethod = mutableClass.findMutableMethodOf(method)
@@ -54,7 +61,7 @@ fun BytecodePatchContext.executeGoogleDriveUnlockPdfEditorSharingLogic(logger: L
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.info("[Drive PDF/Share] Unlocked feature in: ${classDef.type}->${method.name}")
+                    logger.info("[Drive PDF/Share] Unlocked feature in: ${type}->${method.name}")
                 } catch (e: Exception) {
                     logger.warning("[Drive PDF/Share] Failed to hook ${method.name}: ${e.message}")
                 }

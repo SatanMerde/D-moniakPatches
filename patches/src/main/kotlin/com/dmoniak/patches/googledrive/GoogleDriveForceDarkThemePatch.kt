@@ -1,4 +1,4 @@
-﻿package com.dmoniak.patches.googledrive
+package com.dmoniak.patches.googledrive
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
@@ -10,8 +10,8 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val googleDriveForceDarkThemePatch = bytecodePatch(
-    name = "Force Dark Theme System-Wide - Google Drive (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Forces pure OLED dark theme (#000000) across all Google Drive screens including file browser, folder views, sharing dialogs, and document detail drawers regardless of system theme.",
+    name = "Force Dark Theme System-Wide - Google Drive",
+    description = "Forces Dark Mode (AppCompatDelegate.MODE_NIGHT_YES) across all Google Drive screens, file browsers, and previewers even when the Android system is set to Light Mode.",
 ) {
     compatibleWith(COMPATIBILITY_GOOGLE_DRIVE)
 
@@ -23,64 +23,42 @@ val googleDriveForceDarkThemePatch = bytecodePatch(
 
 fun BytecodePatchContext.executeGoogleDriveForceDarkThemeLogic(logger: Logger) {
     logger.info("Executing Force Dark Theme System-Wide patch for Google Drive...")
-    var hookedPoints = 0
+    var hookedEntries = 0
 
     classDefForEach { classDef ->
-        val tl = classDef.type.lowercase()
-        if (tl.contains("androidx") || tl.contains("android/support")) return@classDefForEach
-
+        val type = classDef.type
+        val tl = type.lowercase()
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
-        for (method in classDef.methods.toList()) {
-            if (method.implementation == null) continue
-            val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
-            val mName = method.name.lowercase()
-            val retType = method.returnType
+        // Inject setDefaultNightMode(2) in Application.onCreate or Main Activity onCreate
+        val superType = classDef.superType ?: ""
+        val isAppOrActivity = superType.contains("Application") || superType.contains("Activity") || type.contains("Activity")
 
-            // Force dark mode enabled flag
-            if (!isStatic && (
-                mName == "isdarkmodeenabled" ||
-                mName == "shouldusedarktheme" ||
-                mName == "isnightmodeactive"
-            ) && retType == "Z") {
-                try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
-                        const/4 v0, 0x1
-                        return v0
-                        """.trimIndent()
-                    )
-                    hookedPoints++
-                    logger.info("[Drive Dark] Forced dark in: ${classDef.type}->${method.name}")
-                } catch (e: Exception) {
-                    logger.warning("[Drive Dark] Failed to hook ${method.name}: ${e.message}")
-                }
-            }
+        if (isAppOrActivity && tl.contains("com/google/android/apps/docs")) {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+                val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
+                val mName = method.name
+                val pTypes = method.parameterTypes
 
-            // Return OLED black for background colors
-            if (!isStatic && (
-                mName == "getappbackgroundcolor" ||
-                mName == "getlistbackgroundcolor" ||
-                mName == "getscaffoldbackground"
-            ) && retType == "I") {
-                try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
-                        const/high16 v0, -0x1000000
-                        return v0
-                        """.trimIndent()
-                    )
-                    hookedPoints++
-                    logger.info("[Drive Dark] OLED black injected in: ${classDef.type}->${method.name}")
-                } catch (e: Exception) {
-                    logger.warning("[Drive Dark] Failed to hook ${method.name}: ${e.message}")
+                if (!isStatic && mName == "onCreate" && (pTypes.isEmpty() || (pTypes.size == 1 && pTypes[0] == "Landroid/os/Bundle;"))) {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        mutableMethod.addInstructions(
+                            0,
+                            """
+                            const/4 v0, 0x2
+                            invoke-static {v0}, Landroidx/appcompat/app/AppCompatDelegate;->setDefaultNightMode(I)V
+                            """.trimIndent()
+                        )
+                        hookedEntries++
+                        logger.info("[Drive Dark] Injected setDefaultNightMode(MODE_NIGHT_YES) in ${type}->${mName}")
+                    } catch (e: Exception) {
+                        logger.warning("[Drive Dark] Failed to inject setDefaultNightMode in ${type}->${mName}: ${e.message}")
+                    }
                 }
             }
         }
     }
-    logger.info("[Google Drive Force Dark Theme] Total hooks applied: $hookedPoints")
+    logger.info("[Google Drive Force Dark Theme] Total entries hooked: $hookedEntries")
 }

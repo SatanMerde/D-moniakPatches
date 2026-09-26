@@ -1,3 +1,9 @@
+## [1.13.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.12.0...v1.13.0) (2026-09-26)
+
+### ✨ New Features
+
+* add premium and pro feature patches for Duolingo, Waze, SoundCloud, and Pinterest ([43364aa](https://github.com/SatanMerde/D-moniakPatches/commit/43364aa38f2231a5511418494c1ad0a5491431ab))
+
 ## [1.12.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.11.0...v1.12.0) (2026-09-26)
 
 ### ✨ New Features

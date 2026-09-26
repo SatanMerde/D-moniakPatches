@@ -17,7 +17,7 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-233-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-237-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-80-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -41,10 +41,10 @@
 ### 📖 Présentation du projet / Project Overview
 
 **🇫🇷 Français :**  
-**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble plus de **230 patchs** pour **80 applications et jeux Android** populaires qui ne sont pas inclus dans le catalogue officiel de Morphe (jeux hors-ligne, réseaux sociaux, outils IA, messagerie, thèmes AMOLED, suppression de publicités et patchs universels). L'ensemble de ce dépôt est entièrement conçu et géré par Intelligence Artificielle (IA).
+**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble plus de **235 patchs** pour **80 applications et jeux Android** populaires qui ne sont pas inclus dans le catalogue officiel de Morphe (jeux hors-ligne, réseaux sociaux, outils IA, messagerie, thèmes AMOLED, suppression de publicités et patchs universels). L'ensemble de ce dépôt est entièrement conçu et géré par Intelligence Artificielle (IA).
 
 **🇬🇧 English :**  
-**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **230+ patches** for **80 popular Android apps and games** that are not available in the official Morphe catalog (offline games, social networks, AI tools, messengers, AMOLED dark themes, ad-blocking, and universal patches). This entire repository is conceived and maintained by Artificial Intelligence (AI).
+**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **235+ patches** for **80 popular Android apps and games** that are not available in the official Morphe catalog (offline games, social networks, AI tools, messengers, AMOLED dark themes, ad-blocking, and universal patches). This entire repository is conceived and maintained by Artificial Intelligence (AI).
 
 ---
 
@@ -111,7 +111,7 @@ Un problème constaté ou une suggestion de nouveau patch ? / Experiencing an is
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.33.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.33.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;233 patches total
+> **[v1.33.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.33.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;237 patches total
 <details open>
 <summary>📦 AllTrails&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -123,13 +123,14 @@ Un problème constaté ou une suggestion de nouveau patch ? / Experiencing an is
 </details>
 
 <details open>
-<summary>📦 Alto's Adventure&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Alto's Adventure&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Bypass Rewarded Ads - Alto's Adventure (Experimental)](#bypass-rewarded-ads-alto-s-adventure-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses video ads in Alto's Adventure for free crash revives, free coin doublers at run end, and removes intrusive interstitial popups. |
 | [Infinite Wingsuit & Long Scarf - Alto's Adventure (Experimental)](#infinite-wingsuit-long-scarf-alto-s-adventure-experimental) | ⚠️ [En cours de développement / Non testé] Provides unlimited wingsuit flight duration and keeps the scarf at maximum length without requiring endless trick combos in Alto's Adventure. |
+| [Unlock All Characters & Workshop - Alto's Adventure (Experimental)](#unlock-all-characters-workshop-alto-s-adventure-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all snowboarders (Maya, Paz, Izel, Felipe, Tupa), workshop items (Llama Horn, Helmets, Chasm Rescues), and coin doublers in Alto's Adventure without spending coins or real money. |
 </details>
 
 <details open>

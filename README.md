@@ -1252,25 +1252,6 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
   - **Declutter UI & Hide Pro Upsells :** Masque les rubans promotionnels Pro, les alertes de réductions et les bannières d'incitation à l'achat dans la liste des emplacements.
   - **Enhanced Privacy & Telemetry Blocker :** Neutralise les rapports d'erreurs en arrière-plan, les métriques d'analyse et les points de terminaison de télémétrie.
 
-> ⚠️ **Note Générale :** Tous les nouveaux patchs indiqués `(Experimental)` sont **en cours de développement et non encore validés par test sur appareil physique**.
-
-### 📲 Comment utiliser dans Morphe Manager
-
-👉 **[Ajouter D-moniak Patches à Morphe Manager (1-Clic)](https://morphe.software/add-source?github=SatanMerde/D-moniakPatches)**
-
-Ou manuellement dans l'application :
-1. Lancez **Morphe Manager**.
-2. Rendez-vous dans **Settings** (Paramètres) > **Patch Sources** (Sources de patchs).
-3. Ajoutez la source : `SatanMerde/D-moniakPatches`.
-4. Sélectionnez votre application ou jeu (ex. **Beach Buggy Racing**, **Robbery Bob**, **Vector 2**, **Hungry Shark**, etc.).
-5. Cochez les patchs souhaités.
-6. Cliquez sur **Patcher** puis procédez à l'installation.
-
-### 💬 Signaler un bug ou demander un patch
-Vous rencontrez un problème ou vous souhaitez le support d'un nouveau jeu / patch ?
-- 🐛 **[Signaler un bug ou un problème](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml)** : si un patch ne fonctionne pas correctement ou fait planter l'application.
-- ✨ **[Demander un nouveau patch](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_request.yml)** : pour proposer l'ajout de nouvelles fonctionnalités ou le support d'un autre jeu / application.
-
 ### 🛠️ Développement & Publication
 Ce dépôt utilise le système de publication automatisé **Semantic Release** avec GitHub Actions :
 - **Branche `dev`** : Utilisée pour le développement et la génération automatique de pré-releases.
@@ -1542,26 +1523,6 @@ This project provides gameplay-specific patches tailored to each game:
 - **Windscribe VPN (NEW - 10M+ downloads):**
   - **Declutter UI & Hide Pro Upsells:** Hides Pro upgrade ribbons, promotional sales alerts, and persistent upgrade banners in the main location list.
   - **Enhanced Privacy & Telemetry Blocker:** Neutralizes background diagnostic reporting, error analytics, and tracking telemetry endpoints for maximum anonymity.
-
-> ⚠️ **General Notice:** All new patches marked `(Experimental)` are **under active development and have not yet been tested in real-world conditions** on physical devices.
-
-### 📲 How to Use in Morphe Manager
-
-👉 **[Add D-moniak Patches to Morphe Manager (1-Click)](https://morphe.software/add-source?github=SatanMerde/D-moniakPatches)**
-
-Or manually in the app:
-
-1. Open **Morphe Manager**.
-2. Navigate to **Settings** > **Patch Sources**.
-3. Add source: `SatanMerde/D-moniakPatches`.
-4. Select **Hungry Shark World** (`com.ubisoft.hungrysharkworld`).
-5. Check the desired patches (**Bypass Rewarded Ads**, **Free Shopping**).
-6. Tap **Patch** and install the modified APK.
-
-### 💬 Report a Bug or Request a Patch
-Experiencing an issue or want support for a new game / patch?
-- 🐛 **[Report a Bug or Issue](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml)**: if a patch is not working properly or crashes the application.
-- ✨ **[Request a New Patch](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_request.yml)**: to propose new features or support for another game / application.
 
 ### 🛠️ Development & Release
 This repository uses automated **Semantic Release** with GitHub Actions:

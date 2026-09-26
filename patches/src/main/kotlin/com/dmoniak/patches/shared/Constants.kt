@@ -212,5 +212,12 @@ object Constants {
         description = "Proton Pass: Password Manager by Proton AG",
         appIconColor = 0x6D4AFF
     )
+
+    val COMPATIBILITY_TUTA_MAIL = Compatibility(
+        packageName = "de.tutao.tutanota",
+        name = "Tuta Mail",
+        description = "Tuta Mail: Secure & Private Email by Tutao GmbH",
+        appIconColor = 0xC70000
+    )
 }
 

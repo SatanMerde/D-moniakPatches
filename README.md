@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-59-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-65-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-21-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -53,76 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.14.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.14.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;61 patches total
-<details open>
-<summary>📦 Truecaller&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Ad-Free & Clean Dialer - Truecaller (Experimental)](#ad-free-clean-dialer-truecaller-experimental) | ⚠️ [En cours de développement / Non testé] Removes intrusive post-call ads, banner ads inside the call history and dialer tabs, and promotional Gold upsells. |  |
-| [Unlock Premium & Gold Features - Truecaller (Experimental)](#unlock-premium-gold-features-truecaller-experimental) | ⚠️ [En cours de développement / Non testé] Enables Truecaller Premium and Gold caller ID themes, advanced spam blocking filters, and who-viewed-my-profile indicator UI. |  |
-
-</details>
-
-<details open>
-<summary>📦 Shazam&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Ad-Free & Clean UI - Shazam (Experimental)](#ad-free-clean-ui-shazam-experimental) | ⚠️ [En cours de développement / Non testé] Removes banner ads, sponsored artist recommendations, and Apple Music promotional upsell popups in Shazam. |  |
-| [Always-On Auto Shazam - Shazam (Experimental)](#always-on-auto-shazam-shazam-experimental) | ⚠️ [En cours de développement / Non testé] Keeps Auto Shazam background listening continuously active without battery optimization pauses or auto-timeout limits. |  |
-
-</details>
-
-<details open>
-<summary>📦 Duolingo&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Ad-Free & Declutter - Duolingo (Experimental)](#ad-free-declutter-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Blocks interstitial video ads shown between lessons and disables intrusive Super Duolingo subscription promotional popups. |  |
-| [Unlimited Hearts - Duolingo (Experimental)](#unlimited-hearts-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Disables hearts/lives loss when making mistakes during language lessons in Duolingo, enabling infinite learning sessions without waiting or paywalls. |  |
-| [Unlock Super Features - Duolingo (Experimental)](#unlock-super-features-duolingo-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Super Duolingo practice hub modes, unlimited Legendary test attempts without gem expenditure, and mistake review sessions. |  |
-
-</details>
-
-<details open>
-<summary>📦 MX Player&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Ad-Free Video Player - MX Player (Experimental)](#ad-free-video-player-mx-player-experimental) | ⚠️ [En cours de développement / Non testé] Strips all startup ads, pause banner ads, bottom stream promotions, and full-screen video ads from MX Player. |  |
-| [Unlock Pro Player Controls - MX Player (Experimental)](#unlock-pro-player-controls-mx-player-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks background video playback with screen off, Picture-in-Picture (PIP) mode, and 200% volume audio boost. |  |
-
-</details>
-
-<details open>
-<summary>📦 SoundCloud&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Block Audio & Stream Ads - SoundCloud (Experimental)](#block-audio-stream-ads-soundcloud-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses interstitial audio ads between music tracks and removes sponsored promoted tracks from the SoundCloud audio stream. |  |
-| [Declutter UI & Hide Go+ Upsells - SoundCloud (Experimental)](#declutter-ui-hide-go-upsells-soundcloud-experimental) | ⚠️ [En cours de développement / Non testé] Hides persistent 'Try SoundCloud Go+' upgrade promotions, subscription nag cards, and declutters stream navigation. |  |
-| [Unlock HQ Audio & Premium Controls - SoundCloud (Experimental)](#unlock-hq-audio-premium-controls-soundcloud-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks High Quality (HQ) audio streaming selector in playback settings, enables variable playback speed, and unlocks premium player controls. |  |
-
-</details>
-
-<details open>
-<summary>📦 Waze&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Block Zero-Speed Ads & Sponsored Pins - Waze (Experimental)](#block-zero-speed-ads-sponsored-pins-waze-experimental) | ⚠️ [En cours de développement / Non testé] Prevents full-screen commercial banner popups from appearing when the vehicle is stopped at traffic lights or in congestion, and hides sponsored venue pins from the navigation map. |  |
-| [Exact Radar & Speed Camera Alerts - Waze (Experimental)](#exact-radar-speed-camera-alerts-waze-experimental) | ⚠️ [En cours de développement / Non testé] Restores exact speed camera and radar distance notifications in Waze, replacing vague hazard zone circles with pinpoint accuracy alerts. |  |
-| [Unlock Exclusive Moods & Car Icons - Waze (Experimental)](#unlock-exclusive-moods-car-icons-waze-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all exclusive driver moods, special vehicle avatars, and internal voice/audio themes without requiring event points or milestones. |  |
-
-</details>
-
+> **[v1.14.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.14.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;65 patches total
 <details open>
 <summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
@@ -304,12 +235,18 @@
 </details>
 
 <details open>
-<summary>🌐 Universal&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>🌐 Universal&nbsp;&nbsp;•&nbsp;&nbsp;7 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
+| [Universal AMOLED Black Theme (Experimental)](#universal-amoled-black-theme-experimental) | ⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into UI background surfaces, replacing dark grey tones to maximize battery savings and contrast on AMOLED displays for any app. |  |
 | [Universal App Clone (Experimental)](#universal-app-clone-experimental) | ⚠️ [En cours de développement / Non testé] Enables side-by-side dual installation for any app, allowing the official unmodified app and the patched version to run simultaneously on the same device without signature or provider collisions. |  |
+| [Universal Disable Haptics & Vibration (Experimental)](#universal-disable-haptics-vibration-experimental) | ⚠️ [En cours de développement / Non testé] Silences haptic motor vibrations across any app, eliminating unnecessary vibration buzzes and conserving battery power. |  |
+| [Universal Enable Screen Rotation (Experimental)](#universal-enable-screen-rotation-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks screen orientation restrictions across any app, allowing portrait-only applications and games to freely rotate into landscape mode for tablets, foldables, and car units. |  |
+| [Universal High Refresh Rate 120Hz (Experimental)](#universal-high-refresh-rate-120hz-experimental) | ⚠️ [En cours de développement / Non testé] Forces high refresh rate display mode (90Hz, 120Hz, or 144Hz) in apps and games that are otherwise capped at 60Hz. |  |
+| [Universal Keep Screen On (Experimental)](#universal-keep-screen-on-experimental) | ⚠️ [En cours de développement / Non testé] Prevents the device display from automatically turning off or dimming while the patched app is open in the foreground (ideal for reading, recipes, and monitoring). |  |
+| [Universal WebView Debugging (Experimental)](#universal-webview-debugging-experimental) | ⚠️ [En cours de développement / Non testé] Enables Chrome Developer Tools inspection (chrome://inspect) on all internal WebViews across any hybrid application or game. |  |
 
 </details>
 
@@ -338,8 +275,14 @@ Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morphe
 - **MX Player :** (`com.mxtech.videoplayer.ad`)
 
 Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
-- **🌐 Patch Universel (Compatible avec TOUTES les applications) :**
+- **🌐 Patchs Universels (Compatibles avec TOUTES les applications) :**
   - **Universal App Clone :** Permet d'installer et d'exécuter l'application patchée côte à côte avec l'application originale officielle sur le même téléphone (Dual Install / Clônage sans conflit de ContentProvider ni de signature).
+  - **Universal AMOLED Black Theme :** Force un noir pur OLED (#000000) sur les arrière-plans de n'importe quelle application pour économiser la batterie sur écran AMOLED.
+  - **Universal Enable Screen Rotation :** Déverrouille la rotation de l'écran pour toutes les applications ou jeux bloqués en portrait (idéal pour tablettes et écrans pliables).
+  - **Universal Keep Screen On :** Maintient l'écran toujours allumé tant que l'application est au premier plan (idéal pour cuisine, lecture, GPS).
+  - **Universal High Refresh Rate 120Hz :** Force le taux de rafraîchissement maximal (90Hz/120Hz/144Hz) pour une fluidité extrême sur les applications limitées à 60Hz.
+  - **Universal Disable Haptics & Vibration :** Coupe totalement les vibrations du vibreur dans les menus et jeux pour économiser la batterie.
+  - **Universal WebView Debugging :** Active les outils de développement Chrome (`chrome://inspect`) pour analyser le code web des applications hybrides.
 - **Spotify Mobile (Spicetify Suite Mobile - 0 patch sur Awesome Morphe) :**
   - **Spicetify AMOLED Black Theme :** Thème noir absolu (#000000) pour écrans OLED/AMOLED, remplaçant les fonds gris foncé pour un contraste saisissant et des économies de batterie.
   - **Spicetify Custom Accent Color :** Remplace le vert Spotify standard (#1DB954) par des teintes personnalisées (Violet Électrique Spicetify, Cyan Cyberpunk, Rose Sakura, Crimson).
@@ -469,8 +412,14 @@ Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, t
 - **MX Player:** (`com.mxtech.videoplayer.ad`)
 
 This project provides gameplay-specific patches tailored to each game:
-- **🌐 Universal Patch (Compatible with ALL applications):**
+- **🌐 Universal Patches (Compatible with ALL applications):**
   - **Universal App Clone:** Enables side-by-side dual installation for any app, allowing the official unmodified app and the patched version to run simultaneously on the same device without signature or provider collisions.
+  - **Universal AMOLED Black Theme:** Injects true OLED pitch black (#000000) into UI background surfaces to maximize battery savings and contrast on AMOLED displays for any app.
+  - **Universal Enable Screen Rotation:** Unlocks screen orientation restrictions across any app, allowing portrait-only applications and games to freely rotate into landscape mode.
+  - **Universal Keep Screen On:** Prevents the device display from automatically turning off or dimming while the patched app is open in the foreground.
+  - **Universal High Refresh Rate 120Hz:** Forces high refresh rate display mode (90Hz, 120Hz, or 144Hz) in apps and games that are otherwise capped at 60Hz.
+  - **Universal Disable Haptics & Vibration:** Silences haptic motor vibrations across any app, eliminating unnecessary vibration buzzes and conserving battery power.
+  - **Universal WebView Debugging:** Enables Chrome Developer Tools inspection (chrome://inspect) on all internal WebViews across any hybrid application or game.
 - **Spotify Mobile (Spicetify Suite Mobile - 0 patches on Awesome Morphe):**
   - **Spicetify AMOLED Black Theme:** True OLED Black (#000000) theme, replacing default dark-gray backgrounds for deep contrast and battery savings across weekly updates.
   - **Spicetify Custom Accent Color:** Replaces standard Spotify green (#1DB954) with custom theme accents (Electric Violet, Cyberpunk Cyan, Sakura Pink, Crimson).

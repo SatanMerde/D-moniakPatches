@@ -520,6 +520,48 @@ object Constants {
         description = "Windy.com: Weather & Wind Radar Forecast by Windyty SE",
         appIconColor = 0x0288D1
     )
+
+    val COMPATIBILITY_VPN_LAT = Compatibility(
+        packageName = "com.vpn.lat",
+        name = "VPN.lat",
+        description = "VPN.lat: Unlimited Fast VPN Proxy",
+        appIconColor = 0x2979FF
+    )
+
+    val COMPATIBILITY_HIDEME = Compatibility(
+        packageName = "hideme.android.vpn",
+        name = "hide.me VPN",
+        description = "hide.me VPN: The Privacy Guard by eVenture Limited",
+        appIconColor = 0x00A3E0
+    )
+
+    val COMPATIBILITY_CLAUDE = Compatibility(
+        packageName = "com.anthropic.claude",
+        name = "Claude",
+        description = "Claude: AI Assistant by Anthropic",
+        appIconColor = 0xD97706
+    )
+
+    val COMPATIBILITY_EURIA = Compatibility(
+        packageName = "com.infomaniak.euria",
+        name = "Euria",
+        description = "Euria: Sovereign AI Assistant by Infomaniak",
+        appIconColor = 0x4F46E5
+    )
+
+    val COMPATIBILITY_BITWARDEN = Compatibility(
+        packageName = "com.x8bit.bitwarden",
+        name = "Bitwarden",
+        description = "Bitwarden: Password Manager & Authenticator by Bitwarden Inc.",
+        appIconColor = 0x175DDC
+    )
+
+    val COMPATIBILITY_DEEPL = Compatibility(
+        packageName = "com.deepl.mobile.android",
+        name = "DeepL",
+        description = "DeepL Translate: Accurate Multilingual Translator by DeepL SE",
+        appIconColor = 0x0F2B46
+    )
 }
 
 

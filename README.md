@@ -39,6 +39,601 @@
 
 ---
 
+
+## 🇫🇷 Français
+
+### ❓ À propos
+Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morpheapp), ciblant des jeux et applications populaires **100% absents du catalogue de patchs officiel d'Awesome Morphe** :
+- **Alto's Adventure :** (com.noodlecake.altosadventure)
+- **Beach Buggy Racing :** (com.vectorunit.cobalt.googleplay)
+- **Brave Browser :** (com.brave.browser)
+- **Canva :** (com.canva.editor)
+- **ChatGPT :** (com.openai.chatgpt)
+- **CoinSnap: Coin Identifier :** (com.coinidentifyer.ai)
+- **Duolingo :** (com.duolingo)
+- **Firefox :** (org.mozilla.firefox)
+- **Google Gemini :** (com.google.android.apps.bard)
+- **Google Drive :** (com.google.android.apps.docs)
+- **Google Maps :** (com.google.android.apps.maps)
+- **Google Photos :** (com.google.android.apps.photos)
+- **Hill Climb Racing :** (com.fingersoft.hillclimb)
+- **Hungry Shark Evolution :** (com.fgol.HungrySharkEvolution)
+- **Hungry Shark Heroes :** (com.ubisoft.hungrysharkheroes)
+- **Hungry Shark World :** (com.ubisoft.hungrysharkworld)
+- **Jetpack Joyride :** (com.halfbrick.jetpackjoyride)
+- **MEGA :** (mega.privacy.android.app)
+- **Movix :** (com.movix.app)
+- **MX Player :** (com.mxtech.videoplayer.ad)
+- **Nextcloud :** (org.nextcloud.client)
+- **Perplexity AI :** (ai.perplexity.app.android)
+- **Phone by Google (Téléphone) :** (com.google.android.dialer)
+- **Pinterest :** (com.pinterest)
+- **Proton Drive :** (me.proton.android.drive)
+- **Proton Mail :** (ch.protonmail.android)
+- **Proton Pass :** (proton.android.pass)
+- **Proton VPN :** (ch.protonvpn.android)
+- **Robbery Bob :** (com.chillingo.robberybobfree.android.row)
+- **Session Private Messenger :** (network.loki.messenger)
+- **Shades: Shadow Fight Roguelike :** (com.nekki.shadowfight.shades)
+- **Shadow Fight 2 :** (com.nekki.shadowfight)
+- **Shadow Fight 2 Special Edition :** (com.nekki.shadowfight2.specialedition)
+- **Shadow Fight 3 :** (com.nekki.shadowfight3)
+- **Shadow Fight 4: Arena :** (com.nekki.shadowfightarena)
+- **Shazam :** (com.shazam.android)
+- **Signal Private Messenger :** (org.thoughtcrime.securesms)
+- **SimpleX Chat :** (chat.simplex.app)
+- **Snapchat :** (com.snapchat.android)
+- **SoundCloud :** (com.soundcloud.android)
+- **Speedtest by Ookla :** (org.zwanoo.android.speedtest)
+- **Spotify Mobile (Spicetify Suite) :** (com.spotify.music)
+- **Strava :** (com.strava)
+- **Telegram :** (org.telegram.messenger)
+- **TeraBox :** (com.dubox.drive)
+- **Truecaller :** (com.truecaller)
+- **Turbo VPN :** (free.vpn.unblock.proxy.turbovpn)
+- **Tuta Mail :** (de.tutao.tutanota)
+- **Twitch :** (tv.twitch.android.app)
+- **VLC :** (org.videolan.vlc)
+- **Vector 2 :** (com.nekki.vector2)
+- **Waze :** (com.waze)
+- **Windscribe VPN :** (com.windscribe.vpn)
+
+Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
+- **🌐 Patchs Universels (Compatibles avec TOUTES les applications) :**
+  - **Universal App Clone :** Permet d'installer et d'exécuter l'application patchée côte à côte avec l'application originale officielle sur le même téléphone (Dual Install / Clônage sans conflit de ContentProvider ni de signature).
+  - **Universal AMOLED Black Theme :** Force un noir pur OLED (#000000) sur les arrière-plans de n'importe quelle application pour économiser la batterie sur écran AMOLED.
+  - **Universal Enable Screen Rotation :** Déverrouille la rotation de l'écran pour toutes les applications ou jeux bloqués en portrait (idéal pour tablettes et écrans pliables).
+  - **Universal Keep Screen On :** Maintient l'écran toujours allumé tant que l'application est au premier plan (idéal pour cuisine, lecture, GPS).
+  - **Universal High Refresh Rate 120Hz :** Force le taux de rafraîchissement maximal (90Hz/120Hz/144Hz) pour une fluidité extrême sur les applications limitées à 60Hz.
+  - **Universal Disable Haptics & Vibration :** Coupe totalement les vibrations du vibreur dans les menus et jeux pour économiser la batterie.
+  - **Universal WebView Debugging :** Active les outils de développement Chrome (`chrome://inspect`) pour analyser le code web des applications hybrides.
+- **Alto's Adventure (NOUVEAU - 50M+ téléchargements) :**
+  - **Infinite Wingsuit & Long Scarf :** Vol wingsuit illimité et écharpe infiniment déployée sans avoir à enchaîner des figures complexes.
+  - **Bypass Rewarded Ads :** Réanimations gratuites dans les ravins, doublement des pièces ramassées et neutralisation des interstitiels.
+- **Beach Buggy Racing (NOUVEAU - 0 patch sur Awesome Morphe) :**
+  - **Infinite Race Tickets :** Les 5 tickets de course restent pleins en permanence pour jouer en Carrière et Championnats sans arrêt.
+  - **Instant Car Upgrades :** Suppression des temps d'attente lors de l'amélioration de la vitesse, de l'accélération et de la tenue de route des karts.
+  - **Bypass Rewarded Ads :** Tours gratuits de la Roue de la Fortune Quotidienne, doublement des gains de pièces et tickets gratuits sans pub.
+  - **Free Shopping :** Déblocage des bolides, packs de gemmes et capacités spéciales des pilotes.
+- **Brave Browser (NOUVEAU - 100M+ téléchargements) :**
+  - **Désactiver Récompenses & Portefeuille Crypto :** Supprime l'icône BAT, le portefeuille Web3 et les popups d'onboarding pour une interface épurée.
+  - **Page Nouvel Onglet Propre :** Élimine le flux Brave News, les fonds d'écran sponsorisés et les tuiles promotionnelles.
+  - **Bouclier Agressif & Anti-Adblock Bypass :** Force le blocage agressif des pisteurs/pubs, nettoie les paramètres de tracking d'URL et neutralise les scripts anti-bloqueurs.
+- **Canva (NOUVEAU - 100M+ créateurs & designers) :**
+  - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) pour l'espace de création et l'accueil, et masquage des bannières promotionnelles et rappels d'essai Canva Pro.
+  - **Unlock High Quality Export :** Débloque les curseurs de résolution maximale d'exportation, l'exportation PNG avec fond transparent et contourne les restrictions de filigrane.
+  - **Unlock Canva Pro Features :** Débloque les templates Pro, polices exclusives et bibliothèque d'éléments premium sans abonnement actif.
+  - **Remove Watermarks on Free Elements :** Contourne le rendu des filigranes sur les éléments freemium et photos de stock pour un export propre.
+  - **Unlimited Brand Kit Slots :** Supprime la limite de kits de marque pour des palettes de couleurs, jeux de polices et bibliothèques de logos illimités.
+  - **Ad-Free & Hide Upgrade Popups :** Supprime les popups d'upgrade, les bannières Pro et les CTA d'achat dans l'éditeur et les galeries.
+- **ChatGPT (NOUVEAU - 100M+ d'utilisateurs IA) :**
+  - **AMOLED Dark Theme & Declutter :** Remplace les fonds gris foncé par un véritable noir pur OLED (#000000) dans les conversations et masque les bannières promotionnelles de passage à ChatGPT Plus.
+  - **Allow Screenshots & Copy :** Supprime la restriction Android FLAG_SECURE pour autoriser les captures d'écran et enregistrements vidéo des réponses dans les conversations, et débloque les limites de copie de texte.
+  - **Keep Screen On During Generation :** Maintient l'écran allumé pendant la génération continue de réponses et blocs de code pour éviter la mise en veille.
+- **CoinSnap :** Déblocage VIP Pro (identifications illimitées, cotations et évaluations détaillées, suppression du paywall).
+- **Duolingo (NOUVEAU - 500M+ téléchargements) :**
+  - **Unlimited Hearts :** Cœurs et vies illimités ! Ne perdez plus jamais de cœur en cas d'erreur pendant vos leçons de langues.
+  - **Ad-Free & Declutter :** Suppression des publicités vidéo interstitielles après chaque leçon et masquage des popups promotionnels Super Duolingo.
+  - **Unlock Super Features :** Déblocage des fonctionnalités Super Duolingo (Hub d'entraînement, révision des erreurs, et passage des niveaux Légendaires sans dépenser de gemmes).
+- **Firefox (NOUVEAU - 100M+ téléchargements) :**
+  - **Débloquer le Catalogue Complet d'Extensions :** Permet d'installer n'importe quelle extension AMO sur mobile sans restriction ni collection personnalisée.
+  - **Désactiver Télémétrie & Stories Pocket :** Supprime les recommandations Pocket sponsorisées, la télémétrie Mozilla et les pings Glean.
+  - **Thème Sombre Pur AMOLED :** Applique un thème noir absolu (#000000) sur l'interface, la page d'accueil et le mode lecture.
+- **Google Gemini (NOUVEAU - Assistant IA) :**
+  - **AMOLED Dark Theme & Declutter :** Infiltre un noir profond OLED (#000000) dans les interfaces de discussion Gemini et masque les incitations à passer à Gemini Advanced.
+  - **Allow Screenshots & UI Tweaks :** Supprime les restrictions de capture d'écran FLAG_SECURE sur les fenêtres de discussion et optimise la discrétion de l'overlay flottant.
+  - **Disable Response Haptics :** Coupe les vibrations haptiques répétitives pendant le streaming des réponses de l'IA.
+- **Google Drive (NOUVEAU - 15 Milliards+ de téléchargements) :**
+  - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) pour l'explorateur de fichiers Drive et les panneaux de détails.
+  - **Allow Screenshots & Secure Share :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran des documents et feuilles de calcul.
+- **Google Maps (NOUVEAU - 10 Milliards+ de téléchargements) :**
+  - **Block Sponsored Pins & Ads :** Supprime les épingles d'entreprises sponsorisées sur la carte, les suggestions publicitaires et les cartes promotionnelles pendant la recherche et le trajet.
+  - **AMOLED Black Navigation :** Active un thème noir pur OLED (#000000) pour la navigation GPS virage par virage et l'exploration de carte, réduisant la consommation de batterie et l'éblouissement nocturne.
+  - **Always Show Speedometer & Compass :** Maintient le compteur de vitesse GPS en temps réel et la boussole affichés en permanence à l'écran en mode guidage.
+- **Google Photos (NOUVEAU - 5 Milliards+ de téléchargements) :**
+  - **Unlock Editing Tools :** Débloque les outils d'édition avancés réservés aux Google Pixel (Gomme magique, Éclairage portrait, Ciel dynamique, Flou d'arrière-plan).
+  - **AMOLED Black & Declutter :** Thème noir pur OLED (#000000) dans la galerie et masquage des bannières d'abonnement Google One et d'achat d'espace de stockage.
+- **Hill Climb Racing (NOUVEAU - 500M+ téléchargements) :**
+  - **Infinite Fuel & No Breakdown :** La jauge de carburant ne descend jamais, permettant de rouler indéfiniment à travers tous les niveaux sans panne sèche.
+  - **Bypass Rewarded Ads :** Doublement gratuit des pièces en fin de course et accès aux coffres bonus sans regarder de vidéos publicitaires.
+- **Hungry Shark (World & Evolution) :**
+  - **Bypass Rewarded Ads :** Réanimations gratuites illimitées, doublement des pièces/gemmes en fin de partie, et tours de roue bonus sans regarder une seule vidéo publicitaire.
+  - **Free Shopping :** Achats gratuits dans la boutique in-game (gemmes, pièces, requins spéciaux, équipements et packs premium débloqués sans dépenser d'argent réel).
+- **Hungry Shark Heroes :** Réduction à 0 des temps d'incubation des œufs de requins, réanimations gratuites en arène de combat, et déblocage de l'extension de récif.
+- **Jetpack Joyride (NOUVEAU - 500M+ téléchargements) :**
+  - **Infinite Jetpack Shield & Revives :** Bouclier permanent contre les lasers et missiles, réanimations gratuites infinies lors des crashs.
+  - **Bypass Rewarded Ads :** Tirages gratuits illimités au bandit-manchot de fin de partie et doublement des pièces sans publicité.
+- **MEGA (NOUVEAU - 100M+ de téléchargements) :**
+  - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) pour l'explorateur de fichiers cloud, la file des transferts et les paramètres, et masquage des bannières promotionnelles Pro.
+  - **Allow Screenshots & Export :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran des documents et photos et débloque l'export local.
+- **Movix (NOUVEAU - Streaming Films & Séries) :**
+  - **Block Video Ads & Interstitials :** Élimination totale des pré-rolls et coupures vidéo publicitaires, des bannières et des popups de redirection intempestifs sur tous les lecteurs vidéo de films et séries.
+  - **AMOLED Black Player & Picture-in-Picture :** Infiltre un noir profond OLED (#000000) dans le catalogue et débloque le mode Picture-in-Picture (PiP) ainsi que la lecture audio en arrière-plan.
+  - **Unlock Premium Subscription :** Contourne les vérifications d'abonnement VIP/Premium pour débloquer tout le contenu exclusif films et séries.
+  - **Force HD & 4K Quality Unlock :** Force la qualité maximale (HD 1080p / 4K) quel que soit le niveau d'abonnement ou la détection réseau.
+  - **Disable Auto-Pause on Background :** Empêche la mise en pause automatique de la lecture quand l'app passe en arrière-plan.
+  - **Bypass Download Restrictions :** Débloque le téléchargement hors-ligne de tous les films et séries sans abonnement Premium.
+- **MX Player (NOUVEAU - 1 Milliard+ de téléchargements) :**
+  - **Ad-Free Video Player :** Suppression des bannières dans la liste des dossiers de vidéos et élimination des pubs pop-up lors de la mise en pause.
+  - **Unlock Background Playback :** Débloque la lecture audio en arrière-plan écran éteint et le mode Picture-in-Picture (PiP) sans abonnement MX Pro.
+- **Nextcloud (NOUVEAU - 5M+ d'utilisateurs Cloud Privé) :**
+  - **AMOLED Dark Theme :** Infiltre un noir profond (#000000) pour écrans OLED dans l'explorateur de fichiers, la galerie de médias et le moniteur de synchronisation.
+  - **Allow Screenshots & Bypass Lockout :** Neutralise la protection de fenêtre FLAG_SECURE pour autoriser les captures d'écran même avec le verrouillage par code configuré.
+- **Perplexity (NOUVEAU - 50M+ d'utilisateurs IA) :**
+  - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) dans les résultats de recherche et masquage des bannières promotionnelles Perplexity Pro.
+  - **Allow Screenshots & Sharing :** Supprime les restrictions de capture d'écran sur les collections et fils de discussion privés.
+  - **Unlock Pro Search Interface :** Optimise la mise en page de la recherche approfondie et le panneau des sources web.
+- **Phone by Google (Téléphone - NOUVEAU - 1 Milliard+ de téléchargements) :**
+  - **Enable Call Recording :** Débloque les paramètres et le bouton natif d'enregistrement d'appels dans l'application Téléphone de Google, contournant les restrictions géographiques et d'opérateurs.
+  - **Silence Call Recording Warning :** Neutralise et coupe le message vocal d'avertissement sonore (« Cet appel est désormais enregistré ») diffusé au début et à la fin de l'enregistrement.
+  - **Enhanced Spam & Detailed Caller ID :** Active le filtrage strict des spams téléphoniques et affiche l'opérateur d'origine et la localisation géographique précise des numéros entrants.
+- **Pinterest (NOUVEAU - 1 Milliard+ de téléchargements) :**
+  - **Block Sponsored Pins & Shopping Ads :** Masque les épingles de produits sponsorisées et les carrousels de shopping commercial dans le flux d'accueil et les résultats de recherche.
+  - **Allow Saving Media & Direct Download :** Débloque l'option de téléchargement direct en haute qualité pour les images et vidéos sans filigrane.
+- **Proton Drive (NOUVEAU - 5M+ de téléchargements) :**
+  - **AMOLED Black & Declutter :** Noir pur OLED (#000000) dans les coffres-forts de fichiers et masquage des alertes de quota et bannières Proton Unlimited.
+  - **Allow Screenshots & Privacy :** Supprime la protection FLAG_SECURE pour permettre les captures d'écran et la duplication d'écran des documents et aperçus.
+- **Proton Mail (NOUVEAU - 10M+ téléchargements) :**
+  - **AMOLED Black Theme :** Infiltre un noir absolu (#000000) dans les menus, la boîte de réception et le lecteur d'emails.
+  - **Declutter UI & Hide Upgrade Nags :** Masque les bannières persistantes de mise à niveau vers les forfaits payants Proton Unlimited.
+  - **Allow Screenshots & Screen Mirroring :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran des emails confidentiels.
+- **Proton Pass (NOUVEAU - 1M+ téléchargements) :**
+  - **AMOLED Dark Theme :** Active un thème noir pur OLED (#000000) pour économiser la batterie lors de la consultation des identifiants et mots de passe.
+  - **Allow Screenshots in Vault :** Supprime la protection FLAG_SECURE pour autoriser la capture d'écran des identifiants et clés 2FA.
+- **Proton VPN (50M+ téléchargements) :**
+  - **Declutter UI & Hide Plus Upsells :** Supprime les incitations incessantes à souscrire à l'abonnement payant Proton VPN Plus.
+  - **Bypass Secure Window Restrictions :** Débloque la capture d'écran et la duplication d'écran de l'application VPN sans écran noir.
+  - **AMOLED Black Theme :** Active un thème noir absolu (#000000) sur l'ensemble de l'interface de connexion VPN et de la carte.
+  - **Unlock Quick Settings Tile :** Débloque et active la tuile de paramètres rapides Android pour connecter ou déconnecter le VPN instantanément.
+  - **Bypass Session Timeout :** Empêche la déconnexion automatique ou les expirations de session VPN lors des longues périodes d'inactivité.
+- **Robbery Bob (NOUVEAU - 0 patch sur Awesome Morphe) :**
+  - **Infinite Stealth & Invisibility :** Bob est totalement indétectable par les gardes, résidents, caméras et chiens de garde.
+  - **Infinite Coins :** Réserve illimitée de pièces pour acheter toutes les améliorations de vitesse, d'endurance et de discrétion.
+  - **Bypass Rewarded Ads :** Déblocage des bonus de mission et multiplicateurs de score sans aucune publicité vidéo.
+  - **Unlock All Chapters & Costumes :** Accès immédiat à l'ensemble des chapitres de cambriolage et garde-robes exclusives.
+- **Session (NOUVEAU - Messagerie Privée Décentralisée) :**
+  - **AMOLED Pitch Black :** Infiltre un noir pur (#000000) dans les conversations et la liste des salons pour écrans OLED.
+  - **Allow Screenshots & Media Export :** Neutralise la protection FLAG_SECURE pour permettre les captures d'écran des conversations privées.
+  - **Unlock Pro & Multi-Profile Switching :** Débloque le basculement rapide multi-profils, les paramètres avancés de chiffrement résistant au quantique et le style de profil bienfaiteur.
+- **Shades: Shadow Fight Roguelike :**
+  - **Infinite Energy :** Énergie de combat illimitée pour enchaîner les runs sans attendre la recharge.
+  - **Bypass Rewarded Ads :** Relances gratuites des choix de nuances (Shades) et réanimations sans pub.
+- **Shadow Fight 2 :**
+  - **Infinite Energy :** Énergie illimitée pour combattre enchaîné sans attendre le rechargement de la barre de stamina.
+  - **Bypass Rewarded Ads :** Suppression des vidéos obligatoires après les duels et doublement gratuit des pièces.
+  - **Free Shopping :** Pièces et gemmes illimitées, armes légendaires et armures enchantées gratuites.
+- **Shadow Fight 2 Special Edition :** Édition premium sans pub avec déblocage Free Shopping des équipements légendaires.
+- **Shadow Fight 3 :**
+  - **Free Shadow Energy :** Jauge d'énergie d'ombre toujours prête à l'activation pour exécuter les attaques spéciales.
+  - **Bypass Rewarded Ads :** Récompenses de quêtes triplées et ouvertures de coffres légendaires sans vidéo sponsorisée.
+- **Shadow Fight 4: Arena :** Tours de roulette gratuits, ouverture immédiate des coffres de guerrier, et cartes bonus.
+- **Shazam (NOUVEAU - 500M+ téléchargements) :**
+  - **Ad-Free & Clean UI :** Suppression des bannières publicitaires et des promotions Apple Music / Spotify intrusives dans les résultats d'identification.
+  - **Auto-Shazam AMOLED Mode :** Thème noir pur OLED (#000000) pour l'écoute en continu en arrière-plan sans épuiser la batterie.
+- **Signal (NOUVEAU - 100M+ d'utilisateurs) :**
+  - **AMOLED Dark Theme :** Remplace les gris d'arrière-plan par un véritable noir absolu (#000000) sur toutes les vues de conversation, profil et paramètres.
+  - **Allow Screenshots & Incognito Keyboard :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran et force le mode clavier incognito pour empêcher la mémorisation des saisies.
+  - **Bypass Ephemeral Disappearing Messages :** Empêche la suppression et disparition automatique des messages éphémères du chat.
+  - **Hide Typing & Read Indicators :** Désactive discrètement l'envoi de l'indicateur de frappe (« est en train d'écrire... ») et les accusés de lecture tout en les recevant.
+  - **Unlock Pro & Badges :** Débloque les badges de soutien donor/donateur exclusifs et personnalisations esthétiques côté client.
+- **SimpleX Chat (NOUVEAU - Sans identifiant utilisateur) :**
+  - **AMOLED Black Theme :** Thème noir pur OLED (#000000) pour l'ensemble des discussions privées, groupes et consoles de contact.
+  - **Allow Screenshots & Media Export :** Supprime la protection de fenêtre FLAG_SECURE pour autoriser les captures d'écran des chats et médias.
+  - **Unlock Pro & Multi-Profile Switching :** Débloque le basculement rapide multi-profils, les paramètres avancés de chiffrement résistant au quantique et le style de profil bienfaiteur.
+- **Snapchat (NOUVEAU - 1 Milliard+ de téléchargements) :**
+  - **AMOLED Dark Theme & Declutter :** Applique un thème noir pur OLED (#000000) sur les écrans de chat et masque les vignettes sponsorisées Discover et publicités Spotlight.
+  - **Allow Screenshots & Anti-Screen Security :** Neutralise les restrictions FLAG_SECURE sur les vues de chat et de médias pour autoriser la capture d'écran sans écran noir.
+  - **Start on Chat & Battery Saver :** Lance Snapchat directement sur le fil des conversations privées au lieu d'ouvrir le viseur appareil photo énergivore au démarrage.
+  - **Unlock Snapchat+ Features :** Débloque les options d'interface Snapchat+ côté client (icônes d'application exclusives, émojis post-visionnage, badges d'épinglage des meilleurs amis et contrôles du thème sombre).
+- **SoundCloud (NOUVEAU - 100M+ auditeurs) :**
+  - **Block Audio & Stream Ads :** Bloque les coupures publicitaires audio entre les morceaux et élimine les pistes sponsorisées du flux.
+  - **Declutter UI & Hide Go+ Upsells :** Supprime les incitations insistantes à passer à l'abonnement SoundCloud Go+.
+  - **Unlock HQ Audio & Premium Controls :** Débloque le sélecteur de streaming audio Haute Qualité (HQ) dans les paramètres et les contrôles de lecture avancés (vitesse variable).
+- **Speedtest by Ookla (NOUVEAU - 500M+ téléchargements) :**
+  - **Ad-Free Speedtest :** Suppression intégrale des publicités interstitielles, bannières et cartes d'enquêtes sponsorisées post-test.
+  - **Premium VPN & Unlimited Data :** Débloque l'accès VPN illimité sans quota mensuel de 2 Go et permet le choix de tous les serveurs mondiaux.
+- **Spotify Mobile (Spicetify Suite Mobile - 0 patch sur Awesome Morphe) :**
+  - **Spicetify AMOLED Black Theme :** Thème noir absolu (#000000) pour écrans OLED/AMOLED, remplaçant les fonds gris foncé pour un contraste saisissant et des économies de batterie.
+  - **Spicetify Custom Accent Color :** Remplace le vert Spotify standard (#1DB954) par des teintes personnalisées (Violet Électrique Spicetify, Cyan Cyberpunk, Rose Sakura, Crimson).
+  - **Spicetify Declutter UI :** Épuration totale : masquage des bannières promotionnelles Premium, onglets d'achat et carrousels d'annonces.
+  - **Spicetify Community Addons & Settings :** Contrôleur Spicetify Mobile et gestionnaire d'addons pour activer des modules communautaires et drapeaux internes.
+- **Strava (NOUVEAU - 100M+ sportifs) :**
+  - **Unlock Pro & Subscriber Analytics :** Débloque les cartes de parcours en relief 3D, l'analyse comparative des segments et les métriques d'effort relatif.
+  - **Declutter Feed & Hide Trials :** Masque les invitations incessantes à souscrire à l'essai gratuit et les défis sponsorisés.
+- **Telegram (NOUVEAU - 1 Milliard+ d'utilisateurs) :**
+  - **Block Ads & Hide Stories :** Supprime les messages sponsorisés dans les canaux publics, masque le carrousel des stories au-dessus des discussions et désactive les alertes Telegram Premium.
+  - **Allow Saving Restricted Media :** Contourne la protection anti-copie (« Le transfert et la copie ne sont pas autorisés ») des canaux restreints pour permettre la sauvegarde des photos, vidéos et la copie de texte.
+  - **Unlock Unlimited Pinned Chats :** Débloque la limite des 5 discussions épinglées pour permettre d'épingler un nombre illimité de conversations et canaux sans Telegram Premium.
+  - **Disable Proximity Sensor :** Empêche le capteur de proximité d'éteindre l'écran ou de basculer l'audio vers l'écouteur lors de l'écoute de messages vocaux ou vidéo.
+  - **Unlock Telegram Premium Features :** Débloque côté client les fonctionnalités Telegram Premium (icônes d'application exclusives, réactions animées, bouton de transcription audio en texte et doublement des dossiers de discussion).
+- **TeraBox (NOUVEAU - 100M+ de téléchargements) :**
+  - **Block Ads & Hide VIP Nags :** Suppression des vidéos publicitaires au lancement, des interstitiels de stockage et des popups insistants d'abonnement VIP.
+  - **Unlock Video Player Speed & Controls :** Déblocage de la lecture vidéo en arrière-plan écran éteint, du sélecteur de résolution 1080p/Originale et de la vitesse de lecture sans abonnement Premium.
+- **Truecaller (NOUVEAU - 1 Milliard+ de téléchargements) :**
+  - **Ad-Free & Clean Dialer :** Élimine les publicités plein écran après chaque appel téléphonique et nettoie l'historique des appels.
+  - **Unlock Premium & Gold Features :** Débloque l'affichage du badge Premium/Gold et les filtres de blocage de spam avancés.
+- **Turbo VPN (NOUVEAU - 100M+ téléchargements) :**
+  - **Ad-Free Turbo VPN :** Suppression complète des vidéos publicitaires plein écran lors de la connexion et déconnexion, des bannières inférieures et des popups interstitiels.
+  - **Declutter UI & Hide VIP Upsells :** Élimine les popups d'achat agressifs pour l'abonnement VIP, les coffres flottants promotionnels et simplifie l'interface.
+- **Tuta Mail (NOUVEAU - 1M+ téléchargements) :**
+  - **AMOLED Black Theme :** Infiltre un noir pur OLED (#000000) dans la boîte de réception, la consultation d'emails, le calendrier et les contacts.
+  - **Declutter UI & Hide Upgrade Banners :** Masque les bannières promotionnelles de mise à niveau vers les offres Revolutionary et Legend, les alertes d'espace et les popups d'achat.
+  - **Allow Screenshots & Screen Mirroring :** Supprime la restriction FLAG_SECURE pour permettre les captures d'écran et la duplication d'écran des emails et reçus sans écran noir.
+- **Twitch (NOUVEAU - 100M+ téléchargements) :**
+  - **Bloquer les Publicités Vidéo :** Neutralise les publicités vidéo pre-roll et mid-roll sur les flux en direct et les VODs sans figer le lecteur.
+  - **Lecture en Arrière-plan & Mode Audio :** Débloque l'écoute audio en arrière-plan et le mode Picture-in-Picture sans interruption.
+  - **Filtre de Chat & Masquage des Overlays :** Masque les alertes de Train de la Housse (Hype Train), les dons de Bits et épure le chat.
+- **VLC (NOUVEAU - 100M+ téléchargements) :**
+  - **Thème Pur AMOLED & Épuration UI :** Thème noir pur #000000 pour dalles OLED et masquage des astuces d'onboarding.
+- **Vector 2 (NOUVEAU - 0 patch sur Awesome Morphe) :**
+  - **Infinite Battery & Shields :** Les charges des kits d'armure et de boucliers ne se déchargent jamais, protégeant le coureur contre les lasers et mines.
+  - **Unlock Gear Matrix :** Déblocage des emplacements d'équipements expérimentaux et matrices de datacores sans verrouillage de recherche.
+  - **Bypass Rewarded Ads :** Réanimations d'urgence gratuites lors des runs et décryptage instantané des datacores sans vidéo.
+  - **Free Shopping :** Jetons de recherche, accélérateurs et puces de mise à niveau gratuits.
+- **Waze (NOUVEAU - 100M+ conducteurs) :**
+  - **Block Zero-Speed Ads & Sponsored Pins :** Bloque les bannières publicitaires invasives et les logos de marques sponsorisées qui s'affichent à l'arrêt au feu rouge ou dans les bouchons.
+  - **Exact Radar & Speed Camera Alerts :** Restaure l'alerte et la distance précise des radars fixes et mobiles au lieu des zones vagues.
+  - **Unlock Exclusive Moods & Car Icons :** Débloque toutes les humeurs exclusives (Monstres, Rétro, VIP) et avatars de véhicules pour personnaliser votre profil de conducteur.
+- **Windscribe VPN (NOUVEAU - 10M+ téléchargements) :**
+  - **Declutter UI & Hide Pro Upsells :** Masque les rubans promotionnels Pro, les alertes de réductions et les bannières d'incitation à l'achat dans la liste des emplacements.
+  - **Enhanced Privacy & Telemetry Blocker :** Neutralise les rapports d'erreurs en arrière-plan, les métriques d'analyse et les points de terminaison de télémétrie.
+
+> ⚠️ **Note Générale :** Tous les nouveaux patchs indiqués `(Experimental)` sont **en cours de développement et non encore validés par test sur appareil physique**.
+
+### 📲 Comment utiliser dans Morphe Manager
+
+👉 **[Ajouter D-moniak Patches à Morphe Manager (1-Clic)](https://morphe.software/add-source?github=SatanMerde/D-moniakPatches)**
+
+Ou manuellement dans l'application :
+1. Lancez **Morphe Manager**.
+2. Rendez-vous dans **Settings** (Paramètres) > **Patch Sources** (Sources de patchs).
+3. Ajoutez la source : `SatanMerde/D-moniakPatches`.
+4. Sélectionnez votre application ou jeu (ex. **Beach Buggy Racing**, **Robbery Bob**, **Vector 2**, **Hungry Shark**, etc.).
+5. Cochez les patchs souhaités.
+6. Cliquez sur **Patcher** puis procédez à l'installation.
+
+### 💬 Signaler un bug ou demander un patch
+Vous rencontrez un problème ou vous souhaitez le support d'un nouveau jeu / patch ?
+- 🐛 **[Signaler un bug ou un problème](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml)** : si un patch ne fonctionne pas correctement ou fait planter l'application.
+- ✨ **[Demander un nouveau patch](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_request.yml)** : pour proposer l'ajout de nouvelles fonctionnalités ou le support d'un autre jeu / application.
+
+### 🛠️ Développement & Publication
+Ce dépôt utilise le système de publication automatisé **Semantic Release** avec GitHub Actions :
+- **Branche `dev`** : Utilisée pour le développement et la génération automatique de pré-releases.
+- **Branche `main`** : Branche stable de production.
+- **Commits conventionnels** :
+  - `feat:` Nouvelle fonctionnalité (déclenche une release mineure).
+  - `fix:` Correction de bug (déclenche une release corrective).
+  - `chore:` Maintenance interne sans création de release.
+
+#### Compilation locale
+```bash
+./gradlew :patches:buildAndroid
+```
+Le fichier résultant `.mpp` est généré dans `patches/build/libs/patches-*.mpp`.
+
+### 📄 Licence
+Ce projet est distribué sous licence [GNU General Public License v3.0](LICENSE).  
+Ce logiciel est fourni « tel quel », sans garantie d'aucune sorte.
+
+---
+
+## 🇬🇧 English
+
+### ❓ About
+Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, targeting popular apps and games **100% absent from the official Awesome Morphe catalog**:
+- **Alto's Adventure:** (com.noodlecake.altosadventure)
+- **Beach Buggy Racing:** (com.vectorunit.cobalt.googleplay)
+- **Brave Browser:** (com.brave.browser)
+- **Canva:** (com.canva.editor)
+- **ChatGPT:** (com.openai.chatgpt)
+- **CoinSnap: Coin Identifier:** (com.coinidentifyer.ai)
+- **Duolingo:** (com.duolingo)
+- **Firefox:** (org.mozilla.firefox)
+- **Google Gemini:** (com.google.android.apps.bard)
+- **Google Drive:** (com.google.android.apps.docs)
+- **Google Maps:** (com.google.android.apps.maps)
+- **Google Photos:** (com.google.android.apps.photos)
+- **Hill Climb Racing:** (com.fingersoft.hillclimb)
+- **Hungry Shark Evolution:** (com.fgol.HungrySharkEvolution)
+- **Hungry Shark Heroes:** (com.ubisoft.hungrysharkheroes)
+- **Hungry Shark World:** (com.ubisoft.hungrysharkworld)
+- **Jetpack Joyride:** (com.halfbrick.jetpackjoyride)
+- **MEGA:** (mega.privacy.android.app)
+- **Movix:** (com.movix.app)
+- **MX Player:** (com.mxtech.videoplayer.ad)
+- **Nextcloud:** (org.nextcloud.client)
+- **Perplexity AI:** (ai.perplexity.app.android)
+- **Phone by Google:** (com.google.android.dialer)
+- **Pinterest:** (com.pinterest)
+- **Proton Drive:** (me.proton.android.drive)
+- **Proton Mail:** (ch.protonmail.android)
+- **Proton Pass:** (proton.android.pass)
+- **Proton VPN:** (ch.protonvpn.android)
+- **Robbery Bob:** (com.chillingo.robberybobfree.android.row)
+- **Session Private Messenger:** (network.loki.messenger)
+- **Shades: Shadow Fight Roguelike:** (com.nekki.shadowfight.shades)
+- **Shadow Fight 2:** (com.nekki.shadowfight)
+- **Shadow Fight 2 Special Edition:** (com.nekki.shadowfight2.specialedition)
+- **Shadow Fight 3:** (com.nekki.shadowfight3)
+- **Shadow Fight 4: Arena:** (com.nekki.shadowfightarena)
+- **Shazam:** (com.shazam.android)
+- **Signal Private Messenger:** (org.thoughtcrime.securesms)
+- **SimpleX Chat:** (chat.simplex.app)
+- **Snapchat:** (com.snapchat.android)
+- **SoundCloud:** (com.soundcloud.android)
+- **Speedtest by Ookla:** (org.zwanoo.android.speedtest)
+- **Spotify Mobile (Spicetify Suite):** (com.spotify.music)
+- **Strava:** (com.strava)
+- **Telegram:** (org.telegram.messenger)
+- **TeraBox:** (com.dubox.drive)
+- **Truecaller:** (com.truecaller)
+- **Turbo VPN:** (free.vpn.unblock.proxy.turbovpn)
+- **Tuta Mail:** (de.tutao.tutanota)
+- **Twitch:** (tv.twitch.android.app)
+- **VLC:** (org.videolan.vlc)
+- **Vector 2:** (com.nekki.vector2)
+- **Waze:** (com.waze)
+- **Windscribe VPN:** (com.windscribe.vpn)
+
+This project provides gameplay-specific patches tailored to each game:
+- **🌐 Universal Patches (Compatible with ALL applications):**
+  - **Universal App Clone:** Enables side-by-side dual installation for any app, allowing the official unmodified app and the patched version to run simultaneously on the same device without signature or provider collisions.
+  - **Universal AMOLED Black Theme:** Injects true OLED pitch black (#000000) into UI background surfaces to maximize battery savings and contrast on AMOLED displays for any app.
+  - **Universal Enable Screen Rotation:** Unlocks screen orientation restrictions across any app, allowing portrait-only applications and games to freely rotate into landscape mode.
+  - **Universal Keep Screen On:** Prevents the device display from automatically turning off or dimming while the patched app is open in the foreground.
+  - **Universal High Refresh Rate 120Hz:** Forces high refresh rate display mode (90Hz, 120Hz, or 144Hz) in apps and games that are otherwise capped at 60Hz.
+  - **Universal Disable Haptics & Vibration:** Silences haptic motor vibrations across any app, eliminating unnecessary vibration buzzes and conserving battery power.
+  - **Universal WebView Debugging:** Enables Chrome Developer Tools inspection (chrome://inspect) on all internal WebViews across any hybrid application or game.
+- **Alto's Adventure (NEW - 50M+ downloads):**
+  - **Infinite Wingsuit & Long Scarf:** Provides unlimited wingsuit flight duration and keeps the scarf at maximum length without requiring endless trick combos.
+  - **Bypass Rewarded Ads:** Free revives on crashes, doubled coins at run end, and eliminates intrusive interstitial popups.
+- **Beach Buggy Racing (NEW - 0 patches on Awesome Morphe):**
+  - **Infinite Race Tickets:** 5 race tickets remain full at all times for uninterrupted Career and Championship races.
+  - **Instant Car Upgrades:** Eliminates delivery wait times when upgrading top speed, acceleration, and handling.
+  - **Bypass Rewarded Ads:** Free daily fortune wheel spins, coin doublers, and instant tickets without watching ads.
+  - **Free Shopping:** Unlocks premium cars, gem bundles, and special driver abilities.
+- **Brave Browser (NEW - 100M+ downloads):**
+  - **Disable Rewards & Crypto Wallet:** Removes BAT rewards icon, Web3 crypto wallet entries, and onboarding prompts for a clean UI.
+  - **Clean New Tab Page:** Removes Brave News feed, sponsored wallpapers, and promotional top tiles.
+  - **Aggressive Shields & Anti-Adblock Bypass:** Forces aggressive ad/tracker blocking, strips URL tracking parameters, and bypasses anti-adblock scripts.
+- **Canva (NEW - 100M+ creators & designers):**
+  - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into Canva design workspace and dashboard, and hides Canva Pro trial banners and upgrade reminders.
+  - **Unlock High Quality Export:** Unlocks maximum export resolution sliders, transparent background PNG option, and bypasses premium element watermark restrictions.
+  - **Unlock Canva Pro Features:** Unlocks Pro templates, exclusive fonts, and premium element library without an active Pro subscription.
+  - **Remove Watermarks on Free Elements:** Bypasses watermark rendering on freemium design elements and stock photos for clean exports.
+  - **Unlimited Brand Kit Slots:** Removes the Brand Kit slot limit for unlimited custom color palettes, font sets, and logo libraries.
+  - **Ad-Free & Hide Upgrade Popups:** Strips in-editor upgrade dialogs, Pro upsell cards, and subscription CTAs throughout Canva.
+- **ChatGPT (NEW - 100M+ AI users):**
+  - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into ChatGPT conversations and hides 'Upgrade to ChatGPT Plus' marketing banners.
+  - **Allow Screenshots & Copy:** Removes Android FLAG_SECURE window restrictions to allow screenshots and screen recording inside conversations and prevents copy restrictions.
+  - **Keep Screen On During Generation:** Keeps the screen illuminated and active while ChatGPT is streaming responses and code snippets, preventing device sleep during long answers.
+- **CoinSnap:** VIP Pro unlock (unlimited identifications, full coin valuation and grading, disabled startup paywall).
+- **Duolingo (NEW - 500M+ downloads):**
+  - **Unlimited Hearts:** Unlimited hearts and lives! Never lose a heart on mistakes during language lessons.
+  - **Ad-Free & Declutter:** Strips video ads between lessons and removes Super Duolingo upgrade popups.
+  - **Unlock Super Features:** Access Practice Hub, mistake reviews, and legendary mastery levels without gem costs.
+- **Google Gemini (NEW - AI Assistant):**
+  - **AMOLED Dark Theme & Declutter:** Injects pure pitch black (#000000) for OLED displays across Gemini chat threads and removes persistent Gemini Advanced subscription banners.
+  - **Allow Screenshots & UI Tweaks:** Bypasses FLAG_SECURE window restrictions on chat windows and streamlines floating overlay behavior.
+  - **Disable Response Haptics:** Suppresses repetitive haptic buzzes while the AI streams text and markdown responses.
+- **Google Drive (NEW - 15 Billion+ downloads):**
+  - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into Google Drive file list, folder browser, and document detail views.
+  - **Allow Screenshots & Secure Share:** Removes Android FLAG_SECURE restrictions in Google Drive for screenshots of documents and spreadsheets.
+- **Google Maps (NEW - 10 Billion+ downloads):**
+  - **Block Sponsored Pins & Ads:** Removes sponsored business pins from map layers, promotional suggestion cards, and contextual search ads during navigation.
+  - **AMOLED Black Navigation:** Forces pure OLED black (#000000) night theme during turn-by-turn guidance and map browsing, reducing battery consumption on OLED displays.
+  - **Always Show Speedometer & Compass:** Ensures the real-time GPS speedometer and navigation compass remain permanently visible on screen during route guidance.
+- **Google Photos (NEW - 5 Billion+ downloads):**
+  - **Unlock Editing Tools:** Enables Pixel-exclusive photo editing features (Magic Eraser, Portrait Light, Dynamic Sky, Blur/Depth effects) across all Android devices.
+  - **AMOLED Black & Declutter:** Injects pure OLED black (#000000) into media viewing and library tabs, and hides persistent Google One storage upsell banners.
+- **Hill Climb Racing (NEW - 500M+ downloads):**
+  - **Infinite Fuel & No Breakdown:** The fuel tank never depletes, allowing infinite driving across all stages without running out of gas.
+  - **Bypass Rewarded Ads:** Automatically grants free post-race coin doublers and opens daily bonus chests without watching rewarded video ads.
+- **Hungry Shark (World & Evolution):**
+  - **Bypass Rewarded Ads:** Free crash revives, doubled coins/gems at run end, and bonus wheel spins without watching ads.
+  - **Free Shopping:** Unlocks sharks, accessories, maps, and gem packages directly from the in-game shop for free.
+- **Hungry Shark Heroes:** Zero incubation timers for shark eggs, free battle revives in multiplayer arenas, and instant reef expansion unlocks.
+- **Jetpack Joyride (NEW - 500M+ downloads):**
+  - **Infinite Jetpack Shield & Revives:** Permanent deflector shield protecting Barry from lasers and zappers, plus unlimited crash revives.
+  - **Bypass Rewarded Ads:** Free final spin tokens on the slot machine and doubled coin rewards without viewing video advertisements.
+- **MEGA (NEW - 100M+ downloads):**
+  - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into MEGA cloud file browser, transfer queue, and settings, and hides Pro upgrade promotion banners.
+  - **Allow Screenshots & Export:** Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions.
+- **Movix (NEW - Movies & Series Streaming):**
+  - **Block Video Ads & Interstitials:** Completely eliminates pre-roll and mid-roll video ads, banners, and intrusive redirect popups across all movie and series player screens.
+  - **AMOLED Black Player & Picture-in-Picture:** Injects true OLED pitch black (#000000) into the Movix catalog and unlocks Picture-in-Picture (PiP) mode and background audio playback.
+  - **Unlock Premium Subscription:** Bypasses VIP/Premium subscription checks to unlock all exclusive content, series, and movie libraries.
+  - **Force HD & 4K Quality Unlock:** Forces maximum video quality (HD 1080p / 4K) on all content regardless of subscription tier or network thresholds.
+  - **Disable Auto-Pause on Background:** Prevents automatic video pause when the app enters the background, enabling audio-only listening.
+  - **Bypass Download Restrictions:** Unlocks offline download of any movie or series episode without a Premium subscription.
+- **MX Player (NEW - 1 Billion+ downloads):**
+  - **Ad-Free Video Player:** Removes ads in the video folder list and pause-screen overlay popups.
+  - **Unlock Background Playback:** Unlocks background audio playback with screen off and Picture-in-Picture (PiP) mode without MX Player Pro.
+- **Nextcloud (NEW - 5M+ Private Cloud users):**
+  - **AMOLED Dark Theme:** Replaces dark gray theme with pure pitch black (#000000) for OLED screens in Nextcloud file explorer, uploads monitor, and media gallery.
+  - **Allow Screenshots & Bypass Lockout:** Removes FLAG_SECURE window protections in Nextcloud to enable screenshots and screen recording even when app passcode lock is configured.
+- **Perplexity (NEW - 50M+ AI users):**
+  - **AMOLED Dark Theme & Declutter:** Injects pure pitch black (#000000) for OLED screens in search query threads and removes persistent Perplexity Pro subscription banners.
+  - **Allow Screenshots & Sharing:** Removes Android FLAG_SECURE window restrictions on private collections and search threads.
+  - **Unlock Pro Search Interface:** Streamlines deep search layout and web source reference cards for enhanced readability.
+- **Phone by Google (NEW - 1 Billion+ downloads):**
+  - **Enable Call Recording:** Unlocks native call recording settings and in-call record button, bypassing regional and carrier restrictions.
+  - **Silence Call Recording Warning:** Silences the mandatory voice prompt ("This call is now being recorded") played to both parties when recording begins or ends.
+  - **Enhanced Spam & Detailed Caller ID:** Enforces aggressive spam blocking and surfaces carrier routing and geographical location metadata on incoming calls.
+- **Pinterest (NEW - 1 Billion+ downloads):**
+  - **Block Sponsored Pins & Shopping Ads:** Removes sponsored product pins and commercial shopping carousels from the home feed and search results.
+  - **Allow Saving Media & Direct Download:** Enables direct high-resolution image and video downloading without watermarks.
+- **Proton Drive (NEW - 5M+ downloads):**
+  - **AMOLED Black & Declutter:** Injects pure OLED pitch black (#000000) into Proton Drive file vaults and hides storage quota warning banners and Proton Unlimited upgrade prompts.
+  - **Allow Screenshots & Privacy:** Removes Android FLAG_SECURE window restrictions in Proton Drive, allowing screenshots and screen recording of previewed documents and media.
+- **Proton Mail (NEW - 10M+ downloads):**
+  - **AMOLED Black Theme:** Injects pure pitch black (#000000) into the inbox, composer, and folder drawers for maximum OLED battery savings.
+  - **Declutter UI & Hide Upgrade Nags:** Suppresses persistent Proton Unlimited upsell banners and storage alerts.
+  - **Allow Screenshots & Screen Mirroring:** Disables Android FLAG_SECURE window restrictions to allow screenshots and screen recording of email messages.
+- **Proton Pass (NEW - 1M+ downloads):**
+  - **AMOLED Dark Theme:** Injects pure pitch black (#000000) into password vaults, login views, and settings for OLED display efficiency.
+  - **Allow Screenshots in Vault:** Removes FLAG_SECURE window protections, permitting screenshots and screen sharing inside vault items.
+- **Proton VPN (50M+ downloads):**
+  - **Declutter UI & Hide Plus Upsells:** Removes persistent upsell banners and marketing prompts encouraging upgrades to Proton VPN Plus.
+  - **Bypass Secure Window Restrictions:** Removes FLAG_SECURE window protections to allow screenshots and screen recording of VPN status and profiles.
+  - **AMOLED Black Theme:** Injects pure pitch black (#000000) across the map view, server list, and connection dashboard for OLED efficiency.
+  - **Unlock Quick Settings Tile:** Unlocks and forces the Android Quick Settings VPN tile to easily toggle connection state from the notification shade.
+  - **Bypass Session Timeout:** Prevents automatic session timeouts and disconnects during extended periods of background inactivity.
+- **Robbery Bob (NEW - 0 patches on Awesome Morphe):**
+  - **Infinite Stealth & Invisibility:** Bob is completely undetectable by guards, residents, cameras, and watchdogs.
+  - **Infinite Coins:** Grants maximum coins to purchase all speed, stamina, and sneakiness upgrades.
+  - **Bypass Rewarded Ads:** Level completion bonuses and score multipliers without watching video ads.
+  - **Unlock All Chapters & Costumes:** Instant access to all burglary chapters, bonus levels, and Bob's custom outfits.
+- **Session (NEW - Private Decentralized Messenger):**
+  - **AMOLED Pitch Black:** Injects true OLED pitch black (#000000) into conversation threads and channel lists.
+  - **Allow Screenshots & Media Export:** Disables FLAG_SECURE window restrictions on private conversations and ephemeral media.
+  - **Unlock Pro & Multi-Profile Switching:** Unlocks rapid multi-profile switching, post-quantum encryption toggles, and benefactor profile badges.
+- **Shades: Shadow Fight Roguelike:**
+  - **Infinite Energy:** Unlimited combat energy to play runs continuously without waiting for stamina timers.
+  - **Bypass Rewarded Ads:** Free rerolls of Shade traits and crash revives without watching video ads.
+- **Shadow Fight 2:**
+  - **Infinite Energy:** Unlimited combat stamina to fight endlessly without waiting for energy recharge.
+  - **Bypass Rewarded Ads:** Removes mandatory video ads after duels and grants free coin multipliers.
+  - **Free Shopping:** Infinite coins and gems to acquire legendary weapons, armor sets, and enchantments.
+- **Shadow Fight 2 Special Edition:** Ad-free premium edition with Free Shopping unlocked for legendary gear.
+- **Shadow Fight 3:**
+  - **Free Shadow Energy:** Shadow energy meter is permanently ready to unleash devastating special attacks.
+  - **Bypass Rewarded Ads:** Triples quest rewards and opens legendary chests without watching sponsor videos.
+- **Shadow Fight 4: Arena:** Free roulette spins, instant warrior chest opening, and bonus cards.
+- **Shazam (NEW - 500M+ downloads):**
+  - **Ad-Free & Clean UI:** Strips banner ads and aggressive Apple Music / Spotify subscription promotions from identification result cards.
+  - **Auto-Shazam AMOLED Mode:** Injects pure pitch black (#000000) for continuous background recognition without draining battery.
+- **Signal (NEW - 100M+ users):**
+  - **AMOLED Dark Theme:** Injects pure pitch black (#000000) across all chat conversation threads, contact details, and settings.
+  - **Allow Screenshots & Incognito Keyboard:** Removes FLAG_SECURE window restrictions to allow screenshots and forces incognito keyboard mode.
+  - **Bypass Ephemeral Disappearing Messages:** Prevents disappearing messages from being automatically deleted from local chat history.
+  - **Hide Typing & Read Indicators:** Disables typing indicators and read receipts on outgoing messages while retaining incoming status.
+  - **Unlock Pro & Badges:** Unlocks client-side donor badges, custom app icons, and aesthetic customizations.
+- **SimpleX Chat (NEW - 100% Private No User IDs):**
+  - **AMOLED Black Theme:** Injects pure pitch black (#000000) across conversation bubbles, contact lists, and settings.
+  - **Allow Screenshots & Media Export:** Disables FLAG_SECURE window restrictions on secret chats and media attachments.
+  - **Unlock Pro & Multi-Profile Switching:** Unlocks rapid multi-profile switching, quantum-resistant encryption toggles, and benefactor profile styling.
+- **Snapchat (NEW - 1 Billion+ downloads):**
+  - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into chat screens and hides sponsored Discover tiles and Spotlight ads.
+  - **Allow Screenshots & Anti-Screen Security:** Neutralizes FLAG_SECURE restrictions on chats and media previews to allow screenshot capture without black screens.
+  - **Start on Chat & Battery Saver:** Launches Snapchat directly into the chat conversation tab rather than initializing the power-hungry camera viewfinder.
+  - **Unlock Snapchat+ Features:** Unlocks client-side Snapchat+ UI perks (custom app icons, post-view emojis, best friend pin badges, and dark mode toggles).
+- **SoundCloud (NEW - 100M+ listeners):**
+  - **Block Audio & Stream Ads:** Blocks interstitial audio ads between tracks and strips promoted music from the stream.
+  - **Declutter UI & Hide Go+ Upsells:** Removes persistent nags and banners urging upgrades to SoundCloud Go+.
+  - **Unlock HQ Audio & Premium Controls:** Enables high-quality (HQ) audio streaming selection and advanced playback controls (variable speed).
+- **Speedtest by Ookla (NEW - 500M+ downloads):**
+  - **Ad-Free Speedtest:** Completely strips interstitial ads, banner advertisements, and post-test sponsored survey cards.
+  - **Premium VPN & Unlimited Data:** Unlocks unlimited VPN traffic without the 2GB monthly cap and enables access to all global VPN endpoints.
+- **Spotify Mobile (Spicetify Suite Mobile - 0 patches on Awesome Morphe):**
+  - **Spicetify AMOLED Black Theme:** Pitch black theme (#000000) for OLED/AMOLED screens, replacing dark gray backgrounds for stark contrast and battery efficiency.
+  - **Spicetify Custom Accent Color:** Replaces the standard Spotify green (#1DB954) with custom accent colors (Electric Spicetify Purple, Cyberpunk Cyan, Sakura Pink, Crimson).
+  - **Spicetify Declutter UI:** Total UI declutter: removes Premium upgrade banners, shopping tabs, and promotional carousels.
+  - **Spicetify Community Addons & Settings:** Spicetify Mobile in-app controller and addons manager to enable experimental flags and community modules.
+- **Strava (NEW - 100M+ athletes):**
+  - **Unlock Pro & Subscriber Analytics:** Unlocks 3D terrain maps, segment analysis leaderboards, and relative effort analytics.
+  - **Declutter Feed & Hide Trials:** Hides persistent free trial subscription promos and sponsored challenges.
+- **Telegram (NEW - 1 Billion+ users):**
+  - **Block Ads & Hide Stories:** Removes sponsored messages in public channels, hides stories carousel above conversations, and disables Telegram Premium nags.
+  - **Allow Saving Restricted Media:** Bypasses anti-copy and restricted channel protections ('Saving content is not allowed') to permit downloading photos, videos, and copying text.
+  - **Unlock Unlimited Pinned Chats:** Removes the 5-chat pinned limit to allow pinning an unlimited number of conversations and channels without Telegram Premium.
+  - **Disable Proximity Sensor:** Prevents the device proximity sensor from blanking the screen or switching audio to the earpiece while listening to voice or video messages.
+  - **Unlock Telegram Premium Features:** Unlocks client-side Telegram Premium features (exclusive app icons, animated reactions, voice-to-text transcription button, and doubled chat folder limits).
+- **TeraBox (NEW - 100M+ downloads):**
+  - **Block Ads & Hide VIP Nags:** Removes startup video advertisements, storage interstitial popups, and persistent VIP subscription prompts.
+  - **Unlock Video Player Speed & Controls:** Unlocks background playback with screen turned off, 1080p / original resolution selector, and playback speed controls without a Premium subscription.
+- **Truecaller (NEW - 1 Billion+ downloads):**
+  - **Ad-Free & Clean Dialer:** Eliminates full-screen post-call advertisements and cleans up call history tabs.
+  - **Unlock Premium & Gold Features:** Enables Premium/Gold caller badge display and unlocks advanced spam blocking filters.
+- **Turbo VPN (NEW - 100M+ downloads):**
+  - **Ad-Free Turbo VPN:** Completely eliminates full-screen video ads upon connect/disconnect, bottom banner advertisements, and interstitial popups.
+  - **Declutter UI & Hide VIP Upsells:** Removes aggressive VIP upgrade prompts, floating promotional chests, and simplifies the user interface.
+- **Tuta Mail (NEW - 1M+ downloads):**
+  - **AMOLED Black Theme:** Injects pure OLED pitch black (#000000) into inbox view, email reader, calendar, and contacts.
+  - **Declutter UI & Hide Upgrade Banners:** Hides promotional upgrade banners for Revolutionary and Legend tiers, storage alert dialogs, and upsell prompts.
+  - **Allow Screenshots & Screen Mirroring:** Disables Android FLAG_SECURE window restrictions to allow screenshots and screen recording of sensitive receipts and emails.
+- **Twitch (NEW - 100M+ downloads):**
+  - **Block Video Stream Ads:** Blocks pre-roll and mid-roll video advertisements on live channels and VODs without stream buffer drops.
+  - **Background & Audio-Only Playback:** Unlocks seamless background audio playback and Picture-in-Picture (PiP) mode.
+  - **Chat Filter & Declutter Overlays:** Suppresses Hype Train popups, hides Bits cheering banners, and declutters live stream overlays.
+- **VLC (NEW - 100M+ downloads):**
+  - **Pure AMOLED Dark Theme & Declutter:** Pure black #000000 theme for OLED displays and hides discovery hints/tips.
+- **Vector 2 (NEW - 0 patches on Awesome Morphe):**
+  - **Infinite Battery & Shields:** Armor kit charges and shield energy never drain, keeping the runner fully protected against lasers and mines.
+  - **Unlock Gear Matrix:** Unlocks all experimental equipment slots and datacore matrices without research level barriers.
+  - **Bypass Rewarded Ads:** Free emergency run revives and instant datacore decoding without video ads.
+  - **Free Shopping:** Infinite upgrade chips, research tokens, and booster packs from the in-game shop.
+- **Waze (NEW - 100M+ drivers):**
+  - **Block Zero-Speed Ads & Sponsored Pins:** Blocks pop-up takeover ads and sponsored commercial pins that appear when stopped at traffic lights or in congestion.
+  - **Exact Radar & Speed Camera Alerts:** Restores exact speed camera distances and locations rather than vague danger zones.
+  - **Unlock Exclusive Moods & Car Icons:** Unlocks all exclusive driver moods (Monsters, Retro, VIP) and vehicle avatars to personalize your road profile.
+- **Windscribe VPN (NEW - 10M+ downloads):**
+  - **Declutter UI & Hide Pro Upsells:** Hides Pro upgrade ribbons, promotional sales alerts, and persistent upgrade banners in the main location list.
+  - **Enhanced Privacy & Telemetry Blocker:** Neutralizes background diagnostic reporting, error analytics, and tracking telemetry endpoints for maximum anonymity.
+
+> [!TIP]
+> 💡 **Besoin d'aide ou un bug constaté ?** N'hésitez pas à ouvrir un ticket sur [GitHub Issues](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml) pour nous le signaler !
+
+### 📲 How to Use in Morphe Manager
+
+👉 **[Add D-moniak Patches to Morphe Manager (1-Click)](https://morphe.software/add-source?github=SatanMerde/D-moniakPatches)**
+
+Or manually in the app:
+
+1. Open **Morphe Manager**.
+2. Navigate to **Settings** > **Patch Sources**.
+3. Add source: `SatanMerde/D-moniakPatches`.
+4. Select **Hungry Shark World** (`com.ubisoft.hungrysharkworld`).
+5. Check the desired patches (**Bypass Rewarded Ads**, **Free Shopping**).
+6. Tap **Patch** and install the modified APK.
+
+### 💬 Report a Bug or Request a Patch
+Experiencing an issue or want support for a new game / patch?
+- 🐛 **[Report a Bug or Issue](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml)**: if a patch is not working properly or crashes the application.
+- ✨ **[Request a New Patch](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_request.yml)**: to propose new features or support for another game / application.
+
+### 🛠️ Development & Release
+This repository uses automated **Semantic Release** with GitHub Actions:
+- **`dev` branch**: Used for ongoing development and automated pre-releases.
+- **`main` branch**: Production stable branch.
+- **Conventional Commits**:
+  - `feat:` New feature (triggers a minor release).
+  - `fix:` Bug fix (triggers a patch release).
+  - `chore:` Internal maintenance without release.
+
+#### Local Build
+```bash
+./gradlew :patches:buildAndroid
+```
+The resulting `.mpp` file is generated in `patches/build/libs/patches-*.mpp`.
+
+### 📄 License
+This project is distributed under the [GNU General Public License v3.0](LICENSE).  
+This software is provided "as is", without warranty of any kind.
+
+---
+
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
@@ -1008,595 +1603,3 @@
 <!-- PATCHES_END -->
 
 ---
-
-## 🇫🇷 Français
-
-### ❓ À propos
-Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morpheapp), ciblant des jeux et applications populaires **100% absents du catalogue de patchs officiel d'Awesome Morphe** :
-- **Alto's Adventure :** (com.noodlecake.altosadventure)
-- **Beach Buggy Racing :** (com.vectorunit.cobalt.googleplay)
-- **Brave Browser :** (com.brave.browser)
-- **Canva :** (com.canva.editor)
-- **ChatGPT :** (com.openai.chatgpt)
-- **CoinSnap: Coin Identifier :** (com.coinidentifyer.ai)
-- **Duolingo :** (com.duolingo)
-- **Firefox :** (org.mozilla.firefox)
-- **Google Gemini :** (com.google.android.apps.bard)
-- **Google Drive :** (com.google.android.apps.docs)
-- **Google Maps :** (com.google.android.apps.maps)
-- **Google Photos :** (com.google.android.apps.photos)
-- **Hill Climb Racing :** (com.fingersoft.hillclimb)
-- **Hungry Shark Evolution :** (com.fgol.HungrySharkEvolution)
-- **Hungry Shark Heroes :** (com.ubisoft.hungrysharkheroes)
-- **Hungry Shark World :** (com.ubisoft.hungrysharkworld)
-- **Jetpack Joyride :** (com.halfbrick.jetpackjoyride)
-- **MEGA :** (mega.privacy.android.app)
-- **Movix :** (com.movix.app)
-- **MX Player :** (com.mxtech.videoplayer.ad)
-- **Nextcloud :** (org.nextcloud.client)
-- **Perplexity AI :** (ai.perplexity.app.android)
-- **Phone by Google (Téléphone) :** (com.google.android.dialer)
-- **Pinterest :** (com.pinterest)
-- **Proton Drive :** (me.proton.android.drive)
-- **Proton Mail :** (ch.protonmail.android)
-- **Proton Pass :** (proton.android.pass)
-- **Proton VPN :** (ch.protonvpn.android)
-- **Robbery Bob :** (com.chillingo.robberybobfree.android.row)
-- **Session Private Messenger :** (network.loki.messenger)
-- **Shades: Shadow Fight Roguelike :** (com.nekki.shadowfight.shades)
-- **Shadow Fight 2 :** (com.nekki.shadowfight)
-- **Shadow Fight 2 Special Edition :** (com.nekki.shadowfight2.specialedition)
-- **Shadow Fight 3 :** (com.nekki.shadowfight3)
-- **Shadow Fight 4: Arena :** (com.nekki.shadowfightarena)
-- **Shazam :** (com.shazam.android)
-- **Signal Private Messenger :** (org.thoughtcrime.securesms)
-- **SimpleX Chat :** (chat.simplex.app)
-- **Snapchat :** (com.snapchat.android)
-- **SoundCloud :** (com.soundcloud.android)
-- **Speedtest by Ookla :** (org.zwanoo.android.speedtest)
-- **Spotify Mobile (Spicetify Suite) :** (com.spotify.music)
-- **Strava :** (com.strava)
-- **Telegram :** (org.telegram.messenger)
-- **TeraBox :** (com.dubox.drive)
-- **Truecaller :** (com.truecaller)
-- **Turbo VPN :** (free.vpn.unblock.proxy.turbovpn)
-- **Tuta Mail :** (de.tutao.tutanota)
-- **Twitch :** (tv.twitch.android.app)
-- **VLC :** (org.videolan.vlc)
-- **Vector 2 :** (com.nekki.vector2)
-- **Waze :** (com.waze)
-- **Windscribe VPN :** (com.windscribe.vpn)
-
-Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
-- **🌐 Patchs Universels (Compatibles avec TOUTES les applications) :**
-  - **Universal App Clone :** Permet d'installer et d'exécuter l'application patchée côte à côte avec l'application originale officielle sur le même téléphone (Dual Install / Clônage sans conflit de ContentProvider ni de signature).
-  - **Universal AMOLED Black Theme :** Force un noir pur OLED (#000000) sur les arrière-plans de n'importe quelle application pour économiser la batterie sur écran AMOLED.
-  - **Universal Enable Screen Rotation :** Déverrouille la rotation de l'écran pour toutes les applications ou jeux bloqués en portrait (idéal pour tablettes et écrans pliables).
-  - **Universal Keep Screen On :** Maintient l'écran toujours allumé tant que l'application est au premier plan (idéal pour cuisine, lecture, GPS).
-  - **Universal High Refresh Rate 120Hz :** Force le taux de rafraîchissement maximal (90Hz/120Hz/144Hz) pour une fluidité extrême sur les applications limitées à 60Hz.
-  - **Universal Disable Haptics & Vibration :** Coupe totalement les vibrations du vibreur dans les menus et jeux pour économiser la batterie.
-  - **Universal WebView Debugging :** Active les outils de développement Chrome (`chrome://inspect`) pour analyser le code web des applications hybrides.
-- **Alto's Adventure (NOUVEAU - 50M+ téléchargements) :**
-  - **Infinite Wingsuit & Long Scarf :** Vol wingsuit illimité et écharpe infiniment déployée sans avoir à enchaîner des figures complexes.
-  - **Bypass Rewarded Ads :** Réanimations gratuites dans les ravins, doublement des pièces ramassées et neutralisation des interstitiels.
-- **Beach Buggy Racing (NOUVEAU - 0 patch sur Awesome Morphe) :**
-  - **Infinite Race Tickets :** Les 5 tickets de course restent pleins en permanence pour jouer en Carrière et Championnats sans arrêt.
-  - **Instant Car Upgrades :** Suppression des temps d'attente lors de l'amélioration de la vitesse, de l'accélération et de la tenue de route des karts.
-  - **Bypass Rewarded Ads :** Tours gratuits de la Roue de la Fortune Quotidienne, doublement des gains de pièces et tickets gratuits sans pub.
-  - **Free Shopping :** Déblocage des bolides, packs de gemmes et capacités spéciales des pilotes.
-- **Brave Browser (NOUVEAU - 100M+ téléchargements) :**
-  - **Désactiver Récompenses & Portefeuille Crypto :** Supprime l'icône BAT, le portefeuille Web3 et les popups d'onboarding pour une interface épurée.
-  - **Page Nouvel Onglet Propre :** Élimine le flux Brave News, les fonds d'écran sponsorisés et les tuiles promotionnelles.
-  - **Bouclier Agressif & Anti-Adblock Bypass :** Force le blocage agressif des pisteurs/pubs, nettoie les paramètres de tracking d'URL et neutralise les scripts anti-bloqueurs.
-- **Canva (NOUVEAU - 100M+ créateurs & designers) :**
-  - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) pour l'espace de création et l'accueil, et masquage des bannières promotionnelles et rappels d'essai Canva Pro.
-  - **Unlock High Quality Export :** Débloque les curseurs de résolution maximale d'exportation, l'exportation PNG avec fond transparent et contourne les restrictions de filigrane.
-  - **Unlock Canva Pro Features :** Débloque les templates Pro, polices exclusives et bibliothèque d'éléments premium sans abonnement actif.
-  - **Remove Watermarks on Free Elements :** Contourne le rendu des filigranes sur les éléments freemium et photos de stock pour un export propre.
-  - **Unlimited Brand Kit Slots :** Supprime la limite de kits de marque pour des palettes de couleurs, jeux de polices et bibliothèques de logos illimités.
-  - **Ad-Free & Hide Upgrade Popups :** Supprime les popups d'upgrade, les bannières Pro et les CTA d'achat dans l'éditeur et les galeries.
-- **ChatGPT (NOUVEAU - 100M+ d'utilisateurs IA) :**
-  - **AMOLED Dark Theme & Declutter :** Remplace les fonds gris foncé par un véritable noir pur OLED (#000000) dans les conversations et masque les bannières promotionnelles de passage à ChatGPT Plus.
-  - **Allow Screenshots & Copy :** Supprime la restriction Android FLAG_SECURE pour autoriser les captures d'écran et enregistrements vidéo des réponses dans les conversations, et débloque les limites de copie de texte.
-  - **Keep Screen On During Generation :** Maintient l'écran allumé pendant la génération continue de réponses et blocs de code pour éviter la mise en veille.
-- **CoinSnap :** Déblocage VIP Pro (identifications illimitées, cotations et évaluations détaillées, suppression du paywall).
-- **Duolingo (NOUVEAU - 500M+ téléchargements) :**
-  - **Unlimited Hearts :** Cœurs et vies illimités ! Ne perdez plus jamais de cœur en cas d'erreur pendant vos leçons de langues.
-  - **Ad-Free & Declutter :** Suppression des publicités vidéo interstitielles après chaque leçon et masquage des popups promotionnels Super Duolingo.
-  - **Unlock Super Features :** Déblocage des fonctionnalités Super Duolingo (Hub d'entraînement, révision des erreurs, et passage des niveaux Légendaires sans dépenser de gemmes).
-- **Firefox (NOUVEAU - 100M+ téléchargements) :**
-  - **Débloquer le Catalogue Complet d'Extensions :** Permet d'installer n'importe quelle extension AMO sur mobile sans restriction ni collection personnalisée.
-  - **Désactiver Télémétrie & Stories Pocket :** Supprime les recommandations Pocket sponsorisées, la télémétrie Mozilla et les pings Glean.
-  - **Thème Sombre Pur AMOLED :** Applique un thème noir absolu (#000000) sur l'interface, la page d'accueil et le mode lecture.
-- **Google Gemini (NOUVEAU - Assistant IA) :**
-  - **AMOLED Dark Theme & Declutter :** Infiltre un noir profond OLED (#000000) dans les interfaces de discussion Gemini et masque les incitations à passer à Gemini Advanced.
-  - **Allow Screenshots & UI Tweaks :** Supprime les restrictions de capture d'écran FLAG_SECURE sur les fenêtres de discussion et optimise la discrétion de l'overlay flottant.
-  - **Disable Response Haptics :** Coupe les vibrations haptiques répétitives pendant le streaming des réponses de l'IA.
-- **Google Drive (NOUVEAU - 15 Milliards+ de téléchargements) :**
-  - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) pour l'explorateur de fichiers Drive et les panneaux de détails.
-  - **Allow Screenshots & Secure Share :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran des documents et feuilles de calcul.
-- **Google Maps (NOUVEAU - 10 Milliards+ de téléchargements) :**
-  - **Block Sponsored Pins & Ads :** Supprime les épingles d'entreprises sponsorisées sur la carte, les suggestions publicitaires et les cartes promotionnelles pendant la recherche et le trajet.
-  - **AMOLED Black Navigation :** Active un thème noir pur OLED (#000000) pour la navigation GPS virage par virage et l'exploration de carte, réduisant la consommation de batterie et l'éblouissement nocturne.
-  - **Always Show Speedometer & Compass :** Maintient le compteur de vitesse GPS en temps réel et la boussole affichés en permanence à l'écran en mode guidage.
-- **Google Photos (NOUVEAU - 5 Milliards+ de téléchargements) :**
-  - **Unlock Editing Tools :** Débloque les outils d'édition avancés réservés aux Google Pixel (Gomme magique, Éclairage portrait, Ciel dynamique, Flou d'arrière-plan).
-  - **AMOLED Black & Declutter :** Thème noir pur OLED (#000000) dans la galerie et masquage des bannières d'abonnement Google One et d'achat d'espace de stockage.
-- **Hill Climb Racing (NOUVEAU - 500M+ téléchargements) :**
-  - **Infinite Fuel & No Breakdown :** La jauge de carburant ne descend jamais, permettant de rouler indéfiniment à travers tous les niveaux sans panne sèche.
-  - **Bypass Rewarded Ads :** Doublement gratuit des pièces en fin de course et accès aux coffres bonus sans regarder de vidéos publicitaires.
-- **Hungry Shark (World & Evolution) :**
-  - **Bypass Rewarded Ads :** Réanimations gratuites illimitées, doublement des pièces/gemmes en fin de partie, et tours de roue bonus sans regarder une seule vidéo publicitaire.
-  - **Free Shopping :** Achats gratuits dans la boutique in-game (gemmes, pièces, requins spéciaux, équipements et packs premium débloqués sans dépenser d'argent réel).
-- **Hungry Shark Heroes :** Réduction à 0 des temps d'incubation des œufs de requins, réanimations gratuites en arène de combat, et déblocage de l'extension de récif.
-- **Jetpack Joyride (NOUVEAU - 500M+ téléchargements) :**
-  - **Infinite Jetpack Shield & Revives :** Bouclier permanent contre les lasers et missiles, réanimations gratuites infinies lors des crashs.
-  - **Bypass Rewarded Ads :** Tirages gratuits illimités au bandit-manchot de fin de partie et doublement des pièces sans publicité.
-- **MEGA (NOUVEAU - 100M+ de téléchargements) :**
-  - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) pour l'explorateur de fichiers cloud, la file des transferts et les paramètres, et masquage des bannières promotionnelles Pro.
-  - **Allow Screenshots & Export :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran des documents et photos et débloque l'export local.
-- **Movix (NOUVEAU - Streaming Films & Séries) :**
-  - **Block Video Ads & Interstitials :** Élimination totale des pré-rolls et coupures vidéo publicitaires, des bannières et des popups de redirection intempestifs sur tous les lecteurs vidéo de films et séries.
-  - **AMOLED Black Player & Picture-in-Picture :** Infiltre un noir profond OLED (#000000) dans le catalogue et débloque le mode Picture-in-Picture (PiP) ainsi que la lecture audio en arrière-plan.
-  - **Unlock Premium Subscription :** Contourne les vérifications d'abonnement VIP/Premium pour débloquer tout le contenu exclusif films et séries.
-  - **Force HD & 4K Quality Unlock :** Force la qualité maximale (HD 1080p / 4K) quel que soit le niveau d'abonnement ou la détection réseau.
-  - **Disable Auto-Pause on Background :** Empêche la mise en pause automatique de la lecture quand l'app passe en arrière-plan.
-  - **Bypass Download Restrictions :** Débloque le téléchargement hors-ligne de tous les films et séries sans abonnement Premium.
-- **MX Player (NOUVEAU - 1 Milliard+ de téléchargements) :**
-  - **Ad-Free Video Player :** Suppression des bannières dans la liste des dossiers de vidéos et élimination des pubs pop-up lors de la mise en pause.
-  - **Unlock Background Playback :** Débloque la lecture audio en arrière-plan écran éteint et le mode Picture-in-Picture (PiP) sans abonnement MX Pro.
-- **Nextcloud (NOUVEAU - 5M+ d'utilisateurs Cloud Privé) :**
-  - **AMOLED Dark Theme :** Infiltre un noir profond (#000000) pour écrans OLED dans l'explorateur de fichiers, la galerie de médias et le moniteur de synchronisation.
-  - **Allow Screenshots & Bypass Lockout :** Neutralise la protection de fenêtre FLAG_SECURE pour autoriser les captures d'écran même avec le verrouillage par code configuré.
-- **Perplexity (NOUVEAU - 50M+ d'utilisateurs IA) :**
-  - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) dans les résultats de recherche et masquage des bannières promotionnelles Perplexity Pro.
-  - **Allow Screenshots & Sharing :** Supprime les restrictions de capture d'écran sur les collections et fils de discussion privés.
-  - **Unlock Pro Search Interface :** Optimise la mise en page de la recherche approfondie et le panneau des sources web.
-- **Phone by Google (Téléphone - NOUVEAU - 1 Milliard+ de téléchargements) :**
-  - **Enable Call Recording :** Débloque les paramètres et le bouton natif d'enregistrement d'appels dans l'application Téléphone de Google, contournant les restrictions géographiques et d'opérateurs.
-  - **Silence Call Recording Warning :** Neutralise et coupe le message vocal d'avertissement sonore (« Cet appel est désormais enregistré ») diffusé au début et à la fin de l'enregistrement.
-  - **Enhanced Spam & Detailed Caller ID :** Active le filtrage strict des spams téléphoniques et affiche l'opérateur d'origine et la localisation géographique précise des numéros entrants.
-- **Pinterest (NOUVEAU - 1 Milliard+ de téléchargements) :**
-  - **Block Sponsored Pins & Shopping Ads :** Masque les épingles de produits sponsorisées et les carrousels de shopping commercial dans le flux d'accueil et les résultats de recherche.
-  - **Allow Saving Media & Direct Download :** Débloque l'option de téléchargement direct en haute qualité pour les images et vidéos sans filigrane.
-- **Proton Drive (NOUVEAU - 5M+ de téléchargements) :**
-  - **AMOLED Black & Declutter :** Noir pur OLED (#000000) dans les coffres-forts de fichiers et masquage des alertes de quota et bannières Proton Unlimited.
-  - **Allow Screenshots & Privacy :** Supprime la protection FLAG_SECURE pour permettre les captures d'écran et la duplication d'écran des documents et aperçus.
-- **Proton Mail (NOUVEAU - 10M+ téléchargements) :**
-  - **AMOLED Black Theme :** Infiltre un noir absolu (#000000) dans les menus, la boîte de réception et le lecteur d'emails.
-  - **Declutter UI & Hide Upgrade Nags :** Masque les bannières persistantes de mise à niveau vers les forfaits payants Proton Unlimited.
-  - **Allow Screenshots & Screen Mirroring :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran des emails confidentiels.
-- **Proton Pass (NOUVEAU - 1M+ téléchargements) :**
-  - **AMOLED Dark Theme :** Active un thème noir pur OLED (#000000) pour économiser la batterie lors de la consultation des identifiants et mots de passe.
-  - **Allow Screenshots in Vault :** Supprime la protection FLAG_SECURE pour autoriser la capture d'écran des identifiants et clés 2FA.
-- **Proton VPN (50M+ téléchargements) :**
-  - **Declutter UI & Hide Plus Upsells :** Supprime les incitations incessantes à souscrire à l'abonnement payant Proton VPN Plus.
-  - **Bypass Secure Window Restrictions :** Débloque la capture d'écran et la duplication d'écran de l'application VPN sans écran noir.
-  - **AMOLED Black Theme :** Active un thème noir absolu (#000000) sur l'ensemble de l'interface de connexion VPN et de la carte.
-  - **Unlock Quick Settings Tile :** Débloque et active la tuile de paramètres rapides Android pour connecter ou déconnecter le VPN instantanément.
-  - **Bypass Session Timeout :** Empêche la déconnexion automatique ou les expirations de session VPN lors des longues périodes d'inactivité.
-- **Robbery Bob (NOUVEAU - 0 patch sur Awesome Morphe) :**
-  - **Infinite Stealth & Invisibility :** Bob est totalement indétectable par les gardes, résidents, caméras et chiens de garde.
-  - **Infinite Coins :** Réserve illimitée de pièces pour acheter toutes les améliorations de vitesse, d'endurance et de discrétion.
-  - **Bypass Rewarded Ads :** Déblocage des bonus de mission et multiplicateurs de score sans aucune publicité vidéo.
-  - **Unlock All Chapters & Costumes :** Accès immédiat à l'ensemble des chapitres de cambriolage et garde-robes exclusives.
-- **Session (NOUVEAU - Messagerie Privée Décentralisée) :**
-  - **AMOLED Pitch Black :** Infiltre un noir pur (#000000) dans les conversations et la liste des salons pour écrans OLED.
-  - **Allow Screenshots & Media Export :** Neutralise la protection FLAG_SECURE pour permettre les captures d'écran des conversations privées.
-  - **Unlock Pro & Multi-Profile Switching :** Débloque le basculement rapide multi-profils, les paramètres avancés de chiffrement résistant au quantique et le style de profil bienfaiteur.
-- **Shades: Shadow Fight Roguelike :**
-  - **Infinite Energy :** Énergie de combat illimitée pour enchaîner les runs sans attendre la recharge.
-  - **Bypass Rewarded Ads :** Relances gratuites des choix de nuances (Shades) et réanimations sans pub.
-- **Shadow Fight 2 :**
-  - **Infinite Energy :** Énergie illimitée pour combattre enchaîné sans attendre le rechargement de la barre de stamina.
-  - **Bypass Rewarded Ads :** Suppression des vidéos obligatoires après les duels et doublement gratuit des pièces.
-  - **Free Shopping :** Pièces et gemmes illimitées, armes légendaires et armures enchantées gratuites.
-- **Shadow Fight 2 Special Edition :** Édition premium sans pub avec déblocage Free Shopping des équipements légendaires.
-- **Shadow Fight 3 :**
-  - **Free Shadow Energy :** Jauge d'énergie d'ombre toujours prête à l'activation pour exécuter les attaques spéciales.
-  - **Bypass Rewarded Ads :** Récompenses de quêtes triplées et ouvertures de coffres légendaires sans vidéo sponsorisée.
-- **Shadow Fight 4: Arena :** Tours de roulette gratuits, ouverture immédiate des coffres de guerrier, et cartes bonus.
-- **Shazam (NOUVEAU - 500M+ téléchargements) :**
-  - **Ad-Free & Clean UI :** Suppression des bannières publicitaires et des promotions Apple Music / Spotify intrusives dans les résultats d'identification.
-  - **Auto-Shazam AMOLED Mode :** Thème noir pur OLED (#000000) pour l'écoute en continu en arrière-plan sans épuiser la batterie.
-- **Signal (NOUVEAU - 100M+ d'utilisateurs) :**
-  - **AMOLED Dark Theme :** Remplace les gris d'arrière-plan par un véritable noir absolu (#000000) sur toutes les vues de conversation, profil et paramètres.
-  - **Allow Screenshots & Incognito Keyboard :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran et force le mode clavier incognito pour empêcher la mémorisation des saisies.
-  - **Bypass Ephemeral Disappearing Messages :** Empêche la suppression et disparition automatique des messages éphémères du chat.
-  - **Hide Typing & Read Indicators :** Désactive discrètement l'envoi de l'indicateur de frappe (« est en train d'écrire... ») et les accusés de lecture tout en les recevant.
-  - **Unlock Pro & Badges :** Débloque les badges de soutien donor/donateur exclusifs et personnalisations esthétiques côté client.
-- **SimpleX Chat (NOUVEAU - Sans identifiant utilisateur) :**
-  - **AMOLED Black Theme :** Thème noir pur OLED (#000000) pour l'ensemble des discussions privées, groupes et consoles de contact.
-  - **Allow Screenshots & Media Export :** Supprime la protection de fenêtre FLAG_SECURE pour autoriser les captures d'écran des chats et médias.
-  - **Unlock Pro & Multi-Profile Switching :** Débloque le basculement rapide multi-profils, les paramètres avancés de chiffrement résistant au quantique et le style de profil bienfaiteur.
-- **Snapchat (NOUVEAU - 1 Milliard+ de téléchargements) :**
-  - **AMOLED Dark Theme & Declutter :** Applique un thème noir pur OLED (#000000) sur les écrans de chat et masque les vignettes sponsorisées Discover et publicités Spotlight.
-  - **Allow Screenshots & Anti-Screen Security :** Neutralise les restrictions FLAG_SECURE sur les vues de chat et de médias pour autoriser la capture d'écran sans écran noir.
-  - **Start on Chat & Battery Saver :** Lance Snapchat directement sur le fil des conversations privées au lieu d'ouvrir le viseur appareil photo énergivore au démarrage.
-  - **Unlock Snapchat+ Features :** Débloque les options d'interface Snapchat+ côté client (icônes d'application exclusives, émojis post-visionnage, badges d'épinglage des meilleurs amis et contrôles du thème sombre).
-- **SoundCloud (NOUVEAU - 100M+ auditeurs) :**
-  - **Block Audio & Stream Ads :** Bloque les coupures publicitaires audio entre les morceaux et élimine les pistes sponsorisées du flux.
-  - **Declutter UI & Hide Go+ Upsells :** Supprime les incitations insistantes à passer à l'abonnement SoundCloud Go+.
-  - **Unlock HQ Audio & Premium Controls :** Débloque le sélecteur de streaming audio Haute Qualité (HQ) dans les paramètres et les contrôles de lecture avancés (vitesse variable).
-- **Speedtest by Ookla (NOUVEAU - 500M+ téléchargements) :**
-  - **Ad-Free Speedtest :** Suppression intégrale des publicités interstitielles, bannières et cartes d'enquêtes sponsorisées post-test.
-  - **Premium VPN & Unlimited Data :** Débloque l'accès VPN illimité sans quota mensuel de 2 Go et permet le choix de tous les serveurs mondiaux.
-- **Spotify Mobile (Spicetify Suite Mobile - 0 patch sur Awesome Morphe) :**
-  - **Spicetify AMOLED Black Theme :** Thème noir absolu (#000000) pour écrans OLED/AMOLED, remplaçant les fonds gris foncé pour un contraste saisissant et des économies de batterie.
-  - **Spicetify Custom Accent Color :** Remplace le vert Spotify standard (#1DB954) par des teintes personnalisées (Violet Électrique Spicetify, Cyan Cyberpunk, Rose Sakura, Crimson).
-  - **Spicetify Declutter UI :** Épuration totale : masquage des bannières promotionnelles Premium, onglets d'achat et carrousels d'annonces.
-  - **Spicetify Community Addons & Settings :** Contrôleur Spicetify Mobile et gestionnaire d'addons pour activer des modules communautaires et drapeaux internes.
-- **Strava (NOUVEAU - 100M+ sportifs) :**
-  - **Unlock Pro & Subscriber Analytics :** Débloque les cartes de parcours en relief 3D, l'analyse comparative des segments et les métriques d'effort relatif.
-  - **Declutter Feed & Hide Trials :** Masque les invitations incessantes à souscrire à l'essai gratuit et les défis sponsorisés.
-- **Telegram (NOUVEAU - 1 Milliard+ d'utilisateurs) :**
-  - **Block Ads & Hide Stories :** Supprime les messages sponsorisés dans les canaux publics, masque le carrousel des stories au-dessus des discussions et désactive les alertes Telegram Premium.
-  - **Allow Saving Restricted Media :** Contourne la protection anti-copie (« Le transfert et la copie ne sont pas autorisés ») des canaux restreints pour permettre la sauvegarde des photos, vidéos et la copie de texte.
-  - **Unlock Unlimited Pinned Chats :** Débloque la limite des 5 discussions épinglées pour permettre d'épingler un nombre illimité de conversations et canaux sans Telegram Premium.
-  - **Disable Proximity Sensor :** Empêche le capteur de proximité d'éteindre l'écran ou de basculer l'audio vers l'écouteur lors de l'écoute de messages vocaux ou vidéo.
-  - **Unlock Telegram Premium Features :** Débloque côté client les fonctionnalités Telegram Premium (icônes d'application exclusives, réactions animées, bouton de transcription audio en texte et doublement des dossiers de discussion).
-- **TeraBox (NOUVEAU - 100M+ de téléchargements) :**
-  - **Block Ads & Hide VIP Nags :** Suppression des vidéos publicitaires au lancement, des interstitiels de stockage et des popups insistants d'abonnement VIP.
-  - **Unlock Video Player Speed & Controls :** Déblocage de la lecture vidéo en arrière-plan écran éteint, du sélecteur de résolution 1080p/Originale et de la vitesse de lecture sans abonnement Premium.
-- **Truecaller (NOUVEAU - 1 Milliard+ de téléchargements) :**
-  - **Ad-Free & Clean Dialer :** Élimine les publicités plein écran après chaque appel téléphonique et nettoie l'historique des appels.
-  - **Unlock Premium & Gold Features :** Débloque l'affichage du badge Premium/Gold et les filtres de blocage de spam avancés.
-- **Turbo VPN (NOUVEAU - 100M+ téléchargements) :**
-  - **Ad-Free Turbo VPN :** Suppression complète des vidéos publicitaires plein écran lors de la connexion et déconnexion, des bannières inférieures et des popups interstitiels.
-  - **Declutter UI & Hide VIP Upsells :** Élimine les popups d'achat agressifs pour l'abonnement VIP, les coffres flottants promotionnels et simplifie l'interface.
-- **Tuta Mail (NOUVEAU - 1M+ téléchargements) :**
-  - **AMOLED Black Theme :** Infiltre un noir pur OLED (#000000) dans la boîte de réception, la consultation d'emails, le calendrier et les contacts.
-  - **Declutter UI & Hide Upgrade Banners :** Masque les bannières promotionnelles de mise à niveau vers les offres Revolutionary et Legend, les alertes d'espace et les popups d'achat.
-  - **Allow Screenshots & Screen Mirroring :** Supprime la restriction FLAG_SECURE pour permettre les captures d'écran et la duplication d'écran des emails et reçus sans écran noir.
-- **Twitch (NOUVEAU - 100M+ téléchargements) :**
-  - **Bloquer les Publicités Vidéo :** Neutralise les publicités vidéo pre-roll et mid-roll sur les flux en direct et les VODs sans figer le lecteur.
-  - **Lecture en Arrière-plan & Mode Audio :** Débloque l'écoute audio en arrière-plan et le mode Picture-in-Picture sans interruption.
-  - **Filtre de Chat & Masquage des Overlays :** Masque les alertes de Train de la Housse (Hype Train), les dons de Bits et épure le chat.
-- **VLC (NOUVEAU - 100M+ téléchargements) :**
-  - **Thème Pur AMOLED & Épuration UI :** Thème noir pur #000000 pour dalles OLED et masquage des astuces d'onboarding.
-- **Vector 2 (NOUVEAU - 0 patch sur Awesome Morphe) :**
-  - **Infinite Battery & Shields :** Les charges des kits d'armure et de boucliers ne se déchargent jamais, protégeant le coureur contre les lasers et mines.
-  - **Unlock Gear Matrix :** Déblocage des emplacements d'équipements expérimentaux et matrices de datacores sans verrouillage de recherche.
-  - **Bypass Rewarded Ads :** Réanimations d'urgence gratuites lors des runs et décryptage instantané des datacores sans vidéo.
-  - **Free Shopping :** Jetons de recherche, accélérateurs et puces de mise à niveau gratuits.
-- **Waze (NOUVEAU - 100M+ conducteurs) :**
-  - **Block Zero-Speed Ads & Sponsored Pins :** Bloque les bannières publicitaires invasives et les logos de marques sponsorisées qui s'affichent à l'arrêt au feu rouge ou dans les bouchons.
-  - **Exact Radar & Speed Camera Alerts :** Restaure l'alerte et la distance précise des radars fixes et mobiles au lieu des zones vagues.
-  - **Unlock Exclusive Moods & Car Icons :** Débloque toutes les humeurs exclusives (Monstres, Rétro, VIP) et avatars de véhicules pour personnaliser votre profil de conducteur.
-- **Windscribe VPN (NOUVEAU - 10M+ téléchargements) :**
-  - **Declutter UI & Hide Pro Upsells :** Masque les rubans promotionnels Pro, les alertes de réductions et les bannières d'incitation à l'achat dans la liste des emplacements.
-  - **Enhanced Privacy & Telemetry Blocker :** Neutralise les rapports d'erreurs en arrière-plan, les métriques d'analyse et les points de terminaison de télémétrie.
-
-> ⚠️ **Note Générale :** Tous les nouveaux patchs indiqués `(Experimental)` sont **en cours de développement et non encore validés par test sur appareil physique**.
-
-### 📲 Comment utiliser dans Morphe Manager
-
-👉 **[Ajouter D-moniak Patches à Morphe Manager (1-Clic)](https://morphe.software/add-source?github=SatanMerde/D-moniakPatches)**
-
-Ou manuellement dans l'application :
-1. Lancez **Morphe Manager**.
-2. Rendez-vous dans **Settings** (Paramètres) > **Patch Sources** (Sources de patchs).
-3. Ajoutez la source : `SatanMerde/D-moniakPatches`.
-4. Sélectionnez votre application ou jeu (ex. **Beach Buggy Racing**, **Robbery Bob**, **Vector 2**, **Hungry Shark**, etc.).
-5. Cochez les patchs souhaités.
-6. Cliquez sur **Patcher** puis procédez à l'installation.
-
-### 💬 Signaler un bug ou demander un patch
-Vous rencontrez un problème ou vous souhaitez le support d'un nouveau jeu / patch ?
-- 🐛 **[Signaler un bug ou un problème](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml)** : si un patch ne fonctionne pas correctement ou fait planter l'application.
-- ✨ **[Demander un nouveau patch](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_request.yml)** : pour proposer l'ajout de nouvelles fonctionnalités ou le support d'un autre jeu / application.
-
-### 🛠️ Développement & Publication
-Ce dépôt utilise le système de publication automatisé **Semantic Release** avec GitHub Actions :
-- **Branche `dev`** : Utilisée pour le développement et la génération automatique de pré-releases.
-- **Branche `main`** : Branche stable de production.
-- **Commits conventionnels** :
-  - `feat:` Nouvelle fonctionnalité (déclenche une release mineure).
-  - `fix:` Correction de bug (déclenche une release corrective).
-  - `chore:` Maintenance interne sans création de release.
-
-#### Compilation locale
-```bash
-./gradlew :patches:buildAndroid
-```
-Le fichier résultant `.mpp` est généré dans `patches/build/libs/patches-*.mpp`.
-
-### 📄 Licence
-Ce projet est distribué sous licence [GNU General Public License v3.0](LICENSE).  
-Ce logiciel est fourni « tel quel », sans garantie d'aucune sorte.
-
----
-
-## 🇬🇧 English
-
-### ❓ About
-Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, targeting popular apps and games **100% absent from the official Awesome Morphe catalog**:
-- **Alto's Adventure:** (com.noodlecake.altosadventure)
-- **Beach Buggy Racing:** (com.vectorunit.cobalt.googleplay)
-- **Brave Browser:** (com.brave.browser)
-- **Canva:** (com.canva.editor)
-- **ChatGPT:** (com.openai.chatgpt)
-- **CoinSnap: Coin Identifier:** (com.coinidentifyer.ai)
-- **Duolingo:** (com.duolingo)
-- **Firefox:** (org.mozilla.firefox)
-- **Google Gemini:** (com.google.android.apps.bard)
-- **Google Drive:** (com.google.android.apps.docs)
-- **Google Maps:** (com.google.android.apps.maps)
-- **Google Photos:** (com.google.android.apps.photos)
-- **Hill Climb Racing:** (com.fingersoft.hillclimb)
-- **Hungry Shark Evolution:** (com.fgol.HungrySharkEvolution)
-- **Hungry Shark Heroes:** (com.ubisoft.hungrysharkheroes)
-- **Hungry Shark World:** (com.ubisoft.hungrysharkworld)
-- **Jetpack Joyride:** (com.halfbrick.jetpackjoyride)
-- **MEGA:** (mega.privacy.android.app)
-- **Movix:** (com.movix.app)
-- **MX Player:** (com.mxtech.videoplayer.ad)
-- **Nextcloud:** (org.nextcloud.client)
-- **Perplexity AI:** (ai.perplexity.app.android)
-- **Phone by Google:** (com.google.android.dialer)
-- **Pinterest:** (com.pinterest)
-- **Proton Drive:** (me.proton.android.drive)
-- **Proton Mail:** (ch.protonmail.android)
-- **Proton Pass:** (proton.android.pass)
-- **Proton VPN:** (ch.protonvpn.android)
-- **Robbery Bob:** (com.chillingo.robberybobfree.android.row)
-- **Session Private Messenger:** (network.loki.messenger)
-- **Shades: Shadow Fight Roguelike:** (com.nekki.shadowfight.shades)
-- **Shadow Fight 2:** (com.nekki.shadowfight)
-- **Shadow Fight 2 Special Edition:** (com.nekki.shadowfight2.specialedition)
-- **Shadow Fight 3:** (com.nekki.shadowfight3)
-- **Shadow Fight 4: Arena:** (com.nekki.shadowfightarena)
-- **Shazam:** (com.shazam.android)
-- **Signal Private Messenger:** (org.thoughtcrime.securesms)
-- **SimpleX Chat:** (chat.simplex.app)
-- **Snapchat:** (com.snapchat.android)
-- **SoundCloud:** (com.soundcloud.android)
-- **Speedtest by Ookla:** (org.zwanoo.android.speedtest)
-- **Spotify Mobile (Spicetify Suite):** (com.spotify.music)
-- **Strava:** (com.strava)
-- **Telegram:** (org.telegram.messenger)
-- **TeraBox:** (com.dubox.drive)
-- **Truecaller:** (com.truecaller)
-- **Turbo VPN:** (free.vpn.unblock.proxy.turbovpn)
-- **Tuta Mail:** (de.tutao.tutanota)
-- **Twitch:** (tv.twitch.android.app)
-- **VLC:** (org.videolan.vlc)
-- **Vector 2:** (com.nekki.vector2)
-- **Waze:** (com.waze)
-- **Windscribe VPN:** (com.windscribe.vpn)
-
-This project provides gameplay-specific patches tailored to each game:
-- **🌐 Universal Patches (Compatible with ALL applications):**
-  - **Universal App Clone:** Enables side-by-side dual installation for any app, allowing the official unmodified app and the patched version to run simultaneously on the same device without signature or provider collisions.
-  - **Universal AMOLED Black Theme:** Injects true OLED pitch black (#000000) into UI background surfaces to maximize battery savings and contrast on AMOLED displays for any app.
-  - **Universal Enable Screen Rotation:** Unlocks screen orientation restrictions across any app, allowing portrait-only applications and games to freely rotate into landscape mode.
-  - **Universal Keep Screen On:** Prevents the device display from automatically turning off or dimming while the patched app is open in the foreground.
-  - **Universal High Refresh Rate 120Hz:** Forces high refresh rate display mode (90Hz, 120Hz, or 144Hz) in apps and games that are otherwise capped at 60Hz.
-  - **Universal Disable Haptics & Vibration:** Silences haptic motor vibrations across any app, eliminating unnecessary vibration buzzes and conserving battery power.
-  - **Universal WebView Debugging:** Enables Chrome Developer Tools inspection (chrome://inspect) on all internal WebViews across any hybrid application or game.
-- **Alto's Adventure (NEW - 50M+ downloads):**
-  - **Infinite Wingsuit & Long Scarf:** Provides unlimited wingsuit flight duration and keeps the scarf at maximum length without requiring endless trick combos.
-  - **Bypass Rewarded Ads:** Free revives on crashes, doubled coins at run end, and eliminates intrusive interstitial popups.
-- **Beach Buggy Racing (NEW - 0 patches on Awesome Morphe):**
-  - **Infinite Race Tickets:** 5 race tickets remain full at all times for uninterrupted Career and Championship races.
-  - **Instant Car Upgrades:** Eliminates delivery wait times when upgrading top speed, acceleration, and handling.
-  - **Bypass Rewarded Ads:** Free daily fortune wheel spins, coin doublers, and instant tickets without watching ads.
-  - **Free Shopping:** Unlocks premium cars, gem bundles, and special driver abilities.
-- **Brave Browser (NEW - 100M+ downloads):**
-  - **Disable Rewards & Crypto Wallet:** Removes BAT rewards icon, Web3 crypto wallet entries, and onboarding prompts for a clean UI.
-  - **Clean New Tab Page:** Removes Brave News feed, sponsored wallpapers, and promotional top tiles.
-  - **Aggressive Shields & Anti-Adblock Bypass:** Forces aggressive ad/tracker blocking, strips URL tracking parameters, and bypasses anti-adblock scripts.
-- **Canva (NEW - 100M+ creators & designers):**
-  - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into Canva design workspace and dashboard, and hides Canva Pro trial banners and upgrade reminders.
-  - **Unlock High Quality Export:** Unlocks maximum export resolution sliders, transparent background PNG option, and bypasses premium element watermark restrictions.
-  - **Unlock Canva Pro Features:** Unlocks Pro templates, exclusive fonts, and premium element library without an active Pro subscription.
-  - **Remove Watermarks on Free Elements:** Bypasses watermark rendering on freemium design elements and stock photos for clean exports.
-  - **Unlimited Brand Kit Slots:** Removes the Brand Kit slot limit for unlimited custom color palettes, font sets, and logo libraries.
-  - **Ad-Free & Hide Upgrade Popups:** Strips in-editor upgrade dialogs, Pro upsell cards, and subscription CTAs throughout Canva.
-- **ChatGPT (NEW - 100M+ AI users):**
-  - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into ChatGPT conversations and hides 'Upgrade to ChatGPT Plus' marketing banners.
-  - **Allow Screenshots & Copy:** Removes Android FLAG_SECURE window restrictions to allow screenshots and screen recording inside conversations and prevents copy restrictions.
-  - **Keep Screen On During Generation:** Keeps the screen illuminated and active while ChatGPT is streaming responses and code snippets, preventing device sleep during long answers.
-- **CoinSnap:** VIP Pro unlock (unlimited identifications, full coin valuation and grading, disabled startup paywall).
-- **Duolingo (NEW - 500M+ downloads):**
-  - **Unlimited Hearts:** Unlimited hearts and lives! Never lose a heart on mistakes during language lessons.
-  - **Ad-Free & Declutter:** Strips video ads between lessons and removes Super Duolingo upgrade popups.
-  - **Unlock Super Features:** Access Practice Hub, mistake reviews, and legendary mastery levels without gem costs.
-- **Google Gemini (NEW - AI Assistant):**
-  - **AMOLED Dark Theme & Declutter:** Injects pure pitch black (#000000) for OLED displays across Gemini chat threads and removes persistent Gemini Advanced subscription banners.
-  - **Allow Screenshots & UI Tweaks:** Bypasses FLAG_SECURE window restrictions on chat windows and streamlines floating overlay behavior.
-  - **Disable Response Haptics:** Suppresses repetitive haptic buzzes while the AI streams text and markdown responses.
-- **Google Drive (NEW - 15 Billion+ downloads):**
-  - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into Google Drive file list, folder browser, and document detail views.
-  - **Allow Screenshots & Secure Share:** Removes Android FLAG_SECURE restrictions in Google Drive for screenshots of documents and spreadsheets.
-- **Google Maps (NEW - 10 Billion+ downloads):**
-  - **Block Sponsored Pins & Ads:** Removes sponsored business pins from map layers, promotional suggestion cards, and contextual search ads during navigation.
-  - **AMOLED Black Navigation:** Forces pure OLED black (#000000) night theme during turn-by-turn guidance and map browsing, reducing battery consumption on OLED displays.
-  - **Always Show Speedometer & Compass:** Ensures the real-time GPS speedometer and navigation compass remain permanently visible on screen during route guidance.
-- **Google Photos (NEW - 5 Billion+ downloads):**
-  - **Unlock Editing Tools:** Enables Pixel-exclusive photo editing features (Magic Eraser, Portrait Light, Dynamic Sky, Blur/Depth effects) across all Android devices.
-  - **AMOLED Black & Declutter:** Injects pure OLED black (#000000) into media viewing and library tabs, and hides persistent Google One storage upsell banners.
-- **Hill Climb Racing (NEW - 500M+ downloads):**
-  - **Infinite Fuel & No Breakdown:** The fuel tank never depletes, allowing infinite driving across all stages without running out of gas.
-  - **Bypass Rewarded Ads:** Automatically grants free post-race coin doublers and opens daily bonus chests without watching rewarded video ads.
-- **Hungry Shark (World & Evolution):**
-  - **Bypass Rewarded Ads:** Free crash revives, doubled coins/gems at run end, and bonus wheel spins without watching ads.
-  - **Free Shopping:** Unlocks sharks, accessories, maps, and gem packages directly from the in-game shop for free.
-- **Hungry Shark Heroes:** Zero incubation timers for shark eggs, free battle revives in multiplayer arenas, and instant reef expansion unlocks.
-- **Jetpack Joyride (NEW - 500M+ downloads):**
-  - **Infinite Jetpack Shield & Revives:** Permanent deflector shield protecting Barry from lasers and zappers, plus unlimited crash revives.
-  - **Bypass Rewarded Ads:** Free final spin tokens on the slot machine and doubled coin rewards without viewing video advertisements.
-- **MEGA (NEW - 100M+ downloads):**
-  - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into MEGA cloud file browser, transfer queue, and settings, and hides Pro upgrade promotion banners.
-  - **Allow Screenshots & Export:** Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions.
-- **Movix (NEW - Movies & Series Streaming):**
-  - **Block Video Ads & Interstitials:** Completely eliminates pre-roll and mid-roll video ads, banners, and intrusive redirect popups across all movie and series player screens.
-  - **AMOLED Black Player & Picture-in-Picture:** Injects true OLED pitch black (#000000) into the Movix catalog and unlocks Picture-in-Picture (PiP) mode and background audio playback.
-  - **Unlock Premium Subscription:** Bypasses VIP/Premium subscription checks to unlock all exclusive content, series, and movie libraries.
-  - **Force HD & 4K Quality Unlock:** Forces maximum video quality (HD 1080p / 4K) on all content regardless of subscription tier or network thresholds.
-  - **Disable Auto-Pause on Background:** Prevents automatic video pause when the app enters the background, enabling audio-only listening.
-  - **Bypass Download Restrictions:** Unlocks offline download of any movie or series episode without a Premium subscription.
-- **MX Player (NEW - 1 Billion+ downloads):**
-  - **Ad-Free Video Player:** Removes ads in the video folder list and pause-screen overlay popups.
-  - **Unlock Background Playback:** Unlocks background audio playback with screen off and Picture-in-Picture (PiP) mode without MX Player Pro.
-- **Nextcloud (NEW - 5M+ Private Cloud users):**
-  - **AMOLED Dark Theme:** Replaces dark gray theme with pure pitch black (#000000) for OLED screens in Nextcloud file explorer, uploads monitor, and media gallery.
-  - **Allow Screenshots & Bypass Lockout:** Removes FLAG_SECURE window protections in Nextcloud to enable screenshots and screen recording even when app passcode lock is configured.
-- **Perplexity (NEW - 50M+ AI users):**
-  - **AMOLED Dark Theme & Declutter:** Injects pure pitch black (#000000) for OLED screens in search query threads and removes persistent Perplexity Pro subscription banners.
-  - **Allow Screenshots & Sharing:** Removes Android FLAG_SECURE window restrictions on private collections and search threads.
-  - **Unlock Pro Search Interface:** Streamlines deep search layout and web source reference cards for enhanced readability.
-- **Phone by Google (NEW - 1 Billion+ downloads):**
-  - **Enable Call Recording:** Unlocks native call recording settings and in-call record button, bypassing regional and carrier restrictions.
-  - **Silence Call Recording Warning:** Silences the mandatory voice prompt ("This call is now being recorded") played to both parties when recording begins or ends.
-  - **Enhanced Spam & Detailed Caller ID:** Enforces aggressive spam blocking and surfaces carrier routing and geographical location metadata on incoming calls.
-- **Pinterest (NEW - 1 Billion+ downloads):**
-  - **Block Sponsored Pins & Shopping Ads:** Removes sponsored product pins and commercial shopping carousels from the home feed and search results.
-  - **Allow Saving Media & Direct Download:** Enables direct high-resolution image and video downloading without watermarks.
-- **Proton Drive (NEW - 5M+ downloads):**
-  - **AMOLED Black & Declutter:** Injects pure OLED pitch black (#000000) into Proton Drive file vaults and hides storage quota warning banners and Proton Unlimited upgrade prompts.
-  - **Allow Screenshots & Privacy:** Removes Android FLAG_SECURE window restrictions in Proton Drive, allowing screenshots and screen recording of previewed documents and media.
-- **Proton Mail (NEW - 10M+ downloads):**
-  - **AMOLED Black Theme:** Injects pure pitch black (#000000) into the inbox, composer, and folder drawers for maximum OLED battery savings.
-  - **Declutter UI & Hide Upgrade Nags:** Suppresses persistent Proton Unlimited upsell banners and storage alerts.
-  - **Allow Screenshots & Screen Mirroring:** Disables Android FLAG_SECURE window restrictions to allow screenshots and screen recording of email messages.
-- **Proton Pass (NEW - 1M+ downloads):**
-  - **AMOLED Dark Theme:** Injects pure pitch black (#000000) into password vaults, login views, and settings for OLED display efficiency.
-  - **Allow Screenshots in Vault:** Removes FLAG_SECURE window protections, permitting screenshots and screen sharing inside vault items.
-- **Proton VPN (50M+ downloads):**
-  - **Declutter UI & Hide Plus Upsells:** Removes persistent upsell banners and marketing prompts encouraging upgrades to Proton VPN Plus.
-  - **Bypass Secure Window Restrictions:** Removes FLAG_SECURE window protections to allow screenshots and screen recording of VPN status and profiles.
-  - **AMOLED Black Theme:** Injects pure pitch black (#000000) across the map view, server list, and connection dashboard for OLED efficiency.
-  - **Unlock Quick Settings Tile:** Unlocks and forces the Android Quick Settings VPN tile to easily toggle connection state from the notification shade.
-  - **Bypass Session Timeout:** Prevents automatic session timeouts and disconnects during extended periods of background inactivity.
-- **Robbery Bob (NEW - 0 patches on Awesome Morphe):**
-  - **Infinite Stealth & Invisibility:** Bob is completely undetectable by guards, residents, cameras, and watchdogs.
-  - **Infinite Coins:** Grants maximum coins to purchase all speed, stamina, and sneakiness upgrades.
-  - **Bypass Rewarded Ads:** Level completion bonuses and score multipliers without watching video ads.
-  - **Unlock All Chapters & Costumes:** Instant access to all burglary chapters, bonus levels, and Bob's custom outfits.
-- **Session (NEW - Private Decentralized Messenger):**
-  - **AMOLED Pitch Black:** Injects true OLED pitch black (#000000) into conversation threads and channel lists.
-  - **Allow Screenshots & Media Export:** Disables FLAG_SECURE window restrictions on private conversations and ephemeral media.
-  - **Unlock Pro & Multi-Profile Switching:** Unlocks rapid multi-profile switching, post-quantum encryption toggles, and benefactor profile badges.
-- **Shades: Shadow Fight Roguelike:**
-  - **Infinite Energy:** Unlimited combat energy to play runs continuously without waiting for stamina timers.
-  - **Bypass Rewarded Ads:** Free rerolls of Shade traits and crash revives without watching video ads.
-- **Shadow Fight 2:**
-  - **Infinite Energy:** Unlimited combat stamina to fight endlessly without waiting for energy recharge.
-  - **Bypass Rewarded Ads:** Removes mandatory video ads after duels and grants free coin multipliers.
-  - **Free Shopping:** Infinite coins and gems to acquire legendary weapons, armor sets, and enchantments.
-- **Shadow Fight 2 Special Edition:** Ad-free premium edition with Free Shopping unlocked for legendary gear.
-- **Shadow Fight 3:**
-  - **Free Shadow Energy:** Shadow energy meter is permanently ready to unleash devastating special attacks.
-  - **Bypass Rewarded Ads:** Triples quest rewards and opens legendary chests without watching sponsor videos.
-- **Shadow Fight 4: Arena:** Free roulette spins, instant warrior chest opening, and bonus cards.
-- **Shazam (NEW - 500M+ downloads):**
-  - **Ad-Free & Clean UI:** Strips banner ads and aggressive Apple Music / Spotify subscription promotions from identification result cards.
-  - **Auto-Shazam AMOLED Mode:** Injects pure pitch black (#000000) for continuous background recognition without draining battery.
-- **Signal (NEW - 100M+ users):**
-  - **AMOLED Dark Theme:** Injects pure pitch black (#000000) across all chat conversation threads, contact details, and settings.
-  - **Allow Screenshots & Incognito Keyboard:** Removes FLAG_SECURE window restrictions to allow screenshots and forces incognito keyboard mode.
-  - **Bypass Ephemeral Disappearing Messages:** Prevents disappearing messages from being automatically deleted from local chat history.
-  - **Hide Typing & Read Indicators:** Disables typing indicators and read receipts on outgoing messages while retaining incoming status.
-  - **Unlock Pro & Badges:** Unlocks client-side donor badges, custom app icons, and aesthetic customizations.
-- **SimpleX Chat (NEW - 100% Private No User IDs):**
-  - **AMOLED Black Theme:** Injects pure pitch black (#000000) across conversation bubbles, contact lists, and settings.
-  - **Allow Screenshots & Media Export:** Disables FLAG_SECURE window restrictions on secret chats and media attachments.
-  - **Unlock Pro & Multi-Profile Switching:** Unlocks rapid multi-profile switching, quantum-resistant encryption toggles, and benefactor profile styling.
-- **Snapchat (NEW - 1 Billion+ downloads):**
-  - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into chat screens and hides sponsored Discover tiles and Spotlight ads.
-  - **Allow Screenshots & Anti-Screen Security:** Neutralizes FLAG_SECURE restrictions on chats and media previews to allow screenshot capture without black screens.
-  - **Start on Chat & Battery Saver:** Launches Snapchat directly into the chat conversation tab rather than initializing the power-hungry camera viewfinder.
-  - **Unlock Snapchat+ Features:** Unlocks client-side Snapchat+ UI perks (custom app icons, post-view emojis, best friend pin badges, and dark mode toggles).
-- **SoundCloud (NEW - 100M+ listeners):**
-  - **Block Audio & Stream Ads:** Blocks interstitial audio ads between tracks and strips promoted music from the stream.
-  - **Declutter UI & Hide Go+ Upsells:** Removes persistent nags and banners urging upgrades to SoundCloud Go+.
-  - **Unlock HQ Audio & Premium Controls:** Enables high-quality (HQ) audio streaming selection and advanced playback controls (variable speed).
-- **Speedtest by Ookla (NEW - 500M+ downloads):**
-  - **Ad-Free Speedtest:** Completely strips interstitial ads, banner advertisements, and post-test sponsored survey cards.
-  - **Premium VPN & Unlimited Data:** Unlocks unlimited VPN traffic without the 2GB monthly cap and enables access to all global VPN endpoints.
-- **Spotify Mobile (Spicetify Suite Mobile - 0 patches on Awesome Morphe):**
-  - **Spicetify AMOLED Black Theme:** Pitch black theme (#000000) for OLED/AMOLED screens, replacing dark gray backgrounds for stark contrast and battery efficiency.
-  - **Spicetify Custom Accent Color:** Replaces the standard Spotify green (#1DB954) with custom accent colors (Electric Spicetify Purple, Cyberpunk Cyan, Sakura Pink, Crimson).
-  - **Spicetify Declutter UI:** Total UI declutter: removes Premium upgrade banners, shopping tabs, and promotional carousels.
-  - **Spicetify Community Addons & Settings:** Spicetify Mobile in-app controller and addons manager to enable experimental flags and community modules.
-- **Strava (NEW - 100M+ athletes):**
-  - **Unlock Pro & Subscriber Analytics:** Unlocks 3D terrain maps, segment analysis leaderboards, and relative effort analytics.
-  - **Declutter Feed & Hide Trials:** Hides persistent free trial subscription promos and sponsored challenges.
-- **Telegram (NEW - 1 Billion+ users):**
-  - **Block Ads & Hide Stories:** Removes sponsored messages in public channels, hides stories carousel above conversations, and disables Telegram Premium nags.
-  - **Allow Saving Restricted Media:** Bypasses anti-copy and restricted channel protections ('Saving content is not allowed') to permit downloading photos, videos, and copying text.
-  - **Unlock Unlimited Pinned Chats:** Removes the 5-chat pinned limit to allow pinning an unlimited number of conversations and channels without Telegram Premium.
-  - **Disable Proximity Sensor:** Prevents the device proximity sensor from blanking the screen or switching audio to the earpiece while listening to voice or video messages.
-  - **Unlock Telegram Premium Features:** Unlocks client-side Telegram Premium features (exclusive app icons, animated reactions, voice-to-text transcription button, and doubled chat folder limits).
-- **TeraBox (NEW - 100M+ downloads):**
-  - **Block Ads & Hide VIP Nags:** Removes startup video advertisements, storage interstitial popups, and persistent VIP subscription prompts.
-  - **Unlock Video Player Speed & Controls:** Unlocks background playback with screen turned off, 1080p / original resolution selector, and playback speed controls without a Premium subscription.
-- **Truecaller (NEW - 1 Billion+ downloads):**
-  - **Ad-Free & Clean Dialer:** Eliminates full-screen post-call advertisements and cleans up call history tabs.
-  - **Unlock Premium & Gold Features:** Enables Premium/Gold caller badge display and unlocks advanced spam blocking filters.
-- **Turbo VPN (NEW - 100M+ downloads):**
-  - **Ad-Free Turbo VPN:** Completely eliminates full-screen video ads upon connect/disconnect, bottom banner advertisements, and interstitial popups.
-  - **Declutter UI & Hide VIP Upsells:** Removes aggressive VIP upgrade prompts, floating promotional chests, and simplifies the user interface.
-- **Tuta Mail (NEW - 1M+ downloads):**
-  - **AMOLED Black Theme:** Injects pure OLED pitch black (#000000) into inbox view, email reader, calendar, and contacts.
-  - **Declutter UI & Hide Upgrade Banners:** Hides promotional upgrade banners for Revolutionary and Legend tiers, storage alert dialogs, and upsell prompts.
-  - **Allow Screenshots & Screen Mirroring:** Disables Android FLAG_SECURE window restrictions to allow screenshots and screen recording of sensitive receipts and emails.
-- **Twitch (NEW - 100M+ downloads):**
-  - **Block Video Stream Ads:** Blocks pre-roll and mid-roll video advertisements on live channels and VODs without stream buffer drops.
-  - **Background & Audio-Only Playback:** Unlocks seamless background audio playback and Picture-in-Picture (PiP) mode.
-  - **Chat Filter & Declutter Overlays:** Suppresses Hype Train popups, hides Bits cheering banners, and declutters live stream overlays.
-- **VLC (NEW - 100M+ downloads):**
-  - **Pure AMOLED Dark Theme & Declutter:** Pure black #000000 theme for OLED displays and hides discovery hints/tips.
-- **Vector 2 (NEW - 0 patches on Awesome Morphe):**
-  - **Infinite Battery & Shields:** Armor kit charges and shield energy never drain, keeping the runner fully protected against lasers and mines.
-  - **Unlock Gear Matrix:** Unlocks all experimental equipment slots and datacore matrices without research level barriers.
-  - **Bypass Rewarded Ads:** Free emergency run revives and instant datacore decoding without video ads.
-  - **Free Shopping:** Infinite upgrade chips, research tokens, and booster packs from the in-game shop.
-- **Waze (NEW - 100M+ drivers):**
-  - **Block Zero-Speed Ads & Sponsored Pins:** Blocks pop-up takeover ads and sponsored commercial pins that appear when stopped at traffic lights or in congestion.
-  - **Exact Radar & Speed Camera Alerts:** Restores exact speed camera distances and locations rather than vague danger zones.
-  - **Unlock Exclusive Moods & Car Icons:** Unlocks all exclusive driver moods (Monsters, Retro, VIP) and vehicle avatars to personalize your road profile.
-- **Windscribe VPN (NEW - 10M+ downloads):**
-  - **Declutter UI & Hide Pro Upsells:** Hides Pro upgrade ribbons, promotional sales alerts, and persistent upgrade banners in the main location list.
-  - **Enhanced Privacy & Telemetry Blocker:** Neutralizes background diagnostic reporting, error analytics, and tracking telemetry endpoints for maximum anonymity.
-
-> [!TIP]
-> 💡 **Besoin d'aide ou un bug constaté ?** N'hésitez pas à ouvrir un ticket sur [GitHub Issues](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml) pour nous le signaler !
-
-### 📲 How to Use in Morphe Manager
-
-👉 **[Add D-moniak Patches to Morphe Manager (1-Click)](https://morphe.software/add-source?github=SatanMerde/D-moniakPatches)**
-
-Or manually in the app:
-
-1. Open **Morphe Manager**.
-2. Navigate to **Settings** > **Patch Sources**.
-3. Add source: `SatanMerde/D-moniakPatches`.
-4. Select **Hungry Shark World** (`com.ubisoft.hungrysharkworld`).
-5. Check the desired patches (**Bypass Rewarded Ads**, **Free Shopping**).
-6. Tap **Patch** and install the modified APK.
-
-### 💬 Report a Bug or Request a Patch
-Experiencing an issue or want support for a new game / patch?
-- 🐛 **[Report a Bug or Issue](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml)**: if a patch is not working properly or crashes the application.
-- ✨ **[Request a New Patch](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_request.yml)**: to propose new features or support for another game / application.
-
-### 🛠️ Development & Release
-This repository uses automated **Semantic Release** with GitHub Actions:
-- **`dev` branch**: Used for ongoing development and automated pre-releases.
-- **`main` branch**: Production stable branch.
-- **Conventional Commits**:
-  - `feat:` New feature (triggers a minor release).
-  - `fix:` Bug fix (triggers a patch release).
-  - `chore:` Internal maintenance without release.
-
-#### Local Build
-```bash
-./gradlew :patches:buildAndroid
-```
-The resulting `.mpp` file is generated in `patches/build/libs/patches-*.mpp`.
-
-### 📄 License
-This project is distributed under the [GNU General Public License v3.0](LICENSE).  
-This software is provided "as is", without warranty of any kind.

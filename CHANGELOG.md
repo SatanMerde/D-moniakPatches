@@ -1,3 +1,9 @@
+## [1.28.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.27.0...v1.28.0) (2026-09-26)
+
+### ✨ New Features
+
+* add Brave Browser, Firefox, Twitch and VLC patch suites (170 patches, 53 apps) ([8d83b4d](https://github.com/SatanMerde/D-moniakPatches/commit/8d83b4dacf3126762707764ca0239f984f0f80a3))
+
 ## [1.27.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.26.0...v1.27.0) (2026-09-26)
 
 ### ✨ New Features

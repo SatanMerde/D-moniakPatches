@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.27.0",
+  "version": "1.28.0",
   "patches": [
     {
       "name": "AMOLED Black & Declutter - Google Photos (Experimental)",
@@ -135,26 +135,7 @@
           ]
         }
       ],
-      "options": [
-        {
-          "key": "pureBlackPlayer",
-          "title": "Pure black AMOLED player UI",
-          "description": "Set player controls background to pure black #000000.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "enablePipMode",
-          "title": "Enable PiP background player",
-          "description": "Allow Picture-in-Picture floating video window.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
+      "options": []
     },
     {
       "name": "AMOLED Black Theme - Proton Mail (Experimental)",
@@ -262,26 +243,7 @@
           ]
         }
       ],
-      "options": [
-        {
-          "key": "amoledDarkCanvas",
-          "title": "Pure black AMOLED canvas",
-          "description": "Force true #000000 dark mode in editor.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "declutterEditorUi",
-          "title": "Declutter editor toolbar",
-          "description": "Remove promotional buttons and unclutter design area.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
+      "options": []
     },
     {
       "name": "AMOLED Dark Theme & Declutter - ChatGPT (Experimental)",
@@ -389,26 +351,7 @@
           ]
         }
       ],
-      "options": [
-        {
-          "key": "amoledDarkTheme",
-          "title": "Force pure AMOLED dark theme",
-          "description": "True #000000 black background across file lists.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "hideUpgradeBanners",
-          "title": "Hide upgrade banners",
-          "description": "Suppress Pro upgrade banners on dashboard.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
+      "options": []
     },
     {
       "name": "AMOLED Dark Theme & Declutter - Perplexity (Experimental)",
@@ -678,26 +621,7 @@
           ]
         }
       ],
-      "options": [
-        {
-          "key": "hideUpgradePopups",
-          "title": "Hide upgrade popups",
-          "description": "Suppress modal upgrade nags on launch and save.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "removeTrialBanners",
-          "title": "Remove trial banners",
-          "description": "Eliminate promotional banners across the dashboard.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
+      "options": []
     },
     {
       "name": "Ad-Free Speedtest - Speedtest by Ookla (Experimental)",
@@ -967,26 +891,7 @@
           ]
         }
       ],
-      "options": [
-        {
-          "key": "allowScreenshots",
-          "title": "Allow taking screenshots",
-          "description": "Disable FLAG_SECURE window restrictions in MEGA.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "bypassExportLimits",
-          "title": "Bypass export restrictions",
-          "description": "Allow unrestricted local document and media exports.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
+      "options": []
     },
     {
       "name": "Allow Screenshots & Privacy - Proton Drive (Experimental)",
@@ -1286,6 +1191,60 @@
       "options": []
     },
     {
+      "name": "Background & Audio-Only Playback - Twitch (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks background audio playback and seamless Picture-in-Picture (PiP) mode without stream interruptions on Twitch.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "tv.twitch.android.app",
+          "name": "Twitch",
+          "description": "Twitch: Live Game Streaming & Esports by Twitch Interactive",
+          "apkFileType": null,
+          "appIconColor": "#9146FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Background Playback - Brave (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Enables background audio and video playback when switching apps or locking the screen in Brave Browser.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.brave.browser",
+          "name": "Brave Browser",
+          "description": "Brave Browser: Fast, AdBlocker & Private Web Browser by Brave Software",
+          "apkFileType": null,
+          "appIconColor": "#FB542B",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Block Ads & Hide Stories - Telegram (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Removes sponsored messages in public channels, hides stories carousel from the chat list, and eliminates Telegram Premium upgrade reminders.",
       "default": true,
@@ -1418,26 +1377,34 @@
           ]
         }
       ],
-      "options": [
+      "options": []
+    },
+    {
+      "name": "Block Video Stream Ads - Twitch (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Blocks embedded pre-roll and mid-roll video advertisements on live channels and VODs without stream buffer freezes.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
         {
-          "key": "blockVideoAds",
-          "title": "Block video pre-roll / mid-roll ads",
-          "description": "Skip all in-stream advertising clips.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "blockInterstitialPopups",
-          "title": "Block interstitial popups",
-          "description": "Eliminate full-screen popup ads on play/pause.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
+          "packageName": "tv.twitch.android.app",
+          "name": "Twitch",
+          "description": "Twitch: Live Game Streaming & Esports by Twitch Interactive",
+          "apkFileType": null,
+          "appIconColor": "#9146FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
         }
-      ]
+      ],
+      "options": []
     },
     {
       "name": "Block Zero-Speed Ads & Sponsored Pins - Waze (Experimental)",
@@ -1491,26 +1458,7 @@
           ]
         }
       ],
-      "options": [
-        {
-          "key": "unlimitedDownloads",
-          "title": "Unlimited offline downloads",
-          "description": "Download unlimited movies and episodes for offline viewing.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "allowExternalStorage",
-          "title": "Save directly to SD/external",
-          "description": "Allow choosing external storage directory for downloads.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
+      "options": []
     },
     {
       "name": "Bypass Rewarded Ads",
@@ -1891,6 +1839,33 @@
       "options": []
     },
     {
+      "name": "Chat Filter & Declutter Overlays - Twitch (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Filters chat spam, suppresses Hype Train popups, hides bits cheering banners, and declutters live stream overlays.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "tv.twitch.android.app",
+          "name": "Twitch",
+          "description": "Twitch: Live Game Streaming & Esports by Twitch Interactive",
+          "apkFileType": null,
+          "appIconColor": "#9146FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Clean Links & Fast Copy - Perplexity (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Strips tracking redirects from cited web sources in Perplexity answers and enables one-tap formatted markdown export.",
       "default": true,
@@ -1903,6 +1878,33 @@
           "description": "Perplexity: Where Knowledge Begins by Perplexity AI",
           "apkFileType": null,
           "appIconColor": "#20B2AA",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Clean New Tab & Disable Brave News - Brave (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes Brave News feed, sponsored background wallpaper images, sponsored top tiles, and trending widgets on the New Tab page.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.brave.browser",
+          "name": "Brave Browser",
+          "description": "Brave Browser: Fast, AdBlocker & Private Web Browser by Brave Software",
+          "apkFileType": null,
+          "appIconColor": "#FB542B",
           "signatures": null,
           "targets": [
             {
@@ -2158,26 +2160,7 @@
           ]
         }
       ],
-      "options": [
-        {
-          "key": "disableAutoPause",
-          "title": "Disable inactivity auto-pause",
-          "description": "Prevent player from pausing when idle or backgrounded.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "keepAudioInBackground",
-          "title": "Keep audio in background",
-          "description": "Allow audio to continue streaming with screen off.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
+      "options": []
     },
     {
       "name": "Disable Proximity Sensor - Telegram (Experimental)",
@@ -2234,6 +2217,33 @@
       "options": []
     },
     {
+      "name": "Disable Rewards & Crypto Wallet - Brave (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Disables Brave Rewards (BAT), crypto wallet icon, Web3 onboarding prompts, and token badges for a cleaner UI.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.brave.browser",
+          "name": "Brave Browser",
+          "description": "Brave Browser: Fast, AdBlocker & Private Web Browser by Brave Software",
+          "apkFileType": null,
+          "appIconColor": "#FB542B",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Disable Storage Warnings - Google Photos (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Suppresses intrusive cloud storage full popups, Google One subscription reminders, and backup disabled warnings in Google Photos.",
       "default": true,
@@ -2246,6 +2256,33 @@
           "description": "Google Photos: Photo & Video Storage by Google LLC",
           "apkFileType": null,
           "appIconColor": "#EA4335",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Telemetry & Pocket Stories - Firefox (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Completely disables Mozilla telemetry, Glean analytics, sponsored Pocket stories, and sponsored search shortcuts on Firefox mobile.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.mozilla.firefox",
+          "name": "Firefox",
+          "description": "Firefox: Fast, Private & Safe Web Browser by Mozilla",
+          "apkFileType": null,
+          "appIconColor": "#FF7139",
           "signatures": null,
           "targets": [
             {
@@ -2494,6 +2531,60 @@
       "options": []
     },
     {
+      "name": "Force Aggressive Shields & Anti-Adblock Bypass - Brave (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Forces aggressive ad/tracker blocking mode by default, strips URL tracking query parameters, and bypasses anti-adblock detection scripts in Brave.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.brave.browser",
+          "name": "Brave Browser",
+          "description": "Brave Browser: Fast, AdBlocker & Private Web Browser by Brave Software",
+          "apkFileType": null,
+          "appIconColor": "#FB542B",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Force Background Audio Playback - VLC (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Forces audio playback to stay active in the background when exiting the video player, minimizing the app, or locking the device.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.videolan.vlc",
+          "name": "VLC",
+          "description": "VLC for Android: Fast, Open-Source Media Player by VideoLAN",
+          "apkFileType": null,
+          "appIconColor": "#FF8800",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Force Dark Theme System-Wide - Google Drive (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Forces pure OLED dark theme (#000000) across all Google Drive screens including file browser, folder views, sharing dialogs, and document detail drawers regardless of system theme.",
       "default": true,
@@ -2545,26 +2636,7 @@
           ]
         }
       ],
-      "options": [
-        {
-          "key": "force1080pQuality",
-          "title": "Force 1080p / 4K UHD quality",
-          "description": "Unlock maximum video resolution streams.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "bypassBitrateLimit",
-          "title": "Bypass stream bitrate throttle",
-          "description": "Force highest available bitrate on all servers.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
+      "options": []
     },
     {
       "name": "Free Shopping",
@@ -3259,6 +3331,60 @@
       "options": []
     },
     {
+      "name": "Pure AMOLED Dark Theme & Declutter - VLC (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Forces a pitch-black AMOLED dark theme, hides tips and audio/video discovery clutter across the VLC player UI.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.videolan.vlc",
+          "name": "VLC",
+          "description": "VLC for Android: Fast, Open-Source Media Player by VideoLAN",
+          "apkFileType": null,
+          "appIconColor": "#FF8800",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Pure AMOLED Dark Theme - Firefox (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Forces a true pitch-black (#000000) AMOLED dark theme across the browser UI, new tab homepage, toolbar, and reader mode.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.mozilla.firefox",
+          "name": "Firefox",
+          "description": "Firefox: Fast, Private & Safe Web Browser by Mozilla",
+          "apkFileType": null,
+          "appIconColor": "#FF7139",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Remove Ads & Promotional Banners - Google Drive (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Removes Google One upsell banners, Workspace promotional cards, storage upgrade prompts, and sponsored suggestions from the Drive home feed and search results.",
       "default": true,
@@ -3337,26 +3463,7 @@
           ]
         }
       ],
-      "options": [
-        {
-          "key": "stripWatermarks",
-          "title": "Strip draft watermarks",
-          "description": "Remove Canva watermark grid from designs.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "removePremiumBadges",
-          "title": "Hide paid badges on elements",
-          "description": "Hide crown icons and payment prompts on canvas.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
+      "options": []
     },
     {
       "name": "Silence Call Recording Warning - Phone by Google (Experimental)",
@@ -3608,26 +3715,7 @@
           ]
         }
       ],
-      "options": [
-        {
-          "key": "unlimitedBrandKits",
-          "title": "Unlimited brand kits",
-          "description": "Create unlimited custom color palettes and brand kits.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "customFontUploads",
-          "title": "Enable custom font uploads",
-          "description": "Allow uploading OTF/TTF fonts to brand kit.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
+      "options": []
     },
     {
       "name": "Unlimited Hearts - Duolingo (Experimental)",
@@ -3735,26 +3823,7 @@
           ]
         }
       ],
-      "options": [
-        {
-          "key": "enableProTemplates",
-          "title": "Unlock Pro templates & assets",
-          "description": "Grant access to premium templates and graphic assets.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "enablePremiumFonts",
-          "title": "Unlock premium typography",
-          "description": "Unlock Canva Pro exclusive typography and fonts.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
+      "options": []
     },
     {
       "name": "Unlock Creator & Pro Tools - Pinterest (Experimental)",
@@ -3850,6 +3919,33 @@
           "description": "Waze Navigation & Live Traffic by Waze / Google",
           "apkFileType": null,
           "appIconColor": "#33CCFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Full Add-ons Catalog - Firefox (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks full Mozilla Add-ons (AMO) catalog installation on mobile Firefox without requiring Custom Add-on Collections.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.mozilla.firefox",
+          "name": "Firefox",
+          "description": "Firefox: Fast, Private & Safe Web Browser by Mozilla",
+          "apkFileType": null,
+          "appIconColor": "#FF7139",
           "signatures": null,
           "targets": [
             {
@@ -3970,26 +4066,7 @@
           ]
         }
       ],
-      "options": [
-        {
-          "key": "enable4kExport",
-          "title": "Unlock 4K export quality",
-          "description": "Enable maximum resolution PNG/JPEG export slider.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "enableSvgDownload",
-          "title": "Enable SVG vector download",
-          "description": "Unlock transparent background and SVG format downloads.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
+      "options": []
     },
     {
       "name": "Unlock NetShield DNS Blocker - Proton VPN (Experimental)",
@@ -4124,26 +4201,7 @@
           ]
         }
       ],
-      "options": [
-        {
-          "key": "unlockVipStatus",
-          "title": "Unlock VIP / Premium badge",
-          "description": "Activate premium member status across the app.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "removeWatchCooldown",
-          "title": "Remove watch limits",
-          "description": "Bypass daily movie streaming cooldown periods.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
+      "options": []
     },
     {
       "name": "Unlock Pro & Multi-Profile Switching - SimpleX (Experimental)",
@@ -4441,462 +4499,6 @@
         }
       ],
       "options": []
-    },
-    {
-      "name": "Background Playback - Brave (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Enables background audio and video playback when switching apps or locking the screen in Brave Browser.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.brave.browser",
-          "name": "Brave Browser",
-          "description": "Brave Browser: Fast, AdBlocker & Private Web Browser by Brave Software",
-          "apkFileType": null,
-          "appIconColor": "#FB542B",
-          "signatures": null,
-          "targets": []
-        }
-      ],
-      "options": [
-        {
-          "key": "enableLockScreenPlayback",
-          "title": "Keep playback on lock screen",
-          "description": "Maintain audio playback when the device screen is locked.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "pipAutoEnable",
-          "title": "Auto Picture-in-Picture",
-          "description": "Automatically enter Picture-in-Picture mode on home gesture.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
-    },
-    {
-      "name": "Disable Rewards & Crypto Wallet - Brave (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Disables Brave Rewards (BAT), crypto wallet icon, Web3 onboarding prompts, and token badges for a cleaner UI.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.brave.browser",
-          "name": "Brave Browser",
-          "description": "Brave Browser: Fast, AdBlocker & Private Web Browser by Brave Software",
-          "apkFileType": null,
-          "appIconColor": "#FB542B",
-          "signatures": null,
-          "targets": []
-        }
-      ],
-      "options": [
-        {
-          "key": "hideBatIcon",
-          "title": "Hide BAT rewards button",
-          "description": "Remove the BAT Rewards triangle icon from toolbar.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "disableCryptoWallet",
-          "title": "Disable Brave Crypto Wallet",
-          "description": "Hide Web3 wallet entries in app menu and settings.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
-    },
-    {
-      "name": "Clean New Tab & Disable Brave News - Brave (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Removes Brave News feed, sponsored background wallpaper images, sponsored top tiles, and trending widgets on the New Tab page.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.brave.browser",
-          "name": "Brave Browser",
-          "description": "Brave Browser: Fast, AdBlocker & Private Web Browser by Brave Software",
-          "apkFileType": null,
-          "appIconColor": "#FB542B",
-          "signatures": null,
-          "targets": []
-        }
-      ],
-      "options": [
-        {
-          "key": "hideBraveNews",
-          "title": "Disable Brave News feed",
-          "description": "Completely disable and hide the Brave News cards below new tab.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "disableSponsoredImages",
-          "title": "Disable sponsored wallpapers",
-          "description": "Only show clean minimalist backgrounds without ads.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
-    },
-    {
-      "name": "Force Aggressive Shields & Anti-Adblock Bypass - Brave (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Forces aggressive ad/tracker blocking mode by default, strips URL tracking query parameters, and bypasses anti-adblock detection scripts in Brave.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.brave.browser",
-          "name": "Brave Browser",
-          "description": "Brave Browser: Fast, AdBlocker & Private Web Browser by Brave Software",
-          "apkFileType": null,
-          "appIconColor": "#FB542B",
-          "signatures": null,
-          "targets": []
-        }
-      ],
-      "options": [
-        {
-          "key": "stripTrackingParams",
-          "title": "Strip URL tracking parameters",
-          "description": "Automatically strip invasive URL marketing parameters (utm, gclid).",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "bypassAntiAdblock",
-          "title": "Bypass anti-adblock detection",
-          "description": "Prevent websites from detecting active ad blocking.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
-    },
-    {
-      "name": "Unlock Full Add-ons Catalog - Firefox (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Unlocks full Mozilla Add-ons (AMO) catalog installation on mobile Firefox without requiring Custom Add-on Collections.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "org.mozilla.firefox",
-          "name": "Firefox",
-          "description": "Firefox: Fast, Private & Safe Web Browser by Mozilla",
-          "apkFileType": null,
-          "appIconColor": "#FF7139",
-          "signatures": null,
-          "targets": []
-        }
-      ],
-      "options": [
-        {
-          "key": "unlockAmoCatalog",
-          "title": "Unlock full AMO catalog",
-          "description": "Enable installing any desktop or mobile add-on directly from AMO.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "bypassCompatCheck",
-          "title": "Bypass compatibility check",
-          "description": "Allow installing extensions without strict mobile whitelist checks.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
-    },
-    {
-      "name": "Disable Telemetry & Pocket Stories - Firefox (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Completely disables Mozilla telemetry, Glean analytics, sponsored Pocket stories, and sponsored search shortcuts on Firefox mobile.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "org.mozilla.firefox",
-          "name": "Firefox",
-          "description": "Firefox: Fast, Private & Safe Web Browser by Mozilla",
-          "apkFileType": null,
-          "appIconColor": "#FF7139",
-          "signatures": null,
-          "targets": []
-        }
-      ],
-      "options": [
-        {
-          "key": "disablePocket",
-          "title": "Remove Pocket recommended stories",
-          "description": "Hide all Pocket sponsored content from homepage.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "disableTelemetry",
-          "title": "Disable telemetry & Glean pings",
-          "description": "Block usage analytics, crash pings, and telemetry reports.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
-    },
-    {
-      "name": "Pure AMOLED Dark Theme - Firefox (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Forces a true pitch-black (#000000) AMOLED dark theme across the browser UI, new tab homepage, toolbar, and reader mode.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "org.mozilla.firefox",
-          "name": "Firefox",
-          "description": "Firefox: Fast, Private & Safe Web Browser by Mozilla",
-          "apkFileType": null,
-          "appIconColor": "#FF7139",
-          "signatures": null,
-          "targets": []
-        }
-      ],
-      "options": [
-        {
-          "key": "pureBlackAmoled",
-          "title": "Force pure black #000000 UI",
-          "description": "Apply true pitch-black AMOLED dark theme across the browser.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "amoledReaderMode",
-          "title": "AMOLED black in reader mode",
-          "description": "Render reader view with pure black background.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
-    },
-    {
-      "name": "Block Video Stream Ads - Twitch (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Blocks embedded pre-roll and mid-roll video advertisements on live channels and VODs without stream buffer freezes.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "tv.twitch.android.app",
-          "name": "Twitch",
-          "description": "Twitch: Live Game Streaming & Esports by Twitch Interactive",
-          "apkFileType": null,
-          "appIconColor": "#9146FF",
-          "signatures": null,
-          "targets": []
-        }
-      ],
-      "options": [
-        {
-          "key": "blockLiveAds",
-          "title": "Block pre-roll & mid-roll ads",
-          "description": "Intercept and neutralize live stream advertisements.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "cleanStreamFallback",
-          "title": "Clean stream proxy fallback",
-          "description": "Use ad-free clean proxy stream when ad break is signaled.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
-    },
-    {
-      "name": "Background & Audio-Only Playback - Twitch (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Unlocks background audio playback and seamless Picture-in-Picture (PiP) mode without stream interruptions on Twitch.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "tv.twitch.android.app",
-          "name": "Twitch",
-          "description": "Twitch: Live Game Streaming & Esports by Twitch Interactive",
-          "apkFileType": null,
-          "appIconColor": "#9146FF",
-          "signatures": null,
-          "targets": []
-        }
-      ],
-      "options": [
-        {
-          "key": "backgroundAudio",
-          "title": "Background audio playback",
-          "description": "Keep stream audio playing when leaving app or locking screen.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "autoPip",
-          "title": "Auto Picture-in-Picture",
-          "description": "Automatically transition to PiP mini-player on home swipe.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
-    },
-    {
-      "name": "Chat Filter & Declutter Overlays - Twitch (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Filters chat spam, suppresses Hype Train popups, hides bits cheering banners, and declutters live stream overlays.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "tv.twitch.android.app",
-          "name": "Twitch",
-          "description": "Twitch: Live Game Streaming & Esports by Twitch Interactive",
-          "apkFileType": null,
-          "appIconColor": "#9146FF",
-          "signatures": null,
-          "targets": []
-        }
-      ],
-      "options": [
-        {
-          "key": "hideHypeTrain",
-          "title": "Hide Hype Train popups",
-          "description": "Suppress intrusive Hype Train banners and animations.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "hideBitsCheering",
-          "title": "Hide Bits cheering badges",
-          "description": "Declutter chat from cheer announcements and leaderboards.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
-    },
-    {
-      "name": "Force Background Audio Playback - VLC (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Forces audio playback to stay active in the background when exiting the video player, minimizing the app, or locking the device.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "org.videolan.vlc",
-          "name": "VLC",
-          "description": "VLC for Android: Fast, Open-Source Media Player by VideoLAN",
-          "apkFileType": null,
-          "appIconColor": "#FF8800",
-          "signatures": null,
-          "targets": []
-        }
-      ],
-      "options": [
-        {
-          "key": "autoBackgroundAudio",
-          "title": "Auto-switch to background audio",
-          "description": "Seamlessly continue audio when app is minimized.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "persistentControls",
-          "title": "Persistent lock screen controls",
-          "description": "Show rich media playback controls on lock screen.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
-    },
-    {
-      "name": "Pure AMOLED Dark Theme & Declutter - VLC (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Forces a pitch-black AMOLED dark theme, hides tips and audio/video discovery clutter across the VLC player UI.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "org.videolan.vlc",
-          "name": "VLC",
-          "description": "VLC for Android: Fast, Open-Source Media Player by VideoLAN",
-          "apkFileType": null,
-          "appIconColor": "#FF8800",
-          "signatures": null,
-          "targets": []
-        }
-      ],
-      "options": [
-        {
-          "key": "amoledTheme",
-          "title": "Force pure black AMOLED UI",
-          "description": "Convert gray dark mode to true #000000 black.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        },
-        {
-          "key": "hideTips",
-          "title": "Hide onboarding tips & hints",
-          "description": "Clean up media library and player screen from hints.",
-          "required": false,
-          "type": "BOOLEAN",
-          "default": true,
-          "values": null
-        }
-      ]
     }
   ]
 }

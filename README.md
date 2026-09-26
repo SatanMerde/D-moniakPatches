@@ -53,7 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.27.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.27.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;172 patches total
+> **[v1.28.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.28.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;172 patches total
 <details open>
 <summary>📦 Alto's Adventure&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -84,10 +84,10 @@
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Background Playback - Brave (Experimental)](#background-playback-brave-experimental) | ⚠️ [En cours de développement / Non testé] Enables background audio and video playback when switching apps or locking the screen in Brave Browser. | • Keep playback on lock screen<br>• Auto Picture-in-Picture |
-| [Clean New Tab & Disable Brave News - Brave (Experimental)](#clean-new-tab-disable-brave-news-brave-experimental) | ⚠️ [En cours de développement / Non testé] Removes Brave News feed, sponsored background wallpaper images, sponsored top tiles, and trending widgets on the New Tab page. | • Disable Brave News feed<br>• Disable sponsored wallpapers |
-| [Disable Rewards & Crypto Wallet - Brave (Experimental)](#disable-rewards-crypto-wallet-brave-experimental) | ⚠️ [En cours de développement / Non testé] Disables Brave Rewards (BAT), crypto wallet icon, Web3 onboarding prompts, and token badges for a cleaner UI. | • Hide BAT rewards button<br>• Disable Brave Crypto Wallet |
-| [Force Aggressive Shields & Anti-Adblock Bypass - Brave (Experimental)](#force-aggressive-shields-anti-adblock-bypass-brave-experimental) | ⚠️ [En cours de développement / Non testé] Forces aggressive ad/tracker blocking mode by default, strips URL tracking query parameters, and bypasses anti-adblock detection scripts in Brave. | • Strip URL tracking parameters<br>• Bypass anti-adblock detection |
+| [Background Playback - Brave (Experimental)](#background-playback-brave-experimental) | ⚠️ [En cours de développement / Non testé] Enables background audio and video playback when switching apps or locking the screen in Brave Browser. |  |
+| [Clean New Tab & Disable Brave News - Brave (Experimental)](#clean-new-tab-disable-brave-news-brave-experimental) | ⚠️ [En cours de développement / Non testé] Removes Brave News feed, sponsored background wallpaper images, sponsored top tiles, and trending widgets on the New Tab page. |  |
+| [Disable Rewards & Crypto Wallet - Brave (Experimental)](#disable-rewards-crypto-wallet-brave-experimental) | ⚠️ [En cours de développement / Non testé] Disables Brave Rewards (BAT), crypto wallet icon, Web3 onboarding prompts, and token badges for a cleaner UI. |  |
+| [Force Aggressive Shields & Anti-Adblock Bypass - Brave (Experimental)](#force-aggressive-shields-anti-adblock-bypass-brave-experimental) | ⚠️ [En cours de développement / Non testé] Forces aggressive ad/tracker blocking mode by default, strips URL tracking query parameters, and bypasses anti-adblock detection scripts in Brave. |  |
 
 </details>
 
@@ -97,12 +97,12 @@
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [AMOLED Dark Theme & Declutter - Canva (Experimental)](#amoled-dark-theme-declutter-canva-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Canva design workspace and dashboard, and hides Canva Pro trial banners and upgrade reminders. | • Pure black AMOLED canvas<br>• Declutter editor toolbar |
-| [Ad-Free & Hide Upgrade Popups - Canva (Experimental)](#ad-free-hide-upgrade-popups-canva-experimental) | ⚠️ [En cours de développement / Non testé] Strips in-editor upgrade dialogs, Pro upsell cards in template galleries, subscription CTAs on element detail drawers, and interstitial purchase popups throughout Canva. | • Hide upgrade popups<br>• Remove trial banners |
-| [Remove Watermarks on Free Elements - Canva (Experimental)](#remove-watermarks-on-free-elements-canva-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses watermark rendering on Canva freemium design elements, stock photos, and templates, allowing clean export of designs without Pro subscription watermarks. | • Strip draft watermarks<br>• Hide paid badges on elements |
-| [Unlimited Brand Kit Slots - Canva (Experimental)](#unlimited-brand-kit-slots-canva-experimental) | ⚠️ [En cours de développement / Non testé] Removes the Brand Kit slot limit, allowing unlimited custom color palettes, font sets, and logo libraries without a Canva Pro or Teams subscription. | • Unlimited brand kits<br>• Enable custom font uploads |
-| [Unlock Canva Pro Features (Experimental)](#unlock-canva-pro-features-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Canva Pro premium templates, exclusive fonts, advanced design elements, and premium content library without an active Pro subscription. | • Unlock Pro templates & assets<br>• Unlock premium typography |
-| [Unlock High Quality Export - Canva (Experimental)](#unlock-high-quality-export-canva-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks maximum export resolution sliders, transparent background PNG option, and bypasses premium element watermark restrictions. | • Unlock 4K export quality<br>• Enable SVG vector download |
+| [AMOLED Dark Theme & Declutter - Canva (Experimental)](#amoled-dark-theme-declutter-canva-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Canva design workspace and dashboard, and hides Canva Pro trial banners and upgrade reminders. |  |
+| [Ad-Free & Hide Upgrade Popups - Canva (Experimental)](#ad-free-hide-upgrade-popups-canva-experimental) | ⚠️ [En cours de développement / Non testé] Strips in-editor upgrade dialogs, Pro upsell cards in template galleries, subscription CTAs on element detail drawers, and interstitial purchase popups throughout Canva. |  |
+| [Remove Watermarks on Free Elements - Canva (Experimental)](#remove-watermarks-on-free-elements-canva-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses watermark rendering on Canva freemium design elements, stock photos, and templates, allowing clean export of designs without Pro subscription watermarks. |  |
+| [Unlimited Brand Kit Slots - Canva (Experimental)](#unlimited-brand-kit-slots-canva-experimental) | ⚠️ [En cours de développement / Non testé] Removes the Brand Kit slot limit, allowing unlimited custom color palettes, font sets, and logo libraries without a Canva Pro or Teams subscription. |  |
+| [Unlock Canva Pro Features (Experimental)](#unlock-canva-pro-features-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Canva Pro premium templates, exclusive fonts, advanced design elements, and premium content library without an active Pro subscription. |  |
+| [Unlock High Quality Export - Canva (Experimental)](#unlock-high-quality-export-canva-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks maximum export resolution sliders, transparent background PNG option, and bypasses premium element watermark restrictions. |  |
 
 </details>
 
@@ -146,9 +146,9 @@
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Disable Telemetry & Pocket Stories - Firefox (Experimental)](#disable-telemetry-pocket-stories-firefox-experimental) | ⚠️ [En cours de développement / Non testé] Completely disables Mozilla telemetry, Glean analytics, sponsored Pocket stories, and sponsored search shortcuts on Firefox mobile. | • Remove Pocket recommended stories<br>• Disable telemetry & Glean pings |
-| [Pure AMOLED Dark Theme - Firefox (Experimental)](#pure-amoled-dark-theme-firefox-experimental) | ⚠️ [En cours de développement / Non testé] Forces a true pitch-black (#000000) AMOLED dark theme across the browser UI, new tab homepage, toolbar, and reader mode. | • Force pure black #000000 UI<br>• AMOLED black in reader mode |
-| [Unlock Full Add-ons Catalog - Firefox (Experimental)](#unlock-full-add-ons-catalog-firefox-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks full Mozilla Add-ons (AMO) catalog installation on mobile Firefox without requiring Custom Add-on Collections. | • Unlock full AMO catalog<br>• Bypass compatibility check |
+| [Disable Telemetry & Pocket Stories - Firefox (Experimental)](#disable-telemetry-pocket-stories-firefox-experimental) | ⚠️ [En cours de développement / Non testé] Completely disables Mozilla telemetry, Glean analytics, sponsored Pocket stories, and sponsored search shortcuts on Firefox mobile. |  |
+| [Pure AMOLED Dark Theme - Firefox (Experimental)](#pure-amoled-dark-theme-firefox-experimental) | ⚠️ [En cours de développement / Non testé] Forces a true pitch-black (#000000) AMOLED dark theme across the browser UI, new tab homepage, toolbar, and reader mode. |  |
+| [Unlock Full Add-ons Catalog - Firefox (Experimental)](#unlock-full-add-ons-catalog-firefox-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks full Mozilla Add-ons (AMO) catalog installation on mobile Firefox without requiring Custom Add-on Collections. |  |
 
 </details>
 
@@ -270,8 +270,8 @@
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [AMOLED Dark Theme & Declutter - MEGA (Experimental)](#amoled-dark-theme-declutter-mega-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into MEGA cloud file browser, transfer queue, and settings, and hides Pro upgrade promotion banners. | • Force pure AMOLED dark theme<br>• Hide upgrade banners |
-| [Allow Screenshots & Export - MEGA (Experimental)](#allow-screenshots-export-mega-experimental) | ⚠️ [En cours de développement / Non testé] Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions. | • Allow taking screenshots<br>• Bypass export restrictions |
+| [AMOLED Dark Theme & Declutter - MEGA (Experimental)](#amoled-dark-theme-declutter-mega-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into MEGA cloud file browser, transfer queue, and settings, and hides Pro upgrade promotion banners. |  |
+| [Allow Screenshots & Export - MEGA (Experimental)](#allow-screenshots-export-mega-experimental) | ⚠️ [En cours de développement / Non testé] Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions. |  |
 
 </details>
 
@@ -281,12 +281,12 @@
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [AMOLED Black Player & Picture-in-Picture - Movix (Experimental)](#amoled-black-player-picture-in-picture-movix-experimental) | ⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into Movix catalog and unlocks Picture-in-Picture (PiP) and background audio playback. | • Pure black AMOLED player UI<br>• Enable PiP background player |
-| [Block Video Ads & Interstitials - Movix (Experimental)](#block-video-ads-interstitials-movix-experimental) | ⚠️ [En cours de développement / Non testé] Strips video pre-roll and mid-roll ads, banner ads, and redirect popups across Movix movie and series player screens. | • Block video pre-roll / mid-roll ads<br>• Block interstitial popups |
-| [Bypass Download Restrictions - Movix (Experimental)](#bypass-download-restrictions-movix-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses offline download tier restrictions to allow downloading any movie or series episode for offline viewing without a Premium subscription, and removes download quality caps. | • Unlimited offline downloads<br>• Save directly to SD/external |
-| [Disable Auto-Pause on Background - Movix (Experimental)](#disable-auto-pause-on-background-movix-experimental) | ⚠️ [En cours de développement / Non testé] Prevents Movix from automatically pausing or stopping video playback when the app transitions to the background, enabling audio-only listening and uninterrupted casting. | • Disable inactivity auto-pause<br>• Keep audio in background |
-| [Force HD & 4K Quality Unlock - Movix (Experimental)](#force-hd-4k-quality-unlock-movix-experimental) | ⚠️ [En cours de développement / Non testé] Forces maximum available video quality (HD 1080p / 4K) on all content regardless of subscription tier or network quality detection thresholds. | • Force 1080p / 4K UHD quality<br>• Bypass stream bitrate throttle |
-| [Unlock Premium Subscription - Movix (Experimental)](#unlock-premium-subscription-movix-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses Movix VIP/Premium subscription checks to unlock all premium and exclusive content, series, and movie libraries without an active paid subscription. | • Unlock VIP / Premium badge<br>• Remove watch limits |
+| [AMOLED Black Player & Picture-in-Picture - Movix (Experimental)](#amoled-black-player-picture-in-picture-movix-experimental) | ⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into Movix catalog and unlocks Picture-in-Picture (PiP) and background audio playback. |  |
+| [Block Video Ads & Interstitials - Movix (Experimental)](#block-video-ads-interstitials-movix-experimental) | ⚠️ [En cours de développement / Non testé] Strips video pre-roll and mid-roll ads, banner ads, and redirect popups across Movix movie and series player screens. |  |
+| [Bypass Download Restrictions - Movix (Experimental)](#bypass-download-restrictions-movix-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses offline download tier restrictions to allow downloading any movie or series episode for offline viewing without a Premium subscription, and removes download quality caps. |  |
+| [Disable Auto-Pause on Background - Movix (Experimental)](#disable-auto-pause-on-background-movix-experimental) | ⚠️ [En cours de développement / Non testé] Prevents Movix from automatically pausing or stopping video playback when the app transitions to the background, enabling audio-only listening and uninterrupted casting. |  |
+| [Force HD & 4K Quality Unlock - Movix (Experimental)](#force-hd-4k-quality-unlock-movix-experimental) | ⚠️ [En cours de développement / Non testé] Forces maximum available video quality (HD 1080p / 4K) on all content regardless of subscription tier or network quality detection thresholds. |  |
+| [Unlock Premium Subscription - Movix (Experimental)](#unlock-premium-subscription-movix-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses Movix VIP/Premium subscription checks to unlock all premium and exclusive content, series, and movie libraries without an active paid subscription. |  |
 
 </details>
 
@@ -643,9 +643,9 @@
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Background & Audio-Only Playback - Twitch (Experimental)](#background-audio-only-playback-twitch-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks background audio playback and seamless Picture-in-Picture (PiP) mode without stream interruptions on Twitch. | • Background audio playback<br>• Auto Picture-in-Picture |
-| [Block Video Stream Ads - Twitch (Experimental)](#block-video-stream-ads-twitch-experimental) | ⚠️ [En cours de développement / Non testé] Blocks embedded pre-roll and mid-roll video advertisements on live channels and VODs without stream buffer freezes. | • Block pre-roll & mid-roll ads<br>• Clean stream proxy fallback |
-| [Chat Filter & Declutter Overlays - Twitch (Experimental)](#chat-filter-declutter-overlays-twitch-experimental) | ⚠️ [En cours de développement / Non testé] Filters chat spam, suppresses Hype Train popups, hides bits cheering banners, and declutters live stream overlays. | • Hide Hype Train popups<br>• Hide Bits cheering badges |
+| [Background & Audio-Only Playback - Twitch (Experimental)](#background-audio-only-playback-twitch-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks background audio playback and seamless Picture-in-Picture (PiP) mode without stream interruptions on Twitch. |  |
+| [Block Video Stream Ads - Twitch (Experimental)](#block-video-stream-ads-twitch-experimental) | ⚠️ [En cours de développement / Non testé] Blocks embedded pre-roll and mid-roll video advertisements on live channels and VODs without stream buffer freezes. |  |
+| [Chat Filter & Declutter Overlays - Twitch (Experimental)](#chat-filter-declutter-overlays-twitch-experimental) | ⚠️ [En cours de développement / Non testé] Filters chat spam, suppresses Hype Train popups, hides bits cheering banners, and declutters live stream overlays. |  |
 
 </details>
 
@@ -668,8 +668,8 @@
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Force Background Audio Playback - VLC (Experimental)](#force-background-audio-playback-vlc-experimental) | ⚠️ [En cours de développement / Non testé] Forces audio playback to stay active in the background when exiting the video player, minimizing the app, or locking the device. | • Auto-switch to background audio<br>• Persistent lock screen controls |
-| [Pure AMOLED Dark Theme & Declutter - VLC (Experimental)](#pure-amoled-dark-theme-declutter-vlc-experimental) | ⚠️ [En cours de développement / Non testé] Forces a pitch-black AMOLED dark theme, hides tips and audio/video discovery clutter across the VLC player UI. | • Force pure black AMOLED UI<br>• Hide onboarding tips & hints |
+| [Force Background Audio Playback - VLC (Experimental)](#force-background-audio-playback-vlc-experimental) | ⚠️ [En cours de développement / Non testé] Forces audio playback to stay active in the background when exiting the video player, minimizing the app, or locking the device. |  |
+| [Pure AMOLED Dark Theme & Declutter - VLC (Experimental)](#pure-amoled-dark-theme-declutter-vlc-experimental) | ⚠️ [En cours de développement / Non testé] Forces a pitch-black AMOLED dark theme, hides tips and audio/video discovery clutter across the VLC player UI. |  |
 
 </details>
 

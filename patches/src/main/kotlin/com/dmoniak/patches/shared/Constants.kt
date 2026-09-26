@@ -240,5 +240,26 @@ object Constants {
         description = "Google Photos: Photo & Video Storage by Google LLC",
         appIconColor = 0xEA4335
     )
+
+    val COMPATIBILITY_CHATGPT = Compatibility(
+        packageName = "com.openai.chatgpt",
+        name = "ChatGPT",
+        description = "ChatGPT: The official AI assistant by OpenAI",
+        appIconColor = 0x10A37F
+    )
+
+    val COMPATIBILITY_PERPLEXITY = Compatibility(
+        packageName = "ai.perplexity.app.android",
+        name = "Perplexity",
+        description = "Perplexity: Where Knowledge Begins by Perplexity AI",
+        appIconColor = 0x20B2AA
+    )
+
+    val COMPATIBILITY_GEMINI = Compatibility(
+        packageName = "com.google.android.apps.bard",
+        name = "Google Gemini",
+        description = "Google Gemini: Your AI Assistant by Google LLC",
+        appIconColor = 0x4285F4
+    )
 }
 

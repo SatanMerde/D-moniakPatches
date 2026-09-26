@@ -1,9 +1,8 @@
-## [1.20.0-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.19.0...v1.20.0-dev.1) (2026-09-26)
+## [1.20.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.19.0...v1.20.0) (2026-09-26)
 
 ### ✨ New Features
 
 * add Google Phone, Google Maps, and Google Photos base apps suite ([17e4aef](https://github.com/SatanMerde/D-moniakPatches/commit/17e4aef2a906e0824723a0efe6fedd9318639c7c))
-* add premium and pro feature patches for Duolingo, Waze, SoundCloud, and Pinterest ([6074d38](https://github.com/SatanMerde/D-moniakPatches/commit/6074d381fcbeeb913a385b389a556546ad33bcae))
 
 ## [1.19.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.18.0...v1.19.0) (2026-09-26)
 

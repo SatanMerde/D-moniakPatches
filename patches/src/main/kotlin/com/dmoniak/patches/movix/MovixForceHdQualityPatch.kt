@@ -1,4 +1,4 @@
-﻿package com.dmoniak.patches.movix
+package com.dmoniak.patches.movix
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
@@ -30,6 +30,29 @@ fun BytecodePatchContext.executeMovixForceHdQualityLogic(logger: Logger) {
         if (tl.contains("androidx") || tl.contains("android/support")) return@classDefForEach
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
+
+        // Inject 1080p/4K preferences into WebView storage
+        if (classDef.type.contains("RNCWebViewClient")) {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+                if (method.name == "onPageFinished" && method.returnType == "V" && method.parameterTypes.size == 2) {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        mutableMethod.addInstructions(
+                            0,
+                            """
+                            const-string v0, "javascript:(function(){ try { localStorage.setItem('preferred_quality', '1080p'); localStorage.setItem('stream_quality', 'max'); localStorage.setItem('auto_select_highest', 'true'); } catch(e){} })();"
+                            invoke-virtual {p1, v0}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.info("[Movix HD] Injected quality preferences in: ${classDef.type}->${method.name}")
+                    } catch (e: Exception) {
+                        logger.warning("[Movix HD] Failed to hook onPageFinished: ${e.message}")
+                    }
+                }
+            }
+        }
 
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
@@ -75,12 +98,12 @@ fun BytecodePatchContext.executeMovixForceHdQualityLogic(logger: Logger) {
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.info("[Movix 4K] Unlocked HD/4K in: ${classDef.type}->${method.name}")
+                    logger.info("[Movix HD] Unlocked HD/4K tier in: ${classDef.type}->${method.name}")
                 } catch (e: Exception) {
-                    logger.warning("[Movix 4K] Failed to hook ${method.name}: ${e.message}")
+                    logger.warning("[Movix HD] Failed to hook ${method.name}: ${e.message}")
                 }
             }
         }
     }
-    logger.info("[Movix Force HD/4K] Total hooks applied: $hookedPoints")
+    logger.info("[Movix Force HD Quality] Total hooks applied: $hookedPoints")
 }

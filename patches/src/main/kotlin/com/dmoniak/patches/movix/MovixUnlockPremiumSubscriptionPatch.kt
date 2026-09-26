@@ -1,4 +1,4 @@
-﻿package com.dmoniak.patches.movix
+package com.dmoniak.patches.movix
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
@@ -30,6 +30,29 @@ fun BytecodePatchContext.executeMovixUnlockPremiumLogic(logger: Logger) {
         if (tl.contains("androidx") || tl.contains("android/support")) return@classDefForEach
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
+
+        // Inject VIP / Premium status into WebView storage and window globals
+        if (classDef.type.contains("RNCWebViewClient")) {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+                if (method.name == "onPageFinished" && method.returnType == "V" && method.parameterTypes.size == 2) {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        mutableMethod.addInstructions(
+                            0,
+                            """
+                            const-string v0, "javascript:(function(){ try { localStorage.setItem('movix_vip', 'true'); localStorage.setItem('vip_status', 'lifetime'); localStorage.setItem('vip_tier', 'vip_plus'); window.isVip=true; window.hasVipAccess=true; } catch(e){} })();"
+                            invoke-virtual {p1, v0}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.info("[Movix Premium] Injected VIP storage tokens in: ${classDef.type}->${method.name}")
+                    } catch (e: Exception) {
+                        logger.warning("[Movix Premium] Failed to hook onPageFinished: ${e.message}")
+                    }
+                }
+            }
+        }
 
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue

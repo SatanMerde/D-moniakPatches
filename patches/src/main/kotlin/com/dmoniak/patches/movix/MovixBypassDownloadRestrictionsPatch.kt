@@ -1,4 +1,4 @@
-﻿package com.dmoniak.patches.movix
+package com.dmoniak.patches.movix
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
@@ -31,6 +31,29 @@ fun BytecodePatchContext.executeMovixBypassDownloadRestrictionsLogic(logger: Log
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
+        // Inject download permission flags into WebView storage
+        if (classDef.type.contains("RNCWebViewClient")) {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+                if (method.name == "onPageFinished" && method.returnType == "V" && method.parameterTypes.size == 2) {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        mutableMethod.addInstructions(
+                            0,
+                            """
+                            const-string v0, "javascript:(function(){ try { localStorage.setItem('offline_download_unlocked', 'true'); localStorage.setItem('allow_unlimited_downloads', 'true'); window.canDownload=true; } catch(e){} })();"
+                            invoke-virtual {p1, v0}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.info("[Movix Download] Injected download permissions in: ${classDef.type}->${method.name}")
+                    } catch (e: Exception) {
+                        logger.warning("[Movix Download] Failed to hook onPageFinished: ${e.message}")
+                    }
+                }
+            }
+        }
+
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
@@ -58,28 +81,7 @@ fun BytecodePatchContext.executeMovixBypassDownloadRestrictionsLogic(logger: Log
                     logger.warning("[Movix Download] Failed to hook ${method.name}: ${e.message}")
                 }
             }
-
-            // Remove download quality cap
-            if (!isStatic && (
-                mName == "isdownloadqualitylocked" ||
-                mName == "shouldlimitdownloadquality"
-            ) && retType == "Z") {
-                try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
-                        const/4 v0, 0x0
-                        return v0
-                        """.trimIndent()
-                    )
-                    hookedPoints++
-                    logger.info("[Movix Download] Removed quality cap in: ${classDef.type}->${method.name}")
-                } catch (e: Exception) {
-                    logger.warning("[Movix Download] Failed to hook ${method.name}: ${e.message}")
-                }
-            }
         }
     }
-    logger.info("[Movix Bypass Downloads] Total hooks applied: $hookedPoints")
+    logger.info("[Movix Bypass Download] Total hooks applied: $hookedPoints")
 }

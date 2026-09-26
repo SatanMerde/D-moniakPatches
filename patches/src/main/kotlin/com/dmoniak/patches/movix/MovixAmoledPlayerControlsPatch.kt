@@ -31,13 +31,35 @@ fun BytecodePatchContext.executeMovixAmoledPlayerControlsLogic(logger: Logger) {
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
+        // Inject pure OLED pitch black (#000000) into WebView DOM
+        if (classDef.type.contains("RNCWebViewClient")) {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+                if (method.name == "onPageFinished" && method.returnType == "V" && method.parameterTypes.size == 2) {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        mutableMethod.addInstructions(
+                            0,
+                            """
+                            const-string v0, "javascript:(function(){ try { var s=document.createElement('style'); s.innerHTML='body, html, #root, .app, .container, .main-layout { background-color: #000000 !important; color: #FFFFFF !important; } .player-controls, .controls-overlay { background: rgba(0,0,0,0.85) !important; }'; (document.head||document.documentElement).appendChild(s); } catch(e){} })();"
+                            invoke-virtual {p1, v0}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.info("[Movix AMOLED] Injected pure black CSS in: ${classDef.type}->${method.name}")
+                    } catch (e: Exception) {
+                        logger.warning("[Movix AMOLED] Failed to hook onPageFinished: ${e.message}")
+                    }
+                }
+            }
+        }
+
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
             val mName = method.name.lowercase()
             val retType = method.returnType
 
-            // Hook dark theme background color getters -> pure OLED pitch black (#000000)
             if (!isStatic && (
                 mName == "getmovixbackgroundcolor" ||
                 mName == "getplayerbackgroundcolor" ||
@@ -58,29 +80,7 @@ fun BytecodePatchContext.executeMovixAmoledPlayerControlsLogic(logger: Logger) {
                     logger.warning("[Movix AMOLED] Failed to hook ${method.name}: ${e.message}")
                 }
             }
-
-            // Hook Picture-in-Picture and background playback
-            if (!isStatic && (
-                mName == "ispipmodeallowed" ||
-                mName == "canplayinbackground" ||
-                mName == "isbackgroundaudioplaybackenabled"
-            ) && retType == "Z") {
-                try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
-                        const/4 v0, 0x1
-                        return v0
-                        """.trimIndent()
-                    )
-                    hookedPoints++
-                    logger.info("[Movix PiP] Unlocked PiP / background playback in: ${classDef.type}->${method.name}")
-                } catch (e: Exception) {
-                    logger.warning("[Movix PiP] Failed to hook ${method.name}: ${e.message}")
-                }
-            }
         }
     }
-    logger.info("[Movix AMOLED & PiP] Total hooks applied: $hookedPoints")
+    logger.info("[Movix AMOLED Player] Total hooks applied: $hookedPoints")
 }

@@ -1,4 +1,4 @@
-﻿package com.dmoniak.patches.movix
+package com.dmoniak.patches.movix
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
@@ -31,6 +31,29 @@ fun BytecodePatchContext.executeMovixDisableAutoPauseLogic(logger: Logger) {
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
+        // Hook RNCWebChromeClient: neutralize onHostPause to keep WebView alive in background
+        if (classDef.type.contains("RNCWebChromeClient")) {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+                if (method.name == "onHostPause" && method.returnType == "V" && method.parameterTypes.isEmpty()) {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        mutableMethod.addInstructions(
+                            0,
+                            """
+                            return-void
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.info("[Movix AutoPause] Neutralized onHostPause in: ${classDef.type}->${method.name}")
+                    } catch (e: Exception) {
+                        logger.warning("[Movix AutoPause] Failed to hook onHostPause: ${e.message}")
+                    }
+                }
+            }
+        }
+
+        // Auxiliary pause checks
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)

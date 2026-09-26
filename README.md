@@ -212,8 +212,14 @@ Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morphe
 - **Robbery Bob :** (`com.chillingo.robberybobfree.android.row`)
 - **Vector 2 :** (`com.nekki.vector2`)
 - **CoinSnap: Coin Identifier :** (`com.coinidentifyer.ai`)
+- **Spotify Mobile (Spicetify Suite - NOUVEAU) :** (`com.spotify.music`)
 
 Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
+- **Spotify Mobile (Spicetify Suite Mobile - 0 patch sur Awesome Morphe) :**
+  - **Spicetify AMOLED Black Theme :** Thème noir absolu (#000000) pour écrans OLED/AMOLED, remplaçant les fonds gris foncé pour un contraste saisissant et des économies de batterie.
+  - **Spicetify Custom Accent Color :** Remplace le vert Spotify standard (#1DB954) par des teintes personnalisées (Violet Électrique Spicetify, Cyan Cyberpunk, Rose Sakura, Crimson).
+  - **Spicetify Declutter UI :** Épuration totale : masquage des bannières promotionnelles Premium, onglets d'achat et carrousels d'annonces.
+  - **Spicetify Community Addons & Settings :** Contrôleur Spicetify Mobile et gestionnaire d'addons pour activer des modules communautaires et drapeaux internes.
 - **Hungry Shark (World & Evolution) :**
   - **Infinite Boost :** Jauge de turbo infinie, nage et charges sous-marines à vitesse maximale sans épuisement du boost.
   - **Fast Gold Rush :** Remplissage ultra-rapide de la jauge de ruée vers l'or (Gold Rush) pour multiplier les pièces en mode frénésie.
@@ -299,8 +305,14 @@ Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, t
 - **Robbery Bob:** (`com.chillingo.robberybobfree.android.row`)
 - **Vector 2:** (`com.nekki.vector2`)
 - **CoinSnap: Coin Identifier:** (`com.coinidentifyer.ai`)
+- **Spotify Mobile (Spicetify Suite - NEW):** (`com.spotify.music`)
 
 This project provides gameplay-specific patches tailored to each game:
+- **Spotify Mobile (Spicetify Suite Mobile - 0 patches on Awesome Morphe):**
+  - **Spicetify AMOLED Black Theme:** True OLED Black (#000000) theme, replacing default dark-gray backgrounds for deep contrast and battery savings across weekly updates.
+  - **Spicetify Custom Accent Color:** Replaces standard Spotify green (#1DB954) with custom theme accents (Electric Violet, Cyberpunk Cyan, Sakura Pink, Crimson).
+  - **Spicetify Declutter UI:** Removes intrusive Premium upsell banners, bottom upgrade tabs, and promotional carousels.
+  - **Spicetify Community Addons & Settings:** Injects a Spicetify Mobile controller to dynamically toggle internal lab features and community scripts.
 - **Hungry Shark (World & Evolution):**
   - **Infinite Boost:** Turbo boost gauge never drains, allowing continuous underwater swimming and dashes at maximum speed.
   - **Fast Gold Rush:** Rapidly charges the Gold Rush frenzy meter for frequent coin multipliers and invulnerability.

@@ -69,6 +69,45 @@
 
 ---
 
+### 📲 Comment utiliser dans Morphe Manager / How to Use in Morphe Manager
+
+👉 **[Ajouter D-moniak Patches à Morphe Manager (1-Clic) / Add to Morphe Manager (1-Click)](https://morphe.software/add-source?github=SatanMerde/D-moniakPatches)**
+
+<details open>
+<summary><b>🇫🇷 Instructions (Français)</b></summary>
+
+1. Lancez **Morphe Manager**.
+2. Rendez-vous dans **Settings** (Paramètres) > **Patch Sources** (Sources de patchs).
+3. Ajoutez la source : `SatanMerde/D-moniakPatches`.
+4. Sélectionnez votre application ou jeu (ex. `com.ubisoft.hungrysharkworld`, **Beach Buggy Racing**, etc.).
+5. Cochez les patchs souhaités.
+6. Cliquez sur **Patcher** puis procédez à l'installation de l'APK modifiée.
+
+</details>
+
+<details open>
+<summary><b>🇬🇧 Instructions (English)</b></summary>
+
+1. Open **Morphe Manager**.
+2. Navigate to **Settings** > **Patch Sources**.
+3. Add source: `SatanMerde/D-moniakPatches`.
+4. Select your app or game (e.g. `com.ubisoft.hungrysharkworld`, **Beach Buggy Racing**, etc.).
+5. Check the desired patches.
+6. Tap **Patch** and install the modified APK.
+
+</details>
+
+---
+
+### 💬 Signaler un bug ou demander un patch / Report a Bug or Request a Patch
+
+Un problème constaté ou une suggestion de nouveau patch ? / Experiencing an issue or want support for a new game / patch?
+
+- 🐛 **[Signaler un bug ou un crash / Report a Bug or Issue](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml)** : si un patch ne fonctionne pas correctement ou fait planter l'application / if a patch is not working properly or crashes the application.
+- ✨ **[Demander un nouveau patch / Request a New Patch](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_request.yml)** : pour proposer l'ajout de nouvelles fonctionnalités ou le support d'une autre application / to propose new features or support for another game / application.
+
+---
+
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->

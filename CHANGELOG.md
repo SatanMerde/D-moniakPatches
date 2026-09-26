@@ -1,3 +1,9 @@
+## [1.14.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.13.0...v1.14.0) (2026-09-26)
+
+### ✨ New Features
+
+* add Shazam, Strava, Truecaller, and MX Player patches suite ([389f538](https://github.com/SatanMerde/D-moniakPatches/commit/389f538d6cf0bf8d207cbd614f946712f328cc44))
+
 ## [1.13.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.12.0...v1.13.0) (2026-09-26)
 
 ### ✨ New Features

@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.32.0",
+  "version": "1.33.0",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -1353,6 +1353,33 @@
       "options": []
     },
     {
+      "name": "Auto-Reconnect & Keep-Alive Background Service - VPN.lat (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Keeps the VPN tunnel active during screen-off/doze mode, enforces auto-reconnection on network switches, and prevents dropped connections in VPN.lat.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.vpn.lat",
+          "name": "VPN.lat",
+          "description": "VPN.lat: Unlimited Fast VPN Proxy",
+          "apkFileType": null,
+          "appIconColor": "#2979FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Background & Audio-Only Playback - Twitch (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Unlocks background audio playback and seamless Picture-in-Picture (PiP) mode without stream interruptions on Twitch.",
       "default": true,
@@ -2219,6 +2246,87 @@
           "description": "Movix: Movies & Series Streaming",
           "apkFileType": null,
           "appIconColor": "#E50914",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Bypass Free Data Cap & Bandwidth Throttling - hide.me VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Overrides free plan data transfer limit counters, prevents speed throttling upon quota exhaustion, and maintains unlimited traffic in hide.me VPN.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "hideme.android.vpn",
+          "name": "hide.me VPN",
+          "description": "hide.me VPN: The Privacy Guard by eVenture Limited",
+          "apkFileType": null,
+          "appIconColor": "#00A3E0",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Bypass Input Length & Upload Limits - Claude AI (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes client-side message input text length truncation and allows pasting massive codebases or prompts without mobile UI lag in Claude AI.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.anthropic.claude",
+          "name": "Claude",
+          "description": "Claude: AI Assistant by Anthropic",
+          "apkFileType": null,
+          "appIconColor": "#D97706",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Bypass Local IP & HTTP Autofill Restrictions - Bitwarden (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Disables insecure HTTP warnings and local IP address autofill blocks, allowing seamless password autofilling on routers, NAS devices, and local development environments.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.x8bit.bitwarden",
+          "name": "Bitwarden",
+          "description": "Bitwarden: Password Manager & Authenticator by Bitwarden Inc.",
+          "apkFileType": null,
+          "appIconColor": "#175DDC",
           "signatures": null,
           "targets": [
             {
@@ -3272,6 +3380,60 @@
           "description": "Waze Navigation & Live Traffic by Waze / Google",
           "apkFileType": null,
           "appIconColor": "#33CCFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Export Discussions to Markdown & PDF - Euria AI (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Enables complete discussion thread export to Markdown and plain text, allowing easy archiving and offline viewing in Euria AI.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.infomaniak.euria",
+          "name": "Euria",
+          "description": "Euria: Sovereign AI Assistant by Infomaniak",
+          "apkFileType": null,
+          "appIconColor": "#4F46E5",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Export Full Chat & Copy Markdown - Claude AI (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Enables full conversation history export to Markdown, copying entire discussion threads with intact code blocks directly to clipboard in Claude AI.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.anthropic.claude",
+          "name": "Claude",
+          "description": "Claude: AI Assistant by Anthropic",
+          "apkFileType": null,
+          "appIconColor": "#D97706",
           "signatures": null,
           "targets": [
             {
@@ -5247,6 +5409,33 @@
       "options": []
     },
     {
+      "name": "Unlock High-Speed Dedicated Nodes & Low Ping - VPN.lat (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks dedicated high-speed server gateways, removes artificial speed throttling, and enables automatic lowest-latency server selection for gaming in VPN.lat.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.vpn.lat",
+          "name": "VPN.lat",
+          "description": "VPN.lat: Unlimited Fast VPN Proxy",
+          "apkFileType": null,
+          "appIconColor": "#2979FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock Memrise Pro - Memrise (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Unlocks Memrise Pro: all language courses, Learn with Locals native speaker clips, grammar bot, difficult words reviews, and offline downloads.",
       "default": true,
@@ -5492,6 +5681,33 @@
           "description": "Truecaller: Caller ID & Block Spam by Truecaller",
           "apkFileType": null,
           "appIconColor": "#0087FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Premium & Integrated TOTP 2FA - Bitwarden (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks Bitwarden Premium features: generates integrated 2FA TOTP authentication codes directly inside vault items, unlocks vault health reports, and enables priority attachment management.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.x8bit.bitwarden",
+          "name": "Bitwarden",
+          "description": "Bitwarden: Password Manager & Authenticator by Bitwarden Inc.",
+          "apkFileType": null,
+          "appIconColor": "#175DDC",
           "signatures": null,
           "targets": [
             {
@@ -5939,6 +6155,87 @@
       "options": []
     },
     {
+      "name": "Unlock Unlimited Conversations & Memory - Euria AI (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses daily interaction quotas, unlocks persistent discussion history, and enables extended memory context in Euria AI.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.infomaniak.euria",
+          "name": "Euria",
+          "description": "Euria: Sovereign AI Assistant by Infomaniak",
+          "apkFileType": null,
+          "appIconColor": "#4F46E5",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Unlimited Document & PDF Translations - DeepL (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Removes the monthly document translation limit (PDF, DOCX, PPTX), unlocks higher file size thresholds, and enables full document layout preservation in DeepL.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.deepl.mobile.android",
+          "name": "DeepL",
+          "description": "DeepL Translate: Accurate Multilingual Translator by DeepL SE",
+          "apkFileType": null,
+          "appIconColor": "#0F2B46",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Unlimited Glossaries & Writing Styles - DeepL (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks unlimited custom glossary terminology pairs and enables advanced professional writing styles (Academic, Technical, Casual, Business) in DeepL.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.deepl.mobile.android",
+          "name": "DeepL",
+          "description": "DeepL Translate: Accurate Multilingual Translator by DeepL SE",
+          "apkFileType": null,
+          "appIconColor": "#0F2B46",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock Unlimited Pinned Chats - Telegram (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Bypasses the 5 pinned chats limit in Telegram, allowing users to pin unlimited chats and channels without Telegram Premium.",
       "default": true,
@@ -6032,6 +6329,33 @@
           "description": "Windy.com: Weather & Wind Radar Forecast by Windyty SE",
           "apkFileType": null,
           "appIconColor": "#0288D1",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock WireGuard Stealth & Multi-Hop - hide.me VPN (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks WireGuard Stealth protocol, Multi-Hop (Double VPN cascading), and custom port binding in hide.me VPN.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "hideme.android.vpn",
+          "name": "hide.me VPN",
+          "description": "hide.me VPN: The Privacy Guard by eVenture Limited",
+          "apkFileType": null,
+          "appIconColor": "#00A3E0",
           "signatures": null,
           "targets": [
             {

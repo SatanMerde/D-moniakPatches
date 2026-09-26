@@ -1,3 +1,9 @@
+## [1.33.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.32.0...v1.33.0) (2026-09-26)
+
+### ✨ New Features
+
+* add practical feature patches for Bitwarden, Claude AI, Euria AI, VPN.lat, hide.me VPN, DeepL ([325b78d](https://github.com/SatanMerde/D-moniakPatches/commit/325b78d900564cc54b0368d6200c182d1ce44d34))
+
 ## [1.32.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.31.0...v1.32.0) (2026-09-26)
 
 ### ✨ New Features

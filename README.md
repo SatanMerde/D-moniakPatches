@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-226-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-238-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-80-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -53,7 +53,7 @@
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.32.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.32.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;230 patches total
+> **[v1.33.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.33.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;242 patches total
 <details open>
 <summary>📦 AllTrails&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -102,13 +102,15 @@
 </details>
 
 <details open>
-<summary>📦 Bitwarden&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Bitwarden&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [AMOLED Pure Black Theme - Bitwarden (Experimental)](#amoled-pure-black-theme-bitwarden-experimental) | ⚠️ [En cours de développement / Non testé] Forces deep AMOLED pure black backgrounds across Bitwarden's vault interface, reducing OLED power draw and eye strain. |  |
 | [Allow Screenshots & Screen Capture - Bitwarden (Experimental)](#allow-screenshots-screen-capture-bitwarden-experimental) | ⚠️ [En cours de développement / Non testé] Disables FLAG_SECURE window restrictions to permit taking screenshots and screen recordings in Bitwarden. |  |
+| [Bypass Local IP & HTTP Autofill Restrictions - Bitwarden (Experimental)](#bypass-local-ip-http-autofill-restrictions-bitwarden-experimental) | ⚠️ [En cours de développement / Non testé] Disables insecure HTTP warnings and local IP address autofill blocks, allowing seamless password autofilling on routers, NAS devices, and local development environments. |  |
+| [Unlock Premium & Integrated TOTP 2FA - Bitwarden (Experimental)](#unlock-premium-integrated-totp-2fa-bitwarden-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Bitwarden Premium features: generates integrated 2FA TOTP authentication codes directly inside vault items, unlocks vault health reports, and enables priority attachment management. |  |
 
 </details>
 
@@ -164,13 +166,15 @@
 </details>
 
 <details open>
-<summary>📦 Claude&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Claude&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [AMOLED Dark Theme - Claude AI (Experimental)](#amoled-dark-theme-claude-ai-experimental) | ⚠️ [En cours de développement / Non testé] Forces deep AMOLED pure black theme for Claude AI, optimizing contrast and reducing battery consumption on OLED displays. |  |
+| [Bypass Input Length & Upload Limits - Claude AI (Experimental)](#bypass-input-length-upload-limits-claude-ai-experimental) | ⚠️ [En cours de développement / Non testé] Removes client-side message input text length truncation and allows pasting massive codebases or prompts without mobile UI lag in Claude AI. |  |
 | [Disable Telemetry & Tracking - Claude AI (Experimental)](#disable-telemetry-tracking-claude-ai-experimental) | ⚠️ [En cours de développement / Non testé] Disables client-side analytical telemetry, performance metrics reporting, and tracker SDK calls in Claude AI. |  |
+| [Export Full Chat & Copy Markdown - Claude AI (Experimental)](#export-full-chat-copy-markdown-claude-ai-experimental) | ⚠️ [En cours de développement / Non testé] Enables full conversation history export to Markdown, copying entire discussion threads with intact code blocks directly to clipboard in Claude AI. |  |
 
 </details>
 
@@ -218,13 +222,15 @@
 </details>
 
 <details open>
-<summary>📦 DeepL&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 DeepL&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Block Ads & Promo Screens - DeepL (Experimental)](#block-ads-promo-screens-deepl-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade screens, rating dialogs, and subscription banners in DeepL. |  |
 | [Unlock Pro & Formality - DeepL (Experimental)](#unlock-pro-formality-deepl-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks DeepL Pro client features: tone/formality customization (formal/informal), extended character limits, and dictionary features. |  |
+| [Unlock Unlimited Document & PDF Translations - DeepL (Experimental)](#unlock-unlimited-document-pdf-translations-deepl-experimental) | ⚠️ [En cours de développement / Non testé] Removes the monthly document translation limit (PDF, DOCX, PPTX), unlocks higher file size thresholds, and enables full document layout preservation in DeepL. |  |
+| [Unlock Unlimited Glossaries & Writing Styles - DeepL (Experimental)](#unlock-unlimited-glossaries-writing-styles-deepl-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks unlimited custom glossary terminology pairs and enables advanced professional writing styles (Academic, Technical, Casual, Business) in DeepL. |  |
 
 </details>
 
@@ -252,13 +258,15 @@
 </details>
 
 <details open>
-<summary>📦 Euria&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Euria&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [AMOLED Dark Theme - Euria AI (Experimental)](#amoled-dark-theme-euria-ai-experimental) | ⚠️ [En cours de développement / Non testé] Forces deep AMOLED pure black background in Euria AI dark mode, enhancing battery efficiency and contrast on OLED screens. |  |
+| [Export Discussions to Markdown & PDF - Euria AI (Experimental)](#export-discussions-to-markdown-pdf-euria-ai-experimental) | ⚠️ [En cours de développement / Non testé] Enables complete discussion thread export to Markdown and plain text, allowing easy archiving and offline viewing in Euria AI. |  |
 | [Open Links in External Browser - Euria AI (Experimental)](#open-links-in-external-browser-euria-ai-experimental) | ⚠️ [En cours de développement / Non testé] Opens reference citations and external links directly in the system's default browser rather than an embedded webview. |  |
+| [Unlock Unlimited Conversations & Memory - Euria AI (Experimental)](#unlock-unlimited-conversations-memory-euria-ai-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses daily interaction quotas, unlocks persistent discussion history, and enables extended memory context in Euria AI. |  |
 
 </details>
 
@@ -361,13 +369,15 @@
 </details>
 
 <details open>
-<summary>📦 hide.me VPN&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 hide.me VPN&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Block Ads & Promo Screens - hide.me VPN (Experimental)](#block-ads-promo-screens-hide-me-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade dialogues, rating prompts, and subscription banners in hide.me VPN. |  |
+| [Bypass Free Data Cap & Bandwidth Throttling - hide.me VPN (Experimental)](#bypass-free-data-cap-bandwidth-throttling-hide-me-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Overrides free plan data transfer limit counters, prevents speed throttling upon quota exhaustion, and maintains unlimited traffic in hide.me VPN. |  |
 | [Unlock Client Features & Dark Mode - hide.me VPN (Experimental)](#unlock-client-features-dark-mode-hide-me-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks client-side features, AMOLED dark theme, and DNS leak test utilities in hide.me VPN. |  |
+| [Unlock WireGuard Stealth & Multi-Hop - hide.me VPN (Experimental)](#unlock-wireguard-stealth-multi-hop-hide-me-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks WireGuard Stealth protocol, Multi-Hop (Double VPN cascading), and custom port binding in hide.me VPN. |  |
 
 </details>
 
@@ -942,12 +952,14 @@
 </details>
 
 <details open>
-<summary>📦 VPN.lat&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 VPN.lat&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
+| [Auto-Reconnect & Keep-Alive Background Service - VPN.lat (Experimental)](#auto-reconnect-keep-alive-background-service-vpn-lat-experimental) | ⚠️ [En cours de développement / Non testé] Keeps the VPN tunnel active during screen-off/doze mode, enforces auto-reconnection on network switches, and prevents dropped connections in VPN.lat. |  |
 | [Block Ads & Video Interruptions - VPN.lat (Experimental)](#block-ads-video-interruptions-vpn-lat-experimental) | ⚠️ [En cours de développement / Non testé] Strips interstitial video ads before server connection, bottom banners, and promotional popups in VPN.lat. |  |
+| [Unlock High-Speed Dedicated Nodes & Low Ping - VPN.lat (Experimental)](#unlock-high-speed-dedicated-nodes-low-ping-vpn-lat-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks dedicated high-speed server gateways, removes artificial speed throttling, and enables automatic lowest-latency server selection for gaming in VPN.lat. |  |
 | [Unlock Premium Server Locations - VPN.lat (Experimental)](#unlock-premium-server-locations-vpn-lat-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all country server locations and bypasses VIP / rewarded server checks in VPN.lat. |  |
 
 </details>

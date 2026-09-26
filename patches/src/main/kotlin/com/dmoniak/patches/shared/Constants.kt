@@ -562,6 +562,11 @@ object Constants {
         description = "DeepL Translate: Accurate Multilingual Translator by DeepL SE",
         appIconColor = 0x0F2B46
     )
+
+    // Aliases
+    val COMPATIBILITY_ANGRY_BIRDS_CLASSIC = COMPATIBILITY_ANGRY_BIRDS
+    val COMPATIBILITY_HIDE_ME = COMPATIBILITY_HIDEME
+    val COMPATIBILITY_PICTURE_THIS = COMPATIBILITY_PICTURETHIS
 }
 
 

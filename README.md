@@ -17,7 +17,7 @@
     <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-237-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-239-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-80-00C853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -41,10 +41,10 @@
 ### 📖 Présentation du projet / Project Overview
 
 **🇫🇷 Français :**  
-**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble plus de **235 patchs** pour **80 applications et jeux Android** populaires qui ne sont pas inclus dans le catalogue officiel de Morphe (jeux hors-ligne, réseaux sociaux, outils IA, messagerie, thèmes AMOLED, suppression de publicités et patchs universels). L'ensemble de ce dépôt est entièrement conçu et géré par Intelligence Artificielle (IA).
+**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble plus de **239 patchs** pour **80 applications et jeux Android** populaires qui ne sont pas inclus dans le catalogue officiel de Morphe (jeux hors-ligne, réseaux sociaux, outils IA, messagerie, thèmes AMOLED, suppression de publicités et patchs universels). L'ensemble de ce dépôt est entièrement conçu et géré par Intelligence Artificielle (IA).
 
 **🇬🇧 English :**  
-**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **235+ patches** for **80 popular Android apps and games** that are not available in the official Morphe catalog (offline games, social networks, AI tools, messengers, AMOLED dark themes, ad-blocking, and universal patches). This entire repository is conceived and maintained by Artificial Intelligence (AI).
+**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **239+ patches** for **80 popular Android apps and games** that are not available in the official Morphe catalog (offline games, social networks, AI tools, messengers, AMOLED dark themes, ad-blocking, and universal patches). This entire repository is conceived and maintained by Artificial Intelligence (AI).
 
 ---
 
@@ -111,7 +111,7 @@ Un problème constaté ou une suggestion de nouveau patch ? / Experiencing an is
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.33.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.33.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;237 patches total
+> **[v1.33.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.33.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;239 patches total
 <details open>
 <summary>📦 AllTrails&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -169,7 +169,7 @@ Un problème constaté ou une suggestion de nouveau patch ? / Experiencing an is
 </details>
 
 <details open>
-<summary>📦 Brave Browser&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<summary>📦 Brave Browser&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
@@ -177,6 +177,7 @@ Un problème constaté ou une suggestion de nouveau patch ? / Experiencing an is
 | [Clean New Tab & Disable Brave News - Brave (Experimental)](#clean-new-tab-disable-brave-news-brave-experimental) | ⚠️ [En cours de développement / Non testé] Removes Brave News feed, sponsored background wallpaper images, sponsored top tiles, and trending widgets on the New Tab page. |
 | [Disable Rewards & Crypto Wallet - Brave (Experimental)](#disable-rewards-crypto-wallet-brave-experimental) | ⚠️ [En cours de développement / Non testé] Disables Brave Rewards (BAT), crypto wallet icon, Web3 onboarding prompts, and token badges for a cleaner UI. |
 | [Force Aggressive Shields & Anti-Adblock Bypass - Brave (Experimental)](#force-aggressive-shields-anti-adblock-bypass-brave-experimental) | ⚠️ [En cours de développement / Non testé] Forces aggressive ad/tracker blocking mode by default, strips URL tracking query parameters, and bypasses anti-adblock detection scripts in Brave. |
+| [Unlock Brave Origin & Premium Features - Brave (Experimental)](#unlock-brave-origin-premium-features-brave-experimental) | ⚠️ [En cours de développement / Non testé] Débloque la licence officielle Brave Origin ($59.99), active le mode minimaliste sans bloatware, débloque l'assistant IA Brave Leo Premium en illimité et active les entitlements Brave VPN. |
 </details>
 
 <details open>
@@ -408,12 +409,13 @@ Un problème constaté ou une suggestion de nouveau patch ? / Experiencing an is
 </details>
 
 <details open>
-<summary>📦 Hill Climb Racing&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Hill Climb Racing&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Bypass Rewarded Ads - Hill Climb Racing (Experimental)](#bypass-rewarded-ads-hill-climb-racing-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Hill Climb Racing for free post-race coin doublers, instant driver revives, and free tuning crates. |
+| [Free Shopping - Hill Climb Racing (Experimental)](#free-shopping-hill-climb-racing-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play Billing SDK in Hill Climb Racing to bypass in-app purchase verification, unlocking free store purchases for gem bundles, coin packs, and garage upgrades. |
 | [Infinite Fuel - Hill Climb Racing (Experimental)](#infinite-fuel-hill-climb-racing-experimental) | ⚠️ [En cours de développement / Non testé] Prevents fuel gauge depletion in Hill Climb Racing, allowing endless hill climbing and stunt driving without engine stall. |
 </details>
 
@@ -452,11 +454,13 @@ Un problème constaté ou une suggestion de nouveau patch ? / Experiencing an is
 </details>
 
 <details open>
-<summary>📦 Jetpack Joyride&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Jetpack Joyride&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
+| [Block Ads & Video Commercials - Jetpack Joyride (Experimental)](#block-ads-video-commercials-jetpack-joyride-experimental) | ⚠️ [En cours de développement / Non testé] Bloque les publicités vidéo plein écran (interstitiels après crash), les bannières publicitaires et les incitations promotionnelles dans Jetpack Joyride. |
+| [Free Shopping & Billing Bypass - Jetpack Joyride (Experimental)](#free-shopping-billing-bypass-jetpack-joyride-experimental) | ⚠️ [En cours de développement / Non testé] Intercepte les vérifications d'achats Google Play Billing dans Jetpack Joyride pour obtenir gratuitement les packs de pièces, le doubleur de pièces permanent, les jetpacks, costumes et améliorations du Stash. |
 | [Infinite Vehicle Shield - Jetpack Joyride (Experimental)](#infinite-vehicle-shield-jetpack-joyride-experimental) | ⚠️ [En cours de développement / Non testé] Keeps Barry's vehicle and gadget shields permanently active in Jetpack Joyride, preventing destruction upon contact with zappers, missiles, and laser fields. |
 | [Unlock Gadgets & Upgrades - Jetpack Joyride (Experimental)](#unlock-gadgets-upgrades-jetpack-joyride-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all Stash gadgets (Coin Magnet, Gravity Belt, Air Barrys, etc.) and maxes out vehicle coin magnets without spending coins. |
 </details>
@@ -777,7 +781,7 @@ Un problème constaté ou une suggestion de nouveau patch ? / Experiencing an is
 </details>
 
 <details open>
-<summary>📦 Spotify&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<summary>📦 Spotify&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
@@ -786,6 +790,7 @@ Un problème constaté ou une suggestion de nouveau patch ? / Experiencing an is
 | [Spicetify Community Addons & Settings - Spotify (Experimental)](#spicetify-community-addons-settings-spotify-experimental) | ⚠️ [En cours de développement / Non testé] Injects a Spicetify Mobile controller and community addons manager into Spotify, allowing dynamic toggling of visual tweaks, themes, and community extension scripts. |
 | [Spicetify Custom Accent Color - Spotify (Experimental)](#spicetify-custom-accent-color-spotify-experimental) | ⚠️ [En cours de développement / Non testé] Replaces the default Spotify green (#1DB954) with custom theme accents (Purple, Cyan, Crimson, Gold) resilient across weekly updates. |
 | [Spicetify Declutter UI - Spotify (Experimental)](#spicetify-declutter-ui-spotify-experimental) | ⚠️ [En cours de développement / Non testé] Removes intrusive Premium upgrade banners, bottom navigation upsell tabs, and promotional carousels for a clean, distraction-free music experience. |
+| [Unlock Spotify Premium & Playback Restrictions - Spotify (Experimental)](#unlock-spotify-premium-playback-restrictions-spotify-experimental) | ⚠️ [En cours de développement / Non testé] Débloque les fonctionnalités Premium sur Spotify : zapping illimité (skips), lecture à la demande sans mode aléatoire forcé (no shuffle), recherche libre sur la barre de lecture (scrubbing/seeking), répétition de pistes et suppression des publicités audio/visuelles. |
 </details>
 
 <details open>
@@ -854,12 +859,13 @@ Un problème constaté ou une suggestion de nouveau patch ? / Experiencing an is
 </details>
 
 <details open>
-<summary>📦 TeraBox&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 TeraBox&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Block Ads & Hide VIP Nags - TeraBox (Experimental)](#block-ads-hide-vip-nags-terabox-experimental) | ⚠️ [En cours de développement / Non testé] Strips video startup ads, cloud storage interstitial banners, and persistent TeraBox Premium VIP subscription nag popups. |
+| [Unlock Premium & VIP Membership - TeraBox (Experimental)](#unlock-premium-vip-membership-terabox-experimental) | ⚠️ [En cours de développement / Non testé] Débloque le statut VIP TeraBox : téléchargements ultra-rapides multi-thread, décompression cloud illimitée, lecture haute vitesse et suppression des limites de fichiers. |
 | [Unlock Video Player Speed & Controls - TeraBox (Experimental)](#unlock-video-player-speed-controls-terabox-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks background video playback, 1080p/original video quality streaming selector, and variable playback speeds without TeraBox Premium. |
 </details>
 
@@ -874,13 +880,14 @@ Un problème constaté ou une suggestion de nouveau patch ? / Experiencing an is
 </details>
 
 <details open>
-<summary>📦 Turbo VPN&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Turbo VPN&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Ad-Free Turbo VPN (Experimental)](#ad-free-turbo-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Removes full-screen video ads on connect and disconnect, banner ads at the bottom of the interface, and intrusive interstitial popups. |
 | [Declutter UI & Hide VIP Upsells - Turbo VPN (Experimental)](#declutter-ui-hide-vip-upsells-turbo-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Hides aggressive VIP subscription popups, floating gift chests, and promotional banners for a clean connection interface. |
+| [Unlock VIP & All Server Locations - Turbo VPN (Experimental)](#unlock-vip-all-server-locations-turbo-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Turbo VPN VIP subscription status, granting free access to high-speed VIP servers, dedicated streaming locations, and removes server country locks. |
 </details>
 
 <details open>
@@ -1073,7 +1080,9 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
   - **Instant Car Upgrades :** Suppression des temps d'attente lors de l'amélioration de la vitesse, de l'accélération et de la tenue de route des karts.
   - **Bypass Rewarded Ads :** Tours gratuits de la Roue de la Fortune Quotidienne, doublement des gains de pièces et tickets gratuits sans pub.
   - **Free Shopping :** Déblocage des bolides, packs de gemmes et capacités spéciales des pilotes.
-- **Brave Browser (NOUVEAU - 100M+ téléchargements) :**  - **Désactiver Récompenses & Portefeuille Crypto :** Supprime l'icône BAT, le portefeuille Web3 et les popups d'onboarding pour une interface épurée.
+- **Brave Browser (NOUVEAU - 100M+ téléchargements) :**
+  - **Unlock Brave Origin & Premium :** Débloque la licence officielle Brave Origin ($59.99), le mode minimaliste sans bloatware, l'assistant IA Brave Leo Premium en illimité et les privilèges Brave VPN.
+  - **Désactiver Récompenses & Portefeuille Crypto :** Supprime l'icône BAT, le portefeuille Web3 et les popups d'onboarding pour une interface épurée.
   - **Page Nouvel Onglet Propre :** Élimine le flux Brave News, les fonds d'écran sponsorisés et les tuiles promotionnelles.
   - **Bouclier Agressif & Anti-Adblock Bypass :** Force le blocage agressif des pisteurs/pubs, nettoie les paramètres de tracking d'URL et neutralise les scripts anti-bloqueurs.
 - **Canva (NOUVEAU - 100M+ créateurs & designers) :**
@@ -1118,7 +1127,9 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **Hungry Shark Heroes :** Réduction à 0 des temps d'incubation des œufs de requins, réanimations gratuites en arène de combat, et déblocage de l'extension de récif.
 - **Jetpack Joyride (NOUVEAU - 500M+ téléchargements) :**
   - **Infinite Jetpack Shield & Revives :** Bouclier permanent contre les lasers et missiles, réanimations gratuites infinies lors des crashs.
-  - **Bypass Rewarded Ads :** Tirages gratuits illimités au bandit-manchot de fin de partie et doublement des pièces sans publicité.
+  - **Unlock Gadgets & Upgrades :** Déblocage instantané de tous les gadgets du Stash et amélioration au niveau maximal de l'aimant à pièces.
+  - **Block Ads & Video Commercials :** Neutralisation des publicités vidéo plein écran (interstitiels après crash) et des bannières.
+  - **Free Shopping & Billing Bypass :** Achats gratuits dans le Stash (packs de pièces, jetpacks, costumes et doubleur permanent de pièces).
 - **MEGA (NOUVEAU - 100M+ de téléchargements) :**
   - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) pour l'explorateur de fichiers cloud, la file des transferts et les paramètres, et masquage des bannières promotionnelles Pro.
   - **Allow Screenshots & Export :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran des documents et photos et débloque l'export local.
@@ -1209,6 +1220,7 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
   - **Ad-Free Speedtest :** Suppression intégrale des publicités interstitielles, bannières et cartes d'enquêtes sponsorisées post-test.
   - **Premium VPN & Unlimited Data :** Débloque l'accès VPN illimité sans quota mensuel de 2 Go et permet le choix de tous les serveurs mondiaux.
 - **Spotify Mobile (Spicetify Suite Mobile - 0 patch sur Awesome Morphe) :**
+  - **Unlock Spotify Premium & Playback Restrictions :** Déblocage des fonctionnalités Premium : zapping illimité (skips), lecture à la demande sans mode aléatoire forcé (no shuffle), recherche libre sur la barre de lecture (scrubbing), répétition et suppression des pubs audio/visuelles.
   - **Spicetify AMOLED Black Theme :** Thème noir absolu (#000000) pour écrans OLED/AMOLED, remplaçant les fonds gris foncé pour un contraste saisissant et des économies de batterie.
   - **Spicetify Custom Accent Color :** Remplace le vert Spotify standard (#1DB954) par des teintes personnalisées (Violet Électrique Spicetify, Cyan Cyberpunk, Rose Sakura, Crimson).
   - **Spicetify Declutter UI :** Épuration totale : masquage des bannières promotionnelles Premium, onglets d'achat et carrousels d'annonces.
@@ -1223,12 +1235,14 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
   - **Disable Proximity Sensor :** Empêche le capteur de proximité d'éteindre l'écran ou de basculer l'audio vers l'écouteur lors de l'écoute de messages vocaux ou vidéo.
   - **Unlock Telegram Premium Features :** Débloque côté client les fonctionnalités Telegram Premium (icônes d'application exclusives, réactions animées, bouton de transcription audio en texte et doublement des dossiers de discussion).
 - **TeraBox (NOUVEAU - 100M+ de téléchargements) :**
+  - **Unlock Premium & VIP Membership :** Déblocage du statut VIP : téléchargements ultra-rapides multi-thread, décompression cloud illimitée et visionnage sans bridage.
   - **Block Ads & Hide VIP Nags :** Suppression des vidéos publicitaires au lancement, des interstitiels de stockage et des popups insistants d'abonnement VIP.
   - **Unlock Video Player Speed & Controls :** Déblocage de la lecture vidéo en arrière-plan écran éteint, du sélecteur de résolution 1080p/Originale et de la vitesse de lecture sans abonnement Premium.
 - **Truecaller (NOUVEAU - 1 Milliard+ de téléchargements) :**
   - **Ad-Free & Clean Dialer :** Élimine les publicités plein écran après chaque appel téléphonique et nettoie l'historique des appels.
   - **Unlock Premium & Gold Features :** Débloque l'affichage du badge Premium/Gold et les filtres de blocage de spam avancés.
 - **Turbo VPN (NOUVEAU - 100M+ téléchargements) :**
+  - **Unlock VIP & All Server Locations :** Déblocage de tous les serveurs VIP mondiaux, nœuds dédiés au streaming et suppression des limitations géographiques.
   - **Ad-Free Turbo VPN :** Suppression complète des vidéos publicitaires plein écran lors de la connexion et déconnexion, des bannières inférieures et des popups interstitiels.
   - **Declutter UI & Hide VIP Upsells :** Élimine les popups d'achat agressifs pour l'abonnement VIP, les coffres flottants promotionnels et simplifie l'interface.
 - **Tuta Mail (NOUVEAU - 1M+ téléchargements) :**
@@ -1349,7 +1363,9 @@ This project provides gameplay-specific patches tailored to each game:
   - **Instant Car Upgrades:** Eliminates delivery wait times when upgrading top speed, acceleration, and handling.
   - **Bypass Rewarded Ads:** Free daily fortune wheel spins, coin doublers, and instant tickets without watching ads.
   - **Free Shopping:** Unlocks premium cars, gem bundles, and special driver abilities.
-- **Brave Browser (NEW - 100M+ downloads):**  - **Disable Rewards & Crypto Wallet:** Removes BAT rewards icon, Web3 crypto wallet entries, and onboarding prompts for a clean UI.
+- **Brave Browser (NEW - 100M+ downloads):**
+  - **Unlock Brave Origin & Premium:** Unlocks official Brave Origin license ($59.99), stripped minimalist mode, unlimited Brave Leo AI Premium, and Brave VPN entitlements.
+  - **Disable Rewards & Crypto Wallet:** Removes BAT rewards icon, Web3 crypto wallet entries, and onboarding prompts for a clean UI.
   - **Clean New Tab Page:** Removes Brave News feed, sponsored wallpapers, and promotional top tiles.
   - **Aggressive Shields & Anti-Adblock Bypass:** Forces aggressive ad/tracker blocking, strips URL tracking parameters, and bypasses anti-adblock scripts.
 - **Canva (NEW - 100M+ creators & designers):**
@@ -1390,7 +1406,9 @@ This project provides gameplay-specific patches tailored to each game:
 - **Hungry Shark Heroes:** Zero incubation timers for shark eggs, free battle revives in multiplayer arenas, and instant reef expansion unlocks.
 - **Jetpack Joyride (NEW - 500M+ downloads):**
   - **Infinite Jetpack Shield & Revives:** Permanent deflector shield protecting Barry from lasers and zappers, plus unlimited crash revives.
-  - **Bypass Rewarded Ads:** Free final spin tokens on the slot machine and doubled coin rewards without viewing video advertisements.
+  - **Unlock Gadgets & Upgrades:** Instantly unlocks all Stash gadgets and maxes out vehicle coin magnet levels.
+  - **Block Ads & Video Commercials:** Completely removes post-death video interstitials and promotional banner ads.
+  - **Free Shopping & Billing Bypass:** Free in-app store purchases for coin bundles, costumes, jetpacks, and permanent coin doublers.
 - **MEGA (NEW - 100M+ downloads):**
   - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into MEGA cloud file browser, transfer queue, and settings, and hides Pro upgrade promotion banners.
   - **Allow Screenshots & Export:** Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions.
@@ -1481,6 +1499,7 @@ This project provides gameplay-specific patches tailored to each game:
   - **Ad-Free Speedtest:** Completely strips interstitial ads, banner advertisements, and post-test sponsored survey cards.
   - **Premium VPN & Unlimited Data:** Unlocks unlimited VPN traffic without the 2GB monthly cap and enables access to all global VPN endpoints.
 - **Spotify Mobile (Spicetify Suite Mobile - 0 patches on Awesome Morphe):**
+  - **Unlock Spotify Premium & Playback Restrictions:** Unlocks Premium features: unlimited skips, on-demand playback (no forced shuffle), free track scrubbing/seeking, repeat mode, and blocks audio/visual ads.
   - **Spicetify AMOLED Black Theme:** Pitch black theme (#000000) for OLED/AMOLED screens, replacing dark gray backgrounds for stark contrast and battery efficiency.
   - **Spicetify Custom Accent Color:** Replaces the standard Spotify green (#1DB954) with custom accent colors (Electric Spicetify Purple, Cyberpunk Cyan, Sakura Pink, Crimson).
   - **Spicetify Declutter UI:** Total UI declutter: removes Premium upgrade banners, shopping tabs, and promotional carousels.
@@ -1495,12 +1514,14 @@ This project provides gameplay-specific patches tailored to each game:
   - **Disable Proximity Sensor:** Prevents the device proximity sensor from blanking the screen or switching audio to the earpiece while listening to voice or video messages.
   - **Unlock Telegram Premium Features:** Unlocks client-side Telegram Premium features (exclusive app icons, animated reactions, voice-to-text transcription button, and doubled chat folder limits).
 - **TeraBox (NEW - 100M+ downloads):**
+  - **Unlock Premium & VIP Membership:** Unlocks VIP subscription: ultra-fast multi-thread downloading, unlimited cloud unzipping, and unthrottled streaming.
   - **Block Ads & Hide VIP Nags:** Removes startup video advertisements, storage interstitial popups, and persistent VIP subscription prompts.
   - **Unlock Video Player Speed & Controls:** Unlocks background playback with screen turned off, 1080p / original resolution selector, and playback speed controls without a Premium subscription.
 - **Truecaller (NEW - 1 Billion+ downloads):**
   - **Ad-Free & Clean Dialer:** Eliminates full-screen post-call advertisements and cleans up call history tabs.
   - **Unlock Premium & Gold Features:** Enables Premium/Gold caller badge display and unlocks advanced spam blocking filters.
 - **Turbo VPN (NEW - 100M+ downloads):**
+  - **Unlock VIP & All Server Locations:** Unlocks all worldwide VIP servers, dedicated streaming nodes, and removes geo-blocking.
   - **Ad-Free Turbo VPN:** Completely eliminates full-screen video ads upon connect/disconnect, bottom banner advertisements, and interstitial popups.
   - **Declutter UI & Hide VIP Upsells:** Removes aggressive VIP upgrade prompts, floating promotional chests, and simplifies the user interface.
 - **Tuta Mail (NEW - 1M+ downloads):**

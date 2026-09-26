@@ -1,8 +1,7 @@
-## [1.19.0-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.18.0...v1.19.0-dev.1) (2026-09-26)
+## [1.19.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.18.0...v1.19.0) (2026-09-26)
 
 ### ✨ New Features
 
-* add premium and pro feature patches for Duolingo, Waze, SoundCloud, and Pinterest ([6074d38](https://github.com/SatanMerde/D-moniakPatches/commit/6074d381fcbeeb913a385b389a556546ad33bcae))
 * add Tuta Mail suite and expand Proton VPN patches suite ([6040fbb](https://github.com/SatanMerde/D-moniakPatches/commit/6040fbbb1ea0c8a1d9135ca0d2de4ed7745a029e))
 
 ## [1.18.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.17.0...v1.18.0) (2026-09-26)

@@ -324,5 +324,26 @@ object Constants {
         description = "Nextcloud: Open source file sync and share by Nextcloud",
         appIconColor = 0x0082C9
     )
+
+    val COMPATIBILITY_CANVA = Compatibility(
+        packageName = "com.canva.editor",
+        name = "Canva",
+        description = "Canva: Design, Photo & Video by Canva",
+        appIconColor = 0x00C4CC
+    )
+
+    val COMPATIBILITY_GOOGLE_DRIVE = Compatibility(
+        packageName = "com.google.android.apps.docs",
+        name = "Google Drive",
+        description = "Google Drive: Free Cloud Storage by Google LLC",
+        appIconColor = 0x1FA463
+    )
+
+    val COMPATIBILITY_MOVIX = Compatibility(
+        packageName = "com.movix.app",
+        name = "Movix",
+        description = "Movix: Movies & Series Streaming",
+        appIconColor = 0xE50914
+    )
 }
 

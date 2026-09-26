@@ -86,5 +86,12 @@ object Constants {
         description = "Vector 2 by NEKKI",
         appIconColor = 0x00E5FF
     )
+
+    val COMPATIBILITY_SPOTIFY = Compatibility(
+        packageName = "com.spotify.music",
+        name = "Spotify",
+        description = "Spotify: Music and Podcasts by Spotify AB",
+        appIconColor = 0x1DB954
+    )
 }
 

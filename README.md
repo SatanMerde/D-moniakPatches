@@ -13,9 +13,6 @@
   <a href="https://github.com/SatanMerde/D-moniakPatches/stargazers">
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
-  <a href="https://github.com/SatanMerde/D-moniakPatches/releases">
-    <img src="https://img.shields.io/github/downloads/SatanMerde/D-moniakPatches/total?style=for-the-badge&logo=github&color=3388FF" alt="Total Downloads">
-  </a>
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Patches-239-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>

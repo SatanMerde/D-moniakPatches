@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.35.2](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.35.2)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**233 patchs au total** (10 validés & fonctionnels • 223 expérimentaux)
+> **[v1.36.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.36.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**233 patchs au total** (10 validés & fonctionnels • 223 expérimentaux)
 
 ---
 
@@ -150,7 +150,6 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 
 | 2.7.2 |
 | :---: |
-| Version stable sans Google Play PairIP |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|

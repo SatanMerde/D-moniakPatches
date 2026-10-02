@@ -1,3 +1,9 @@
+## [1.36.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.35.2...v1.36.0) (2026-10-02)
+
+### ✨ New Features
+
+* **targets:** add explicit compatible version targets for Moises, HSW, Movix, CoinSnap, and reported apps ([51cf459](https://github.com/SatanMerde/D-moniakPatches/commit/51cf45965cf5001fa06f29be136628297df6c1dd))
+
 ## [1.35.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.35.1...v1.35.2) (2026-10-02)
 
 ### 🐛 Bug Fixes

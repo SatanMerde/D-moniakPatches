@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.35.1",
+  "version": "1.35.2",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -3791,7 +3791,7 @@
         {
           "packageName": "ai.moises",
           "name": "Moises",
-          "description": "Moises: The Musician's App by Moises Systems Inc.",
+          "description": "Moises: The Musician's App by Moises Systems Inc. (v2.7.2 recommandée - versions 2.73+ protégées par Google Play PairIP)",
           "apkFileType": null,
           "appIconColor": "#6C5CE7",
           "signatures": null,
@@ -5490,7 +5490,7 @@
         {
           "packageName": "ai.moises",
           "name": "Moises",
-          "description": "Moises: The Musician's App by Moises Systems Inc.",
+          "description": "Moises: The Musician's App by Moises Systems Inc. (v2.7.2 recommandée - versions 2.73+ protégées par Google Play PairIP)",
           "apkFileType": null,
           "appIconColor": "#6C5CE7",
           "signatures": null,

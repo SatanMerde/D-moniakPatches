@@ -1,3 +1,9 @@
+## [1.35.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.35.1...v1.35.2) (2026-10-02)
+
+### 🐛 Bug Fixes
+
+* **readme:** correct verified patches list, move Google Drive to experimental, and promote tested Moises patches ([a9115b8](https://github.com/SatanMerde/D-moniakPatches/commit/a9115b8565eb38481bdf747c35d017d23bba38d9))
+
 ## [1.35.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.35.0...v1.35.1) (2026-10-02)
 
 ### 🐛 Bug Fixes

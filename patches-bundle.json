@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-02T19:19:45",
-  "description": "## [1.35.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.35.0...v1.35.1) (2026-10-02)\n\n### 🐛 Bug Fixes\n\n* **moises:** resolve crash on launch by eliminating verify error and skipping pairip internals ([7ad430b](https://github.com/SatanMerde/D-moniakPatches/commit/7ad430b857e120c9795628de9fe8a57bdb952cbd))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.35.1/patches-1.35.1.mpp",
+  "created_at": "2026-10-02T20:50:05",
+  "description": "## [1.35.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.35.1...v1.35.2) (2026-10-02)\n\n### 🐛 Bug Fixes\n\n* **readme:** correct verified patches list, move Google Drive to experimental, and promote tested Moises patches ([a9115b8](https://github.com/SatanMerde/D-moniakPatches/commit/a9115b8565eb38481bdf747c35d017d23bba38d9))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.35.2/patches-1.35.2.mpp",
   "signature_download_url": "",
-  "version": "1.35.1"
+  "version": "1.35.2"
 }

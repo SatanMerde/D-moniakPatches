@@ -1,3 +1,9 @@
+## [1.35.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.34.0...v1.35.0) (2026-10-02)
+
+### ✨ New Features
+
+* **moises:** add unlock premium and high quality audio export patches ([3c09d12](https://github.com/SatanMerde/D-moniakPatches/commit/3c09d1294d3bf776141a69e4a6a2d62ec9f3eb4b))
+
 ## [1.34.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.33.0...v1.34.0) (2026-10-02)
 
 ### 🐛 Bug Fixes

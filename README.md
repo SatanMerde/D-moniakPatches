@@ -14,13 +14,13 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-242-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-231-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-patchs-validés--fonctionnels--tested--functional-patches">
     <img src="https://img.shields.io/badge/Fonctionnels-10-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-patchs-expérimentaux--en-développement--experimental-patches-ai-generated">
-    <img src="https://img.shields.io/badge/Expérimentaux-232-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Expérimentaux-221-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-81-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -44,10 +44,10 @@
 ### 📖 Présentation du projet / Project Overview
 
 **🇫🇷 Français :**  
-**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble **242 patchs** pour **81 applications et jeux Android** populaires, clairement séparés entre **patchs validés & fonctionnels** (testés sur appareil réel : Hungry Shark World, Movix) et **patchs expérimentaux** (en cours de développement, générés par IA).
+**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble **231 patchs** pour **81 applications et jeux Android** populaires, clairement séparés entre **patchs validés & fonctionnels** (testés sur appareil réel : Hungry Shark World, Movix) et **patchs expérimentaux** (en cours de développement, générés par IA).
 
 **🇬🇧 English :**  
-**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **242 patches** for **81 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware: Hungry Shark World, Movix) and **experimental patches** (currently under development, AI-generated).
+**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **231 patches** for **81 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware: Hungry Shark World, Movix) and **experimental patches** (currently under development, AI-generated).
 
 ---
 
@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.33.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.33.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**242 patchs au total** (10 validés & fonctionnels • 232 expérimentaux)
+> **[v1.33.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.33.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**231 patchs au total** (10 validés & fonctionnels • 221 expérimentaux)
 
 ---
 
@@ -166,12 +166,11 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 > 🚀 **Want a patch to work?** You can **[submit a request here](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_request.yml)** to have the APK reverse-engineered and the patch made fully functional in the next update!
 
 <details open>
-<summary>📦 AllTrails&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 AllTrails&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [Block Ads & Promo Screens - AllTrails (Experimental)](#block-ads-promo-screens-alltrails-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade screens, rating dialogs, and banner advertisements in AllTrails. |
 | [Unlock AllTrails+ & Offline Maps - AllTrails (Experimental)](#unlock-alltrails-offline-maps-alltrails-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks AllTrails+ (Pro) features: offline topo map downloads, wrong-turn navigation alerts, real-time 3D trail previews, and satellite heatmaps. |
 </details>
 
@@ -244,13 +243,12 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>📦 Canva&nbsp;&nbsp;•&nbsp;&nbsp;6 patches</summary>
+<summary>📦 Canva&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [AMOLED Dark Theme & Declutter - Canva (Experimental)](#amoled-dark-theme-declutter-canva-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Canva design workspace and dashboard, and hides Canva Pro trial banners and upgrade reminders. |
-| [Ad-Free & Hide Upgrade Popups - Canva (Experimental)](#ad-free-hide-upgrade-popups-canva-experimental) | ⚠️ [En cours de développement / Non testé] Strips in-editor upgrade dialogs, Pro upsell cards in template galleries, subscription CTAs on element detail drawers, and interstitial purchase popups throughout Canva. |
 | [Remove Watermarks on Free Elements - Canva (Experimental)](#remove-watermarks-on-free-elements-canva-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses watermark rendering on Canva freemium design elements, stock photos, and templates, allowing clean export of designs without Pro subscription watermarks. |
 | [Unlimited Brand Kit Slots - Canva (Experimental)](#unlimited-brand-kit-slots-canva-experimental) | ⚠️ [En cours de développement / Non testé] Removes the Brand Kit slot limit, allowing unlimited custom color palettes, font sets, and logo libraries without a Canva Pro or Teams subscription. |
 | [Unlock Canva Pro Features (Experimental)](#unlock-canva-pro-features-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Canva Pro premium templates, exclusive fonts, advanced design elements, and premium content library without an active Pro subscription. |
@@ -320,12 +318,11 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>📦 DeepL&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<summary>📦 DeepL&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [Block Ads & Promo Screens - DeepL (Experimental)](#block-ads-promo-screens-deepl-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade screens, rating dialogs, and subscription banners in DeepL. |
 | [Unlock Pro & Formality - DeepL (Experimental)](#unlock-pro-formality-deepl-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks DeepL Pro client features: tone/formality customization (formal/informal), extended character limits, and dictionary features. |
 | [Unlock Unlimited Document & PDF Translations - DeepL (Experimental)](#unlock-unlimited-document-pdf-translations-deepl-experimental) | ⚠️ [En cours de développement / Non testé] Removes the monthly document translation limit (PDF, DOCX, PPTX), unlocks higher file size thresholds, and enables full document layout preservation in DeepL. |
 | [Unlock Unlimited Glossaries & Writing Styles - DeepL (Experimental)](#unlock-unlimited-glossaries-writing-styles-deepl-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks unlimited custom glossary terminology pairs and enables advanced professional writing styles (Academic, Technical, Casual, Business) in DeepL. |
@@ -427,14 +424,13 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>📦 Google Maps&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<summary>📦 Google Maps&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [AMOLED Black Navigation - Google Maps (Experimental)](#amoled-black-navigation-google-maps-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into navigation mode and map exploration screens to minimize battery consumption and glare. |
 | [Always Show Speedometer & Compass - Google Maps (Experimental)](#always-show-speedometer-compass-google-maps-experimental) | ⚠️ [En cours de développement / Non testé] Forces the real-time GPS speedometer and compass navigation overlay to stay permanently visible on screen regardless of speed or route type. |
-| [Block Sponsored Pins & Ads - Google Maps (Experimental)](#block-sponsored-pins-ads-google-maps-experimental) | ⚠️ [En cours de développement / Non testé] Removes sponsored venue pins, promoted business recommendations, and commercial suggestion cards in Google Maps search and navigation. |
 </details>
 
 <details open>
@@ -450,12 +446,11 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>📦 hide.me VPN&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<summary>📦 hide.me VPN&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [Block Ads & Promo Screens - hide.me VPN (Experimental)](#block-ads-promo-screens-hide-me-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade dialogues, rating prompts, and subscription banners in hide.me VPN. |
 | [Bypass Free Data Cap & Bandwidth Throttling - hide.me VPN (Experimental)](#bypass-free-data-cap-bandwidth-throttling-hide-me-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Overrides free plan data transfer limit counters, prevents speed throttling upon quota exhaustion, and maintains unlimited traffic in hide.me VPN. |
 | [Unlock Client Features & Dark Mode - hide.me VPN (Experimental)](#unlock-client-features-dark-mode-hide-me-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks client-side features, AMOLED dark theme, and DNS leak test utilities in hide.me VPN. |
 | [Unlock WireGuard Stealth & Multi-Hop - hide.me VPN (Experimental)](#unlock-wireguard-stealth-multi-hop-hide-me-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks WireGuard Stealth protocol, Multi-Hop (Double VPN cascading), and custom port binding in hide.me VPN. |
@@ -517,12 +512,11 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>📦 Memrise&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Memrise&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [Block Ads & Promo Popups - Memrise (Experimental)](#block-ads-promo-popups-memrise-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade popups, trial reminders, and subscription banners in Memrise. |
 | [Unlock Memrise Pro - Memrise (Experimental)](#unlock-memrise-pro-memrise-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Memrise Pro: all language courses, Learn with Locals native speaker clips, grammar bot, difficult words reviews, and offline downloads. |
 </details>
 
@@ -547,12 +541,11 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>📦 Peak&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Peak&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [Block Ads & Promo Screens - Peak Brain Training (Experimental)](#block-ads-promo-screens-peak-brain-training-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional subscription prompts, rating alerts, and video ads in Peak Brain Training. |
 | [Unlock Peak Pro - Peak Brain Training (Experimental)](#unlock-peak-pro-peak-brain-training-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Peak Pro: all 45+ cognitive brain games, unlimited daily workouts, advanced brain analytics, and personalized coach training modules. |
 </details>
 
@@ -579,22 +572,20 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>📦 Photomath&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Photomath&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [Block Ads & Promo Screens - Photomath (Experimental)](#block-ads-promo-screens-photomath-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade screens, rating dialogs, and subscription prompts in Photomath. |
 | [Unlock Photomath Plus - Photomath (Experimental)](#unlock-photomath-plus-photomath-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Photomath Plus features: deep step-by-step mathematical explanations, animated calculation walkthroughs, and textbook solutions. |
 </details>
 
 <details open>
-<summary>📦 PictureThis&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 PictureThis&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [Block Ads & Paywall Prompts - PictureThis (Experimental)](#block-ads-paywall-prompts-picturethis-experimental) | ⚠️ [En cours de développement / Non testé] Strips startup subscription paywalls, rating prompts, and banner ads in PictureThis. |
 | [Unlock Premium & Plant Disease Diagnosis - PictureThis (Experimental)](#unlock-premium-plant-disease-diagnosis-picturethis-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks PictureThis Premium features: unlimited plant identifications, full disease diagnosis, botanist plant care guides, and bypasses startup paywall prompts. |
 </details>
 
@@ -830,22 +821,20 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>📦 Stellarium Mobile&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Stellarium Mobile&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [Block Ads & Promo Popups - Stellarium Mobile (Experimental)](#block-ads-promo-popups-stellarium-mobile-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade dialogues, rating prompts, and banner notices in Stellarium Mobile. |
 | [Unlock Plus & Gaia Star Catalog - Stellarium Mobile (Experimental)](#unlock-plus-gaia-star-catalog-stellarium-mobile-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Stellarium Plus subscription features: Gaia DR3 star catalog (1.8+ billion stars), full deep-sky objects (DSO), high-res planetary textures, satellite tracking, and telescope control. |
 </details>
 
 <details open>
-<summary>📦 Stellarium Mobile (Alt)&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Stellarium Mobile (Alt)&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [Block Ads & Promo Popups - Stellarium Mobile (Experimental)](#block-ads-promo-popups-stellarium-mobile-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade dialogues, rating prompts, and banner notices in Stellarium Mobile. |
 | [Unlock Plus & Gaia Star Catalog - Stellarium Mobile (Experimental)](#unlock-plus-gaia-star-catalog-stellarium-mobile-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Stellarium Plus subscription features: Gaia DR3 star catalog (1.8+ billion stars), full deep-sky objects (DSO), high-res planetary textures, satellite tracking, and telescope control. |
 </details>
 
@@ -1003,12 +992,11 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>📦 Windy.com&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Windy.com&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [Block Ads & Promo Screens - Windy.com (Experimental)](#block-ads-promo-screens-windy-com-experimental) | ⚠️ [En cours de développement / Non testé] Strips promotional upgrade banners, rating popups, and subscription modals in Windy.com. |
 | [Unlock Windy Premium - Windy.com (Experimental)](#unlock-windy-premium-windy-com-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Windy Premium features: 1-hour forecast step resolution, 16-day extended forecast, high-res satellite radar archive, route planner, and unlimited alerts. |
 </details>
 
@@ -1132,7 +1120,6 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
   - **Unlock Canva Pro Features :** Débloque les templates Pro, polices exclusives et bibliothèque d'éléments premium sans abonnement actif.
   - **Remove Watermarks on Free Elements :** Contourne le rendu des filigranes sur les éléments freemium et photos de stock pour un export propre.
   - **Unlimited Brand Kit Slots :** Supprime la limite de kits de marque pour des palettes de couleurs, jeux de polices et bibliothèques de logos illimités.
-  - **Ad-Free & Hide Upgrade Popups :** Supprime les popups d'upgrade, les bannières Pro et les CTA d'achat dans l'éditeur et les galeries.
 - **ChatGPT (NOUVEAU - 100M+ d'utilisateurs IA) :**
   - **AMOLED Dark Theme & Declutter :** Remplace les fonds gris foncé par un véritable noir pur OLED (#000000) dans les conversations et masque les bannières promotionnelles de passage à ChatGPT Plus.
   - **Allow Screenshots & Copy :** Supprime la restriction Android FLAG_SECURE pour autoriser les captures d'écran et enregistrements vidéo des réponses dans les conversations, et débloque les limites de copie de texte.
@@ -1152,8 +1139,8 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
   - **Disable Response Haptics :** Coupe les vibrations haptiques répétitives pendant le streaming des réponses de l'IA.
 - **Google Drive (NOUVEAU - 15 Milliards+ de téléchargements) :**
   - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) pour l'explorateur de fichiers Drive et les panneaux de détails.
-  - **Allow Screenshots & Secure Share :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran des documents et feuilles de calcul.- **Google Maps (NOUVEAU - 10 Milliards+ de téléchargements) :**
-  - **Block Sponsored Pins & Ads :** Supprime les épingles d'entreprises sponsorisées sur la carte, les suggestions publicitaires et les cartes promotionnelles pendant la recherche et le trajet.
+  - **Allow Screenshots & Secure Share :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran des documents et feuilles de calcul.
+- **Google Maps (NOUVEAU - 10 Milliards+ de téléchargements) :**
   - **AMOLED Black Navigation :** Active un thème noir pur OLED (#000000) pour la navigation GPS virage par virage et l'exploration de carte, réduisant la consommation de batterie et l'éblouissement nocturne.
   - **Always Show Speedometer & Compass :** Maintient le compteur de vitesse GPS en temps réel et la boussole affichés en permanence à l'écran en mode guidage.
 - **Google Photos (NOUVEAU - 5 Milliards+ de téléchargements) :**
@@ -1418,7 +1405,6 @@ This project provides gameplay-specific patches tailored to each game:
   - **Unlock Canva Pro Features:** Unlocks Pro templates, exclusive fonts, and premium element library without an active Pro subscription.
   - **Remove Watermarks on Free Elements:** Bypasses watermark rendering on freemium design elements and stock photos for clean exports.
   - **Unlimited Brand Kit Slots:** Removes the Brand Kit slot limit for unlimited custom color palettes, font sets, and logo libraries.
-  - **Ad-Free & Hide Upgrade Popups:** Strips in-editor upgrade dialogs, Pro upsell cards, and subscription CTAs throughout Canva.
 - **ChatGPT (NEW - 100M+ AI users):**
   - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into ChatGPT conversations and hides 'Upgrade to ChatGPT Plus' marketing banners.
   - **Allow Screenshots & Copy:** Removes Android FLAG_SECURE window restrictions to allow screenshots and screen recording inside conversations and prevents copy restrictions.
@@ -1434,8 +1420,8 @@ This project provides gameplay-specific patches tailored to each game:
   - **Disable Response Haptics:** Suppresses repetitive haptic buzzes while the AI streams text and markdown responses.
 - **Google Drive (NEW - 15 Billion+ downloads):**
   - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into Google Drive file list, folder browser, and document detail views.
-  - **Allow Screenshots & Secure Share:** Removes Android FLAG_SECURE restrictions in Google Drive for screenshots of documents and spreadsheets.- **Google Maps (NEW - 10 Billion+ downloads):**
-  - **Block Sponsored Pins & Ads:** Removes sponsored business pins from map layers, promotional suggestion cards, and contextual search ads during navigation.
+  - **Allow Screenshots & Secure Share:** Removes Android FLAG_SECURE restrictions in Google Drive for screenshots of documents and spreadsheets.
+- **Google Maps (NEW - 10 Billion+ downloads):**
   - **AMOLED Black Navigation:** Forces pure OLED black (#000000) night theme during turn-by-turn guidance and map browsing, reducing battery consumption on OLED displays.
   - **Always Show Speedometer & Compass:** Ensures the real-time GPS speedometer and navigation compass remain permanently visible on screen during route guidance.
 - **Google Photos (NEW - 5 Billion+ downloads):**

@@ -130,6 +130,11 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 <summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
+**🎯 Supported versions:**
+
+| 8.1.6 |
+| :---: |
+
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Bypass Rewarded Ads](#bypass-rewarded-ads) | Bypasses rewarded video ads in Hungry Shark World by emulating ad completion events. |
@@ -141,6 +146,12 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 <summary>📦 Moises&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
+**🎯 Supported versions:**
+
+| 2.7.2 |
+| :---: |
+| Version stable sans Google Play PairIP |
+
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [High Quality Audio Export & Audio Tools - Moises](#high-quality-audio-export-audio-tools-moises) | Bypasses client-side audio bitrate export caps (enabling 320kbps MP3 and WAV export options) and unlocks unlimited audio pitch shift, tempo changes, Smart Metronome, and chord detection in Moises (v2.7.2 recommandée). |
@@ -151,6 +162,11 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 <details open>
 <summary>📦 Movix&nbsp;&nbsp;•&nbsp;&nbsp;6 patches</summary>
 <br>
+
+**🎯 Supported versions:**
+
+| 1.4.8 |
+| :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
@@ -303,6 +319,11 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 <details open>
 <summary>📦 CoinSnap&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
+
+**🎯 Supported versions:**
+
+| 🧪&nbsp;2.10.2 |
+| :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
@@ -488,6 +509,11 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 <summary>📦 hide.me VPN&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
+**🎯 Supported versions:**
+
+| 🧪&nbsp;6.1.2 |
+| :---: |
+
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Bypass Free Data Cap & Bandwidth Throttling - hide.me VPN (Experimental)](#bypass-free-data-cap-bandwidth-throttling-hide-me-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Overrides free plan data transfer limit counters, prevents speed throttling upon quota exhaustion, and maintains unlimited traffic in hide.me VPN. |
@@ -535,6 +561,11 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 <details open>
 <summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
+
+**🎯 Supported versions:**
+
+| 8.1.6 |
+| :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
@@ -624,6 +655,11 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 <details open>
 <summary>📦 Phone by Google&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
+
+**🎯 Supported versions:**
+
+| 🧪&nbsp;161.0.726587057 |
+| :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
@@ -894,6 +930,11 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 <details open>
 <summary>📦 Spotify&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
+
+**🎯 Supported versions:**
+
+| 🧪&nbsp;9.1.84.2231 |
+| :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|

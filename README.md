@@ -14,16 +14,16 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-239-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-242-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-patchs-validés--fonctionnels--tested--functional-patches">
     <img src="https://img.shields.io/badge/Fonctionnels-10-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-patchs-expérimentaux--en-développement--experimental-patches-ai-generated">
-    <img src="https://img.shields.io/badge/Expérimentaux-229-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Expérimentaux-232-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-80-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-81-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -44,10 +44,10 @@
 ### 📖 Présentation du projet / Project Overview
 
 **🇫🇷 Français :**  
-**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble **239 patchs** pour **80 applications et jeux Android** populaires, clairement séparés entre **patchs validés & fonctionnels** (testés sur appareil réel : Hungry Shark World, Movix) et **patchs expérimentaux** (en cours de développement, générés par IA).
+**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble **242 patchs** pour **81 applications et jeux Android** populaires, clairement séparés entre **patchs validés & fonctionnels** (testés sur appareil réel : Hungry Shark World, Movix) et **patchs expérimentaux** (en cours de développement, générés par IA).
 
 **🇬🇧 English :**  
-**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **239 patches** for **80 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware: Hungry Shark World, Movix) and **experimental patches** (currently under development, AI-generated).
+**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **242 patches** for **81 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware: Hungry Shark World, Movix) and **experimental patches** (currently under development, AI-generated).
 
 ---
 
@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.33.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.33.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**239 patchs au total** (10 validés & fonctionnels • 229 expérimentaux)
+> **[v1.33.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.33.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**242 patchs au total** (10 validés & fonctionnels • 232 expérimentaux)
 
 ---
 
@@ -764,6 +764,15 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
+<summary>📦 Silt&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Unlock Full Game - Silt (Experimental)](#unlock-full-game-silt-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt by hooking Google Play Billing and full game license verification checks. |
+</details>
+
+<details open>
 <summary>📦 SimpleX Chat&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
@@ -1014,13 +1023,15 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>🌐 Universal&nbsp;&nbsp;•&nbsp;&nbsp;7 patches</summary>
+<summary>🌐 Universal&nbsp;&nbsp;•&nbsp;&nbsp;9 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
+| [GmsCore (MicroG) Support (Experimental)](#gmscore-microg-support-experimental) | ⚠️ [En cours de développement / Non testé] Redirects Google Play Services (GMS) dependencies to GmsCore / MicroG (app.revanced.android.gms / org.microg.gms.core), enabling Google account login and push notifications on non-rooted devices for morphed Google and third-party apps. |
 | [Universal AMOLED Black Theme (Experimental)](#universal-amoled-black-theme-experimental) | ⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into UI background surfaces, replacing dark grey tones to maximize battery savings and contrast on AMOLED displays for any app. |
 | [Universal App Clone (Experimental)](#universal-app-clone-experimental) | ⚠️ [En cours de développement / Non testé] Enables side-by-side dual installation for any app, allowing the official unmodified app and the patched version to run simultaneously on the same device without signature or provider collisions. |
+| [Universal Bypass Play Store Install Check (Experimental)](#universal-bypass-play-store-install-check-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses Google Play Store installer source verification ('Download this app from Google Play' dialogs), preventing forced redirects to the Play Store when running sideloaded or patched APKs (such as VPN apps, tools, and games). |
 | [Universal Disable Haptics & Vibration (Experimental)](#universal-disable-haptics-vibration-experimental) | ⚠️ [En cours de développement / Non testé] Silences haptic motor vibrations across any app, eliminating unnecessary vibration buzzes and conserving battery power. |
 | [Universal Enable Screen Rotation (Experimental)](#universal-enable-screen-rotation-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks screen orientation restrictions across any app, allowing portrait-only applications and games to freely rotate into landscape mode for tablets, foldables, and car units. |
 | [Universal High Refresh Rate 120Hz (Experimental)](#universal-high-refresh-rate-120hz-experimental) | ⚠️ [En cours de développement / Non testé] Forces high refresh rate display mode (90Hz, 120Hz, or 144Hz) in apps and games that are otherwise capped at 60Hz. |
@@ -1073,6 +1084,7 @@ Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morphe
 - **Shadow Fight 4: Arena :** (com.nekki.shadowfightarena)
 - **Shazam :** (com.shazam.android)
 - **Signal Private Messenger :** (org.thoughtcrime.securesms)
+- **Silt :** (com.snapbreak.silt)
 - **SimpleX Chat :** (chat.simplex.app)
 - **Snapchat :** (com.snapchat.android)
 - **SoundCloud :** (com.soundcloud.android)
@@ -1092,6 +1104,8 @@ Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morphe
 
 Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **🌐 Patchs Universels (Compatibles avec TOUTES les applications) :**
+  - **GmsCore (MicroG) Support :** Redirige les dépendances Google Play Services vers GmsCore / MicroG (`app.revanced.android.gms` / `org.microg.gms.core`) pour permettre la connexion au compte Google et les notifications push sans root.
+  - **Universal Bypass Play Store Install Check :** Neutralise les contrôles de source d'installation (`getInstallerPackageName`), évitant les redirections forcées vers le Play Store ("Téléchargez cette application depuis le Play Store") sur les APK modifiées.
   - **Universal App Clone :** Permet d'installer et d'exécuter l'application patchée côte à côte avec l'application originale officielle sur le même téléphone (Dual Install / Clônage sans conflit de ContentProvider ni de signature).
   - **Universal AMOLED Black Theme :** Force un noir pur OLED (#000000) sur les arrière-plans de n'importe quelle application pour économiser la batterie sur écran AMOLED.
   - **Universal Enable Screen Rotation :** Déverrouille la rotation de l'écran pour toutes les applications ou jeux bloqués en portrait (idéal pour tablettes et écrans pliables).
@@ -1356,6 +1370,7 @@ Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, t
 - **Shadow Fight 4: Arena:** (com.nekki.shadowfightarena)
 - **Shazam:** (com.shazam.android)
 - **Signal Private Messenger:** (org.thoughtcrime.securesms)
+- **Silt:** (com.snapbreak.silt)
 - **SimpleX Chat:** (chat.simplex.app)
 - **Snapchat:** (com.snapchat.android)
 - **SoundCloud:** (com.soundcloud.android)
@@ -1375,6 +1390,8 @@ Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, t
 
 This project provides gameplay-specific patches tailored to each game:
 - **🌐 Universal Patches (Compatible with ALL applications):**
+  - **GmsCore (MicroG) Support:** Redirects Google Play Services (GMS) dependencies to GmsCore / MicroG (`app.revanced.android.gms` / `org.microg.gms.core`), enabling Google account login and push notifications on non-rooted devices for morphed Google and third-party apps.
+  - **Universal Bypass Play Store Install Check:** Bypasses Google Play Store installer source verification (`getInstallerPackageName`), preventing forced redirects to the Play Store when running sideloaded or patched APKs.
   - **Universal App Clone:** Enables side-by-side dual installation for any app, allowing the official unmodified app and the patched version to run simultaneously on the same device without signature or provider collisions.
   - **Universal AMOLED Black Theme:** Injects true OLED pitch black (#000000) into UI background surfaces to maximize battery savings and contrast on AMOLED displays for any app.
   - **Universal Enable Screen Rotation:** Unlocks screen orientation restrictions across any app, allowing portrait-only applications and games to freely rotate into landscape mode.

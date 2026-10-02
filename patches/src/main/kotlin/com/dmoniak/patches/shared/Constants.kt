@@ -563,6 +563,13 @@ object Constants {
         appIconColor = 0x0F2B46
     )
 
+    val COMPATIBILITY_SILT = Compatibility(
+        packageName = "com.snapbreak.silt",
+        name = "Silt",
+        description = "Silt: Oceanic Puzzle-Adventure by Snapbreak / Spiral Circus",
+        appIconColor = 0x1A2B3C
+    )
+
     // Aliases
     val COMPATIBILITY_ANGRY_BIRDS_CLASSIC = COMPATIBILITY_ANGRY_BIRDS
     val COMPATIBILITY_HIDE_ME = COMPATIBILITY_HIDEME

@@ -29,7 +29,14 @@ fun BytecodePatchContext.executeMoisesExportSettingsLogic(logger: Logger) {
         val type = classDef.type
         val tl = type.lowercase()
 
-        if (tl.startsWith("landroid/") || tl.startsWith("lkotlin/") || tl.startsWith("ljava/")) return@classDefForEach
+        // Skip framework and pairip protection classes
+        if (
+            tl.startsWith("landroid/") ||
+            tl.startsWith("lkotlin/") ||
+            tl.startsWith("ljava/") ||
+            tl.startsWith("lcom/google/") ||
+            tl.startsWith("lcom/pairip/")
+        ) return@classDefForEach
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 

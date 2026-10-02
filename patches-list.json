@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.35.0",
+  "version": "1.35.1",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -5482,7 +5482,7 @@
     },
     {
       "name": "Unlock Premium & Pro Features - Moises (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient, local subscription data classes (Subscription, UserSubscription), and entitlement checks in Moises to unlock client-side Pro features, bypass startup upgrade paywalls, and enable Smart Metronome, chord detection, and pitch/speed controls.",
+      "description": "⚠️ [En cours de développement / Non testé] Hooks subscription entitlement checks and status getters in Moises to unlock client-side Pro features, Smart Metronome, chord detection, and pitch/speed controls.",
       "default": true,
       "category": null,
       "dependencies": [],

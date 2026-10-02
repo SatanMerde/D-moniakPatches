@@ -1,3 +1,9 @@
+## [1.35.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.35.0...v1.35.1) (2026-10-02)
+
+### 🐛 Bug Fixes
+
+* **moises:** resolve crash on launch by eliminating verify error and skipping pairip internals ([7ad430b](https://github.com/SatanMerde/D-moniakPatches/commit/7ad430b857e120c9795628de9fe8a57bdb952cbd))
+
 ## [1.35.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.34.0...v1.35.0) (2026-10-02)
 
 ### ✨ New Features

@@ -32,7 +32,7 @@ fun BytecodePatchContext.executeGoogleDriveAllowScreenshotsLogic(logger: Logger)
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
         // 1. Hook all Google Drive Activity classes (DocListActivity, PdfActivity, PreviewActivity, etc.)
-        val superType = classDef.superType ?: ""
+        val superType = classDef.superclass ?: ""
         val isActivity = superType.contains("Activity") || type.contains("Activity")
 
         if (isActivity && tl.contains("com/google/android/apps/docs")) {

@@ -32,7 +32,7 @@ fun BytecodePatchContext.executeGoogleDriveAmoledDeclutterLogic(logger: Logger) 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
         // 1. Inject pure black ColorDrawable and setStatusBarColor/setNavigationBarColor in Activity onResume
-        val superType = classDef.superType ?: ""
+        val superType = classDef.superclass ?: ""
         val isActivity = superType.contains("Activity") || type.contains("Activity")
 
         if (isActivity && tl.contains("com/google/android/apps/docs")) {

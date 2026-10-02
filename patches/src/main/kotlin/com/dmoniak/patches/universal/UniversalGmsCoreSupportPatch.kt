@@ -4,7 +4,7 @@ import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
-import com.android.tools.smali.dexlib2.immutable.instruction.ImmutableInstruction21c
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
@@ -48,7 +48,7 @@ fun BytecodePatchContext.executeUniversalGmsCoreSupportLogic(logger: Logger) {
                                 val reg = (instruction as? com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction)?.registerA ?: 0
                                 
                                 // Replace "com.google.android.gms" with "app.revanced.android.gms"
-                                val newInstruction = ImmutableInstruction21c(
+                                val newInstruction = BuilderInstruction21c(
                                     Opcode.CONST_STRING,
                                     reg,
                                     ImmutableStringReference("app.revanced.android.gms")

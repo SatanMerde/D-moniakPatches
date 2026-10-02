@@ -570,6 +570,13 @@ object Constants {
         appIconColor = 0x1A2B3C
     )
 
+    val COMPATIBILITY_MOISES = Compatibility(
+        packageName = "ai.moises",
+        name = "Moises",
+        description = "Moises: The Musician's App by Moises Systems Inc.",
+        appIconColor = 0x6C5CE7
+    )
+
     // Aliases
     val COMPATIBILITY_ANGRY_BIRDS_CLASSIC = COMPATIBILITY_ANGRY_BIRDS
     val COMPATIBILITY_HIDE_ME = COMPATIBILITY_HIDEME

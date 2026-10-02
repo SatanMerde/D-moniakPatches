@@ -14,16 +14,16 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-231-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-233-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-patchs-validés--fonctionnels--tested--functional-patches">
     <img src="https://img.shields.io/badge/Fonctionnels-10-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-patchs-expérimentaux--en-développement--experimental-patches-ai-generated">
-    <img src="https://img.shields.io/badge/Expérimentaux-221-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Expérimentaux-223-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-81-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-82-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -44,10 +44,10 @@
 ### 📖 Présentation du projet / Project Overview
 
 **🇫🇷 Français :**  
-**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble **231 patchs** pour **81 applications et jeux Android** populaires, clairement séparés entre **patchs validés & fonctionnels** (testés sur appareil réel : Hungry Shark World, Movix) et **patchs expérimentaux** (en cours de développement, générés par IA).
+**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble **233 patchs** pour **82 applications et jeux Android** populaires, clairement séparés entre **patchs validés & fonctionnels** (testés sur appareil réel : Hungry Shark World, Movix) et **patchs expérimentaux** (en cours de développement, générés par IA).
 
 **🇬🇧 English :**  
-**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **231 patches** for **81 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware: Hungry Shark World, Movix) and **experimental patches** (currently under development, AI-generated).
+**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **233 patches** for **82 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware: Hungry Shark World, Movix) and **experimental patches** (currently under development, AI-generated).
 
 ---
 
@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.34.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.34.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**231 patchs au total** (10 validés & fonctionnels • 221 expérimentaux)
+> **[v1.34.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.34.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**233 patchs au total** (10 validés & fonctionnels • 223 expérimentaux)
 
 ---
 
@@ -554,6 +554,17 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Unlock Memrise Pro - Memrise (Experimental)](#unlock-memrise-pro-memrise-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play Billing to bypass in-app purchase verification for Memrise Pro (all language courses, Learn with Locals clips, and grammar bot). |
+
+</details>
+
+<details open>
+<summary>📦 Moises&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [High Quality Audio Export & Audio Tools - Moises (Experimental)](#high-quality-audio-export-audio-tools-moises-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses client-side audio bitrate export caps (enabling 320kbps MP3 and WAV export options) and unlocks unlimited audio pitch shift, tempo changes, Smart Metronome, and chord detection in Moises. |
+| [Unlock Premium & Pro Features - Moises (Experimental)](#unlock-premium-pro-features-moises-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient, local subscription data classes (Subscription, UserSubscription), and entitlement checks in Moises to unlock client-side Pro features, bypass startup upgrade paywalls, and enable Smart Metronome, chord detection, and pitch/speed controls. |
 
 </details>
 
@@ -1137,6 +1148,7 @@ Bundle de patchs modulaires pour le framework [Morphe](https://github.com/morphe
 - **Hungry Shark World :** (com.ubisoft.hungrysharkworld)
 - **Jetpack Joyride :** (com.halfbrick.jetpackjoyride)
 - **MEGA :** (mega.privacy.android.app)
+- **Moises: The Musician's App :** (ai.moises)
 - **Movix :** (com.movix.app)
 - **MX Player :** (com.mxtech.videoplayer.ad)
 - **Nextcloud :** (org.nextcloud.client)
@@ -1245,6 +1257,9 @@ Ce projet propose des patchs adaptés sur-mesure aux mécaniques de chaque jeu :
 - **MEGA (NOUVEAU - 100M+ de téléchargements) :**
   - **AMOLED Dark Theme & Declutter :** Thème noir pur OLED (#000000) pour l'explorateur de fichiers cloud, la file des transferts et les paramètres, et masquage des bannières promotionnelles Pro.
   - **Allow Screenshots & Export :** Supprime la restriction FLAG_SECURE pour autoriser les captures d'écran des documents et photos et débloque l'export local.
+- **Moises: The Musician's App (NOUVEAU - 10M+ musiciens & créateurs) :**
+  - **Unlock Premium & Pro Features :** Débloque les fonctionnalités Pro (Smart Metronome, détection d'accords, pitch shift et contrôle de vitesse) et contourne le paywall d'onboarding.
+  - **High Quality Audio Export & Audio Tools :** Débloque les options d'export audio haute qualité (320kbps MP3 et WAV) et l'accès illimité aux outils de mixage local.
 - **Movix (NOUVEAU - Streaming Films & Séries) :**
   - **Block Video Ads & Interstitials :** Élimination totale des pré-rolls et coupures vidéo publicitaires, des bannières et des popups de redirection intempestifs sur tous les lecteurs vidéo de films et séries.
   - **AMOLED Black Player & Picture-in-Picture :** Infiltre un noir profond OLED (#000000) dans le catalogue et débloque le mode Picture-in-Picture (PiP) ainsi que la lecture audio en arrière-plan.
@@ -1422,6 +1437,7 @@ Modular patch bundle for the [Morphe](https://github.com/morpheapp) framework, t
 - **Hungry Shark World:** (com.ubisoft.hungrysharkworld)
 - **Jetpack Joyride:** (com.halfbrick.jetpackjoyride)
 - **MEGA:** (mega.privacy.android.app)
+- **Moises: The Musician's App:** (ai.moises)
 - **Movix:** (com.movix.app)
 - **MX Player:** (com.mxtech.videoplayer.ad)
 - **Nextcloud:** (org.nextcloud.client)
@@ -1526,6 +1542,9 @@ This project provides gameplay-specific patches tailored to each game:
 - **MEGA (NEW - 100M+ downloads):**
   - **AMOLED Dark Theme & Declutter:** Injects pure OLED pitch black (#000000) into MEGA cloud file browser, transfer queue, and settings, and hides Pro upgrade promotion banners.
   - **Allow Screenshots & Export:** Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions.
+- **Moises: The Musician's App (NEW - 10M+ musicians & creators):**
+  - **Unlock Premium & Pro Features:** Unlocks client-side Pro features (Smart Metronome, chord detection, pitch shift, and tempo controls) and bypasses startup upgrade paywalls.
+  - **High Quality Audio Export & Audio Tools:** Unlocks high quality audio export options (320kbps MP3 and WAV) and unlimited local audio mixer tools.
 - **Movix (NEW - Movies & Series Streaming):**
   - **Block Video Ads & Interstitials:** Completely eliminates pre-roll and mid-roll video ads, banners, and intrusive redirect popups across all movie and series player screens.
   - **AMOLED Black Player & Picture-in-Picture:** Injects true OLED pitch black (#000000) into the Movix catalog and unlocks Picture-in-Picture (PiP) mode and background audio playback.

@@ -146,8 +146,28 @@ def build_content(expanded=True):
 
     # Sort apps alphabetically
     sorted_apps = sorted(by_pkg.items(), key=lambda item: item[1]["name"].lower())
-    func_apps = [(pkg, entry) for pkg, entry in sorted_apps if all("(Experimental)" not in p["name"] for p in entry["patches"].values())]
-    exp_apps = [(pkg, entry) for pkg, entry in sorted_apps if any("(Experimental)" in p["name"] for p in entry["patches"].values())]
+
+    func_apps = []
+    for pkg, entry in sorted_apps:
+        f_patches = {name: p for name, p in entry["patches"].items() if "(Experimental)" not in p["name"]}
+        if f_patches:
+            func_apps.append((pkg, {
+                "name": entry["name"],
+                "emoji": entry["emoji"],
+                "patches": f_patches,
+                "targets": entry["targets"],
+            }))
+
+    exp_apps = []
+    for pkg, entry in sorted_apps:
+        e_patches = {name: p for name, p in entry["patches"].items() if "(Experimental)" in p["name"]}
+        if e_patches:
+            exp_apps.append((pkg, {
+                "name": entry["name"],
+                "emoji": entry["emoji"],
+                "patches": e_patches,
+                "targets": entry["targets"],
+            }))
 
     # Functional apps
     for pkg, entry in func_apps:

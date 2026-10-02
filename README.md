@@ -44,10 +44,10 @@
 ### 📖 Présentation du projet / Project Overview
 
 **🇫🇷 Français :**  
-**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble **233 patchs** pour **82 applications et jeux Android** populaires, clairement séparés entre **patchs validés & fonctionnels** (testés sur appareil réel : Hungry Shark World, Movix) et **patchs expérimentaux** (en cours de développement, générés par IA).
+**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble **233 patchs** pour **82 applications et jeux Android** populaires, clairement séparés entre **patchs validés & fonctionnels** (testés sur appareil réel / émulateur : Hungry Shark World, Movix, Moises) et **patchs expérimentaux** (en cours de développement, générés par IA).
 
 **🇬🇧 English :**  
-**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **233 patches** for **82 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware: Hungry Shark World, Movix) and **experimental patches** (currently under development, AI-generated).
+**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **233 patches** for **82 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware / emulator: Hungry Shark World, Movix, Moises) and **experimental patches** (currently under development, AI-generated).
 
 ---
 
@@ -127,13 +127,24 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 > **🇬🇧 English :** These patches have been thoroughly tested and confirmed fully functional on real hardware.
 
 <details open>
-<summary>📦 Google Drive&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [AMOLED Dark Theme & Declutter - Google Drive](#amoled-dark-theme-declutter-google-drive) | Forces pure OLED pitch black (#000000) across Google Drive file lists, folder navigation, status bars, and navigation bars, eliminating dark gray tint for maximum OLED power savings. |
-| [Allow Screenshots & Secure Share - Google Drive](#allow-screenshots-secure-share-google-drive) | Removes Android FLAG_SECURE window restrictions in Google Drive to permit taking screenshots and screen recordings of documents, spreadsheets, and presentation previews. |
+| [Bypass Rewarded Ads](#bypass-rewarded-ads) | Bypasses rewarded video ads in Hungry Shark World by emulating ad completion events. |
+| [Free Shopping](#free-shopping) | Unlocks shop items and in-app purchases in Hungry Shark World by cleanly replacing GoogleBillingService purchase methods and receipt validation. |
+
+</details>
+
+<details open>
+<summary>📦 Moises&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [High Quality Audio Export & Audio Tools - Moises](#high-quality-audio-export-audio-tools-moises) | Bypasses client-side audio bitrate export caps (enabling 320kbps MP3 and WAV export options) and unlocks unlimited audio pitch shift, tempo changes, Smart Metronome, and chord detection in Moises (v2.7.2 recommandée). |
+| [Unlock Premium & Pro Features - Moises](#unlock-premium-pro-features-moises) | Hooks Google Play BillingClient, RevenueCat EntitlementInfo, and subscription data models in Moises (v2.7.2 recommandée) to unlock client-side Pro features, bypass startup upgrade paywalls, Smart Metronome, chord detection, and pitch/speed controls. |
 
 </details>
 
@@ -427,6 +438,17 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
+<summary>📦 Google Drive&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [AMOLED Dark Theme & Declutter - Google Drive (Experimental)](#amoled-dark-theme-declutter-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Forces pure OLED pitch black (#000000) across Google Drive file lists, folder navigation, status bars, and navigation bars, eliminating dark gray tint for maximum OLED power savings. |
+| [Allow Screenshots & Secure Share - Google Drive (Experimental)](#allow-screenshots-secure-share-google-drive-experimental) | ⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Google Drive to permit taking screenshots and screen recordings of documents, spreadsheets, and presentation previews. |
+
+</details>
+
+<details open>
 <summary>📦 Google Gemini&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
@@ -511,14 +533,12 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [Bypass Rewarded Ads](#bypass-rewarded-ads) | Bypasses rewarded video ads in Hungry Shark World by emulating ad completion events. |
 | [Fast Gold Rush - Hungry Shark (Experimental)](#fast-gold-rush-hungry-shark-experimental) | ⚠️ [En cours de développement / Non testé] Accelerates Gold Rush gauge filling in Hungry Shark World and Evolution, triggering frenzy coin multipliers and invulnerability much faster. (Experimental - Not yet tested on device). |
-| [Free Shopping](#free-shopping) | Unlocks shop items and in-app purchases in Hungry Shark World by cleanly replacing GoogleBillingService purchase methods and receipt validation. |
 | [Infinite Boost - Hungry Shark (Experimental)](#infinite-boost-hungry-shark-experimental) | ⚠️ [En cours de développement / Non testé] Disables boost meter depletion in Hungry Shark World and Hungry Shark Evolution, granting unlimited turbo swimming and continuous dash attacks without waiting for recharge. (Experimental - Not yet tested on device). |
 
 </details>
@@ -554,17 +574,6 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Unlock Memrise Pro - Memrise (Experimental)](#unlock-memrise-pro-memrise-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play Billing to bypass in-app purchase verification for Memrise Pro (all language courses, Learn with Locals clips, and grammar bot). |
-
-</details>
-
-<details open>
-<summary>📦 Moises&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description |
-|----------|----------------|
-| [High Quality Audio Export & Audio Tools - Moises (Experimental)](#high-quality-audio-export-audio-tools-moises-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses client-side audio bitrate export caps (enabling 320kbps MP3 and WAV export options) and unlocks unlimited audio pitch shift, tempo changes, Smart Metronome, and chord detection in Moises. |
-| [Unlock Premium & Pro Features - Moises (Experimental)](#unlock-premium-pro-features-moises-experimental) | ⚠️ [En cours de développement / Non testé] Hooks subscription entitlement checks and status getters in Moises to unlock client-side Pro features, Smart Metronome, chord detection, and pitch/speed controls. |
 
 </details>
 

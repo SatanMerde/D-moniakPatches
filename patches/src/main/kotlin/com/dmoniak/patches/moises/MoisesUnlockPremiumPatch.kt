@@ -10,8 +10,8 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val moisesUnlockPremiumPatch = bytecodePatch(
-    name = "Unlock Premium & Pro Features - Moises (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Hooks subscription entitlement checks and status getters in Moises to unlock client-side Pro features, Smart Metronome, chord detection, and pitch/speed controls.",
+    name = "Unlock Premium & Pro Features - Moises",
+    description = "Hooks Google Play BillingClient, RevenueCat EntitlementInfo, and subscription data models in Moises (v2.7.2 recommandée) to unlock client-side Pro features, bypass startup upgrade paywalls, Smart Metronome, chord detection, and pitch/speed controls.",
 ) {
     compatibleWith(COMPATIBILITY_MOISES)
 

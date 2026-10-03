@@ -14,13 +14,13 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-275-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-440-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-patchs-validés--fonctionnels--tested--functional-patches">
     <img src="https://img.shields.io/badge/Fonctionnels-10-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-patchs-expérimentaux--en-développement--experimental-patches-ai-generated">
-    <img src="https://img.shields.io/badge/Expérimentaux-265-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Expérimentaux-430-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-86-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">

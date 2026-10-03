@@ -14,13 +14,13 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-264-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-275-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-patchs-validés--fonctionnels--tested--functional-patches">
     <img src="https://img.shields.io/badge/Fonctionnels-10-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-patchs-expérimentaux--en-développement--experimental-patches-ai-generated">
-    <img src="https://img.shields.io/badge/Expérimentaux-254-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Expérimentaux-265-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-86-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -574,7 +574,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>📦 Instagram&nbsp;&nbsp;•&nbsp;&nbsp;7 patches</summary>
+<summary>📦 Instagram&nbsp;&nbsp;•&nbsp;&nbsp;12 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
@@ -583,9 +583,14 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 | [Block Ads & Sponsored Content - Instagram (Experimental)](#block-ads-sponsored-content-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Strips sponsored feed posts, sponsored stories, promoted reels, and shopping tags in Instagram. |
 | [Copy Captions & Comments - Instagram (Experimental)](#copy-captions-comments-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Enables text selection and direct clipboard copying on post captions, user biographies, and comments. |
 | [Disable Double Tap To Like - Instagram (Experimental)](#disable-double-tap-to-like-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Disables accidental double-tap gestures that trigger likes on feed photos, videos, and reels while scrolling or zooming. |
+| [Disable Screenshot Detection & Vanish Alert - Instagram (Experimental)](#disable-screenshot-detection-vanish-alert-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Silently disables screenshot notifications in disappearing messages, view-once media, and vanish mode, and unlocks screen recording across all Instagram DMs. |
 | [Ghost Privacy Mode: Anonymous DMs & Stories - Instagram (Experimental)](#ghost-privacy-mode-anonymous-dms-stories-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Disables 'Seen' receipts in Direct Messages, hides story viewed tracking, silences live stream join broadcasts, and hides DM typing indicator. |
 | [Media Downloader & Uncompressed Media Upload - Instagram (Experimental)](#media-downloader-uncompressed-media-upload-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Enables downloading original high-resolution photos, reels, stories, and voice messages without watermarks, and bypasses image/video compression downscalers on upload. |
 | [Pure AMOLED Black Theme - Instagram (Experimental)](#pure-amoled-black-theme-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure pitch-black (#000000) for OLED displays across main feed, reels, direct messages, stories bar, and profile in Instagram. |
+| [Reels Seekbar & Fast-Forward Scrubbing - Instagram (Experimental)](#reels-seekbar-fast-forward-scrubbing-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Forces the interactive seekbar / progress bar to always display on Reels, allowing users to freely scrub, fast-forward, and rewind any Instagram Reel without waiting for it to loop. |
+| [Sanitize Share Links & Open in External Browser - Instagram (Experimental)](#sanitize-share-links-open-in-external-browser-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Strips telemetry tracking parameters (?igsh=..., ?utm_...) from copied and shared Instagram URLs, and opens external web links directly in the system default browser instead of the in-app browser. |
+| [Unlock Developer Options & Quick Experiments - Instagram (Experimental)](#unlock-developer-options-quick-experiments-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Meta internal Employee Developer Options, Debug Mode, and Quick Experiment (QE) override menus in Instagram by long-pressing the home button or opening settings. |
+| [Unlock Instagram Plus & Client Entitlements - Instagram (Experimental)](#unlock-instagram-plus-client-entitlements-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Locally unlocks Instagram Plus subscription benefits, custom app launcher icons, enhanced 60 FPS story rendering, and extended multi-media carousel limits. |
 
 </details>
 
@@ -791,7 +796,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>📦 Reddit&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
+<summary>📦 Reddit&nbsp;&nbsp;•&nbsp;&nbsp;6 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
@@ -801,6 +806,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 | [Declutter Feed & Hide Recommendations - Reddit (Experimental)](#declutter-feed-hide-recommendations-reddit-experimental) | ⚠️ [En cours de développement / Non testé] Hides 'Because you visited...', 'Communities you may like', 'Popular near you', awards animations, and live RPAN stream banners in Reddit. |
 | [Pure AMOLED Black Theme - Reddit (Experimental)](#pure-amoled-black-theme-reddit-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure pitch-black (#000000) for OLED screens across feeds, post viewer, comments, and drawer in Reddit. |
 | [Sanitize Links & Open Externally - Reddit (Experimental)](#sanitize-links-open-externally-reddit-experimental) | ⚠️ [En cours de développement / Non testé] Strips telemetry tracking params (utm_source, out.reddit.com redirects) and opens external links directly in the user's default browser. |
+| [Unlock Reddit Premium & Custom App Icons - Reddit (Experimental)](#unlock-reddit-premium-custom-app-icons-reddit-experimental) | ⚠️ [En cours de développement / Non testé] Locally unlocks Reddit Premium status, unlocks exclusive custom application launcher icons (Doge, Retro, Neon, Gold), and removes Premium promotional prompts. |
 
 </details>
 
@@ -1197,7 +1203,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>📦 YouTube&nbsp;&nbsp;•&nbsp;&nbsp;15 patches</summary>
+<summary>📦 YouTube&nbsp;&nbsp;•&nbsp;&nbsp;20 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
@@ -1207,7 +1213,11 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 | [Copy Video URL With Timestamp - YouTube (Experimental)](#copy-video-url-with-timestamp-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Adds a convenient option to copy the current video URL with the exact playback timestamp (?t=...) directly to the clipboard. |
 | [Custom Playback Speed & High-Res Audio - YouTube (Experimental)](#custom-playback-speed-high-res-audio-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks speed slider up to 3.0x/5.0x and forces highest audio bitrate (Opus 160kbps / 256kbps) and default highest video resolution (1080p/1440p/4K) on Wi-Fi and Cellular. |
 | [Declutter UI & Remove Shorts - YouTube (Experimental)](#declutter-ui-remove-shorts-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Hides Shorts tab from bottom navigation bar, hides Shorts shelf from Home and Subscriptions feeds, hides Create button (+), hides Playables, and removes End Screen suggestions. |
+| [Disable DRC Audio (Dynamic Range Compression) - YouTube (Experimental)](#disable-drc-audio-dynamic-range-compression-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Disables dynamic range compression (DRC) in YouTube's audio engine, restoring original uncompressed audio dynamics, punchy bass, and full volume without artificial normalization. |
+| [Disable QUIC Protocol - YouTube (Experimental)](#disable-quic-protocol-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Disables Google's experimental QUIC (HTTP/3) UDP network protocol in YouTube, forcing reliable HTTP/2 TCP streams to bypass carrier and ISP video throttling. |
 | [Fix Video Playback Buffer & Freeze - YouTube (Experimental)](#fix-video-playback-buffer-freeze-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses Google's video stream throttling and 1:00 min playback buffering freezes by spoofing client payload parameters (iOS/Android VR/TV client identifiers). |
+| [Fix Watch History & DNS Resolution - YouTube (Experimental)](#fix-watch-history-dns-resolution-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Fixes broken or paused watch history when using private DNS, Pi-hole, or adblocking resolvers by rerouting playback tracking endpoints directly to fallback servers. |
+| [Force Original Audio Language (Bypass Auto-Dubbing) - YouTube (Experimental)](#force-original-audio-language-bypass-auto-dubbing-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Forces YouTube to automatically play the creator's original authentic audio track, bypassing unwanted AI/human auto-dubbed voiceovers and language translations. |
 | [GmsCore Support - YouTube (Experimental)](#gmscore-support-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Redirects Google Play Services and account authentication calls to GmsCore (MicroG / app.revanced.android.gms) to allow logging in to YouTube without root. |
 | [Hide Endscreen Cards & Suggestions - YouTube (Experimental)](#hide-endscreen-cards-suggestions-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Hides floating endscreen cards, suggested video boxes, channel stickers, and overlay elements that clutter the end of videos. |
 | [Hide Player Overlay Buttons (Cast, Autoplay, Remix) - YouTube (Experimental)](#hide-player-overlay-buttons-cast-autoplay-remix-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Hides unwanted player overlay buttons including Chromecast icon (prevents accidental casting), Autoplay toggle, Remix button, and Thanks button. |
@@ -1215,6 +1225,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 | [Pure AMOLED Black Theme - YouTube (Experimental)](#pure-amoled-black-theme-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure pitch-black (#000000) into YouTube player controls, navigation bars, comments bottom sheets, and panels for AMOLED battery saving. |
 | [Remember Video Quality - YouTube (Experimental)](#remember-video-quality-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Forces and locks preferred default video resolution (such as 1080p, 1440p, or 4K) separately for Wi-Fi and mobile cellular networks, overriding YouTube's adaptive downscaling. |
 | [Return YouTube Dislike - YouTube (Experimental)](#return-youtube-dislike-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Restores public dislike counts and like/dislike ratio bars on YouTube videos and Shorts using the official Return YouTube Dislike (RYD) API. |
+| [Sound Boost (Audio Gain Amplification) - YouTube (Experimental)](#sound-boost-audio-gain-amplification-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Amplifies YouTube audio playback volume with software gain booster up to 200% for quiet videos, recordings, and podcasts. |
 | [SponsorBlock - YouTube (Experimental)](#sponsorblock-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Automatically detects and skips sponsored video segments, sponsor intros/outros, self-promotions, interaction reminders, and filler music in YouTube videos via the community SponsorBlock API. |
 | [Swipe Controls - YouTube (Experimental)](#swipe-controls-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Enables intuitive vertical swipe gestures during fullscreen video playback to adjust volume (right side) and brightness (left side). |
 

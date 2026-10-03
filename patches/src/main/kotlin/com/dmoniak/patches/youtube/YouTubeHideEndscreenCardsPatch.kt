@@ -9,20 +9,20 @@ import com.dmoniak.patches.shared.Constants.COMPATIBILITY_YOUTUBE
 import java.util.logging.Logger
 
 @Suppress("unused")
-val youtubeReturnDislikeAndSponsorBlockPatch = bytecodePatch(
-    name = "Return YouTube Dislike & SponsorBlock Bridge - YouTube (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Restores authentic dislike counters on videos via Return YouTube Dislike API and provides segment skipping markers for sponsored segments.",
+val youtubeHideEndscreenCardsPatch = bytecodePatch(
+    name = "Hide Endscreen Cards & Suggestions - YouTube (Experimental)",
+    description = "⚠️ [En cours de développement / Non testé] Hides floating endscreen cards, suggested video boxes, channel stickers, and overlay elements that clutter the end of videos.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
     execute {
         val logger = Logger.getLogger(this::class.java.name)
-        executeYouTubeDislikeSponsorBlockLogic(logger)
+        executeYouTubeHideEndscreenCardsLogic(logger)
     }
 }
 
-fun BytecodePatchContext.executeYouTubeDislikeSponsorBlockLogic(logger: Logger) {
-    logger.info("Executing Return YouTube Dislike & SponsorBlock Bridge patch for YouTube...")
+fun BytecodePatchContext.executeYouTubeHideEndscreenCardsLogic(logger: Logger) {
+    logger.info("Executing dedicated Hide Endscreen Cards patch for YouTube...")
     var hookedPoints = 0
 
     classDefForEach { classDef ->
@@ -37,30 +37,29 @@ fun BytecodePatchContext.executeYouTubeDislikeSponsorBlockLogic(logger: Logger) 
             val mName = method.name.lowercase()
             val retType = method.returnType
 
-            // Hook dislike counter visibility
             if (!isStatic && (
-                mName == "shouldshowdislikecount" ||
-                mName == "isdislikecountervisible" ||
-                mName == "issponsorblockenabled" ||
-                mName == "shouldautoskipsponsor"
+                mName == "shouldshowendscreencards" ||
+                mName == "isendscreenvisible" ||
+                mName == "shouldrenderinfocards" ||
+                mName == "iswatermarkvisible"
             ) && retType == "Z") {
                 try {
                     val mutableMethod = mutableClass.findMutableMethodOf(method)
                     mutableMethod.addInstructions(
                         0,
                         """
-                        const/4 v0, 0x1
+                        const/4 v0, 0x0
                         return v0
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.info("[YouTube Dislike/SponsorBlock] Enabled feature toggle in: ${classDef.type}->${method.name}")
+                    logger.info("[YouTube Endscreen] Disabled endscreen element in: ${classDef.type}->${method.name}")
                 } catch (e: Exception) {
-                    logger.warning("[YouTube Dislike/SponsorBlock] Failed to hook ${method.name}: ${e.message}")
+                    logger.warning("[YouTube Endscreen] Failed to hook ${method.name}: ${e.message}")
                 }
             }
         }
     }
 
-    logger.info("[YouTube Dislike/SponsorBlock] Finished: $hookedPoints bridge hooks injected.")
+    logger.info("[YouTube Endscreen] Finished: $hookedPoints Endscreen hooks injected.")
 }

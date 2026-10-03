@@ -627,12 +627,28 @@ object Constants {
         appIconColor = 0x2A2E3D
     )
 
+    val COMPATIBILITY_FREE_FIRE_MAX = Compatibility(
+        packageName = "com.dts.freefiremax",
+        name = "Free Fire MAX",
+        description = "Free Fire MAX by Garena International I Private Limited",
+        appIconColor = 0xFF5722
+    )
+
+    val COMPATIBILITY_FREE_FIRE = Compatibility(
+        packageName = "com.dts.freefireth",
+        name = "Free Fire",
+        description = "Free Fire by Garena International I Private Limited",
+        appIconColor = 0xFF5722
+    )
+
     // Aliases
     val COMPATIBILITY_ANGRY_BIRDS_CLASSIC = COMPATIBILITY_ANGRY_BIRDS
     val COMPATIBILITY_HIDE_ME = COMPATIBILITY_HIDEME
     val COMPATIBILITY_PICTURE_THIS = COMPATIBILITY_PICTURETHIS
     val COMPATIBILITY_PLAGUEINC = COMPATIBILITY_PLAGUE_INC
     val COMPATIBILITY_UNDERCOVER_GAME = COMPATIBILITY_UNDERCOVER
+    val COMPATIBILITY_FREEFIRE_MAX = COMPATIBILITY_FREE_FIRE_MAX
+    val COMPATIBILITY_FREEFIRE = COMPATIBILITY_FREE_FIRE
 }
 
 

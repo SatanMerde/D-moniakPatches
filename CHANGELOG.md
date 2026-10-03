@@ -1,3 +1,13 @@
+## [1.40.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.39.0...v1.40.0) (2026-10-03)
+
+### 🐛 Bug Fixes
+
+* **patches:** ensure safe single-line string escaping and clean unicode in extended suites ([03daa00](https://github.com/SatanMerde/D-moniakPatches/commit/03daa00f1d4176afd60c33e3524b287afefeff8a))
+
+### ✨ New Features
+
+* **youtube,instagram,reddit:** surpass official Morphe and Piko with 106 YouTube, 71 Instagram, and 26 Reddit patches ([e85452a](https://github.com/SatanMerde/D-moniakPatches/commit/e85452a4b68ab45d752c76d36ea5c149ffc34509))
+
 ## [1.39.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.38.0...v1.39.0) (2026-10-03)
 
 ### ✨ New Features

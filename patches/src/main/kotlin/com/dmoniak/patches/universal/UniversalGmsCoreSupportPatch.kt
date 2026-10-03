@@ -1,12 +1,14 @@
 package com.dmoniak.patches.universal
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction31c
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
@@ -67,6 +69,9 @@ private val GMS_ACTION_AND_PERMISSION_PREFIXES = listOf(
 )
 
 private fun transformGmsString(str: String): String? {
+    // 0. Do NOT replace Google Play Services version metadata key
+    if (str == "com.google.android.gms.version") return null
+
     // 1. Check exact match replacements
     EXACT_STRING_REPLACEMENTS[str]?.let { return it }
 
@@ -152,6 +157,7 @@ fun BytecodePatchContext.executeUniversalGmsCoreSupportLogic(logger: Logger) {
         // 2. Perform GMS string and dependency redirections
         for (method in classDef.methods.toList()) {
             val impl = method.implementation ?: continue
+            val mutableMethod by lazy { mutableClass.findMutableMethodOf(method) }
 
             for ((index, instruction) in impl.instructions.withIndex()) {
                 val isStringOpcode = instruction.opcode == Opcode.CONST_STRING || instruction.opcode == Opcode.CONST_STRING_JUMBO
@@ -162,19 +168,25 @@ fun BytecodePatchContext.executeUniversalGmsCoreSupportLogic(logger: Logger) {
                         val transformed = transformGmsString(str)
                         if (transformed != null && transformed != str) {
                             try {
-                                val mutableMethod = mutableClass.findMutableMethodOf(method)
-                                val mutableImpl = mutableMethod.implementation ?: continue
                                 val reg = (instruction as? OneRegisterInstruction)?.registerA ?: 0
 
-                                val newInstruction = BuilderInstruction21c(
-                                    Opcode.CONST_STRING,
-                                    reg,
-                                    ImmutableStringReference(transformed)
-                                )
-                                mutableImpl.instructions[index] = newInstruction
+                                val newInstruction = if (instruction.opcode == Opcode.CONST_STRING_JUMBO) {
+                                    BuilderInstruction31c(
+                                        Opcode.CONST_STRING_JUMBO,
+                                        reg,
+                                        ImmutableStringReference(transformed)
+                                    )
+                                } else {
+                                    BuilderInstruction21c(
+                                        Opcode.CONST_STRING,
+                                        reg,
+                                        ImmutableStringReference(transformed)
+                                    )
+                                }
+                                mutableMethod.replaceInstruction(index, newInstruction)
                                 redirectedStrings++
                             } catch (e: Exception) {
-                                logger.fine("[GmsCore Support] Failed string replace for '$str': ${e.message}")
+                                logger.warning("[GmsCore Support] Failed string replace for '$str' in ${classDef.type}->${method.name}: ${e.message}")
                             }
                         }
                     }

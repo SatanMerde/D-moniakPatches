@@ -1,3 +1,9 @@
+## [1.44.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.44.1...v1.44.2) (2026-10-03)
+
+### 🐛 Bug Fixes
+
+* resolve Undercover crashes, Silt LVL license redirect, and Spotify accent color hook ([8a057cb](https://github.com/SatanMerde/D-moniakPatches/commit/8a057cbf760b590953243c30381ea05c0156a519))
+
 ## [1.44.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.44.0...v1.44.1) (2026-10-03)
 
 ### 🐛 Bug Fixes

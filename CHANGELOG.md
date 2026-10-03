@@ -1,3 +1,9 @@
+## [1.46.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.45.0...v1.46.0) (2026-10-03)
+
+### ✨ New Features
+
+* add useful patches for Google Maps, Drive, VLC, Proton Pass, Windy, AllTrails, and Photomath ([9106cc5](https://github.com/SatanMerde/D-moniakPatches/commit/9106cc51bf048b2f9e9dfe4dc9f4d9eec4e482ad))
+
 ## [1.45.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.44.2...v1.45.0) (2026-10-03)
 
 ### ✨ New Features

@@ -1,4 +1,4 @@
-﻿package com.dmoniak.patches.youtube
+package com.dmoniak.patches.youtube
 
 import app.morphe.patcher.patch.bytecodePatch
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_YOUTUBE
@@ -7,7 +7,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val youtubeAddToQueue = bytecodePatch(
     name = "Add to queue - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Overrides the feed flyout 'Play next in queue' with the Morphe video queue.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Overrides the feed flyout 'Play next in queue' with the Morphe video queue.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -20,7 +20,7 @@ val youtubeAddToQueue = bytecodePatch(
 @Suppress("unused")
 val youtubeAlternativeThumbnails = bytecodePatch(
     name = "Alternative thumbnails - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -33,7 +33,7 @@ val youtubeAlternativeThumbnails = bytecodePatch(
 @Suppress("unused")
 val youtubeAmbientMode = bytecodePatch(
     name = "Ambient mode - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds options to bypass power saving restrictions for Ambient mode and disable it entirely or in fullscreen.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds options to bypass power saving restrictions for Ambient mode and disable it entirely or in fullscreen.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -46,7 +46,7 @@ val youtubeAmbientMode = bytecodePatch(
 @Suppress("unused")
 val youtubeAppRefreshRate = bytecodePatch(
     name = "App refresh rate - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to change the app refresh rate.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to change the app refresh rate.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -59,7 +59,7 @@ val youtubeAppRefreshRate = bytecodePatch(
 @Suppress("unused")
 val youtubeBypassImageRegionRestrictions = bytecodePatch(
     name = "Bypass image region restrictions - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to use a different host for user avatar and channel images and can fix missing images that are blocked in some countries.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to use a different host for user avatar and channel images and can fix missing images that are blocked in some countries.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -72,7 +72,7 @@ val youtubeBypassImageRegionRestrictions = bytecodePatch(
 @Suppress("unused")
 val youtubeBypassLinkRedirects = bytecodePatch(
     name = "Bypass link redirects - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to bypass redirects and open the original link directly.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to bypass redirects and open the original link directly.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -85,7 +85,7 @@ val youtubeBypassLinkRedirects = bytecodePatch(
 @Suppress("unused")
 val youtubeCaptions = bytecodePatch(
     name = "Captions - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to disable captions from being automatically enabled or to set caption cookies.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to disable captions from being automatically enabled or to set caption cookies.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -98,7 +98,7 @@ val youtubeCaptions = bytecodePatch(
 @Suppress("unused")
 val youtubeChangeFormFactor = bytecodePatch(
     name = "Change form factor - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to change the UI appearance to a phone, tablet, or automotive device.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to change the UI appearance to a phone, tablet, or automotive device.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -111,7 +111,7 @@ val youtubeChangeFormFactor = bytecodePatch(
 @Suppress("unused")
 val youtubeChangeHeader = bytecodePatch(
     name = "Change header - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to change the header logo in the top left corner of the app.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to change the header logo in the top left corner of the app.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -124,7 +124,7 @@ val youtubeChangeHeader = bytecodePatch(
 @Suppress("unused")
 val youtubeChangeStartPage = bytecodePatch(
     name = "Change start page - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to set which page the app opens in instead of the homepage.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to set which page the app opens in instead of the homepage.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -137,7 +137,7 @@ val youtubeChangeStartPage = bytecodePatch(
 @Suppress("unused")
 val youtubeChannelSearch = bytecodePatch(
     name = "Channel search - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to search inside the channel that is currently open instead of searching all of YouTube.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to search inside the channel that is currently open instead of searching all of YouTube.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -150,7 +150,7 @@ val youtubeChannelSearch = bytecodePatch(
 @Suppress("unused")
 val youtubeCheckWatchHistoryDomainNameResolution = bytecodePatch(
     name = "Check watch history domain name resolution - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Checks if the device DNS server is preventing user watch history from being saved.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Checks if the device DNS server is preventing user watch history from being saved.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -163,7 +163,7 @@ val youtubeCheckWatchHistoryDomainNameResolution = bytecodePatch(
 @Suppress("unused")
 val youtubeCopyVideoLink = bytecodePatch(
     name = "Copy video link - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds options to display buttons in the video player to copy video links.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds options to display buttons in the video player to copy video links.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -176,7 +176,7 @@ val youtubeCopyVideoLink = bytecodePatch(
 @Suppress("unused")
 val youtubeCustomBranding = bytecodePatch(
     name = "Custom branding - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds options to change the app icon and app name. For mounted (root) installations the branding is applied while patching, because it cannot be changed from the app settings.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds options to change the app icon and app name. For mounted (root) installations the branding is applied while patching, because it cannot be changed from the app settings.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -189,7 +189,7 @@ val youtubeCustomBranding = bytecodePatch(
 @Suppress("unused")
 val youtubeCustomPlayerOverlayOpacity = bytecodePatch(
     name = "Custom player overlay opacity - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to change the opacity of the video player background when player controls are visible.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to change the opacity of the video player background when player controls are visible.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -202,7 +202,7 @@ val youtubeCustomPlayerOverlayOpacity = bytecodePatch(
 @Suppress("unused")
 val youtubeDisableDrcAudio = bytecodePatch(
     name = "Disable DRC audio - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to disable DRC (Dynamic Range Compression) audio.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to disable DRC (Dynamic Range Compression) audio.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -215,7 +215,7 @@ val youtubeDisableDrcAudio = bytecodePatch(
 @Suppress("unused")
 val youtubeDisableShortsResumingOnStartup = bytecodePatch(
     name = "Disable Shorts resuming on startup - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to disable Shorts from resuming on app startup when Shorts were last being watched.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to disable Shorts from resuming on app startup when Shorts were last being watched.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -228,7 +228,7 @@ val youtubeDisableShortsResumingOnStartup = bytecodePatch(
 @Suppress("unused")
 val youtubeDisableAutoFeedRefresh = bytecodePatch(
     name = "Disable auto feed refresh - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to stop feeds from refreshing automatically after they become outdated.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to stop feeds from refreshing automatically after they become outdated.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -241,7 +241,7 @@ val youtubeDisableAutoFeedRefresh = bytecodePatch(
 @Suppress("unused")
 val youtubeDisableDoubleTapActions = bytecodePatch(
     name = "Disable double tap actions - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to disable player double tap gestures.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to disable player double tap gestures.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -254,7 +254,7 @@ val youtubeDisableDoubleTapActions = bytecodePatch(
 @Suppress("unused")
 val youtubeDisableFullscreenGestures = bytecodePatch(
     name = "Disable fullscreen gestures - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds options to selectively disable gestures for entering and exiting fullscreen mode, and to disable pinch-to-zoom.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds options to selectively disable gestures for entering and exiting fullscreen mode, and to disable pinch-to-zoom.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -267,7 +267,7 @@ val youtubeDisableFullscreenGestures = bytecodePatch(
 @Suppress("unused")
 val youtubeDisableHapticFeedback = bytecodePatch(
     name = "Disable haptic feedback - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to disable haptic feedback in the player for various actions.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to disable haptic feedback in the player for various actions.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -280,7 +280,7 @@ val youtubeDisableHapticFeedback = bytecodePatch(
 @Suppress("unused")
 val youtubeDisableLayoutUpdates = bytecodePatch(
     name = "Disable layout updates - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to disable server side layout updates and use an older UI.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to disable server side layout updates and use an older UI.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -293,7 +293,7 @@ val youtubeDisableLayoutUpdates = bytecodePatch(
 @Suppress("unused")
 val youtubeDisablePlayerPopupPanels = bytecodePatch(
     name = "Disable player popup panels - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to disable panels (such as live chat) from opening automatically.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to disable panels (such as live chat) from opening automatically.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -306,7 +306,7 @@ val youtubeDisablePlayerPopupPanels = bytecodePatch(
 @Suppress("unused")
 val youtubeDisablePlaylistAutoplay = bytecodePatch(
     name = "Disable playlist autoplay - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to stop a playlist from automatically advancing to the next video.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to stop a playlist from automatically advancing to the next video.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -319,7 +319,7 @@ val youtubeDisablePlaylistAutoplay = bytecodePatch(
 @Suppress("unused")
 val youtubeDisableRollingNumberAnimations = bytecodePatch(
     name = "Disable rolling number animations - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to disable rolling number animations of video view count, user likes, and upload time.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to disable rolling number animations of video view count, user likes, and upload time.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -332,7 +332,7 @@ val youtubeDisableRollingNumberAnimations = bytecodePatch(
 @Suppress("unused")
 val youtubeDisableScrollingSpeedLimit = bytecodePatch(
     name = "Disable scrolling speed limit - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to remove limits of how fast the home and subscription feed can be scrolled.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to remove limits of how fast the home and subscription feed can be scrolled.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -345,7 +345,7 @@ val youtubeDisableScrollingSpeedLimit = bytecodePatch(
 @Suppress("unused")
 val youtubeDisableSignInToTvPopup = bytecodePatch(
     name = "Disable sign in to TV popup - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds options to disable the popups asking to sign into or connect to a TV on the same local network.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds options to disable the popups asking to sign into or connect to a TV on the same local network.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -358,7 +358,7 @@ val youtubeDisableSignInToTvPopup = bytecodePatch(
 @Suppress("unused")
 val youtubeDisableVideoCodecs = bytecodePatch(
     name = "Disable video codecs - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds options to disable or force HDR, and to disable VP9 codecs.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds options to disable or force HDR, and to disable VP9 codecs.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -371,7 +371,7 @@ val youtubeDisableVideoCodecs = bytecodePatch(
 @Suppress("unused")
 val youtubeDoubleTapToSeek = bytecodePatch(
     name = "Double tap to seek - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds additional double-tap to seek values to the YouTube settings menu.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds additional double-tap to seek values to the YouTube settings menu.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -384,7 +384,7 @@ val youtubeDoubleTapToSeek = bytecodePatch(
 @Suppress("unused")
 val youtubeDownloads = bytecodePatch(
     name = "Downloads - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds support to download videos with an external downloader app using the in-app download button or a video player action button.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds support to download videos with an external downloader app using the in-app download button or a video player action button.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -397,7 +397,7 @@ val youtubeDownloads = bytecodePatch(
 @Suppress("unused")
 val youtubeEnableDebugging = bytecodePatch(
     name = "Enable debugging - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds options for debugging and exporting Morphe logs to the clipboard.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds options for debugging and exporting Morphe logs to the clipboard.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -410,7 +410,7 @@ val youtubeEnableDebugging = bytecodePatch(
 @Suppress("unused")
 val youtubeExitFullscreenMode = bytecodePatch(
     name = "Exit fullscreen mode - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds options to automatically exit fullscreen mode when a video reaches the end.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds options to automatically exit fullscreen mode when a video reaches the end.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -423,7 +423,7 @@ val youtubeExitFullscreenMode = bytecodePatch(
 @Suppress("unused")
 val youtubeForceFullscreenLandscape = bytecodePatch(
     name = "Force fullscreen landscape - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to rotate the player to landscape when entering fullscreen mode on tablets and other large screen devices.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to rotate the player to landscape when entering fullscreen mode on tablets and other large screen devices.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -436,7 +436,7 @@ val youtubeForceFullscreenLandscape = bytecodePatch(
 @Suppress("unused")
 val youtubeForceOriginalAudio = bytecodePatch(
     name = "Force original audio - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to always use the original audio track.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to always use the original audio track.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -449,7 +449,7 @@ val youtubeForceOriginalAudio = bytecodePatch(
 @Suppress("unused")
 val youtubeFullscreenVideoScale = bytecodePatch(
     name = "Fullscreen video scale - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds options to stretch or zoom videos to fill the screen in fullscreen mode.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds options to stretch or zoom videos to fill the screen in fullscreen mode.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -462,7 +462,7 @@ val youtubeFullscreenVideoScale = bytecodePatch(
 @Suppress("unused")
 val youtubeHideShortsComponents = bytecodePatch(
     name = "Hide Shorts components - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds options to hide components related to Shorts.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds options to hide components related to Shorts.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -475,7 +475,7 @@ val youtubeHideShortsComponents = bytecodePatch(
 @Suppress("unused")
 val youtubeHideAds = bytecodePatch(
     name = "Hide ads - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds options to hide general ads, Premium promotions and video ads.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds options to hide general ads, Premium promotions and video ads.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -488,7 +488,7 @@ val youtubeHideAds = bytecodePatch(
 @Suppress("unused")
 val youtubeHideAutoplayPreview = bytecodePatch(
     name = "Hide autoplay preview - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to hide the autoplay preview at the end of videos.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to hide the autoplay preview at the end of videos.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -501,7 +501,7 @@ val youtubeHideAutoplayPreview = bytecodePatch(
 @Suppress("unused")
 val youtubeHideEndScreenCards = bytecodePatch(
     name = "Hide end screen cards - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to hide suggested video cards at the end of videos.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to hide suggested video cards at the end of videos.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -514,7 +514,7 @@ val youtubeHideEndScreenCards = bytecodePatch(
 @Suppress("unused")
 val youtubeHideEndScreenSuggestedVideo = bytecodePatch(
     name = "Hide end screen suggested video - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to hide the suggested video at the end of videos.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to hide the suggested video at the end of videos.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -527,7 +527,7 @@ val youtubeHideEndScreenSuggestedVideo = bytecodePatch(
 @Suppress("unused")
 val youtubeHideInfoCards = bytecodePatch(
     name = "Hide info cards - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds an option to hide info cards that creators add in the video player.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds an option to hide info cards that creators add in the video player.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -540,7 +540,7 @@ val youtubeHideInfoCards = bytecodePatch(
 @Suppress("unused")
 val youtubeHideLayoutComponents = bytecodePatch(
     name = "Hide layout components - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds options to hide general layout components.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds options to hide general layout components.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -553,7 +553,7 @@ val youtubeHideLayoutComponents = bytecodePatch(
 @Suppress("unused")
 val youtubeHidePlayerFlyoutMenuComponents = bytecodePatch(
     name = "Hide player flyout menu components - YouTube (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds options to hide menu components that appear when pressing the gear icon in the video player.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds options to hide menu components that appear when pressing the gear icon in the video player.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 

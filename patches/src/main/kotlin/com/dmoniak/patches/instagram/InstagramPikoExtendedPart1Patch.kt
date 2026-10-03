@@ -1,4 +1,4 @@
-﻿package com.dmoniak.patches.instagram
+package com.dmoniak.patches.instagram
 
 import app.morphe.patcher.patch.bytecodePatch
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_INSTAGRAM
@@ -7,7 +7,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val instagramAddSettings = bytecodePatch(
     name = "Add settings - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds settings to control preferences are patching",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds settings to control preferences are patching",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -20,7 +20,7 @@ val instagramAddSettings = bytecodePatch(
 @Suppress("unused")
 val instagramAllowUserNetworkCertificate = bytecodePatch(
     name = "Allow user network certificate - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Allows user network certificate for whitehat testing",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Allows user network certificate for whitehat testing",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -33,7 +33,7 @@ val instagramAllowUserNetworkCertificate = bytecodePatch(
 @Suppress("unused")
 val instagramChangeLikeAnimation = bytecodePatch(
     name = "Change like animation - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Change the animation to one from existing Rings like animations",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Change the animation to one from existing Rings like animations",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -46,7 +46,7 @@ val instagramChangeLikeAnimation = bytecodePatch(
 @Suppress("unused")
 val instagramChangeVersionCode = bytecodePatch(
     name = "Change version code - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Changes the version code of the app. This will turn off app store updates and allows downgrading an existing app install to an older app version.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Changes the version code of the app. This will turn off app store updates and allows downgrading an existing app install to an older app version.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -59,8 +59,7 @@ val instagramChangeVersionCode = bytecodePatch(
 @Suppress("unused")
 val instagramClone = bytecodePatch(
     name = "Clone - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Changes the package name and the app name. This allows you to install the patched app alongside the original Instagram app.
-Caution: Do not select the official Morphe's \"Change package name\" universal patch.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Changes the package name and the app name. This allows you to install the patched app alongside the original Instagram app. Caution: Do not select the official Morphe's \"Change package name\" universal patch.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -73,7 +72,7 @@ Caution: Do not select the official Morphe's \"Change package name\" universal p
 @Suppress("unused")
 val instagramCopyComment = bytecodePatch(
     name = "Copy comment - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds a button to copy comments on posts and reels.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds a button to copy comments on posts and reels.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -86,7 +85,7 @@ val instagramCopyComment = bytecodePatch(
 @Suppress("unused")
 val instagramCustomSharingDomain = bytecodePatch(
     name = "Custom sharing domain - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Allows for using custom domains when sharing posts, reels and stories.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Allows for using custom domains when sharing posts, reels and stories.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -99,7 +98,7 @@ val instagramCustomSharingDomain = bytecodePatch(
 @Suppress("unused")
 val instagramCustomiseStoryRingSize = bytecodePatch(
     name = "Customise story ring size - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Enhances application behavior and unlocks additional user controls.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Enhances application behavior and unlocks additional user controls.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -112,7 +111,7 @@ val instagramCustomiseStoryRingSize = bytecodePatch(
 @Suppress("unused")
 val instagramCustomiseStoryTimestamp = bytecodePatch(
     name = "Customise story timestamp - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Customise the timestamp that shows when the story was posted",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Customise the timestamp that shows when the story was posted",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -125,7 +124,7 @@ val instagramCustomiseStoryTimestamp = bytecodePatch(
 @Suppress("unused")
 val instagramDisableReelsScrolling = bytecodePatch(
     name = "Disable Reels scrolling - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Disables the endless scrolling behavior in Instagram Reels, preventing swiping to the next Reel. Note: On a clean install, the 'Tip' animation may appear but will stop on its own after a few seconds.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Disables the endless scrolling behavior in Instagram Reels, preventing swiping to the next Reel. Note: On a clean install, the 'Tip' animation may appear but will stop on its own after a few seconds.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -138,7 +137,7 @@ val instagramDisableReelsScrolling = bytecodePatch(
 @Suppress("unused")
 val instagramDisableAds = bytecodePatch(
     name = "Disable ads - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Enhances application behavior and unlocks additional user controls.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Enhances application behavior and unlocks additional user controls.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -151,7 +150,7 @@ val instagramDisableAds = bytecodePatch(
 @Suppress("unused")
 val instagramDisableAnalytics = bytecodePatch(
     name = "Disable analytics - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Block analytics that are sent to Instagram/Facebook servers.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Block analytics that are sent to Instagram/Facebook servers.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -164,7 +163,7 @@ val instagramDisableAnalytics = bytecodePatch(
 @Suppress("unused")
 val instagramDisableComments = bytecodePatch(
     name = "Disable comments - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Enhances application behavior and unlocks additional user controls.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Enhances application behavior and unlocks additional user controls.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -177,7 +176,7 @@ val instagramDisableComments = bytecodePatch(
 @Suppress("unused")
 val instagramDisableDiscoverPeople = bytecodePatch(
     name = "Disable discover people - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Disables discover people section on user profile",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Disables discover people section on user profile",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -190,7 +189,7 @@ val instagramDisableDiscoverPeople = bytecodePatch(
 @Suppress("unused")
 val instagramDisableDoubleTapLike = bytecodePatch(
     name = "Disable double tap like - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Disable double tap like on post, reel, comment and message",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Disable double tap like on post, reel, comment and message",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -203,7 +202,7 @@ val instagramDisableDoubleTapLike = bytecodePatch(
 @Suppress("unused")
 val instagramDisableExplore = bytecodePatch(
     name = "Disable explore - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Enhances application behavior and unlocks additional user controls.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Enhances application behavior and unlocks additional user controls.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -216,7 +215,7 @@ val instagramDisableExplore = bytecodePatch(
 @Suppress("unused")
 val instagramDisableHighlights = bytecodePatch(
     name = "Disable highlights - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Enhances application behavior and unlocks additional user controls.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Enhances application behavior and unlocks additional user controls.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -229,7 +228,7 @@ val instagramDisableHighlights = bytecodePatch(
 @Suppress("unused")
 val instagramDisableOnboardingPermissionPrompts = bytecodePatch(
     name = "Disable onboarding permission prompts - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Prevents contacts and location permission onboarding prompts from appearing.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Prevents contacts and location permission onboarding prompts from appearing.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -242,7 +241,7 @@ val instagramDisableOnboardingPermissionPrompts = bytecodePatch(
 @Suppress("unused")
 val instagramDisableScreenshotDetection = bytecodePatch(
     name = "Disable screenshot detection - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Disables screenshots detection in DM",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Disables screenshots detection in DM",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -255,7 +254,7 @@ val instagramDisableScreenshotDetection = bytecodePatch(
 @Suppress("unused")
 val instagramDisableStories = bytecodePatch(
     name = "Disable stories - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Enhances application behavior and unlocks additional user controls.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Enhances application behavior and unlocks additional user controls.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -268,7 +267,7 @@ val instagramDisableStories = bytecodePatch(
 @Suppress("unused")
 val instagramDisableStoryFlipping = bytecodePatch(
     name = "Disable story flipping - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Disable automatic flipping/moving to next story",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Disable automatic flipping/moving to next story",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -281,7 +280,7 @@ val instagramDisableStoryFlipping = bytecodePatch(
 @Suppress("unused")
 val instagramDisableSwipeToCreate = bytecodePatch(
     name = "Disable swipe to create - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Prevents opening the creation screen by swiping right on the home tab.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Prevents opening the creation screen by swiping right on the home tab.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -294,7 +293,7 @@ val instagramDisableSwipeToCreate = bytecodePatch(
 @Suppress("unused")
 val instagramDisableTypingStatus = bytecodePatch(
     name = "Disable typing status - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Enhances application behavior and unlocks additional user controls.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Enhances application behavior and unlocks additional user controls.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -307,7 +306,7 @@ val instagramDisableTypingStatus = bytecodePatch(
 @Suppress("unused")
 val instagramDisableVideoAutoplay = bytecodePatch(
     name = "Disable video autoplay - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Enhances application behavior and unlocks additional user controls.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Enhances application behavior and unlocks additional user controls.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -320,7 +319,7 @@ val instagramDisableVideoAutoplay = bytecodePatch(
 @Suppress("unused")
 val instagramDownloadMedia = bytecodePatch(
     name = "Download media - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds ability to download posts, reels, stories and highlights",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds ability to download posts, reels, stories and highlights",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -333,7 +332,7 @@ val instagramDownloadMedia = bytecodePatch(
 @Suppress("unused")
 val instagramDownloadVoiceMessage = bytecodePatch(
     name = "Download voice message - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Enables ability to download voice messages",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Enables ability to download voice messages",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -346,7 +345,7 @@ val instagramDownloadVoiceMessage = bytecodePatch(
 @Suppress("unused")
 val instagramExternalDownloader = bytecodePatch(
     name = "External downloader - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds support to share post links directly to external downloader",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds support to share post links directly to external downloader",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -359,7 +358,7 @@ val instagramExternalDownloader = bytecodePatch(
 @Suppress("unused")
 val instagramFilterStories = bytecodePatch(
     name = "Filter stories - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Filter stories to hide based on different categories",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Filter stories to hide based on different categories",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -372,7 +371,7 @@ val instagramFilterStories = bytecodePatch(
 @Suppress("unused")
 val instagramFriendshipStatusIndicator = bytecodePatch(
     name = "Friendship status indicator - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Adds a follows you back status label on the profile page andshows a detailed friendship status breakdown on click",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Adds a follows you back status label on the profile page andshows a detailed friendship status breakdown on click",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 
@@ -385,7 +384,7 @@ val instagramFriendshipStatusIndicator = bytecodePatch(
 @Suppress("unused")
 val instagramHideGroupCreationButtonOnSharesheet = bytecodePatch(
     name = "Hide group creation button on sharesheet - Instagram (Experimental)",
-    description = "âš ï¸ [En cours de dÃ©veloppement / Non testÃ©] Enhances application behavior and unlocks additional user controls.",
+    description = "\u26A0\uFE0F [En cours de d\u00E9veloppement / Non test\u00E9] Enhances application behavior and unlocks additional user controls.",
 ) {
     compatibleWith(COMPATIBILITY_INSTAGRAM)
 

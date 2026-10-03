@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.37.0",
+  "version": "1.38.0",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -2163,6 +2163,33 @@
       "options": []
     },
     {
+      "name": "Bypass NSFW Blur & Warning Dialogs - Reddit (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Automatically unblurs mature/NSFW media thumbnails and bypasses annoying confirmation dialogs for adult communities in Reddit.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.reddit.frontpage",
+          "name": "Reddit",
+          "description": "Reddit: The front page of the internet by reddit Inc.",
+          "apkFileType": null,
+          "appIconColor": "#FF4500",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Bypass Rewarded Ads",
       "description": "Bypasses rewarded video ads in Hungry Shark World by emulating ad completion events.",
       "default": true,
@@ -2568,6 +2595,60 @@
       "options": []
     },
     {
+      "name": "Copy Captions & Comments - Instagram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Enables text selection and direct clipboard copying on post captions, user biographies, and comments.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Copy Video URL With Timestamp - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Adds a convenient option to copy the current video URL with the exact playback timestamp (?t=...) directly to the clipboard.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Custom Playback Speed & High-Res Audio - YouTube (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Unlocks speed slider up to 3.0x/5.0x and forces highest audio bitrate (Opus 160kbps / 256kbps) and default highest video resolution (1080p/1440p/4K) on Wi-Fi and Cellular.",
       "default": true,
@@ -2881,6 +2962,33 @@
           "targets": [
             {
               "version": "1.4.8",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Double Tap To Like - Instagram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Disables accidental double-tap gestures that trigger likes on feed photos, videos, and reels while scrolling or zooming.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -4052,6 +4160,87 @@
       "options": []
     },
     {
+      "name": "GmsCore Support - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Redirects Google Play Services and account authentication calls to GmsCore (MicroG / app.revanced.android.gms) to allow logging in to YouTube without root.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Hide Endscreen Cards & Suggestions - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hides floating endscreen cards, suggested video boxes, channel stickers, and overlay elements that clutter the end of videos.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Hide Player Overlay Buttons (Cast, Autoplay, Remix) - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hides unwanted player overlay buttons including Chromecast icon (prevents accidental casting), Autoplay toggle, Remix button, and Thanks button.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "High Quality Audio Export & Audio Tools - Moises",
       "description": "Bypasses client-side audio bitrate export caps (enabling 320kbps MP3 and WAV export options) and unlocks unlimited audio pitch shift, tempo changes, Smart Metronome, and chord detection in Moises (v2.7.2 recommandée).",
       "default": true,
@@ -4474,6 +4663,33 @@
       "options": []
     },
     {
+      "name": "Old Video Quality Menu - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Restores the classic direct video resolution menu (2160p, 1440p, 1080p, 720p, 480p), bypassing Google's simplified and confusing 'Higher picture quality / Data saver' sub-menus.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Open Links in External Browser - Euria AI (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Opens reference citations and external links directly in the system's default browser rather than an embedded webview.",
       "default": true,
@@ -4717,6 +4933,33 @@
       "options": []
     },
     {
+      "name": "Remember Video Quality - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Forces and locks preferred default video resolution (such as 1080p, 1440p, or 4K) separately for Wi-Fi and mobile cellular networks, overriding YouTube's adaptive downscaling.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Remove Watermarks on Free Elements - Canva (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Bypasses watermark rendering on Canva freemium design elements, stock photos, and templates, allowing clean export of designs without Pro subscription watermarks.",
       "default": true,
@@ -4744,8 +4987,8 @@
       "options": []
     },
     {
-      "name": "Return YouTube Dislike & SponsorBlock Bridge - YouTube (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Restores authentic dislike counters on videos via Return YouTube Dislike API and provides segment skipping markers for sponsored segments.",
+      "name": "Return YouTube Dislike - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Restores public dislike counts and like/dislike ratio bars on YouTube videos and Shorts using the official Return YouTube Dislike (RYD) API.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -4933,6 +5176,33 @@
       "options": []
     },
     {
+      "name": "SponsorBlock - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Automatically detects and skips sponsored video segments, sponsor intros/outros, self-promotions, interaction reminders, and filler music in YouTube videos via the community SponsorBlock API.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Start on Chat & Battery Saver - Snapchat (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Configures Snapchat to launch directly on the Chat conversation feed instead of opening the battery-draining camera viewfinder on startup.",
       "default": true,
@@ -4945,6 +5215,33 @@
           "description": "Snapchat by Snap Inc",
           "apkFileType": null,
           "appIconColor": "#FFFC00",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Swipe Controls - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Enables intuitive vertical swipe gestures during fullscreen video playback to adjust volume (right side) and brightness (left side).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
           "signatures": null,
           "targets": [
             {

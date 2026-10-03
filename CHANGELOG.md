@@ -1,3 +1,13 @@
+## [1.38.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.37.0...v1.38.0) (2026-10-03)
+
+### 🐛 Bug Fixes
+
+* **youtube:** delegate YouTubeGmsCoreSupportPatch to executeUniversalGmsCoreSupportLogic ([34b1a04](https://github.com/SatanMerde/D-moniakPatches/commit/34b1a0411388e94403cb65943c29f8fe0868d84a))
+
+### ✨ New Features
+
+* **youtube,instagram,reddit:** add dedicated SponsorBlock, Return YouTube Dislike, GmsCore, and advanced media patches ([b3b6544](https://github.com/SatanMerde/D-moniakPatches/commit/b3b6544a47a31b2a2a84e5cfd45a811c734b7db8))
+
 ## [1.37.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.36.3...v1.37.0) (2026-10-03)
 
 ### ✨ New Features

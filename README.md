@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.37.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.37.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**253 patchs au total** (10 validés & fonctionnels • 243 expérimentaux)
+> **[v1.38.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.38.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**264 patchs au total** (10 validés & fonctionnels • 254 expérimentaux)
 
 ---
 

@@ -6,6 +6,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_PLAGUE_INC
+import com.dmoniak.patches.shared.Constants.COMPATIBILITY_PLAGUE_INC_ALT
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -13,7 +14,7 @@ val plagueIncUnlimitedDnaAndFastMutationPatch = bytecodePatch(
     name = "Unlimited DNA Points & Fast Mutation - Plague Inc. (Experimental)",
     description = "⚠️ [En cours de développement / Non testé] Hooks DNA points balance getter to provide 9999 DNA points and multiplies DNA points earned on orange and red biohazard bubble pops.",
 ) {
-    compatibleWith(COMPATIBILITY_PLAGUE_INC)
+    compatibleWith(COMPATIBILITY_PLAGUE_INC, COMPATIBILITY_PLAGUE_INC_ALT)
 
     execute {
         val logger = Logger.getLogger(this::class.java.name)

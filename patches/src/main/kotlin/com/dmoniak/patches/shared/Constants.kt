@@ -607,8 +607,15 @@ object Constants {
     )
 
     val COMPATIBILITY_PLAGUE_INC = Compatibility(
-        packageName = "com.ndemiccreations.plagueinc",
+        packageName = "com.miniclip.plagueinc",
         name = "Plague Inc.",
+        description = "Plague Inc. by Ndemic Creations / Miniclip",
+        appIconColor = 0x8B0000
+    )
+
+    val COMPATIBILITY_PLAGUE_INC_ALT = Compatibility(
+        packageName = "com.ndemiccreations.plagueinc",
+        name = "Plague Inc. (Ndemic)",
         description = "Plague Inc. by Ndemic Creations",
         appIconColor = 0x8B0000
     )

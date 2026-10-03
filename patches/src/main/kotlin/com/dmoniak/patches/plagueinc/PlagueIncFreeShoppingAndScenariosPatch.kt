@@ -5,7 +5,9 @@ import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
+import com.dmoniak.patches.shared.BillingHookHelper.executeGooglePlayBillingBypass
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_PLAGUE_INC
+import com.dmoniak.patches.shared.Constants.COMPATIBILITY_PLAGUE_INC_ALT
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -13,7 +15,7 @@ val plagueIncFreeShoppingAndScenariosPatch = bytecodePatch(
     name = "Unlock Scenarios & Full Expansion - Plague Inc. (Experimental)",
     description = "⚠️ [En cours de développement / Non testé] Unlocks Official Scenarios, Custom Scenario Creator, Speed Runs, and Fast Forward (speed 3x) by hooking Google Play Billing and expansion license checks.",
 ) {
-    compatibleWith(COMPATIBILITY_PLAGUE_INC)
+    compatibleWith(COMPATIBILITY_PLAGUE_INC, COMPATIBILITY_PLAGUE_INC_ALT)
 
     execute {
         val logger = Logger.getLogger(this::class.java.name)
@@ -23,7 +25,7 @@ val plagueIncFreeShoppingAndScenariosPatch = bytecodePatch(
 
 fun BytecodePatchContext.executePlagueIncExpansionLogic(logger: Logger) {
     logger.info("Executing Unlock Scenarios & Full Expansion patch for Plague Inc...")
-    var hookedPoints = 0
+    var hookedPoints = executeGooglePlayBillingBypass(logger, "Plague Inc")
 
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()

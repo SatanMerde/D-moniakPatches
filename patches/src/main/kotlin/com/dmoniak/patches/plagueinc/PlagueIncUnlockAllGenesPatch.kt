@@ -6,6 +6,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_PLAGUE_INC
+import com.dmoniak.patches.shared.Constants.COMPATIBILITY_PLAGUE_INC_ALT
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -13,7 +14,7 @@ val plagueIncUnlockAllGenesPatch = bytecodePatch(
     name = "Unlock All Genetic Genes - Plague Inc. (Experimental)",
     description = "⚠️ [En cours de développement / Non testé] Unlocks all 5 categories of genetic modification genes (DNA genes, Travel genes, Evolution genes, Mutation genes, Environment genes) for every plague.",
 ) {
-    compatibleWith(COMPATIBILITY_PLAGUE_INC)
+    compatibleWith(COMPATIBILITY_PLAGUE_INC, COMPATIBILITY_PLAGUE_INC_ALT)
 
     execute {
         val logger = Logger.getLogger(this::class.java.name)

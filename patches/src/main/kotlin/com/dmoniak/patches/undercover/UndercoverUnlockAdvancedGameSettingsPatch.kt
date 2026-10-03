@@ -33,31 +33,33 @@ fun BytecodePatchContext.executeUndercoverUnlockSettingsLogic(logger: Logger) {
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
-        // 1. Hook InGamePlayersAndRolesActivity methods
-        if (type.contains("InGamePlayersAndRolesActivity") || type.contains("GameSetActivity")) {
+        // 1. Pack Enum check: ensure SPECIAL_ROLES pack is unlocked
+        var isPackEnum = false
+        if (classDef.superclass == "Ljava/lang/Enum;") {
+            for (method in classDef.methods) {
+                val impl = method.implementation ?: continue
+                for (insn in impl.instructions) {
+                    if (insn is ReferenceInstruction && insn.reference is StringReference) {
+                        val s = (insn.reference as StringReference).string
+                        if (s == "undercover.all_roles" || s == "SPECIAL_ROLES") {
+                            isPackEnum = true
+                            break
+                        }
+                    }
+                }
+                if (isPackEnum) break
+            }
+        }
+
+        if (isPackEnum) {
             for (method in classDef.methods.toList()) {
-                val retType = method.returnType
-                if (retType == "Z") {
+                if (method.returnType == "Z" && method.name in listOf("i", "j", "n", "o")) {
                     try {
                         val mm = mutableClass.findMutableMethodOf(method)
                         mm?.addInstructions(
                             0,
                             """
                             const/4 v0, 0x1
-                            return v0
-                            """.trimIndent()
-                        )
-                        hookedPoints++
-                    } catch (e: Exception) {
-                        logger.fine("Failed to hook $type.${method.name}: ${e.message}")
-                    }
-                } else if (retType == "I" && method.name !in listOf("hashCode", "describeContents")) {
-                    try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        mm?.addInstructions(
-                            0,
-                            """
-                            const/16 v0, 0x32
                             return v0
                             """.trimIndent()
                         )
@@ -69,51 +71,36 @@ fun BytecodePatchContext.executeUndercoverUnlockSettingsLogic(logger: Logger) {
             }
         }
 
-        // 2. Hook any method referencing special roles flags
-        for (method in classDef.methods.toList()) {
-            val impl = method.implementation ?: continue
-            val retType = method.returnType
+        // 2. Safe targeted role flags checks (non-activity classes only)
+        if (!tl.contains("activity")) {
+            for (method in classDef.methods.toList()) {
+                val impl = method.implementation ?: continue
+                val retType = method.returnType
 
-            var referencesRoleFlag = false
-            for (insn in impl.instructions) {
-                if (insn is ReferenceInstruction && insn.reference is StringReference) {
-                    val s = (insn.reference as StringReference).string
-                    if (
-                        s == "is_using_falafel_vendor" ||
-                        s == "mr_white_can_start" ||
-                        s == "online_create_game_premium_word_count" ||
-                        s == "SETTING_MR_WHITE_CAN_START" ||
-                        s == "SETTING_USE_FALAFEL_VENDOR" ||
-                        s == "SETTING_USE_LOVERS"
-                    ) {
-                        referencesRoleFlag = true
-                        break
+                var referencesRoleFlag = false
+                for (insn in impl.instructions) {
+                    if (insn is ReferenceInstruction && insn.reference is StringReference) {
+                        val s = (insn.reference as StringReference).string
+                        if (
+                            s == "is_using_falafel_vendor" ||
+                            s == "mr_white_can_start" ||
+                            s == "SETTING_MR_WHITE_CAN_START" ||
+                            s == "SETTING_USE_FALAFEL_VENDOR" ||
+                            s == "SETTING_USE_LOVERS"
+                        ) {
+                            referencesRoleFlag = true
+                            break
+                        }
                     }
                 }
-            }
 
-            if (referencesRoleFlag) {
-                if (retType == "Z") {
+                if (referencesRoleFlag && retType == "Z" && method.parameterTypes.size <= 1) {
                     try {
                         val mm = mutableClass.findMutableMethodOf(method)
                         mm?.addInstructions(
                             0,
                             """
                             const/4 v0, 0x1
-                            return v0
-                            """.trimIndent()
-                        )
-                        hookedPoints++
-                    } catch (e: Exception) {
-                        logger.fine("Failed to hook $type.${method.name}: ${e.message}")
-                    }
-                } else if (retType == "I") {
-                    try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        mm?.addInstructions(
-                            0,
-                            """
-                            const/16 v0, 0x32
                             return v0
                             """.trimIndent()
                         )

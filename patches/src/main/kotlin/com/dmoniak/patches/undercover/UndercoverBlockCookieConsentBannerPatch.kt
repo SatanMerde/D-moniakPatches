@@ -31,14 +31,14 @@ fun BytecodePatchContext.executeUndercoverBlockCookieBannerLogic(logger: Logger)
         val type = classDef.type
         val tl = type.lowercase()
 
-        // 1. Hook standard Google User Messaging Platform (UMP) classes directly
+        // 1. Hook standard Google User Messaging Platform (UMP) classes directly (concrete classes only)
         if (
             type.contains("com/google/android/ump/ConsentInformation") ||
-            tl.contains("userconsent") ||
-            tl.contains("consentinformation")
+            type.contains("com/google/android/gms/internal/consent_sdk")
         ) {
             val mutableClass by lazy { mutableClassDefBy(classDef) }
             for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
                 val mName = method.name
                 val retType = method.returnType
 
@@ -98,11 +98,11 @@ fun BytecodePatchContext.executeUndercoverBlockCookieBannerLogic(logger: Logger)
         // 2. Hook UserMessagingPlatform and ConsentForm presentation methods to avoid showing the webview popup
         if (
             type.contains("com/google/android/ump/UserMessagingPlatform") ||
-            type.contains("com/google/android/ump/ConsentForm") ||
-            tl.contains("consentform")
+            type.contains("com/google/android/ump/ConsentForm")
         ) {
             val mutableClass by lazy { mutableClassDefBy(classDef) }
             for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
                 val mName = method.name
                 val retType = method.returnType
 
@@ -118,87 +118,6 @@ fun BytecodePatchContext.executeUndercoverBlockCookieBannerLogic(logger: Logger)
                         hookedMethods++
                     } catch (e: Exception) {
                         logger.fine("Failed to hook $mName: ${e.message}")
-                    }
-                }
-            }
-        }
-
-        // 3. Obfuscation-resistant hook: inspect methods in Undercover checking consent strings
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
-        for (method in classDef.methods.toList()) {
-            val impl = method.implementation ?: continue
-            val retType = method.returnType
-
-            var referencesConsentStatus = false
-            for (instruction in impl.instructions) {
-                if (instruction is ReferenceInstruction) {
-                    val ref = instruction.reference
-                    if (ref is StringReference) {
-                        val str = ref.string
-                        if (
-                            str == "consent_status" ||
-                            str == "is_pub_misconfigured" ||
-                            str == "privacy_options_requirement_status" ||
-                            str.contains("ConsentInformation")
-                        ) {
-                            referencesConsentStatus = true
-                            break
-                        }
-                    }
-                }
-            }
-
-            if (referencesConsentStatus) {
-                // If method returns boolean (like isConsentObtained or hasConsent) -> force true
-                if (retType == "Z") {
-                    try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        mm?.addInstructions(
-                            0,
-                            """
-                            const/4 v0, 0x1
-                            return v0
-                            """.trimIndent()
-                        )
-                        hookedMethods++
-                    } catch (e: Exception) {
-                        logger.fine("Failed to hook consent boolean method ${method.name}: ${e.message}")
-                    }
-                } else if (retType == "I" && method.name !in listOf("hashCode", "describeContents")) {
-                    // ConsentStatus.OBTAINED is 3
-                    try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        mm?.addInstructions(
-                            0,
-                            """
-                            const/4 v0, 0x3
-                            return v0
-                            """.trimIndent()
-                        )
-                        hookedMethods++
-                    } catch (e: Exception) {
-                        logger.fine("Failed to hook consent int method ${method.name}: ${e.message}")
-                    }
-                }
-            }
-        }
-
-        // 4. Neutralize any Activity dedicated to consent (e.g. AgeSharingConsentWrapperActivity)
-        if (type.contains("AgeSharingConsentWrapperActivity") || (tl.contains("consent") && tl.contains("activity"))) {
-            for (method in classDef.methods.toList()) {
-                if (method.name == "onCreate") {
-                    try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        mm?.addInstructions(
-                            0,
-                            """
-                            invoke-virtual {p0}, Landroid/app/Activity;->finish()V
-                            return-void
-                            """.trimIndent()
-                        )
-                        hookedMethods++
-                    } catch (e: Exception) {
-                        logger.fine("Failed to hook $type.onCreate: ${e.message}")
                     }
                 }
             }

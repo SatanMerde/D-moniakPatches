@@ -53,8 +53,8 @@ fun BytecodePatchContext.executeUndercoverUnlockWordPacksLogic(logger: Logger) {
             logger.info("Identified Undercover Pack Enum: $type")
             for (method in classDef.methods.toList()) {
                 val ret = method.returnType
-                // Hook boolean methods: isUnlocked (o), isBought (i), isFree (n), isAvailable (j)
-                if (ret == "Z") {
+                // Hook ONLY the specific unlock/purchase methods: isUnlocked (o), isBought (i), isFree (n), isAvailable (j)
+                if (ret == "Z" && method.name in listOf("i", "j", "n", "o")) {
                     try {
                         val mm = mutableClass.findMutableMethodOf(method)
                         mm?.addInstructions(
@@ -72,44 +72,8 @@ fun BytecodePatchContext.executeUndercoverUnlockWordPacksLogic(logger: Logger) {
             }
         }
 
-        // 2. Preference Reader (Lmea): Class containing "_preferences" string
-        var isPrefManager = false
-        for (method in classDef.methods) {
-            val impl = method.implementation ?: continue
-            for (insn in impl.instructions) {
-                if (insn is ReferenceInstruction && insn.reference is StringReference) {
-                    if ((insn.reference as StringReference).string == "_preferences") {
-                        isPrefManager = true
-                        break
-                    }
-                }
-            }
-            if (isPrefManager) break
-        }
-
-        if (isPrefManager) {
-            for (method in classDef.methods.toList()) {
-                // Hook boolean preference readers like c(Context, J34)
-                if (method.returnType == "Z" && method.parameterTypes.size in 1..2) {
-                    try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        mm?.addInstructions(
-                            0,
-                            """
-                            const/4 v0, 0x1
-                            return v0
-                            """.trimIndent()
-                        )
-                        hookedPoints++
-                    } catch (e: Exception) {
-                        logger.fine("Failed to hook $type.${method.name}: ${e.message}")
-                    }
-                }
-            }
-        }
-
-        // 3. Obfuscation-resistant hook: inspect methods referencing purchase constants
-        if (!tl.startsWith("landroid/") && !tl.startsWith("lkotlin/")) {
+        // 2. Safe targeted purchase key hooks (non-activity classes only)
+        if (!tl.startsWith("landroid/") && !tl.startsWith("lkotlin/") && !tl.contains("activity")) {
             for (method in classDef.methods.toList()) {
                 val impl = method.implementation ?: continue
                 val retType = method.returnType
@@ -130,7 +94,7 @@ fun BytecodePatchContext.executeUndercoverUnlockWordPacksLogic(logger: Logger) {
                     }
                 }
 
-                if (referencesPurchaseKey && retType == "Z") {
+                if (referencesPurchaseKey && retType == "Z" && method.parameterTypes.size <= 1) {
                     try {
                         val mm = mutableClass.findMutableMethodOf(method)
                         mm?.addInstructions(

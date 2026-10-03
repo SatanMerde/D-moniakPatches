@@ -53,7 +53,7 @@ fun BytecodePatchContext.executeUndercoverUnlockCustomWordEditorLogic(logger: Lo
 
         if (isPackEnum) {
             for (method in classDef.methods.toList()) {
-                if (method.returnType == "Z") {
+                if (method.returnType == "Z" && method.name in listOf("i", "j", "n", "o")) {
                     try {
                         val mm = mutableClass.findMutableMethodOf(method)
                         mm?.addInstructions(
@@ -71,49 +71,35 @@ fun BytecodePatchContext.executeUndercoverUnlockCustomWordEditorLogic(logger: Lo
             }
         }
 
-        // 2. Hook any method referencing custom word strings or pair counts
-        for (method in classDef.methods.toList()) {
-            val impl = method.implementation ?: continue
-            val retType = method.returnType
+        // 2. Hook any method referencing custom word strings (non-activity classes only)
+        if (!tl.contains("activity")) {
+            for (method in classDef.methods.toList()) {
+                val impl = method.implementation ?: continue
+                val retType = method.returnType
 
-            var referencesCustomWords = false
-            for (insn in impl.instructions) {
-                if (insn is ReferenceInstruction && insn.reference is StringReference) {
-                    val s = (insn.reference as StringReference).string
-                    if (
-                        s.contains("unlock_words") ||
-                        s.startsWith("N_PAIRS_FROM_") ||
-                        s.startsWith("QUEST_COMPLETED_") ||
-                        s.startsWith("QUEST_CLAIMED_")
-                    ) {
-                        referencesCustomWords = true
-                        break
+                var referencesCustomWords = false
+                for (insn in impl.instructions) {
+                    if (insn is ReferenceInstruction && insn.reference is StringReference) {
+                        val s = (insn.reference as StringReference).string
+                        if (
+                            s.contains("unlock_words") ||
+                            s.startsWith("N_PAIRS_FROM_") ||
+                            s.startsWith("QUEST_COMPLETED_") ||
+                            s.startsWith("QUEST_CLAIMED_")
+                        ) {
+                            referencesCustomWords = true
+                            break
+                        }
                     }
                 }
-            }
 
-            if (referencesCustomWords) {
-                if (retType == "Z") {
+                if (referencesCustomWords && retType == "Z" && method.parameterTypes.size <= 1) {
                     try {
                         val mm = mutableClass.findMutableMethodOf(method)
                         mm?.addInstructions(
                             0,
                             """
                             const/4 v0, 0x1
-                            return v0
-                            """.trimIndent()
-                        )
-                        hookedPoints++
-                    } catch (e: Exception) {
-                        logger.fine("Failed to hook $type.${method.name}: ${e.message}")
-                    }
-                } else if (retType == "I") {
-                    try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        mm?.addInstructions(
-                            0,
-                            """
-                            const/16 v0, 0x3e7
                             return v0
                             """.trimIndent()
                         )

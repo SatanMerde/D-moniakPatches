@@ -37,6 +37,7 @@ fun BytecodePatchContext.executeUndercoverThemeAndPrivacyLogic(logger: Logger) {
             type.contains("com/google/android/gms/measurement/")
         ) {
             for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
                 val mName = method.name
                 val retType = method.returnType
 
@@ -60,39 +61,41 @@ fun BytecodePatchContext.executeUndercoverThemeAndPrivacyLogic(logger: Logger) {
             }
         }
 
-        // 2. Hook night mode and dark theme checks in Undercover
-        for (method in classDef.methods.toList()) {
-            val impl = method.implementation ?: continue
-            val retType = method.returnType
+        // 2. Hook night mode and dark theme checks in Undercover (non-activity classes only)
+        if (!tl.contains("activity")) {
+            for (method in classDef.methods.toList()) {
+                val impl = method.implementation ?: continue
+                val retType = method.returnType
 
-            var referencesNightMode = false
-            for (insn in impl.instructions) {
-                if (insn is ReferenceInstruction && insn.reference is StringReference) {
-                    val s = (insn.reference as StringReference).string
-                    if (
-                        s == "LAST_SAVED_IS_SYSTEM_NIGHT_ON" ||
-                        s == "LAST_SAVED_APPEARANCE" ||
-                        s.contains("night_mode")
-                    ) {
-                        referencesNightMode = true
-                        break
+                var referencesNightMode = false
+                for (insn in impl.instructions) {
+                    if (insn is ReferenceInstruction && insn.reference is StringReference) {
+                        val s = (insn.reference as StringReference).string
+                        if (
+                            s == "LAST_SAVED_IS_SYSTEM_NIGHT_ON" ||
+                            s == "LAST_SAVED_APPEARANCE" ||
+                            s.contains("night_mode")
+                        ) {
+                            referencesNightMode = true
+                            break
+                        }
                     }
                 }
-            }
 
-            if (referencesNightMode && retType == "Z") {
-                try {
-                    val mm = mutableClass.findMutableMethodOf(method)
-                    mm?.addInstructions(
-                        0,
-                        """
-                        const/4 v0, 0x1
-                        return v0
-                        """.trimIndent()
-                    )
-                    hookedPoints++
-                } catch (e: Exception) {
-                    logger.fine("Failed to hook night mode in $type.${method.name}: ${e.message}")
+                if (referencesNightMode && retType == "Z" && method.parameterTypes.size <= 1) {
+                    try {
+                        val mm = mutableClass.findMutableMethodOf(method)
+                        mm?.addInstructions(
+                            0,
+                            """
+                            const/4 v0, 0x1
+                            return v0
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                    } catch (e: Exception) {
+                        logger.fine("Failed to hook night mode in $type.${method.name}: ${e.message}")
+                    }
                 }
             }
         }

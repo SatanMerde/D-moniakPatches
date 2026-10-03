@@ -33,14 +33,14 @@ fun BytecodePatchContext.executeUndercoverBlockAdsLogic(logger: Logger) {
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
-        // 1. Hook Google AdMob SDK classes directly
+        // 1. Hook Google AdMob SDK classes directly (only on concrete classes with implementation)
         if (
-            type.contains("com/google/android/gms/ads/interstitial/InterstitialAd") ||
             type.contains("com/google/android/gms/ads/AdView") ||
-            type.contains("com/google/android/gms/ads/rewarded/RewardedAd") ||
-            type.contains("com/google/android/gms/ads/BaseAdView")
+            type.contains("com/google/android/gms/ads/BaseAdView") ||
+            type.contains("com/google/android/gms/ads/interstitial/InterstitialAd")
         ) {
             for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
                 val mName = method.name
                 val retType = method.returnType
 
@@ -64,6 +64,7 @@ fun BytecodePatchContext.executeUndercoverBlockAdsLogic(logger: Logger) {
         // 2. Hook Undercover's own internal ad activity wrapper (Adtznhrcum)
         if (type.contains("com/yanstarstudio/joss/undercover/Adtznhrcum")) {
             for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
                 val mName = method.name
                 val retType = method.returnType
 
@@ -79,63 +80,6 @@ fun BytecodePatchContext.executeUndercoverBlockAdsLogic(logger: Logger) {
                         hookedCount++
                     } catch (e: Exception) {
                         logger.fine("Failed to hook Adtznhrcum.$mName: ${e.message}")
-                    }
-                }
-            }
-        }
-
-        // 3. Obfuscation-resistant hook: inspect methods referencing ad keywords
-        if (!tl.startsWith("landroid/") && !tl.startsWith("lkotlin/")) {
-            for (method in classDef.methods.toList()) {
-                val impl = method.implementation ?: continue
-                val retType = method.returnType
-
-                var isAdMethod = false
-                for (instruction in impl.instructions) {
-                    if (instruction is ReferenceInstruction) {
-                        val ref = instruction.reference
-                        if (ref is StringReference) {
-                            val str = ref.string.lowercase()
-                            if (
-                                str.contains("interstitial") ||
-                                str.contains("admob rewarded ad") ||
-                                str.contains("show interstitial ad")
-                            ) {
-                                isAdMethod = true
-                                break
-                            }
-                        }
-                    }
-                }
-
-                if (isAdMethod) {
-                    if (retType == "Z") {
-                        try {
-                            val mm = mutableClass.findMutableMethodOf(method)
-                            mm?.addInstructions(
-                                0,
-                                """
-                                const/4 v0, 0x0
-                                return v0
-                                """.trimIndent()
-                            )
-                            hookedCount++
-                        } catch (e: Exception) {
-                            logger.fine("Failed to hook ad boolean method ${method.name}: ${e.message}")
-                        }
-                    } else if (retType == "V") {
-                        try {
-                            val mm = mutableClass.findMutableMethodOf(method)
-                            mm?.addInstructions(
-                                0,
-                                """
-                                return-void
-                                """.trimIndent()
-                            )
-                            hookedCount++
-                        } catch (e: Exception) {
-                            logger.fine("Failed to hook ad void method ${method.name}: ${e.message}")
-                        }
                     }
                 }
             }

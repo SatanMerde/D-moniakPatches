@@ -613,11 +613,19 @@ object Constants {
         appIconColor = 0x8B0000
     )
 
+    val COMPATIBILITY_UNDERCOVER = Compatibility(
+        packageName = "com.yanstarstudio.joss.undercover",
+        name = "Undercover",
+        description = "Undercover®: Word Party Game by Yanstar Studio OU",
+        appIconColor = 0x2A2E3D
+    )
+
     // Aliases
     val COMPATIBILITY_ANGRY_BIRDS_CLASSIC = COMPATIBILITY_ANGRY_BIRDS
     val COMPATIBILITY_HIDE_ME = COMPATIBILITY_HIDEME
     val COMPATIBILITY_PICTURE_THIS = COMPATIBILITY_PICTURETHIS
     val COMPATIBILITY_PLAGUEINC = COMPATIBILITY_PLAGUE_INC
+    val COMPATIBILITY_UNDERCOVER_GAME = COMPATIBILITY_UNDERCOVER
 }
 
 

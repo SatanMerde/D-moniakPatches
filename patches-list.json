@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.36.3",
+  "version": "1.37.0",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -1299,6 +1299,33 @@
       "options": []
     },
     {
+      "name": "Anti-Distraction UI & Declutter - Instagram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hides Reels tab button, hides 'Suggested Posts' ('You're all caught up'), hides Shop tab, and hides explore distractions.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Auto-Reconnect & Keep-Alive Background Service - VPN.lat (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Keeps the VPN tunnel active during screen-off/doze mode, enforces auto-reconnection on network switches, and prevents dropped connections in VPN.lat.",
       "default": true,
@@ -1338,6 +1365,33 @@
           "description": "Twitch: Live Game Streaming & Esports by Twitch Interactive",
           "apkFileType": null,
           "appIconColor": "#9146FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Background & PiP Playback - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Enables background audio playback when the screen is locked or switching between apps, and unlocks Picture-in-Picture (PiP) mode without YouTube Premium.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
           "signatures": null,
           "targets": [
             {
@@ -1554,6 +1608,33 @@
           "description": "Subway Surfers by SYBO Games / Kiloo",
           "apkFileType": null,
           "appIconColor": "#00D26A",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block Ads & Sponsored Content - Instagram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips sponsored feed posts, sponsored stories, promoted reels, and shopping tags in Instagram.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
           "signatures": null,
           "targets": [
             {
@@ -1824,6 +1905,60 @@
           "description": "Pinterest: Discover and Save Creative Ideas by Pinterest",
           "apkFileType": null,
           "appIconColor": "#E60023",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block Promoted Posts & Ads - Reddit (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips Promoted posts, sponsored comment ads, promoted user carousels, and in-feed commercial cards in Reddit.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.reddit.frontpage",
+          "name": "Reddit",
+          "description": "Reddit: The front page of the internet by reddit Inc.",
+          "apkFileType": null,
+          "appIconColor": "#FF4500",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block Video & Feed Ads - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips pre-roll and mid-roll video advertisements, home feed sponsored cards, search result ads, shorts ads, and info card promos in YouTube.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
           "signatures": null,
           "targets": [
             {
@@ -2433,6 +2568,60 @@
       "options": []
     },
     {
+      "name": "Custom Playback Speed & High-Res Audio - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks speed slider up to 3.0x/5.0x and forces highest audio bitrate (Opus 160kbps / 256kbps) and default highest video resolution (1080p/1440p/4K) on Wi-Fi and Cellular.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Declutter Feed & Hide Recommendations - Reddit (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hides 'Because you visited...', 'Communities you may like', 'Popular near you', awards animations, and live RPAN stream banners in Reddit.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.reddit.frontpage",
+          "name": "Reddit",
+          "description": "Reddit: The front page of the internet by reddit Inc.",
+          "apkFileType": null,
+          "appIconColor": "#FF4500",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Declutter Feed & Hide Trials - Strava (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Hides persistent 'Start Free Trial' promotional banners, sponsored club challenges, and upsell carousels in the activity feed.",
       "default": true,
@@ -2607,6 +2796,33 @@
           "description": "Turbo VPN - Secure VPN Proxy by Innovative Connecting",
           "apkFileType": null,
           "appIconColor": "#FF6D00",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Declutter UI & Remove Shorts - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hides Shorts tab from bottom navigation bar, hides Shorts shelf from Home and Subscriptions feeds, hides Create button (+), hides Playables, and removes End Screen suggestions.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
           "signatures": null,
           "targets": [
             {
@@ -3110,6 +3326,33 @@
           "description": "Hungry Shark Evolution by Ubisoft Entertainment / FGOL",
           "apkFileType": null,
           "appIconColor": "#0077AA",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Fix Video Playback Buffer & Freeze - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Bypasses Google's video stream throttling and 1:00 min playback buffering freezes by spoofing client payload parameters (iOS/Android VR/TV client identifiers).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
           "signatures": null,
           "targets": [
             {
@@ -3773,6 +4016,33 @@
       "options": []
     },
     {
+      "name": "Ghost Privacy Mode: Anonymous DMs & Stories - Instagram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Disables 'Seen' receipts in Direct Messages, hides story viewed tracking, silences live stream join broadcasts, and hides DM typing indicator.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "GmsCore (MicroG) Support (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Redirects Google Play Services (GMS) dependencies to GmsCore / MicroG (app.revanced.android.gms / org.microg.gms.core), enabling Google account login and push notifications on non-rooted devices for morphed Google and third-party apps.",
       "default": false,
@@ -4177,6 +4447,33 @@
       "options": []
     },
     {
+      "name": "Media Downloader & Uncompressed Media Upload - Instagram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Enables downloading original high-resolution photos, reels, stories, and voice messages without watermarks, and bypasses image/video compression downscalers on upload.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Open Links in External Browser - Euria AI (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Opens reference citations and external links directly in the system's default browser rather than an embedded webview.",
       "default": true,
@@ -4285,6 +4582,87 @@
       "options": []
     },
     {
+      "name": "Pure AMOLED Black Theme - Instagram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure pitch-black (#000000) for OLED displays across main feed, reels, direct messages, stories bar, and profile in Instagram.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Pure AMOLED Black Theme - Reddit (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure pitch-black (#000000) for OLED screens across feeds, post viewer, comments, and drawer in Reddit.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.reddit.frontpage",
+          "name": "Reddit",
+          "description": "Reddit: The front page of the internet by reddit Inc.",
+          "apkFileType": null,
+          "appIconColor": "#FF4500",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Pure AMOLED Black Theme - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure pitch-black (#000000) into YouTube player controls, navigation bars, comments bottom sheets, and panels for AMOLED battery saving.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Pure AMOLED Dark Theme & Declutter - VLC (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Forces a pitch-black AMOLED dark theme, hides tips and audio/video discovery clutter across the VLC player UI.",
       "default": true,
@@ -4351,6 +4729,60 @@
           "description": "Canva: Design, Photo & Video by Canva",
           "apkFileType": null,
           "appIconColor": "#00C4CC",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Return YouTube Dislike & SponsorBlock Bridge - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Restores authentic dislike counters on videos via Return YouTube Dislike API and provides segment skipping markers for sponsored segments.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Sanitize Links & Open Externally - Reddit (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips telemetry tracking params (utm_source, out.reddit.com redirects) and opens external links directly in the user's default browser.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.reddit.frontpage",
+          "name": "Reddit",
+          "description": "Reddit: The front page of the internet by reddit Inc.",
+          "apkFileType": null,
+          "appIconColor": "#FF4500",
           "signatures": null,
           "targets": [
             {
@@ -4627,6 +5059,33 @@
       "options": []
     },
     {
+      "name": "Unlimited DNA Points & Fast Mutation - Plague Inc. (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hooks DNA points balance getter to provide 9999 DNA points and multiplies DNA points earned on orange and red biohazard bubble pops.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.ndemiccreations.plagueinc",
+          "name": "Plague Inc.",
+          "description": "Plague Inc. by Ndemic Creations",
+          "apkFileType": null,
+          "appIconColor": "#8B0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlimited Hearts - Duolingo (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Disables hearts/lives loss when making mistakes during language lessons in Duolingo, enabling infinite learning sessions without waiting or paywalls.",
       "default": true,
@@ -4816,6 +5275,33 @@
       "options": []
     },
     {
+      "name": "Unlock All Genetic Genes - Plague Inc. (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks all 5 categories of genetic modification genes (DNA genes, Travel genes, Evolution genes, Mutation genes, Environment genes) for every plague.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.ndemiccreations.plagueinc",
+          "name": "Plague Inc.",
+          "description": "Plague Inc. by Ndemic Creations",
+          "apkFileType": null,
+          "appIconColor": "#8B0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock All Levels & Icons - Geometry Dash (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Unlocks all official levels (including Demon stages), custom icons, ships, balls, UFOs, waves, trails, and colors in Geometry Dash.",
       "default": true,
@@ -4828,6 +5314,33 @@
           "description": "Geometry Dash by RobTop Games",
           "apkFileType": null,
           "appIconColor": "#FFEB3B",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock All Plagues & Disease Types - Plague Inc. (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks all standard disease types (Bacteria, Virus, Fungus, Parasite, Prion, Nano-Virus, Bio-Weapon) and special plagues (Neurax Worm, Necroa Virus, Simian Flu, Shadow Plague) without Brutal completion.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.ndemiccreations.plagueinc",
+          "name": "Plague Inc.",
+          "description": "Plague Inc. by Ndemic Creations",
+          "apkFileType": null,
+          "appIconColor": "#8B0000",
           "signatures": null,
           "targets": [
             {
@@ -5763,6 +6276,33 @@
           "description": "MX Player: Video Player & Streaming by MX Media / Time Internet",
           "apkFileType": null,
           "appIconColor": "#0078FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Scenarios & Full Expansion - Plague Inc. (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks Official Scenarios, Custom Scenario Creator, Speed Runs, and Fast Forward (speed 3x) by hooking Google Play Billing and expansion license checks.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.ndemiccreations.plagueinc",
+          "name": "Plague Inc.",
+          "description": "Plague Inc. by Ndemic Creations",
+          "apkFileType": null,
+          "appIconColor": "#8B0000",
           "signatures": null,
           "targets": [
             {

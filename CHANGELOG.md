@@ -1,3 +1,9 @@
+## [1.37.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.36.3...v1.37.0) (2026-10-03)
+
+### ✨ New Features
+
+* **patches:** add comprehensive patch suites for YouTube, Reddit, Instagram, and Plague Inc. ([5535b80](https://github.com/SatanMerde/D-moniakPatches/commit/5535b801b315320b5bdbcc23409a1ea14e888a92))
+
 ## [1.36.3](https://github.com/SatanMerde/D-moniakPatches/compare/v1.36.2...v1.36.3) (2026-10-03)
 
 ### 🐛 Bug Fixes

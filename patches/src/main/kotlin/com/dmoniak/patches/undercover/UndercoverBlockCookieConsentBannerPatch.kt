@@ -164,6 +164,42 @@ fun BytecodePatchContext.executeUndercoverBlockCookieBannerLogic(logger: Logger)
                     } catch (e: Exception) {
                         logger.fine("Failed to hook consent boolean method ${method.name}: ${e.message}")
                     }
+                } else if (retType == "I" && method.name !in listOf("hashCode", "describeContents")) {
+                    // ConsentStatus.OBTAINED is 3
+                    try {
+                        val mm = mutableClass.findMutableMethodOf(method)
+                        mm?.addInstructions(
+                            0,
+                            """
+                            const/4 v0, 0x3
+                            return v0
+                            """.trimIndent()
+                        )
+                        hookedMethods++
+                    } catch (e: Exception) {
+                        logger.fine("Failed to hook consent int method ${method.name}: ${e.message}")
+                    }
+                }
+            }
+        }
+
+        // 4. Neutralize any Activity dedicated to consent (e.g. AgeSharingConsentWrapperActivity)
+        if (type.contains("AgeSharingConsentWrapperActivity") || (tl.contains("consent") && tl.contains("activity"))) {
+            for (method in classDef.methods.toList()) {
+                if (method.name == "onCreate") {
+                    try {
+                        val mm = mutableClass.findMutableMethodOf(method)
+                        mm?.addInstructions(
+                            0,
+                            """
+                            invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+                            return-void
+                            """.trimIndent()
+                        )
+                        hookedMethods++
+                    } catch (e: Exception) {
+                        logger.fine("Failed to hook $type.onCreate: ${e.message}")
+                    }
                 }
             }
         }

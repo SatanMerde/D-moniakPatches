@@ -3,7 +3,8 @@ package com.dmoniak.patches.undercover
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_UNDERCOVER
 import java.util.logging.Logger
@@ -11,7 +12,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val undercoverAmoledThemeAndPrivacyPatch = bytecodePatch(
     name = "AMOLED Dark Theme & Privacy - Undercover (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) for party night sessions and strips analytics telemetry (Firebase, Facebook SDK, AppsFlyer) in Undercover.",
+    description = "⚠️ [En cours de développement / Non testé] Enforces dark mode and strips analytics telemetry (Firebase Analytics, App Measurement) in Undercover.",
 ) {
     compatibleWith(COMPATIBILITY_UNDERCOVER)
 
@@ -26,25 +27,63 @@ fun BytecodePatchContext.executeUndercoverThemeAndPrivacyLogic(logger: Logger) {
     var hookedPoints = 0
 
     classDefForEach { classDef ->
-        val tl = classDef.type.lowercase()
-        if (tl.contains("androidx") || tl.contains("android/support") || tl.contains("google")) return@classDefForEach
-
+        val type = classDef.type
+        val tl = type.lowercase()
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
+        // 1. Hook Firebase Analytics & GMS AppMeasurement telemetry dispatchers directly
+        if (
+            type.contains("com/google/firebase/analytics/") ||
+            type.contains("com/google/android/gms/measurement/")
+        ) {
+            for (method in classDef.methods.toList()) {
+                val mName = method.name
+                val retType = method.returnType
+
+                if (
+                    (mName == "logEvent" || mName == "logEventInternal" || mName == "setUserProperty") &&
+                    retType == "V"
+                ) {
+                    try {
+                        val mm = mutableClass.findMutableMethodOf(method)
+                        mm?.addInstructions(
+                            0,
+                            """
+                            return-void
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                    } catch (e: Exception) {
+                        logger.fine("Failed to hook $type.$mName: ${e.message}")
+                    }
+                }
+            }
+        }
+
+        // 2. Hook night mode and dark theme checks in Undercover
         for (method in classDef.methods.toList()) {
-            if (method.implementation == null) continue
-            val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
-            val mName = method.name.lowercase()
+            val impl = method.implementation ?: continue
             val retType = method.returnType
 
-            // Hook dark theme / AMOLED mode enforcement
-            if (!isStatic && (
-                mName == "isdarkthemeenabled" ||
-                mName == "isnightmodeactive" ||
-                mName == "shouldusedarktheme"
-            ) && retType == "Z") {
-                mutableClass.findMutableMethodOf(method)?.let { mutableMethod ->
-                    mutableMethod.addInstructions(
+            var referencesNightMode = false
+            for (insn in impl.instructions) {
+                if (insn is ReferenceInstruction && insn.reference is StringReference) {
+                    val s = (insn.reference as StringReference).string
+                    if (
+                        s == "LAST_SAVED_IS_SYSTEM_NIGHT_ON" ||
+                        s == "LAST_SAVED_APPEARANCE" ||
+                        s.contains("night_mode")
+                    ) {
+                        referencesNightMode = true
+                        break
+                    }
+                }
+            }
+
+            if (referencesNightMode && retType == "Z") {
+                try {
+                    val mm = mutableClass.findMutableMethodOf(method)
+                    mm?.addInstructions(
                         0,
                         """
                         const/4 v0, 0x1
@@ -52,42 +91,8 @@ fun BytecodePatchContext.executeUndercoverThemeAndPrivacyLogic(logger: Logger) {
                         """.trimIndent()
                     )
                     hookedPoints++
-                }
-            }
-
-            // Hook background color to pure pitch black (#000000 = 0xff000000 = -16777216)
-            if (!isStatic && (
-                mName == "getbackgroundcolor" ||
-                mName == "getsurfacecolor" ||
-                mName == "getdefaultthemebackground"
-            ) && retType == "I") {
-                mutableClass.findMutableMethodOf(method)?.let { mutableMethod ->
-                    mutableMethod.addInstructions(
-                        0,
-                        """
-                        const/high16 v0, -0x1000000
-                        return v0
-                        """.trimIndent()
-                    )
-                    hookedPoints++
-                }
-            }
-
-            // Suppress analytics telemetry dispatchers
-            if (!isStatic && (
-                mName == "logevent" ||
-                mName == "sendanalytics" ||
-                mName == "trackevent" ||
-                mName == "reportanalyticsevent"
-            ) && retType == "V") {
-                mutableClass.findMutableMethodOf(method)?.let { mutableMethod ->
-                    mutableMethod.addInstructions(
-                        0,
-                        """
-                        return-void
-                        """.trimIndent()
-                    )
-                    hookedPoints++
+                } catch (e: Exception) {
+                    logger.fine("Failed to hook night mode in $type.${method.name}: ${e.message}")
                 }
             }
         }

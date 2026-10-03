@@ -3,7 +3,6 @@ package com.dmoniak.patches.undercover
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
@@ -13,7 +12,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val undercoverUnlockAllWordPacksPatch = bytecodePatch(
     name = "Unlock All Word Packs & Premium - Undercover (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Hooks in-app purchase verification and license state to unlock all premium word packs (Adult 18+, Pop Culture, Geek, Cinema, Science & History) and remove all paywalls.",
+    description = "⚠️ [En cours de développement / Non testé] Hooks in-app purchase verification, pack enums, and preference stores to unlock all premium word packs (Adult 18+, Pop Culture, Geek, Cinema, Science & History, 50+ languages) and remove all paywalls.",
 ) {
     compatibleWith(COMPATIBILITY_UNDERCOVER)
 
@@ -30,17 +29,32 @@ fun BytecodePatchContext.executeUndercoverUnlockWordPacksLogic(logger: Logger) {
     classDefForEach { classDef ->
         val type = classDef.type
         val tl = type.lowercase()
-
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
-        // 1. Hook Google Play Billing SDK primitives directly
-        if (type.contains("com/android/billingclient/api/")) {
+        // 1. Pack & Purchase Enum (Lup5): Enum containing "undercover.all_roles" or "undercover.full_access"
+        var isPackEnum = false
+        if (classDef.superclass == "Ljava/lang/Enum;") {
+            for (method in classDef.methods) {
+                val impl = method.implementation ?: continue
+                for (insn in impl.instructions) {
+                    if (insn is ReferenceInstruction && insn.reference is StringReference) {
+                        val s = (insn.reference as StringReference).string
+                        if (s == "undercover.all_roles" || s == "undercover.full_access" || s.startsWith("undercover.full_library")) {
+                            isPackEnum = true
+                            break
+                        }
+                    }
+                }
+                if (isPackEnum) break
+            }
+        }
+
+        if (isPackEnum) {
+            logger.info("Identified Undercover Pack Enum: $type")
             for (method in classDef.methods.toList()) {
-                val mName = method.name
-                val retType = method.returnType
-
-                // BillingClient.isReady() -> true
-                if (mName == "isReady" && retType == "Z") {
+                val ret = method.returnType
+                // Hook boolean methods: isUnlocked (o), isBought (i), isFree (n), isAvailable (j)
+                if (ret == "Z") {
                     try {
                         val mm = mutableClass.findMutableMethodOf(method)
                         mm?.addInstructions(
@@ -52,64 +66,49 @@ fun BytecodePatchContext.executeUndercoverUnlockWordPacksLogic(logger: Logger) {
                         )
                         hookedPoints++
                     } catch (e: Exception) {
-                        logger.fine("Failed to hook $mName: ${e.message}")
-                    }
-                }
-
-                // BillingResult.getResponseCode() -> OK (0)
-                if (mName == "getResponseCode" && retType == "I") {
-                    try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        mm?.addInstructions(
-                            0,
-                            """
-                            const/4 v0, 0x0
-                            return v0
-                            """.trimIndent()
-                        )
-                        hookedPoints++
-                    } catch (e: Exception) {
-                        logger.fine("Failed to hook $mName: ${e.message}")
-                    }
-                }
-
-                // Purchase.getPurchaseState() -> PURCHASED (1)
-                if (mName == "getPurchaseState" && retType == "I") {
-                    try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        mm?.addInstructions(
-                            0,
-                            """
-                            const/4 v0, 0x1
-                            return v0
-                            """.trimIndent()
-                        )
-                        hookedPoints++
-                    } catch (e: Exception) {
-                        logger.fine("Failed to hook $mName: ${e.message}")
-                    }
-                }
-
-                // Purchase.isAcknowledged() -> true
-                if (mName == "isAcknowledged" && retType == "Z") {
-                    try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        mm?.addInstructions(
-                            0,
-                            """
-                            const/4 v0, 0x1
-                            return v0
-                            """.trimIndent()
-                        )
-                        hookedPoints++
-                    } catch (e: Exception) {
-                        logger.fine("Failed to hook $mName: ${e.message}")
+                        logger.fine("Failed to hook $type.${method.name}: ${e.message}")
                     }
                 }
             }
         }
 
-        // 2. Obfuscation-resistant hook: inspect methods referencing Undercover's real purchase constants
+        // 2. Preference Reader (Lmea): Class containing "_preferences" string
+        var isPrefManager = false
+        for (method in classDef.methods) {
+            val impl = method.implementation ?: continue
+            for (insn in impl.instructions) {
+                if (insn is ReferenceInstruction && insn.reference is StringReference) {
+                    if ((insn.reference as StringReference).string == "_preferences") {
+                        isPrefManager = true
+                        break
+                    }
+                }
+            }
+            if (isPrefManager) break
+        }
+
+        if (isPrefManager) {
+            for (method in classDef.methods.toList()) {
+                // Hook boolean preference readers like c(Context, J34)
+                if (method.returnType == "Z" && method.parameterTypes.size in 1..2) {
+                    try {
+                        val mm = mutableClass.findMutableMethodOf(method)
+                        mm?.addInstructions(
+                            0,
+                            """
+                            const/4 v0, 0x1
+                            return v0
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                    } catch (e: Exception) {
+                        logger.fine("Failed to hook $type.${method.name}: ${e.message}")
+                    }
+                }
+            }
+        }
+
+        // 3. Obfuscation-resistant hook: inspect methods referencing purchase constants
         if (!tl.startsWith("landroid/") && !tl.startsWith("lkotlin/")) {
             for (method in classDef.methods.toList()) {
                 val impl = method.implementation ?: continue
@@ -117,21 +116,16 @@ fun BytecodePatchContext.executeUndercoverUnlockWordPacksLogic(logger: Logger) {
 
                 var referencesPurchaseKey = false
                 for (instruction in impl.instructions) {
-                    if (instruction is ReferenceInstruction) {
-                        val ref = instruction.reference
-                        if (ref is StringReference) {
-                            val str = ref.string
-                            if (
-                                str.startsWith("BOUGHT_STATUS_") ||
-                                str == "is_bought_purchase_1" ||
-                                str == "PREMIUM" ||
-                                str == "premium" ||
-                                str == "is_adfree" ||
-                                str.contains("online_create_game_premium")
-                            ) {
-                                referencesPurchaseKey = true
-                                break
-                            }
+                    if (instruction is ReferenceInstruction && instruction.reference is StringReference) {
+                        val str = (instruction.reference as StringReference).string
+                        if (
+                            str.startsWith("BOUGHT_STATUS_") ||
+                            str == "is_bought_purchase_1" ||
+                            str.startsWith("undercover.full") ||
+                            str == "undercover.all_roles"
+                        ) {
+                            referencesPurchaseKey = true
+                            break
                         }
                     }
                 }

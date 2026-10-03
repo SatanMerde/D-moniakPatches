@@ -3,7 +3,8 @@ package com.dmoniak.patches.undercover
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_UNDERCOVER
 import java.util.logging.Logger
@@ -26,52 +27,84 @@ fun BytecodePatchContext.executeUndercoverUnlockCustomWordEditorLogic(logger: Lo
     var hookedPoints = 0
 
     classDefForEach { classDef ->
-        val tl = classDef.type.lowercase()
+        val type = classDef.type
+        val tl = type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support") || tl.contains("google")) return@classDefForEach
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
+        // 1. Hook MyWordsActivity
+        if (type.contains("MyWordsActivity")) {
+            for (method in classDef.methods.toList()) {
+                val retType = method.returnType
+                if (retType == "Z") {
+                    try {
+                        val mm = mutableClass.findMutableMethodOf(method)
+                        mm?.addInstructions(
+                            0,
+                            """
+                            const/4 v0, 0x1
+                            return v0
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                    } catch (e: Exception) {
+                        logger.fine("Failed to hook $type.${method.name}: ${e.message}")
+                    }
+                }
+            }
+        }
+
+        // 2. Hook any method referencing custom word strings or pair counts
         for (method in classDef.methods.toList()) {
-            if (method.implementation == null) continue
-            val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
-            val mName = method.name.lowercase()
+            val impl = method.implementation ?: continue
             val retType = method.returnType
 
-            // Hook custom words creator gates
-            if (!isStatic && (
-                mName == "iscustomwordsunlocked" ||
-                mName == "cancustomizewords" ||
-                mName == "cancreatecustompack" ||
-                mName == "iscustompackallowed" ||
-                mName == "hascustompackfeature"
-            ) && retType == "Z") {
-                mutableClass.findMutableMethodOf(method)?.let { mutableMethod ->
-                    mutableMethod.addInstructions(
-                        0,
-                        """
-                        const/4 v0, 0x1
-                        return v0
-                        """.trimIndent()
-                    )
-                    hookedPoints++
+            var referencesCustomWords = false
+            for (insn in impl.instructions) {
+                if (insn is ReferenceInstruction && insn.reference is StringReference) {
+                    val s = (insn.reference as StringReference).string
+                    if (
+                        s.contains("unlock_words") ||
+                        s.startsWith("N_PAIRS_FROM_") ||
+                        s.startsWith("QUEST_COMPLETED_") ||
+                        s.startsWith("QUEST_CLAIMED_")
+                    ) {
+                        referencesCustomWords = true
+                        break
+                    }
                 }
             }
 
-            // Hook max custom packs limit to unlimited (e.g. 999)
-            if (!isStatic && (
-                mName == "getmaxcustompacks" ||
-                mName == "getcustompackslimit" ||
-                mName == "getcustomwordlimit"
-            ) && retType == "I") {
-                mutableClass.findMutableMethodOf(method)?.let { mutableMethod ->
-                    mutableMethod.addInstructions(
-                        0,
-                        """
-                        const/16 v0, 0x3e7
-                        return v0
-                        """.trimIndent()
-                    )
-                    hookedPoints++
+            if (referencesCustomWords) {
+                if (retType == "Z") {
+                    try {
+                        val mm = mutableClass.findMutableMethodOf(method)
+                        mm?.addInstructions(
+                            0,
+                            """
+                            const/4 v0, 0x1
+                            return v0
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                    } catch (e: Exception) {
+                        logger.fine("Failed to hook $type.${method.name}: ${e.message}")
+                    }
+                } else if (retType == "I") {
+                    try {
+                        val mm = mutableClass.findMutableMethodOf(method)
+                        mm?.addInstructions(
+                            0,
+                            """
+                            const/16 v0, 0x3e7
+                            return v0
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                    } catch (e: Exception) {
+                        logger.fine("Failed to hook $type.${method.name}: ${e.message}")
+                    }
                 }
             }
         }

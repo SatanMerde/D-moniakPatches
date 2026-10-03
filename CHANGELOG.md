@@ -1,3 +1,9 @@
+## [1.45.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.44.2...v1.45.0) (2026-10-03)
+
+### ✨ New Features
+
+* **freefire:** add 120 FPS display mode and device model spoof patch ([e876075](https://github.com/SatanMerde/D-moniakPatches/commit/e8760751bb9c1cde8109fc7ec856b7af6868990b))
+
 ## [1.44.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.44.1...v1.44.2) (2026-10-03)
 
 ### 🐛 Bug Fixes

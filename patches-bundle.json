@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-03T16:40:12",
-  "description": "## [1.44.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.44.1...v1.44.2) (2026-10-03)\n\n### 🐛 Bug Fixes\n\n* resolve Undercover crashes, Silt LVL license redirect, and Spotify accent color hook ([8a057cb](https://github.com/SatanMerde/D-moniakPatches/commit/8a057cbf760b590953243c30381ea05c0156a519))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.44.2/patches-1.44.2.mpp",
+  "created_at": "2026-10-03T18:51:35",
+  "description": "## [1.45.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.44.2...v1.45.0) (2026-10-03)\n\n### ✨ New Features\n\n* **freefire:** add 120 FPS display mode and device model spoof patch ([e876075](https://github.com/SatanMerde/D-moniakPatches/commit/e8760751bb9c1cde8109fc7ec856b7af6868990b))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.45.0/patches-1.45.0.mpp",
   "signature_download_url": "",
-  "version": "1.44.2"
+  "version": "1.45.0"
 }

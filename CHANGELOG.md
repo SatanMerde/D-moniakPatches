@@ -1,3 +1,9 @@
+## [1.39.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.38.0...v1.39.0) (2026-10-03)
+
+### ✨ New Features
+
+* **youtube,instagram,reddit:** add advanced patches surpassing Piko and official Morphe suites ([03a46d9](https://github.com/SatanMerde/D-moniakPatches/commit/03a46d945a7cee13ab40025bf62b5a0fae8a634e))
+
 ## [1.38.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.37.0...v1.38.0) (2026-10-03)
 
 ### 🐛 Bug Fixes

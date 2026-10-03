@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.38.0",
+  "version": "1.39.0",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -2973,6 +2973,33 @@
       "options": []
     },
     {
+      "name": "Disable DRC Audio (Dynamic Range Compression) - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Disables dynamic range compression (DRC) in YouTube's audio engine, restoring original uncompressed audio dynamics, punchy bass, and full volume without artificial normalization.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Disable Double Tap To Like - Instagram (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Disables accidental double-tap gestures that trigger likes on feed photos, videos, and reels while scrolling or zooming.",
       "default": true,
@@ -3027,6 +3054,33 @@
       "options": []
     },
     {
+      "name": "Disable QUIC Protocol - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Disables Google's experimental QUIC (HTTP/3) UDP network protocol in YouTube, forcing reliable HTTP/2 TCP streams to bypass carrier and ISP video throttling.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Disable Response Haptics - Google Gemini (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Silences excessive continuous vibration buzzing during token streaming and AI response generation in Google Gemini.",
       "default": true,
@@ -3066,6 +3120,33 @@
           "description": "Brave Browser: Fast, AdBlocker & Private Web Browser by Brave Software",
           "apkFileType": null,
           "appIconColor": "#FB542B",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Screenshot Detection & Vanish Alert - Instagram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Silently disables screenshot notifications in disappearing messages, view-once media, and vanish mode, and unlocks screen recording across all Instagram DMs.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
           "signatures": null,
           "targets": [
             {
@@ -3476,6 +3557,33 @@
       "options": []
     },
     {
+      "name": "Fix Watch History & DNS Resolution - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Fixes broken or paused watch history when using private DNS, Pi-hole, or adblocking resolvers by rerouting playback tracking endpoints directly to fallback servers.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Force Aggressive Shields & Anti-Adblock Bypass - Brave (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Forces aggressive ad/tracker blocking mode by default, strips URL tracking query parameters, and bypasses anti-adblock detection scripts in Brave.",
       "default": true,
@@ -3519,6 +3627,33 @@
           "targets": [
             {
               "version": "1.4.8",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Force Original Audio Language (Bypass Auto-Dubbing) - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Forces YouTube to automatically play the creator's original authentic audio track, bypassing unwanted AI/human auto-dubbed voiceovers and language translations.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -4933,6 +5068,33 @@
       "options": []
     },
     {
+      "name": "Reels Seekbar & Fast-Forward Scrubbing - Instagram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Forces the interactive seekbar / progress bar to always display on Reels, allowing users to freely scrub, fast-forward, and rewind any Instagram Reel without waiting for it to loop.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Remember Video Quality - YouTube (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Forces and locks preferred default video resolution (such as 1080p, 1440p, or 4K) separately for Wi-Fi and mobile cellular networks, overriding YouTube's adaptive downscaling.",
       "default": true,
@@ -5041,6 +5203,33 @@
       "options": []
     },
     {
+      "name": "Sanitize Share Links & Open in External Browser - Instagram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips telemetry tracking parameters (?igsh=..., ?utm_...) from copied and shared Instagram URLs, and opens external web links directly in the system default browser instead of the in-app browser.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Silence Call Recording Warning - Phone by Google (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Mutes call recording announcement in Google Phone. NOTE: Requires ROOT + Core Patch to install over pre-installed system dialer.",
       "default": true,
@@ -5059,6 +5248,33 @@
               "version": "161.0.726587057",
               "versionCodes": null,
               "isExperimental": true,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Sound Boost (Audio Gain Amplification) - YouTube (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Amplifies YouTube audio playback volume with software gain booster up to 200% for quiet videos, recordings, and podcasts.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
               "minSdk": null,
               "description": null
             }
@@ -5815,6 +6031,33 @@
       "options": []
     },
     {
+      "name": "Unlock Developer Options & Quick Experiments - Instagram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks Meta internal Employee Developer Options, Debug Mode, and Quick Experiment (QE) override menus in Instagram by long-pressing the home button or opening settings.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock Editing Tools - Google Photos (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Enables Pixel-exclusive photo editing features, Magic Eraser UI toggles, and Portrait Blur enhancement tools in Google Photos.",
       "default": true,
@@ -6043,6 +6286,33 @@
           "description": "VPN.lat: Unlimited Fast VPN Proxy",
           "apkFileType": null,
           "appIconColor": "#2979FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Instagram Plus & Client Entitlements - Instagram (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Locally unlocks Instagram Plus subscription benefits, custom app launcher icons, enhanced 60 FPS story rendering, and extended multi-media carousel limits.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
           "signatures": null,
           "targets": [
             {
@@ -6573,6 +6843,33 @@
           "description": "MX Player: Video Player & Streaming by MX Media / Time Internet",
           "apkFileType": null,
           "appIconColor": "#0078FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Reddit Premium & Custom App Icons - Reddit (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Locally unlocks Reddit Premium status, unlocks exclusive custom application launcher icons (Doge, Retro, Neon, Gold), and removes Premium promotional prompts.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.reddit.frontpage",
+          "name": "Reddit",
+          "description": "Reddit: The front page of the internet by reddit Inc.",
+          "apkFileType": null,
+          "appIconColor": "#FF4500",
           "signatures": null,
           "targets": [
             {

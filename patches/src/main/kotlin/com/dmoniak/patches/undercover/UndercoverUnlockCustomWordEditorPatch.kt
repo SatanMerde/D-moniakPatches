@@ -33,11 +33,27 @@ fun BytecodePatchContext.executeUndercoverUnlockCustomWordEditorLogic(logger: Lo
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
-        // 1. Hook MyWordsActivity
-        if (type.contains("MyWordsActivity")) {
+        // 1. Pack Enum check: if class is Pack Enum, hook boolean methods to unlock custom words
+        var isPackEnum = false
+        if (classDef.superclass == "Ljava/lang/Enum;") {
+            for (method in classDef.methods) {
+                val impl = method.implementation ?: continue
+                for (insn in impl.instructions) {
+                    if (insn is ReferenceInstruction && insn.reference is StringReference) {
+                        val s = (insn.reference as StringReference).string
+                        if (s == "undercover.unlock_words_en" || s == "ALL_LANGUAGES_ALL_WORDS") {
+                            isPackEnum = true
+                            break
+                        }
+                    }
+                }
+                if (isPackEnum) break
+            }
+        }
+
+        if (isPackEnum) {
             for (method in classDef.methods.toList()) {
-                val retType = method.returnType
-                if (retType == "Z") {
+                if (method.returnType == "Z") {
                     try {
                         val mm = mutableClass.findMutableMethodOf(method)
                         mm?.addInstructions(

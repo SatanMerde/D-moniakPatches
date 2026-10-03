@@ -14,16 +14,16 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-233-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-253-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-patchs-validés--fonctionnels--tested--functional-patches">
     <img src="https://img.shields.io/badge/Fonctionnels-10-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-patchs-expérimentaux--en-développement--experimental-patches-ai-generated">
-    <img src="https://img.shields.io/badge/Expérimentaux-223-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Expérimentaux-243-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-82-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-86-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -44,10 +44,10 @@
 ### 📖 Présentation du projet / Project Overview
 
 **🇫🇷 Français :**  
-**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble **233 patchs** pour **82 applications et jeux Android** populaires, clairement séparés entre **patchs validés & fonctionnels** (testés sur appareil réel / émulateur : Hungry Shark World, Movix, Moises) et **patchs expérimentaux** (en cours de développement, générés par IA).
+**D-moniak Patches** est une bibliothèque tierce de patchs pour le framework **[Morphe](https://github.com/morpheapp)**. Ce projet rassemble **253 patchs** pour **86 applications et jeux Android** populaires, clairement séparés entre **patchs validés & fonctionnels** (testés sur appareil réel / émulateur : Hungry Shark World, Movix, Moises) et **patchs expérimentaux** (en cours de développement, générés par IA).
 
 **🇬🇧 English :**  
-**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **233 patches** for **82 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware / emulator: Hungry Shark World, Movix, Moises) and **experimental patches** (currently under development, AI-generated).
+**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **253 patches** for **86 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware / emulator: Hungry Shark World, Movix, Moises) and **experimental patches** (currently under development, AI-generated).
 
 ---
 
@@ -574,6 +574,20 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
+<summary>📦 Instagram&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Anti-Distraction UI & Declutter - Instagram (Experimental)](#anti-distraction-ui-declutter-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Hides Reels tab button, hides 'Suggested Posts' ('You're all caught up'), hides Shop tab, and hides explore distractions. |
+| [Block Ads & Sponsored Content - Instagram (Experimental)](#block-ads-sponsored-content-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Strips sponsored feed posts, sponsored stories, promoted reels, and shopping tags in Instagram. |
+| [Ghost Privacy Mode: Anonymous DMs & Stories - Instagram (Experimental)](#ghost-privacy-mode-anonymous-dms-stories-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Disables 'Seen' receipts in Direct Messages, hides story viewed tracking, silences live stream join broadcasts, and hides DM typing indicator. |
+| [Media Downloader & Uncompressed Media Upload - Instagram (Experimental)](#media-downloader-uncompressed-media-upload-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Enables downloading original high-resolution photos, reels, stories, and voice messages without watermarks, and bypasses image/video compression downscalers on upload. |
+| [Pure AMOLED Black Theme - Instagram (Experimental)](#pure-amoled-black-theme-instagram-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure pitch-black (#000000) for OLED displays across main feed, reels, direct messages, stories bar, and profile in Instagram. |
+
+</details>
+
+<details open>
 <summary>📦 Jetpack Joyride&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
@@ -679,6 +693,19 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
+<summary>📦 Plague Inc.&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Unlimited DNA Points & Fast Mutation - Plague Inc. (Experimental)](#unlimited-dna-points-fast-mutation-plague-inc-experimental) | ⚠️ [En cours de développement / Non testé] Hooks DNA points balance getter to provide 9999 DNA points and multiplies DNA points earned on orange and red biohazard bubble pops. |
+| [Unlock All Genetic Genes - Plague Inc. (Experimental)](#unlock-all-genetic-genes-plague-inc-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all 5 categories of genetic modification genes (DNA genes, Travel genes, Evolution genes, Mutation genes, Environment genes) for every plague. |
+| [Unlock All Plagues & Disease Types - Plague Inc. (Experimental)](#unlock-all-plagues-disease-types-plague-inc-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all standard disease types (Bacteria, Virus, Fungus, Parasite, Prion, Nano-Virus, Bio-Weapon) and special plagues (Neurax Worm, Necroa Virus, Simian Flu, Shadow Plague) without Brutal completion. |
+| [Unlock Scenarios & Full Expansion - Plague Inc. (Experimental)](#unlock-scenarios-full-expansion-plague-inc-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Official Scenarios, Custom Scenario Creator, Speed Runs, and Fast Forward (speed 3x) by hooking Google Play Billing and expansion license checks. |
+
+</details>
+
+<details open>
 <summary>📦 PictureThis&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
@@ -758,6 +785,19 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 | [Enhanced Privacy & Telemetry Blocker - Proton VPN (Experimental)](#enhanced-privacy-telemetry-blocker-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Blocks diagnostic telemetry, analytical event reporting (Firebase, Sentry, Mixpanel, Matomo), and crashlytics logging for zero metadata leakage. |
 | [Unlock Custom DNS Settings - Proton VPN (Experimental)](#unlock-custom-dns-settings-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks custom upstream DNS resolver preferences (NextDNS, AdGuard DNS, Quad9) in Proton VPN settings without subscription restrictions. |
 | [Unlock NetShield DNS Blocker - Proton VPN (Experimental)](#unlock-netshield-dns-blocker-proton-vpn-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks the NetShield DNS ad & malware blocking toggle in Proton VPN preferences without requiring a Plus subscription. |
+
+</details>
+
+<details open>
+<summary>📦 Reddit&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Block Promoted Posts & Ads - Reddit (Experimental)](#block-promoted-posts-ads-reddit-experimental) | ⚠️ [En cours de développement / Non testé] Strips Promoted posts, sponsored comment ads, promoted user carousels, and in-feed commercial cards in Reddit. |
+| [Declutter Feed & Hide Recommendations - Reddit (Experimental)](#declutter-feed-hide-recommendations-reddit-experimental) | ⚠️ [En cours de développement / Non testé] Hides 'Because you visited...', 'Communities you may like', 'Popular near you', awards animations, and live RPAN stream banners in Reddit. |
+| [Pure AMOLED Black Theme - Reddit (Experimental)](#pure-amoled-black-theme-reddit-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure pitch-black (#000000) for OLED screens across feeds, post viewer, comments, and drawer in Reddit. |
+| [Sanitize Links & Open Externally - Reddit (Experimental)](#sanitize-links-open-externally-reddit-experimental) | ⚠️ [En cours de développement / Non testé] Strips telemetry tracking params (utm_source, out.reddit.com redirects) and opens external links directly in the user's default browser. |
 
 </details>
 
@@ -1150,6 +1190,22 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 |----------|----------------|
 | [Block Ads & Video Interruptions - World Map Quiz (Experimental)](#block-ads-video-interruptions-world-map-quiz-experimental) | ⚠️ [En cours de développement / Non testé] Eliminates full-screen interstitial video ads between quiz rounds, bottom banners, and promotional reward prompts in World Map Quiz. |
 | [Unlock Premium & Unlimited Hints - World Map Quiz (Experimental)](#unlock-premium-unlimited-hints-world-map-quiz-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks the Premium edition, all continental maps, flag & capital quiz modes, and provides unlimited hint tokens in World Map Quiz by hooking Google Play Billing and purchase listeners. |
+
+</details>
+
+<details open>
+<summary>📦 YouTube&nbsp;&nbsp;•&nbsp;&nbsp;7 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Background & PiP Playback - YouTube (Experimental)](#background-pip-playback-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Enables background audio playback when the screen is locked or switching between apps, and unlocks Picture-in-Picture (PiP) mode without YouTube Premium. |
+| [Block Video & Feed Ads - YouTube (Experimental)](#block-video-feed-ads-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Strips pre-roll and mid-roll video advertisements, home feed sponsored cards, search result ads, shorts ads, and info card promos in YouTube. |
+| [Custom Playback Speed & High-Res Audio - YouTube (Experimental)](#custom-playback-speed-high-res-audio-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks speed slider up to 3.0x/5.0x and forces highest audio bitrate (Opus 160kbps / 256kbps) and default highest video resolution (1080p/1440p/4K) on Wi-Fi and Cellular. |
+| [Declutter UI & Remove Shorts - YouTube (Experimental)](#declutter-ui-remove-shorts-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Hides Shorts tab from bottom navigation bar, hides Shorts shelf from Home and Subscriptions feeds, hides Create button (+), hides Playables, and removes End Screen suggestions. |
+| [Fix Video Playback Buffer & Freeze - YouTube (Experimental)](#fix-video-playback-buffer-freeze-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses Google's video stream throttling and 1:00 min playback buffering freezes by spoofing client payload parameters (iOS/Android VR/TV client identifiers). |
+| [Pure AMOLED Black Theme - YouTube (Experimental)](#pure-amoled-black-theme-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure pitch-black (#000000) into YouTube player controls, navigation bars, comments bottom sheets, and panels for AMOLED battery saving. |
+| [Return YouTube Dislike & SponsorBlock Bridge - YouTube (Experimental)](#return-youtube-dislike-sponsorblock-bridge-youtube-experimental) | ⚠️ [En cours de développement / Non testé] Restores authentic dislike counters on videos via Return YouTube Dislike API and provides segment skipping markers for sponsored segments. |
 
 </details>
 

@@ -4,6 +4,8 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_UNDERCOVER
 import java.util.logging.Logger
@@ -26,54 +28,115 @@ fun BytecodePatchContext.executeUndercoverBlockAdsLogic(logger: Logger) {
     var hookedCount = 0
 
     classDefForEach { classDef ->
-        val tl = classDef.type.lowercase()
-        if (tl.contains("androidx") || tl.contains("android/support") || tl.contains("google")) return@classDefForEach
+        val type = classDef.type
+        val tl = type.lowercase()
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
-        for (method in classDef.methods.toList()) {
-            if (method.implementation == null) continue
-            val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
-            val mName = method.name.lowercase()
-            val retType = method.returnType
+        // 1. Hook Google AdMob SDK classes directly
+        if (
+            type.contains("com/google/android/gms/ads/interstitial/InterstitialAd") ||
+            type.contains("com/google/android/gms/ads/AdView") ||
+            type.contains("com/google/android/gms/ads/rewarded/RewardedAd") ||
+            type.contains("com/google/android/gms/ads/BaseAdView")
+        ) {
+            for (method in classDef.methods.toList()) {
+                val mName = method.name
+                val retType = method.returnType
 
-            // Neutralize boolean checks for ads (isAdLoaded, shouldShowInterstitial, etc.)
-            if (!isStatic && (
-                mName == "isadloaded" ||
-                mName == "isinterstitialready" ||
-                mName == "shouldshowad" ||
-                mName == "canshowinterstitial" ||
-                mName == "isrewardedvideoready" ||
-                mName == "hasinterstitialad"
-            ) && retType == "Z") {
-                mutableClass.findMutableMethodOf(method)?.let { mutableMethod ->
-                    mutableMethod.addInstructions(
-                        0,
-                        """
-                        const/4 v0, 0x0
-                        return v0
-                        """.trimIndent()
-                    )
-                    hookedCount++
+                if ((mName == "show" || mName == "loadAd" || mName == "resume" || mName == "showAd") && retType == "V") {
+                    try {
+                        val mm = mutableClass.findMutableMethodOf(method)
+                        mm?.addInstructions(
+                            0,
+                            """
+                            return-void
+                            """.trimIndent()
+                        )
+                        hookedCount++
+                    } catch (e: Exception) {
+                        logger.fine("Failed to hook $mName: ${e.message}")
+                    }
                 }
             }
+        }
 
-            // Neutralize ad display triggers (showInterstitial, displayAd, etc.)
-            if (!isStatic && (
-                mName == "showinterstitial" ||
-                mName == "showinterstitialad" ||
-                mName == "displayad" ||
-                mName == "showbanner" ||
-                mName == "showbannerad"
-            ) && retType == "V") {
-                mutableClass.findMutableMethodOf(method)?.let { mutableMethod ->
-                    mutableMethod.addInstructions(
-                        0,
-                        """
-                        return-void
-                        """.trimIndent()
-                    )
-                    hookedCount++
+        // 2. Hook Undercover's own internal ad activity wrapper (Adtznhrcum)
+        if (type.contains("com/yanstarstudio/joss/undercover/Adtznhrcum")) {
+            for (method in classDef.methods.toList()) {
+                val mName = method.name
+                val retType = method.returnType
+
+                if ((mName == "start" || mName == "onShow" || mName == "show") && retType == "V") {
+                    try {
+                        val mm = mutableClass.findMutableMethodOf(method)
+                        mm?.addInstructions(
+                            0,
+                            """
+                            return-void
+                            """.trimIndent()
+                        )
+                        hookedCount++
+                    } catch (e: Exception) {
+                        logger.fine("Failed to hook Adtznhrcum.$mName: ${e.message}")
+                    }
+                }
+            }
+        }
+
+        // 3. Obfuscation-resistant hook: inspect methods referencing ad keywords
+        if (!tl.startsWith("landroid/") && !tl.startsWith("lkotlin/")) {
+            for (method in classDef.methods.toList()) {
+                val impl = method.implementation ?: continue
+                val retType = method.returnType
+
+                var isAdMethod = false
+                for (instruction in impl.instructions) {
+                    if (instruction is ReferenceInstruction) {
+                        val ref = instruction.reference
+                        if (ref is StringReference) {
+                            val str = ref.string.lowercase()
+                            if (
+                                str.contains("interstitial") ||
+                                str.contains("admob rewarded ad") ||
+                                str.contains("show interstitial ad")
+                            ) {
+                                isAdMethod = true
+                                break
+                            }
+                        }
+                    }
+                }
+
+                if (isAdMethod) {
+                    if (retType == "Z") {
+                        try {
+                            val mm = mutableClass.findMutableMethodOf(method)
+                            mm?.addInstructions(
+                                0,
+                                """
+                                const/4 v0, 0x0
+                                return v0
+                                """.trimIndent()
+                            )
+                            hookedCount++
+                        } catch (e: Exception) {
+                            logger.fine("Failed to hook ad boolean method ${method.name}: ${e.message}")
+                        }
+                    } else if (retType == "V") {
+                        try {
+                            val mm = mutableClass.findMutableMethodOf(method)
+                            mm?.addInstructions(
+                                0,
+                                """
+                                return-void
+                                """.trimIndent()
+                            )
+                            hookedCount++
+                        } catch (e: Exception) {
+                            logger.fine("Failed to hook ad void method ${method.name}: ${e.message}")
+                        }
+                    }
                 }
             }
         }

@@ -1,3 +1,9 @@
+## [1.36.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.36.0...v1.36.1) (2026-10-03)
+
+### 🐛 Bug Fixes
+
+* **moises:** hook User.q(), GraphQL subscription models, and suppress MainActivity paywall for v2.7.2 Pro status ([803909a](https://github.com/SatanMerde/D-moniakPatches/commit/803909a6af649f673552d78ba30ebe6d24171bde))
+
 ## [1.36.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.35.2...v1.36.0) (2026-10-02)
 
 ### ✨ New Features

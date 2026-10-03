@@ -1,3 +1,9 @@
+## [1.36.3](https://github.com/SatanMerde/D-moniakPatches/compare/v1.36.2...v1.36.3) (2026-10-03)
+
+### 🐛 Bug Fixes
+
+* **gmscore:** use replaceInstruction with BuilderInstruction21c/31c and preserve gms.version key ([3fc31d0](https://github.com/SatanMerde/D-moniakPatches/commit/3fc31d0308a7c3ad78416adca713e0c6620a43b7))
+
 ## [1.36.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.36.1...v1.36.2) (2026-10-03)
 
 ### 🐛 Bug Fixes

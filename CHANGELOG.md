@@ -1,3 +1,9 @@
+## [1.43.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.42.0...v1.43.0) (2026-10-03)
+
+### ✨ New Features
+
+* **undercover:** optimize pack enums, preference managers, and consent blocker hooks ([67480b0](https://github.com/SatanMerde/D-moniakPatches/commit/67480b0ff39be07c7d7f0140e26a43e12931ccb3))
+
 ## [1.42.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.41.0...v1.42.0) (2026-10-03)
 
 ### ✨ New Features

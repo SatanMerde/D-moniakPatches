@@ -23,7 +23,7 @@
     <img src="https://img.shields.io/badge/Expérimentaux-436-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-87-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-88-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.44.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.44.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**446 patchs au total** (10 validés & fonctionnels • 436 expérimentaux)
+> **[v1.44.1](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.44.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**446 patchs au total** (10 validés & fonctionnels • 436 expérimentaux)
 
 ---
 
@@ -782,6 +782,19 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 
 <details open>
 <summary>📦 Plague Inc.&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Unlimited DNA Points & Fast Mutation - Plague Inc. (Experimental)](#unlimited-dna-points-fast-mutation-plague-inc-experimental) | ⚠️ [En cours de développement / Non testé] Hooks DNA points balance getter to provide 9999 DNA points and multiplies DNA points earned on orange and red biohazard bubble pops. |
+| [Unlock All Genetic Genes - Plague Inc. (Experimental)](#unlock-all-genetic-genes-plague-inc-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all 5 categories of genetic modification genes (DNA genes, Travel genes, Evolution genes, Mutation genes, Environment genes) for every plague. |
+| [Unlock All Plagues & Disease Types - Plague Inc. (Experimental)](#unlock-all-plagues-disease-types-plague-inc-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all standard disease types (Bacteria, Virus, Fungus, Parasite, Prion, Nano-Virus, Bio-Weapon) and special plagues (Neurax Worm, Necroa Virus, Simian Flu, Shadow Plague) without Brutal completion. |
+| [Unlock Scenarios & Full Expansion - Plague Inc. (Experimental)](#unlock-scenarios-full-expansion-plague-inc-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks Official Scenarios, Custom Scenario Creator, Speed Runs, and Fast Forward (speed 3x) by hooking Google Play Billing and expansion license checks. |
+
+</details>
+
+<details open>
+<summary>📦 Plague Inc. (Ndemic)&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |

@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.44.0",
+  "version": "1.44.1",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -9818,8 +9818,25 @@
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.ndemiccreations.plagueinc",
+          "packageName": "com.miniclip.plagueinc",
           "name": "Plague Inc.",
+          "description": "Plague Inc. by Ndemic Creations / Miniclip",
+          "apkFileType": null,
+          "appIconColor": "#8B0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "packageName": "com.ndemiccreations.plagueinc",
+          "name": "Plague Inc. (Ndemic)",
           "description": "Plague Inc. by Ndemic Creations",
           "apkFileType": null,
           "appIconColor": "#8B0000",
@@ -10061,8 +10078,25 @@
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.ndemiccreations.plagueinc",
+          "packageName": "com.miniclip.plagueinc",
           "name": "Plague Inc.",
+          "description": "Plague Inc. by Ndemic Creations / Miniclip",
+          "apkFileType": null,
+          "appIconColor": "#8B0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "packageName": "com.ndemiccreations.plagueinc",
+          "name": "Plague Inc. (Ndemic)",
           "description": "Plague Inc. by Ndemic Creations",
           "apkFileType": null,
           "appIconColor": "#8B0000",
@@ -10115,8 +10149,25 @@
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.ndemiccreations.plagueinc",
+          "packageName": "com.miniclip.plagueinc",
           "name": "Plague Inc.",
+          "description": "Plague Inc. by Ndemic Creations / Miniclip",
+          "apkFileType": null,
+          "appIconColor": "#8B0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "packageName": "com.ndemiccreations.plagueinc",
+          "name": "Plague Inc. (Ndemic)",
           "description": "Plague Inc. by Ndemic Creations",
           "apkFileType": null,
           "appIconColor": "#8B0000",
@@ -11239,8 +11290,25 @@
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.ndemiccreations.plagueinc",
+          "packageName": "com.miniclip.plagueinc",
           "name": "Plague Inc.",
+          "description": "Plague Inc. by Ndemic Creations / Miniclip",
+          "apkFileType": null,
+          "appIconColor": "#8B0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "packageName": "com.ndemiccreations.plagueinc",
+          "name": "Plague Inc. (Ndemic)",
           "description": "Plague Inc. by Ndemic Creations",
           "apkFileType": null,
           "appIconColor": "#8B0000",

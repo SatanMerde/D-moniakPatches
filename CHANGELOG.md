@@ -1,3 +1,9 @@
+## [1.44.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.44.0...v1.44.1) (2026-10-03)
+
+### 🐛 Bug Fixes
+
+* **plagueinc:** update package name to com.miniclip.plagueinc with alt support ([3bcc36d](https://github.com/SatanMerde/D-moniakPatches/commit/3bcc36dcb1ff2c1e76c4dccc2cbdfe5d822d23bd))
+
 ## [1.44.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.43.0...v1.44.0) (2026-10-03)
 
 ### ✨ New Features

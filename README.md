@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.46.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.46.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**457 patchs au total** (10 validés & fonctionnels • 447 expérimentaux)
+> **[v1.46.1](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.46.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**457 patchs au total** (10 validés & fonctionnels • 447 expérimentaux)
 
 ---
 
@@ -1107,7 +1107,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 |----------|----------------|
 | [Spicetify AMOLED Black Theme - Spotify (Experimental)](#spicetify-amoled-black-theme-spotify-experimental) | ⚠️ [En cours de développement / Non testé] Implements an OLED True Black (#000000) theme for Spotify Mobile, replacing dark-grey backgrounds on AMOLED displays for maximum contrast and battery savings across updates. |
 | [Spicetify Community Addons & Settings - Spotify (Experimental)](#spicetify-community-addons-settings-spotify-experimental) | ⚠️ [En cours de développement / Non testé] Attempts to expose developer lab flags. NOTE: Spicetify extensions are made for Desktop and cannot run natively on Android without an LSPosed/Xposed framework. |
-| [Spicetify Custom Accent Color - Spotify (Experimental)](#spicetify-custom-accent-color-spotify-experimental) | ⚠️ [En cours de développement / Non testé] Replaces the default Spotify green (#1DB954) with custom theme accents (Purple, Cyan, Crimson, Gold) resilient across weekly updates. |
+| [Spicetify Custom Accent Color - Spotify (Experimental)](#spicetify-custom-accent-color-spotify-experimental) | ⚠️ [En cours de développement / Non testé] Replaces Spotify brand green (#1DB954 / #1ED760) with custom Cyberpunk Electric Purple (#8A2BE2) across obfuscated bytecode, string tables, and color models. |
 | [Spicetify Declutter UI - Spotify (Experimental)](#spicetify-declutter-ui-spotify-experimental) | ⚠️ [En cours de développement / Non testé] Attempts to hide Premium upgrade prompts and promotional elements. NOTE: Spotify uses server-driven UI and code obfuscation; some banners are injected directly from Spotify backend. |
 | [Unlock Spotify Premium & Playback Restrictions - Spotify (Experimental)](#unlock-spotify-premium-playback-restrictions-spotify-experimental) | ⚠️ [En cours de développement / Non testé] Débloque les fonctionnalités Premium sur Spotify : zapping illimité (skips), lecture à la demande sans mode aléatoire forcé (no shuffle), recherche libre sur la barre de lecture (scrubbing/seeking), répétition de pistes et suppression des publicités audio/visuelles. |
 

@@ -1,3 +1,9 @@
+## [1.46.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.46.0...v1.46.1) (2026-10-03)
+
+### 🐛 Bug Fixes
+
+* **spotify:** overhaul AMOLED theme with Window DecorView injection and accent color string redirection ([67e2cff](https://github.com/SatanMerde/D-moniakPatches/commit/67e2cffbe6b7ac3aaa66a2f3e53be536adea8623))
+
 ## [1.46.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.45.0...v1.46.0) (2026-10-03)
 
 ### ✨ New Features

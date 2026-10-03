@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.40.0",
+  "version": "1.41.0",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -474,6 +474,33 @@
           "description": "Signal Private Messenger by Signal Foundation",
           "apkFileType": null,
           "appIconColor": "#3A76F0",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Privacy - Undercover (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) for party night sessions and strips analytics telemetry (Firebase, Facebook SDK, AppsFlyer) in Undercover.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.yanstarstudio.joss.undercover",
+          "name": "Undercover",
+          "description": "Undercover®: Word Party Game by Yanstar Studio OU",
+          "apkFileType": null,
+          "appIconColor": "#2A2E3D",
           "signatures": null,
           "targets": [
             {
@@ -1581,6 +1608,33 @@
           "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
           "apkFileType": null,
           "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block Ads & Commercials - Undercover (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Strips interstitial video ads between rounds, banner ads in lobby and voting screens, and rewarded video gates by neutralizing ad SDK calls.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.yanstarstudio.joss.undercover",
+          "name": "Undercover",
+          "description": "Undercover®: Word Party Game by Yanstar Studio OU",
+          "apkFileType": null,
+          "appIconColor": "#2A2E3D",
           "signatures": null,
           "targets": [
             {
@@ -9838,6 +9892,33 @@
       "options": []
     },
     {
+      "name": "Unlock Advanced Game Settings - Undercover (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks advanced game configuration (custom player counts, exact role distribution sliders for Civilians, Undercover agents, and Mr. White, custom discussion timers, and voting rules).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.yanstarstudio.joss.undercover",
+          "name": "Undercover",
+          "description": "Undercover®: Word Party Game by Yanstar Studio OU",
+          "apkFileType": null,
+          "appIconColor": "#2A2E3D",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock All Boxes & Superpowers - Cut the Rope (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Unlocks all level boxes, seasons, Om Nom candies, and unlocks unlimited superpowers (candy magnets & telekinesis) in Cut the Rope.",
       "default": true,
@@ -10027,6 +10108,33 @@
       "options": []
     },
     {
+      "name": "Unlock All Word Packs & Premium - Undercover (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Hooks in-app purchase verification and license state to unlock all premium word packs (Adult 18+, Pop Culture, Geek, Cinema, Science & History) and remove all paywalls.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.yanstarstudio.joss.undercover",
+          "name": "Undercover",
+          "description": "Undercover®: Word Party Game by Yanstar Studio OU",
+          "apkFileType": null,
+          "appIconColor": "#2A2E3D",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock AllTrails+ & Offline Maps - AllTrails (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Hooks Google Play Billing to bypass in-app purchase verification for AllTrails+ (offline topo map downloads, wrong-turn navigation alerts, and 3D trail previews).",
       "default": true,
@@ -10174,6 +10282,33 @@
           "description": "Proton VPN: Fast & Secure by Proton AG",
           "apkFileType": null,
           "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Custom Words Creator - Undercover (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks the custom word pack creator allowing players to create, save, and edit unlimited secret word pairs and custom clue databases without subscription restrictions.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.yanstarstudio.joss.undercover",
+          "name": "Undercover",
+          "description": "Undercover®: Word Party Game by Yanstar Studio OU",
+          "apkFileType": null,
+          "appIconColor": "#2A2E3D",
           "signatures": null,
           "targets": [
             {

@@ -1,3 +1,9 @@
+## [1.41.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.40.0...v1.41.0) (2026-10-03)
+
+### ✨ New Features
+
+* **undercover:** add comprehensive patch suite for Undercover Word Party Game ([c5268f2](https://github.com/SatanMerde/D-moniakPatches/commit/c5268f209c0fbc8451ee0f93fffcdfa400fba1da))
+
 ## [1.40.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.39.0...v1.40.0) (2026-10-03)
 
 ### 🐛 Bug Fixes

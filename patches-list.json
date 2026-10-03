@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.41.0",
+  "version": "1.42.0",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -2121,6 +2121,33 @@
           "description": "SoundCloud: Play Music & Songs by SoundCloud Global Limited & Co KG",
           "apkFileType": null,
           "appIconColor": "#FF5500",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block Cookie & Consent Banner - Undercover (Experimental)",
+      "description": "⚠️ [En cours de développement / Non testé] Blocks and removes the GDPR / Google UMP Cookie consent dialog on first launch by spoofing consent status as OBTAINED and neutralizing consent form presentation.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.yanstarstudio.joss.undercover",
+          "name": "Undercover",
+          "description": "Undercover®: Word Party Game by Yanstar Studio OU",
+          "apkFileType": null,
+          "appIconColor": "#2A2E3D",
           "signatures": null,
           "targets": [
             {

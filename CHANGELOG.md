@@ -1,3 +1,9 @@
+## [1.42.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.41.0...v1.42.0) (2026-10-03)
+
+### ✨ New Features
+
+* **undercover:** add cookie/consent banner blocker and reverse-engineer obfuscated purchase checks ([48d041e](https://github.com/SatanMerde/D-moniakPatches/commit/48d041e4bd55d0a882ffa59cbc868867f76ec034))
+
 ## [1.41.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.40.0...v1.41.0) (2026-10-03)
 
 ### ✨ New Features

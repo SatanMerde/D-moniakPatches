@@ -14,13 +14,13 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-445-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-446-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-patchs-validés--fonctionnels--tested--functional-patches">
     <img src="https://img.shields.io/badge/Fonctionnels-10-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-patchs-expérimentaux--en-développement--experimental-patches-ai-generated">
-    <img src="https://img.shields.io/badge/Expérimentaux-435-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Expérimentaux-436-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-87-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.41.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.41.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**445 patchs au total** (10 validés & fonctionnels • 435 expérimentaux)
+> **[v1.42.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.42.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**446 patchs au total** (10 validés & fonctionnels • 436 expérimentaux)
 
 ---
 
@@ -1202,13 +1202,14 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>📦 Undercover&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
+<summary>📦 Undercover&nbsp;&nbsp;•&nbsp;&nbsp;6 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [AMOLED Dark Theme & Privacy - Undercover (Experimental)](#amoled-dark-theme-privacy-undercover-experimental) | ⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) for party night sessions and strips analytics telemetry (Firebase, Facebook SDK, AppsFlyer) in Undercover. |
 | [Block Ads & Commercials - Undercover (Experimental)](#block-ads-commercials-undercover-experimental) | ⚠️ [En cours de développement / Non testé] Strips interstitial video ads between rounds, banner ads in lobby and voting screens, and rewarded video gates by neutralizing ad SDK calls. |
+| [Block Cookie & Consent Banner - Undercover (Experimental)](#block-cookie-consent-banner-undercover-experimental) | ⚠️ [En cours de développement / Non testé] Blocks and removes the GDPR / Google UMP Cookie consent dialog on first launch by spoofing consent status as OBTAINED and neutralizing consent form presentation. |
 | [Unlock Advanced Game Settings - Undercover (Experimental)](#unlock-advanced-game-settings-undercover-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks advanced game configuration (custom player counts, exact role distribution sliders for Civilians, Undercover agents, and Mr. White, custom discussion timers, and voting rules). |
 | [Unlock All Word Packs & Premium - Undercover (Experimental)](#unlock-all-word-packs-premium-undercover-experimental) | ⚠️ [En cours de développement / Non testé] Hooks in-app purchase verification and license state to unlock all premium word packs (Adult 18+, Pop Culture, Geek, Cinema, Science & History) and remove all paywalls. |
 | [Unlock Custom Words Creator - Undercover (Experimental)](#unlock-custom-words-creator-undercover-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks the custom word pack creator allowing players to create, save, and edit unlimited secret word pairs and custom clue databases without subscription restrictions. |

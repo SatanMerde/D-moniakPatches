@@ -1,3 +1,10 @@
+## [1.36.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.36.1...v1.36.2) (2026-10-03)
+
+### 🐛 Bug Fixes
+
+* **gmscore:** add missing addInstructions import in UniversalGmsCoreSupportPatch ([4c893b5](https://github.com/SatanMerde/D-moniakPatches/commit/4c893b5abb8c7fc10c4d97d01fefe6f7c303a5c4))
+* **gmscore:** redirect account type com.google to app.revanced, authorities, and hook availability to fix login conflict ([ae8db26](https://github.com/SatanMerde/D-moniakPatches/commit/ae8db26d25bea10a2126a21e5540a57e50d5c6c6))
+
 ## [1.36.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.36.0...v1.36.1) (2026-10-03)
 
 ### 🐛 Bug Fixes

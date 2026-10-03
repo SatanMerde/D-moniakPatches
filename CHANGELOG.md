@@ -1,3 +1,9 @@
+## [1.44.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.43.0...v1.44.0) (2026-10-03)
+
+### ✨ New Features
+
+* **undercover:** add pack enum hook to custom words creator patch ([f882426](https://github.com/SatanMerde/D-moniakPatches/commit/f882426336c4365fab04e62ece92882f3f35a977))
+
 ## [1.43.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.42.0...v1.43.0) (2026-10-03)
 
 ### ✨ New Features

@@ -1,3 +1,9 @@
+## [1.46.3](https://github.com/SatanMerde/D-moniakPatches/compare/v1.46.2...v1.46.3) (2026-10-04)
+
+### 🐛 Bug Fixes
+
+* **spotify:** expand Encore palette hooks for surface cards, search bar, pills, and checkmarks ([cf8f16c](https://github.com/SatanMerde/D-moniakPatches/commit/cf8f16cc8524cca8de790532c9980d1e7b2fe24c))
+
 ## [1.46.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.46.1...v1.46.2) (2026-10-04)
 
 ### 🐛 Bug Fixes

@@ -14,6 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstructio
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
@@ -23,7 +24,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val spotifyAmoledThemePatch = bytecodePatch(
     name = "Spicetify AMOLED Black Theme - Spotify (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Implements an OLED True Black (#000000) theme for Spotify Mobile, replacing dark-grey backgrounds across Jetpack Compose Encore design system (64-bit literals), obfuscated Dalvik bytecode, and string tables for maximum contrast and battery savings.",
+    description = "⚠️ [En cours de développement / Non testé] Implements an OLED True Black (#000000) theme for Spotify Mobile, replacing dark-grey backgrounds across Jetpack Compose Encore design system (64-bit literals), obfuscated Dalvik bytecode, CardView containers, BottomSheets, and string tables for maximum contrast and battery savings.",
 ) {
     compatibleWith(COMPATIBILITY_SPOTIFY)
 
@@ -80,6 +81,13 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                         0x00000000ff2a2a2aL, // Surface Card Modal Background
                         0x00000000ff2b2b2bL, // Bottom Sheets & Dialogs
                         0x00000000ff343434L, // Search Bar Container, Category Filter Pills (Playlists/Podcasts), Status Boxes
+                        0x00000000ff353535L, // Dark Grey Pill / Card Variant
+                        0x00000000ff535353L, // Mid Dark Grey Container
+                        0x00000000ff656565L, // Neutral Grey Container
+                        0x00000000ff717171L, // Neutral Surface Border / Pill
+                        0x00000000ff727272L, // Neutral Surface Variant
+                        0x00000000ff747474L, // Secondary Surface Border
+                        0x00000000ff7c7c7cL, // Elevated Grey Container
                         0x00000000ff0b0b0bL, // Border / Divider Dark
                         0x00000000ff040404L, // Deep Dark Tint
                         0x00000000ff444444L  // Inactive Pill Backgrounds & Dividers
@@ -107,6 +115,13 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                         -60189285139087360L, // 0xff2a2a2a00000000L
                         -59906706355781632L, // 0xff2b2b2b00000000L
                         -57363497306030080L, // 0xff34343400000000L
+                        -57303024569155584L, // 0xff35353500000000L
+                        -48644365769244672L, // 0xff53535300000000L
+                        -43534960325296128L, // 0xff65656500000000L
+                        -40126462719655936L, // 0xff71717100000000L
+                        -39843883936350208L, // 0xff72727200000000L
+                        -39278726369738752L, // 0xff74747400000000L
+                        -37018131335446528L, // 0xff7c7c7c00000000L
                         -68949227421564928L, // 0xff0b0b0b00000000L
                         -70927278904705024L, // 0xff04040400000000L
                         -52842236773138432L  // 0xff44444400000000L
@@ -147,6 +162,13 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                         -14013910, // #FF2A2A2A
                         -13948117, // #FF2B2B2B
                         -13355980, // #FF343434
+                        -13289931, // #FF353535
+                        -11316397, // #FF535353
+                        -10132123, // #FF656565
+                        -9342607,  // #FF717171
+                        -9276814,  // #FF727272
+                        -9145228,  // #FF747474
+                        -8618884,  // #FF7C7C7C
                         -16053493, // #FF0B0B0B
                         -16514044, // #FF040404
                         -12303292  // #FF444444
@@ -169,6 +191,13 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                         2763306, // 0x2A2A2A
                         2829099, // 0x2B2B2B
                         3420980, // 0x343434
+                        3487029, // 0x353535
+                        5460819, // 0x535353
+                        6645093, // 0x656565
+                        7434609, // 0x717171
+                        7500402, // 0x727272
+                        7631988, // 0x747474
+                        8158332, // 0x7C7C7C
                         723723,  // 0x0B0B0B
                         263172,  // 0x040404
                         4473924  // 0x444444
@@ -195,11 +224,13 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                     if (s == "#121212" || s == "#181818" || s == "#191414" || s == "#191919" || s == "#141414" ||
                         s == "#171717" || s == "#1b1b1b" || s == "#1f1f1f" || s == "#212121" || s == "#232323" ||
                         s == "#242424" || s == "#282828" || s == "#292929" || s == "#2a2a2a" || s == "#2b2b2b" ||
-                        s == "#343434" || s == "#0b0b0b" || s == "#040404" || s == "#444444" ||
+                        s == "#343434" || s == "#353535" || s == "#535353" || s == "#656565" || s == "#717171" ||
+                        s == "#727272" || s == "#747474" || s == "#7c7c7c" || s == "#0b0b0b" || s == "#040404" || s == "#444444" ||
                         s == "121212" || s == "181818" || s == "191414" || s == "191919" || s == "141414" ||
                         s == "171717" || s == "1b1b1b" || s == "1f1f1f" || s == "212121" || s == "232323" ||
                         s == "242424" || s == "282828" || s == "292929" || s == "2a2a2a" || s == "2b2b2b" ||
-                        s == "343434" || s == "0b0b0b" || s == "040404" || s == "444444"
+                        s == "343434" || s == "353535" || s == "535353" || s == "656565" || s == "717171" ||
+                        s == "727272" || s == "747474" || s == "7c7c7c" || s == "0b0b0b" || s == "040404" || s == "444444"
                     ) {
                         val reg = (instruction as? OneRegisterInstruction)?.registerA ?: continue
                         val newInsn = if (instruction.opcode == Opcode.CONST_STRING_JUMBO) {
@@ -278,6 +309,196 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                     logger.info("[Spotify AMOLED] Enforced dark theme: ${type}->${mName}")
                 } catch (e: Exception) {
                     logger.fine("[Spotify AMOLED] Failed to hook ${mName}: ${e.message}")
+                }
+            }
+        }
+
+        // 4. Specialized Hook: CardView & MaterialCardView Pure Black Background (Targets 1 & 4)
+        if (type == "Landroidx/cardview/widget/CardView;" || type == "Lcom/google/android/material/card/MaterialCardView;") {
+            for (method in classDef.methods) {
+                val mName = method.name
+                if (mName == "<init>" && method.parameterTypes == listOf("Landroid/content/Context;", "Landroid/util/AttributeSet;", "I")) {
+                    val impl = method.implementation ?: continue
+                    val instructions = impl.instructions.toList()
+                    for ((idx, insn) in instructions.withIndex().reversed()) {
+                        if (insn.opcode == Opcode.RETURN_VOID) {
+                            try {
+                                val mutableMethod = mutableClass.findMutableMethodOf(method)
+                                mutableMethod.addInstructions(
+                                    idx,
+                                    """
+                                    const/high16 v0, -0x1000000
+                                    invoke-virtual {p0, v0}, $type->setCardBackgroundColor(I)V
+                                    """.trimIndent()
+                                )
+                                methodsHooked++
+                                logger.info("[Spotify AMOLED] Hooked $type constructor to enforce black CardView background")
+                            } catch (e: Exception) {
+                                logger.fine("[Spotify AMOLED] Skip $type constructor hook: ${e.message}")
+                            }
+                            break
+                        }
+                    }
+                } else if (mName == "setCardBackgroundColor") {
+                    if (method.parameterTypes == listOf("I")) {
+                        try {
+                            val mutableMethod = mutableClass.findMutableMethodOf(method)
+                            mutableMethod.addInstructions(
+                                0,
+                                """
+                                const/high16 p1, -0x1000000
+                                """.trimIndent()
+                            )
+                            methodsHooked++
+                            logger.info("[Spotify AMOLED] Hooked $type->setCardBackgroundColor(I) to pure black")
+                        } catch (e: Exception) {
+                            logger.fine("[Spotify AMOLED] Skip setCardBackgroundColor(I) hook: ${e.message}")
+                        }
+                    } else if (method.parameterTypes == listOf("Landroid/content/res/ColorStateList;")) {
+                        try {
+                            val mutableMethod = mutableClass.findMutableMethodOf(method)
+                            mutableMethod.addInstructions(
+                                0,
+                                """
+                                const/high16 v0, -0x1000000
+                                invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+                                move-result-object p1
+                                """.trimIndent()
+                            )
+                            methodsHooked++
+                            logger.info("[Spotify AMOLED] Hooked $type->setCardBackgroundColor(ColorStateList) to pure black")
+                        } catch (e: Exception) {
+                            logger.fine("[Spotify AMOLED] Skip setCardBackgroundColor(ColorStateList) hook: ${e.message}")
+                        }
+                    }
+                } else if (mName == "getCardBackgroundColor" && method.parameterTypes.isEmpty()) {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        mutableMethod.addInstructions(
+                            0,
+                            """
+                            const/high16 v0, -0x1000000
+                            invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+                            move-result-object v0
+                            return-object v0
+                            """.trimIndent()
+                        )
+                        methodsHooked++
+                        logger.info("[Spotify AMOLED] Hooked $type->getCardBackgroundColor to pure black")
+                    } catch (e: Exception) {
+                        logger.fine("[Spotify AMOLED] Skip getCardBackgroundColor hook: ${e.message}")
+                    }
+                }
+            }
+        }
+
+        // 5. Specialized Hook: BottomSheetBehavior Pure Black Background (Target 3)
+        if (type == "Lcom/google/android/material/bottomsheet/BottomSheetBehavior;") {
+            for (method in classDef.methods) {
+                if (method.name == "w" && method.parameterTypes.size == 4 && method.parameterTypes[3] == "Landroid/content/res/ColorStateList;") {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        mutableMethod.addInstructions(
+                            0,
+                            """
+                            const/high16 v0, -0x1000000
+                            invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+                            move-result-object p4
+                            """.trimIndent()
+                        )
+                        methodsHooked++
+                        logger.info("[Spotify AMOLED] Hooked BottomSheetBehavior->w background ColorStateList to pure black")
+                    } catch (e: Exception) {
+                        logger.fine("[Spotify AMOLED] Skip BottomSheetBehavior->w hook: ${e.message}")
+                    }
+                }
+            }
+        }
+
+        // 6. Specialized Hook: Lottie Runtime Color Interceptor for Surface Greys (Targets 1 & 4)
+        for (method in classDef.methods) {
+            val impl = method.implementation ?: continue
+            val retType = method.returnType
+            if (retType == "I" && method.parameterTypes.size == 1 && method.parameterTypes[0].startsWith("L")) {
+                val instructions = impl.instructions.toList()
+                val callsArgb = instructions.any { insn ->
+                    val ref = (insn as? ReferenceInstruction)?.reference as? MethodReference
+                    ref?.definingClass == "Landroid/graphics/Color;" && ref?.name == "argb"
+                }
+                if (callsArgb) {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        for ((idx, insn) in instructions.withIndex().reversed()) {
+                            if (insn.opcode == Opcode.RETURN) {
+                                val reg = (insn as OneRegisterInstruction).registerA
+                                val tempReg = if (reg == 0) "v1" else "v0"
+                                val r = "v$reg"
+                                val smali = """
+                                    const $tempReg, -15592942
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -15200232
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -15133676
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -15132391
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -15461356
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -15263977
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -15000805
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -14737633
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -14606047
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -14474461
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -14408668
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -14145496
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -14079703
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -14013910
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -13948117
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -13355980
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -16053493
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -16514044
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -12303292
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -13289931
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -11316397
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -10132123
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -9342607
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -9276814
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -9145228
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -8618884
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    goto :amoled_grey_skip_$idx
+                                    :amoled_grey_match_$idx
+                                    const/high16 $r, -0x1000000
+                                    :amoled_grey_skip_$idx
+                                """.trimIndent()
+                                mutableMethod.addInstructions(idx, smali)
+                                methodsHooked++
+                                logger.info("[Spotify AMOLED] Injected Lottie ColorParser AMOLED Black interceptor in ${type}->${method.name}")
+                            }
+                        }
+                    } catch (e: Exception) {
+                        logger.fine("[Spotify AMOLED] Skip Lottie interceptor in ${type}->${method.name}: ${e.message}")
+                    }
                 }
             }
         }

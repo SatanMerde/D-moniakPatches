@@ -14,6 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstructio
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
@@ -23,7 +24,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val spotifyAccentColorPatch = bytecodePatch(
     name = "Spicetify Custom Accent Color - Spotify (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Replaces Spotify brand green (#1DB954 / #1ED760) with custom Cyberpunk Electric Purple (#8A2BE2) across Jetpack Compose Encore design system (64-bit literals), obfuscated Dalvik bytecode, string tables, and color models.",
+    description = "⚠️ [En cours de développement / Non testé] Replaces Spotify brand green (#1DB954 / #1ED760) with custom Cyberpunk Electric Purple (#8A2BE2) across Jetpack Compose Encore design system (64-bit literals), obfuscated Dalvik bytecode, Lottie animation parsers, string tables, and color models.",
 ) {
     compatibleWith(COMPATIBILITY_SPOTIFY)
 
@@ -214,6 +215,88 @@ fun BytecodePatchContext.executeSpotifyAccentColorLogic(logger: Logger) {
                         logger.info("[Spotify Accent] Hooked Compose brand color method in ${classDef.type}->${method.name}")
                     } catch (e: Exception) {
                         logger.fine("[Spotify Accent] Failed to hook Compose ${method.name}: ${e.message}")
+                    }
+                }
+            }
+        }
+
+        // 5. Specialized Hook: Lottie Runtime Color Interceptor for Spotify Greens -> Cyberpunk Electric Purple (Target 2)
+        for (method in classDef.methods) {
+            val impl = method.implementation ?: continue
+            val retType = method.returnType
+            if (retType == "I" && method.parameterTypes.size == 1 && method.parameterTypes[0].startsWith("L")) {
+                val instructions = impl.instructions.toList()
+                val callsArgb = instructions.any { insn ->
+                    val ref = (insn as? ReferenceInstruction)?.reference as? MethodReference
+                    ref?.definingClass == "Landroid/graphics/Color;" && ref?.name == "argb"
+                }
+                if (callsArgb) {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        for ((idx, insn) in instructions.withIndex().reversed()) {
+                            if (insn.opcode == Opcode.RETURN) {
+                                val reg = (insn as OneRegisterInstruction).registerA
+                                val tempReg = if (reg == 0) "v1" else "v0"
+                                val r = "v$reg"
+                                val smali = """
+                                    const $tempReg, -14756000
+                                    if-eq $r, $tempReg, :accent_purple_match_$idx
+                                    const $tempReg, -14829228
+                                    if-eq $r, $tempReg, :accent_purple_match_$idx
+                                    const $tempReg, -14557339
+                                    if-eq $r, $tempReg, :accent_purple_match_$idx
+                                    const $tempReg, -12852105
+                                    if-eq $r, $tempReg, :accent_purple_match_$idx
+                                    const $tempReg, -14960044
+                                    if-eq $r, $tempReg, :accent_purple_match_$idx
+                                    const $tempReg, -15362750
+                                    if-eq $r, $tempReg, :accent_purple_match_$idx
+                                    const $tempReg, -10426224
+                                    if-eq $r, $tempReg, :accent_purple_match_$idx
+                                    const $tempReg, -15698892
+                                    if-eq $r, $tempReg, :accent_purple_match_$idx
+                                    const $tempReg, -14688412
+                                    if-eq $r, $tempReg, :accent_purple_match_$idx
+                                    const $tempReg, -15295418
+                                    if-eq $r, $tempReg, :accent_purple_match_$idx
+                                    const $tempReg, -13713831
+                                    if-eq $r, $tempReg, :accent_purple_match_$idx
+                                    goto :accent_purple_skip_$idx
+                                    :accent_purple_match_$idx
+                                    const $r, -7722014
+                                    :accent_purple_skip_$idx
+                                """.trimIndent()
+                                mutableMethod.addInstructions(idx, smali)
+                                methodsHooked++
+                                logger.info("[Spotify Accent] Injected Lottie ColorParser Electric Purple interceptor in ${classDef.type}->${method.name}")
+                            }
+                        }
+                    } catch (e: Exception) {
+                        logger.fine("[Spotify Accent] Skip Lottie interceptor in ${classDef.type}->${method.name}: ${e.message}")
+                    }
+                }
+            }
+        }
+
+        // 6. Specialized Hook: EncoreButton / MaterialButton Active Tint (Target 2)
+        if (classDef.type == "Lcom/spotify/encoremobile/component/buttons/EncoreButton;" ||
+            classDef.type == "Lcom/spotify/encoreconsumermobile/elements/addtobutton/EncoreAddToButtonView;") {
+            for (method in classDef.methods) {
+                if (method.name.lowercase().contains("tint") || method.name.lowercase().contains("active")) {
+                    if (method.parameterTypes == listOf("I")) {
+                        try {
+                            val mutableMethod = mutableClass.findMutableMethodOf(method)
+                            mutableMethod.addInstructions(
+                                0,
+                                """
+                                const p1, -7722014
+                                """.trimIndent()
+                            )
+                            methodsHooked++
+                            logger.info("[Spotify Accent] Hooked ${classDef.type}->${method.name}(I) to Electric Purple")
+                        } catch (e: Exception) {
+                            logger.fine("[Spotify Accent] Skip tint hook: ${e.message}")
+                        }
                     }
                 }
             }

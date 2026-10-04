@@ -1,3 +1,9 @@
+## [1.46.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.46.1...v1.46.2) (2026-10-04)
+
+### 🐛 Bug Fixes
+
+* **spotify:** add 64-bit Jetpack Compose color hooks for AMOLED and accent color, fix register allocation ([4e22c35](https://github.com/SatanMerde/D-moniakPatches/commit/4e22c358c07807bb0ef0b3052eda667f3dfbef1d))
+
 ## [1.46.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.46.0...v1.46.1) (2026-10-03)
 
 ### 🐛 Bug Fixes

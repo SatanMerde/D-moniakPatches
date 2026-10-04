@@ -1,3 +1,9 @@
+## [1.47.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.47.0...v1.47.1) (2026-10-04)
+
+### 🐛 Bug Fixes
+
+* **spotify:** resolve crash on launch by removing conflicting method hooks and maintaining bytecode-safe literal architecture ([5508ed1](https://github.com/SatanMerde/D-moniakPatches/commit/5508ed11d7dc7a9a716e7f9c0164822368664429))
+
 ## [1.47.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.46.4...v1.47.0) (2026-10-04)
 
 ### ✨ New Features

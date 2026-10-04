@@ -24,7 +24,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val spotifyAmoledThemePatch = bytecodePatch(
     name = "Spicetify AMOLED Black Theme - Spotify (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Implements an OLED True Black (#000000) theme for Spotify Mobile, replacing dark-grey backgrounds across Jetpack Compose Encore design system (64-bit literals), obfuscated Dalvik bytecode, CardView containers, BottomSheets, and string tables for maximum contrast and battery savings.",
+    description = "⚠️ [En cours de développement / Non testé] Implements an OLED True Black (#000000) theme for Spotify Mobile, replacing dark-grey backgrounds across Jetpack Compose Encore design system (64-bit literals), Jetpack Compose ColorSpace converters (Color(int) / Color.toArgb() / convertArgbToRgba), obfuscated Dalvik bytecode, CardView containers, BottomSheets, Lottie animation parsers, and string tables for maximum contrast and battery savings.",
 ) {
     compatibleWith(COMPATIBILITY_SPOTIFY)
 
@@ -80,6 +80,7 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                         0x00000000ff292929L, // Elevated Surface Containers, Sort & Layout Toggles
                         0x00000000ff2a2a2aL, // Surface Card Modal Background
                         0x00000000ff2b2b2bL, // Bottom Sheets & Dialogs
+                        0x00000000ff333333L, // Home Category Filter Pills (Music / Podcasts / Audiobooks)
                         0x00000000ff343434L, // Search Bar Container, Category Filter Pills (Playlists/Podcasts), Status Boxes
                         0x00000000ff353535L, // Dark Grey Pill / Card Variant
                         0x00000000ff535353L, // Mid Dark Grey Container
@@ -114,6 +115,7 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                         -60471863922393088L, // 0xff29292900000000L
                         -60189285139087360L, // 0xff2a2a2a00000000L
                         -59906706355781632L, // 0xff2b2b2b00000000L
+                        -57646076089335808L, // 0xff33333300000000L (Home Category Pills)
                         -57363497306030080L, // 0xff34343400000000L
                         -57303024569155584L, // 0xff35353500000000L
                         -48644365769244672L, // 0xff53535300000000L
@@ -161,6 +163,7 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                         -14079703, // #FF292929
                         -14013910, // #FF2A2A2A
                         -13948117, // #FF2B2B2B
+                        -13421773, // #FF333333 (Home Category Filter Pills)
                         -13355980, // #FF343434
                         -13289931, // #FF353535
                         -11316397, // #FF535353
@@ -190,6 +193,7 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                         2697513, // 0x292929
                         2763306, // 0x2A2A2A
                         2829099, // 0x2B2B2B
+                        3355443, // 0x333333 (Home Category Filter Pills)
                         3420980, // 0x343434
                         3487029, // 0x353535
                         5460819, // 0x535353
@@ -224,12 +228,12 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                     if (s == "#121212" || s == "#181818" || s == "#191414" || s == "#191919" || s == "#141414" ||
                         s == "#171717" || s == "#1b1b1b" || s == "#1f1f1f" || s == "#212121" || s == "#232323" ||
                         s == "#242424" || s == "#282828" || s == "#292929" || s == "#2a2a2a" || s == "#2b2b2b" ||
-                        s == "#343434" || s == "#353535" || s == "#535353" || s == "#656565" || s == "#717171" ||
+                        s == "#333333" || s == "#343434" || s == "#353535" || s == "#535353" || s == "#656565" || s == "#717171" ||
                         s == "#727272" || s == "#747474" || s == "#7c7c7c" || s == "#0b0b0b" || s == "#040404" || s == "#444444" ||
                         s == "121212" || s == "181818" || s == "191414" || s == "191919" || s == "141414" ||
                         s == "171717" || s == "1b1b1b" || s == "1f1f1f" || s == "212121" || s == "232323" ||
                         s == "242424" || s == "282828" || s == "292929" || s == "2a2a2a" || s == "2b2b2b" ||
-                        s == "343434" || s == "353535" || s == "535353" || s == "656565" || s == "717171" ||
+                        s == "333333" || s == "343434" || s == "353535" || s == "535353" || s == "656565" || s == "717171" ||
                         s == "727272" || s == "747474" || s == "7c7c7c" || s == "0b0b0b" || s == "040404" || s == "444444"
                     ) {
                         val reg = (instruction as? OneRegisterInstruction)?.registerA ?: continue
@@ -466,6 +470,8 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                                     if-eq $r, $tempReg, :amoled_grey_match_$idx
                                     const $tempReg, -13355980
                                     if-eq $r, $tempReg, :amoled_grey_match_$idx
+                                    const $tempReg, -13421773
+                                    if-eq $r, $tempReg, :amoled_grey_match_$idx
                                     const $tempReg, -16053493
                                     if-eq $r, $tempReg, :amoled_grey_match_$idx
                                     const $tempReg, -16514044
@@ -498,6 +504,136 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                         }
                     } catch (e: Exception) {
                         logger.fine("[Spotify AMOLED] Skip Lottie interceptor in ${type}->${method.name}: ${e.message}")
+                    }
+                }
+            }
+        }
+
+        // 7. ReVanced-Proven Architecture: Jetpack Compose ColorSpace Utils Class Hooking
+        // Identifies the Compose ColorSpace class via partial string match:
+        // "The specified color must be encoded in an RGB color space."
+        var isComposeColorSpaceClass = false
+        for (method in classDef.methods) {
+            val impl = method.implementation ?: continue
+            for (insn in impl.instructions) {
+                if (insn.opcode == Opcode.CONST_STRING || insn.opcode == Opcode.CONST_STRING_JUMBO) {
+                    val strRef = (insn as? ReferenceInstruction)?.reference as? StringReference
+                    if (strRef?.string?.contains("The specified color must be encoded in an RGB color space.") == true) {
+                        isComposeColorSpaceClass = true
+                        break
+                    }
+                }
+            }
+            if (isComposeColorSpaceClass) break
+        }
+
+        if (isComposeColorSpaceClass) {
+            logger.info("[Spotify AMOLED] Detected Jetpack Compose ColorSpace class: $type")
+            val darkGreyInts = listOf(
+                -15592942, // #FF121212
+                -15200232, // #FF181818
+                -15133676, // #FF191414
+                -15132391, // #FF191919
+                -15461356, // #FF141414
+                -15263977, // #FF171717
+                -15000805, // #FF1B1B1B
+                -14737633, // #FF1F1F1F
+                -14606047, // #FF212121
+                -14474461, // #FF232323
+                -14408668, // #FF242424
+                -14145496, // #FF282828
+                -14079703, // #FF292929
+                -14013910, // #FF2A2A2A
+                -13948117, // #FF2B2B2B
+                -13421773, // #FF333333
+                -13355980, // #FF343434
+                -13289931, // #FF353535
+                -11316397, // #FF535353
+                -10132123, // #FF656565
+                -9342607,  // #FF717171
+                -9276814,  // #FF727272
+                -9145228,  // #FF747474
+                -8618884,  // #FF7C7C7C
+                -16053493, // #FF0B0B0B
+                -16514044, // #FF040404
+                -12303292  // #FF444444
+            )
+
+            for (method in classDef.methods) {
+                val impl = method.implementation ?: continue
+                val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
+                val mName = method.name
+                val retType = method.returnType
+                val paramTypes = method.parameterTypes
+
+                // A. Hook Color(int: Int): Long -> (I)J
+                if (isStatic && retType == "J" && paramTypes == listOf("I")) {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        val sb = java.lang.StringBuilder()
+                        for (c in darkGreyInts) {
+                            sb.appendLine("const v0, $c")
+                            sb.appendLine("if-eq p0, v0, :amoled_b_match")
+                        }
+                        sb.appendLine("goto :amoled_b_skip")
+                        sb.appendLine(":amoled_b_match")
+                        sb.appendLine("const/high16 p0, -0x1000000")
+                        sb.appendLine(":amoled_b_skip")
+                        mutableMethod.addInstructions(0, sb.toString())
+                        methodsHooked++
+                        logger.info("[Spotify AMOLED] Hooked Compose Color(int) $type->$mName to pure black")
+                    } catch (e: Exception) {
+                        logger.fine("[Spotify AMOLED] Skip Color(int) hook: ${e.message}")
+                    }
+                }
+
+                // B. Hook convertArgbToRgba(color: Long): Long -> (J)J
+                if (isStatic && retType == "J" && paramTypes == listOf("J")) {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        val sb = java.lang.StringBuilder()
+                        for (c in darkGreyInts) {
+                            sb.appendLine("const v0, $c")
+                            sb.appendLine("if-eq p0, v0, :amoled_d_match")
+                        }
+                        sb.appendLine("goto :amoled_d_skip")
+                        sb.appendLine(":amoled_d_match")
+                        sb.appendLine("const/high16 p0, -0x1000000")
+                        sb.appendLine(":amoled_d_skip")
+                        mutableMethod.addInstructions(0, sb.toString())
+                        methodsHooked++
+                        logger.info("[Spotify AMOLED] Hooked Compose convertArgbToRgba $type->$mName to pure black")
+                    } catch (e: Exception) {
+                        logger.fine("[Spotify AMOLED] Skip convertArgbToRgba hook: ${e.message}")
+                    }
+                }
+
+                // C. Hook Color.toArgb(color: Long): Int -> (J)I
+                if (isStatic && retType == "I" && paramTypes == listOf("J")) {
+                    val instructions = impl.instructions.toList()
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        for ((idx, insn) in instructions.withIndex().reversed()) {
+                            if (insn.opcode == Opcode.RETURN) {
+                                val reg = (insn as OneRegisterInstruction).registerA
+                                val tempReg = if (reg == 0) "v1" else "v0"
+                                val r = "v$reg"
+                                val sb = java.lang.StringBuilder()
+                                for (c in darkGreyInts) {
+                                    sb.appendLine("const $tempReg, $c")
+                                    sb.appendLine("if-eq $r, $tempReg, :amoled_c_match_$idx")
+                                }
+                                sb.appendLine("goto :amoled_c_skip_$idx")
+                                sb.appendLine(":amoled_c_match_$idx")
+                                sb.appendLine("const/high16 $r, -0x1000000")
+                                sb.appendLine(":amoled_c_skip_$idx")
+                                mutableMethod.addInstructions(idx, sb.toString())
+                                methodsHooked++
+                                logger.info("[Spotify AMOLED] Hooked Compose Color.toArgb $type->$mName to pure black")
+                            }
+                        }
+                    } catch (e: Exception) {
+                        logger.fine("[Spotify AMOLED] Skip Color.toArgb hook: ${e.message}")
                     }
                 }
             }

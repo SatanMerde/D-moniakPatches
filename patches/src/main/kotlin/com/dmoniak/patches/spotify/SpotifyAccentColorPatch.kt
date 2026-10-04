@@ -24,7 +24,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val spotifyAccentColorPatch = bytecodePatch(
     name = "Spicetify Custom Accent Color - Spotify (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Replaces Spotify brand green (#1DB954 / #1ED760) with custom Cyberpunk Electric Purple (#8A2BE2) across Jetpack Compose Encore design system (64-bit literals), obfuscated Dalvik bytecode, Lottie animation parsers, string tables, and color models.",
+    description = "⚠️ [En cours de développement / Non testé] Replaces Spotify brand green (#1DB954 / #1ED760) with custom Cyberpunk Electric Purple (#8A2BE2) across Jetpack Compose Encore design system (64-bit literals), Jetpack Compose ColorSpace converters (Color(int) / Color.toArgb() / convertArgbToRgba), obfuscated Dalvik bytecode, Lottie animation parsers (with float rounding compensation), string tables, and color models.",
 ) {
     compatibleWith(COMPATIBILITY_SPOTIFY)
 
@@ -64,7 +64,9 @@ fun BytecodePatchContext.executeSpotifyAccentColorLogic(logger: Logger) {
                     val newWideVal = when (lit) {
                         // Standard Encore 64-bit green tokens
                         0x00000000ff1ed760L, // Primary Brand Green
+                        0x00000000ff1ed75fL, // Primary Brand Green (Lottie float rounding variation)
                         0x00000000ff1db954L, // Classic Green
+                        0x00000000ff1cb854L, // Classic Green (Lottie float rounding variation)
                         0x00000000ff21df65L, // "Saved/Liked" track checkmark (✔) & Play buttons
                         0x00000000ff3be477L, // Light Active Green / Media control highlight
                         0x00000000ff1abc54L, // Dark Brand Accent
@@ -78,8 +80,10 @@ fun BytecodePatchContext.executeSpotifyAccentColorLogic(logger: Logger) {
 
                         // Shifted representations (high 32 bits)
                         -63376537419776000L, // 0xff1ed76000000000L
+                        -63376541714743296L, // 0xff1ed75f00000000L (float rounding)
                         -63479633854580224L, // 0xff1ed76000000000L (alt)
                         -63691049284927488L, // 0xff1db95400000000L
+                        -63973623773265920L, // 0xff1cb85400000000L (float rounding)
                         -58843912170668032L, // 0xff1db95400000000L (alt)
                         -62523294921785344L, // 0xff21df6500000000L (checkmark)
                         -55199370659758080L, // 0xff3be47700000000L
@@ -112,7 +116,9 @@ fun BytecodePatchContext.executeSpotifyAccentColorLogic(logger: Logger) {
                     val newIntVal = when (lit) {
                         // ARGB 32-bit ints
                         -14756000, // #FF1ED760
+                        -14756001, // #FF1ED75F (Lottie float rounding variation)
                         -14829228, // #FF1DB954
+                        -14894988, // #FF1CB854 (Lottie float rounding variation)
                         -14557339, // #FF21DF65 (Checkmark ✔)
                         -12852105, // #FF3BE477
                         -14960044, // #FF1ABC54
@@ -126,7 +132,9 @@ fun BytecodePatchContext.executeSpotifyAccentColorLogic(logger: Logger) {
 
                         // 24-bit RGB ints
                         2021216, // 0x1ED760
+                        2021215, // 0x1ED75F
                         1948004, // 0x1DB954
+                        1882196, // 0x1CB854
                         2219877, // 0x21DF65
                         3925111, // 0x3BE477
                         1752148, // 0x1ABC54
@@ -156,9 +164,9 @@ fun BytecodePatchContext.executeSpotifyAccentColorLogic(logger: Logger) {
                 if (instruction.opcode == Opcode.CONST_STRING || instruction.opcode == Opcode.CONST_STRING_JUMBO) {
                     val strRef = (instruction as? ReferenceInstruction)?.reference as? StringReference ?: continue
                     val s = strRef.string.lowercase()
-                    if (s == "#1db954" || s == "#1ed760" || s == "#21df65" || s == "#3be477" || s == "#1abc54" ||
+                    if (s == "#1db954" || s == "#1cb854" || s == "#1ed760" || s == "#1ed75f" || s == "#21df65" || s == "#3be477" || s == "#1abc54" ||
                         s == "#159542" || s == "#60e890" || s == "#107434" || s == "#1fdf64" || s == "#169c46" || s == "#2ebd59" ||
-                        s == "1db954" || s == "1ed760" || s == "21df65" || s == "3be477" || s == "1abc54" ||
+                        s == "1db954" || s == "1cb854" || s == "1ed760" || s == "1ed75f" || s == "21df65" || s == "3be477" || s == "1abc54" ||
                         s == "159542" || s == "60e890" || s == "107434" || s == "1fdf64" || s == "169c46" || s == "2ebd59"
                     ) {
                         val reg = (instruction as? OneRegisterInstruction)?.registerA ?: continue
@@ -241,7 +249,11 @@ fun BytecodePatchContext.executeSpotifyAccentColorLogic(logger: Logger) {
                                 val smali = """
                                     const $tempReg, -14756000
                                     if-eq $r, $tempReg, :accent_purple_match_$idx
+                                    const $tempReg, -14756001
+                                    if-eq $r, $tempReg, :accent_purple_match_$idx
                                     const $tempReg, -14829228
+                                    if-eq $r, $tempReg, :accent_purple_match_$idx
+                                    const $tempReg, -14894988
                                     if-eq $r, $tempReg, :accent_purple_match_$idx
                                     const $tempReg, -14557339
                                     if-eq $r, $tempReg, :accent_purple_match_$idx
@@ -297,6 +309,122 @@ fun BytecodePatchContext.executeSpotifyAccentColorLogic(logger: Logger) {
                         } catch (e: Exception) {
                             logger.fine("[Spotify Accent] Skip tint hook: ${e.message}")
                         }
+                    }
+                }
+            }
+        }
+
+        // 7. ReVanced-Proven Architecture: Jetpack Compose ColorSpace Utils Class Hooking
+        // Identifies the Compose ColorSpace class via partial string match:
+        // "The specified color must be encoded in an RGB color space."
+        var isComposeColorSpaceClass = false
+        for (method in classDef.methods) {
+            val impl = method.implementation ?: continue
+            for (insn in impl.instructions) {
+                if (insn.opcode == Opcode.CONST_STRING || insn.opcode == Opcode.CONST_STRING_JUMBO) {
+                    val strRef = (insn as? ReferenceInstruction)?.reference as? StringReference
+                    if (strRef?.string?.contains("The specified color must be encoded in an RGB color space.") == true) {
+                        isComposeColorSpaceClass = true
+                        break
+                    }
+                }
+            }
+            if (isComposeColorSpaceClass) break
+        }
+
+        if (isComposeColorSpaceClass) {
+            logger.info("[Spotify Accent] Detected Jetpack Compose ColorSpace class: ${classDef.type}")
+            val greenInts = listOf(
+                -14756000, // #FF1ED760
+                -14756001, // #FF1ED75F (Lottie float rounding variation)
+                -14829228, // #FF1DB954
+                -14894988, // #FF1CB854 (Lottie float rounding variation)
+                -14557339, // #FF21DF65 (Checkmark ✔)
+                -12852105, // #FF3BE477
+                -14960044, // #FF1ABC54
+                -15362750, // #FF159542
+                -10426224, // #FF60E890
+                -15698892, // #FF107434
+                -14688412, // #FF1FDF64
+                -15295418, // #FF169C46
+                -13713831  // #FF2EBD59
+            )
+
+            for (method in classDef.methods) {
+                val impl = method.implementation ?: continue
+                val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
+                val mName = method.name
+                val retType = method.returnType
+                val paramTypes = method.parameterTypes
+
+                // A. Hook Color(int: Int): Long -> (I)J
+                if (isStatic && retType == "J" && paramTypes == listOf("I")) {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        val sb = java.lang.StringBuilder()
+                        for (c in greenInts) {
+                            sb.appendLine("const v0, $c")
+                            sb.appendLine("if-eq p0, v0, :accent_b_match")
+                        }
+                        sb.appendLine("goto :accent_b_skip")
+                        sb.appendLine(":accent_b_match")
+                        sb.appendLine("const p0, -7722014")
+                        sb.appendLine(":accent_b_skip")
+                        mutableMethod.addInstructions(0, sb.toString())
+                        methodsHooked++
+                        logger.info("[Spotify Accent] Hooked Compose Color(int) ${classDef.type}->$mName to Electric Purple")
+                    } catch (e: Exception) {
+                        logger.fine("[Spotify Accent] Skip Color(int) hook: ${e.message}")
+                    }
+                }
+
+                // B. Hook convertArgbToRgba(color: Long): Long -> (J)J
+                if (isStatic && retType == "J" && paramTypes == listOf("J")) {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        val sb = java.lang.StringBuilder()
+                        for (c in greenInts) {
+                            sb.appendLine("const v0, $c")
+                            sb.appendLine("if-eq p0, v0, :accent_d_match")
+                        }
+                        sb.appendLine("goto :accent_d_skip")
+                        sb.appendLine(":accent_d_match")
+                        sb.appendLine("const p0, -7722014")
+                        sb.appendLine(":accent_d_skip")
+                        mutableMethod.addInstructions(0, sb.toString())
+                        methodsHooked++
+                        logger.info("[Spotify Accent] Hooked Compose convertArgbToRgba ${classDef.type}->$mName to Electric Purple")
+                    } catch (e: Exception) {
+                        logger.fine("[Spotify Accent] Skip convertArgbToRgba hook: ${e.message}")
+                    }
+                }
+
+                // C. Hook Color.toArgb(color: Long): Int -> (J)I
+                if (isStatic && retType == "I" && paramTypes == listOf("J")) {
+                    val instructions = impl.instructions.toList()
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        for ((idx, insn) in instructions.withIndex().reversed()) {
+                            if (insn.opcode == Opcode.RETURN) {
+                                val reg = (insn as OneRegisterInstruction).registerA
+                                val tempReg = if (reg == 0) "v1" else "v0"
+                                val r = "v$reg"
+                                val sb = java.lang.StringBuilder()
+                                for (c in greenInts) {
+                                    sb.appendLine("const $tempReg, $c")
+                                    sb.appendLine("if-eq $r, $tempReg, :accent_c_match_$idx")
+                                }
+                                sb.appendLine("goto :accent_c_skip_$idx")
+                                sb.appendLine(":accent_c_match_$idx")
+                                sb.appendLine("const $r, -7722014")
+                                sb.appendLine(":accent_c_skip_$idx")
+                                mutableMethod.addInstructions(idx, sb.toString())
+                                methodsHooked++
+                                logger.info("[Spotify Accent] Hooked Compose Color.toArgb ${classDef.type}->$mName to Electric Purple")
+                            }
+                        }
+                    } catch (e: Exception) {
+                        logger.fine("[Spotify Accent] Skip Color.toArgb hook: ${e.message}")
                     }
                 }
             }

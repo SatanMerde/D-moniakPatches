@@ -61,8 +61,35 @@ fun BytecodePatchContext.executeSpotifyAccentColorLogic(logger: Logger) {
                 if (instruction is WideLiteralInstruction && instruction is OneRegisterInstruction) {
                     val lit = instruction.wideLiteral
                     val newWideVal = when (lit) {
-                        0x00000000ff1ed760L, 0x00000000ff1db954L -> 0x00000000ff8a2be2L
-                        -63479633854580224L, -58843912170668032L -> -33165275882618880L
+                        // Standard Encore 64-bit green tokens
+                        0x00000000ff1ed760L, // Primary Brand Green
+                        0x00000000ff1db954L, // Classic Green
+                        0x00000000ff21df65L, // "Saved/Liked" track checkmark (✔) & Play buttons
+                        0x00000000ff3be477L, // Light Active Green / Media control highlight
+                        0x00000000ff1abc54L, // Dark Brand Accent
+                        0x00000000ff159542L, // Pressed Brand Green
+                        0x00000000ff60e890L, // Soft Positive Green
+                        0x00000000ff107434L, // Deep Green Tone
+                        0x00000000ff1fdf64L, // Secondary Vibrant Green
+                        0x00000000ff169c46L, // Secondary Dark Green
+                        0x00000000ff2ebd59L  // Active Status Green
+                        -> 0x00000000ff8a2be2L // Cyberpunk Electric Purple (#8A2BE2)
+
+                        // Shifted representations (high 32 bits)
+                        -63376537419776000L, // 0xff1ed76000000000L
+                        -63479633854580224L, // 0xff1ed76000000000L (alt)
+                        -63691049284927488L, // 0xff1db95400000000L
+                        -58843912170668032L, // 0xff1db95400000000L (alt)
+                        -62523294921785344L, // 0xff21df6500000000L (checkmark)
+                        -55199370659758080L, // 0xff3be47700000000L
+                        -64532175680176128L, // 0xff1abc5400000000L
+                        -65982508826624000L, // 0xff15954200000000L
+                        -44780291100770304L, // 0xff60e89000000000L
+                        -67426227723436032L, // 0xff10743400000000L
+                        -63086249170173952L, // 0xff1fdf6400000000L
+                        -65693320088649728L, // 0xff169c4600000000L
+                        -58901555159498752L  // 0xff2ebd5900000000L
+                        -> -33165275882618880L // 0xff8a2be200000000L
                         else -> null
                     }
                     if (newWideVal != null) {
@@ -82,8 +109,33 @@ fun BytecodePatchContext.executeSpotifyAccentColorLogic(logger: Logger) {
                 if (instruction is NarrowLiteralInstruction && instruction is OneRegisterInstruction) {
                     val lit = instruction.narrowLiteral
                     val newIntVal = when (lit) {
-                        -14756000, -14829228 -> -7722014 // 0xFF8A2BE2
-                        2021216, 1948004 -> 9055202 // 0x8A2BE2
+                        // ARGB 32-bit ints
+                        -14756000, // #FF1ED760
+                        -14829228, // #FF1DB954
+                        -14557339, // #FF21DF65 (Checkmark ✔)
+                        -12852105, // #FF3BE477
+                        -14960044, // #FF1ABC54
+                        -15362750, // #FF159542
+                        -10426224, // #FF60E890
+                        -15698892, // #FF107434
+                        -14688412, // #FF1FDF64
+                        -15295418, // #FF169C46
+                        -13713831  // #FF2EBD59
+                        -> -7722014 // 0xFF8A2BE2
+
+                        // 24-bit RGB ints
+                        2021216, // 0x1ED760
+                        1948004, // 0x1DB954
+                        2219877, // 0x21DF65
+                        3925111, // 0x3BE477
+                        1752148, // 0x1ABC54
+                        1414466, // 0x159542
+                        6350992, // 0x60E890
+                        1078324, // 0x107434
+                        2088804, // 0x1FDF64
+                        1481798, // 0x169C46
+                        3063129  // 0x2EBD59
+                        -> 9055202 // 0x8A2BE2
                         else -> null
                     }
                     if (newIntVal != null) {
@@ -99,11 +151,15 @@ fun BytecodePatchContext.executeSpotifyAccentColorLogic(logger: Logger) {
                     }
                 }
 
-                // 3. String hex constants (#1DB954, #1ED760)
+                // 3. String hex constants (#1DB954, #1ED760, #21DF65, etc.)
                 if (instruction.opcode == Opcode.CONST_STRING || instruction.opcode == Opcode.CONST_STRING_JUMBO) {
                     val strRef = (instruction as? ReferenceInstruction)?.reference as? StringReference ?: continue
                     val s = strRef.string.lowercase()
-                    if (s == "#1db954" || s == "#1ed760" || s == "1db954" || s == "1ed760") {
+                    if (s == "#1db954" || s == "#1ed760" || s == "#21df65" || s == "#3be477" || s == "#1abc54" ||
+                        s == "#159542" || s == "#60e890" || s == "#107434" || s == "#1fdf64" || s == "#169c46" || s == "#2ebd59" ||
+                        s == "1db954" || s == "1ed760" || s == "21df65" || s == "3be477" || s == "1abc54" ||
+                        s == "159542" || s == "60e890" || s == "107434" || s == "1fdf64" || s == "169c46" || s == "2ebd59"
+                    ) {
                         val reg = (instruction as? OneRegisterInstruction)?.registerA ?: continue
                         val newInsn = if (instruction.opcode == Opcode.CONST_STRING_JUMBO) {
                             BuilderInstruction31c(Opcode.CONST_STRING_JUMBO, reg, ImmutableStringReference(purpleHex))

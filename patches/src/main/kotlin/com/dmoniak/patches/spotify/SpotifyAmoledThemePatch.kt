@@ -63,17 +63,53 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                 if (instruction is WideLiteralInstruction && instruction is OneRegisterInstruction) {
                     val lit = instruction.wideLiteral
                     val newWideVal = when (lit) {
-                        0x00000000ff121212L,
-                        0x00000000ff181818L,
-                        0x00000000ff282828L,
-                        0x00000000ff242424L,
-                        0x00000000ff191414L -> 0x00000000ff000000L
+                        // Standard Encore 64-bit dark surface & background tokens
+                        0x00000000ff121212L, // Base Dark Surface 0
+                        0x00000000ff181818L, // Base Dark Surface 1
+                        0x00000000ff191414L, // Base Dark Black-Red Base
+                        0x00000000ff191919L, // Base Dark Background Variant
+                        0x00000000ff141414L, // Deep Surface Background
+                        0x00000000ff171717L, // Surface Card Base
+                        0x00000000ff1b1b1bL, // Surface Card Elevated
+                        0x00000000ff1f1f1fL, // Home Cards, Search suggestions, Now Playing bottom cards, Connect sheet
+                        0x00000000ff212121L, // Surface Highlight
+                        0x00000000ff232323L, // Shortcut Tiles & Action Cards
+                        0x00000000ff242424L, // Surface Mid-Grey
+                        0x00000000ff282828L, // Surface Grey
+                        0x00000000ff292929L, // Elevated Surface Containers, Sort & Layout Toggles
+                        0x00000000ff2a2a2aL, // Surface Card Modal Background
+                        0x00000000ff2b2b2bL, // Bottom Sheets & Dialogs
+                        0x00000000ff343434L, // Search Bar Container, Category Filter Pills (Playlists/Podcasts), Status Boxes
+                        0x00000000ff0b0b0bL, // Border / Divider Dark
+                        0x00000000ff040404L, // Deep Dark Tint
+                        0x00000000ff444444L  // Inactive Pill Backgrounds & Dividers
+                        -> 0x00000000ff000000L
+
                         // Shifted representations (high 32 bits)
-                        -67250682882752512L, // 0xff12121200000000L
-                        -65561833500213248L, // 0xff18181800000000L
-                        -62747084529319936L, // 0xff28282800000000L
-                        -63872983790239744L, // 0xff24242400000000L
-                        -65280358489948160L  // 0xff19141400000000L
+                        -66971175938424832L, // 0xff12121200000000L
+                        -67250682882752512L, // 0xff12121200000000L (alt)
+                        -65275703238590464L, // 0xff18181800000000L
+                        -65561833500213248L, // 0xff18181800000000L (alt)
+                        -64998643488260096L, // 0xff19141400000000L
+                        -65280358489948160L, // 0xff19141400000000L (alt)
+                        -64993124455284736L, // 0xff19191900000000L
+                        -66406018371813376L, // 0xff14141400000000L
+                        -65558282021896192L, // 0xff17171700000000L
+                        -64427966888673280L, // 0xff1b1b1b00000000L
+                        -63297651755450368L, // 0xff1f1f1f00000000L
+                        -62732494188838912L, // 0xff21212100000000L
+                        -62167336622227456L, // 0xff23232300000000L
+                        -61884757838921728L, // 0xff24242400000000L
+                        -63872983790239744L, // 0xff24242400000000L (alt)
+                        -60754442705698816L, // 0xff28282800000000L
+                        -62747084529319936L, // 0xff28282800000000L (alt)
+                        -60471863922393088L, // 0xff29292900000000L
+                        -60189285139087360L, // 0xff2a2a2a00000000L
+                        -59906706355781632L, // 0xff2b2b2b00000000L
+                        -57363497306030080L, // 0xff34343400000000L
+                        -68949227421564928L, // 0xff0b0b0b00000000L
+                        -70927278904705024L, // 0xff04040400000000L
+                        -52842236773138432L  // 0xff44444400000000L
                         -> -72057594037927936L // 0xff00000000000000L
                         else -> null
                     }
@@ -94,8 +130,49 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                 if (instruction is NarrowLiteralInstruction && instruction is OneRegisterInstruction) {
                     val lit = instruction.narrowLiteral
                     val newIntVal = when (lit) {
-                        -15592942, -15200232, -15133676, -14408668, -14145496 -> -16777216 // 0xFF000000
-                        1184274, 1579032, 1643540, 2368548, 2631720 -> 0 // 24-bit 0x000000
+                        // ARGB 32-bit ints
+                        -15592942, // #FF121212
+                        -15200232, // #FF181818
+                        -15133676, // #FF191414
+                        -15132391, // #FF191919
+                        -15461356, // #FF141414
+                        -15263977, // #FF171717
+                        -15000805, // #FF1B1B1B
+                        -14737633, // #FF1F1F1F
+                        -14606047, // #FF212121
+                        -14474461, // #FF232323
+                        -14408668, // #FF242424
+                        -14145496, // #FF282828
+                        -14079703, // #FF292929
+                        -14013910, // #FF2A2A2A
+                        -13948117, // #FF2B2B2B
+                        -13355980, // #FF343434
+                        -16053493, // #FF0B0B0B
+                        -16514044, // #FF040404
+                        -12303292  // #FF444444
+                        -> -16777216 // 0xFF000000 (Pure Black)
+
+                        // 24-bit RGB ints
+                        1184274, // 0x121212
+                        1579032, // 0x181818
+                        1643540, // 0x191414
+                        1644825, // 0x191919
+                        1315860, // 0x141414
+                        1513239, // 0x171717
+                        1776411, // 0x1B1B1B
+                        2039583, // 0x1F1F1F
+                        2171169, // 0x212121
+                        2302755, // 0x232323
+                        2368548, // 0x242424
+                        2631720, // 0x282828
+                        2697513, // 0x292929
+                        2763306, // 0x2A2A2A
+                        2829099, // 0x2B2B2B
+                        3420980, // 0x343434
+                        723723,  // 0x0B0B0B
+                        263172,  // 0x040404
+                        4473924  // 0x444444
+                        -> 0 // 24-bit 0x000000
                         else -> null
                     }
                     if (newIntVal != null) {
@@ -115,8 +192,14 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                 if (instruction.opcode == Opcode.CONST_STRING || instruction.opcode == Opcode.CONST_STRING_JUMBO) {
                     val strRef = (instruction as? ReferenceInstruction)?.reference as? StringReference ?: continue
                     val s = strRef.string.lowercase()
-                    if (s == "#121212" || s == "#181818" || s == "#191414" || s == "#242424" || s == "#282828" ||
-                        s == "121212" || s == "181818" || s == "191414" || s == "242424" || s == "282828"
+                    if (s == "#121212" || s == "#181818" || s == "#191414" || s == "#191919" || s == "#141414" ||
+                        s == "#171717" || s == "#1b1b1b" || s == "#1f1f1f" || s == "#212121" || s == "#232323" ||
+                        s == "#242424" || s == "#282828" || s == "#292929" || s == "#2a2a2a" || s == "#2b2b2b" ||
+                        s == "#343434" || s == "#0b0b0b" || s == "#040404" || s == "#444444" ||
+                        s == "121212" || s == "181818" || s == "191414" || s == "191919" || s == "141414" ||
+                        s == "171717" || s == "1b1b1b" || s == "1f1f1f" || s == "212121" || s == "232323" ||
+                        s == "242424" || s == "282828" || s == "292929" || s == "2a2a2a" || s == "2b2b2b" ||
+                        s == "343434" || s == "0b0b0b" || s == "040404" || s == "444444"
                     ) {
                         val reg = (instruction as? OneRegisterInstruction)?.registerA ?: continue
                         val newInsn = if (instruction.opcode == Opcode.CONST_STRING_JUMBO) {

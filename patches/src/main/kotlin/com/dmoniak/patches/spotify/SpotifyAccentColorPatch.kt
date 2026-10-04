@@ -20,6 +20,7 @@ import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SPOTIFY
 import app.morphe.patcher.patch.resourcePatch
 import org.w3c.dom.Element
+import java.util.logging.Logger
 
 val spotifyAccentColorBytecodePatch = bytecodePatch(
     name = "Spicetify Custom Accent Color Bytecode",

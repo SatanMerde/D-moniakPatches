@@ -14,7 +14,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstructio
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
@@ -24,7 +23,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val spotifyAccentColorPatch = bytecodePatch(
     name = "Spicetify Custom Accent Color - Spotify (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Replaces Spotify brand green (#1DB954 / #1ED760) with custom Cyberpunk Electric Purple (#8A2BE2) across Jetpack Compose Encore design system (64-bit literals), Jetpack Compose ColorSpace converters (Color(int) / Color.toArgb() / convertArgbToRgba), obfuscated Dalvik bytecode, Lottie animation parsers (with float rounding compensation), string tables, and color models.",
+    description = "⚠️ [En cours de développement / Non testé] Replaces Spotify brand green (#1DB954 / #1ED760) with custom Cyberpunk Electric Purple (#8A2BE2) across Jetpack Compose Encore design system (64-bit literals), obfuscated Dalvik bytecode (32-bit & 24-bit literals including Lottie float rounding variations and checkmarks), semantic theme methods, and string tables.",
 ) {
     compatibleWith(COMPATIBILITY_SPOTIFY)
 
@@ -227,209 +226,8 @@ fun BytecodePatchContext.executeSpotifyAccentColorLogic(logger: Logger) {
                 }
             }
         }
-
-        // 5. Specialized Hook: Lottie Runtime Color Interceptor for Spotify Greens -> Cyberpunk Electric Purple (Target 2)
-        for (method in classDef.methods) {
-            val impl = method.implementation ?: continue
-            val retType = method.returnType
-            if (retType == "I" && method.parameterTypes.size == 1 && method.parameterTypes[0].startsWith("L")) {
-                val instructions = impl.instructions.toList()
-                val callsArgb = instructions.any { insn ->
-                    val ref = (insn as? ReferenceInstruction)?.reference as? MethodReference
-                    ref?.definingClass == "Landroid/graphics/Color;" && ref?.name == "argb"
-                }
-                if (callsArgb) {
-                    try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        for ((idx, insn) in instructions.withIndex().reversed()) {
-                            if (insn.opcode == Opcode.RETURN) {
-                                val reg = (insn as OneRegisterInstruction).registerA
-                                val tempReg = if (reg == 0) "v1" else "v0"
-                                val r = "v$reg"
-                                val smali = """
-                                    const $tempReg, -14756000
-                                    if-eq $r, $tempReg, :accent_purple_match_$idx
-                                    const $tempReg, -14756001
-                                    if-eq $r, $tempReg, :accent_purple_match_$idx
-                                    const $tempReg, -14829228
-                                    if-eq $r, $tempReg, :accent_purple_match_$idx
-                                    const $tempReg, -14894988
-                                    if-eq $r, $tempReg, :accent_purple_match_$idx
-                                    const $tempReg, -14557339
-                                    if-eq $r, $tempReg, :accent_purple_match_$idx
-                                    const $tempReg, -12852105
-                                    if-eq $r, $tempReg, :accent_purple_match_$idx
-                                    const $tempReg, -14960044
-                                    if-eq $r, $tempReg, :accent_purple_match_$idx
-                                    const $tempReg, -15362750
-                                    if-eq $r, $tempReg, :accent_purple_match_$idx
-                                    const $tempReg, -10426224
-                                    if-eq $r, $tempReg, :accent_purple_match_$idx
-                                    const $tempReg, -15698892
-                                    if-eq $r, $tempReg, :accent_purple_match_$idx
-                                    const $tempReg, -14688412
-                                    if-eq $r, $tempReg, :accent_purple_match_$idx
-                                    const $tempReg, -15295418
-                                    if-eq $r, $tempReg, :accent_purple_match_$idx
-                                    const $tempReg, -13713831
-                                    if-eq $r, $tempReg, :accent_purple_match_$idx
-                                    goto :accent_purple_skip_$idx
-                                    :accent_purple_match_$idx
-                                    const $r, -7722014
-                                    :accent_purple_skip_$idx
-                                """.trimIndent()
-                                mutableMethod.addInstructions(idx, smali)
-                                methodsHooked++
-                                logger.info("[Spotify Accent] Injected Lottie ColorParser Electric Purple interceptor in ${classDef.type}->${method.name}")
-                            }
-                        }
-                    } catch (e: Exception) {
-                        logger.fine("[Spotify Accent] Skip Lottie interceptor in ${classDef.type}->${method.name}: ${e.message}")
-                    }
-                }
-            }
-        }
-
-        // 6. Specialized Hook: EncoreButton / MaterialButton Active Tint (Target 2)
-        if (classDef.type == "Lcom/spotify/encoremobile/component/buttons/EncoreButton;" ||
-            classDef.type == "Lcom/spotify/encoreconsumermobile/elements/addtobutton/EncoreAddToButtonView;") {
-            for (method in classDef.methods) {
-                if (method.name.lowercase().contains("tint") || method.name.lowercase().contains("active")) {
-                    if (method.parameterTypes == listOf("I")) {
-                        try {
-                            val mutableMethod = mutableClass.findMutableMethodOf(method)
-                            mutableMethod.addInstructions(
-                                0,
-                                """
-                                const p1, -7722014
-                                """.trimIndent()
-                            )
-                            methodsHooked++
-                            logger.info("[Spotify Accent] Hooked ${classDef.type}->${method.name}(I) to Electric Purple")
-                        } catch (e: Exception) {
-                            logger.fine("[Spotify Accent] Skip tint hook: ${e.message}")
-                        }
-                    }
-                }
-            }
-        }
-
-        // 7. ReVanced-Proven Architecture: Jetpack Compose ColorSpace Utils Class Hooking
-        // Identifies the Compose ColorSpace class via partial string match:
-        // "The specified color must be encoded in an RGB color space."
-        var isComposeColorSpaceClass = false
-        for (method in classDef.methods) {
-            val impl = method.implementation ?: continue
-            for (insn in impl.instructions) {
-                if (insn.opcode == Opcode.CONST_STRING || insn.opcode == Opcode.CONST_STRING_JUMBO) {
-                    val strRef = (insn as? ReferenceInstruction)?.reference as? StringReference
-                    if (strRef?.string?.contains("The specified color must be encoded in an RGB color space.") == true) {
-                        isComposeColorSpaceClass = true
-                        break
-                    }
-                }
-            }
-            if (isComposeColorSpaceClass) break
-        }
-
-        if (isComposeColorSpaceClass) {
-            logger.info("[Spotify Accent] Detected Jetpack Compose ColorSpace class: ${classDef.type}")
-            val greenInts = listOf(
-                -14756000, // #FF1ED760
-                -14756001, // #FF1ED75F (Lottie float rounding variation)
-                -14829228, // #FF1DB954
-                -14894988, // #FF1CB854 (Lottie float rounding variation)
-                -14557339, // #FF21DF65 (Checkmark ✔)
-                -12852105, // #FF3BE477
-                -14960044, // #FF1ABC54
-                -15362750, // #FF159542
-                -10426224, // #FF60E890
-                -15698892, // #FF107434
-                -14688412, // #FF1FDF64
-                -15295418, // #FF169C46
-                -13713831  // #FF2EBD59
-            )
-
-            for (method in classDef.methods) {
-                val impl = method.implementation ?: continue
-                val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
-                val mName = method.name
-                val retType = method.returnType
-                val paramTypes = method.parameterTypes
-
-                // A. Hook Color(int: Int): Long -> (I)J
-                if (isStatic && retType == "J" && paramTypes == listOf("I")) {
-                    try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        val sb = java.lang.StringBuilder()
-                        for (c in greenInts) {
-                            sb.appendLine("const v0, $c")
-                            sb.appendLine("if-eq p0, v0, :accent_b_match")
-                        }
-                        sb.appendLine("goto :accent_b_skip")
-                        sb.appendLine(":accent_b_match")
-                        sb.appendLine("const p0, -7722014")
-                        sb.appendLine(":accent_b_skip")
-                        mutableMethod.addInstructions(0, sb.toString())
-                        methodsHooked++
-                        logger.info("[Spotify Accent] Hooked Compose Color(int) ${classDef.type}->$mName to Electric Purple")
-                    } catch (e: Exception) {
-                        logger.fine("[Spotify Accent] Skip Color(int) hook: ${e.message}")
-                    }
-                }
-
-                // B. Hook convertArgbToRgba(color: Long): Long -> (J)J
-                if (isStatic && retType == "J" && paramTypes == listOf("J")) {
-                    try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        val sb = java.lang.StringBuilder()
-                        for (c in greenInts) {
-                            sb.appendLine("const v0, $c")
-                            sb.appendLine("if-eq p0, v0, :accent_d_match")
-                        }
-                        sb.appendLine("goto :accent_d_skip")
-                        sb.appendLine(":accent_d_match")
-                        sb.appendLine("const p0, -7722014")
-                        sb.appendLine(":accent_d_skip")
-                        mutableMethod.addInstructions(0, sb.toString())
-                        methodsHooked++
-                        logger.info("[Spotify Accent] Hooked Compose convertArgbToRgba ${classDef.type}->$mName to Electric Purple")
-                    } catch (e: Exception) {
-                        logger.fine("[Spotify Accent] Skip convertArgbToRgba hook: ${e.message}")
-                    }
-                }
-
-                // C. Hook Color.toArgb(color: Long): Int -> (J)I
-                if (isStatic && retType == "I" && paramTypes == listOf("J")) {
-                    val instructions = impl.instructions.toList()
-                    try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        for ((idx, insn) in instructions.withIndex().reversed()) {
-                            if (insn.opcode == Opcode.RETURN) {
-                                val reg = (insn as OneRegisterInstruction).registerA
-                                val tempReg = if (reg == 0) "v1" else "v0"
-                                val r = "v$reg"
-                                val sb = java.lang.StringBuilder()
-                                for (c in greenInts) {
-                                    sb.appendLine("const $tempReg, $c")
-                                    sb.appendLine("if-eq $r, $tempReg, :accent_c_match_$idx")
-                                }
-                                sb.appendLine("goto :accent_c_skip_$idx")
-                                sb.appendLine(":accent_c_match_$idx")
-                                sb.appendLine("const $r, -7722014")
-                                sb.appendLine(":accent_c_skip_$idx")
-                                mutableMethod.addInstructions(idx, sb.toString())
-                                methodsHooked++
-                                logger.info("[Spotify Accent] Hooked Compose Color.toArgb ${classDef.type}->$mName to Electric Purple")
-                            }
-                        }
-                    } catch (e: Exception) {
-                        logger.fine("[Spotify Accent] Skip Color.toArgb hook: ${e.message}")
-                    }
-                }
-            }
-        }
     }
 
     logger.info("[Spotify Accent] Finished: $wideLiteralsReplaced 64-bit Compose literals replaced, $narrowLiteralsReplaced 32-bit literals replaced, $stringsReplaced green hex strings redirected, $methodsHooked color methods hooked.")
 }
+

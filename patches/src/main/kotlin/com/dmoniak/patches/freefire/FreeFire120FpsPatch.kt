@@ -106,7 +106,7 @@ fun BytecodePatchContext.executeFreeFire120FpsLogic(logger: Logger) {
                                 val newInstruction = com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21s(
                                     Opcode.CONST_16,
                                     reg,
-                                    120.toShort() // 120 FPS
+                                    120 // 120 FPS
                                 )
                                 mutableMethod.replaceInstruction(index, newInstruction)
                                 replacedFpsConstants++
@@ -133,7 +133,7 @@ fun BytecodePatchContext.executeFreeFire120FpsLogic(logger: Logger) {
                             val const120 = com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21s(
                                 Opcode.CONST_16,
                                 reg,
-                                120.toShort()
+                                120
                             )
                             // Replace whatever loaded the return value right before RETURN with const_16 reg, 120
                             if (index > 0) {

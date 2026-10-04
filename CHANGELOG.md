@@ -1,3 +1,9 @@
+## [1.46.4](https://github.com/SatanMerde/D-moniakPatches/compare/v1.46.3...v1.46.4) (2026-10-04)
+
+### 🐛 Bug Fixes
+
+* **spotify:** CardView black background, BottomSheet pitch black, and Lottie checkmark purple tint ([e4e23e3](https://github.com/SatanMerde/D-moniakPatches/commit/e4e23e3778529e5ffd70cd326f86a148de45cbfa))
+
 ## [1.46.3](https://github.com/SatanMerde/D-moniakPatches/compare/v1.46.2...v1.46.3) (2026-10-04)
 
 ### 🐛 Bug Fixes

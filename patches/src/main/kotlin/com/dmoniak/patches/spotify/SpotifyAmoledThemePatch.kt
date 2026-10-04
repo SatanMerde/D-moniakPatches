@@ -8,9 +8,12 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction31c
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction31i
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction51l
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
@@ -20,7 +23,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val spotifyAmoledThemePatch = bytecodePatch(
     name = "Spicetify AMOLED Black Theme - Spotify (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Implements an OLED True Black (#000000) theme for Spotify Mobile, replacing dark-grey backgrounds on AMOLED displays for maximum contrast and battery savings across updates.",
+    description = "⚠️ [En cours de développement / Non testé] Implements an OLED True Black (#000000) theme for Spotify Mobile, replacing dark-grey backgrounds across Jetpack Compose Encore design system (64-bit literals), obfuscated Dalvik bytecode, and string tables for maximum contrast and battery savings.",
 ) {
     compatibleWith(COMPATIBILITY_SPOTIFY)
 
@@ -32,7 +35,8 @@ val spotifyAmoledThemePatch = bytecodePatch(
 
 fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
     logger.info("Executing Spicetify AMOLED Black Theme patch for Spotify...")
-    var windowHooks = 0
+    var wideLiteralsReplaced = 0
+    var narrowLiteralsReplaced = 0
     var stringsReplaced = 0
     var methodsHooked = 0
 
@@ -52,37 +56,62 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
             val mNameLower = mName.lowercase()
             val retType = method.returnType
 
-            // 1. Force OLED Black Window & DecorView on all Spotify Activity screens
-            if (!isStatic && (mName == "onCreate" || mName == "onResume") && tl.contains("activity")) {
-                try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
-                        invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
-                        move-result-object v0
-                        if-nez v0, :morphe_spot_amoled_skip
-                        new-instance v1, Landroid/graphics/drawable/ColorDrawable;
-                        const/high16 v2, -0x1000000
-                        invoke-direct {v1, v2}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
-                        invoke-virtual {v0, v1}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-                        invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-                        move-result-object v3
-                        if-nez v3, :morphe_spot_amoled_skip
-                        invoke-virtual {v3, v2}, Landroid/view/View;->setBackgroundColor(I)V
-                        :morphe_spot_amoled_skip
-                        """.trimIndent()
-                    )
-                    windowHooks++
-                    logger.fine("[Spotify AMOLED] Injected pure black Window in: ${type}->${mName}")
-                } catch (e: Exception) {
-                    logger.fine("[Spotify AMOLED] Skip window hook: ${e.message}")
-                }
-            }
-
-            // 2. Scan and replace dark grey background string literals (#121212, #181818, #191414, #242424, #282828)
+            // 1. Scan and replace dark grey literals across instructions
             val instructions = impl.instructions.toList()
             for ((index, instruction) in instructions.withIndex()) {
+                // A. Jetpack Compose 64-bit color constants (const-wide)
+                if (instruction is WideLiteralInstruction && instruction is OneRegisterInstruction) {
+                    val lit = instruction.wideLiteral
+                    val newWideVal = when (lit) {
+                        0x00000000ff121212L,
+                        0x00000000ff181818L,
+                        0x00000000ff282828L,
+                        0x00000000ff242424L,
+                        0x00000000ff191414L -> 0x00000000ff000000L
+                        // Shifted representations (high 32 bits)
+                        -67250682882752512L, // 0xff12121200000000L
+                        -65561833500213248L, // 0xff18181800000000L
+                        -62747084529319936L, // 0xff28282800000000L
+                        -63872983790239744L, // 0xff24242400000000L
+                        -65280358489948160L  // 0xff19141400000000L
+                        -> -72057594037927936L // 0xff00000000000000L
+                        else -> null
+                    }
+                    if (newWideVal != null) {
+                        try {
+                            val mutableMethod = mutableClass.findMutableMethodOf(method)
+                            val newInsn = BuilderInstruction51l(Opcode.CONST_WIDE, instruction.registerA, newWideVal)
+                            mutableMethod.replaceInstruction(index, newInsn)
+                            wideLiteralsReplaced++
+                            logger.fine("[Spotify AMOLED] Replaced 64-bit dark Compose literal in ${type}->${mName}")
+                        } catch (e: Exception) {
+                            logger.fine("[Spotify AMOLED] Skip wide literal replace: ${e.message}")
+                        }
+                    }
+                }
+
+                // B. 32-bit Narrow literals (legacy Android Views, Canvas, Drawables)
+                if (instruction is NarrowLiteralInstruction && instruction is OneRegisterInstruction) {
+                    val lit = instruction.narrowLiteral
+                    val newIntVal = when (lit) {
+                        -15592942, -15200232, -15133676, -14408668, -14145496 -> -16777216 // 0xFF000000
+                        1184274, 1579032, 1643540, 2368548, 2631720 -> 0 // 24-bit 0x000000
+                        else -> null
+                    }
+                    if (newIntVal != null) {
+                        try {
+                            val mutableMethod = mutableClass.findMutableMethodOf(method)
+                            val newInsn = BuilderInstruction31i(Opcode.CONST, instruction.registerA, newIntVal)
+                            mutableMethod.replaceInstruction(index, newInsn)
+                            narrowLiteralsReplaced++
+                            logger.fine("[Spotify AMOLED] Replaced 32-bit dark literal in ${type}->${mName}")
+                        } catch (e: Exception) {
+                            logger.fine("[Spotify AMOLED] Skip narrow literal replace: ${e.message}")
+                        }
+                    }
+                }
+
+                // C. Dark grey background hex strings
                 if (instruction.opcode == Opcode.CONST_STRING || instruction.opcode == Opcode.CONST_STRING_JUMBO) {
                     val strRef = (instruction as? ReferenceInstruction)?.reference as? StringReference ?: continue
                     val s = strRef.string.lowercase()
@@ -107,42 +136,47 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
                 }
             }
 
-            // 3. Hook methods returning dark grey literals or background color getters
-            var hasDarkGreyLiteral = false
-            for (insn in impl.instructions) {
-                if (insn is NarrowLiteralInstruction) {
-                    val lit = insn.narrowLiteral
-                    // #121212 = -15592942, #181818 = -15200232, #191414 = -15133676, #242424 = -14408668, #282828 = -14145496
-                    if (lit == -15592942 || lit == -15200232 || lit == -15133676 || lit == -14408668 || lit == -14145496) {
-                        hasDarkGreyLiteral = true
-                        break
-                    }
-                }
-            }
-
+            // 2. Hook background color getter methods
             val semanticMatch = mNameLower.contains("backgroundcolor") ||
                     mNameLower.contains("surfacecolor") ||
                     mNameLower.contains("darkbackground") ||
                     mNameLower.contains("elevatedcolor")
 
-            if ((hasDarkGreyLiteral || semanticMatch) && retType == "I" && method.parameterTypes.isEmpty()) {
-                try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
-                        const/high16 v0, -0x1000000
-                        return v0
-                        """.trimIndent()
-                    )
-                    methodsHooked++
-                    logger.info("[Spotify AMOLED] Hooked background color method in: ${type}->${mName}")
-                } catch (e: Exception) {
-                    logger.fine("[Spotify AMOLED] Failed to hook ${mName}: ${e.message}")
+            if (semanticMatch && method.parameterTypes.isEmpty()) {
+                if (retType == "I") {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        mutableMethod.addInstructions(
+                            0,
+                            """
+                            const/high16 v0, -0x1000000
+                            return v0
+                            """.trimIndent() // Pure Black
+                        )
+                        methodsHooked++
+                        logger.info("[Spotify AMOLED] Hooked background color method in: ${type}->${mName}")
+                    } catch (e: Exception) {
+                        logger.fine("[Spotify AMOLED] Failed to hook ${mName}: ${e.message}")
+                    }
+                } else if (retType == "J") {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        mutableMethod.addInstructions(
+                            0,
+                            """
+                            const-wide v0, 0x00000000ff000000L
+                            return-wide v0
+                            """.trimIndent()
+                        )
+                        methodsHooked++
+                        logger.info("[Spotify AMOLED] Hooked Compose background color method in: ${type}->${mName}")
+                    } catch (e: Exception) {
+                        logger.fine("[Spotify AMOLED] Failed to hook Compose ${mName}: ${e.message}")
+                    }
                 }
             }
 
-            // 4. Force dark theme
+            // 3. Force dark theme
             if (!isStatic && (
                 mNameLower == "isdarktheme" ||
                 mNameLower == "isdarkmode" ||
@@ -166,5 +200,5 @@ fun BytecodePatchContext.executeSpotifyAmoledThemeLogic(logger: Logger) {
         }
     }
 
-    logger.info("[Spotify AMOLED] Finished: $windowHooks Activity Window decor hooks, $stringsReplaced grey strings redirected, $methodsHooked color/theme methods hooked.")
+    logger.info("[Spotify AMOLED] Finished: $wideLiteralsReplaced 64-bit Compose literals replaced, $narrowLiteralsReplaced 32-bit literals replaced, $stringsReplaced grey strings redirected, $methodsHooked color/theme methods hooked.")
 }

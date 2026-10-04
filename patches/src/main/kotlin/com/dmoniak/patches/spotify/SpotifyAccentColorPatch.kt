@@ -18,18 +18,52 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SPOTIFY
-import java.util.logging.Logger
+import app.morphe.patcher.patch.resourcePatch
+import org.w3c.dom.Element
 
-@Suppress("unused")
-val spotifyAccentColorPatch = bytecodePatch(
-    name = "Spicetify Custom Accent Color - Spotify (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Replaces Spotify brand green (#1DB954 / #1ED760) with custom Cyberpunk Electric Purple (#8A2BE2) across Jetpack Compose Encore design system (64-bit literals), obfuscated Dalvik bytecode (32-bit & 24-bit literals including Lottie float rounding variations and checkmarks), semantic theme methods, and string tables.",
+val spotifyAccentColorBytecodePatch = bytecodePatch(
+    name = "Spicetify Custom Accent Color Bytecode",
+    description = "Bytecode engine for Spicetify Custom Accent Color",
 ) {
-    compatibleWith(COMPATIBILITY_SPOTIFY)
-
     execute {
         val logger = Logger.getLogger(this::class.java.name)
         executeSpotifyAccentColorLogic(logger)
+    }
+}
+
+@Suppress("unused")
+val spotifyAccentColorPatch = resourcePatch(
+    name = "Spicetify Custom Accent Color - Spotify (Experimental)",
+    description = "⚠️ [En cours de développement / Non testé] Replaces Spotify brand green (#1DB954 / #1ED760) with custom Cyberpunk Electric Purple (#8A2BE2) across Android resources (res/values/colors.xml), Jetpack Compose Encore design system (64-bit literals), obfuscated Dalvik bytecode (32-bit & 24-bit literals including Lottie float rounding variations and checkmarks), semantic theme methods, and string tables.",
+) {
+    compatibleWith(COMPATIBILITY_SPOTIFY)
+    dependsOn(spotifyAccentColorBytecodePatch)
+
+    execute {
+        document("res/values/colors.xml").use { document ->
+            val resourcesNode = document.getElementsByTagName("resources").item(0) as? Element ?: return@use
+            val childNodes = resourcesNode.childNodes
+            for (i in 0 until childNodes.length) {
+                val node = childNodes.item(i) as? Element ?: continue
+                val name = node.getAttribute("name")
+                val newColor = when (name) {
+                    "dark_brightaccent_background_base",
+                    "dark_base_text_brightaccent",
+                    "green_light",
+                    "spotify_green_157",
+                    "spotifybrand_essential_base",
+                    "accent" -> "#ff8a2be2"
+
+                    "dark_brightaccent_background_press",
+                    "green_trailing_icon",
+                    "green_focus" -> "#ff7a1fd2"
+                    else -> null
+                }
+                if (newColor != null) {
+                    node.textContent = newColor
+                }
+            }
+        }
     }
 }
 

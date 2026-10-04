@@ -18,18 +18,60 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SPOTIFY
-import java.util.logging.Logger
+import app.morphe.patcher.patch.resourcePatch
+import org.w3c.dom.Element
 
-@Suppress("unused")
-val spotifyAmoledThemePatch = bytecodePatch(
-    name = "Spicetify AMOLED Black Theme - Spotify (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Implements an OLED True Black (#000000) theme for Spotify Mobile, replacing dark-grey backgrounds across Jetpack Compose Encore design system (64-bit literals), obfuscated Dalvik bytecode (32-bit & 24-bit literals), semantic theme methods, and string tables for maximum contrast and battery savings.",
+val spotifyAmoledThemeBytecodePatch = bytecodePatch(
+    name = "Spicetify AMOLED Black Theme Bytecode",
+    description = "Bytecode engine for Spicetify AMOLED Black Theme",
 ) {
-    compatibleWith(COMPATIBILITY_SPOTIFY)
-
     execute {
         val logger = Logger.getLogger(this::class.java.name)
         executeSpotifyAmoledThemeLogic(logger)
+    }
+}
+
+@Suppress("unused")
+val spotifyAmoledThemePatch = resourcePatch(
+    name = "Spicetify AMOLED Black Theme - Spotify (Experimental)",
+    description = "⚠️ [En cours de développement / Non testé] Implements an OLED True Black (#000000) theme for Spotify Mobile, replacing dark-grey backgrounds across Android resources (res/values/colors.xml), Jetpack Compose Encore design system (64-bit literals), obfuscated Dalvik bytecode (32-bit & 24-bit literals), semantic theme methods, and string tables for maximum contrast and battery savings.",
+) {
+    compatibleWith(COMPATIBILITY_SPOTIFY)
+    dependsOn(spotifyAmoledThemeBytecodePatch)
+
+    execute {
+        document("res/values/colors.xml").use { document ->
+            val resourcesNode = document.getElementsByTagName("resources").item(0) as? Element ?: return@use
+            val childNodes = resourcesNode.childNodes
+            for (i in 0 until childNodes.length) {
+                val node = childNodes.item(i) as? Element ?: continue
+                val name = node.getAttribute("name")
+                val newColor = when (name) {
+                    "gray_7",
+                    "gray_10",
+                    "dark_base_background_base",
+                    "dark_base_background_elevated_base",
+                    "bg_gradient_start_color",
+                    "bg_gradient_end_color",
+                    "sthlm_blk",
+                    "sthlm_blk_grad_start",
+                    "image_placeholder_color",
+                    "gray_15",
+                    "opacity_white_10",
+                    "dark_base_background_tinted_highlight",
+                    "your_library_background",
+                    "notification_bg_color",
+                    "npv_bg_color" -> "#ff000000"
+
+                    "opacity_gray_7_0" -> "#00000000"
+                    "opacity_gray_7_80" -> "#cc000000"
+                    else -> null
+                }
+                if (newColor != null) {
+                    node.textContent = newColor
+                }
+            }
+        }
     }
 }
 

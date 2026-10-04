@@ -1,3 +1,13 @@
+## [1.48.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.47.2...v1.48.0) (2026-10-04)
+
+### 🐛 Bug Fixes
+
+* **spotify:** import java.util.logging.Logger in theme and accent patches ([746e797](https://github.com/SatanMerde/D-moniakPatches/commit/746e797b5304d74da6f8996c8e9fe20b03f1f406))
+
+### ✨ New Features
+
+* **spotify:** add XML resource patching for full AMOLED black and accent coverage ([e39fc1f](https://github.com/SatanMerde/D-moniakPatches/commit/e39fc1f16e978cd3889927fa55c48d44a2e7f49b))
+
 ## [1.47.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.47.1...v1.47.2) (2026-10-04)
 
 ### 🐛 Bug Fixes

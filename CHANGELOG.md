@@ -1,3 +1,10 @@
+## [1.47.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.47.1...v1.47.2) (2026-10-04)
+
+### 🐛 Bug Fixes
+
+* **freefire:** pass Int literal to BuilderInstruction21s to fix compilation ([d0816ec](https://github.com/SatanMerde/D-moniakPatches/commit/d0816ec32dae77a559ce5a49bcba0e3581772d97))
+* **freefire:** resolve crash on startup by removing unsafe method injections and switching to 100% in-place bytecode replacement ([2bdb379](https://github.com/SatanMerde/D-moniakPatches/commit/2bdb379c23043e7417d6759813b0ab654dced818))
+
 ## [1.47.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.47.0...v1.47.1) (2026-10-04)
 
 ### 🐛 Bug Fixes

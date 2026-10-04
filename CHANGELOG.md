@@ -1,3 +1,9 @@
+## [1.47.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.46.4...v1.47.0) (2026-10-04)
+
+### ✨ New Features
+
+* **spotify:** integrate ReVanced Compose ColorSpace utils and Lottie float rounding hooks ([4703e4c](https://github.com/SatanMerde/D-moniakPatches/commit/4703e4c69a89b16f53002ae2e1ca1b17be581bbe))
+
 ## [1.46.4](https://github.com/SatanMerde/D-moniakPatches/compare/v1.46.3...v1.46.4) (2026-10-04)
 
 ### 🐛 Bug Fixes

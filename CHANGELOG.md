@@ -1,3 +1,9 @@
+## [1.48.5](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.4...v1.48.5) (2026-10-10)
+
+### 🐛 Bug Fixes
+
+* **silt:** bypass Play Integrity remediation dialog and unlock Play Pass ([5afc443](https://github.com/SatanMerde/D-moniakPatches/commit/5afc443166734fa5237b2dca0d8ba852f3179504))
+
 ## [1.48.4](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.3...v1.48.4) (2026-10-10)
 
 ### 🐛 Bug Fixes

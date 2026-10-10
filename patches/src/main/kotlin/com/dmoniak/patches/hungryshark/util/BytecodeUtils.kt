@@ -220,12 +220,21 @@ fun BytecodePatchContext.replaceMethod(
     registerCount: Int,
     smaliCode: String,
 ): MutableMethod {
+    var paramRegs = 0
+    for (type in method.parameterTypes) {
+        paramRegs += if (type == "J" || type == "D") 2 else 1
+    }
+    if (!AccessFlags.STATIC.isSet(method.accessFlags)) {
+        paramRegs += 1
+    }
+    val effectiveRegisterCount = maxOf(registerCount, paramRegs + 2)
+
     val mutableClass = mutableClassDefBy(method.definingClass)
     val target = mutableClass.methods.first { MethodUtil.methodSignaturesMatch(it, method) }
     mutableClass.methods.remove(target)
 
     val newImpl = ImmutableMethodImplementation(
-        registerCount,
+        effectiveRegisterCount,
         emptyList(),
         emptyList(),
         null,

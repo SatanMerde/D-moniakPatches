@@ -11,7 +11,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val siltUnlockFullGamePatch = bytecodePatch(
     name = "Unlock Full Game - Silt (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt by hooking Google Play Billing and full game license verification checks.",
+    description = "⚠️ [En cours de développement / Non testé] Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt by hooking Google Play Billing, Play Integrity remediation dialogs, and game license checks.",
 ) {
     compatibleWith(COMPATIBILITY_SILT)
 
@@ -28,7 +28,69 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
     // 1. Hook Google Play Billing Client SDK and local purchase listeners
     hookedPoints += executeGooglePlayBillingBypass(logger, "Silt")
 
-    // 2. Hook Google Play License Verification Library (LVL) & Installer Verification
+    // 2. Hook Play Integrity API Remediation Dialogs (bypasses "Get this game from Play" prompt)
+    classDefForEach { classDef ->
+        val type = classDef.type
+        val tl = type.lowercase()
+
+        val isIntegrityClass = tl.contains("play/core/integrity") ||
+            tl.contains("play/integrity") ||
+            tl.contains("integritydialog") ||
+            tl.contains("standardintegrity") ||
+            tl.contains("integritytoken")
+
+        if (isIntegrityClass) {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+                val mNameLower = method.name.lowercase()
+
+                if (mNameLower.contains("showdialog")) {
+                    try {
+                        if (method.returnType == "Lcom/google/android/gms/tasks/Task;") {
+                            // Returns Task<Integer> with result 0 (INTEGRITY_DIALOG_RESPONSE_CODE_SUCCESS)
+                            replaceMethod(
+                                method = method,
+                                registerCount = 4,
+                                smaliCode = """
+                                const/4 v0, 0x0
+                                invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+                                move-result-object v0
+                                invoke-static {v0}, Lcom/google/android/gms/tasks/Tasks;->forResult(Ljava/lang/Object;)Lcom/google/android/gms/tasks/Task;
+                                move-result-object v0
+                                return-object v0
+                                """.trimIndent()
+                            )
+                            hookedPoints++
+                            logger.info("[Silt Integrity] Neutralized showDialog (Task<Integer>) in: $type->${method.name}")
+                        } else if (method.returnType == "V") {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 3,
+                                smaliCode = "return-void"
+                            )
+                            hookedPoints++
+                            logger.info("[Silt Integrity] Neutralized showDialog (void) in: $type->${method.name}")
+                        } else if (method.returnType == "I") {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 3,
+                                smaliCode = """
+                                const/4 v0, 0x0
+                                return v0
+                                """.trimIndent()
+                            )
+                            hookedPoints++
+                            logger.info("[Silt Integrity] Neutralized showDialog (int) in: $type->${method.name}")
+                        }
+                    } catch (e: Exception) {
+                        logger.fine("[Silt Integrity] Failed showDialog hook: ${e.message}")
+                    }
+                }
+            }
+        }
+    }
+
+    // 3. Hook Google Play License Verification Library (LVL) & Installer Verification
     classDefForEach { classDef ->
         val type = classDef.type
         val tl = type.lowercase()
@@ -45,7 +107,6 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                     val cbType = method.parameterTypes[0]
                     if (cbType.contains("Callback") || cbType.contains("Listener")) {
                         try {
-                            // Total registers = 4: v0, v1 (locals), p0 = v2, p1 = v3 (cb)
                             replaceMethod(
                                 method = method,
                                 registerCount = 4,
@@ -120,7 +181,7 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
         }
     }
 
-    // 3. Hook game unlock and chapter access checks
+    // 4. Hook game unlock, Play Pass, and chapter access checks
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support") || tl.contains("com/google")) return@classDefForEach
@@ -132,7 +193,7 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
             val retType = method.returnType
             val pTypes = method.parameterTypes
 
-            // Full game license checks
+            // Full game license checks & Play Pass entitlement
             if (!isStatic && (
                 mName == "isfullgameunlocked" ||
                 mName == "isgameunlocked" ||
@@ -141,7 +202,11 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                 mName == "isfullversion" ||
                 mName == "canaccessfullgame" ||
                 mName == "isunlocked" ||
-                mName == "hasfullaccess"
+                mName == "hasfullaccess" ||
+                mName == "isplaypasssubscribed" ||
+                mName == "hasplaypass" ||
+                mName == "isgoogleplaypass" ||
+                mName == "isplaypass"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
                     replaceMethod(
@@ -153,7 +218,31 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.info("[Silt Full Game] Unlocked full game check in: ${classDef.type}->${method.name}")
+                    logger.info("[Silt Full Game] Unlocked full game / Play Pass check in: ${classDef.type}->${method.name}")
+                } catch (e: Exception) {
+                    logger.fine("[Silt Full Game] Failed to hook ${method.name}: ${e.message}")
+                }
+            }
+
+            // Suppress trial / demo mode flags
+            if (!isStatic && (
+                mName == "istrial" ||
+                mName == "isdemo" ||
+                mName == "isfreeversion" ||
+                mName == "islimitedversion" ||
+                mName == "requiretrial"
+            ) && retType == "Z" && pTypes.isEmpty()) {
+                try {
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
+                        const/4 v0, 0x0
+                        return v0
+                        """.trimIndent()
+                    )
+                    hookedPoints++
+                    logger.info("[Silt Full Game] Suppressed trial/demo flag in: ${classDef.type}->${method.name}")
                 } catch (e: Exception) {
                     logger.fine("[Silt Full Game] Failed to hook ${method.name}: ${e.message}")
                 }

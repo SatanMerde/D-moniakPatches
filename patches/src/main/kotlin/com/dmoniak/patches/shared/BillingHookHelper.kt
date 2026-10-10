@@ -1,9 +1,8 @@
 package com.dmoniak.patches.shared
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
+import com.dmoniak.patches.hungryshark.util.replaceMethod
 import java.util.logging.Logger
 
 /**
@@ -31,8 +30,6 @@ object BillingHookHelper {
 
             if (!isBillingSdk && !isLocalBilling) return@classDefForEach
 
-            val mutableClass by lazy { mutableClassDefBy(classDef) }
-
             for (method in classDef.methods.toList()) {
                 if (method.implementation == null) continue
                 val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
@@ -44,10 +41,10 @@ object BillingHookHelper {
                 // 1. Hook BillingResult.getResponseCode() -> 0 (BillingResponseCode.OK)
                 if (isBillingSdk && !isStatic && mName == "getResponseCode" && retType == "I" && pTypes.isEmpty()) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
                             const/4 v0, 0x0
                             return v0
                             """.trimIndent()
@@ -62,10 +59,10 @@ object BillingHookHelper {
                 // 2. Hook Purchase.getPurchaseState() -> 1 (PURCHASED)
                 if (isBillingSdk && !isStatic && mName == "getPurchaseState" && retType == "I" && pTypes.isEmpty()) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent()
@@ -80,10 +77,10 @@ object BillingHookHelper {
                 // 3. Hook Purchase.isAcknowledged() -> true
                 if (isBillingSdk && !isStatic && (mName == "isAcknowledged" || mName == "isAutoRenewing") && retType == "Z" && pTypes.isEmpty()) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent()
@@ -98,10 +95,10 @@ object BillingHookHelper {
                 // 4. Hook BillingClient.isReady() -> true
                 if (isBillingSdk && !isStatic && mName == "isReady" && retType == "Z" && pTypes.isEmpty()) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent()
@@ -122,10 +119,10 @@ object BillingHookHelper {
                     mNameLower == "isbillingconnected"
                 )) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent()

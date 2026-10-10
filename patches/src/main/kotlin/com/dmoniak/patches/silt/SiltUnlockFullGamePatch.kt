@@ -28,7 +28,158 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
     // 1. Hook Google Play Billing Client SDK and local purchase listeners
     hookedPoints += executeGooglePlayBillingBypass(logger, "Silt")
 
-    // 2. Hook Play Integrity API Remediation Dialogs (bypasses "Get this game from Play" prompt)
+    // 2. Neutralize Google Play App Signing & Play Integrity PAIRIP Protection
+    // (PairIP is Google Play's injected protector that triggers the "To continue using SILT, get it on Google Play..." overlay)
+    classDefForEach { classDef ->
+        val type = classDef.type
+        val tl = type.lowercase()
+
+        if (tl.contains("pairip")) {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+                val mName = method.name
+                val mn = mName.lowercase()
+                val retType = method.returnType
+
+                // 2a. SignatureCheck (verifyIntegrity / verifySignatureMatches)
+                if (tl.contains("signaturecheck")) {
+                    if (retType == "V") {
+                        try {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 3,
+                                smaliCode = "return-void"
+                            )
+                            hookedPoints++
+                            logger.info("[Silt PairIP] Neutralized SignatureCheck->$mName (void)")
+                        } catch (e: Exception) {
+                            logger.fine("[Silt PairIP] Failed to hook $mName: ${e.message}")
+                        }
+                    } else if (retType == "Z") {
+                        try {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 3,
+                                smaliCode = """
+                                const/4 v0, 0x1
+                                return v0
+                                """.trimIndent()
+                            )
+                            hookedPoints++
+                            logger.info("[Silt PairIP] Spoofed SignatureCheck->$mName -> true")
+                        } catch (e: Exception) {
+                            logger.fine("[Silt PairIP] Failed to hook $mName: ${e.message}")
+                        }
+                    }
+                }
+
+                // 2b. LicenseContentProvider.onCreate -> return true without initializing LicenseClient
+                if (tl.contains("licensecontentprovider") && mn == "oncreate") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
+                            const/4 v0, 0x1
+                            return v0
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.info("[Silt PairIP] Neutralized LicenseContentProvider.onCreate -> true (suppressed client init)")
+                    } catch (e: Exception) {
+                        logger.fine("[Silt PairIP] Failed to hook provider onCreate: ${e.message}")
+                    }
+                }
+
+                // 2c. LicenseClient (initializeLicenseCheck, startPaywallActivity, etc.)
+                if (tl.contains("licenseclient")) {
+                    if (mn in listOf(
+                        "initializelicensecheck",
+                        "connecttolicensingservice",
+                        "checklicenseinternal",
+                        "startpaywallactivity",
+                        "starterrordialogactivity",
+                        "processresponse",
+                        "reportsuccessfullicensecheck",
+                        "handleerror",
+                        "retryorthrow"
+                    )) {
+                        try {
+                            if (retType == "V") {
+                                replaceMethod(
+                                    method = method,
+                                    registerCount = 3,
+                                    smaliCode = "return-void"
+                                )
+                                hookedPoints++
+                                logger.info("[Silt PairIP] Neutralized LicenseClient->$mName (void)")
+                            }
+                        } catch (e: Exception) {
+                            logger.fine("[Silt PairIP] Failed to hook LicenseClient->$mName: ${e.message}")
+                        }
+                    } else if (mn == "performlocalinstallercheck") {
+                        try {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 3,
+                                smaliCode = """
+                                const/4 v0, 0x1
+                                return v0
+                                """.trimIndent()
+                            )
+                            hookedPoints++
+                            logger.info("[Silt PairIP] Spoofed LicenseClient.performLocalInstallerCheck -> true")
+                        } catch (e: Exception) {
+                            logger.fine("[Silt PairIP] Failed to hook performLocalInstallerCheck: ${e.message}")
+                        }
+                    } else if (mn == "createcloseappintentorexitifappinbackground") {
+                        try {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 3,
+                                smaliCode = """
+                                const/4 v0, 0x0
+                                return-object v0
+                                """.trimIndent()
+                            )
+                            hookedPoints++
+                            logger.info("[Silt PairIP] Suppressed close app intent")
+                        } catch (e: Exception) {
+                            logger.fine("[Silt PairIP] Failed close app intent hook: ${e.message}")
+                        }
+                    }
+                }
+
+                // 2d. LicenseActivity (onStart, showPaywallAndCloseApp, closeApp, etc.)
+                if (tl.contains("licenseactivity")) {
+                    if (mn in listOf(
+                        "onstart",
+                        "showpaywallandcloseapp",
+                        "showerrordialog",
+                        "logandshowerrordialog",
+                        "closeapp",
+                        "finishandremovetask"
+                    )) {
+                        try {
+                            if (retType == "V") {
+                                replaceMethod(
+                                    method = method,
+                                    registerCount = 3,
+                                    smaliCode = "return-void"
+                                )
+                                hookedPoints++
+                                logger.info("[Silt PairIP] Neutralized LicenseActivity->$mName (void)")
+                            }
+                        } catch (e: Exception) {
+                            logger.fine("[Silt PairIP] Failed to hook LicenseActivity->$mName: ${e.message}")
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 3. Hook Play Integrity API Remediation Dialogs (bypasses "Get this game from Play" prompt)
     classDefForEach { classDef ->
         val type = classDef.type
         val tl = type.lowercase()

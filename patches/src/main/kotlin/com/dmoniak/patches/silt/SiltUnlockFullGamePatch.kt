@@ -291,6 +291,58 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
         }
     }
 
+    // 3b. Neutralize Play Games v2 AppShortcuts initialization crash
+    classDefForEach { classDef ->
+        val type = classDef.type
+        val tl = type.lowercase()
+
+        if (tl.contains("playgamesinitprovider")) {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+                val mName = method.name
+                if (mName == "<init>" || mName == "<clinit>") continue
+                if (mName.lowercase() == "oncreate") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
+                            const/4 v0, 0x1
+                            return v0
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.info("[Silt PlayGames] Neutralized PlayGamesInitProvider.onCreate -> true")
+                    } catch (e: Exception) {
+                        logger.fine("[Silt PlayGames] Failed to hook PlayGamesInitProvider: ${e.message}")
+                    }
+                }
+            }
+        }
+
+        if (tl.contains("games/internal/v2/appshortcuts") || tl.contains("appshortcuts")) {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+                val mName = method.name
+                if (mName == "<init>" || mName == "<clinit>") continue
+                val mn = mName.lowercase()
+                if (mn in listOf("run", "zzb", "zza") && method.returnType == "V") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = "return-void"
+                        )
+                        hookedPoints++
+                        logger.info("[Silt PlayGames] Neutralized AppShortcuts->$mName (void)")
+                    } catch (e: Exception) {
+                        logger.fine("[Silt PlayGames] Failed to hook AppShortcuts->$mName: ${e.message}")
+                    }
+                }
+            }
+        }
+    }
+
     // 3. Hook Google Play License Verification Library (LVL) & Installer Verification
     classDefForEach { classDef ->
         val type = classDef.type

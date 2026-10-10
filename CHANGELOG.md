@@ -1,3 +1,9 @@
+## [1.48.6](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.5...v1.48.6) (2026-10-10)
+
+### 🐛 Bug Fixes
+
+* **silt:** neutralize Google Play App Signing PairIP protection and harden billing hooks ([cc4cc93](https://github.com/SatanMerde/D-moniakPatches/commit/cc4cc933e017a62da2ce6e9f8c44f656a92e04c6))
+
 ## [1.48.5](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.4...v1.48.5) (2026-10-10)
 
 ### 🐛 Bug Fixes

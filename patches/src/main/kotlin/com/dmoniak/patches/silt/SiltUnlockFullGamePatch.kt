@@ -258,6 +258,8 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                                 const-string v2, "unity"
                                 invoke-static {v1, v2, v0}, Lcom/unity3d/player/UnityPlayerActivity;->putExtra${'$'}007(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
                                 :init_player
+                                const-string v0, "phone"
+                                sput-object v0, Lcom/google/android/datatransport/tfiJ/wFXsXtqTIWUJ;->VGLcBBtx:Ljava/lang/String;
                                 new-instance v0, Lcom/unity3d/player/UnityPlayer;
                                 invoke-direct {v0, p0, p0}, Lcom/unity3d/player/UnityPlayer;-><init>(Landroid/content/Context;Lcom/unity3d/player/IUnityPlayerLifecycleEvents;)V
                                 iput-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
@@ -374,6 +376,27 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                         } catch (e: Exception) {
                             logger.fine("[Silt Unity] Failed to restore onPause: ${e.message}")
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    // 2h. Neutralize UnityPlayer.preloadJavaPlugins (avoids NullPointerException from uninitialized vendor plugin strings)
+    classDefForEach { classDef ->
+        if (classDef.type == "Lcom/unity3d/player/UnityPlayer;") {
+            for (method in classDef.methods.toList()) {
+                if (method.name == "preloadJavaPlugins") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 1,
+                            smaliCode = "return-void"
+                        )
+                        hookedPoints++
+                        logger.info("[Silt Unity] Neutralized UnityPlayer.preloadJavaPlugins")
+                    } catch (e: Exception) {
+                        logger.fine("[Silt Unity] Failed to neutralize preloadJavaPlugins: ${e.message}")
                     }
                 }
             }

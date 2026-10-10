@@ -177,9 +177,205 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                     }
                 }
 
-                // 2e. Note: PairIP StartupLauncher, VMRunner, and Application.attachBaseContext MUST RUN!
-                // VMRunner decrypts and populates the reflection method tables needed by UnityPlayerActivity.onCreate.
-                // Protection is bypassed via SignatureCheck (verifyIntegrity / verifySignatureMatches) and LicenseClient / LicenseContentProvider.
+                // 2e. PairIP Application.attachBaseContext (sanitize to invoke-super and bypass VMRunner)
+                if (tl.contains("pairip") && tl.contains("application") && mn == "attachbasecontext") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 2,
+                            smaliCode = """
+                            invoke-super {p0, p1}, Landroid/app/Application;->attachBaseContext(Landroid/content/Context;)V
+                            return-void
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.info("[Silt PairIP] Sanitized Application.attachBaseContext -> invoke-super")
+                    } catch (e: Exception) {
+                        logger.fine("[Silt PairIP] Failed to hook Application.attachBaseContext: ${e.message}")
+                    }
+                }
+
+                // 2f. PairIP StartupLauncher & VMRunner (suppress native DRM initialization)
+                if (tl.contains("startuplauncher") && mn in listOf("launch", "launchinternal")) {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = "return-void"
+                        )
+                        hookedPoints++
+                        logger.info("[Silt PairIP] Neutralized StartupLauncher->$mName (void)")
+                    } catch (e: Exception) {
+                        logger.fine("[Silt PairIP] Failed to hook StartupLauncher->$mName: ${e.message}")
+                    }
+                }
+
+                if (tl.contains("vmrunner") && mn in listOf("invoke", "executevm", "setcontext", "setjob")) {
+                    try {
+                        if (retType == "V") {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 3,
+                                smaliCode = "return-void"
+                            )
+                            hookedPoints++
+                            logger.info("[Silt PairIP] Neutralized VMRunner->$mName (void)")
+                        }
+                    } catch (e: Exception) {
+                        logger.fine("[Silt PairIP] Failed to hook VMRunner->$mName: ${e.message}")
+                    }
+                }
+            }
+        }
+    }
+
+    // 2g. De-obfuscate UnityPlayerActivity lifecycle methods hijacked by PairIP
+    classDefForEach { classDef ->
+        if (classDef.type == "Lcom/unity3d/player/UnityPlayerActivity;") {
+            for (method in classDef.methods.toList()) {
+                val mName = method.name
+                when (mName) {
+                    "onCreate" -> {
+                        try {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 6,
+                                smaliCode = """
+                                const/4 v0, 0x1
+                                invoke-static {p0, v0}, Lcom/unity3d/player/UnityPlayerActivity;->requestWindowFeature${'$'}001(Lcom/unity3d/player/UnityPlayerActivity;I)Z
+                                invoke-static {p0, p1}, Lcom/unity3d/player/UnityPlayerActivity;->onCreate${'$'}002(Landroid/app/Activity;Landroid/os/Bundle;)V
+                                invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->getIntent${'$'}003(Lcom/unity3d/player/UnityPlayerActivity;)Landroid/content/Intent;
+                                move-result-object v0
+                                if-eqz v0, :init_player
+                                const-string v1, "unity"
+                                invoke-static {v0, v1}, Lcom/unity3d/player/UnityPlayerActivity;->getStringExtra${'$'}004(Landroid/content/Intent;Ljava/lang/String;)Ljava/lang/String;
+                                move-result-object v0
+                                invoke-static {p0, v0}, Lcom/unity3d/player/UnityPlayerActivity;->updateUnityCommandLineArguments${'$'}005(Lcom/unity3d/player/UnityPlayerActivity;Ljava/lang/String;)Ljava/lang/String;
+                                move-result-object v0
+                                invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->getIntent${'$'}006(Lcom/unity3d/player/UnityPlayerActivity;)Landroid/content/Intent;
+                                move-result-object v1
+                                if-eqz v1, :init_player
+                                const-string v2, "unity"
+                                invoke-static {v1, v2, v0}, Lcom/unity3d/player/UnityPlayerActivity;->putExtra${'$'}007(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+                                :init_player
+                                new-instance v0, Lcom/unity3d/player/UnityPlayer;
+                                invoke-direct {v0, p0, p0}, Lcom/unity3d/player/UnityPlayer;-><init>(Landroid/content/Context;Lcom/unity3d/player/IUnityPlayerLifecycleEvents;)V
+                                iput-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                                invoke-static {p0, v0}, Lcom/unity3d/player/UnityPlayerActivity;->setContentView${'$'}008(Lcom/unity3d/player/UnityPlayerActivity;Landroid/view/View;)V
+                                iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                                if-eqz v0, :return_void
+                                invoke-static {v0}, Lcom/unity3d/player/UnityPlayerActivity;->requestFocus${'$'}009(Lcom/unity3d/player/UnityPlayer;)Z
+                                :return_void
+                                return-void
+                                """.trimIndent()
+                            )
+                            hookedPoints++
+                            logger.info("[Silt Unity] Restored direct UnityPlayerActivity.onCreate")
+                        } catch (e: Exception) {
+                            logger.fine("[Silt Unity] Failed to restore onCreate: ${e.message}")
+                        }
+                    }
+                    "onDestroy" -> {
+                        try {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 3,
+                                smaliCode = """
+                                iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                                if-eqz v0, :skip_destroy
+                                invoke-static {v0}, Lcom/unity3d/player/UnityPlayerActivity;->destroy${'$'}001(Lcom/unity3d/player/UnityPlayer;)V
+                                :skip_destroy
+                                invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->onDestroy${'$'}002(Landroid/app/Activity;)V
+                                return-void
+                                """.trimIndent()
+                            )
+                            hookedPoints++
+                            logger.info("[Silt Unity] Restored direct UnityPlayerActivity.onDestroy")
+                        } catch (e: Exception) {
+                            logger.fine("[Silt Unity] Failed to restore onDestroy: ${e.message}")
+                        }
+                    }
+                    "onStart" -> {
+                        try {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 3,
+                                smaliCode = """
+                                invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->onStart${'$'}001(Landroid/app/Activity;)V
+                                iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                                if-eqz v0, :skip_start
+                                invoke-static {v0}, Lcom/unity3d/player/UnityPlayerActivity;->onStart${'$'}002(Lcom/unity3d/player/UnityPlayer;)V
+                                :skip_start
+                                return-void
+                                """.trimIndent()
+                            )
+                            hookedPoints++
+                            logger.info("[Silt Unity] Restored direct UnityPlayerActivity.onStart")
+                        } catch (e: Exception) {
+                            logger.fine("[Silt Unity] Failed to restore onStart: ${e.message}")
+                        }
+                    }
+                    "onStop" -> {
+                        try {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 3,
+                                smaliCode = """
+                                invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->onStop${'$'}001(Landroid/app/Activity;)V
+                                iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                                if-eqz v0, :skip_stop
+                                invoke-static {v0}, Lcom/unity3d/player/UnityPlayerActivity;->onStop${'$'}002(Lcom/unity3d/player/UnityPlayer;)V
+                                :skip_stop
+                                return-void
+                                """.trimIndent()
+                            )
+                            hookedPoints++
+                            logger.info("[Silt Unity] Restored direct UnityPlayerActivity.onStop")
+                        } catch (e: Exception) {
+                            logger.fine("[Silt Unity] Failed to restore onStop: ${e.message}")
+                        }
+                    }
+                    "onResume" -> {
+                        try {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 3,
+                                smaliCode = """
+                                invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->onResume${'$'}001(Landroid/app/Activity;)V
+                                iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                                if-eqz v0, :skip_resume
+                                invoke-static {v0}, Lcom/unity3d/player/UnityPlayerActivity;->onResume${'$'}002(Lcom/unity3d/player/UnityPlayer;)V
+                                :skip_resume
+                                return-void
+                                """.trimIndent()
+                            )
+                            hookedPoints++
+                            logger.info("[Silt Unity] Restored direct UnityPlayerActivity.onResume")
+                        } catch (e: Exception) {
+                            logger.fine("[Silt Unity] Failed to restore onResume: ${e.message}")
+                        }
+                    }
+                    "onPause" -> {
+                        try {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 3,
+                                smaliCode = """
+                                invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->onPause${'$'}001(Landroid/app/Activity;)V
+                                iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                                if-eqz v0, :skip_pause
+                                invoke-static {v0}, Lcom/unity3d/player/UnityPlayerActivity;->onPause${'$'}002(Lcom/unity3d/player/UnityPlayer;)V
+                                :skip_pause
+                                return-void
+                                """.trimIndent()
+                            )
+                            hookedPoints++
+                            logger.info("[Silt Unity] Restored direct UnityPlayerActivity.onPause")
+                        } catch (e: Exception) {
+                            logger.fine("[Silt Unity] Failed to restore onPause: ${e.message}")
+                        }
+                    }
+                }
             }
         }
     }

@@ -177,8 +177,26 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                     }
                 }
 
-                // 2e. PairIP StartupLauncher & VMRunner (suppress native DRM initialization)
-                if (tl.contains("startuplauncher") && mn == "launch") {
+                // 2e. PairIP Application.attachBaseContext (sanitize to invoke-super and bypass VMRunner)
+                if (tl.contains("pairip") && tl.contains("application") && mn == "attachbasecontext") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 2,
+                            smaliCode = """
+                            invoke-super {p0, p1}, Landroid/app/Application;->attachBaseContext(Landroid/content/Context;)V
+                            return-void
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.info("[Silt PairIP] Sanitized Application.attachBaseContext -> invoke-super")
+                    } catch (e: Exception) {
+                        logger.fine("[Silt PairIP] Failed to hook Application.attachBaseContext: ${e.message}")
+                    }
+                }
+
+                // 2f. PairIP StartupLauncher & VMRunner (suppress native DRM initialization)
+                if (tl.contains("startuplauncher") && mn in listOf("launch", "launchinternal")) {
                     try {
                         replaceMethod(
                             method = method,
@@ -186,13 +204,13 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                             smaliCode = "return-void"
                         )
                         hookedPoints++
-                        logger.info("[Silt PairIP] Neutralized StartupLauncher.launch (void)")
+                        logger.info("[Silt PairIP] Neutralized StartupLauncher->$mName (void)")
                     } catch (e: Exception) {
-                        logger.fine("[Silt PairIP] Failed to hook StartupLauncher.launch: ${e.message}")
+                        logger.fine("[Silt PairIP] Failed to hook StartupLauncher->$mName: ${e.message}")
                     }
                 }
 
-                if (tl.contains("vmrunner") && (mn == "invoke" || mn == "executevm")) {
+                if (tl.contains("vmrunner") && mn in listOf("invoke", "executevm", "setcontext", "setjob")) {
                     try {
                         if (retType == "V") {
                             replaceMethod(

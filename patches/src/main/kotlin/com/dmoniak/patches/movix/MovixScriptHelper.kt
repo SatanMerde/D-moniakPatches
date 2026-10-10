@@ -6,9 +6,6 @@ import java.util.logging.Logger
 
 object MovixScriptHelper {
     var isVipEnabled = false
-    var isHdEnabled = false
-    var isDownloadEnabled = false
-    var isAmoledEnabled = false
     var isAdBlockEnabled = false
 
     fun buildUnifiedScript(): String {
@@ -48,60 +45,7 @@ object MovixScriptHelper {
             )
         }
 
-        // 2. HD & 4K Quality Unlock
-        if (isHdEnabled) {
-            parts.add(
-                "try { " +
-                "if (typeof Storage !== 'undefined') { " +
-                "try { " +
-                "localStorage.setItem('playback_quality', '1080p'); " +
-                "localStorage.setItem('max_quality', '4k'); " +
-                "localStorage.setItem('force_hd', 'true'); " +
-                "} catch(e) {} " +
-                "} " +
-                "if (typeof window !== 'undefined') { " +
-                "window.preferredPlaybackQuality = '1080p'; " +
-                "window.maxPlaybackQuality = '4k'; " +
-                "} } catch(e) {}"
-            )
-        }
-
-        // 3. Bypass Download Restrictions
-        if (isDownloadEnabled) {
-            parts.add(
-                "try { " +
-                "if (typeof Storage !== 'undefined') { " +
-                "try { " +
-                "localStorage.setItem('can_download', 'true'); " +
-                "localStorage.setItem('download_quality', '1080p'); " +
-                "localStorage.setItem('offline_access', 'true'); " +
-                "} catch(e) {} " +
-                "} " +
-                "if (typeof window !== 'undefined') { " +
-                "window.canDownloadContent = true; " +
-                "window.offlineDownloadsAllowed = true; " +
-                "} } catch(e) {}"
-            )
-        }
-
-        // 4. AMOLED True Black Player Theme
-        if (isAmoledEnabled) {
-            parts.add(
-                "try { " +
-                "if (typeof document !== 'undefined') { " +
-                "var injectAmoled = function() { " +
-                "if (!document.getElementById('movix-amoled-style')) { " +
-                "var st = document.createElement('style'); st.id = 'movix-amoled-style'; " +
-                "st.innerHTML = 'html, body, #root, #app, [class*=bg-gray-], [class*=bg-zinc-], [class*=bg-neutral-], [class*=bg-slate-] { background-color: #000000 !important; }'; " +
-                "(document.head || document.documentElement).appendChild(st); " +
-                "} }; " +
-                "if (document.head || document.documentElement) injectAmoled(); " +
-                "else document.addEventListener('DOMContentLoaded', injectAmoled); " +
-                "} } catch(e) {}"
-            )
-        }
-
-        // 5. Block Ads & Declutter
+        // 2. Block Ads & Declutter (targeted nested iframe ad-shield)
         if (isAdBlockEnabled) {
             parts.add(
                 "try { " +

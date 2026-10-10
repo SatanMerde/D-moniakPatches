@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-10T17:37:58",
-  "description": "## [1.48.11](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.10...v1.48.11) (2026-10-10)\n\n### 🐛 Bug Fixes\n\n* **silt:** keep VMRunner and StartupLauncher active to populate reflection methods ([8d84d64](https://github.com/SatanMerde/D-moniakPatches/commit/8d84d643eb8582e9d34cb91ef38ba48682739f97))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.48.11/patches-1.48.11.mpp",
+  "created_at": "2026-10-10T17:45:51",
+  "description": "## [1.48.12](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.11...v1.48.12) (2026-10-10)\n\n### 🐛 Bug Fixes\n\n* **silt:** restore direct UnityPlayerActivity lifecycle methods and bypass PairIP native DRM ([985bd93](https://github.com/SatanMerde/D-moniakPatches/commit/985bd93472618b8cbb55124b14b9649816f17c4c))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.48.12/patches-1.48.12.mpp",
   "signature_download_url": "",
-  "version": "1.48.11"
+  "version": "1.48.12"
 }

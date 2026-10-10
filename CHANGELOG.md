@@ -1,3 +1,9 @@
+## [1.48.12](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.11...v1.48.12) (2026-10-10)
+
+### 🐛 Bug Fixes
+
+* **silt:** restore direct UnityPlayerActivity lifecycle methods and bypass PairIP native DRM ([985bd93](https://github.com/SatanMerde/D-moniakPatches/commit/985bd93472618b8cbb55124b14b9649816f17c4c))
+
 ## [1.48.11](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.10...v1.48.11) (2026-10-10)
 
 ### 🐛 Bug Fixes

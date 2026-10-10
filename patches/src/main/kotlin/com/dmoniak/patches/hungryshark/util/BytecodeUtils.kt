@@ -239,12 +239,13 @@ fun BytecodePatchContext.replaceMethod(
         emptyList(),
         null,
     )
+    val cleanAccessFlags = method.accessFlags and AccessFlags.NATIVE.value.inv()
     val newMethod = ImmutableMethod(
         method.definingClass,
         method.name,
         method.parameters,
         method.returnType,
-        method.accessFlags,
+        cleanAccessFlags,
         method.annotations,
         method.hiddenApiRestrictions,
         newImpl,

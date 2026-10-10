@@ -210,7 +210,7 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                     }
                 }
 
-                if (tl.contains("vmrunner") && mn in listOf("invoke", "executevm", "setcontext", "setjob")) {
+                if (tl.contains("vmrunner") && mn in listOf("invoke", "executevm", "setcontext", "setjob", "run")) {
                     try {
                         if (retType == "V") {
                             replaceMethod(
@@ -220,9 +220,61 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                             )
                             hookedPoints++
                             logger.info("[Silt PairIP] Neutralized VMRunner->$mName (void)")
+                        } else if (retType in listOf("Z", "I", "S", "B", "C")) {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 3,
+                                smaliCode = """
+                                const/4 v0, 0x0
+                                return v0
+                                """.trimIndent()
+                            )
+                            hookedPoints++
+                            logger.info("[Silt PairIP] Neutralized VMRunner->$mName (0)")
+                        } else {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 3,
+                                smaliCode = """
+                                const/4 v0, 0x0
+                                return-object v0
+                                """.trimIndent()
+                            )
+                            hookedPoints++
+                            logger.info("[Silt PairIP] Neutralized VMRunner->$mName (null)")
                         }
                     } catch (e: Exception) {
                         logger.fine("[Silt PairIP] Failed to hook VMRunner->$mName: ${e.message}")
+                    }
+                }
+            }
+        }
+    }
+
+    // 2g. Neutralize BroadcastReceivers hijacked by PairIP to invoke VMRunner
+    val pairipReceivers = setOf(
+        "Landroidx/core/content/pm/ShortcutManagerCompat$1;",
+        "Lcom/android/billingclient/api/zzr;",
+        "Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/AlarmManagerSchedulerBroadcastReceiver;",
+        "Lcom/google/android/gms/common/api/internal/zabx;",
+        "Lcom/google/android/play/core/assetpacks/internal/m;",
+        "Lcom/unity3d/player/HFPStatus$1;",
+        "Lorg/fmod/FMOD$PluginBroadcastReceiver;"
+    )
+    classDefForEach { classDef ->
+        if (classDef.type in pairipReceivers) {
+            for (method in classDef.methods.toList()) {
+                if (method.name == "onReceive" && method.implementation != null) {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = "return-void"
+                        )
+                        hookedPoints++
+                        logger.info("[Silt PairIP] Neutralized ${classDef.type}->onReceive (void)")
+                    } catch (e: Exception) {
+                        logger.fine("[Silt PairIP] Failed to hook ${classDef.type}->onReceive: ${e.message}")
                     }
                 }
             }

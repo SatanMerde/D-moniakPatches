@@ -177,54 +177,9 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                     }
                 }
 
-                // 2e. PairIP Application.attachBaseContext (sanitize to invoke-super and bypass VMRunner)
-                if (tl.contains("pairip") && tl.contains("application") && mn == "attachbasecontext") {
-                    try {
-                        replaceMethod(
-                            method = method,
-                            registerCount = 2,
-                            smaliCode = """
-                            invoke-super {p0, p1}, Landroid/app/Application;->attachBaseContext(Landroid/content/Context;)V
-                            return-void
-                            """.trimIndent()
-                        )
-                        hookedPoints++
-                        logger.info("[Silt PairIP] Sanitized Application.attachBaseContext -> invoke-super")
-                    } catch (e: Exception) {
-                        logger.fine("[Silt PairIP] Failed to hook Application.attachBaseContext: ${e.message}")
-                    }
-                }
-
-                // 2f. PairIP StartupLauncher & VMRunner (suppress native DRM initialization)
-                if (tl.contains("startuplauncher") && mn in listOf("launch", "launchinternal")) {
-                    try {
-                        replaceMethod(
-                            method = method,
-                            registerCount = 3,
-                            smaliCode = "return-void"
-                        )
-                        hookedPoints++
-                        logger.info("[Silt PairIP] Neutralized StartupLauncher->$mName (void)")
-                    } catch (e: Exception) {
-                        logger.fine("[Silt PairIP] Failed to hook StartupLauncher->$mName: ${e.message}")
-                    }
-                }
-
-                if (tl.contains("vmrunner") && mn in listOf("invoke", "executevm", "setcontext", "setjob")) {
-                    try {
-                        if (retType == "V") {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 3,
-                                smaliCode = "return-void"
-                            )
-                            hookedPoints++
-                            logger.info("[Silt PairIP] Neutralized VMRunner->$mName (void)")
-                        }
-                    } catch (e: Exception) {
-                        logger.fine("[Silt PairIP] Failed to hook VMRunner->$mName: ${e.message}")
-                    }
-                }
+                // 2e. Note: PairIP StartupLauncher, VMRunner, and Application.attachBaseContext MUST RUN!
+                // VMRunner decrypts and populates the reflection method tables needed by UnityPlayerActivity.onCreate.
+                // Protection is bypassed via SignatureCheck (verifyIntegrity / verifySignatureMatches) and LicenseClient / LicenseContentProvider.
             }
         }
     }

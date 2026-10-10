@@ -361,6 +361,13 @@ object Constants {
         )
     )
 
+    val COMPATIBILITY_BANDLAB = Compatibility(
+        packageName = "com.bandlab.bandlab",
+        name = "BandLab",
+        description = "BandLab: Music Making Studio, DAW, Beat Maker & Audio Recording",
+        appIconColor = 0xEE3344
+    )
+
     val COMPATIBILITY_BRAVE = Compatibility(
         packageName = "com.brave.browser",
         name = "Brave Browser",

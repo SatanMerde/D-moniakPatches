@@ -24,52 +24,9 @@ val movixUnlockPremiumSubscriptionPatch = bytecodePatch(
 fun BytecodePatchContext.executeMovixUnlockPremiumLogic(logger: Logger) {
     logger.info("Executing Unlock Premium Subscription patch for Movix...")
     var hookedPoints = 0
-
-    val cleanVipScript = "(function(){ try { " +
-        "if (typeof Storage !== 'undefined') { try { " +
-        "var g = Storage.prototype.getItem; " +
-        "Storage.prototype.getItem = function(k) { " +
-        "if (k === 'is_vip') return 'true'; " +
-        "if (k === 'access_code') return 'VIP_LIFETIME_BYPASS'; " +
-        "if (k === 'access_code_expires') return '2099-12-31T23:59:59.999Z'; " +
-        "return g.apply(this, arguments); " +
-        "}; " +
-        "var s = Storage.prototype.setItem; " +
-        "Storage.prototype.setItem = function(k, v) { " +
-        "if (k === 'is_vip' && v === 'false') return s.call(this, k, 'true'); " +
-        "return s.apply(this, arguments); " +
-        "}; " +
-        "var r = Storage.prototype.removeItem; " +
-        "Storage.prototype.removeItem = function(k) { " +
-        "if (k === 'is_vip' || k === 'access_code' || k === 'access_code_expires') return; " +
-        "return r.apply(this, arguments); " +
-        "}; " +
-        "} catch(e) {} } " +
-        "try { " +
-        "localStorage.setItem('is_vip', 'true'); " +
-        "localStorage.setItem('access_code', 'VIP_LIFETIME_BYPASS'); " +
-        "localStorage.setItem('access_code_expires', '2099-12-31T23:59:59.999Z'); " +
-        "} catch(e) {} " +
-        "try { " +
-        "if (typeof window !== 'undefined' && typeof window.fetch === 'function' && !window._movixFetchHooked) { " +
-        "window._movixFetchHooked = true; " +
-        "var origFetch = window.fetch; " +
-        "window.fetch = function(url, opts) { " +
-        "var u = String(url || ''); " +
-        "if (u.indexOf('check-vip') !== -1) { " +
-        "return Promise.resolve(new Response(JSON.stringify({ vip: true, expiresAt: '2099-12-31T23:59:59.999Z' }), { status: 200, headers: { 'Content-Type': 'application/json' } })); " +
-        "} " +
-        "return origFetch.apply(this, arguments); " +
-        "}; " +
-        "} } catch(e) {} " +
-        "if (typeof window !== 'undefined') { " +
-        "window.isVip = true; window.hasVipAccess = true; " +
-        "try { " +
-        "window.dispatchEvent(new Event('storage')); " +
-        "window.dispatchEvent(new CustomEvent('vipStatusChanged', { detail: { vip: true } })); " +
-        "} catch(e) {} " +
-        "} " +
-        "} catch(err) {} })();"
+    MovixScriptHelper.isVipEnabled = true
+    MovixScriptHelper.apply(this, logger)
+    hookedPoints++
 
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()
@@ -77,60 +34,7 @@ fun BytecodePatchContext.executeMovixUnlockPremiumLogic(logger: Logger) {
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
-        // 1. Hook RNCWebView (React Native core WebView)
-        if (classDef.type.contains("RNCWebView") && !classDef.type.contains("Manager") && !classDef.type.contains("Client")) {
-            for (method in classDef.methods.toList()) {
-                if (method.implementation == null) continue
-                if ((method.name == "callInjectedJavaScript" || method.name == "callInjectedJavaScriptBeforeContentLoaded") && method.returnType == "V" && method.parameterTypes.isEmpty()) {
-                    try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
-                            const-string v0, "$cleanVipScript"
-                            invoke-virtual {p0, v0}, Lcom/reactnativecommunity/webview/RNCWebView;->evaluateJavascriptWithFallback(Ljava/lang/String;)V
-                            """.trimIndent()
-                        )
-                        hookedPoints++
-                        logger.info("[Movix Premium] Injected VIP script in: ${classDef.type}->${method.name}")
-                    } catch (e: Exception) {
-                        logger.warning("[Movix Premium] Failed to hook ${method.name}: ${e.message}")
-                    }
-                }
-            }
-        }
-
-        // 2. Hook RNCWebViewManager to prepend VIP script before page content loads
-        if (classDef.type.contains("RNCWebViewManager")) {
-            for (method in classDef.methods.toList()) {
-                if (method.implementation == null) continue
-                val mName = method.name
-                if (mName == "setInjectedJavaScriptBeforeContentLoaded" && method.parameterTypes.size == 2 && method.returnType == "V") {
-                    try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
-                            const-string v0, "$cleanVipScript;\n"
-                            if-nez p2, :cond_skip_prepend_vip
-                            invoke-virtual {v0, p2}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
-                            move-result-object p2
-                            goto :cond_done_prepend_vip
-                            :cond_skip_prepend_vip
-                            move-object p2, v0
-                            :cond_done_prepend_vip
-                            """.trimIndent()
-                        )
-                        hookedPoints++
-                        logger.info("[Movix Premium] Prepended VIP script in: ${classDef.type}->${method.name}")
-                    } catch (e: Exception) {
-                        logger.warning("[Movix Premium] Failed to hook setInjectedJavaScriptBeforeContentLoaded: ${e.message}")
-                    }
-                }
-            }
-        }
-
-        // 3. Hook native boolean subscription methods
+        // Hook native boolean subscription methods
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)

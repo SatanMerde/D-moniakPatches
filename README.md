@@ -14,16 +14,16 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-459-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-461-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-patchs-validés--fonctionnels--tested--functional-patches">
     <img src="https://img.shields.io/badge/Fonctionnels-12-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-patchs-expérimentaux--en-développement--experimental-patches-ai-generated">
-    <img src="https://img.shields.io/badge/Expérimentaux-447-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Expérimentaux-449-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-90-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-91-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.48.2](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.48.2)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**459 patchs au total** (12 validés & fonctionnels • 447 expérimentaux)
+> **[v1.48.2](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.48.2)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**461 patchs au total** (12 validés & fonctionnels • 449 expérimentaux)
 
 ---
 
@@ -240,6 +240,17 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 | [Free Shopping & Billing Bypass - Angry Birds (Experimental)](#free-shopping-billing-bypass-angry-birds-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play Billing SDK in Angry Birds to bypass in-app purchase verification, unlocking free shopping for Mighty Eagle, power-up bundles, and episode packs. |
 | [Unlimited Mighty Eagle & Power-ups - Angry Birds Classic (Experimental)](#unlimited-mighty-eagle-power-ups-angry-birds-classic-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks the Mighty Eagle permanently with zero cooldown timer, and provides unlimited power-ups (Sling Scope, King Sling, Super Seeds, Birdquake). |
 | [Unlock All Episodes & Golden Eggs - Angry Birds Classic (Experimental)](#unlock-all-episodes-golden-eggs-angry-birds-classic-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks all legendary episodes, level packs, and Golden Egg secret stages in Angry Birds Classic. |
+
+</details>
+
+<details open>
+<summary>📦 BandLab&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Block Ads & Declutter Feed - BandLab](#block-ads-declutter-feed-bandlab) | ⚠️ [En cours de développement / Non testé] Removes in-app promotional banners, upgrade prompts, sponsored artist cards, and interstitial ads across the BandLab home feed and studio screens. |
+| [Unlock Creator Membership & Audio Tools - BandLab](#unlock-creator-membership-audio-tools-bandlab) | ⚠️ [En cours de développement / Non testé] Hooks Google Play Billing Client and membership state models in BandLab to unlock client-side Creator Membership perks, audio presets, master presets, and removes membership upgrade paywalls. |
 
 </details>
 

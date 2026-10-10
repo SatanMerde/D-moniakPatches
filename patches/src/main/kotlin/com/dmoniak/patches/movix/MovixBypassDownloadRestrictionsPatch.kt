@@ -25,66 +25,15 @@ fun BytecodePatchContext.executeMovixBypassDownloadRestrictionsLogic(logger: Log
     logger.info("Executing Bypass Download Restrictions patch for Movix...")
     var hookedPoints = 0
 
-    val downloadScript = "(function(){ try { localStorage.setItem('offline_download_unlocked', 'true'); localStorage.setItem('allow_unlimited_downloads', 'true'); window.canDownload=true; } catch(e){} })();"
+    MovixScriptHelper.isDownloadEnabled = true
+    MovixScriptHelper.apply(this, logger)
+    hookedPoints++
 
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support")) return@classDefForEach
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
-
-        // 1. Hook RNCWebView (React Native core WebView)
-        if (classDef.type.contains("RNCWebView") && !classDef.type.contains("Manager") && !classDef.type.contains("Client")) {
-            for (method in classDef.methods.toList()) {
-                if (method.implementation == null) continue
-                if ((method.name == "callInjectedJavaScript" || method.name == "callInjectedJavaScriptBeforeContentLoaded") && method.returnType == "V" && method.parameterTypes.isEmpty()) {
-                    try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
-                            const-string v0, "$downloadScript"
-                            invoke-virtual {p0, v0}, Lcom/reactnativecommunity/webview/RNCWebView;->evaluateJavascriptWithFallback(Ljava/lang/String;)V
-                            """.trimIndent()
-                        )
-                        hookedPoints++
-                        logger.info("[Movix Download] Injected download permissions in: ${classDef.type}->${method.name}")
-                    } catch (e: Exception) {
-                        logger.warning("[Movix Download] Failed to hook ${method.name}: ${e.message}")
-                    }
-                }
-            }
-        }
-
-        // 2. Hook RNCWebViewManager to prepend download settings before page loads
-        if (classDef.type.contains("RNCWebViewManager")) {
-            for (method in classDef.methods.toList()) {
-                if (method.implementation == null) continue
-                val mName = method.name
-                if (mName == "setInjectedJavaScriptBeforeContentLoaded" && method.parameterTypes.size == 2 && method.returnType == "V") {
-                    try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
-                            const-string v0, "$downloadScript;\n"
-                            if-nez p2, :cond_skip_prepend_dl
-                            invoke-virtual {v0, p2}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
-                            move-result-object p2
-                            goto :cond_done_prepend_dl
-                            :cond_skip_prepend_dl
-                            move-object p2, v0
-                            :cond_done_prepend_dl
-                            """.trimIndent()
-                        )
-                        hookedPoints++
-                        logger.info("[Movix Download] Prepended download permissions in: ${classDef.type}->${method.name}")
-                    } catch (e: Exception) {
-                        logger.warning("[Movix Download] Failed to hook setInjectedJavaScriptBeforeContentLoaded: ${e.message}")
-                    }
-                }
-            }
-        }
 
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue

@@ -4,16 +4,15 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
+import com.dmoniak.patches.shared.cloneMethodWithAdditionalRegisters
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
 val universalHighRefreshRatePatch = bytecodePatch(
-    name = "Universal High Refresh Rate 120Hz (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Forces high refresh rate display mode (90Hz, 120Hz, or 144Hz) in apps and games by configuring WindowManager.LayoutParams.preferredRefreshRate and hooking framerate getters.",
+    name = "Force 120Hz High Refresh Rate (Universal)",
+    description = "Forces 120Hz display refresh rate on supported devices by configuring WindowManager.LayoutParams.preferredRefreshRate and overriding internal frame rate throttles to 120 FPS.",
 ) {
-    // Universal patch: No compatibleWith() call. Applies to any app.
-
     execute {
         val logger = Logger.getLogger(this::class.java.name)
         executeUniversalHighRefreshRateLogic(logger)
@@ -21,14 +20,15 @@ val universalHighRefreshRatePatch = bytecodePatch(
 }
 
 fun BytecodePatchContext.executeUniversalHighRefreshRateLogic(logger: Logger) {
-    logger.info("Executing Universal High Refresh Rate patch...")
+    logger.info("Executing Force 120Hz High Refresh Rate universal patch...")
     var hookedPoints = 0
 
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()
-        if (tl.startsWith("landroid/view/") || tl.startsWith("landroid/os/")) return@classDefForEach
-
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
+        // Skip common heavy libraries
+        if (tl.startsWith("lkotlin/") || tl.startsWith("lkotlinx/") || tl.startsWith("lcom/google/android/material/")) {
+            return@classDefForEach
+        }
 
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
@@ -41,7 +41,7 @@ fun BytecodePatchContext.executeUniversalHighRefreshRateLogic(logger: Logger) {
             // 1. Hook Activity.onCreate / onResume to set WindowManager.LayoutParams.preferredRefreshRate = 120.0f
             if (!isStatic && (mName == "onCreate" || mName == "onResume") && tl.contains("activity")) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
+                    val mutableMethod = cloneMethodWithAdditionalRegisters(method, 3)
                     mutableMethod.addInstructions(
                         0,
                         """
@@ -73,10 +73,10 @@ fun BytecodePatchContext.executeUniversalHighRefreshRateLogic(logger: Logger) {
                 mNameLower == "getrefreshratecap"
             ) && retType == "I" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/16 v0, 0x78
                         return v0
                         """.trimIndent() // 120
@@ -94,10 +94,10 @@ fun BytecodePatchContext.executeUniversalHighRefreshRateLogic(logger: Logger) {
                 mNameLower == "getpreferredrefreshrate"
             ) && retType == "F" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/high16 v0, 0x42f00000
                         return v0
                         """.trimIndent() // 120.0f

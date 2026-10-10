@@ -1,11 +1,10 @@
 package com.dmoniak.patches.angrybirds
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_ANGRY_BIRDS
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -29,15 +28,13 @@ fun BytecodePatchContext.executeAngryBirdsUnlimitedMightyEaglePowerupsLogic(logg
         val tl = classDef.type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support") || tl.contains("com/google")) return@classDefForEach
 
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
-
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
             val mName = method.name.lowercase()
             val retType = method.returnType
 
-            // 1. Mighty Eagle ownership and availability checks
+            // 1. Mighty Eagle ownership and availability checks -> return true
             if (!isStatic && (
                 mName == "ismightyeagleunlocked" ||
                 mName == "hasmightyeagle" ||
@@ -46,10 +43,10 @@ fun BytecodePatchContext.executeAngryBirdsUnlimitedMightyEaglePowerupsLogic(logg
                 mName == "haspowerups"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
@@ -61,16 +58,16 @@ fun BytecodePatchContext.executeAngryBirdsUnlimitedMightyEaglePowerupsLogic(logg
                 }
             }
 
-            // 2. Power-up counts
+            // 2. Power-up counts -> return 999
             if (!isStatic && (
                 mName == "getpowerupcount" ||
                 mName == "getremainingpowerups"
             ) && retType == "I") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/16 v0, 0x3e7
                         return v0
                         """.trimIndent()

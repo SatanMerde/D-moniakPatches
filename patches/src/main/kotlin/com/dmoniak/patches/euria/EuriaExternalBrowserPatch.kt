@@ -1,10 +1,9 @@
 package com.dmoniak.patches.euria
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_EURIA
 import java.util.logging.Logger
 
@@ -43,13 +42,15 @@ fun BytecodePatchContext.executeEuriaExternalBrowserLogic(logger: Logger) {
                 mName == "isexternalbrowsermode"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Euria Browser] Forced external browser mode in: ${classDef.type}->${method.name}")

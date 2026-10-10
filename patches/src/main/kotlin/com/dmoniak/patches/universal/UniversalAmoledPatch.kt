@@ -1,10 +1,9 @@
 package com.dmoniak.patches.universal
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -46,13 +45,15 @@ fun BytecodePatchContext.executeUniversalAmoledLogic(logger: Logger) {
                 retType == "I" && pTypes.isEmpty()
             ) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/high16 v0, -0x1000000
                         return v0
-                        """.trimIndent() // 0xFF000000 (Pure Black)
+                        """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Universal AMOLED] Injected pure black into ${classDef.type}->${method.name}")
@@ -69,13 +70,15 @@ fun BytecodePatchContext.executeUniversalAmoledLogic(logger: Logger) {
                 mName == "isnightmodeactive"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Universal AMOLED] Enforced dark mode in ${classDef.type}->${method.name}")

@@ -1,11 +1,10 @@
 package com.dmoniak.patches.shadowfight
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
-import com.dmoniak.patches.hungryshark.util.replaceMethod
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
+
 
 /**
  * Shared Google Play Billing and store receipt verification hooks tailored for games in the Shadow Fight series.
@@ -25,7 +24,6 @@ fun BytecodePatchContext.executeShadowFightFreeShoppingLogic(logger: Logger, gam
         val tl = type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support")) return@classDefForEach
 
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
 
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
@@ -41,10 +39,10 @@ fun BytecodePatchContext.executeShadowFightFreeShoppingLogic(logger: Logger, gam
                 // 1a. BillingClient.isReady() -> boolean (always ready)
                 if (!isStatic && mName == "isReady" && retType == "Z" && pTypes.isEmpty()) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent(),
@@ -59,10 +57,10 @@ fun BytecodePatchContext.executeShadowFightFreeShoppingLogic(logger: Logger, gam
                 // 1b. BillingResult.getResponseCode() -> int (always OK / 0)
                 if (type.endsWith("/BillingResult;") && !isStatic && mName == "getResponseCode" && retType == "I" && pTypes.isEmpty()) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
                             const/4 v0, 0x0
                             return v0
                             """.trimIndent(),
@@ -77,10 +75,10 @@ fun BytecodePatchContext.executeShadowFightFreeShoppingLogic(logger: Logger, gam
                 // 1c. Purchase.getPurchaseState() -> int (always 1 = PURCHASED)
                 if (type.endsWith("/Purchase;") && !isStatic && mName == "getPurchaseState" && retType == "I" && pTypes.isEmpty()) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent(),
@@ -95,10 +93,10 @@ fun BytecodePatchContext.executeShadowFightFreeShoppingLogic(logger: Logger, gam
                 // 1d. Purchase.isAcknowledged() -> boolean (always true)
                 if (type.endsWith("/Purchase;") && !isStatic && mName == "isAcknowledged" && retType == "Z" && pTypes.isEmpty()) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent(),
@@ -122,10 +120,10 @@ fun BytecodePatchContext.executeShadowFightFreeShoppingLogic(logger: Logger, gam
                 (mName == "verify" && pTypes.size in 2..3 && pTypes.all { it == "Ljava/lang/String;" })
             )) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent(),

@@ -1,10 +1,9 @@
 package com.dmoniak.patches.shadowfight.sf2
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SHADOW_FIGHT_2
 import java.util.logging.Logger
 
@@ -59,13 +58,15 @@ fun BytecodePatchContext.executeShadowFight2InfiniteEnergyLogic(logger: Logger) 
                 mName == "hasenergy"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     energyCount++
                     logger.info("[SF2] Hooked energy availability: ${classDef.type}->${method.name}")
@@ -82,12 +83,14 @@ fun BytecodePatchContext.executeShadowFight2InfiniteEnergyLogic(logger: Logger) 
                 mName == "drainenergy"
             ) && retType == "V") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         return-void
                         """.trimIndent()
+
                     )
                     energyCount++
                     logger.info("[SF2] Hooked energy consumption: ${classDef.type}->${method.name}")
@@ -103,13 +106,15 @@ fun BytecodePatchContext.executeShadowFight2InfiniteEnergyLogic(logger: Logger) 
                 mName == "getenergycount"
             ) && retType == "I" && pTypes.isEmpty() && classDef.type.contains("energy", ignoreCase = true)) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x5
                         return v0
                         """.trimIndent()
+
                     )
                     energyCount++
                     logger.info("[SF2] Hooked energy getter: ${classDef.type}->${method.name}")
@@ -147,13 +152,15 @@ fun BytecodePatchContext.executeShadowFight2InstantDeliveryLogic(logger: Logger)
                 mName == "getdeliverytimeleft"
             ) && retType == "J" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const-wide/16 v0, 0x0
                         return-wide v0
                         """.trimIndent()
+
                     )
                     deliveryCount++
                     logger.info("[SF2] Hooked delivery time remaining: ${classDef.type}->${method.name}")
@@ -169,13 +176,15 @@ fun BytecodePatchContext.executeShadowFight2InstantDeliveryLogic(logger: Logger)
                 mName == "isupgradedelivered"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     deliveryCount++
                     logger.info("[SF2] Hooked delivery completion check: ${classDef.type}->${method.name}")

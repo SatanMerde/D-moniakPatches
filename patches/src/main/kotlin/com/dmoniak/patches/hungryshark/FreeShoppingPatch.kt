@@ -1,10 +1,8 @@
 package com.dmoniak.patches.hungryshark
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.hungryshark.util.replaceMethod
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_HUNGRY_SHARK_WORLD
 import java.util.logging.Logger
@@ -56,16 +54,19 @@ fun BytecodePatchContext.executeFreeShoppingLogic(logger: Logger, gameName: Stri
                         pTypes.isEmpty()
                     ) {
                         try {
-                            val mutableMethod = mutableClass.findMutableMethodOf(method)
-                            mutableMethod.addInstructions(
-                                0,
-                                """
+                            mutableClass.replaceMethod(
+
+                                method,
+
+                                smaliCode = """
                                 const/4 v0, 0x1
                                 return v0
                                 """.trimIndent(),
                             )
                             isReadyCount++
-                            logger.info("Patched isReady in ${classDef.type}")
+                            logger.info("Patched isReady in ${classDef.type}"
+
+                            )
                         } catch (e: Exception) {
                             logger.warning("Failed to patch isReady in ${classDef.type}: ${e.message}")
                         }
@@ -79,16 +80,19 @@ fun BytecodePatchContext.executeFreeShoppingLogic(logger: Logger, gameName: Stri
                         pTypes.isEmpty()
                     ) {
                         try {
-                            val mutableMethod = mutableClass.findMutableMethodOf(method)
-                            mutableMethod.addInstructions(
-                                0,
-                                """
+                            mutableClass.replaceMethod(
+
+                                method,
+
+                                smaliCode = """
                                 const/4 v0, 0x0
                                 return v0
                                 """.trimIndent(),
                             )
                             responseCodeCount++
-                            logger.info("Patched BillingResult.getResponseCode")
+                            logger.info("Patched BillingResult.getResponseCode"
+
+                            )
                         } catch (e: Exception) {
                             logger.warning("Failed to patch getResponseCode: ${e.message}")
                         }
@@ -552,16 +556,19 @@ fun BytecodePatchContext.executeFreeShoppingLogic(logger: Logger, gameName: Stri
                     pTypes.all { it == "Ljava/lang/String;" }
                 ) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent(),
                         )
                         verifyCount++
-                        logger.info("Patched verifyPurchase in ${classDef.type}")
+                        logger.info("Patched verifyPurchase in ${classDef.type}"
+
+                        )
                     } catch (e: Exception) {
                         logger.warning("Failed to patch verifyPurchase in ${classDef.type}: ${e.message}")
                     }

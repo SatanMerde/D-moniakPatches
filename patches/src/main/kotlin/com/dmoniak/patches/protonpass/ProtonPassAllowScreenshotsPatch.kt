@@ -1,10 +1,11 @@
 package com.dmoniak.patches.protonpass
 
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
+import com.dmoniak.patches.shared.cloneMethodWithAdditionalRegisters
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_PROTON_PASS
 import java.util.logging.Logger
 
@@ -45,13 +46,15 @@ fun BytecodePatchContext.executeProtonPassAllowScreenshotsLogic(logger: Logger) 
                 mName == "isscreenshotblocked"
             ) && method.returnType == "Z" && method.parameterTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     unflaggedMethods++
                     logger.fine("[Proton Pass Screenshots] Disabled screen security flag in: ${classDef.type}->${method.name}")
@@ -63,8 +66,8 @@ fun BytecodePatchContext.executeProtonPassAllowScreenshotsLogic(logger: Logger) 
             // 2. Clear FLAG_SECURE (0x2000) in Activity onCreate / onResume
             if (!isStatic && (method.name == "onCreate" || method.name == "onResume") && tl.contains("activity")) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
+                    val clonedMethod = cloneMethodWithAdditionalRegisters(method, 2)
+                    clonedMethod.addInstructions(
                         0,
                         """
                         invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;

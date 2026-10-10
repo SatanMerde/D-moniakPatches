@@ -1,10 +1,9 @@
 package com.dmoniak.patches.moises
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_MOISES
 import java.util.logging.Logger
 
@@ -48,13 +47,15 @@ fun BytecodePatchContext.executeMoisesUnlockPremiumLogic(logger: Logger) {
                 val mName = method.name
                 if (mName == "q" && method.returnType == "Ljava/lang/Boolean;") {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
                             return-object v0
                             """.trimIndent()
+
                         )
                         hookedMethods++
                         logger.info("[Moises Pro] Hooked User.q() -> Boolean.TRUE")
@@ -64,15 +65,17 @@ fun BytecodePatchContext.executeMoisesUnlockPremiumLogic(logger: Logger) {
                 }
                 if (mName == "e" && method.returnType == "Ljava/lang/Integer;") {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const/16 v0, 0x3e7
                             invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
                             move-result-object v0
                             return-object v0
                             """.trimIndent()
+
                         )
                         hookedMethods++
                         logger.info("[Moises Pro] Hooked User.e() -> 999 available credits")
@@ -94,13 +97,15 @@ fun BytecodePatchContext.executeMoisesUnlockPremiumLogic(logger: Logger) {
                 val mName = method.name
                 if ((mName == "c" || mName == "a") && method.returnType == "Ljava/lang/Boolean;") {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
                             return-object v0
                             """.trimIndent()
+
                         )
                         hookedMethods++
                         logger.info("[Moises Pro] Hooked ${classDef.type}->${method.name} -> Boolean.TRUE")
@@ -119,13 +124,15 @@ fun BytecodePatchContext.executeMoisesUnlockPremiumLogic(logger: Logger) {
                 val mName = method.name
                 if ((mName == "a" || mName == "b") && method.returnType == "Z") {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const/4 v0, 0x0
                             return v0
                             """.trimIndent()
+
                         )
                         hookedMethods++
                         logger.info("[Moises Pro] Hooked UserFeatureFlags.${method.name} -> false")
@@ -143,13 +150,15 @@ fun BytecodePatchContext.executeMoisesUnlockPremiumLogic(logger: Logger) {
                 val mName = method.name
                 if (mName == "isActive" && method.returnType == "Z") {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent()
+
                         )
                         hookedMethods++
                         logger.info("[Moises Pro] Hooked EntitlementInfo.isActive() -> true")
@@ -167,12 +176,14 @@ fun BytecodePatchContext.executeMoisesUnlockPremiumLogic(logger: Logger) {
                 val mName = method.name
                 if (mName == "H" && method.parameterTypes.size == 1 && method.returnType == "V") {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             return-void
                             """.trimIndent()
+
                         )
                         hookedMethods++
                         logger.info("[Moises Pro] Hooked MainActivity.H() -> return-void (paywall dialog suppressed)")
@@ -213,13 +224,15 @@ fun BytecodePatchContext.executeMoisesUnlockPremiumLogic(logger: Logger) {
                     mName == "isaccountpro"
                 ) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent()
+
                         )
                         hookedMethods++
                         logger.info("[Moises Pro] Hooked boolean ${classDef.type}->${method.name} -> true")
@@ -242,13 +255,15 @@ fun BytecodePatchContext.executeMoisesUnlockPremiumLogic(logger: Logger) {
                     mName == "isvip"
                 ) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
                             return-object v0
                             """.trimIndent()
+
                         )
                         hookedMethods++
                         logger.info("[Moises Pro] Hooked Boolean ${classDef.type}->${method.name} -> Boolean.TRUE")
@@ -271,13 +286,15 @@ fun BytecodePatchContext.executeMoisesUnlockPremiumLogic(logger: Logger) {
                     mName == "getplantype"
                 ) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const-string v0, "PRO"
                             return-object v0
                             """.trimIndent()
+
                         )
                         hookedMethods++
                         logger.info("[Moises Pro] Hooked string ${classDef.type}->${method.name} -> 'PRO'")

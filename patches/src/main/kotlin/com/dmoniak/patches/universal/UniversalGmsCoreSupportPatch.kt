@@ -1,6 +1,6 @@
 package com.dmoniak.patches.universal
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
@@ -121,13 +121,15 @@ fun BytecodePatchContext.executeUniversalGmsCoreSupportLogic(logger: Logger) {
                 val mName = method.name
                 if (mName == "isGooglePlayServicesAvailable" && method.returnType == "I") {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const/4 v0, 0x0
                             return v0
                             """.trimIndent()
+
                         )
                         hookedAvailabilityMethods++
                         logger.info("[GmsCore Support] Hooked ${classDef.type}->${method.name} -> ConnectionResult.SUCCESS (0)")
@@ -137,13 +139,15 @@ fun BytecodePatchContext.executeUniversalGmsCoreSupportLogic(logger: Logger) {
                 }
                 if (mName == "isUserResolvableError" && method.returnType == "Z") {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const/4 v0, 0x0
                             return v0
                             """.trimIndent()
+
                         )
                         hookedAvailabilityMethods++
                         logger.info("[GmsCore Support] Hooked ${classDef.type}->${method.name} -> false")

@@ -1,11 +1,11 @@
 package com.dmoniak.patches.bandlab
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
+import com.dmoniak.patches.shared.AdBlockHelper.executeComprehensiveAdBlock
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_BANDLAB
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -25,6 +25,10 @@ fun BytecodePatchContext.executeBandLabAdFreeDeclutterLogic(logger: Logger) {
     logger.info("Executing Block Ads & Declutter Feed patch for BandLab...")
     var hookedMethods = 0
 
+    // 1. Comprehensive ad mediation SDK blocker
+    hookedMethods += executeComprehensiveAdBlock(logger, "BandLab")
+
+    // 2. Hook local ad visibility and promo banner checks with clean replaceMethod
     classDefForEach { classDef ->
         val type = classDef.type
         val tl = type.lowercase()
@@ -36,9 +40,6 @@ fun BytecodePatchContext.executeBandLabAdFreeDeclutterLogic(logger: Logger) {
             tl.startsWith("ljava/")
         ) return@classDefForEach
 
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
-
-        // 1. Hook ad visibility and promo banner checks
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
@@ -54,10 +55,10 @@ fun BytecodePatchContext.executeBandLabAdFreeDeclutterLogic(logger: Logger) {
                 mName == "shoulddisplayupgradebanner"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()

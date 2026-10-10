@@ -1,10 +1,9 @@
 package com.dmoniak.patches.claude
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_CLAUDE
 import java.util.logging.Logger
 
@@ -45,13 +44,15 @@ fun BytecodePatchContext.executeClaudePrivacyTelemetryLogic(logger: Logger) {
                 mName == "shouldtrackevent"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Claude Privacy] Disabled tracking flag in: ${classDef.type}->${method.name}")
@@ -68,12 +69,14 @@ fun BytecodePatchContext.executeClaudePrivacyTelemetryLogic(logger: Logger) {
                 mName == "recordmetric"
             ) && retType == "V") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         return-void
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Claude Privacy] Neutralized telemetry dispatch in: ${classDef.type}->${method.name}")

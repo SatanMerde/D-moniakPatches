@@ -1,10 +1,9 @@
 package com.dmoniak.patches.deepl
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_DEEPL
 import java.util.logging.Logger
 
@@ -48,13 +47,15 @@ fun BytecodePatchContext.executeDeepLUnlockGlossaryStylesLogic(logger: Logger) {
                 mName == "canexportglossary"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[DeepL Styles] Forced glossary/style feature in: ${classDef.type}->${method.name}")
@@ -69,13 +70,15 @@ fun BytecodePatchContext.executeDeepLUnlockGlossaryStylesLogic(logger: Logger) {
                 mName == "getglossarylimit"
             ) && retType == "I") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const v0, 0x0001869f
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[DeepL Styles] Expanded glossary limit in: ${classDef.type}->${method.name}")

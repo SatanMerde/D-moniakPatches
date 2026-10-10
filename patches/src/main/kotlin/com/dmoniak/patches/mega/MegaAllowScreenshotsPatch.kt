@@ -1,10 +1,9 @@
 package com.dmoniak.patches.mega
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_MEGA
 import java.util.logging.Logger
 
@@ -45,12 +44,14 @@ fun BytecodePatchContext.executeMegaAllowScreenshotsLogic(logger: Logger) {
                 mName == "enforcesecureviewer"
             ) && retType == "V") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         return-void
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[MEGA Screenshots] Neutralized FLAG_SECURE in: ${classDef.type}->${method.name}")
@@ -66,13 +67,15 @@ fun BytecodePatchContext.executeMegaAllowScreenshotsLogic(logger: Logger) {
                 mName == "isscreenshotallowed"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[MEGA Export] Unlocked export permission in: ${classDef.type}->${method.name}")

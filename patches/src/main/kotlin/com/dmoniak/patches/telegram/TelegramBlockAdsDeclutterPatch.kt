@@ -1,10 +1,9 @@
 package com.dmoniak.patches.telegram
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_TELEGRAM
 import java.util.logging.Logger
 
@@ -45,13 +44,15 @@ fun BytecodePatchContext.executeTelegramBlockAdsDeclutterLogic(logger: Logger) {
                 mName == "isadvisible"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Telegram Ads] Blocked sponsored message in: ${classDef.type}->${method.name}")
@@ -67,13 +68,15 @@ fun BytecodePatchContext.executeTelegramBlockAdsDeclutterLogic(logger: Logger) {
                 mName == "hasstoriesbar"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Telegram Stories] Suppressed stories in: ${classDef.type}->${method.name}")

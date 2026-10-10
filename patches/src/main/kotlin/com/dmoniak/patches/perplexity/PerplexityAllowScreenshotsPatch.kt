@@ -1,10 +1,9 @@
 package com.dmoniak.patches.perplexity
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_PERPLEXITY
 import java.util.logging.Logger
 
@@ -45,12 +44,14 @@ fun BytecodePatchContext.executePerplexityAllowScreenshotsLogic(logger: Logger) 
                 mName == "protectwindowfromcapture"
             ) && retType == "V") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         return-void
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Perplexity Screenshots] Neutralized FLAG_SECURE in: ${classDef.type}->${method.name}")
@@ -67,12 +68,14 @@ fun BytecodePatchContext.executePerplexityAllowScreenshotsLogic(logger: Logger) 
                 mName == "loguseraction"
             ) && retType == "V") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         return-void
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Perplexity Telemetry] Neutralized telemetry dispatch in: ${classDef.type}->${method.name}")

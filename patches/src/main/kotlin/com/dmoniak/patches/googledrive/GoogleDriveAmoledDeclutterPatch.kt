@@ -1,10 +1,11 @@
 package com.dmoniak.patches.googledrive
 
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
+import com.dmoniak.patches.shared.cloneMethodWithAdditionalRegisters
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_GOOGLE_DRIVE
 import java.util.logging.Logger
 
@@ -44,8 +45,8 @@ fun BytecodePatchContext.executeGoogleDriveAmoledDeclutterLogic(logger: Logger) 
 
                 if (!isStatic && mName == "onResume" && pTypes.isEmpty()) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
+                        val clonedMethod = cloneMethodWithAdditionalRegisters(method, 3)
+                        clonedMethod.addInstructions(
                             0,
                             """
                             invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
@@ -85,13 +86,15 @@ fun BytecodePatchContext.executeGoogleDriveAmoledDeclutterLogic(logger: Logger) 
                     mName == "isdarkthemeactive"
                 ) && retType == "Z") {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent()
+
                         )
                         hookedMethods++
                         logger.info("[Drive AMOLED] Forced dark mode in: ${type}->${method.name}")

@@ -1,11 +1,10 @@
 package com.dmoniak.patches.duolingo
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_DUOLINGO
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -30,8 +29,6 @@ fun BytecodePatchContext.executeDuolingoUnlimitedHeartsLogic(logger: Logger) {
         // Focus on duolingo lesson & user session classes
         if (tl.contains("androidx") || tl.contains("android/support") || tl.contains("com/google")) return@classDefForEach
 
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
-
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
@@ -39,7 +36,7 @@ fun BytecodePatchContext.executeDuolingoUnlimitedHeartsLogic(logger: Logger) {
             val retType = method.returnType
             val pTypes = method.parameterTypes
 
-            // 1. Unlimited hearts / infinite health flag
+            // 1. Unlimited hearts / infinite health flag -> return true
             if (!isStatic && (
                 mName == "isunlimitedhearts" ||
                 mName == "hasinfinitehearts" ||
@@ -49,10 +46,10 @@ fun BytecodePatchContext.executeDuolingoUnlimitedHeartsLogic(logger: Logger) {
                 mName == "hasheartsremaining"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
@@ -72,10 +69,10 @@ fun BytecodePatchContext.executeDuolingoUnlimitedHeartsLogic(logger: Logger) {
                 mName == "getnumhearts"
             ) && retType == "I" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x5
                         return v0
                         """.trimIndent()
@@ -95,18 +92,17 @@ fun BytecodePatchContext.executeDuolingoUnlimitedHeartsLogic(logger: Logger) {
                 mName == "deductheart"
             ) && (retType == "V" || retType == "Z")) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
                     if (retType == "V") {
-                        mutableMethod.addInstructions(
-                            0,
-                            """
-                            return-void
-                            """.trimIndent()
+                        replaceMethod(
+                            method = method,
+                            registerCount = 2,
+                            smaliCode = "return-void"
                         )
                     } else {
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent()

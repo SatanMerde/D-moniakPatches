@@ -1,12 +1,11 @@
 package com.dmoniak.patches.altosadventure
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.BillingHookHelper.executeGooglePlayBillingBypass
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_ALTOS_ADVENTURE
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -29,12 +28,10 @@ fun BytecodePatchContext.executeAltosAdventureUnlockCharactersLogic(logger: Logg
     // 1. Hook Google Play BillingClient for Coin Doubler & Workshop IAP
     hookedPoints += executeGooglePlayBillingBypass(logger, "AltosAdventure")
 
-    // 2. Hook character & item unlocked methods
+    // 2. Hook character & item unlocked methods with clean replaceMethod
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support") || tl.contains("com/google")) return@classDefForEach
-
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
 
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
@@ -51,10 +48,10 @@ fun BytecodePatchContext.executeAltosAdventureUnlockCharactersLogic(logger: Logg
                 mName == "hasunlockedcharacter"
             )) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()

@@ -1,10 +1,9 @@
 package com.dmoniak.patches.photomath
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_PHOTOMATH
 import java.util.logging.Logger
 
@@ -47,13 +46,15 @@ fun BytecodePatchContext.executePhotomathAdFreeAndOfflineSolverLogic(logger: Log
                 mName == "isgeometrysolverunlocked"
             ) && retType == "Z" && method.parameterTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.fine("[Photomath Solver] Unlocked solution feature: ${classDef.type}->${method.name}")
@@ -71,13 +72,15 @@ fun BytecodePatchContext.executePhotomathAdFreeAndOfflineSolverLogic(logger: Log
                 mName == "ispluslocked"
             ) && retType == "Z" && method.parameterTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.fine("[Photomath Solver] Bypassed lock/ad: ${classDef.type}->${method.name}")

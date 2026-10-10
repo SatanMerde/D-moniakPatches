@@ -1,10 +1,9 @@
 package com.dmoniak.patches.geometrydash
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_GEOMETRY_DASH
 import java.util.logging.Logger
 
@@ -51,13 +50,15 @@ fun BytecodePatchContext.executeGeometryDashUnlockAllLevelsIconsLogic(logger: Lo
                 mName == "isitemunlocked"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[GeometryDash Unlocks] Unlocked icon/level in: ${classDef.type}->${method.name}")
@@ -75,13 +76,15 @@ fun BytecodePatchContext.executeGeometryDashUnlockAllLevelsIconsLogic(logger: Lo
                 mName == "getdiamonds"
             ) && retType == "I") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/16 v0, 0x3e7
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[GeometryDash Unlocks] Boosted currency in: ${classDef.type}->${method.name}")

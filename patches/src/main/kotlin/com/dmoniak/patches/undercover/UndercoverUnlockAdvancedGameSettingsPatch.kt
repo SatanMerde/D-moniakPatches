@@ -1,11 +1,10 @@
 package com.dmoniak.patches.undercover
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_UNDERCOVER
 import java.util.logging.Logger
 
@@ -55,13 +54,15 @@ fun BytecodePatchContext.executeUndercoverUnlockSettingsLogic(logger: Logger) {
             for (method in classDef.methods.toList()) {
                 if (method.returnType == "Z" && method.name in listOf("i", "j", "n", "o")) {
                     try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        mm?.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent()
+
                         )
                         hookedPoints++
                     } catch (e: Exception) {
@@ -96,13 +97,15 @@ fun BytecodePatchContext.executeUndercoverUnlockSettingsLogic(logger: Logger) {
 
                 if (referencesRoleFlag && retType == "Z" && method.parameterTypes.size <= 1) {
                     try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        mm?.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent()
+
                         )
                         hookedPoints++
                     } catch (e: Exception) {

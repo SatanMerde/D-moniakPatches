@@ -1,10 +1,9 @@
 package com.dmoniak.patches.vlc
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_VLC
 import java.util.logging.Logger
 
@@ -45,13 +44,15 @@ fun BytecodePatchContext.executeVlcVolumeBoostAndAudioEnhancerLogic(logger: Logg
                 mName == "shouldallowvolumeboost"
             ) && retType == "Z" && method.parameterTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.fine("[VLC Audio Boost] Enabled volume boost: ${classDef.type}->${method.name}")
@@ -66,13 +67,15 @@ fun BytecodePatchContext.executeVlcVolumeBoostAndAudioEnhancerLogic(logger: Logg
                 mName == "getmaxvolumeboost"
             ) && retType == "I" && method.parameterTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/16 v0, 0xc8
                         return v0
-                        """.trimIndent() // 200
+                        """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.fine("[VLC Audio Boost] Set volume boost limit to 200: ${classDef.type}->${method.name}")
@@ -87,13 +90,15 @@ fun BytecodePatchContext.executeVlcVolumeBoostAndAudioEnhancerLogic(logger: Logg
                 mName == "isduckingenabled"
             ) && retType == "Z" && method.parameterTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.fine("[VLC Audio Boost] Disabled audio ducking: ${classDef.type}->${method.name}")

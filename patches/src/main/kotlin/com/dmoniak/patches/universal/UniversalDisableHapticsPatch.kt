@@ -1,10 +1,9 @@
 package com.dmoniak.patches.universal
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -45,12 +44,14 @@ fun BytecodePatchContext.executeUniversalDisableHapticsLogic(logger: Logger) {
                 mName == "pulsevibrator"
             ) && retType == "V") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         return-void
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Universal Haptics] Silenced vibration trigger in ${classDef.type}->${method.name}")
@@ -67,13 +68,15 @@ fun BytecodePatchContext.executeUniversalDisableHapticsLogic(logger: Logger) {
                 mName == "canvibrate"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Universal Haptics] Disabled haptic flag in ${classDef.type}->${method.name}")

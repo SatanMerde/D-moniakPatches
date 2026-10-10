@@ -1,10 +1,9 @@
 package com.dmoniak.patches.robberybob
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_ROBBERY_BOB
 import java.util.logging.Logger
 
@@ -46,13 +45,15 @@ fun BytecodePatchContext.executeRobberyBobUnlimitedSprintLogic(logger: Logger) {
                 mName == "isbreathout"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     sprintCount++
                     logger.info("[Robbery Bob] Hooked fatigue check: ${classDef.type}->${method.name}")
@@ -68,13 +69,15 @@ fun BytecodePatchContext.executeRobberyBobUnlimitedSprintLogic(logger: Logger) {
                 mName == "hasstamina"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     sprintCount++
                     logger.info("[Robbery Bob] Hooked sprint ability check: ${classDef.type}->${method.name}")
@@ -92,12 +95,14 @@ fun BytecodePatchContext.executeRobberyBobUnlimitedSprintLogic(logger: Logger) {
                 mName == "decreasestamina"
             ) && retType == "V") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         return-void
                         """.trimIndent()
+
                     )
                     sprintCount++
                     logger.info("[Robbery Bob] Hooked stamina depletion: ${classDef.type}->${method.name}")
@@ -114,13 +119,15 @@ fun BytecodePatchContext.executeRobberyBobUnlimitedSprintLogic(logger: Logger) {
                 mName == "getcurrentstamina"
             ) && retType == "F" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/high16 v0, 0x3f800000
                         return v0
                         """.trimIndent()
+
                     )
                     sprintCount++
                     logger.info("[Robbery Bob] Hooked stamina getter: ${classDef.type}->${method.name}")

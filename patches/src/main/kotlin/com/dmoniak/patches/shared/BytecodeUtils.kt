@@ -1,4 +1,4 @@
-package com.dmoniak.patches.hungryshark.util
+package com.dmoniak.patches.shared
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
@@ -263,4 +263,3 @@ fun BytecodePatchContext.replaceMethod(
     registerCount: Int = 2,
     smaliCode: String,
 ): MutableMethod = mutableClassDefBy(method.definingClass).replaceMethod(method, registerCount, smaliCode)
-

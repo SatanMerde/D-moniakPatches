@@ -1,5 +1,6 @@
 package com.dmoniak.patches.universal
 
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
@@ -46,11 +47,11 @@ fun BytecodePatchContext.executeUniversalCloneLogic(logger: Logger) {
                 mName.contains("contentauthority")
             ) && retType == "Ljava/lang/String;" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+                        method,
+                        smaliCode = """
                         const-string v0, ".clone"
+                        return-object v0
                         """.trimIndent()
                     )
                     clonedPoints++
@@ -68,13 +69,15 @@ fun BytecodePatchContext.executeUniversalCloneLogic(logger: Logger) {
                 mName == "checkpackagename"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     clonedPoints++
                     logger.info("[Universal Clone] Disabled clone detection: ${classDef.type}->${method.name}")

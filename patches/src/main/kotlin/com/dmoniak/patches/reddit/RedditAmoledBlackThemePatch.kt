@@ -1,10 +1,9 @@
 package com.dmoniak.patches.reddit
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_REDDIT
 import java.util.logging.Logger
 
@@ -46,13 +45,15 @@ fun BytecodePatchContext.executeRedditAmoledLogic(logger: Logger) {
                 mName == "getnavdrawerbackgroundcolor"
             ) && retType == "I") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/high16 v0, -0x1000000
                         return v0
-                        """.trimIndent() // 0xFF000000 Pure Black
+                        """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Reddit AMOLED] Injected pure black in: ${classDef.type}->${method.name}")

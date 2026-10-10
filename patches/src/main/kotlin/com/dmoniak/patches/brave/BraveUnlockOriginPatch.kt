@@ -1,10 +1,9 @@
 package com.dmoniak.patches.brave
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.BillingHookHelper.executeGooglePlayBillingBypass
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_BRAVE
 import java.util.logging.Logger
@@ -53,13 +52,15 @@ fun BytecodePatchContext.executeBraveUnlockOriginLogic(logger: Logger) {
                 mName == "isoriginfeatureavailable"
             )) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Brave Origin] Forced license unlocked in: ${classDef.type}->${method.name}")
@@ -78,13 +79,15 @@ fun BytecodePatchContext.executeBraveUnlockOriginLogic(logger: Logger) {
                 mName == "ispremiumleoallowed"
             )) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Brave Origin] Forced Leo Premium in: ${classDef.type}->${method.name}")
@@ -102,13 +105,15 @@ fun BytecodePatchContext.executeBraveUnlockOriginLogic(logger: Logger) {
                 mName == "isbravevpnlicensed"
             )) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Brave Origin] Forced VPN entitlement in: ${classDef.type}->${method.name}")
@@ -124,13 +129,15 @@ fun BytecodePatchContext.executeBraveUnlockOriginLogic(logger: Logger) {
                 mName == "shouldpromptoriginlicense"
             )) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Brave Origin] Suppressed upsell prompt in: ${classDef.type}->${method.name}")
@@ -146,13 +153,15 @@ fun BytecodePatchContext.executeBraveUnlockOriginLogic(logger: Logger) {
                 mName == "getoriginplanid"
             )) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Brave Origin] Forced Origin license state in: ${classDef.type}->${method.name}")

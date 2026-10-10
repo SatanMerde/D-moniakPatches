@@ -12,6 +12,7 @@ import com.dmoniak.patches.hungryshark.util.cloneParameters
 import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.hungryshark.util.fireRewardedAdCallbacks
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_HUNGRY_SHARK_WORLD
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -64,17 +65,19 @@ fun BytecodePatchContext.executeBypassRewardedAdsLogic(logger: Logger, gameName:
 /**
  * Strategy for AppLovin MAX Unity bridge.
  */
+/**
+ * Strategy for AppLovin MAX Unity bridge.
+ */
 private fun BytecodePatchContext.applyMaxUnityStrategy(logger: Logger): Boolean {
     val unityShow = ShowRewardedAdFingerprint.methodOrNull
     val unityReady = IsRewardedAdReadyFingerprint.methodOrNull
     if (unityShow == null || unityReady == null) return false
 
-    unityReady.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
+    replaceMethod(unityReady, smaliCode = "const/4 v0, 0x1\nreturn v0")
 
-    val clonedShow = cloneParameters(unityShow)
-    clonedShow.addInstructions(
-        0,
-        """
+    replaceMethod(
+        unityShow,
+        smaliCode = """
         move-object/from16 v0, p1
         new-instance v1, Lorg/json/JSONObject;
         invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
@@ -121,10 +124,9 @@ private fun BytecodePatchContext.applyMaxUnityStrategy(logger: Logger): Boolean 
 
     val unityLoad = LoadRewardedAdFingerprint.methodOrNull
     if (unityLoad != null) {
-        val clonedLoad = cloneParameters(unityLoad)
-        clonedLoad.addInstructions(
-            0,
-            """
+        replaceMethod(
+            unityLoad,
+            smaliCode = """
             move-object/from16 v0, p1
             new-instance v1, Lorg/json/JSONObject;
             invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
@@ -153,19 +155,8 @@ private fun BytecodePatchContext.applyNativeMaxStrategy(logger: Logger) {
     val nativeShow = MaxRewardedAdShowAdFingerprint.methodOrNull
     if (nativeReady == null || nativeShow == null) return
 
-    nativeReady.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
-
-    val rc = nativeShow.implementation?.registerCount ?: 0
-    if (rc >= 7) {
-        nativeShow.addInstructions(0, fireRewardedAdCallbacks())
-    } else {
-        try {
-            cloneParameters(nativeShow).addInstructions(0, fireRewardedAdCallbacks())
-            logger.info("Native MAX via clone (low regs $rc)")
-        } catch (e: Exception) {
-            logger.warning("Clone failed for native MAX: ${e.message}")
-        }
-    }
+    replaceMethod(nativeReady, smaliCode = "const/4 v0, 0x1\nreturn v0")
+    replaceMethod(nativeShow, registerCount = 7, smaliCode = fireRewardedAdCallbacks())
     logger.info("Native MAX patched successfully")
 }
 
@@ -177,10 +168,11 @@ private fun BytecodePatchContext.applyIronSourceAdsWrapperStrategy(logger: Logge
     val show = IronSourceAdsRewardedShowPreciseFingerprint.methodOrNull
     if (ready == null || show == null) return
     try {
-        ready.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
-        cloneParameters(show).addInstructions(
-            0,
-            """
+        replaceMethod(ready, smaliCode = "const/4 v0, 0x1\nreturn v0")
+        replaceMethod(
+            show,
+            registerCount = 5,
+            smaliCode = """
             move-object/from16 v1, p0
             invoke-virtual {v1}, Lcom/unity3d/ironsourceads/rewarded/RewardedAd;->getListener()Lcom/unity3d/ironsourceads/rewarded/RewardedAdListener;
             move-result-object v0
@@ -205,10 +197,11 @@ private fun BytecodePatchContext.applyIronSourceBridgeStrategy(logger: Logger): 
     val bridgeReady = IronSourceUnityRewardedAdIsReadyFingerprint.methodOrNull
     val bridgeShow = IronSourceLevelPlayFullScreenShowAdFingerprint.methodOrNull
     if (bridgeReady == null || bridgeShow == null) return false
-    bridgeReady.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
-    cloneParameters(bridgeShow).addInstructions(
-        0,
-        """
+    replaceMethod(bridgeReady, smaliCode = "const/4 v0, 0x1\nreturn v0")
+    replaceMethod(
+        bridgeShow,
+        registerCount = 6,
+        smaliCode = """
         move-object/from16 v3, p0
         iget-object v0, v3, Lcom/ironsource/Ya;->k:Lcom/ironsource/Za;
         if-eqz v0, :morphe_ads_free_rewards_done
@@ -236,7 +229,7 @@ private fun BytecodePatchContext.applyIronSourceBridgeStrategy(logger: Logger): 
 private fun BytecodePatchContext.applyIronSourceAdsStrategy(logger: Logger) {
     val ironAds = IronSourceAdsRewardedShowFingerprint.methodOrNull ?: return
     try {
-        ironAds.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
+        replaceMethod(ironAds, smaliCode = "const/4 v0, 0x1\nreturn v0")
         logger.info("Unity IronSourceAds forced to success")
     } catch (e: Exception) {
         logger.warning("IronSourceAds patch failed: ${e.message}")
@@ -248,19 +241,20 @@ private fun BytecodePatchContext.applyIronSourceAdsStrategy(logger: Logger) {
  */
 private fun BytecodePatchContext.applyUnityAdsStrategy(logger: Logger) {
     UnityAdsAdvertisementIsReadyFingerprint.methodOrNull?.let {
-        it.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
+        replaceMethod(it, smaliCode = "const/4 v0, 0x1\nreturn v0")
     }
     UnityAdsAdvertisementIsReadyPlacementFingerprint.methodOrNull?.let {
-        it.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
+        replaceMethod(it, smaliCode = "const/4 v0, 0x1\nreturn v0")
     }
     UnityAdsSdkIsReadyFingerprint.methodOrNull?.let {
-        it.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
+        replaceMethod(it, smaliCode = "const/4 v0, 0x1\nreturn v0")
     }
 
     UnityRewardedAdShowFingerprint.methodOrNull?.let { adsShow ->
-        adsShow.addInstructions(
-            0,
-            """
+        replaceMethod(
+            adsShow,
+            registerCount = 4,
+            smaliCode = """
             move-object/from16 v0, p3
             move-object/from16 v1, p0
             invoke-interface {v0, v1}, Lcom/unity3d/ads/RewardedShowListener;->onRewarded(Lcom/unity3d/ads/RewardedAd;)V
@@ -274,9 +268,10 @@ private fun BytecodePatchContext.applyUnityAdsStrategy(logger: Logger) {
     }
 
     UnityAdsV4Show3ArgFingerprint.methodOrNull?.let { v4Show3 ->
-        v4Show3.addInstructions(
-            0,
-            """
+        replaceMethod(
+            v4Show3,
+            registerCount = 4,
+            smaliCode = """
             move-object/from16 v1, p2
             move-object/from16 v2, p1
             invoke-interface {v1, v2}, Lcom/unity3d/ads/IUnityAdsShowListener;->onUnityAdsShowStart(Ljava/lang/String;)V
@@ -289,9 +284,10 @@ private fun BytecodePatchContext.applyUnityAdsStrategy(logger: Logger) {
     }
 
     UnityAdsV4Show4ArgFingerprint.methodOrNull?.let { v4Show4 ->
-        v4Show4.addInstructions(
-            0,
-            """
+        replaceMethod(
+            v4Show4,
+            registerCount = 4,
+            smaliCode = """
             move-object/from16 v1, p3
             move-object/from16 v2, p1
             invoke-interface {v1, v2}, Lcom/unity3d/ads/IUnityAdsShowListener;->onUnityAdsShowStart(Ljava/lang/String;)V
@@ -356,7 +352,7 @@ private fun BytecodePatchContext.applyGoogleUnityAdsStrategy(logger: Logger): Bo
     val isAvailable = GoogleUnityRewardedAdIsAvailableFingerprint.methodOrNull
     if (isAvailable != null) {
         try {
-            isAvailable.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
+            replaceMethod(isAvailable, smaliCode = "const/4 v0, 0x1\nreturn v0")
             logger.info("Google Unity Ads: UnityRewardedAd.isAdAvailable forced to true")
             patched = true
         } catch (e: Exception) {
@@ -367,9 +363,9 @@ private fun BytecodePatchContext.applyGoogleUnityAdsStrategy(logger: Logger): Bo
     val loadAd = GoogleUnityRewardedAdLoadFingerprint.methodOrNull
     if (loadAd != null) {
         try {
-            loadAd.addInstructions(
-                0,
-                """
+            replaceMethod(
+                loadAd,
+                smaliCode = """
                 iget-object v0, p0, Lcom/google/unity/ads/UnityRewardedAd;->callback:Lcom/google/unity/ads/UnityRewardedAdCallback;
                 if-eqz v0, :morphe_load_skip
                 invoke-interface {v0}, Lcom/google/unity/ads/UnityRewardedAdCallback;->onRewardedAdLoaded()V
@@ -387,9 +383,9 @@ private fun BytecodePatchContext.applyGoogleUnityAdsStrategy(logger: Logger): Bo
     val pollAd = GoogleUnityRewardedAdPollFingerprint.methodOrNull
     if (pollAd != null) {
         try {
-            pollAd.addInstructions(
-                0,
-                """
+            replaceMethod(
+                pollAd,
+                smaliCode = """
                 iget-object v0, p0, Lcom/google/unity/ads/UnityRewardedAd;->callback:Lcom/google/unity/ads/UnityRewardedAdCallback;
                 if-eqz v0, :morphe_poll_skip
                 invoke-interface {v0}, Lcom/google/unity/ads/UnityRewardedAdCallback;->onRewardedAdLoaded()V
@@ -407,10 +403,10 @@ private fun BytecodePatchContext.applyGoogleUnityAdsStrategy(logger: Logger): Bo
     val show = GoogleUnityRewardedAdShowFingerprint.methodOrNull
     if (show != null) {
         try {
-            val clonedShow = cloneMethodWithAdditionalRegisters(show, 4)
-            clonedShow.addInstructions(
-                0,
-                """
+            replaceMethod(
+                show,
+                registerCount = 5,
+                smaliCode = """
                 iget-object v0, p0, Lcom/google/unity/ads/UnityRewardedAd;->fullScreenContentCallback:Lcom/google/android/gms/ads/FullScreenContentCallback;
                 if-eqz v0, :morphe_show_skip
                 invoke-virtual {v0}, Lcom/google/android/gms/ads/FullScreenContentCallback;->onAdShowedFullScreenContent()V
@@ -438,7 +434,7 @@ private fun BytecodePatchContext.applyGoogleUnityAdsStrategy(logger: Logger): Bo
     val preloaderAvailable = GoogleUnityRewardedAdPreloaderIsAvailableFingerprint.methodOrNull
     if (preloaderAvailable != null) {
         try {
-            preloaderAvailable.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
+            replaceMethod(preloaderAvailable, smaliCode = "const/4 v0, 0x1\nreturn v0")
             logger.info("Google Unity Ads: UnityRewardedAdPreloader.isAdAvailable forced to true")
             patched = true
         } catch (e: Exception) {
@@ -449,7 +445,7 @@ private fun BytecodePatchContext.applyGoogleUnityAdsStrategy(logger: Logger): Bo
     val preloaderGetNum = GoogleUnityRewardedAdPreloaderGetNumAdsFingerprint.methodOrNull
     if (preloaderGetNum != null) {
         try {
-            preloaderGetNum.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
+            replaceMethod(preloaderGetNum, smaliCode = "const/4 v0, 0x1\nreturn v0")
             logger.info("Google Unity Ads: UnityRewardedAdPreloader.getNumAdsAvailable forced to 1")
             patched = true
         } catch (e: Exception) {
@@ -460,9 +456,10 @@ private fun BytecodePatchContext.applyGoogleUnityAdsStrategy(logger: Logger): Bo
     val preloaderPoll = GoogleUnityRewardedAdPreloaderPollFingerprint.methodOrNull
     if (preloaderPoll != null) {
         try {
-            preloaderPoll.addInstructions(
-                0,
-                """
+            replaceMethod(
+                preloaderPoll,
+                registerCount = 3,
+                smaliCode = """
                 new-instance v0, Lcom/google/unity/ads/UnityRewardedAd;
                 iget-object v1, p0, Lcom/google/unity/ads/UnityRewardedAdPreloader;->activity:Landroid/app/Activity;
                 invoke-direct {v0, v1, p2}, Lcom/google/unity/ads/UnityRewardedAd;-><init>(Landroid/app/Activity;Lcom/google/unity/ads/UnityRewardedAdCallback;)V
@@ -483,9 +480,9 @@ private fun BytecodePatchContext.applyGoogleUnityAdsStrategy(logger: Logger): Bo
     val rwInterstitialLoad = GoogleUnityRewardedInterstitialAdLoadFingerprint.methodOrNull
     if (rwInterstitialLoad != null) {
         try {
-            rwInterstitialLoad.addInstructions(
-                0,
-                """
+            replaceMethod(
+                rwInterstitialLoad,
+                smaliCode = """
                 iget-object v0, p0, Lcom/google/unity/ads/UnityRewardedInterstitialAd;->callback:Lcom/google/unity/ads/UnityRewardedInterstitialAdCallback;
                 if-eqz v0, :morphe_load_skip
                 invoke-interface {v0}, Lcom/google/unity/ads/UnityRewardedInterstitialAdCallback;->onRewardedInterstitialAdLoaded()V
@@ -503,10 +500,10 @@ private fun BytecodePatchContext.applyGoogleUnityAdsStrategy(logger: Logger): Bo
     val rwInterstitialShow = GoogleUnityRewardedInterstitialAdShowFingerprint.methodOrNull
     if (rwInterstitialShow != null) {
         try {
-            val clonedShow = cloneMethodWithAdditionalRegisters(rwInterstitialShow, 4)
-            clonedShow.addInstructions(
-                0,
-                """
+            replaceMethod(
+                rwInterstitialShow,
+                registerCount = 5,
+                smaliCode = """
                 iget-object v1, p0, Lcom/google/unity/ads/UnityRewardedInterstitialAd;->callback:Lcom/google/unity/ads/UnityRewardedInterstitialAdCallback;
                 if-eqz v1, :morphe_earn_skip
                 const-string v2, "reward"

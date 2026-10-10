@@ -1,11 +1,10 @@
-﻿package com.dmoniak.patches.canva
+package com.dmoniak.patches.canva
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_CANVA
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -29,8 +28,6 @@ fun BytecodePatchContext.executeCanvaUnlimitedBrandKitLogic(logger: Logger) {
         val tl = classDef.type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support")) return@classDefForEach
 
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
-
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
@@ -45,11 +42,11 @@ fun BytecodePatchContext.executeCanvaUnlimitedBrandKitLogic(logger: Logger) {
                 mName == "isadditionalpaletteallowed"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
                     val returnVal = if (mName == "isbrandkitlimitreached") "0x0" else "0x1"
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, $returnVal
                         return v0
                         """.trimIndent()
@@ -61,16 +58,16 @@ fun BytecodePatchContext.executeCanvaUnlimitedBrandKitLogic(logger: Logger) {
                 }
             }
 
-            // Return a very large brand kit slot limit
+            // Return a very large brand kit slot limit (127)
             if (!isStatic && (
                 mName == "getmaxbrandkitslots" ||
                 mName == "getbrandkitlimit"
             ) && retType == "I") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/16 v0, 0x7F
                         return v0
                         """.trimIndent()

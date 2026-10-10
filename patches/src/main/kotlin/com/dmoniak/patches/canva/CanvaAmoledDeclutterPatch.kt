@@ -1,11 +1,10 @@
 package com.dmoniak.patches.canva
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_CANVA
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -29,8 +28,6 @@ fun BytecodePatchContext.executeCanvaAmoledDeclutterLogic(logger: Logger) {
         val tl = classDef.type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support")) return@classDefForEach
 
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
-
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
@@ -44,10 +41,10 @@ fun BytecodePatchContext.executeCanvaAmoledDeclutterLogic(logger: Logger) {
                 mName == "getdarkmodebackground"
             ) && retType == "I") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/high16 v0, -0x1000000
                         return v0
                         """.trimIndent()
@@ -67,10 +64,10 @@ fun BytecodePatchContext.executeCanvaAmoledDeclutterLogic(logger: Logger) {
                 mName == "isprocardshown"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()

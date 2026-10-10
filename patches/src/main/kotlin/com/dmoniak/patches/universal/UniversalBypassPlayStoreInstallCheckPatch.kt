@@ -1,10 +1,9 @@
 package com.dmoniak.patches.universal
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -28,8 +27,6 @@ fun BytecodePatchContext.executeUniversalBypassPlayStoreInstallCheckLogic(logger
         // Skip Android framework internals
         if (tl.startsWith("landroid/") || tl.startsWith("lkotlin/")) return@classDefForEach
 
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
-
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
@@ -37,7 +34,7 @@ fun BytecodePatchContext.executeUniversalBypassPlayStoreInstallCheckLogic(logger
             val retType = method.returnType
             val pTypes = method.parameterTypes
 
-            // 1. Hook Boolean methods checking if app was installed from Play Store
+            // 1. Hook Boolean methods checking if app was installed from Play Store -> return true
             if (!isStatic && (
                 mName == "isinstalledfromplaystore" ||
                 mName == "isinstalledfromstore" ||
@@ -49,10 +46,10 @@ fun BytecodePatchContext.executeUniversalBypassPlayStoreInstallCheckLogic(logger
                 mName == "checkplaystoreinstall"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
@@ -71,10 +68,10 @@ fun BytecodePatchContext.executeUniversalBypassPlayStoreInstallCheckLogic(logger
                 mName == "getinstallingsource"
             ) && retType == "Ljava/lang/String;" && pTypes.size <= 1) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const-string v0, "com.android.vending"
                         return-object v0
                         """.trimIndent()

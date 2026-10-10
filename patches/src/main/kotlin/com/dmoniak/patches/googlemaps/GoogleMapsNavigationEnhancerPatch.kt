@@ -1,10 +1,11 @@
 package com.dmoniak.patches.googlemaps
 
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
+import com.dmoniak.patches.shared.cloneMethodWithAdditionalRegisters
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_GOOGLE_MAPS
 import java.util.logging.Logger
 
@@ -49,13 +50,15 @@ fun BytecodePatchContext.executeGoogleMapsNavigationEnhancerLogic(logger: Logger
                 mName == "cancamerawarningbeaudible"
             ) && retType == "Z" && method.parameterTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     cameraHooks++
                     logger.fine("[Google Maps Nav] Enabled radar alert in: ${classDef.type}->${method.name}")
@@ -71,13 +74,15 @@ fun BytecodePatchContext.executeGoogleMapsNavigationEnhancerLogic(logger: Logger
                 mName == "isadaptiveautozoomallowed"
             ) && retType == "Z" && method.parameterTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     zoomHooks++
                     logger.fine("[Google Maps Nav] Locked custom zoom in: ${classDef.type}->${method.name}")
@@ -91,8 +96,8 @@ fun BytecodePatchContext.executeGoogleMapsNavigationEnhancerLogic(logger: Logger
                 (tl.contains("nav") || tl.contains("guidance") || tl.contains("mapsactivity"))
             ) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
+                    val clonedMethod = cloneMethodWithAdditionalRegisters(method, 2)
+                    clonedMethod.addInstructions(
                         0,
                         """
                         invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;

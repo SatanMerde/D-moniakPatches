@@ -1,10 +1,9 @@
 package com.dmoniak.patches.spotify
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SPOTIFY
 import java.util.logging.Logger
 
@@ -48,13 +47,15 @@ fun BytecodePatchContext.executeSpotifyDeclutterUILogic(logger: Logger) {
                 mName == "isupgradebuttonvisible"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     declutterCount++
                     logger.info("[Spotify Declutter] Disabled upsell check: ${classDef.type}->${method.name}")
@@ -70,13 +71,15 @@ fun BytecodePatchContext.executeSpotifyDeclutterUILogic(logger: Logger) {
                 mName == "isadcarouselvisible"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     declutterCount++
                     logger.info("[Spotify Declutter] Disabled promo carousel: ${classDef.type}->${method.name}")

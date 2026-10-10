@@ -3,10 +3,11 @@ package com.dmoniak.patches.silt
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.replaceMethod
 import com.dmoniak.patches.shared.BillingHookHelper.executeGooglePlayBillingBypass
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SILT
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
+
 
 @Suppress("unused")
 val siltUnlockFullGamePatch = bytecodePatch(

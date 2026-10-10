@@ -1,10 +1,9 @@
 package com.dmoniak.patches.googlemaps
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_GOOGLE_MAPS
 import java.util.logging.Logger
 
@@ -54,13 +53,15 @@ fun BytecodePatchContext.executeGoogleMapsBlockSponsoredPinsAndAdsLogic(logger: 
                 mName == "isadcard"
             ) && retType == "Z" && method.parameterTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.fine("[Google Maps AdBlock] Suppressed sponsored getter: ${classDef.type}->${method.name}")
@@ -77,12 +78,14 @@ fun BytecodePatchContext.executeGoogleMapsBlockSponsoredPinsAndAdsLogic(logger: 
                 mName == "tracksponsoredclick"
             ) && retType == "V") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         return-void
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.fine("[Google Maps AdBlock] Neutralized ad tracking: ${classDef.type}->${method.name}")

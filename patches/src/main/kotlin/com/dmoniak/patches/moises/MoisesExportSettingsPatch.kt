@@ -1,10 +1,9 @@
 package com.dmoniak.patches.moises
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_MOISES
 import java.util.logging.Logger
 
@@ -46,13 +45,15 @@ fun BytecodePatchContext.executeMoisesExportSettingsLogic(logger: Logger) {
             for (method in classDef.methods.toList()) {
                 if (method.name == "e" && method.returnType == "Z") {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const/4 v0, 0x0
                             return v0
                             """.trimIndent()
+
                         )
                         hookedPoints++
                         logger.info("[Moises Audio Tools] Hooked UploadTrackViewModel.e() -> false (bypass duration check)")
@@ -71,13 +72,15 @@ fun BytecodePatchContext.executeMoisesExportSettingsLogic(logger: Logger) {
                 val mName = method.name
                 if ((mName == "a" || mName == "b") && method.returnType == "Z") {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const/4 v0, 0x0
                             return v0
                             """.trimIndent()
+
                         )
                         hookedPoints++
                         logger.info("[Moises Audio Tools] Hooked UserFeatureFlags.${method.name} -> false")
@@ -121,13 +124,15 @@ fun BytecodePatchContext.executeMoisesExportSettingsLogic(logger: Logger) {
                     mName == "isunlimitedtempo"
                 ) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent()
+
                         )
                         hookedPoints++
                         logger.info("[Moises Audio Tools] Hooked boolean ${classDef.type}->${method.name} -> true")
@@ -141,13 +146,15 @@ fun BytecodePatchContext.executeMoisesExportSettingsLogic(logger: Logger) {
             if (!isStatic && pTypes.size == 1 && retType == "Z") {
                 if (mName == "canexportformat" || mName == "isformatsupported") {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const/4 v0, 0x1
                             return v0
                             """.trimIndent()
+
                         )
                         hookedPoints++
                         logger.info("[Moises Audio Tools] Hooked 1-param format check ${classDef.type}->${method.name} -> true")
@@ -166,13 +173,15 @@ fun BytecodePatchContext.executeMoisesExportSettingsLogic(logger: Logger) {
                     mName == "getmaxbitrate"
                 ) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const/16 v0, 0x140
                             return v0
                             """.trimIndent()
+
                         )
                         hookedPoints++
                         logger.info("[Moises Audio Tools] Hooked bitrate ${classDef.type}->${method.name} -> 320 kbps")

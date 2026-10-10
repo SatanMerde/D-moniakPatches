@@ -1,10 +1,9 @@
 package com.dmoniak.patches.robberybob
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_ROBBERY_BOB
 import java.util.logging.Logger
 
@@ -46,13 +45,15 @@ fun BytecodePatchContext.executeRobberyBobUnlockChaptersLogic(logger: Logger) {
                 mName == "isworldlocked"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     unlockCount++
                     logger.info("[Robbery Bob] Hooked lock status: ${classDef.type}->${method.name}")
@@ -70,13 +71,15 @@ fun BytecodePatchContext.executeRobberyBobUnlockChaptersLogic(logger: Logger) {
                 mName == "canenterchapter"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     unlockCount++
                     logger.info("[Robbery Bob] Hooked unlock status: ${classDef.type}->${method.name}")

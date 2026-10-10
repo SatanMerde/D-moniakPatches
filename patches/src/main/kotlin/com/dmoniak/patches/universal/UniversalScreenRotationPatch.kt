@@ -1,5 +1,6 @@
 package com.dmoniak.patches.universal
 
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
@@ -63,13 +64,15 @@ fun BytecodePatchContext.executeUniversalScreenRotationLogic(logger: Logger) {
                 mName == "isrotationdisabled"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Universal Rotation] Disabled orientation lock: ${classDef.type}->${method.name}")

@@ -1,10 +1,9 @@
 package com.dmoniak.patches.cuttherope
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_CUT_THE_ROPE
 import java.util.logging.Logger
 
@@ -50,13 +49,15 @@ fun BytecodePatchContext.executeCutTheRopeUnlockSeasonsSuperpowersLogic(logger: 
                 mName == "hasinfinitepowerups"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[CutTheRope Unlocks] Forced unlock in: ${classDef.type}->${method.name}")
@@ -72,13 +73,15 @@ fun BytecodePatchContext.executeCutTheRopeUnlockSeasonsSuperpowersLogic(logger: 
                 mName == "getsuperpowercount"
             ) && retType == "I") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/16 v0, 0x3e7
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[CutTheRope Unlocks] Forced superpower count in: ${classDef.type}->${method.name}")

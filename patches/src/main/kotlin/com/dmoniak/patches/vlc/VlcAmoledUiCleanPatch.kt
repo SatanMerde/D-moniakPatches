@@ -1,10 +1,9 @@
 package com.dmoniak.patches.vlc
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_VLC
 import java.util.logging.Logger
 
@@ -44,13 +43,15 @@ fun BytecodePatchContext.executeVlcAmoledUiCleanLogic(logger: Logger) {
                 mName == "shouldusedarktheme"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[VLC AMOLED] Forced black theme in: ${classDef.type}->${method.name}")
@@ -66,13 +67,15 @@ fun BytecodePatchContext.executeVlcAmoledUiCleanLogic(logger: Logger) {
                 mName == "shouldshowdiscoverybanner"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[VLC UI] Suppressed hints/tips in: ${classDef.type}->${method.name}")

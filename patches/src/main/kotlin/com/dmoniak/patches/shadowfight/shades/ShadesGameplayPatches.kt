@@ -1,10 +1,9 @@
 package com.dmoniak.patches.shadowfight.shades
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SHADOW_FIGHT_SHADES
 import java.util.logging.Logger
 
@@ -46,13 +45,15 @@ fun BytecodePatchContext.executeShadesInfiniteEnergyLogic(logger: Logger) {
                 mName == "hasenergy"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     energyCount++
                     logger.info("[Shades] Hooked energy availability: ${classDef.type}->${method.name}")
@@ -69,12 +70,14 @@ fun BytecodePatchContext.executeShadesInfiniteEnergyLogic(logger: Logger) {
                 mName == "drainenergy"
             ) && retType == "V") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         return-void
                         """.trimIndent()
+
                     )
                     energyCount++
                     logger.info("[Shades] Hooked energy consumption: ${classDef.type}->${method.name}")

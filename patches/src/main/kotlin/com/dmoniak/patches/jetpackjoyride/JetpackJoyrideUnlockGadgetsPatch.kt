@@ -1,10 +1,9 @@
 package com.dmoniak.patches.jetpackjoyride
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_JETPACK_JOYRIDE
 import java.util.logging.Logger
 
@@ -46,13 +45,15 @@ fun BytecodePatchContext.executeJetpackJoyrideUnlockGadgetsLogic(logger: Logger)
                 mName == "hasvehiclemagnet"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Jetpack Gadgets] Unlocked item in: ${classDef.type}->${method.name}")
@@ -68,13 +69,15 @@ fun BytecodePatchContext.executeJetpackJoyrideUnlockGadgetsLogic(logger: Logger)
                 mName == "getupgradepower"
             ) && (retType == "I" || retType == "S")) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x5
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Jetpack Gadgets] Maxed upgrade level in: ${classDef.type}->${method.name}")

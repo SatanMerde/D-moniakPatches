@@ -1,19 +1,16 @@
 package com.dmoniak.patches.universal
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
 val universalKeepScreenOnPatch = bytecodePatch(
-    name = "Universal Keep Screen On (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Prevents the device display from automatically turning off or dimming while the patched app is open in the foreground (ideal for reading, recipes, and monitoring).",
+    name = "Keep Screen Awake (Universal)",
+    description = "Forces the screen to stay illuminated and prevents the device display from dimming or going to sleep while running games, navigation apps, video tools, or readers.",
 ) {
-    // Universal patch: No compatibleWith() call. Applies to any app.
-
     execute {
         val logger = Logger.getLogger(this::class.java.name)
         executeUniversalKeepScreenOnLogic(logger)
@@ -21,15 +18,12 @@ val universalKeepScreenOnPatch = bytecodePatch(
 }
 
 fun BytecodePatchContext.executeUniversalKeepScreenOnLogic(logger: Logger) {
-    logger.info("Executing Universal Keep Screen On patch...")
+    logger.info("Executing Keep Screen Awake universal patch...")
     var hookedPoints = 0
 
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()
-        // Target main activity / view classes
         if (tl.startsWith("landroid/view/") || tl.startsWith("landroid/os/")) return@classDefForEach
-
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
 
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
@@ -45,10 +39,10 @@ fun BytecodePatchContext.executeUniversalKeepScreenOnLogic(logger: Logger) {
                 mName == "iswakelockpreferred"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
@@ -66,10 +60,10 @@ fun BytecodePatchContext.executeUniversalKeepScreenOnLogic(logger: Logger) {
                 mName == "shouldallowscreentimeout"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()

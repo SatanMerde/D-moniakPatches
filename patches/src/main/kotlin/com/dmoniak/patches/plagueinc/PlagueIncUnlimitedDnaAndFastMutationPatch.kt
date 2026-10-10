@@ -1,10 +1,9 @@
 package com.dmoniak.patches.plagueinc
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_PLAGUE_INC
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_PLAGUE_INC_ALT
 import java.util.logging.Logger
@@ -46,13 +45,15 @@ fun BytecodePatchContext.executePlagueIncDnaLogic(logger: Logger) {
                 mName == "gettotaldnapoints"
             ) && retType == "I") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/16 v0, 0x270f
                         return v0
-                        """.trimIndent() // 9999 DNA
+                        """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Plague Inc.] Injected 9999 DNA points into: ${classDef.type}->${method.name}")

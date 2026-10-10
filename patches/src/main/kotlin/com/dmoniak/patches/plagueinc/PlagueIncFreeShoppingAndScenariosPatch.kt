@@ -1,10 +1,9 @@
 package com.dmoniak.patches.plagueinc
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.BillingHookHelper.executeGooglePlayBillingBypass
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_PLAGUE_INC
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_PLAGUE_INC_ALT
@@ -50,13 +49,15 @@ fun BytecodePatchContext.executePlagueIncExpansionLogic(logger: Logger) {
                 mName == "haspurchasedpremium"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Plague Inc.] Unlocked expansion feature in: ${classDef.type}->${method.name}")
@@ -71,13 +72,15 @@ fun BytecodePatchContext.executePlagueIncExpansionLogic(logger: Logger) {
                 mName == "getresponsecode"
             ) && retType == "I") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Plague Inc.] Injected PURCHASED (0) billing state into: ${classDef.type}->${method.name}")

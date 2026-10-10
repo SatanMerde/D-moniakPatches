@@ -1,10 +1,9 @@
 package com.dmoniak.patches.brave
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_BRAVE
 import java.util.logging.Logger
 
@@ -47,13 +46,15 @@ fun BytecodePatchContext.executeBraveCleanNewTabLogic(logger: Logger) {
                 mName == "istoptilesponsoringenabled"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Brave New Tab] Disabled sponsored / news feed in: ${classDef.type}->${method.name}")
@@ -69,12 +70,14 @@ fun BytecodePatchContext.executeBraveCleanNewTabLogic(logger: Logger) {
                 mName == "syncsponsoredimages"
             ) && retType == "V") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         return-void
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Brave New Tab] Bypassed feed/background sync in: ${classDef.type}->${method.name}")

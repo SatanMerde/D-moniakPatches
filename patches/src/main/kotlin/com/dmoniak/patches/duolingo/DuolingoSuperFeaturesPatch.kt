@@ -1,11 +1,10 @@
 package com.dmoniak.patches.duolingo
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_DUOLINGO
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -29,8 +28,6 @@ fun BytecodePatchContext.executeDuolingoSuperFeaturesLogic(logger: Logger) {
         val tl = classDef.type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support") || tl.contains("com/google")) return@classDefForEach
 
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
-
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
@@ -38,7 +35,7 @@ fun BytecodePatchContext.executeDuolingoSuperFeaturesLogic(logger: Logger) {
             val retType = method.returnType
             val pTypes = method.parameterTypes
 
-            // 1. Super / Plus subscription and entitlement flags
+            // 1. Super / Plus subscription and entitlement flags -> return true
             if (!isStatic && (
                 mName == "isplussubscriber" ||
                 mName == "issupersubscriber" ||
@@ -49,10 +46,10 @@ fun BytecodePatchContext.executeDuolingoSuperFeaturesLogic(logger: Logger) {
                 mName == "hasunlimitedlegendaryattempts"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
@@ -64,17 +61,17 @@ fun BytecodePatchContext.executeDuolingoSuperFeaturesLogic(logger: Logger) {
                 }
             }
 
-            // 2. Legendary cost reduction (freezes gem cost to 0)
+            // 2. Legendary cost reduction (freezes gem cost to 0) -> return 0
             if (!isStatic && (
                 mName == "getlegendarygemcost" ||
                 mName == "getmistakereviewcost" ||
                 mName == "getpracticehubcost"
             ) && retType == "I" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()

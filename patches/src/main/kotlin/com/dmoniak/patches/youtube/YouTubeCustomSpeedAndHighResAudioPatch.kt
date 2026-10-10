@@ -1,10 +1,9 @@
 package com.dmoniak.patches.youtube
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_YOUTUBE
 import java.util.logging.Logger
 
@@ -43,13 +42,15 @@ fun BytecodePatchContext.executeYouTubeSpeedAudioLogic(logger: Logger) {
                 mName == "getmaximumspeedallowed"
             ) && retType == "F") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/high16 v0, 0x40a00000
                         return v0
-                        """.trimIndent() // 5.0f
+                        """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[YouTube Speed] Unlocked max playback speed to 5.0x in: ${classDef.type}->${method.name}")
@@ -65,13 +66,15 @@ fun BytecodePatchContext.executeYouTubeSpeedAudioLogic(logger: Logger) {
                 mName == "shouldforceopusaudio"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[YouTube Audio/Video] Forced highest quality toggle in: ${classDef.type}->${method.name}")

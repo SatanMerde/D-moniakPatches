@@ -3,8 +3,8 @@ package com.dmoniak.patches.templerun2
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_TEMPLE_RUN_2
+import com.dmoniak.patches.shared.cloneMethodWithAdditionalRegisters
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -29,14 +29,13 @@ fun BytecodePatchContext.executeTempleRun2HighRefreshRateLogic(logger: Logger) {
         val isActivity = tl.contains("activity") || tl.contains("unityplayer")
         if (!isActivity) return@classDefForEach
 
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
-
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val mName = method.name
             if (mName == "onCreate" || mName == "onResume") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
+                    // Safely expand register headroom by 3 to prevent register collisions with parameters
+                    val mutableMethod = cloneMethodWithAdditionalRegisters(method, 3)
                     mutableMethod.addInstructions(
                         0,
                         """

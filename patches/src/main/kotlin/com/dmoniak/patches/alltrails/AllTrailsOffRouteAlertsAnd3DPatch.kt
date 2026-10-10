@@ -1,17 +1,16 @@
 package com.dmoniak.patches.alltrails
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_ALLTRAILS
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
 val allTrailsOffRouteAlertsAnd3DPatch = bytecodePatch(
-    name = "Persistent Off-Route Audio Alerts & 3D Maps - AllTrails (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Unlocks 3D topographic trail elevation rendering, satellite weather overlays, and forces persistent wrong-turn audio alerts when straying off the trail.",
+    name = "Unlock 3D Maps & Off-Route Alerts - AllTrails",
+    description = "Unlocks 3D trail maps, real-time off-route audio and wrong-turn notifications, and environmental weather overlays in AllTrails.",
 ) {
     compatibleWith(COMPATIBILITY_ALLTRAILS)
 
@@ -22,14 +21,12 @@ val allTrailsOffRouteAlertsAnd3DPatch = bytecodePatch(
 }
 
 fun BytecodePatchContext.executeAllTrailsOffRouteAlertsAnd3DLogic(logger: Logger) {
-    logger.info("Executing Persistent Off-Route Audio Alerts & 3D Maps patch for AllTrails...")
+    logger.info("Executing Unlock 3D Maps & Off-Route Alerts patch for AllTrails...")
     var hookedPoints = 0
 
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()
         if (tl.startsWith("landroid/") || tl.startsWith("lkotlin/") || tl.startsWith("ljava/")) return@classDefForEach
-
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
 
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
@@ -49,10 +46,10 @@ fun BytecodePatchContext.executeAllTrailsOffRouteAlertsAnd3DLogic(logger: Logger
                 mName == "canviewtopo3d"
             ) && retType == "Z" && method.parameterTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()

@@ -1,10 +1,9 @@
 package com.dmoniak.patches.shadowfight.sf3
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SHADOW_FIGHT_3
 import java.util.logging.Logger
 
@@ -46,13 +45,15 @@ fun BytecodePatchContext.executeShadowFight3InstantChestLogic(logger: Logger) {
                 mName == "gettimeuntilunlock"
             ) && retType == "J" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const-wide/16 v0, 0x0
                         return-wide v0
                         """.trimIndent()
+
                     )
                     chestCount++
                     logger.info("[SF3] Hooked chest unlock timer: ${classDef.type}->${method.name}")
@@ -69,13 +70,15 @@ fun BytecodePatchContext.executeShadowFight3InstantChestLogic(logger: Logger) {
                 mName == "isreadytoopen"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     chestCount++
                     logger.info("[SF3] Hooked chest ready status: ${classDef.type}->${method.name}")

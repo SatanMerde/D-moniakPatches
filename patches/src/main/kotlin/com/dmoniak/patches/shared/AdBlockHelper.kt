@@ -1,10 +1,8 @@
 package com.dmoniak.patches.shared
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
-import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import java.util.logging.Logger
+
 
 /**
  * Universal, production-grade Ad-Blocking engine for Android apps and games.
@@ -54,7 +52,6 @@ object AdBlockHelper {
 
             if (!isAdSdkClass) return@classDefForEach
 
-            val mutableClass by lazy { mutableClassDefBy(classDef) }
 
             for (method in classDef.methods.toList()) {
                 if (method.implementation == null) continue
@@ -79,12 +76,10 @@ object AdBlockHelper {
 
                 if (isShowOrLoadMethod) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
-                            return-void
-                            """.trimIndent()
+                        replaceMethod(
+                            method = method,
+                            registerCount = 2,
+                            smaliCode = "return-void"
                         )
                         hookedPoints++
                         logger.fine("[$targetName AdBlock] Neutralized presentation: ${classDef.type}->${method.name}")
@@ -107,10 +102,10 @@ object AdBlockHelper {
 
                 if (isAdReadyCheck) {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
                             const/4 v0, 0x0
                             return v0
                             """.trimIndent()

@@ -1,12 +1,11 @@
 package com.dmoniak.patches.undercover
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_UNDERCOVER
 import java.util.logging.Logger
 
@@ -46,12 +45,14 @@ fun BytecodePatchContext.executeUndercoverBlockAdsLogic(logger: Logger) {
 
                 if ((mName == "show" || mName == "loadAd" || mName == "resume" || mName == "showAd") && retType == "V") {
                     try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        mm?.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             return-void
                             """.trimIndent()
+
                         )
                         hookedCount++
                     } catch (e: Exception) {
@@ -70,12 +71,14 @@ fun BytecodePatchContext.executeUndercoverBlockAdsLogic(logger: Logger) {
 
                 if ((mName == "start" || mName == "onShow" || mName == "show") && retType == "V") {
                     try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        mm?.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             return-void
                             """.trimIndent()
+
                         )
                         hookedCount++
                     } catch (e: Exception) {

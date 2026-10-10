@@ -1,11 +1,10 @@
 package com.dmoniak.patches.bbr
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_BEACH_BUGGY_RACING
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -29,8 +28,6 @@ fun BytecodePatchContext.executeBBRInstantUpgradesLogic(logger: Logger) {
         val tl = classDef.type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support") || tl.contains("google")) return@classDefForEach
 
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
-
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
@@ -38,7 +35,7 @@ fun BytecodePatchContext.executeBBRInstantUpgradesLogic(logger: Logger) {
             val retType = method.returnType
             val pTypes = method.parameterTypes
 
-            // 1. Upgrade remaining delivery time -> 0L
+            // 1. Upgrade remaining delivery time -> 0L (wide primitive)
             if (!isStatic && (
                 mName == "getupgradetimeleft" ||
                 mName == "getdeliverytime" ||
@@ -46,10 +43,10 @@ fun BytecodePatchContext.executeBBRInstantUpgradesLogic(logger: Logger) {
                 mName == "gettimeuntilupgrade"
             ) && retType == "J" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 4,
+                        smaliCode = """
                         const-wide/16 v0, 0x0
                         return-wide v0
                         """.trimIndent()
@@ -69,10 +66,10 @@ fun BytecodePatchContext.executeBBRInstantUpgradesLogic(logger: Logger) {
                 mName == "isdeliverydone"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()

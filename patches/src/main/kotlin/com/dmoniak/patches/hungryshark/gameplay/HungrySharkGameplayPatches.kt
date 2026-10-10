@@ -1,10 +1,9 @@
 package com.dmoniak.patches.hungryshark.gameplay
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_HUNGRY_SHARK_EVOLUTION
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_HUNGRY_SHARK_WORLD
 import java.util.logging.Logger
@@ -67,12 +66,14 @@ fun BytecodePatchContext.executeHungrySharkInfiniteBoostLogic(logger: Logger) {
                 mName.contains("subtractboost")
             ) && retType == "V") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         return-void
                         """.trimIndent()
+
                     )
                     patchedMethods++
                     logger.info("Hooked boost drain method: ${classDef.type}->${method.name}")
@@ -89,13 +90,15 @@ fun BytecodePatchContext.executeHungrySharkInfiniteBoostLogic(logger: Logger) {
                 mName == "isboostready"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     patchedMethods++
                     logger.info("Hooked boost check method: ${classDef.type}->${method.name}")
@@ -113,13 +116,15 @@ fun BytecodePatchContext.executeHungrySharkInfiniteBoostLogic(logger: Logger) {
                 mName == "getcurrentboost"
             ) && retType == "F" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/high16 v0, 0x3f800000
                         return v0
                         """.trimIndent()
+
                     )
                     patchedMethods++
                     logger.info("Hooked boost value getter: ${classDef.type}->${method.name}")
@@ -156,13 +161,15 @@ fun BytecodePatchContext.executeHungrySharkFastGoldRushLogic(logger: Logger) {
                 mName.contains("goldrushgainmultiplier")
             ) && retType == "F" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/high16 v0, 0x41200000
                         return v0
-                        """.trimIndent() // 10.0f
+                        """.trimIndent()
+
                     )
                     patchedMethods++
                     logger.info("Hooked Gold Rush multiplier getter: ${classDef.type}->${method.name}")

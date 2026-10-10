@@ -1,10 +1,9 @@
 package com.dmoniak.patches.geometrydash
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_GEOMETRY_DASH
 import java.util.logging.Logger
 
@@ -44,13 +43,15 @@ fun BytecodePatchContext.executeGeometryDashPracticeMusicBypassLogic(logger: Log
                 mName == "usespracticemusic"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[GeometryDash Music] Bypassed practice music check in: ${classDef.type}->${method.name}")
@@ -65,12 +66,14 @@ fun BytecodePatchContext.executeGeometryDashPracticeMusicBypassLogic(logger: Log
                 mName == "startpracticemusic"
             ) && retType == "V") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         return-void
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[GeometryDash Music] Muted practice music loop in: ${classDef.type}->${method.name}")

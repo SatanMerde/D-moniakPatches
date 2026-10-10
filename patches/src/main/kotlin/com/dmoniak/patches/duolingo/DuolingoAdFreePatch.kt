@@ -1,11 +1,11 @@
 package com.dmoniak.patches.duolingo
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
+import com.dmoniak.patches.shared.AdBlockHelper.executeComprehensiveAdBlock
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_DUOLINGO
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -25,20 +25,21 @@ fun BytecodePatchContext.executeDuolingoAdFreeLogic(logger: Logger) {
     logger.info("Executing Ad-Free & Declutter patch for Duolingo...")
     var hookedPoints = 0
 
+    // 1. Comprehensive ad mediation SDK blocker
+    hookedPoints += executeComprehensiveAdBlock(logger, "Duolingo")
+
+    // 2. Local Duolingo ad triggers & eligibility
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support") || tl.contains("com/google")) return@classDefForEach
-
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
 
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
             val mName = method.name.lowercase()
             val retType = method.returnType
-            val pTypes = method.parameterTypes
 
-            // 1. Disable ad triggers & eligibility
+            // Disable ad triggers & eligibility -> return false
             if (!isStatic && (
                 mName == "shouldshowad" ||
                 mName == "isadsenabled" ||
@@ -49,10 +50,10 @@ fun BytecodePatchContext.executeDuolingoAdFreeLogic(logger: Logger) {
                 mName == "shouldshowupsell"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
@@ -64,19 +65,17 @@ fun BytecodePatchContext.executeDuolingoAdFreeLogic(logger: Logger) {
                 }
             }
 
-            // 2. Bypass post-lesson ad launcher
+            // Bypass post-lesson ad launcher -> return-void
             if (!isStatic && (
                 mName == "showpostlessonad" ||
                 mName == "displayinterstitial" ||
                 mName == "showad"
             ) && retType == "V") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
-                        return-void
-                        """.trimIndent()
+                    replaceMethod(
+                        method = method,
+                        registerCount = 2,
+                        smaliCode = "return-void"
                     )
                     hookedPoints++
                     logger.info("[Duolingo AdFree] Neutralized ad display: ${classDef.type}->${method.name}")

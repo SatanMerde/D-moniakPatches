@@ -2,8 +2,8 @@ package com.dmoniak.patches.shared
 
 import app.morphe.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.replaceMethod
 import java.util.logging.Logger
+
 
 /**
  * Universal, production-grade Google Play Billing hook engine.

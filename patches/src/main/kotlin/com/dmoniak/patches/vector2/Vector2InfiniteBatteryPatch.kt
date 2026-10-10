@@ -1,10 +1,9 @@
 package com.dmoniak.patches.vector2
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_VECTOR_2
 import java.util.logging.Logger
 
@@ -46,13 +45,15 @@ fun BytecodePatchContext.executeVector2InfiniteBatteryLogic(logger: Logger) {
                 mName == "hasbattery"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     batteryCount++
                     logger.info("[Vector 2] Hooked shield activity check: ${classDef.type}->${method.name}")
@@ -70,12 +71,14 @@ fun BytecodePatchContext.executeVector2InfiniteBatteryLogic(logger: Logger) {
                 mName == "spendcharges"
             ) && retType == "V") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         return-void
                         """.trimIndent()
+
                     )
                     batteryCount++
                     logger.info("[Vector 2] Hooked battery depletion: ${classDef.type}->${method.name}")
@@ -91,13 +94,15 @@ fun BytecodePatchContext.executeVector2InfiniteBatteryLogic(logger: Logger) {
                 mName == "getenergycount"
             ) && retType == "I" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0xa
                         return v0
                         """.trimIndent()
+
                     )
                     batteryCount++
                     logger.info("[Vector 2] Hooked battery getter: ${classDef.type}->${method.name}")

@@ -1,6 +1,6 @@
 package com.dmoniak.patches.spotify
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
@@ -232,13 +232,15 @@ fun BytecodePatchContext.executeSpotifyAccentColorLogic(logger: Logger) {
             if (semanticMatch && method.parameterTypes.isEmpty()) {
                 if (retType == "I") {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const v0, -0x75d41e
                             return v0
-                            """.trimIndent() // #8A2BE2
+                            """.trimIndent()
+
                         )
                         methodsHooked++
                         logger.info("[Spotify Accent] Hooked brand color method in ${classDef.type}->${method.name}")
@@ -247,13 +249,15 @@ fun BytecodePatchContext.executeSpotifyAccentColorLogic(logger: Logger) {
                     }
                 } else if (retType == "J") {
                     try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
+                        mutableClass.replaceMethod(
+
+                            method,
+
+                            smaliCode = """
                             const-wide v0, 0x00000000ff8a2be2L
                             return-wide v0
                             """.trimIndent()
+
                         )
                         methodsHooked++
                         logger.info("[Spotify Accent] Hooked Compose brand color method in ${classDef.type}->${method.name}")

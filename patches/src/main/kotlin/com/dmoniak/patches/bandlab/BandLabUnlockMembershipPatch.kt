@@ -1,11 +1,11 @@
 package com.dmoniak.patches.bandlab
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
+import com.dmoniak.patches.shared.BillingHookHelper.executeGooglePlayBillingBypass
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_BANDLAB
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -25,6 +25,10 @@ fun BytecodePatchContext.executeBandLabUnlockMembershipLogic(logger: Logger) {
     logger.info("Executing Unlock Creator Membership patch for BandLab...")
     var hookedMethods = 0
 
+    // 1. Hook Google Play BillingClient SDK via universal BillingHookHelper
+    hookedMethods += executeGooglePlayBillingBypass(logger, "BandLab")
+
+    // 2. Hook BandLab Membership boolean state getters with clean bytecode replacement
     classDefForEach { classDef ->
         val type = classDef.type
         val tl = type.lowercase()
@@ -37,61 +41,13 @@ fun BytecodePatchContext.executeBandLabUnlockMembershipLogic(logger: Logger) {
             tl.startsWith("lcom/google/android/material/")
         ) return@classDefForEach
 
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
-
-        // 1. Hook Google Play BillingClient / in-app purchase validation
-        if (type.contains("BillingClient") || type.contains("Billing") || type.contains("Purchase")) {
-            for (method in classDef.methods.toList()) {
-                if (method.implementation == null) continue
-                val mName = method.name
-                val retType = method.returnType
-
-                // Purchase.getPurchaseState() -> 1 (PURCHASED)
-                if (mName == "getPurchaseState" && retType == "I") {
-                    try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
-                            const/4 v0, 0x1
-                            return v0
-                            """.trimIndent()
-                        )
-                        hookedMethods++
-                        logger.info("[BandLab Membership] Hooked Purchase.getPurchaseState() -> 1 (PURCHASED)")
-                    } catch (e: Exception) {
-                        logger.warning("[BandLab Membership] Failed to hook getPurchaseState: ${e.message}")
-                    }
-                }
-
-                // Purchase.isAcknowledged() -> true
-                if (mName == "isAcknowledged" && retType == "Z") {
-                    try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
-                            const/4 v0, 0x1
-                            return v0
-                            """.trimIndent()
-                        )
-                        hookedMethods++
-                        logger.info("[BandLab Membership] Hooked Purchase.isAcknowledged() -> true")
-                    } catch (e: Exception) {
-                        logger.warning("[BandLab Membership] Failed to hook isAcknowledged: ${e.message}")
-                    }
-                }
-            }
-        }
-
-        // 2. Hook BandLab Membership boolean state getters
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
             val mName = method.name.lowercase()
             val retType = method.returnType
 
-            // Active membership / Pro status
+            // Active membership / Pro status -> true
             if (!isStatic && (
                 mName == "ismembershipactive" ||
                 mName == "hasactivemembership" ||
@@ -102,10 +58,10 @@ fun BytecodePatchContext.executeBandLabUnlockMembershipLogic(logger: Logger) {
                 mName == "isprosubscriber"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
@@ -117,7 +73,7 @@ fun BytecodePatchContext.executeBandLabUnlockMembershipLogic(logger: Logger) {
                 }
             }
 
-            // Membership paywalls & restrictions
+            // Membership paywalls & restrictions -> false
             if (!isStatic && (
                 mName == "shouldshowmembershippaywall" ||
                 mName == "ismembershiprequired" ||
@@ -125,10 +81,10 @@ fun BytecodePatchContext.executeBandLabUnlockMembershipLogic(logger: Logger) {
                 mName == "ispresetrestricted"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()

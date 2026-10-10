@@ -1,10 +1,9 @@
 package com.dmoniak.patches.instagram
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_INSTAGRAM
 import java.util.logging.Logger
 
@@ -47,13 +46,15 @@ fun BytecodePatchContext.executeInstagramAdBlockLogic(logger: Logger) {
                 mName == "issponsoredreel"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Instagram AdBlock] Disabled sponsored item flag in: ${classDef.type}->${method.name}")
@@ -68,13 +69,15 @@ fun BytecodePatchContext.executeInstagramAdBlockLogic(logger: Logger) {
                 mName == "getadviewitem"
             ) && retType.startsWith("L") && !retType.startsWith("Ljava/lang/String")) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x0
                         return-object v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[Instagram AdBlock] Neutralized ad payload in: ${classDef.type}->${method.name}")

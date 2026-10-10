@@ -1,10 +1,9 @@
 package com.dmoniak.patches.youtube
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_YOUTUBE
 import java.util.logging.Logger
 
@@ -44,13 +43,15 @@ fun BytecodePatchContext.executeYouTubeBufferFixLogic(logger: Logger) {
                 mName == "canusealternateplaybackclient"
             ) && retType == "Z") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[YouTube Buffer Fix] Enabled client spoofing in: ${classDef.type}->${method.name}")
@@ -65,13 +66,15 @@ fun BytecodePatchContext.executeYouTubeBufferFixLogic(logger: Logger) {
                 mName == "getoverrideclientmodel"
             ) && retType == "Ljava/lang/String;") {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const-string v0, "ANDROID_VR"
                         return-object v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.info("[YouTube Buffer Fix] Injected alternate client model in: ${classDef.type}->${method.name}")

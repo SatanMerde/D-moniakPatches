@@ -1,10 +1,11 @@
 package com.dmoniak.patches.windy
 
+import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
+import com.dmoniak.patches.shared.cloneMethodWithAdditionalRegisters
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_WINDY
 import java.util.logging.Logger
 
@@ -40,8 +41,8 @@ fun BytecodePatchContext.executeWindyHighFpsAndVisualOverlayLogic(logger: Logger
             // 1. Hook Activity onCreate to set 120Hz window refresh rate
             if (!isStatic && (method.name == "onCreate" || method.name == "onResume") && tl.contains("activity")) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
+                    val clonedMethod = cloneMethodWithAdditionalRegisters(method, 3)
+                    clonedMethod.addInstructions(
                         0,
                         """
                         invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
@@ -71,13 +72,15 @@ fun BytecodePatchContext.executeWindyHighFpsAndVisualOverlayLogic(logger: Logger
                 mName == "getmaxparticlespeed"
             ) && retType == "I" && method.parameterTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/16 v0, 0x78
                         return v0
-                        """.trimIndent() // 120
+                        """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.fine("[Windy 120FPS] Hooked animation fps getter in: ${classDef.type}->${method.name}")
@@ -92,13 +95,15 @@ fun BytecodePatchContext.executeWindyHighFpsAndVisualOverlayLogic(logger: Logger
                 mName == "ishighqualityanimationallowed"
             ) && retType == "Z" && method.parameterTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    mutableClass.replaceMethod(
+
+                        method,
+
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
+
                     )
                     hookedPoints++
                     logger.fine("[Windy 120FPS] Enabled particle smoothing in: ${classDef.type}->${method.name}")

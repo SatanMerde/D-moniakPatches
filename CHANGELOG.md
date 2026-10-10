@@ -1,3 +1,9 @@
+## [1.48.11](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.10...v1.48.11) (2026-10-10)
+
+### 🐛 Bug Fixes
+
+* **silt:** keep VMRunner and StartupLauncher active to populate reflection methods ([8d84d64](https://github.com/SatanMerde/D-moniakPatches/commit/8d84d643eb8582e9d34cb91ef38ba48682739f97))
+
 ## [1.48.10](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.9...v1.48.10) (2026-10-10)
 
 ### 🐛 Bug Fixes

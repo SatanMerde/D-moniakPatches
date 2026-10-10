@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.48.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.48.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**459 patchs au total** (12 validés & fonctionnels • 447 expérimentaux)
+> **[v1.48.1](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.48.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**459 patchs au total** (12 validés & fonctionnels • 447 expérimentaux)
 
 ---
 
@@ -164,8 +164,8 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 
 **🎯 Supported versions:**
 
-| 2.5.3, 2.5.2 |
-| :---: |
+| 2.5.3 | 2.5.2 |
+| :---: | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
@@ -175,6 +175,22 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 | [Disable Auto-Pause on Background - Movix](#disable-auto-pause-on-background-movix) | Prevents Movix from automatically pausing or stopping video playback when the app transitions to the background, enabling audio-only listening and uninterrupted casting. |
 | [Force HD & 4K Quality Unlock - Movix](#force-hd-4k-quality-unlock-movix) | Forces maximum available video quality (HD 1080p / 4K) on all content regardless of subscription tier or network quality detection thresholds. |
 | [Unlock Premium Subscription - Movix](#unlock-premium-subscription-movix) | Bypasses Movix VIP/Premium subscription checks to unlock all premium and exclusive content, series, and movie libraries without an active paid subscription. |
+
+</details>
+
+<details open>
+<summary>📦 Spotify&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 🧪&nbsp;9.1.84.2231 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Spicetify AMOLED Black Theme Bytecode](#spicetify-amoled-black-theme-bytecode) | Bytecode engine for Spicetify AMOLED Black Theme |
+| [Spicetify Custom Accent Color Bytecode](#spicetify-custom-accent-color-bytecode) | Bytecode engine for Spicetify Custom Accent Color |
 
 </details>
 
@@ -1455,14 +1471,12 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>🌐 Universal&nbsp;&nbsp;•&nbsp;&nbsp;11 patches</summary>
+<summary>🌐 Universal&nbsp;&nbsp;•&nbsp;&nbsp;9 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [GmsCore (MicroG) Support (Experimental)](#gmscore-microg-support-experimental) | ⚠️ [En cours de développement / Non testé] Redirects Google Play Services (GMS) dependencies to GmsCore / MicroG (app.revanced.android.gms / org.microg.gms.core), enabling Google account login and push notifications on non-rooted devices for morphed Google and third-party apps. |
-| [Spicetify AMOLED Black Theme Bytecode](#spicetify-amoled-black-theme-bytecode) | Bytecode engine for Spicetify AMOLED Black Theme |
-| [Spicetify Custom Accent Color Bytecode](#spicetify-custom-accent-color-bytecode) | Bytecode engine for Spicetify Custom Accent Color |
 | [Universal AMOLED Black Theme (Experimental)](#universal-amoled-black-theme-experimental) | ⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into UI background surfaces, replacing dark grey tones to maximize battery savings and contrast on AMOLED displays for any app. |
 | [Universal App Clone (Experimental)](#universal-app-clone-experimental) | ⚠️ [En cours de développement / Non testé] Enables side-by-side dual installation for any app, allowing the official unmodified app and the patched version to run simultaneously on the same device without signature or provider collisions. |
 | [Universal Bypass Play Store Install Check (Experimental)](#universal-bypass-play-store-install-check-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses Google Play Store installer source verification ('Download this app from Google Play' dialogs), preventing forced redirects to the Play Store when running sideloaded or patched APKs (such as VPN apps, tools, and games). |

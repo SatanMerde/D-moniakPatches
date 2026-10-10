@@ -1,3 +1,9 @@
+## [1.48.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.0...v1.48.1) (2026-10-10)
+
+### 🐛 Bug Fixes
+
+* update Movix targets to 2.5.3, sanitize WebView hooks, fix universal patches leak ([717cb85](https://github.com/SatanMerde/D-moniakPatches/commit/717cb857c7fb374b8e60dd3aa6c92f869f48d3d5))
+
 ## [1.48.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.47.2...v1.48.0) (2026-10-04)
 
 ### 🐛 Bug Fixes

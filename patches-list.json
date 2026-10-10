@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.48.0",
+  "version": "1.48.1",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -9633,7 +9633,7 @@
     {
       "name": "Spicetify AMOLED Black Theme Bytecode",
       "description": "Bytecode engine for Spicetify AMOLED Black Theme",
-      "default": false,
+      "default": true,
       "category": null,
       "dependencies": [],
       "compatiblePackages": [
@@ -9716,7 +9716,7 @@
     {
       "name": "Spicetify Custom Accent Color Bytecode",
       "description": "Bytecode engine for Spicetify Custom Accent Color",
-      "default": false,
+      "default": true,
       "category": null,
       "dependencies": [],
       "compatiblePackages": [

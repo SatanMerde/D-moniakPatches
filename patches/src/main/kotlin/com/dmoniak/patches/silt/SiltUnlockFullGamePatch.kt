@@ -11,7 +11,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val siltUnlockFullGamePatch = bytecodePatch(
     name = "Unlock Full Game - Silt (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt by hooking Google Play Billing, Play Integrity remediation dialogs, and game license checks.",
+    description = "⚠️ [En cours de développement / Non testé] Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt by neutralizing Google Play App Signing PairIP protection, Play Integrity remediation dialogs, and Google Play Billing. (Note: Silt requires the full XAPK/OBB bundle with UnityDataAssetPack to run).",
 ) {
     compatibleWith(COMPATIBILITY_SILT)
 
@@ -37,12 +37,12 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
         if (tl.contains("pairip")) {
             for (method in classDef.methods.toList()) {
                 if (method.implementation == null) continue
-                val mName = method.name
+                if (mName == "<init>" || mName == "<clinit>") continue
                 val mn = mName.lowercase()
                 val retType = method.returnType
 
                 // 2a. SignatureCheck (verifyIntegrity / verifySignatureMatches)
-                if (tl.contains("signaturecheck")) {
+                if (tl.contains("signaturecheck") && (mn.contains("verify") || mn.contains("check"))) {
                     if (retType == "V") {
                         try {
                             replaceMethod(

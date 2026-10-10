@@ -1,3 +1,9 @@
+## [1.49.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.14...v1.49.0) (2026-10-10)
+
+### ✨ New Features
+
+* **ai:** integrate morphe-ai knowledge base, rules, and skills into workspace ([3a9a71e](https://github.com/SatanMerde/D-moniakPatches/commit/3a9a71e201596f8521f15b7040055b518bedca87))
+
 ## [1.48.14](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.13...v1.48.14) (2026-10-10)
 
 ### 🐛 Bug Fixes

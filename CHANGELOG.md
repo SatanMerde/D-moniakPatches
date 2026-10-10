@@ -1,3 +1,10 @@
+## [1.48.7](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.6...v1.48.7) (2026-10-10)
+
+### 🐛 Bug Fixes
+
+* **silt:** protect constructors during PairIP hooking and clarify XAPK requirement ([e15f86b](https://github.com/SatanMerde/D-moniakPatches/commit/e15f86b434f6f0f4ded448cfecc73c1b48058395))
+* **silt:** resolve mName reference in pairip hook ([63405d4](https://github.com/SatanMerde/D-moniakPatches/commit/63405d4f3c3177dfebf5473949692229c107e4b7))
+
 ## [1.48.6](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.5...v1.48.6) (2026-10-10)
 
 ### 🐛 Bug Fixes

@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.48.6",
+  "version": "1.48.7",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -10824,7 +10824,7 @@
     },
     {
       "name": "Unlock Full Game - Silt (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt by hooking Google Play Billing, Play Integrity remediation dialogs, and game license checks.",
+      "description": "⚠️ [En cours de développement / Non testé] Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt by neutralizing Google Play App Signing PairIP protection, Play Integrity remediation dialogs, and Google Play Billing. (Note: Silt requires the full XAPK/OBB bundle with UnityDataAssetPack to run).",
       "default": true,
       "category": null,
       "dependencies": [],

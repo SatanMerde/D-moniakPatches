@@ -1,3 +1,9 @@
+## [1.48.4](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.3...v1.48.4) (2026-10-10)
+
+### 🐛 Bug Fixes
+
+* **silt:** resolve Dalvik register collision in LVL license callback hooks ([c22f54b](https://github.com/SatanMerde/D-moniakPatches/commit/c22f54b22192288dce5baf90d84cbf43688c52a8))
+
 ## [1.48.3](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.2...v1.48.3) (2026-10-10)
 
 ### 🐛 Bug Fixes

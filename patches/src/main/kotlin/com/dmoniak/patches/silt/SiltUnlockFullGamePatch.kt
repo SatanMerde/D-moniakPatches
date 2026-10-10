@@ -253,13 +253,13 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
 
     // 2g. Neutralize BroadcastReceivers hijacked by PairIP to invoke VMRunner
     val pairipReceivers = setOf(
-        "Landroidx/core/content/pm/ShortcutManagerCompat$1;",
+        "Landroidx/core/content/pm/ShortcutManagerCompat\$1;",
         "Lcom/android/billingclient/api/zzr;",
         "Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/AlarmManagerSchedulerBroadcastReceiver;",
         "Lcom/google/android/gms/common/api/internal/zabx;",
         "Lcom/google/android/play/core/assetpacks/internal/m;",
-        "Lcom/unity3d/player/HFPStatus$1;",
-        "Lorg/fmod/FMOD$PluginBroadcastReceiver;"
+        "Lcom/unity3d/player/HFPStatus\$1;",
+        "Lorg/fmod/FMOD\$PluginBroadcastReceiver;"
     )
     classDefForEach { classDef ->
         if (classDef.type in pairipReceivers) {

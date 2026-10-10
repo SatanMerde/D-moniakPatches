@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.48.2",
+  "version": "1.48.3",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -1846,6 +1846,33 @@
           "description": "Temple Run 2 by Imangi Studios",
           "apkFileType": null,
           "appIconColor": "#00A859",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block Ads & Declutter Feed - BandLab",
+      "description": "Removes in-app promotional banners, upgrade prompts, sponsored artist cards, and interstitial ads across the BandLab home feed and studio screens.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.bandlab.bandlab",
+          "name": "BandLab",
+          "description": "BandLab: Music Making Studio, DAW, Beat Maker & Audio Recording",
+          "apkFileType": null,
+          "appIconColor": "#EE3344",
           "signatures": null,
           "targets": [
             {
@@ -10896,6 +10923,33 @@
           "description": "Pinterest: Discover and Save Creative Ideas by Pinterest",
           "apkFileType": null,
           "appIconColor": "#E60023",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Creator Membership & Audio Tools - BandLab",
+      "description": "Hooks Google Play Billing Client and membership state models in BandLab to unlock client-side Creator Membership perks, audio presets, master presets, and removes membership upgrade paywalls.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.bandlab.bandlab",
+          "name": "BandLab",
+          "description": "BandLab: Music Making Studio, DAW, Beat Maker & Audio Recording",
+          "apkFileType": null,
+          "appIconColor": "#EE3344",
           "signatures": null,
           "targets": [
             {

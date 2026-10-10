@@ -1,3 +1,9 @@
+## [1.48.3](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.2...v1.48.3) (2026-10-10)
+
+### 🐛 Bug Fixes
+
+* **movix:** resolve startup ANR via safe bytecode injection and add BandLab patches ([80f71b3](https://github.com/SatanMerde/D-moniakPatches/commit/80f71b3b2404fad58e2e9448fa6efde5b9678a58))
+
 ## [1.48.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.1...v1.48.2) (2026-10-10)
 
 ### 🐛 Bug Fixes

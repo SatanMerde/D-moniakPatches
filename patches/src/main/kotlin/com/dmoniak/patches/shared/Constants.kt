@@ -349,7 +349,16 @@ object Constants {
         name = "Movix",
         description = "Movix: Movies & Series Streaming",
         appIconColor = 0xE50914,
-        targets = listOf(AppTarget("2.5.3"), AppTarget("2.5.2"))
+        targets = listOf(
+            AppTarget("2.6.5"),
+            AppTarget("2.6.4"),
+            AppTarget("2.6.3"),
+            AppTarget("2.6.2"),
+            AppTarget("2.6.1"),
+            AppTarget("2.6.0"),
+            AppTarget("2.5.3"),
+            AppTarget("2.5.2")
+        )
     )
 
     val COMPATIBILITY_BRAVE = Compatibility(

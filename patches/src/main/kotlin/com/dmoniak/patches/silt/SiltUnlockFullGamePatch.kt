@@ -36,25 +36,65 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
         // Google Play LVL Licensing (LicenseChecker / LicenseCheckerCallback)
-        if (tl.contains("licensing") || tl.contains("licensechecker")) {
+        val implementsCallback = classDef.interfaces.any { it.contains("LicenseCheckerCallback") }
+        if (implementsCallback || tl.contains("licensing") || tl.contains("licensechecker")) {
             for (method in classDef.methods.toList()) {
                 if (method.implementation == null) continue
                 val mName = method.name
 
-                // Hook dontAllow(int reason) -> suppress failure
+                // Hook dontAllow(int reason) -> force allow(0x100) or suppress failure
                 if (mName == "dontAllow" && method.returnType == "V") {
                     try {
                         val mm = mutableClass.findMutableMethodOf(method)
-                        mm?.addInstructions(
-                            0,
-                            """
-                            return-void
-                            """.trimIndent()
-                        )
+                        if (implementsCallback) {
+                            mm?.addInstructions(
+                                0,
+                                """
+                                const/16 v0, 0x100
+                                invoke-virtual {p0, v0}, $type->allow(I)V
+                                return-void
+                                """.trimIndent()
+                            )
+                        } else {
+                            mm?.addInstructions(
+                                0,
+                                """
+                                return-void
+                                """.trimIndent()
+                            )
+                        }
                         hookedPoints++
                         logger.info("[Silt LVL] Neutralized dontAllow check in: $type->$mName")
                     } catch (e: Exception) {
                         logger.fine("[Silt LVL] Failed to hook dontAllow: ${e.message}")
+                    }
+                }
+
+                // Hook applicationError(int errorCode) -> redirect or suppress
+                if (mName == "applicationError" && method.returnType == "V") {
+                    try {
+                        val mm = mutableClass.findMutableMethodOf(method)
+                        if (implementsCallback) {
+                            mm?.addInstructions(
+                                0,
+                                """
+                                const/16 v0, 0x100
+                                invoke-virtual {p0, v0}, $type->allow(I)V
+                                return-void
+                                """.trimIndent()
+                            )
+                        } else {
+                            mm?.addInstructions(
+                                0,
+                                """
+                                return-void
+                                """.trimIndent()
+                            )
+                        }
+                        hookedPoints++
+                        logger.info("[Silt LVL] Neutralized applicationError in: $type->$mName")
+                    } catch (e: Exception) {
+                        logger.fine("[Silt LVL] Failed to hook applicationError: ${e.message}")
                     }
                 }
 

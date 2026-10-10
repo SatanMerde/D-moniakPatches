@@ -164,8 +164,8 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 
 **🎯 Supported versions:**
 
-| 2.5.3 | 2.5.2 |
-| :---: | :---: |
+| 2.6.5 (Recommandé) | 2.6.4 | 2.6.3 | 2.6.2 | 2.6.1 | 2.6.0 | 2.5.3 | 2.5.2 |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|

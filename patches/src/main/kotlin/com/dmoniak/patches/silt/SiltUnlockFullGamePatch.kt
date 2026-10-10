@@ -176,6 +176,37 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                         }
                     }
                 }
+
+                // 2e. PairIP StartupLauncher & VMRunner (suppress native DRM initialization)
+                if (tl.contains("startuplauncher") && mn == "launch") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = "return-void"
+                        )
+                        hookedPoints++
+                        logger.info("[Silt PairIP] Neutralized StartupLauncher.launch (void)")
+                    } catch (e: Exception) {
+                        logger.fine("[Silt PairIP] Failed to hook StartupLauncher.launch: ${e.message}")
+                    }
+                }
+
+                if (tl.contains("vmrunner") && (mn == "invoke" || mn == "executevm")) {
+                    try {
+                        if (retType == "V") {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 3,
+                                smaliCode = "return-void"
+                            )
+                            hookedPoints++
+                            logger.info("[Silt PairIP] Neutralized VMRunner->$mName (void)")
+                        }
+                    } catch (e: Exception) {
+                        logger.fine("[Silt PairIP] Failed to hook VMRunner->$mName: ${e.message}")
+                    }
+                }
             }
         }
     }

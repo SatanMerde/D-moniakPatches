@@ -1,3 +1,9 @@
+## [1.48.9](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.8...v1.48.9) (2026-10-10)
+
+### 🐛 Bug Fixes
+
+* **silt:** sanitize Application.attachBaseContext and neutralize VMRunner entry points ([8b3474e](https://github.com/SatanMerde/D-moniakPatches/commit/8b3474e0ea71fc2e443bd817599d56fb47a0350e))
+
 ## [1.48.8](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.7...v1.48.8) (2026-10-10)
 
 ### 🐛 Bug Fixes

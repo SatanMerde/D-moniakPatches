@@ -1,3 +1,10 @@
+## [1.48.14](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.13...v1.48.14) (2026-10-10)
+
+### 🐛 Bug Fixes
+
+* **silt:** escape dollar signs in receiver class strings ([eaef914](https://github.com/SatanMerde/D-moniakPatches/commit/eaef91475161c0965f9bba1508fd5f91236013a2))
+* **silt:** neutralize VMRunner invoke/executeVM and hijacked broadcast receivers to fully bypass PairIP ([009a56a](https://github.com/SatanMerde/D-moniakPatches/commit/009a56a7e92c1bd0f99e6ed0c535acba69aa5201))
+
 ## [1.48.13](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.12...v1.48.13) (2026-10-10)
 
 ### 🐛 Bug Fixes

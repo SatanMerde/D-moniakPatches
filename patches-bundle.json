@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-10T17:50:28",
-  "description": "## [1.48.13](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.12...v1.48.13) (2026-10-10)\n\n### 🐛 Bug Fixes\n\n* **silt:** neutralize UnityPlayer.preloadJavaPlugins and initialize TelephonyManager string ([81f0573](https://github.com/SatanMerde/D-moniakPatches/commit/81f0573b0b965ce8b14cc1de02b3be78e939b819))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.48.13/patches-1.48.13.mpp",
+  "created_at": "2026-10-10T18:21:16",
+  "description": "## [1.48.14](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.13...v1.48.14) (2026-10-10)\n\n### 🐛 Bug Fixes\n\n* **silt:** escape dollar signs in receiver class strings ([eaef914](https://github.com/SatanMerde/D-moniakPatches/commit/eaef91475161c0965f9bba1508fd5f91236013a2))\n* **silt:** neutralize VMRunner invoke/executeVM and hijacked broadcast receivers to fully bypass PairIP ([009a56a](https://github.com/SatanMerde/D-moniakPatches/commit/009a56a7e92c1bd0f99e6ed0c535acba69aa5201))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.48.14/patches-1.48.14.mpp",
   "signature_download_url": "",
-  "version": "1.48.13"
+  "version": "1.48.14"
 }

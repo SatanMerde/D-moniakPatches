@@ -1,3 +1,9 @@
+## [1.48.10](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.9...v1.48.10) (2026-10-10)
+
+### 🐛 Bug Fixes
+
+* **silt:** neutralize Play Games AppShortcuts crash on signature change ([7bed05a](https://github.com/SatanMerde/D-moniakPatches/commit/7bed05a36299f292887419920b1b9801dc629a52))
+
 ## [1.48.9](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.8...v1.48.9) (2026-10-10)
 
 ### 🐛 Bug Fixes

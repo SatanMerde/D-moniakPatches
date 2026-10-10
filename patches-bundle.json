@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-10T17:19:10",
-  "description": "## [1.48.9](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.8...v1.48.9) (2026-10-10)\n\n### 🐛 Bug Fixes\n\n* **silt:** sanitize Application.attachBaseContext and neutralize VMRunner entry points ([8b3474e](https://github.com/SatanMerde/D-moniakPatches/commit/8b3474e0ea71fc2e443bd817599d56fb47a0350e))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.48.9/patches-1.48.9.mpp",
+  "created_at": "2026-10-10T17:24:14",
+  "description": "## [1.48.10](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.9...v1.48.10) (2026-10-10)\n\n### 🐛 Bug Fixes\n\n* **silt:** neutralize Play Games AppShortcuts crash on signature change ([7bed05a](https://github.com/SatanMerde/D-moniakPatches/commit/7bed05a36299f292887419920b1b9801dc629a52))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.48.10/patches-1.48.10.mpp",
   "signature_download_url": "",
-  "version": "1.48.9"
+  "version": "1.48.10"
 }

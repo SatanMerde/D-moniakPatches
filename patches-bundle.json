@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-10T16:56:17",
-  "description": "## [1.48.7](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.6...v1.48.7) (2026-10-10)\n\n### 🐛 Bug Fixes\n\n* **silt:** protect constructors during PairIP hooking and clarify XAPK requirement ([e15f86b](https://github.com/SatanMerde/D-moniakPatches/commit/e15f86b434f6f0f4ded448cfecc73c1b48058395))\n* **silt:** resolve mName reference in pairip hook ([63405d4](https://github.com/SatanMerde/D-moniakPatches/commit/63405d4f3c3177dfebf5473949692229c107e4b7))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.48.7/patches-1.48.7.mpp",
+  "created_at": "2026-10-10T17:15:02",
+  "description": "## [1.48.8](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.7...v1.48.8) (2026-10-10)\n\n### 🐛 Bug Fixes\n\n* **silt:** neutralize PairIP StartupLauncher and VMRunner entry points ([f83a332](https://github.com/SatanMerde/D-moniakPatches/commit/f83a332c4e52bc4e1d98045e8e4b1dcc714606f3))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.48.8/patches-1.48.8.mpp",
   "signature_download_url": "",
-  "version": "1.48.7"
+  "version": "1.48.8"
 }

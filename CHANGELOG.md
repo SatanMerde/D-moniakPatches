@@ -1,3 +1,9 @@
+## [1.48.8](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.7...v1.48.8) (2026-10-10)
+
+### 🐛 Bug Fixes
+
+* **silt:** neutralize PairIP StartupLauncher and VMRunner entry points ([f83a332](https://github.com/SatanMerde/D-moniakPatches/commit/f83a332c4e52bc4e1d98045e8e4b1dcc714606f3))
+
 ## [1.48.7](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.6...v1.48.7) (2026-10-10)
 
 ### 🐛 Bug Fixes

@@ -37,6 +37,7 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
         if (tl.contains("pairip")) {
             for (method in classDef.methods.toList()) {
                 if (method.implementation == null) continue
+                val mName = method.name
                 if (mName == "<init>" || mName == "<clinit>") continue
                 val mn = mName.lowercase()
                 val retType = method.returnType

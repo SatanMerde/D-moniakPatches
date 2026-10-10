@@ -25,30 +25,62 @@ fun BytecodePatchContext.executeMovixForceHdQualityLogic(logger: Logger) {
     logger.info("Executing Force HD & 4K Quality patch for Movix...")
     var hookedPoints = 0
 
+    val hdScript = "(function(){ try { localStorage.setItem('preferred_quality', '1080p'); localStorage.setItem('stream_quality', 'max'); localStorage.setItem('auto_select_highest', 'true'); } catch(e){} })();"
+
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support")) return@classDefForEach
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
-        // Inject 1080p/4K preferences into WebView storage
-        if (classDef.type.contains("RNCWebViewClient")) {
+        // 1. Hook RNCWebView (React Native core WebView)
+        if (classDef.type.contains("RNCWebView") && !classDef.type.contains("Manager") && !classDef.type.contains("Client")) {
             for (method in classDef.methods.toList()) {
                 if (method.implementation == null) continue
-                if (method.name == "onPageFinished" && method.returnType == "V" && method.parameterTypes.size == 2) {
+                if ((method.name == "callInjectedJavaScript" || method.name == "callInjectedJavaScriptBeforeContentLoaded") && method.returnType == "V" && method.parameterTypes.isEmpty()) {
                     try {
                         val mutableMethod = mutableClass.findMutableMethodOf(method)
                         mutableMethod.addInstructions(
                             0,
                             """
-                            const-string v0, "javascript:(function(){ try { localStorage.setItem('preferred_quality', '1080p'); localStorage.setItem('stream_quality', 'max'); localStorage.setItem('auto_select_highest', 'true'); } catch(e){} })();"
-                            invoke-virtual {p1, v0}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+                            const-string v0, "$hdScript"
+                            invoke-virtual {p0, v0}, Lcom/reactnativecommunity/webview/RNCWebView;->evaluateJavascriptWithFallback(Ljava/lang/String;)V
                             """.trimIndent()
                         )
                         hookedPoints++
                         logger.info("[Movix HD] Injected quality preferences in: ${classDef.type}->${method.name}")
                     } catch (e: Exception) {
-                        logger.warning("[Movix HD] Failed to hook onPageFinished: ${e.message}")
+                        logger.warning("[Movix HD] Failed to hook ${method.name}: ${e.message}")
+                    }
+                }
+            }
+        }
+
+        // 2. Hook RNCWebViewManager to prepend quality settings before page loads
+        if (classDef.type.contains("RNCWebViewManager")) {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+                val mName = method.name
+                if (mName == "setInjectedJavaScriptBeforeContentLoaded" && method.parameterTypes.size == 2 && method.returnType == "V") {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        mutableMethod.addInstructions(
+                            0,
+                            """
+                            const-string v0, "$hdScript;\n"
+                            if-nez p2, :cond_skip_prepend_hd
+                            invoke-virtual {v0, p2}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object p2
+                            goto :cond_done_prepend_hd
+                            :cond_skip_prepend_hd
+                            move-object p2, v0
+                            :cond_done_prepend_hd
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.info("[Movix HD] Prepended quality preferences in: ${classDef.type}->${method.name}")
+                    } catch (e: Exception) {
+                        logger.warning("[Movix HD] Failed to hook setInjectedJavaScriptBeforeContentLoaded: ${e.message}")
                     }
                 }
             }

@@ -26,6 +26,8 @@ val spotifyAccentColorBytecodePatch = bytecodePatch(
     name = "Spicetify Custom Accent Color Bytecode",
     description = "Bytecode engine for Spicetify Custom Accent Color",
 ) {
+    compatibleWith(COMPATIBILITY_SPOTIFY)
+
     execute {
         val logger = Logger.getLogger(this::class.java.name)
         executeSpotifyAccentColorLogic(logger)

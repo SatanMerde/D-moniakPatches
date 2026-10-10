@@ -26,6 +26,8 @@ val spotifyAmoledThemeBytecodePatch = bytecodePatch(
     name = "Spicetify AMOLED Black Theme Bytecode",
     description = "Bytecode engine for Spicetify AMOLED Black Theme",
 ) {
+    compatibleWith(COMPATIBILITY_SPOTIFY)
+
     execute {
         val logger = Logger.getLogger(this::class.java.name)
         executeSpotifyAmoledThemeLogic(logger)

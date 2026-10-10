@@ -234,7 +234,14 @@
           "signatures": null,
           "targets": [
             {
-              "version": "1.4.8",
+              "version": "2.5.3",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "2.5.2",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -2421,7 +2428,14 @@
           "signatures": null,
           "targets": [
             {
-              "version": "1.4.8",
+              "version": "2.5.3",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "2.5.2",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -2502,7 +2516,14 @@
           "signatures": null,
           "targets": [
             {
-              "version": "1.4.8",
+              "version": "2.5.3",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "2.5.2",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -3933,7 +3954,14 @@
           "signatures": null,
           "targets": [
             {
-              "version": "1.4.8",
+              "version": "2.5.3",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "2.5.2",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -5624,7 +5652,14 @@
           "signatures": null,
           "targets": [
             {
-              "version": "1.4.8",
+              "version": "2.5.3",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "2.5.2",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -9601,7 +9636,25 @@
       "default": false,
       "category": null,
       "dependencies": [],
-      "compatiblePackages": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.spotify.music",
+          "name": "Spotify",
+          "description": "Spotify: Music and Podcasts by Spotify AB",
+          "apkFileType": null,
+          "appIconColor": "#1DB954",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "9.1.84.2231",
+              "versionCodes": null,
+              "isExperimental": true,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
       "options": []
     },
     {
@@ -9666,7 +9719,25 @@
       "default": false,
       "category": null,
       "dependencies": [],
-      "compatiblePackages": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.spotify.music",
+          "name": "Spotify",
+          "description": "Spotify: Music and Podcasts by Spotify AB",
+          "apkFileType": null,
+          "appIconColor": "#1DB954",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "9.1.84.2231",
+              "versionCodes": null,
+              "isExperimental": true,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
       "options": []
     },
     {
@@ -11391,7 +11462,14 @@
           "signatures": null,
           "targets": [
             {
-              "version": "1.4.8",
+              "version": "2.5.3",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "2.5.2",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,

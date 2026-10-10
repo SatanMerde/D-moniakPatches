@@ -164,7 +164,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 
 **🎯 Supported versions:**
 
-| 1.4.8 |
+| 2.5.3, 2.5.2 |
 | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |

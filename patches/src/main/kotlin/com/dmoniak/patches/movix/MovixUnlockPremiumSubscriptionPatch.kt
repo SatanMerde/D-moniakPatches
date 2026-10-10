@@ -25,7 +25,7 @@ fun BytecodePatchContext.executeMovixUnlockPremiumLogic(logger: Logger) {
     logger.info("Executing Unlock Premium Subscription patch for Movix...")
     var hookedPoints = 0
 
-    val vipScript = "javascript:(function(){ try { " +
+    val cleanVipScript = "(function(){ try { " +
         "if (typeof Storage !== 'undefined') { try { " +
         "var g = Storage.prototype.getItem; " +
         "Storage.prototype.getItem = function(k) { " +
@@ -77,51 +77,60 @@ fun BytecodePatchContext.executeMovixUnlockPremiumLogic(logger: Logger) {
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
-        // Inject VIP / Premium status into WebView storage and window globals
-        if (classDef.type.contains("RNCWebViewClient")) {
-            for (method in classDef.methods.toList()) {
-                if (method.implementation == null) continue
-                if (method.name == "onPageFinished" && method.returnType == "V" && method.parameterTypes.size == 2) {
-                    try {
-                        val mutableMethod = mutableClass.findMutableMethodOf(method)
-                        mutableMethod.addInstructions(
-                            0,
-                            """
-                            const-string v0, "$vipScript"
-                            invoke-virtual {p1, v0}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
-                            """.trimIndent()
-                        )
-                        hookedPoints++
-                        logger.info("[Movix Premium] Injected VIP storage tokens in: ${classDef.type}->${method.name}")
-                    } catch (e: Exception) {
-                        logger.warning("[Movix Premium] Failed to hook onPageFinished: ${e.message}")
-                    }
-                }
-            }
-        }
-
+        // 1. Hook RNCWebView (React Native core WebView)
         if (classDef.type.contains("RNCWebView") && !classDef.type.contains("Manager") && !classDef.type.contains("Client")) {
             for (method in classDef.methods.toList()) {
                 if (method.implementation == null) continue
-                if (method.name == "callInjectedJavaScript" && method.returnType == "V" && method.parameterTypes.isEmpty()) {
+                if ((method.name == "callInjectedJavaScript" || method.name == "callInjectedJavaScriptBeforeContentLoaded") && method.returnType == "V" && method.parameterTypes.isEmpty()) {
                     try {
                         val mutableMethod = mutableClass.findMutableMethodOf(method)
                         mutableMethod.addInstructions(
                             0,
                             """
-                            const-string v0, "$vipScript"
-                            invoke-virtual {p0, v0}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+                            const-string v0, "$cleanVipScript"
+                            invoke-virtual {p0, v0}, Lcom/reactnativecommunity/webview/RNCWebView;->evaluateJavascriptWithFallback(Ljava/lang/String;)V
                             """.trimIndent()
                         )
                         hookedPoints++
-                        logger.info("[Movix Premium] Injected VIP script in callInjectedJavaScript: ${classDef.type}->${method.name}")
+                        logger.info("[Movix Premium] Injected VIP script in: ${classDef.type}->${method.name}")
                     } catch (e: Exception) {
-                        logger.warning("[Movix Premium] Failed to hook callInjectedJavaScript: ${e.message}")
+                        logger.warning("[Movix Premium] Failed to hook ${method.name}: ${e.message}")
                     }
                 }
             }
         }
 
+        // 2. Hook RNCWebViewManager to prepend VIP script before page content loads
+        if (classDef.type.contains("RNCWebViewManager")) {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+                val mName = method.name
+                if (mName == "setInjectedJavaScriptBeforeContentLoaded" && method.parameterTypes.size == 2 && method.returnType == "V") {
+                    try {
+                        val mutableMethod = mutableClass.findMutableMethodOf(method)
+                        mutableMethod.addInstructions(
+                            0,
+                            """
+                            const-string v0, "$cleanVipScript;\n"
+                            if-nez p2, :cond_skip_prepend_vip
+                            invoke-virtual {v0, p2}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object p2
+                            goto :cond_done_prepend_vip
+                            :cond_skip_prepend_vip
+                            move-object p2, v0
+                            :cond_done_prepend_vip
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.info("[Movix Premium] Prepended VIP script in: ${classDef.type}->${method.name}")
+                    } catch (e: Exception) {
+                        logger.warning("[Movix Premium] Failed to hook setInjectedJavaScriptBeforeContentLoaded: ${e.message}")
+                    }
+                }
+            }
+        }
+
+        // 3. Hook native boolean subscription methods
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
             val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)

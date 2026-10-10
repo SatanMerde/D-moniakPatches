@@ -1,3 +1,9 @@
+## [1.48.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.1...v1.48.2) (2026-10-10)
+
+### 🐛 Bug Fixes
+
+* **movix:** update Movix targets to 2.6.5 recommended and support 2.6.x range; enhance Silt LVL callback ([0a52a18](https://github.com/SatanMerde/D-moniakPatches/commit/0a52a182c49542dfcb3ecb6060edfc6f1843eef7))
+
 ## [1.48.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.0...v1.48.1) (2026-10-10)
 
 ### 🐛 Bug Fixes

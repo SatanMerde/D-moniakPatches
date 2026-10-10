@@ -1,3 +1,9 @@
+## [1.48.13](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.12...v1.48.13) (2026-10-10)
+
+### 🐛 Bug Fixes
+
+* **silt:** neutralize UnityPlayer.preloadJavaPlugins and initialize TelephonyManager string ([81f0573](https://github.com/SatanMerde/D-moniakPatches/commit/81f0573b0b965ce8b14cc1de02b3be78e939b819))
+
 ## [1.48.12](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.11...v1.48.12) (2026-10-10)
 
 ### 🐛 Bug Fixes

@@ -1,10 +1,9 @@
 package com.dmoniak.patches.silt
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.hungryshark.util.findMutableMethodOf
+import com.dmoniak.patches.hungryshark.util.replaceMethod
 import com.dmoniak.patches.shared.BillingHookHelper.executeGooglePlayBillingBypass
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SILT
 import java.util.logging.Logger
@@ -33,7 +32,6 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
     classDefForEach { classDef ->
         val type = classDef.type
         val tl = type.lowercase()
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
 
         // Google Play LVL Licensing (LicenseChecker / LicenseCheckerCallback)
         val implementsCallback = classDef.interfaces.any { it.contains("LicenseCheckerCallback") }
@@ -42,71 +40,16 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                 if (method.implementation == null) continue
                 val mName = method.name
 
-                // Hook dontAllow(int reason) -> force allow(0x100) or suppress failure
-                if (mName == "dontAllow" && method.returnType == "V") {
-                    try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        if (implementsCallback) {
-                            mm?.addInstructions(
-                                0,
-                                """
-                                const/16 v0, 0x100
-                                invoke-virtual {p0, v0}, $type->allow(I)V
-                                return-void
-                                """.trimIndent()
-                            )
-                        } else {
-                            mm?.addInstructions(
-                                0,
-                                """
-                                return-void
-                                """.trimIndent()
-                            )
-                        }
-                        hookedPoints++
-                        logger.info("[Silt LVL] Neutralized dontAllow check in: $type->$mName")
-                    } catch (e: Exception) {
-                        logger.fine("[Silt LVL] Failed to hook dontAllow: ${e.message}")
-                    }
-                }
-
-                // Hook applicationError(int errorCode) -> redirect or suppress
-                if (mName == "applicationError" && method.returnType == "V") {
-                    try {
-                        val mm = mutableClass.findMutableMethodOf(method)
-                        if (implementsCallback) {
-                            mm?.addInstructions(
-                                0,
-                                """
-                                const/16 v0, 0x100
-                                invoke-virtual {p0, v0}, $type->allow(I)V
-                                return-void
-                                """.trimIndent()
-                            )
-                        } else {
-                            mm?.addInstructions(
-                                0,
-                                """
-                                return-void
-                                """.trimIndent()
-                            )
-                        }
-                        hookedPoints++
-                        logger.info("[Silt LVL] Neutralized applicationError in: $type->$mName")
-                    } catch (e: Exception) {
-                        logger.fine("[Silt LVL] Failed to hook applicationError: ${e.message}")
-                    }
-                }
-
-                // Hook checkAccess(LicenseCheckerCallback) -> force allow(256)
+                // Hook checkAccess(LicenseCheckerCallback) -> force immediate allow(256)
                 if (mName == "checkAccess" && method.parameterTypes.size == 1) {
                     val cbType = method.parameterTypes[0]
                     if (cbType.contains("Callback") || cbType.contains("Listener")) {
                         try {
-                            val mm = mutableClass.findMutableMethodOf(method)
-                            mm?.addInstructions(
-                                0,
-                                """
+                            // Total registers = 4: v0, v1 (locals), p0 = v2, p1 = v3 (cb)
+                            replaceMethod(
+                                method = method,
+                                registerCount = 4,
+                                smaliCode = """
                                 const/16 v0, 0x100
                                 invoke-interface {p1, v0}, $cbType->allow(I)V
                                 return-void
@@ -117,6 +60,36 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                         } catch (e: Exception) {
                             logger.fine("[Silt LVL] Failed to hook checkAccess: ${e.message}")
                         }
+                    }
+                }
+
+                // Neutralize dontAllow(int reason) to prevent license denial
+                if (mName == "dontAllow" && method.returnType == "V") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = "return-void"
+                        )
+                        hookedPoints++
+                        logger.info("[Silt LVL] Neutralized dontAllow check in: $type->$mName")
+                    } catch (e: Exception) {
+                        logger.fine("[Silt LVL] Failed to hook dontAllow: ${e.message}")
+                    }
+                }
+
+                // Neutralize applicationError(int errorCode)
+                if (mName == "applicationError" && method.returnType == "V") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = "return-void"
+                        )
+                        hookedPoints++
+                        logger.info("[Silt LVL] Neutralized applicationError in: $type->$mName")
+                    } catch (e: Exception) {
+                        logger.fine("[Silt LVL] Failed to hook applicationError: ${e.message}")
                     }
                 }
             }
@@ -130,10 +103,10 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                 method.returnType == "Ljava/lang/String;" && method.parameterTypes.size <= 1
             ) {
                 try {
-                    val mm = mutableClass.findMutableMethodOf(method)
-                    mm?.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const-string v0, "com.android.vending"
                         return-object v0
                         """.trimIndent()
@@ -151,8 +124,6 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support") || tl.contains("com/google")) return@classDefForEach
-
-        val mutableClass by lazy { mutableClassDefBy(classDef) }
 
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
@@ -173,10 +144,10 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                 mName == "hasfullaccess"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 3,
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()
@@ -195,10 +166,10 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                 mName == "canplaychapter"
             ) && retType == "Z" && pTypes.size <= 1) {
                 try {
-                    val mutableMethod = mutableClass.findMutableMethodOf(method)
-                    mutableMethod.addInstructions(
-                        0,
-                        """
+                    replaceMethod(
+                        method = method,
+                        registerCount = 4,
+                        smaliCode = """
                         const/4 v0, 0x1
                         return v0
                         """.trimIndent()

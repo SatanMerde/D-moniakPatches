@@ -1,3 +1,9 @@
+## [1.52.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.51.0...v1.52.0) (2026-10-11)
+
+### ✨ New Features
+
+* **rblive:** add compatibility for RBTV+ / RBLive (com.rblive.app and com.rblive.tv) ([23da398](https://github.com/SatanMerde/D-moniakPatches/commit/23da398a0d1094c8c68b4ce3fb46541cac96e830))
+
 ## [1.51.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.50.1...v1.51.0) (2026-10-11)
 
 ### ✨ New Features

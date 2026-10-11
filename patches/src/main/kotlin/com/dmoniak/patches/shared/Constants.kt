@@ -673,6 +673,22 @@ object Constants {
         targets = listOf(AppTarget("3.0.323"))
     )
 
+    val COMPATIBILITY_RBLIVE = Compatibility(
+        packageName = "com.rblive.app",
+        name = "RBTV+ / RBLive (Mobile)",
+        description = "RBTV+ / RBLive: Live Football & Sports Streaming (Mobile)",
+        appIconColor = 0x1E88E5,
+        targets = listOf(AppTarget("3.0.323"))
+    )
+
+    val COMPATIBILITY_RBLIVE_TV = Compatibility(
+        packageName = "com.rblive.tv",
+        name = "RBTV+ / RBLive (TV)",
+        description = "RBTV+ / RBLive: Live Football & Sports Streaming (Android TV)",
+        appIconColor = 0x1E88E5,
+        targets = listOf(AppTarget("3.0.323"))
+    )
+
     // Aliases
     val COMPATIBILITY_ANGRY_BIRDS_CLASSIC = COMPATIBILITY_ANGRY_BIRDS
     val COMPATIBILITY_HIDE_ME = COMPATIBILITY_HIDEME
@@ -683,6 +699,8 @@ object Constants {
     val COMPATIBILITY_FREEFIRE = COMPATIBILITY_FREE_FIRE
     val COMPATIBILITY_FCTV33 = COMPATIBILITY_FCTV
     val COMPATIBILITY_FCTV_ANDROID_TV = COMPATIBILITY_FCTV_TV
+    val COMPATIBILITY_RBTV = COMPATIBILITY_RBLIVE
+    val COMPATIBILITY_RBTV_TV = COMPATIBILITY_RBLIVE_TV
 }
 
 

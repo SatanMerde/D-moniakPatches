@@ -1,3 +1,9 @@
+## [1.51.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.50.1...v1.51.0) (2026-10-11)
+
+### ✨ New Features
+
+* **fctv:** add compatibility for FCTV33 Android TV version (com.fctv77.tv) ([9a40052](https://github.com/SatanMerde/D-moniakPatches/commit/9a40052aefca75f8c44cee1d72d5e82031b3aa86))
+
 ## [1.50.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.50.0...v1.50.1) (2026-10-11)
 
 ### 🐛 Bug Fixes

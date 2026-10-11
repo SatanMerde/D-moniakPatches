@@ -1,3 +1,9 @@
+## [1.50.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.50.0...v1.50.1) (2026-10-11)
+
+### 🐛 Bug Fixes
+
+* **moises:** correct recommended target version to 2.72.0 ([9e80461](https://github.com/SatanMerde/D-moniakPatches/commit/9e804617cf676451148bafcffddda63dc615f1c5))
+
 ## [1.50.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.49.0...v1.50.0) (2026-10-11)
 
 ### ✨ New Features

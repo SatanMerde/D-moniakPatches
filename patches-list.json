@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.50.0",
+  "version": "1.50.1",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -7295,13 +7295,13 @@
         {
           "packageName": "ai.moises",
           "name": "Moises",
-          "description": "Moises: The Musician's App by Moises Systems Inc. (v2.7.2 recommandée - versions 2.73+ protégées par Google Play PairIP)",
+          "description": "Moises: The Musician's App by Moises Systems Inc. (v2.72.0 recommandée - versions 2.73+ protégées par Google Play PairIP)",
           "apkFileType": null,
           "appIconColor": "#6C5CE7",
           "signatures": null,
           "targets": [
             {
-              "version": "2.7.2",
+              "version": "2.72.0",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -11327,7 +11327,7 @@
     },
     {
       "name": "Unlock Premium & Pro Features - Moises",
-      "description": "Hooks Google Play BillingClient, RevenueCat EntitlementInfo, and subscription data models in Moises (v2.7.2 recommandée) to unlock client-side Pro features, bypass startup upgrade paywalls, Smart Metronome, chord detection, and pitch/speed controls.",
+      "description": "Hooks Google Play BillingClient, RevenueCat EntitlementInfo, and subscription data models in Moises (v2.72.0 recommandée) to unlock client-side Pro features, bypass startup upgrade paywalls, Smart Metronome, chord detection, and pitch/speed controls.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -11335,13 +11335,13 @@
         {
           "packageName": "ai.moises",
           "name": "Moises",
-          "description": "Moises: The Musician's App by Moises Systems Inc. (v2.7.2 recommandée - versions 2.73+ protégées par Google Play PairIP)",
+          "description": "Moises: The Musician's App by Moises Systems Inc. (v2.72.0 recommandée - versions 2.73+ protégées par Google Play PairIP)",
           "apkFileType": null,
           "appIconColor": "#6C5CE7",
           "signatures": null,
           "targets": [
             {
-              "version": "2.7.2",
+              "version": "2.72.0",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,

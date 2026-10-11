@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.50.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.50.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**459 patchs au total** (15 validés & fonctionnels • 444 expérimentaux)
+> **[v1.50.1](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.50.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**459 patchs au total** (15 validés & fonctionnels • 444 expérimentaux)
 
 ---
 
@@ -185,13 +185,13 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 
 **🎯 Supported versions:**
 
-| 2.7.2 |
+| 2.72.0 |
 | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [High Quality Audio Export & Audio Tools - Moises](#high-quality-audio-export-audio-tools-moises) | Bypasses client-side audio bitrate export caps (enabling 320kbps MP3 and WAV export options) and unlocks unlimited audio pitch shift, tempo changes, Smart Metronome, and chord detection in Moises (v2.7.2 recommandée). |
-| [Unlock Premium & Pro Features - Moises](#unlock-premium-pro-features-moises) | Hooks Google Play BillingClient, RevenueCat EntitlementInfo, and subscription data models in Moises (v2.7.2 recommandée) to unlock client-side Pro features, bypass startup upgrade paywalls, Smart Metronome, chord detection, and pitch/speed controls. |
+| [Unlock Premium & Pro Features - Moises](#unlock-premium-pro-features-moises) | Hooks Google Play BillingClient, RevenueCat EntitlementInfo, and subscription data models in Moises (v2.72.0 recommandée) to unlock client-side Pro features, bypass startup upgrade paywalls, Smart Metronome, chord detection, and pitch/speed controls. |
 
 </details>
 

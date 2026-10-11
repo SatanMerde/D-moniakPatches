@@ -3,6 +3,7 @@ package com.dmoniak.patches.fctv
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_FCTV
+import com.dmoniak.patches.shared.Constants.COMPATIBILITY_FCTV_TV
 import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
@@ -11,7 +12,7 @@ val fctvBlockAdsPatch = bytecodePatch(
     name = "Block Pre-Roll Video Ads & Interstitials - FCTV33",
     description = "Completely strips pre-roll video ads, loading countdown shades, direct link popups, and banner ads before live stream playback on FCTV33 (Mobile & TV).",
 ) {
-    compatibleWith(COMPATIBILITY_FCTV)
+    compatibleWith(COMPATIBILITY_FCTV, COMPATIBILITY_FCTV_TV)
 
     execute {
         val logger = Logger.getLogger(this::class.java.name)

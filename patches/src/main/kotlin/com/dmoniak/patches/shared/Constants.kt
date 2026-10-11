@@ -659,8 +659,16 @@ object Constants {
 
     val COMPATIBILITY_FCTV = Compatibility(
         packageName = "com.fctv77.app",
-        name = "FCTV33",
-        description = "FCTV33: Live Football & Sports Streaming",
+        name = "FCTV33 (Mobile)",
+        description = "FCTV33: Live Football & Sports Streaming (Mobile)",
+        appIconColor = 0x1E88E5,
+        targets = listOf(AppTarget("3.0.323"))
+    )
+
+    val COMPATIBILITY_FCTV_TV = Compatibility(
+        packageName = "com.fctv77.tv",
+        name = "FCTV33 (TV)",
+        description = "FCTV33: Live Football & Sports Streaming (Android TV)",
         appIconColor = 0x1E88E5,
         targets = listOf(AppTarget("3.0.323"))
     )
@@ -674,6 +682,7 @@ object Constants {
     val COMPATIBILITY_FREEFIRE_MAX = COMPATIBILITY_FREE_FIRE_MAX
     val COMPATIBILITY_FREEFIRE = COMPATIBILITY_FREE_FIRE
     val COMPATIBILITY_FCTV33 = COMPATIBILITY_FCTV
+    val COMPATIBILITY_FCTV_ANDROID_TV = COMPATIBILITY_FCTV_TV
 }
 
 

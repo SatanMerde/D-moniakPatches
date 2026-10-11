@@ -3,6 +3,7 @@ package com.dmoniak.patches.fctv
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_FCTV
+import com.dmoniak.patches.shared.Constants.COMPATIBILITY_FCTV_TV
 import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
@@ -11,7 +12,7 @@ val fctvUnlockVipPatch = bytecodePatch(
     name = "Unlock Permanent VIP & Activation - FCTV33",
     description = "Bypasses activation lock codes, unlocks free VIP status, and lifts channel access restrictions on FCTV33.",
 ) {
-    compatibleWith(COMPATIBILITY_FCTV)
+    compatibleWith(COMPATIBILITY_FCTV, COMPATIBILITY_FCTV_TV)
 
     execute {
         val logger = Logger.getLogger(this::class.java.name)

@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.49.0",
+  "version": "1.50.0",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -2287,6 +2287,33 @@
           "targets": [
             {
               "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block Pre-Roll Video Ads & Interstitials - FCTV33",
+      "description": "Completely strips pre-roll video ads, loading countdown shades, direct link popups, and banner ads before live stream playback on FCTV33 (Mobile & TV).",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.fctv77.app",
+          "name": "FCTV33",
+          "description": "FCTV33: Live Football & Sports Streaming",
+          "apkFileType": null,
+          "appIconColor": "#1E88E5",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "3.0.323",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -11082,6 +11109,33 @@
           "targets": [
             {
               "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Permanent VIP & Activation - FCTV33",
+      "description": "Bypasses activation lock codes, unlocks free VIP status, and lifts channel access restrictions on FCTV33.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.fctv77.app",
+          "name": "FCTV33",
+          "description": "FCTV33: Live Football & Sports Streaming",
+          "apkFileType": null,
+          "appIconColor": "#1E88E5",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "3.0.323",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,

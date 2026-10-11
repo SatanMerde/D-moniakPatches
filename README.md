@@ -14,16 +14,16 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-457-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-459-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-patchs-validés--fonctionnels--tested--functional-patches">
-    <img src="https://img.shields.io/badge/Fonctionnels-13-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
+    <img src="https://img.shields.io/badge/Fonctionnels-15-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-patchs-expérimentaux--en-développement--experimental-patches-ai-generated">
     <img src="https://img.shields.io/badge/Expérimentaux-444-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-91-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-92-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.49.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.49.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**457 patchs au total** (13 validés & fonctionnels • 444 expérimentaux)
+> **[v1.50.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.50.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**459 patchs au total** (15 validés & fonctionnels • 444 expérimentaux)
 
 ---
 
@@ -144,6 +144,22 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 |----------|----------------|
 | [Block Ads & Declutter Feed - BandLab](#block-ads-declutter-feed-bandlab) | Removes in-app promotional banners, upgrade prompts, sponsored artist cards, and interstitial ads across the BandLab home feed and studio screens. |
 | [Unlock Creator Membership & Audio Tools - BandLab](#unlock-creator-membership-audio-tools-bandlab) | Hooks Google Play Billing Client and membership state models in BandLab to unlock client-side Creator Membership perks, audio presets, master presets, and removes membership upgrade paywalls. |
+
+</details>
+
+<details open>
+<summary>📦 FCTV33&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 3.0.323 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Block Pre-Roll Video Ads & Interstitials - FCTV33](#block-pre-roll-video-ads-interstitials-fctv33) | Completely strips pre-roll video ads, loading countdown shades, direct link popups, and banner ads before live stream playback on FCTV33 (Mobile & TV). |
+| [Unlock Permanent VIP & Activation - FCTV33](#unlock-permanent-vip-activation-fctv33) | Bypasses activation lock codes, unlocks free VIP status, and lifts channel access restrictions on FCTV33. |
 
 </details>
 

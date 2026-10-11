@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-10T21:20:57",
-  "description": "## [1.49.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.14...v1.49.0) (2026-10-10)\n\n### ✨ New Features\n\n* **ai:** integrate morphe-ai knowledge base, rules, and skills into workspace ([3a9a71e](https://github.com/SatanMerde/D-moniakPatches/commit/3a9a71e201596f8521f15b7040055b518bedca87))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.49.0/patches-1.49.0.mpp",
+  "created_at": "2026-10-11T09:51:58",
+  "description": "## [1.50.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.49.0...v1.50.0) (2026-10-11)\n\n### ✨ New Features\n\n* **fctv:** add ad-blocking and VIP patches for FCTV33 (com.fctv77.app) ([630e1f9](https://github.com/SatanMerde/D-moniakPatches/commit/630e1f93c3cb0c4981fa88dd862e2f5f91c32baa))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.50.0/patches-1.50.0.mpp",
   "signature_download_url": "",
-  "version": "1.49.0"
+  "version": "1.50.0"
 }

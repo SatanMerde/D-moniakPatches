@@ -1,3 +1,9 @@
+## [1.50.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.49.0...v1.50.0) (2026-10-11)
+
+### ✨ New Features
+
+* **fctv:** add ad-blocking and VIP patches for FCTV33 (com.fctv77.app) ([630e1f9](https://github.com/SatanMerde/D-moniakPatches/commit/630e1f93c3cb0c4981fa88dd862e2f5f91c32baa))
+
 ## [1.49.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.48.14...v1.49.0) (2026-10-10)
 
 ### ✨ New Features

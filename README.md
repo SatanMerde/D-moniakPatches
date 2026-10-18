@@ -14,16 +14,16 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-459-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-461-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-patchs-validés--fonctionnels--tested--functional-patches">
-    <img src="https://img.shields.io/badge/Fonctionnels-15-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
+    <img src="https://img.shields.io/badge/Fonctionnels-19-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-patchs-expérimentaux--en-développement--experimental-patches-ai-generated">
-    <img src="https://img.shields.io/badge/Expérimentaux-444-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Expérimentaux-442-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-95-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-96-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.52.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.52.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**459 patchs au total** (15 validés & fonctionnels • 444 expérimentaux)
+> **[v1.52.1](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.52.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**461 patchs au total** (19 validés & fonctionnels • 442 expérimentaux)
 
 ---
 
@@ -180,6 +180,17 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
+<summary>📦 Fossify Phone&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Pure AMOLED Black Theme - Fossify Phone](#pure-amoled-black-theme-fossify-phone) | Applies a pure #000000 AMOLED dark theme across dialpad, in-call screen, contacts list, and call history for optimal OLED battery savings. |
+| [Silent & Unrestricted Call Recording - Fossify Phone](#silent-unrestricted-call-recording-fossify-phone) | Unlocks call recording across all regions/devices, suppresses carrier/recording warning beeps and disclosure alerts, and automatically enables two-way audio recording directly to local storage. |
+
+</details>
+
+<details open>
 <summary>📦 Hungry Shark World&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
@@ -206,7 +217,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [High Quality Audio Export & Audio Tools - Moises](#high-quality-audio-export-audio-tools-moises) | Bypasses client-side audio bitrate export caps (enabling 320kbps MP3 and WAV export options) and unlocks unlimited audio pitch shift, tempo changes, Smart Metronome, and chord detection in Moises (v2.7.2 recommandée). |
+| [High Quality Audio Export & Audio Tools - Moises](#high-quality-audio-export-audio-tools-moises) | Bypasses client-side audio bitrate export caps (enabling 320kbps MP3 and WAV export options) and unlocks unlimited audio pitch shift, tempo changes, Smart Metronome, and chord detection in Moises (v2.72.0 recommandée). |
 | [Unlock Premium & Pro Features - Moises](#unlock-premium-pro-features-moises) | Hooks Google Play BillingClient, RevenueCat EntitlementInfo, and subscription data models in Moises (v2.72.0 recommandée) to unlock client-side Pro features, bypass startup upgrade paywalls, Smart Metronome, chord detection, and pitch/speed controls. |
 
 </details>
@@ -256,6 +267,17 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 |----------|----------------|
 | [Block Pre-Roll Video Ads & Interstitials - FCTV33 & RBTV+](#block-pre-roll-video-ads-interstitials-fctv33-rbtv) | Completely strips pre-roll video ads, loading countdown shades, direct link popups, and banner ads before live stream playback on FCTV33 & RBTV+ (Mobile & TV). |
 | [Unlock Permanent VIP & Activation - FCTV33 & RBTV+](#unlock-permanent-vip-activation-fctv33-rbtv) | Bypasses activation lock codes, unlocks free VIP status, and lifts channel access restrictions on FCTV33 & RBTV+. |
+
+</details>
+
+<details open>
+<summary>📦 Shazam&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free & Clean Interface - Shazam](#ad-free-clean-interface-shazam) | Strips post-recognition promo cards, Apple Music targeted upsells, in-app survey banners, and announcement sheets in Shazam. |
+| [Always-On Auto Shazam - Shazam](#always-on-auto-shazam-shazam) | Keeps Auto Shazam background listening continuously active without automatic timeout cancellation or sleep limits. |
 
 </details>
 
@@ -1105,17 +1127,6 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 |----------|----------------|
 | [Bypass Rewarded Ads - Shadow Fight Arena (Experimental)](#bypass-rewarded-ads-shadow-fight-arena-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses rewarded video ads in Shadow Fight 4: Arena for free roulette spins, warrior chest timer skips, and bonus hero card rewards. (Experimental - Not yet tested on device). |
 | [Free Shopping - Shadow Fight Arena (Experimental)](#free-shopping-shadow-fight-arena-experimental) | ⚠️ [En cours de développement / Non testé] Hooks Google Play BillingClient and client-side store verification in Shadow Fight 4: Arena to simulate in-app purchases. (Experimental - Not yet tested on device). |
-
-</details>
-
-<details open>
-<summary>📦 Shazam&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description |
-|----------|----------------|
-| [Ad-Free & Clean Interface - Shazam (Experimental)](#ad-free-clean-interface-shazam-experimental) | ⚠️ [En cours de développement / Non testé] Strips post-recognition banner ads, sponsored track cards, and Apple Music / Spotify subscription nags by neutralizing ad SDK calls. |
-| [Always-On Auto Shazam - Shazam (Experimental)](#always-on-auto-shazam-shazam-experimental) | ⚠️ [En cours de développement / Non testé] Keeps Auto Shazam background listening continuously active without battery optimization pauses or auto-timeout limits. |
 
 </details>
 

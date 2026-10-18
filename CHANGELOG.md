@@ -1,3 +1,9 @@
+## [1.52.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.0...v1.52.1) (2026-10-18)
+
+### 🐛 Bug Fixes
+
+* resolve Shazam, Moises, Silt issues and add Fossify Phone patches ([c48f32d](https://github.com/SatanMerde/D-moniakPatches/commit/c48f32d2361c3b9a2be6e4b9d41569911833b3b0)), closes [#14](https://github.com/SatanMerde/D-moniakPatches/issues/14) [#2](https://github.com/SatanMerde/D-moniakPatches/issues/2) [#8](https://github.com/SatanMerde/D-moniakPatches/issues/8) [#7](https://github.com/SatanMerde/D-moniakPatches/issues/7)
+
 ## [1.52.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.51.0...v1.52.0) (2026-10-11)
 
 ### ✨ New Features

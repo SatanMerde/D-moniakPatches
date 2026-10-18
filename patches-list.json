@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.52.0",
+  "version": "1.52.1",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -732,8 +732,8 @@
       "options": []
     },
     {
-      "name": "Ad-Free & Clean Interface - Shazam (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Strips post-recognition banner ads, sponsored track cards, and Apple Music / Spotify subscription nags by neutralizing ad SDK calls.",
+      "name": "Ad-Free & Clean Interface - Shazam",
+      "description": "Strips post-recognition promo cards, Apple Music targeted upsells, in-app survey banners, and announcement sheets in Shazam.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -1488,8 +1488,8 @@
       "options": []
     },
     {
-      "name": "Always-On Auto Shazam - Shazam (Experimental)",
-      "description": "⚠️ [En cours de développement / Non testé] Keeps Auto Shazam background listening continuously active without battery optimization pauses or auto-timeout limits.",
+      "name": "Always-On Auto Shazam - Shazam",
+      "description": "Keeps Auto Shazam background listening continuously active without automatic timeout cancellation or sleep limits.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -7338,7 +7338,7 @@
     },
     {
       "name": "High Quality Audio Export & Audio Tools - Moises",
-      "description": "Bypasses client-side audio bitrate export caps (enabling 320kbps MP3 and WAV export options) and unlocks unlimited audio pitch shift, tempo changes, Smart Metronome, and chord detection in Moises (v2.7.2 recommandée).",
+      "description": "Bypasses client-side audio bitrate export caps (enabling 320kbps MP3 and WAV export options) and unlocks unlimited audio pitch shift, tempo changes, Smart Metronome, and chord detection in Moises (v2.72.0 recommandée).",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -8713,6 +8713,33 @@
       "options": []
     },
     {
+      "name": "Pure AMOLED Black Theme - Fossify Phone",
+      "description": "Applies a pure #000000 AMOLED dark theme across dialpad, in-call screen, contacts list, and call history for optimal OLED battery savings.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.fossify.phone",
+          "name": "Fossify Phone",
+          "description": "Fossify Phone: Privacy-friendly phone call app & dialer",
+          "apkFileType": null,
+          "appIconColor": "#2E7D32",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Pure AMOLED Black Theme - Instagram (Experimental)",
       "description": "⚠️ [En cours de développement / Non testé] Injects pure pitch-black (#000000) for OLED displays across main feed, reels, direct messages, stories bar, and profile in Instagram.",
       "default": true,
@@ -9568,6 +9595,33 @@
               "version": "161.0.726587057",
               "versionCodes": null,
               "isExperimental": true,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Silent & Unrestricted Call Recording - Fossify Phone",
+      "description": "Unlocks call recording across all regions/devices, suppresses carrier/recording warning beeps and disclosure alerts, and automatically enables two-way audio recording directly to local storage.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.fossify.phone",
+          "name": "Fossify Phone",
+          "description": "Fossify Phone: Privacy-friendly phone call app & dialer",
+          "apkFileType": null,
+          "appIconColor": "#2E7D32",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
               "minSdk": null,
               "description": null
             }

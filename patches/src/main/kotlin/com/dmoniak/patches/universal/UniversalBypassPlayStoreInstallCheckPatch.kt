@@ -24,8 +24,15 @@ fun BytecodePatchContext.executeUniversalBypassPlayStoreInstallCheckLogic(logger
 
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()
-        // Skip Android framework internals
-        if (tl.startsWith("landroid/") || tl.startsWith("lkotlin/")) return@classDefForEach
+        // Skip Android, Kotlin, Java, and Google Play Services/AndroidX framework internals to avoid crash during SDK initialization
+        if (
+            tl.startsWith("landroid/") ||
+            tl.startsWith("landroidx/") ||
+            tl.startsWith("lkotlin/") ||
+            tl.startsWith("ljava/") ||
+            tl.startsWith("lcom/google/android/gms/") ||
+            tl.startsWith("lcom/google/android/play/")
+        ) return@classDefForEach
 
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue

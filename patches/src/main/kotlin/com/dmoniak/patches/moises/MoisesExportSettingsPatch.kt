@@ -10,7 +10,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val moisesExportSettingsPatch = bytecodePatch(
     name = "High Quality Audio Export & Audio Tools - Moises",
-    description = "Bypasses client-side audio bitrate export caps (enabling 320kbps MP3 and WAV export options) and unlocks unlimited audio pitch shift, tempo changes, Smart Metronome, and chord detection in Moises (v2.7.2 recommandée).",
+    description = "Bypasses client-side audio bitrate export caps (enabling 320kbps MP3 and WAV export options) and unlocks unlimited audio pitch shift, tempo changes, Smart Metronome, and chord detection in Moises (v2.72.0 recommandée).",
 ) {
     compatibleWith(COMPATIBILITY_MOISES)
 
@@ -38,31 +38,6 @@ fun BytecodePatchContext.executeMoisesExportSettingsLogic(logger: Logger) {
         ) return@classDefForEach
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
-
-        // Specific hooks for Moises v2.7.2 audio tools & upload pipeline:
-        // 1. UploadTrackViewModel.e() -> checks if duration exceeds limit
-        if (type == "Lai/moises/ui/uploadtrack/UploadTrackViewModel;") {
-            for (method in classDef.methods.toList()) {
-                if (method.name == "e" && method.returnType == "Z") {
-                    try {
-                        mutableClass.replaceMethod(
-
-                            method,
-
-                            smaliCode = """
-                            const/4 v0, 0x0
-                            return v0
-                            """.trimIndent()
-
-                        )
-                        hookedPoints++
-                        logger.info("[Moises Audio Tools] Hooked UploadTrackViewModel.e() -> false (bypass duration check)")
-                    } catch (e: Exception) {
-                        logger.fine("[Moises Audio Tools] Failed to hook UploadTrackViewModel.e: ${e.message}")
-                    }
-                }
-            }
-        }
 
         // 2. UserFeatureFlags:
         //    a() -> mobileAdaptPremiumToFree (Z -> false)

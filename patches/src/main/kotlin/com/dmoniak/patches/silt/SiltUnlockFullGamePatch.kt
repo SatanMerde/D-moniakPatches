@@ -295,31 +295,29 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                                 registerCount = 6,
                                 smaliCode = """
                                 const/4 v0, 0x1
-                                invoke-static {p0, v0}, Lcom/unity3d/player/UnityPlayerActivity;->requestWindowFeature${'$'}001(Lcom/unity3d/player/UnityPlayerActivity;I)Z
-                                invoke-static {p0, p1}, Lcom/unity3d/player/UnityPlayerActivity;->onCreate${'$'}002(Landroid/app/Activity;Landroid/os/Bundle;)V
-                                invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->getIntent${'$'}003(Lcom/unity3d/player/UnityPlayerActivity;)Landroid/content/Intent;
+                                invoke-virtual {p0, v0}, Landroid/app/Activity;->requestWindowFeature(I)Z
+                                invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+                                invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
                                 move-result-object v0
                                 if-eqz v0, :init_player
                                 const-string v1, "unity"
-                                invoke-static {v0, v1}, Lcom/unity3d/player/UnityPlayerActivity;->getStringExtra${'$'}004(Landroid/content/Intent;Ljava/lang/String;)Ljava/lang/String;
+                                invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
                                 move-result-object v0
-                                invoke-static {p0, v0}, Lcom/unity3d/player/UnityPlayerActivity;->updateUnityCommandLineArguments${'$'}005(Lcom/unity3d/player/UnityPlayerActivity;Ljava/lang/String;)Ljava/lang/String;
+                                invoke-virtual {p0, v0}, Lcom/unity3d/player/UnityPlayerActivity;->updateUnityCommandLineArguments(Ljava/lang/String;)Ljava/lang/String;
                                 move-result-object v0
-                                invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->getIntent${'$'}006(Lcom/unity3d/player/UnityPlayerActivity;)Landroid/content/Intent;
+                                invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
                                 move-result-object v1
                                 if-eqz v1, :init_player
                                 const-string v2, "unity"
-                                invoke-static {v1, v2, v0}, Lcom/unity3d/player/UnityPlayerActivity;->putExtra${'$'}007(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+                                invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
                                 :init_player
-                                const-string v0, "phone"
-                                sput-object v0, Lcom/google/android/datatransport/tfiJ/wFXsXtqTIWUJ;->VGLcBBtx:Ljava/lang/String;
                                 new-instance v0, Lcom/unity3d/player/UnityPlayer;
                                 invoke-direct {v0, p0, p0}, Lcom/unity3d/player/UnityPlayer;-><init>(Landroid/content/Context;Lcom/unity3d/player/IUnityPlayerLifecycleEvents;)V
                                 iput-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
-                                invoke-static {p0, v0}, Lcom/unity3d/player/UnityPlayerActivity;->setContentView${'$'}008(Lcom/unity3d/player/UnityPlayerActivity;Landroid/view/View;)V
+                                invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(Landroid/view/View;)V
                                 iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
                                 if-eqz v0, :return_void
-                                invoke-static {v0}, Lcom/unity3d/player/UnityPlayerActivity;->requestFocus${'$'}009(Lcom/unity3d/player/UnityPlayer;)Z
+                                invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
                                 :return_void
                                 return-void
                                 """.trimIndent()
@@ -338,9 +336,9 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                                 smaliCode = """
                                 iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
                                 if-eqz v0, :skip_destroy
-                                invoke-static {v0}, Lcom/unity3d/player/UnityPlayerActivity;->destroy${'$'}001(Lcom/unity3d/player/UnityPlayer;)V
+                                invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->destroy()V
                                 :skip_destroy
-                                invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->onDestroy${'$'}002(Landroid/app/Activity;)V
+                                invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
                                 return-void
                                 """.trimIndent()
                             )
@@ -356,10 +354,10 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                                 method = method,
                                 registerCount = 3,
                                 smaliCode = """
-                                invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->onStart${'$'}001(Landroid/app/Activity;)V
+                                invoke-super {p0}, Landroid/app/Activity;->onStart()V
                                 iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
                                 if-eqz v0, :skip_start
-                                invoke-static {v0}, Lcom/unity3d/player/UnityPlayerActivity;->onStart${'$'}002(Lcom/unity3d/player/UnityPlayer;)V
+                                invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->onStart()V
                                 :skip_start
                                 return-void
                                 """.trimIndent()
@@ -376,10 +374,10 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                                 method = method,
                                 registerCount = 3,
                                 smaliCode = """
-                                invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->onStop${'$'}001(Landroid/app/Activity;)V
+                                invoke-super {p0}, Landroid/app/Activity;->onStop()V
                                 iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
                                 if-eqz v0, :skip_stop
-                                invoke-static {v0}, Lcom/unity3d/player/UnityPlayerActivity;->onStop${'$'}002(Lcom/unity3d/player/UnityPlayer;)V
+                                invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->onStop()V
                                 :skip_stop
                                 return-void
                                 """.trimIndent()
@@ -396,10 +394,10 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                                 method = method,
                                 registerCount = 3,
                                 smaliCode = """
-                                invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->onResume${'$'}001(Landroid/app/Activity;)V
+                                invoke-super {p0}, Landroid/app/Activity;->onResume()V
                                 iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
                                 if-eqz v0, :skip_resume
-                                invoke-static {v0}, Lcom/unity3d/player/UnityPlayerActivity;->onResume${'$'}002(Lcom/unity3d/player/UnityPlayer;)V
+                                invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->onResume()V
                                 :skip_resume
                                 return-void
                                 """.trimIndent()
@@ -416,10 +414,10 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                                 method = method,
                                 registerCount = 3,
                                 smaliCode = """
-                                invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->onPause${'$'}001(Landroid/app/Activity;)V
+                                invoke-super {p0}, Landroid/app/Activity;->onPause()V
                                 iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
                                 if-eqz v0, :skip_pause
-                                invoke-static {v0}, Lcom/unity3d/player/UnityPlayerActivity;->onPause${'$'}002(Lcom/unity3d/player/UnityPlayer;)V
+                                invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->onPause()V
                                 :skip_pause
                                 return-void
                                 """.trimIndent()

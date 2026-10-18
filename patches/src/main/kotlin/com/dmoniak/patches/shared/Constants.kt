@@ -689,6 +689,13 @@ object Constants {
         targets = listOf(AppTarget("3.0.323"))
     )
 
+    val COMPATIBILITY_FOSSIFY_PHONE = Compatibility(
+        packageName = "org.fossify.phone",
+        name = "Fossify Phone",
+        description = "Fossify Phone: Privacy-friendly phone call app & dialer",
+        appIconColor = 0x2E7D32
+    )
+
     // Aliases
     val COMPATIBILITY_ANGRY_BIRDS_CLASSIC = COMPATIBILITY_ANGRY_BIRDS
     val COMPATIBILITY_HIDE_ME = COMPATIBILITY_HIDEME

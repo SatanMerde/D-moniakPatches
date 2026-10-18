@@ -1,10 +1,11 @@
 package com.dmoniak.patches.moises
 
-import com.dmoniak.patches.shared.replaceMethod
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.dmoniak.patches.shared.BillingHookHelper.executeGooglePlayBillingBypass
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_MOISES
+import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
@@ -22,6 +23,7 @@ val moisesUnlockPremiumPatch = bytecodePatch(
 
 fun BytecodePatchContext.executeMoisesUnlockPremiumLogic(logger: Logger) {
     logger.info("Executing Unlock Premium & Pro patch for Moises...")
+    val billingHooks = executeGooglePlayBillingBypass(logger, "Moises")
     var hookedMethods = 0
 
     classDefForEach { classDef ->
@@ -169,31 +171,6 @@ fun BytecodePatchContext.executeMoisesUnlockPremiumLogic(logger: Logger) {
             }
         }
 
-        // 5. Hook MainActivity paywall popup:
-        //    H(PurchaseSource) -> void (no-op)
-        if (type == "Lai/moises/ui/MainActivity;") {
-            for (method in classDef.methods.toList()) {
-                val mName = method.name
-                if (mName == "H" && method.parameterTypes.size == 1 && method.returnType == "V") {
-                    try {
-                        mutableClass.replaceMethod(
-
-                            method,
-
-                            smaliCode = """
-                            return-void
-                            """.trimIndent()
-
-                        )
-                        hookedMethods++
-                        logger.info("[Moises Pro] Hooked MainActivity.H() -> return-void (paywall dialog suppressed)")
-                    } catch (e: Exception) {
-                        logger.fine("[Moises Pro] Failed to hook MainActivity.H: ${e.message}")
-                    }
-                }
-            }
-        }
-
         // Generic fallback hooks for other subscription/pro status getters
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
@@ -306,5 +283,5 @@ fun BytecodePatchContext.executeMoisesUnlockPremiumLogic(logger: Logger) {
         }
     }
 
-    logger.info("[Moises Pro] Finished: $hookedMethods client entitlement hooks applied.")
+    logger.info("[Moises Pro] Finished: ${hookedMethods + billingHooks} client entitlement hooks applied.")
 }

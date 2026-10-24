@@ -831,6 +831,234 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
         }
     }
 
+    // 8b. Google Play Asset Delivery (PAD) bypass and local asset pack resolver
+    classDefForEach { classDef ->
+        val type = classDef.type
+        if (type == "Lcom/unity3d/player/PlayAssetDeliveryUnityWrapper;" || type == "Lcom/unity3d/player/m;") {
+            for (method in classDef.methods.toList()) {
+                val mName = method.name
+                val pCount = method.parameterTypes.size
+                val retType = method.returnType
+
+                if (mName == "playCoreApiMissing" && retType == "Z") {
+                    try {
+                        replaceMethod(method = method, registerCount = 2, smaliCode = "const/4 v0, 0x0\nreturn v0")
+                        hookedPoints++
+                        logger.info("[Silt PAD] Neutralized playCoreApiMissing -> false")
+                    } catch (_: Exception) {}
+                } else if ((mName == "getAssetPackPath" || mName == "a") && retType == "Ljava/lang/String;" && pCount == 1 && method.parameterTypes[0] == "Ljava/lang/String;") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 8,
+                            smaliCode = """
+                            if-nez p1, :cond_empty
+                            sget-object v0, Lcom/unity3d/player/UnityPlayer;->currentActivity:Landroid/app/Activity;
+                            if-nez v0, :cond_has_act
+                            goto :cond_empty
+                            :cond_has_act
+                            invoke-virtual {v0}, Landroid/app/Activity;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+                            move-result-object v1
+                            if-nez v1, :cond_has_appinfo
+                            goto :cond_empty
+                            :cond_has_appinfo
+                            iget-object v1, v1, Landroid/content/pm/ApplicationInfo;->splitSourceDirs:[Ljava/lang/String;
+                            if-eqz v1, :cond_check_obb
+                            array-length v2, v1
+                            const/4 v3, 0x0
+                            :loop_splits_1
+                            if-ge v3, v2, :cond_loop_splits_2_init
+                            aget-object v4, v1, v3
+                            if-eqz v4, :cond_next_1
+                            invoke-virtual {v4, p1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+                            move-result v5
+                            if-eqz v5, :cond_next_1
+                            return-object v4
+                            :cond_next_1
+                            add-int/lit8 v3, v3, 0x1
+                            goto :loop_splits_1
+                            :cond_loop_splits_2_init
+                            const/4 v3, 0x0
+                            :loop_splits_2
+                            if-ge v3, v2, :cond_check_obb
+                            aget-object v4, v1, v3
+                            if-eqz v4, :cond_next_2
+                            const-string v5, "UnityData"
+                            invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+                            move-result v5
+                            if-eqz v5, :cond_next_2
+                            return-object v4
+                            :cond_next_2
+                            add-int/lit8 v3, v3, 0x1
+                            goto :loop_splits_2
+                            :cond_check_obb
+                            invoke-virtual {v0}, Landroid/app/Activity;->getPackageResourcePath()Ljava/lang/String;
+                            move-result-object v0
+                            if-eqz v0, :cond_empty
+                            return-object v0
+                            :cond_empty
+                            const-string v0, ""
+                            return-object v0
+                            """.trimIndent(),
+                        )
+                        hookedPoints++
+                        logger.info("[Silt PAD] Hooked ${classDef.type}->$mName (asset pack path resolver)")
+                    } catch (_: Exception) {}
+                } else if ((mName == "getAssetPackStates" || mName == "a") && pCount == 2 && method.parameterTypes[0] == "[Ljava/lang/String;" && method.parameterTypes[1] == "Lcom/unity3d/player/IAssetPackManagerStatusQueryCallback;") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 8,
+                            smaliCode = """
+                            if-nez p2, :cond_cb
+                            return-void
+                            :cond_cb
+                            if-nez p1, :cond_has_names
+                            const/4 v0, 0x0
+                            new-array p1, v0, [Ljava/lang/String;
+                            :cond_has_names
+                            array-length v0, p1
+                            new-array v4, v0, [I
+                            new-array v5, v0, [I
+                            const/4 v1, 0x0
+                            :loop_status
+                            if-ge v1, v0, :cond_invoke
+                            const/4 v2, 0x4
+                            aput v2, v4, v1
+                            const/4 v2, 0x0
+                            aput v2, v5, v1
+                            add-int/lit8 v1, v1, 0x1
+                            goto :loop_status
+                            :cond_invoke
+                            const-wide/16 v1, 0x0
+                            move-object v0, p2
+                            move-object v3, p1
+                            invoke-interface/range {v0 .. v5}, Lcom/unity3d/player/IAssetPackManagerStatusQueryCallback;->onStatusResult(J[Ljava/lang/String;[I[I)V
+                            return-void
+                            """.trimIndent(),
+                        )
+                        hookedPoints++
+                        logger.info("[Silt PAD] Hooked ${classDef.type}->$mName (query callback -> COMPLETED)")
+                    } catch (_: Exception) {}
+                } else if (mName == "getAssetPackState" && pCount == 2 && method.parameterTypes[0] == "Ljava/lang/String;" && method.parameterTypes[1] == "Lcom/unity3d/player/IAssetPackManagerStatusQueryCallback;") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 8,
+                            smaliCode = """
+                            if-nez p2, :cond_cb
+                            return-void
+                            :cond_cb
+                            const/4 v0, 0x1
+                            new-array v3, v0, [Ljava/lang/String;
+                            const/4 v1, 0x0
+                            aput-object p1, v3, v1
+                            new-array v4, v0, [I
+                            const/4 v2, 0x4
+                            aput v2, v4, v1
+                            new-array v5, v0, [I
+                            aput v1, v5, v1
+                            const-wide/16 v1, 0x0
+                            move-object v0, p2
+                            invoke-interface/range {v0 .. v5}, Lcom/unity3d/player/IAssetPackManagerStatusQueryCallback;->onStatusResult(J[Ljava/lang/String;[I[I)V
+                            return-void
+                            """.trimIndent(),
+                        )
+                        hookedPoints++
+                        logger.info("[Silt PAD] Hooked ${classDef.type}->$mName (single query callback -> COMPLETED)")
+                    } catch (_: Exception) {}
+                } else if ((mName == "downloadAssetPacks" || mName == "a") && pCount == 2 && method.parameterTypes[0] == "[Ljava/lang/String;" && method.parameterTypes[1] == "Lcom/unity3d/player/IAssetPackManagerDownloadStatusCallback;") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 12,
+                            smaliCode = """
+                            if-nez p2, :cond_cb
+                            return-void
+                            :cond_cb
+                            if-nez p1, :cond_has_names
+                            return-void
+                            :cond_has_names
+                            array-length v0, p1
+                            const/4 v1, 0x0
+                            :loop_dl
+                            if-ge v1, v0, :cond_done
+                            aget-object v3, p1, v1
+                            const/4 v4, 0x4
+                            const-wide/16 v5, 0x64
+                            const-wide/16 v7, 0x64
+                            const/4 v9, 0x0
+                            const/4 v10, 0x0
+                            move-object v2, p2
+                            invoke-interface/range {v2 .. v10}, Lcom/unity3d/player/IAssetPackManagerDownloadStatusCallback;->onStatusUpdate(Ljava/lang/String;IJJII)V
+                            add-int/lit8 v1, v1, 0x1
+                            goto :loop_dl
+                            :cond_done
+                            return-void
+                            """.trimIndent(),
+                        )
+                        hookedPoints++
+                        logger.info("[Silt PAD] Hooked ${classDef.type}->$mName (download callback -> COMPLETED)")
+                    } catch (_: Exception) {}
+                } else if (mName == "downloadAssetPack" && pCount == 2 && method.parameterTypes[0] == "Ljava/lang/String;" && method.parameterTypes[1] == "Lcom/unity3d/player/IAssetPackManagerDownloadStatusCallback;") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 10,
+                            smaliCode = """
+                            if-nez p2, :cond_cb
+                            return-void
+                            :cond_cb
+                            const/4 v2, 0x4
+                            const-wide/16 v3, 0x64
+                            const-wide/16 v5, 0x64
+                            const/4 v7, 0x0
+                            const/4 v8, 0x0
+                            move-object v0, p2
+                            move-object v1, p1
+                            invoke-interface/range {v0 .. v8}, Lcom/unity3d/player/IAssetPackManagerDownloadStatusCallback;->onStatusUpdate(Ljava/lang/String;IJJII)V
+                            return-void
+                            """.trimIndent(),
+                        )
+                        hookedPoints++
+                        logger.info("[Silt PAD] Hooked ${classDef.type}->$mName (single download callback -> COMPLETED)")
+                    } catch (_: Exception) {}
+                } else if (mName.startsWith("cancelAssetPack") || mName == "removeAssetPack" || (classDef.type == "Lcom/unity3d/player/m;" && (mName == "b" || (mName == "a" && pCount == 1 && method.parameterTypes[0] == "[Ljava/lang/String;")))) {
+                    try {
+                        replaceMethod(method = method, registerCount = 2, smaliCode = "return-void")
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                } else if (mName == "registerDownloadStatusListener" || (classDef.type == "Lcom/unity3d/player/m;" && mName == "a" && pCount == 1 && method.parameterTypes[0] == "Lcom/unity3d/player/IAssetPackManagerDownloadStatusCallback;")) {
+                    try {
+                        replaceMethod(method = method, registerCount = 2, smaliCode = "const/4 v0, 0x0\nreturn-object v0")
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                } else if (mName == "unregisterDownloadStatusListener" || (classDef.type == "Lcom/unity3d/player/m;" && mName == "a" && pCount == 1 && method.parameterTypes[0] == "Ljava/lang/Object;")) {
+                    try {
+                        replaceMethod(method = method, registerCount = 2, smaliCode = "return-void")
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                } else if (mName == "requestToUseMobileData" || (classDef.type == "Lcom/unity3d/player/m;" && mName == "a" && pCount == 2 && method.parameterTypes[0] == "Landroid/app/Activity;" && method.parameterTypes[1] == "Lcom/unity3d/player/IAssetPackManagerMobileDataConfirmationCallback;")) {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 4,
+                            smaliCode = """
+                            if-nez p2, :cond_cb
+                            return-void
+                            :cond_cb
+                            const/4 v0, 0x1
+                            invoke-interface {p2, v0}, Lcom/unity3d/player/IAssetPackManagerMobileDataConfirmationCallback;->onMobileDataConfirmationResult(Z)V
+                            return-void
+                            """.trimIndent(),
+                        )
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                }
+            }
+        }
+    }
+
     // 9. Retain all PairIP classes as safe, neutralized stubs in DEX to prevent ClassNotFoundException / NoClassDefFoundError
     logger.info("[Silt PairIP] Retained all PairIP classes as safe neutralized stubs (preserving AndroidManifest components and AndroidX callers)")
     logger.info("[Silt Bytecode] Total bytecode hooks applied: $hookedPoints")
@@ -897,7 +1125,41 @@ fun ResourcePatchContext.executeSiltNativeDrmNeutralization(logger: Logger) {
         }
     }
 
-    // 4. Remove or neutralize libpairipcore.so (clean binaries do not require libpairipcore.so)
+    // 4. Neutralize libfmod.so DT_NEEDED on libpairipcore.so
+    val fmodEntries = libEntries.filter { it.endsWith("libfmod.so") }
+    for (entry in fmodEntries) {
+        try {
+            val soFile = get(entry, true)
+            val bytes = soFile.readBytes()
+            val targetBytes = "libpairipcore.so".toByteArray(Charsets.ISO_8859_1)
+            val replacementBytes = "libc++_shared.so".toByteArray(Charsets.ISO_8859_1)
+            var modified = false
+            for (i in 0 until bytes.size - targetBytes.size) {
+                var match = true
+                for (j in targetBytes.indices) {
+                    if (bytes[i + j] != targetBytes[j]) {
+                        match = false
+                        break
+                    }
+                }
+                if (match) {
+                    for (j in replacementBytes.indices) {
+                        bytes[i + j] = replacementBytes[j]
+                    }
+                    modified = true
+                    break
+                }
+            }
+            if (modified) {
+                soFile.writeBytes(bytes)
+                logger.info("[Silt Native DRM] Replaced DT_NEEDED libpairipcore.so with libc++_shared.so in $entry")
+            }
+        } catch (e: Exception) {
+            logger.warning("[Silt Native DRM] Failed to sanitize DT_NEEDED in $entry: ${e.message}")
+        }
+    }
+
+    // 5. Retain libpairipcore.so as safe stub (do not delete, so any remaining dynamic references resolve)
     val pairipCoreEntries = libEntries.filter { it.endsWith("libpairipcore.so") }
     if (pairipCoreEntries.isEmpty()) {
         logger.info("[Silt Native DRM] No libpairipcore.so found in APK (base APK only or clean build). Bytecode patch active.")
@@ -905,25 +1167,20 @@ fun ResourcePatchContext.executeSiltNativeDrmNeutralization(logger: Logger) {
         val arm64Fix = getPairipArm64FixBytes()
         for (entry in pairipCoreEntries) {
             try {
-                delete(entry)
-                logger.info("[Silt Native DRM] Removed unnecessary DRM library: $entry")
-            } catch (_: Exception) {
-                try {
-                    val soFile = get(entry, true)
-                    if (entry.contains("arm64")) {
-                        soFile.writeBytes(arm64Fix)
-                        logger.info("[Silt Native DRM] Replaced arm64 $entry with custom dynamic GOT resolver (${arm64Fix.size} bytes)")
-                    } else {
-                        val bytes = soFile.readBytes()
-                        val modified = stubPairipCoreElf(bytes, logger, entry)
-                        if (modified) {
-                            soFile.writeBytes(bytes)
-                            logger.info("[Silt Native DRM] Successfully neutralized native anti-tamper in $entry")
-                        }
+                val soFile = get(entry, true)
+                if (entry.contains("arm64")) {
+                    soFile.writeBytes(arm64Fix)
+                    logger.info("[Silt Native DRM] Replaced arm64 $entry with custom dynamic GOT resolver (${arm64Fix.size} bytes)")
+                } else {
+                    val bytes = soFile.readBytes()
+                    val modified = stubPairipCoreElf(bytes, logger, entry)
+                    if (modified) {
+                        soFile.writeBytes(bytes)
+                        logger.info("[Silt Native DRM] Successfully neutralized native anti-tamper in $entry")
                     }
-                } catch (e: Exception) {
-                    logger.warning("[Silt Native DRM] Failed to patch $entry: ${e.message}")
                 }
+            } catch (e: Exception) {
+                logger.warning("[Silt Native DRM] Failed to patch $entry: ${e.message}")
             }
         }
     }

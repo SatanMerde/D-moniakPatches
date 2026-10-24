@@ -520,11 +520,15 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
     // 9. Force FULL mode and clean PairIP placeholder classes
     forceFullBytecodeMode()
     val classMap = internalClassMap()
-    var removedClasses = 0
+    val typesToRemove = HashSet<String>()
     classDefForEach { classDef ->
         if (classDef.type.startsWith(PAIRIP_PREFIX) || classDef.type in placeholderClasses) {
-            if (classMap.remove(classDef.type) != null) removedClasses++
+            typesToRemove += classDef.type
         }
+    }
+    var removedClasses = 0
+    typesToRemove.forEach { type ->
+        if (classMap.remove(type) != null) removedClasses++
     }
     logger.info("[Silt PairIP] Purged $removedClasses PairIP internal and placeholder classes from DEX")
     logger.info("[Silt Bytecode] Total bytecode hooks applied: $hookedPoints")

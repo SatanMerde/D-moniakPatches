@@ -159,8 +159,12 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
     hookedPoints += executeGooglePlayBillingBypass(logger, "Silt")
 
     // 2. PairIP Bytecode String De-obfuscation
-    val stringMap = HashMap<String, String>()
+    val stringMap = HashMap<String, String>(SILT_PAIRIP_STRINGS)
     val placeholderClasses = HashSet<String>()
+    for (fieldRef in SILT_PAIRIP_STRINGS.keys) {
+        val clazz = fieldRef.substringBefore(";->") + ";"
+        placeholderClasses += clazz
+    }
 
     classDefForEach { classDef ->
         if (classDef.type !in STRING_SOURCE_CLASSES) return@classDefForEach
@@ -185,7 +189,7 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
         placeholderClasses += classDef.type
     }
 
-    logger.info("[Silt PairIP] Found ${stringMap.size} obfuscated strings across ${placeholderClasses.size} placeholder classes")
+    logger.info("[Silt PairIP] Loaded ${stringMap.size} obfuscated strings across ${placeholderClasses.size} placeholder classes")
 
     // Inlining obfuscated strings into call sites
     if (stringMap.isNotEmpty()) {
@@ -200,11 +204,16 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                     if (insn.opcode != Opcode.SGET_OBJECT) return@forEachIndexed
                     val fieldRef = (insn as ReferenceInstruction).reference.toString()
                     val value = stringMap[fieldRef] ?: return@forEachIndexed
-                    if (index == 0) return@forEachIndexed
-                    val prev = insns[index - 1]
-                    if (prev.opcode != Opcode.CONST_4 && prev.opcode != Opcode.CONST_16) return@forEachIndexed
                     val reg = (insn as OneRegisterInstruction).registerA
-                    edits += Triple(index - 1, index, "const-string v$reg, \"${value.toSmaliLiteral()}\"")
+                    val prev = if (index > 0) insns[index - 1] else null
+                    val prevIsDummy = prev != null &&
+                        (prev.opcode == Opcode.CONST_4 || prev.opcode == Opcode.CONST_16) &&
+                        (prev as? OneRegisterInstruction)?.registerA == reg
+                    if (prevIsDummy) {
+                        edits += Triple(index - 1, index, "const-string v$reg, \"${value.toSmaliLiteral()}\"")
+                    } else {
+                        edits += Triple(-1, index, "const-string v$reg, \"${value.toSmaliLiteral()}\"")
+                    }
                 }
                 if (edits.isEmpty()) return@methods
                 val mutableClass = mutableClassDefByOrNull(classDef.type) ?: return@methods
@@ -215,7 +224,9 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                 } ?: return@methods
                 edits.sortedByDescending { it.second }.forEach { (constIndex, sgetIndex, smali) ->
                     mutableMethod.replaceInstruction(sgetIndex, smali)
-                    mutableMethod.removeInstruction(constIndex)
+                    if (constIndex >= 0) {
+                        mutableMethod.removeInstruction(constIndex)
+                    }
                     restoredStrings++
                 }
             }
@@ -291,9 +302,19 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
             for (method in classDef.methods.toList()) {
                 if (method.name == "<clinit>") {
                     try {
-                        replaceMethod(method = method, registerCount = 1, smaliCode = "return-void")
-                        hookedPoints++
-                    } catch (_: Exception) {}
+                        val smali = buildString {
+                            SILT_PAIRIP_STRINGS.forEach { (fieldRef, value) ->
+                                appendLine("const-string v0, \"${value.toSmaliLiteral()}\"")
+                                appendLine("sput-object v0, $fieldRef")
+                            }
+                            appendLine("return-void")
+                        }
+                        replaceMethod(method = method, registerCount = 2, smaliCode = smali)
+                        hookedPoints += SILT_PAIRIP_STRINGS.size
+                        logger.info("[Silt PairIP] Populated ${SILT_PAIRIP_STRINGS.size} obfuscated static strings in Application.<clinit>")
+                    } catch (e: Exception) {
+                        logger.warning("[Silt PairIP] Failed to populate Application.<clinit>: ${e.message}")
+                    }
                 } else if (method.name == "attachBaseContext") {
                     try {
                         replaceMethod(
@@ -702,6 +723,43 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                 if (method.name in listOf("run", "zza", "zzb") && method.returnType == "V") {
                     try {
                         replaceMethod(method = method, registerCount = 1, smaliCode = "return-void")
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                }
+            }
+        }
+    }
+
+    // Google Play Services & AndroidX Preconditions and ConnectionResult crash immunizations
+    classDefForEach { classDef ->
+        val type = classDef.type
+        if (type == "Lcom/google/android/gms/common/internal/Preconditions;" || type == "Landroidx/core/util/Preconditions;") {
+            for (method in classDef.methods.toList()) {
+                val mName = method.name
+                if (mName == "checkNotNull" && method.returnType == "Ljava/lang/Object;") {
+                    try {
+                        replaceMethod(method = method, registerCount = maxOf(2, method.parameterTypes.size), smaliCode = "return-object p0")
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                } else if (mName == "checkNotEmpty" && method.returnType == "Ljava/lang/String;") {
+                    try {
+                        replaceMethod(method = method, registerCount = maxOf(2, method.parameterTypes.size), smaliCode = "return-object p0")
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                }
+            }
+        } else if (type == "Lcom/google/android/gms/common/ConnectionResult;") {
+            for (method in classDef.methods.toList()) {
+                if (method.name == "toString" && method.parameterTypes.isEmpty()) {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 2,
+                            smaliCode = """
+                            const-string v0, "ConnectionResult{SUCCESS}"
+                            return-object v0
+                            """.trimIndent(),
+                        )
                         hookedPoints++
                     } catch (_: Exception) {}
                 }

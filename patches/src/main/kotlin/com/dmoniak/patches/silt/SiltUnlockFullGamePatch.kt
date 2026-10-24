@@ -474,6 +474,194 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
         }
     }
 
+    // 6b. Restore clean Unity lifecycle methods in UnityPlayerActivity to bypass PairIP reflection hijacking
+    classDefForEach { classDef ->
+        if (classDef.type == "Lcom/unity3d/player/UnityPlayerActivity;") {
+            for (method in classDef.methods.toList()) {
+                val mName = method.name
+                val pCount = method.parameterTypes.size
+                if (mName == "onCreate" && pCount == 1) {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 6,
+                            smaliCode = """
+                            const/4 v0, 0x1
+                            invoke-virtual {p0, v0}, Lcom/unity3d/player/UnityPlayerActivity;->requestWindowFeature(I)Z
+                            invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+                            invoke-virtual {p0}, Lcom/unity3d/player/UnityPlayerActivity;->getIntent()Landroid/content/Intent;
+                            move-result-object v0
+                            const-string v1, "unity"
+                            invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object v1
+                            invoke-virtual {p0, v1}, Lcom/unity3d/player/UnityPlayerActivity;->updateUnityCommandLineArguments(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object v1
+                            const-string v2, "unity"
+                            invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+                            new-instance v0, Lcom/unity3d/player/UnityPlayer;
+                            invoke-direct {v0, p0, p0}, Lcom/unity3d/player/UnityPlayer;-><init>(Landroid/content/Context;Lcom/unity3d/player/IUnityPlayerLifecycleEvents;)V
+                            iput-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                            iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                            invoke-virtual {p0, v0}, Lcom/unity3d/player/UnityPlayerActivity;->setContentView(Landroid/view/View;)V
+                            iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                            invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->requestFocus()Z
+                            return-void
+                            """.trimIndent(),
+                        )
+                        hookedPoints++
+                        logger.info("[Silt Unity] Restored clean UnityPlayerActivity.onCreate lifecycle")
+                    } catch (_: Exception) {}
+                } else if (mName == "onDestroy" && pCount == 0) {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
+                            iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                            if-eqz v0, :cond_destroy
+                            invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->destroy()V
+                            :cond_destroy
+                            invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
+                            return-void
+                            """.trimIndent(),
+                        )
+                        hookedPoints++
+                        logger.info("[Silt Unity] Restored clean UnityPlayerActivity.onDestroy lifecycle")
+                    } catch (_: Exception) {}
+                } else if (mName == "onPause" && pCount == 0) {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
+                            invoke-super {p0}, Landroid/app/Activity;->onPause()V
+                            iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                            if-eqz v0, :cond_pause
+                            invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->onPause()V
+                            :cond_pause
+                            return-void
+                            """.trimIndent(),
+                        )
+                        hookedPoints++
+                        logger.info("[Silt Unity] Restored clean UnityPlayerActivity.onPause lifecycle")
+                    } catch (_: Exception) {}
+                } else if (mName == "onResume" && pCount == 0) {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
+                            invoke-super {p0}, Landroid/app/Activity;->onResume()V
+                            iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                            if-eqz v0, :cond_resume
+                            invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->onResume()V
+                            :cond_resume
+                            return-void
+                            """.trimIndent(),
+                        )
+                        hookedPoints++
+                        logger.info("[Silt Unity] Restored clean UnityPlayerActivity.onResume lifecycle")
+                    } catch (_: Exception) {}
+                } else if (mName == "onStart" && pCount == 0) {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
+                            invoke-super {p0}, Landroid/app/Activity;->onStart()V
+                            iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                            if-eqz v0, :cond_start
+                            invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->onStart()V
+                            :cond_start
+                            return-void
+                            """.trimIndent(),
+                        )
+                        hookedPoints++
+                        logger.info("[Silt Unity] Restored clean UnityPlayerActivity.onStart lifecycle")
+                    } catch (_: Exception) {}
+                } else if (mName == "onStop" && pCount == 0) {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
+                            invoke-super {p0}, Landroid/app/Activity;->onStop()V
+                            iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                            if-eqz v0, :cond_stop
+                            invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->onStop()V
+                            :cond_stop
+                            return-void
+                            """.trimIndent(),
+                        )
+                        hookedPoints++
+                        logger.info("[Silt Unity] Restored clean UnityPlayerActivity.onStop lifecycle")
+                    } catch (_: Exception) {}
+                } else if (mName == "onWindowFocusChanged" && pCount == 1) {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 3,
+                            smaliCode = """
+                            invoke-super {p0, p1}, Landroid/app/Activity;->onWindowFocusChanged(Z)V
+                            iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+                            if-eqz v0, :cond_focus
+                            invoke-virtual {v0, p1}, Lcom/unity3d/player/UnityPlayer;->windowFocusChanged(Z)V
+                            :cond_focus
+                            return-void
+                            """.trimIndent(),
+                        )
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                }
+            }
+        }
+    }
+
+    // 6c. Neutralize remaining PairIP reflection hijacking targets
+    classDefForEach { classDef ->
+        if (classDef.type == "Lcom/google/android/gms/games/internal/v2/appshortcuts/PlayGamesAppShortcutsActivity;") {
+            for (method in classDef.methods.toList()) {
+                if (method.name == "onCreate") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 2,
+                            smaliCode = """
+                            invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+                            invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+                            return-void
+                            """.trimIndent(),
+                        )
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                }
+            }
+        } else if (classDef.type == "Lcom/google/android/gms/nearby/exposurenotification/WakeUpService;") {
+            for (method in classDef.methods.toList()) {
+                if (method.name == "onBind") {
+                    try {
+                        replaceMethod(method = method, registerCount = 3, smaliCode = "const/4 v0, 0x0\nreturn-object v0")
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                }
+            }
+        } else if (classDef.type == "Lcom/google/android/play/core/assetpacks/AssetPackExtractionService;") {
+            for (method in classDef.methods.toList()) {
+                if (method.name == "onCreate") {
+                    try {
+                        replaceMethod(method = method, registerCount = 1, smaliCode = "return-void")
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                } else if (method.name == "onBind") {
+                    try {
+                        replaceMethod(method = method, registerCount = 3, smaliCode = "const/4 v0, 0x0\nreturn-object v0")
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                }
+            }
+        }
+    }
+
     // 7. Play Integrity API dialog bypass
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()

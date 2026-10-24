@@ -1,3 +1,9 @@
+## [1.52.15](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.14...v1.52.15) (2026-10-24)
+
+### 🐛 Bug Fixes
+
+* **silt:** restore official clean DRM-free native binaries to eliminate il2cpp_init crash ([40884c0](https://github.com/SatanMerde/D-moniakPatches/commit/40884c00e9125c5ede20afd87c00b74b30f439ca))
+
 ## [1.52.14](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.13...v1.52.14) (2026-10-24)
 
 ### 🐛 Bug Fixes

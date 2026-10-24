@@ -1,3 +1,9 @@
+## [1.52.11-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.10...v1.52.11-dev.1) (2026-10-24)
+
+### 🐛 Bug Fixes
+
+* **silt:** fix bounds checks and strtabSz in native ELF stubbing ([4505242](https://github.com/SatanMerde/D-moniakPatches/commit/4505242760b517bb0b3f8960c07b070d6494f80b))
+
 ## [1.52.10](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.9...v1.52.10) (2026-10-24)
 
 ### 🐛 Bug Fixes

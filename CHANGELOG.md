@@ -1,3 +1,9 @@
+## [1.52.14-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.13...v1.52.14-dev.1) (2026-10-24)
+
+### 🐛 Bug Fixes
+
+* **silt:** replace libpairipcore.so with dynamic GOT resolver engine ([f6380a9](https://github.com/SatanMerde/D-moniakPatches/commit/f6380a98a4bcd42734c48b5d8a9c5c99b43f50cc))
+
 ## [1.52.13](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.12...v1.52.13) (2026-10-24)
 
 ### 🐛 Bug Fixes

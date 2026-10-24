@@ -130,11 +130,11 @@ private fun buildInlined(callSite: Instruction, parsed: ParsedWrapper): BuilderI
         is BuilderInstruction35c -> BuilderInstruction35c(
             newOpcode,
             callSite.registerCount,
-            callSite.register1,
-            callSite.register2,
-            callSite.register3,
-            callSite.register4,
-            callSite.register5,
+            callSite.registerC,
+            callSite.registerD,
+            callSite.registerE,
+            callSite.registerF,
+            callSite.registerG,
             parsed.realTarget,
         )
         is BuilderInstruction3rc -> BuilderInstruction3rc(

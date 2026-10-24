@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-24T12:05:37",
-  "description": "## [1.52.7](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.6...v1.52.7) (2026-10-24)\n\n### 🐛 Bug Fixes\n\n* **silt:** retain PairIP classes as safe stubs to prevent NoClassDefFoundError ([26c6e16](https://github.com/SatanMerde/D-moniakPatches/commit/26c6e163d0cb489441b73a1f2ca4ecb3064e8684))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.52.7/patches-1.52.7.mpp",
+  "created_at": "2026-10-24T12:13:48",
+  "description": "## [1.52.8-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.7...v1.52.8-dev.1) (2026-10-24)\n\n### 🐛 Bug Fixes\n\n* **silt:** neutralize Play Games appshortcuts background crash ([2bf3376](https://github.com/SatanMerde/D-moniakPatches/commit/2bf3376184b69a5a9fb5705933a3b4e59519f4c5))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.52.8-dev.1/patches-1.52.8-dev.1.mpp",
   "signature_download_url": "",
-  "version": "1.52.7"
+  "version": "1.52.8-dev.1"
 }

@@ -1,3 +1,9 @@
+## [1.52.5-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.4...v1.52.5-dev.1) (2026-10-24)
+
+### 🐛 Bug Fixes
+
+* **silt:** clean up compatibility description ([f46a1fd](https://github.com/SatanMerde/D-moniakPatches/commit/f46a1fd24a04feb68f9b321acf480f08c51c8e48))
+
 ## [1.52.4](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.3...v1.52.4) (2026-10-24)
 
 ### 🐛 Bug Fixes

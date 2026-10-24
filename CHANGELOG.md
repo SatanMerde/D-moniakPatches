@@ -1,3 +1,9 @@
+## [1.52.7](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.6...v1.52.7) (2026-10-24)
+
+### 🐛 Bug Fixes
+
+* **silt:** retain PairIP classes as safe stubs to prevent NoClassDefFoundError ([26c6e16](https://github.com/SatanMerde/D-moniakPatches/commit/26c6e163d0cb489441b73a1f2ca4ecb3064e8684))
+
 ## [1.52.6](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.5...v1.52.6) (2026-10-24)
 
 ### 🐛 Bug Fixes

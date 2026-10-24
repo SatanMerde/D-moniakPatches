@@ -11,8 +11,8 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val siltUnlockFullGamePatch = bytecodePatch(
-    name = "Unlock Full Game - Silt (Experimental)",
-    description = "⚠️ [En cours de développement / Non testé] Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt by neutralizing Google Play App Signing PairIP protection, Play Integrity remediation dialogs, and Google Play Billing. (Note: Silt requires the full XAPK/OBB bundle with UnityDataAssetPack to run).",
+    name = "Unlock Full Game - Silt",
+    description = "Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt by neutralizing Google Play App Signing PairIP protection, Play Integrity remediation dialogs, and Google Play Billing.",
 ) {
     compatibleWith(COMPATIBILITY_SILT)
 
@@ -39,7 +39,8 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
             for (method in classDef.methods.toList()) {
                 if (method.implementation == null) continue
                 val mName = method.name
-                if (mName == "<init>" || mName == "<clinit>") continue
+                if (mName == "<init>") continue
+                if (mName == "<clinit>" && !tl.contains("vmrunner")) continue
                 val mn = mName.lowercase()
                 val retType = method.returnType
 
@@ -208,6 +209,20 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                         logger.info("[Silt PairIP] Neutralized StartupLauncher->$mName (void)")
                     } catch (e: Exception) {
                         logger.fine("[Silt PairIP] Failed to hook StartupLauncher->$mName: ${e.message}")
+                    }
+                }
+
+                if (tl.contains("vmrunner") && mName == "<clinit>") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 1,
+                            smaliCode = "return-void"
+                        )
+                        hookedPoints++
+                        logger.info("[Silt PairIP] Neutralized VMRunner.<clinit> (prevented System.loadLibrary pairipcore)")
+                    } catch (e: Exception) {
+                        logger.fine("[Silt PairIP] Failed to hook VMRunner.<clinit>: ${e.message}")
                     }
                 }
 
@@ -433,7 +448,7 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
         }
     }
 
-    // 2h. Neutralize UnityPlayer.preloadJavaPlugins (avoids NullPointerException from uninitialized vendor plugin strings)
+    // 2h. Neutralize UnityPlayer.preloadJavaPlugins and GetGlViewContentDescription (avoids NullPointerException from uninitialized vendor plugin strings)
     classDefForEach { classDef ->
         if (classDef.type == "Lcom/unity3d/player/UnityPlayer;") {
             for (method in classDef.methods.toList()) {
@@ -448,6 +463,22 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                         logger.info("[Silt Unity] Neutralized UnityPlayer.preloadJavaPlugins")
                     } catch (e: Exception) {
                         logger.fine("[Silt Unity] Failed to neutralize preloadJavaPlugins: ${e.message}")
+                    }
+                }
+                if (method.name == "GetGlViewContentDescription") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 2,
+                            smaliCode = """
+                            const-string v0, "GameView"
+                            return-object v0
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.info("[Silt Unity] Neutralized UnityPlayer.GetGlViewContentDescription -> 'GameView'")
+                    } catch (e: Exception) {
+                        logger.fine("[Silt Unity] Failed to hook GetGlViewContentDescription: ${e.message}")
                     }
                 }
             }

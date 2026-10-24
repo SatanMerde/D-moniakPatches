@@ -901,7 +901,7 @@ private fun stubPairipCoreElf(data: ByteArray, logger: Logger, entryName: String
                     return p[1] + (va - p[2])
                 }
             }
-            return va
+            return -1
         }
 
         val dynPh = phList.firstOrNull { it[0] == 2 } ?: return false // PT_DYNAMIC
@@ -910,6 +910,7 @@ private fun stubPairipCoreElf(data: ByteArray, logger: Logger, entryName: String
 
         var symtabVa = 0
         var strtabVa = 0
+        var strtabSz = 0
         var initArrayVa = 0
         var initArraySz = 0
 
@@ -921,6 +922,7 @@ private fun stubPairipCoreElf(data: ByteArray, logger: Logger, entryName: String
             when (tag) {
                 6 -> symtabVa = dVal // DT_SYMTAB
                 5 -> strtabVa = dVal // DT_STRTAB
+                10 -> strtabSz = dVal // DT_STRSZ
                 0x19 -> initArrayVa = dVal // DT_INIT_ARRAY
                 0x1b -> initArraySz = dVal // DT_INIT_ARRAYSZ
             }
@@ -929,34 +931,36 @@ private fun stubPairipCoreElf(data: ByteArray, logger: Logger, entryName: String
 
         val symtabOff = va2off(symtabVa)
         val strtabOff = va2off(strtabVa)
-        if (symtabOff == 0 || strtabOff == 0) return false
+        if (symtabOff < 0 || strtabOff < 0) return false
 
         var idx = 0
         while (symtabOff + idx * 16 + 16 <= data.size && idx < 3000) {
             val base = symtabOff + idx * 16
             val stName = buf.getInt(base)
             val stValue = buf.getInt(base + 4)
-            if (strtabOff + stName < data.size) {
+            if (stName in 0 until strtabSz && strtabOff + stName < data.size) {
                 var end = strtabOff + stName
                 while (end < data.size && data[end] != 0.toByte()) end++
                 val sName = String(data, strtabOff + stName, end - (strtabOff + stName), Charsets.UTF_8)
                 val targetOff = va2off(stValue)
 
-                if (sName == "ExecuteProgram" && targetOff + 8 <= data.size) {
-                    // ARM32: mov r0, #0; bx lr (00 00 a0 e3 1e ff 2f e1)
-                    val armMov0BxLr = byteArrayOf(0x00, 0x00, 0xa0.toByte(), 0xe3.toByte(), 0x1e, 0xff.toByte(), 0x2f, 0xe1.toByte())
-                    System.arraycopy(armMov0BxLr, 0, data, targetOff, armMov0BxLr.size)
-                    logger.info("  [ARM32] Neutralized ExecuteProgram at offset 0x${targetOff.toString(16)}")
-                } else if (sName == "JNI_OnLoad" && targetOff + 12 <= data.size) {
-                    // ARM32: movw r0, #6; movt r0, #1; bx lr
-                    val armJniOnLoad = byteArrayOf(0x06, 0x00, 0x00, 0xe3.toByte(), 0x01, 0x00, 0x40, 0xe3.toByte(), 0x1e, 0xff.toByte(), 0x2f, 0xe1.toByte())
-                    System.arraycopy(armJniOnLoad, 0, data, targetOff, armJniOnLoad.size)
-                    logger.info("  [ARM32] Neutralized JNI_OnLoad at offset 0x${targetOff.toString(16)}")
-                } else if (sName == "JNI_OnUnload" && targetOff + 4 <= data.size) {
-                    // ARM32: bx lr
-                    val armBxLr = byteArrayOf(0x1e, 0xff.toByte(), 0x2f, 0xe1.toByte())
-                    System.arraycopy(armBxLr, 0, data, targetOff, armBxLr.size)
-                    logger.info("  [ARM32] Neutralized JNI_OnUnload at offset 0x${targetOff.toString(16)}")
+                if (targetOff in 0 until data.size) {
+                    if (sName == "ExecuteProgram" && targetOff + 8 <= data.size) {
+                        // ARM32: mov r0, #0; bx lr (00 00 a0 e3 1e ff 2f e1)
+                        val armMov0BxLr = byteArrayOf(0x00, 0x00, 0xa0.toByte(), 0xe3.toByte(), 0x1e, 0xff.toByte(), 0x2f, 0xe1.toByte())
+                        System.arraycopy(armMov0BxLr, 0, data, targetOff, armMov0BxLr.size)
+                        logger.info("  [ARM32] Neutralized ExecuteProgram at offset 0x${targetOff.toString(16)}")
+                    } else if (sName == "JNI_OnLoad" && targetOff + 12 <= data.size) {
+                        // ARM32: movw r0, #6; movt r0, #1; bx lr
+                        val armJniOnLoad = byteArrayOf(0x06, 0x00, 0x00, 0xe3.toByte(), 0x01, 0x00, 0x40, 0xe3.toByte(), 0x1e, 0xff.toByte(), 0x2f, 0xe1.toByte())
+                        System.arraycopy(armJniOnLoad, 0, data, targetOff, armJniOnLoad.size)
+                        logger.info("  [ARM32] Neutralized JNI_OnLoad at offset 0x${targetOff.toString(16)}")
+                    } else if (sName == "JNI_OnUnload" && targetOff + 4 <= data.size) {
+                        // ARM32: bx lr
+                        val armBxLr = byteArrayOf(0x1e, 0xff.toByte(), 0x2f, 0xe1.toByte())
+                        System.arraycopy(armBxLr, 0, data, targetOff, armBxLr.size)
+                        logger.info("  [ARM32] Neutralized JNI_OnUnload at offset 0x${targetOff.toString(16)}")
+                    }
                 }
             }
             idx++
@@ -964,14 +968,16 @@ private fun stubPairipCoreElf(data: ByteArray, logger: Logger, entryName: String
 
         if (initArrayVa != 0 && initArraySz > 0) {
             val initArrayOff = va2off(initArrayVa)
-            for (i in 0 until initArraySz step 4) {
-                if (initArrayOff + i + 4 <= data.size) {
-                    val fnVa = buf.getInt(initArrayOff + i)
-                    val fnOff = va2off(fnVa)
-                    if (fnOff + 4 <= data.size) {
-                        val armBxLr = byteArrayOf(0x1e, 0xff.toByte(), 0x2f, 0xe1.toByte())
-                        System.arraycopy(armBxLr, 0, data, fnOff, armBxLr.size)
-                        logger.fine("  [ARM32] Neutralized .init_array function at offset 0x${fnOff.toString(16)}")
+            if (initArrayOff >= 0) {
+                for (i in 0 until initArraySz step 4) {
+                    if (initArrayOff + i + 4 <= data.size) {
+                        val fnVa = buf.getInt(initArrayOff + i)
+                        val fnOff = va2off(fnVa)
+                        if (fnOff in 0 until data.size - 4) {
+                            val armBxLr = byteArrayOf(0x1e, 0xff.toByte(), 0x2f, 0xe1.toByte())
+                            System.arraycopy(armBxLr, 0, data, fnOff, armBxLr.size)
+                            logger.fine("  [ARM32] Neutralized .init_array function at offset 0x${fnOff.toString(16)}")
+                        }
                     }
                 }
             }
@@ -996,7 +1002,7 @@ private fun stubPairipCoreElf(data: ByteArray, logger: Logger, entryName: String
                     return (p[1] + (va - p[2])).toInt()
                 }
             }
-            return va.toInt()
+            return -1
         }
 
         val dynPh = phList.firstOrNull { it[0] == 2L } ?: return false
@@ -1005,6 +1011,7 @@ private fun stubPairipCoreElf(data: ByteArray, logger: Logger, entryName: String
 
         var symtabVa = 0L
         var strtabVa = 0L
+        var strtabSz = 0L
         var initArrayVa = 0L
         var initArraySz = 0L
 
@@ -1016,6 +1023,7 @@ private fun stubPairipCoreElf(data: ByteArray, logger: Logger, entryName: String
             when (tag) {
                 6L -> symtabVa = dVal
                 5L -> strtabVa = dVal
+                10L -> strtabSz = dVal
                 0x19L -> initArrayVa = dVal
                 0x1bL -> initArraySz = dVal
             }
@@ -1024,34 +1032,36 @@ private fun stubPairipCoreElf(data: ByteArray, logger: Logger, entryName: String
 
         val symtabOff = va2off64(symtabVa)
         val strtabOff = va2off64(strtabVa)
-        if (symtabOff == 0 || strtabOff == 0) return false
+        if (symtabOff < 0 || strtabOff < 0) return false
 
         var idx = 0
         while (symtabOff + idx * 24 + 24 <= data.size && idx < 3000) {
             val base = symtabOff + idx * 24
             val stName = buf.getInt(base)
             val stValue = buf.getLong(base + 8)
-            if (strtabOff + stName < data.size) {
+            if (stName in 0 until strtabSz && strtabOff + stName < data.size) {
                 var end = strtabOff + stName
                 while (end < data.size && data[end] != 0.toByte()) end++
                 val sName = String(data, strtabOff + stName, end - (strtabOff + stName), Charsets.UTF_8)
                 val targetOff = va2off64(stValue)
 
-                if (sName == "ExecuteProgram" && targetOff + 8 <= data.size) {
-                    // ARM64: mov x0, #0; ret (00 00 80 d2 c0 03 5f d6)
-                    val arm64Mov0Ret = byteArrayOf(0x00, 0x00, 0x80.toByte(), 0xd2.toByte(), 0xc0.toByte(), 0x03, 0x5f, 0xd6.toByte())
-                    System.arraycopy(arm64Mov0Ret, 0, data, targetOff, arm64Mov0Ret.size)
-                    logger.info("  [ARM64] Neutralized ExecuteProgram at offset 0x${targetOff.toString(16)}")
-                } else if (sName == "JNI_OnLoad" && targetOff + 12 <= data.size) {
-                    // ARM64: mov x0, #6; movk x0, #1, lsl 16; ret
-                    val arm64JniOnLoad = byteArrayOf(0xc0.toByte(), 0x00, 0x80.toByte(), 0xd2.toByte(), 0x20, 0x00, 0xa0.toByte(), 0xf2.toByte(), 0xc0.toByte(), 0x03, 0x5f, 0xd6.toByte())
-                    System.arraycopy(arm64JniOnLoad, 0, data, targetOff, arm64JniOnLoad.size)
-                    logger.info("  [ARM64] Neutralized JNI_OnLoad at offset 0x${targetOff.toString(16)}")
-                } else if (sName == "JNI_OnUnload" && targetOff + 4 <= data.size) {
-                    // ARM64: ret
-                    val arm64Ret = byteArrayOf(0xc0.toByte(), 0x03, 0x5f, 0xd6.toByte())
-                    System.arraycopy(arm64Ret, 0, data, targetOff, arm64Ret.size)
-                    logger.info("  [ARM64] Neutralized JNI_OnUnload at offset 0x${targetOff.toString(16)}")
+                if (targetOff in 0 until data.size) {
+                    if (sName == "ExecuteProgram" && targetOff + 8 <= data.size) {
+                        // ARM64: mov x0, #0; ret (00 00 80 d2 c0 03 5f d6)
+                        val arm64Mov0Ret = byteArrayOf(0x00, 0x00, 0x80.toByte(), 0xd2.toByte(), 0xc0.toByte(), 0x03, 0x5f, 0xd6.toByte())
+                        System.arraycopy(arm64Mov0Ret, 0, data, targetOff, arm64Mov0Ret.size)
+                        logger.info("  [ARM64] Neutralized ExecuteProgram at offset 0x${targetOff.toString(16)}")
+                    } else if (sName == "JNI_OnLoad" && targetOff + 12 <= data.size) {
+                        // ARM64: mov x0, #6; movk x0, #1, lsl 16; ret
+                        val arm64JniOnLoad = byteArrayOf(0xc0.toByte(), 0x00, 0x80.toByte(), 0xd2.toByte(), 0x20, 0x00, 0xa0.toByte(), 0xf2.toByte(), 0xc0.toByte(), 0x03, 0x5f, 0xd6.toByte())
+                        System.arraycopy(arm64JniOnLoad, 0, data, targetOff, arm64JniOnLoad.size)
+                        logger.info("  [ARM64] Neutralized JNI_OnLoad at offset 0x${targetOff.toString(16)}")
+                    } else if (sName == "JNI_OnUnload" && targetOff + 4 <= data.size) {
+                        // ARM64: ret
+                        val arm64Ret = byteArrayOf(0xc0.toByte(), 0x03, 0x5f, 0xd6.toByte())
+                        System.arraycopy(arm64Ret, 0, data, targetOff, arm64Ret.size)
+                        logger.info("  [ARM64] Neutralized JNI_OnUnload at offset 0x${targetOff.toString(16)}")
+                    }
                 }
             }
             idx++
@@ -1059,14 +1069,16 @@ private fun stubPairipCoreElf(data: ByteArray, logger: Logger, entryName: String
 
         if (initArrayVa != 0L && initArraySz > 0L) {
             val initArrayOff = va2off64(initArrayVa)
-            for (i in 0 until initArraySz.toInt() step 8) {
-                if (initArrayOff + i + 8 <= data.size) {
-                    val fnVa = buf.getLong(initArrayOff + i)
-                    val fnOff = va2off64(fnVa)
-                    if (fnOff + 4 <= data.size) {
-                        val arm64Ret = byteArrayOf(0xc0.toByte(), 0x03, 0x5f, 0xd6.toByte())
-                        System.arraycopy(arm64Ret, 0, data, fnOff, arm64Ret.size)
-                        logger.fine("  [ARM64] Neutralized .init_array function at offset 0x${fnOff.toString(16)}")
+            if (initArrayOff >= 0) {
+                for (i in 0 until initArraySz.toInt() step 8) {
+                    if (initArrayOff + i + 8 <= data.size) {
+                        val fnVa = buf.getLong(initArrayOff + i)
+                        val fnOff = va2off64(fnVa)
+                        if (fnOff in 0 until data.size - 4) {
+                            val arm64Ret = byteArrayOf(0xc0.toByte(), 0x03, 0x5f, 0xd6.toByte())
+                            System.arraycopy(arm64Ret, 0, data, fnOff, arm64Ret.size)
+                            logger.fine("  [ARM64] Neutralized .init_array function at offset 0x${fnOff.toString(16)}")
+                        }
                     }
                 }
             }

@@ -506,6 +506,21 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
         }
     }
 
+    // Play Games v2 App Shortcuts background thread crash fix
+    classDefForEach { classDef ->
+        if (classDef.type.contains("games/internal/v2/appshortcuts")) {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+                if (method.name in listOf("run", "zza", "zzb") && method.returnType == "V") {
+                    try {
+                        replaceMethod(method = method, registerCount = 1, smaliCode = "return-void")
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                }
+            }
+        }
+    }
+
     // 8. Game Unlock & Play Pass checks
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()

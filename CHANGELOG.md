@@ -1,3 +1,9 @@
+## [1.52.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.1...v1.52.2) (2026-10-24)
+
+### 🐛 Bug Fixes
+
+* finalize Silt DRM hooks and refine Shazam adblock logging ([617cece](https://github.com/SatanMerde/D-moniakPatches/commit/617cece9ed4c109f65ed51a1fd961101fc13a519))
+
 ## [1.52.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.0...v1.52.1) (2026-10-18)
 
 ### 🐛 Bug Fixes

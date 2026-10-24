@@ -17,10 +17,10 @@
     <img src="https://img.shields.io/badge/Patches-461-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-patchs-validés--fonctionnels--tested--functional-patches">
-    <img src="https://img.shields.io/badge/Fonctionnels-19-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
+    <img src="https://img.shields.io/badge/Fonctionnels-20-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-patchs-expérimentaux--en-développement--experimental-patches-ai-generated">
-    <img src="https://img.shields.io/badge/Expérimentaux-442-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Expérimentaux-441-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-liste-des-patchs--patches-list">
     <img src="https://img.shields.io/badge/Apps_Support%C3%A9es-96-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.52.1](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.52.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**461 patchs au total** (19 validés & fonctionnels • 442 expérimentaux)
+> **[v1.52.2](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.52.2)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**461 patchs au total** (20 validés & fonctionnels • 441 expérimentaux)
 
 ---
 
@@ -278,6 +278,16 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 |----------|----------------|
 | [Ad-Free & Clean Interface - Shazam](#ad-free-clean-interface-shazam) | Strips post-recognition promo cards, Apple Music targeted upsells, in-app survey banners, and announcement sheets in Shazam. |
 | [Always-On Auto Shazam - Shazam](#always-on-auto-shazam-shazam) | Keeps Auto Shazam background listening continuously active without automatic timeout cancellation or sleep limits. |
+
+</details>
+
+<details open>
+<summary>📦 Silt&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Unlock Full Game - Silt](#unlock-full-game-silt) | Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt by neutralizing Google Play App Signing PairIP protection, Play Integrity remediation dialogs, and Google Play Billing. |
 
 </details>
 
@@ -1140,16 +1150,6 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 | [Allow Screenshots & Screen Security Bypass - Signal (Experimental)](#allow-screenshots-screen-security-bypass-signal-experimental) | ⚠️ [En cours de développement / Non testé] Bypasses Android FLAG_SECURE window restrictions in Signal, allowing users to take screenshots and record screens even when Screen Security is enforced. |
 | [Enhanced Privacy & Disable Typing - Signal (Experimental)](#enhanced-privacy-disable-typing-signal-experimental) | ⚠️ [En cours de développement / Non testé] Prevents sending outgoing typing indicators and suppresses read receipt delivery confirmations for enhanced conversation privacy. |
 | [Unlock Supporter & Donor Badge - Signal (Experimental)](#unlock-supporter-donor-badge-signal-experimental) | ⚠️ [En cours de développement / Non testé] Activates the client-side Signal Sustainer / Supporter profile badge and unlocks exclusive supporter avatar rings and custom app icons. |
-
-</details>
-
-<details open>
-<summary>📦 Silt&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description |
-|----------|----------------|
-| [Unlock Full Game - Silt (Experimental)](#unlock-full-game-silt-experimental) | ⚠️ [En cours de développement / Non testé] Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt by neutralizing Google Play App Signing PairIP protection, Play Integrity remediation dialogs, and Google Play Billing. (Note: Silt requires the full XAPK/OBB bundle with UnityDataAssetPack to run). |
 
 </details>
 

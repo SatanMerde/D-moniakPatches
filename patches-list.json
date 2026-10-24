@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.52.4",
+  "version": "1.52.5",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -10966,7 +10966,7 @@
         {
           "packageName": "com.snapbreak.silt",
           "name": "Silt",
-          "description": "Silt: Oceanic Puzzle-Adventure by Snapbreak / Spiral Circus (v1.0.10 recommandée sur base déchiffrée - les splits bruts Google Play utilisent le chiffrement binaire PairIP)",
+          "description": "Silt: Oceanic Puzzle-Adventure by Snapbreak / Spiral Circus",
           "apkFileType": null,
           "appIconColor": "#1A2B3C",
           "signatures": null,
@@ -10993,7 +10993,7 @@
         {
           "packageName": "com.snapbreak.silt",
           "name": "Silt",
-          "description": "Silt: Oceanic Puzzle-Adventure by Snapbreak / Spiral Circus (v1.0.10 recommandée sur base déchiffrée - les splits bruts Google Play utilisent le chiffrement binaire PairIP)",
+          "description": "Silt: Oceanic Puzzle-Adventure by Snapbreak / Spiral Circus",
           "apkFileType": null,
           "appIconColor": "#1A2B3C",
           "signatures": null,

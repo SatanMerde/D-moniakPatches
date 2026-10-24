@@ -836,10 +836,61 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
 fun ResourcePatchContext.executeSiltNativeDrmNeutralization(logger: Logger) {
     logger.info("[Silt Native DRM] Inspecting APK entries for native PairIP binary encryption...")
 
-    // Check for native libraries
     val libEntries = listApkEntries("lib/")
-    val pairipCoreEntries = libEntries.filter { it.endsWith("libpairipcore.so") }
 
+    // 1. Neutralize libmain.so RTLD_LAZY -> RTLD_NOW (fixes Android 16 / Xiaomi HyperOS lazy binding crash at 0x14f3b0)
+    val libMainEntries = libEntries.filter { it.endsWith("libmain.so") }
+    for (entry in libMainEntries) {
+        try {
+            val soFile = get(entry, true)
+            val bytes = soFile.readBytes()
+            val modified = patchLibMainRtldNow(bytes, logger, entry)
+            if (modified) {
+                soFile.writeBytes(bytes)
+                logger.info("[Silt Native DRM] Successfully patched RTLD_NOW in $entry")
+            }
+        } catch (e: Exception) {
+            logger.warning("[Silt Native DRM] Failed to patch $entry: ${e.message}")
+        }
+    }
+
+    // 2. Sanitize DT_NEEDED libpairipcore.so -> libc.so in libunity.so and libil2cpp.so
+    val otherLibEntries = libEntries.filter { it.endsWith("libunity.so") || it.endsWith("libil2cpp.so") }
+    val targetNeed = "libpairipcore.so\u0000".toByteArray(Charsets.US_ASCII)
+    val replaceNeed = "libc.so\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000".toByteArray(Charsets.US_ASCII)
+    for (entry in otherLibEntries) {
+        try {
+            val soFile = get(entry, true)
+            val bytes = soFile.readBytes()
+            var replaced = false
+            var idx = 0
+            while (idx <= bytes.size - targetNeed.size) {
+                var match = true
+                for (k in targetNeed.indices) {
+                    if (bytes[idx + k] != targetNeed[k]) {
+                        match = false
+                        break
+                    }
+                }
+                if (match) {
+                    System.arraycopy(replaceNeed, 0, bytes, idx, replaceNeed.size)
+                    replaced = true
+                    idx += targetNeed.size
+                } else {
+                    idx++
+                }
+            }
+            if (replaced) {
+                soFile.writeBytes(bytes)
+                logger.info("[Silt Native DRM] Sanitized DT_NEEDED in $entry (libpairipcore.so -> libc.so)")
+            }
+        } catch (e: Exception) {
+            logger.warning("[Silt Native DRM] Failed to sanitize $entry: ${e.message}")
+        }
+    }
+
+    // 3. Stub libpairipcore.so if present
+    val pairipCoreEntries = libEntries.filter { it.endsWith("libpairipcore.so") }
     if (pairipCoreEntries.isEmpty()) {
         logger.info("[Silt Native DRM] No libpairipcore.so found in APK (base APK only or clean build). Bytecode patch active.")
     } else {
@@ -968,18 +1019,12 @@ private fun stubPairipCoreElf(data: ByteArray, logger: Logger, entryName: String
 
         if (initArrayVa != 0 && initArraySz > 0) {
             val initArrayOff = va2off(initArrayVa)
-            if (initArrayOff >= 0) {
-                for (i in 0 until initArraySz step 4) {
-                    if (initArrayOff + i + 4 <= data.size) {
-                        val fnVa = buf.getInt(initArrayOff + i)
-                        val fnOff = va2off(fnVa)
-                        if (fnOff in 0 until data.size - 4) {
-                            val armBxLr = byteArrayOf(0x1e, 0xff.toByte(), 0x2f, 0xe1.toByte())
-                            System.arraycopy(armBxLr, 0, data, fnOff, armBxLr.size)
-                            logger.fine("  [ARM32] Neutralized .init_array function at offset 0x${fnOff.toString(16)}")
-                        }
-                    }
+            if (initArrayOff in 0 until data.size) {
+                val count = (initArraySz / 4).coerceAtMost((data.size - initArrayOff) / 4)
+                for (i in 0 until count * 4) {
+                    data[initArrayOff + i] = 0
                 }
+                logger.info("  [ARM32] Zeroed .init_array ($count entries) at offset 0x${initArrayOff.toString(16)}")
             }
         }
         return true
@@ -1069,21 +1114,53 @@ private fun stubPairipCoreElf(data: ByteArray, logger: Logger, entryName: String
 
         if (initArrayVa != 0L && initArraySz > 0L) {
             val initArrayOff = va2off64(initArrayVa)
-            if (initArrayOff >= 0) {
-                for (i in 0 until initArraySz.toInt() step 8) {
-                    if (initArrayOff + i + 8 <= data.size) {
-                        val fnVa = buf.getLong(initArrayOff + i)
-                        val fnOff = va2off64(fnVa)
-                        if (fnOff in 0 until data.size - 4) {
-                            val arm64Ret = byteArrayOf(0xc0.toByte(), 0x03, 0x5f, 0xd6.toByte())
-                            System.arraycopy(arm64Ret, 0, data, fnOff, arm64Ret.size)
-                            logger.fine("  [ARM64] Neutralized .init_array function at offset 0x${fnOff.toString(16)}")
-                        }
-                    }
+            if (initArrayOff in 0 until data.size) {
+                val count = (initArraySz / 8).toInt().coerceAtMost((data.size - initArrayOff) / 8)
+                for (i in 0 until count * 8) {
+                    data[initArrayOff + i] = 0
                 }
+                logger.info("  [ARM64] Zeroed .init_array ($count entries) at offset 0x${initArrayOff.toString(16)}")
             }
         }
         return true
     }
     return false
+}
+
+private fun patchLibMainRtldNow(data: ByteArray, logger: Logger, entryName: String): Boolean {
+    if (data.size < 52 || data[0] != 0x7f.toByte() || data[1] != 'E'.code.toByte() || data[2] != 'L'.code.toByte() || data[3] != 'F'.code.toByte()) {
+        return false
+    }
+    val eiClass = data[4].toInt() // 1 = 32-bit, 2 = 64-bit
+    var modified = false
+
+    if (eiClass == 1) { // ARM32 (Thumb: movs r1, #1 -> movs r1, #2)
+        for (i in 0 until data.size - 6) {
+            if (data[i] == 0x01.toByte() && data[i + 1] == 0x21.toByte()) {
+                val b3 = data[i + 3].toInt() and 0xff
+                if ((b3 and 0xd0) == 0xd0 || (b3 and 0xf0) == 0xe0) {
+                    data[i] = 0x02.toByte()
+                    modified = true
+                }
+            }
+        }
+    } else if (eiClass == 2) { // ARM64 (mov w1, #1 -> mov w1, #2: 21 00 80 52 -> 41 00 80 52)
+        for (i in 0 until data.size - 16) {
+            if (data[i] == 0x21.toByte() && data[i + 1] == 0x00.toByte() && data[i + 2] == 0x80.toByte() && data[i + 3] == 0x52.toByte()) {
+                var hasBl = false
+                for (step in listOf(4, 8, 12)) {
+                    val insnB3 = data[i + step + 3].toInt() and 0xff
+                    if ((insnB3 and 0xfc) == 0x94) {
+                        hasBl = true
+                        break
+                    }
+                }
+                if (hasBl) {
+                    data[i] = 0x41.toByte()
+                    modified = true
+                }
+            }
+        }
+    }
+    return modified
 }

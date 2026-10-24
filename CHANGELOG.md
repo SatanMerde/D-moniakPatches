@@ -1,3 +1,9 @@
+## [1.52.9](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.8...v1.52.9) (2026-10-24)
+
+### 🐛 Bug Fixes
+
+* **silt:** restore clean UnityPlayerActivity lifecycle to prevent PairIP reflection NPE ([a830a24](https://github.com/SatanMerde/D-moniakPatches/commit/a830a24b77b1d7ef1caa4e7790842cc23ca7bb0b))
+
 ## [1.52.8](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.7...v1.52.8) (2026-10-24)
 
 ### 🐛 Bug Fixes

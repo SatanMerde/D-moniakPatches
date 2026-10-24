@@ -1,3 +1,10 @@
+## [1.52.4-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.3...v1.52.4-dev.1) (2026-10-24)
+
+### 🐛 Bug Fixes
+
+* **silt:** correct BuilderInstruction35c register properties ([b275251](https://github.com/SatanMerde/D-moniakPatches/commit/b275251aa9366244187eca8cb0e57000581cbed7))
+* **silt:** restore PairIP strings, inline wrappers, and dynamically neutralize native DRM ([7577dab](https://github.com/SatanMerde/D-moniakPatches/commit/7577daba29d6779411e18a9eae78718a50e78c2b))
+
 ## [1.52.3](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.2...v1.52.3) (2026-10-24)
 
 ### 🐛 Bug Fixes

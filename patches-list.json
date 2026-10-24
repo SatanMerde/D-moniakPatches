@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.52.3",
+  "version": "1.52.4-dev.1",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -10956,7 +10956,36 @@
     },
     {
       "name": "Unlock Full Game - Silt",
-      "description": "Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt (v1.0.10). Note: Must be applied to a clean/decrypted base APK (e.g. from APKVision) because raw Google Play binaries contain native ELF PairIP encryption that crashes when re-signed.",
+      "description": "Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt (v1.0.10). Automatically neutralizes PairIP native DRM in Google Play installations.",
+      "default": true,
+      "category": null,
+      "dependencies": [
+        "BytecodePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.snapbreak.silt",
+          "name": "Silt",
+          "description": "Silt: Oceanic Puzzle-Adventure by Snapbreak / Spiral Circus (v1.0.10 recommandée sur base déchiffrée - les splits bruts Google Play utilisent le chiffrement binaire PairIP)",
+          "apkFileType": null,
+          "appIconColor": "#1A2B3C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.0.10",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Full Game Bytecode - Silt",
+      "description": "Bytecode de-obfuscation and unlock engine for Silt",
       "default": true,
       "category": null,
       "dependencies": [],

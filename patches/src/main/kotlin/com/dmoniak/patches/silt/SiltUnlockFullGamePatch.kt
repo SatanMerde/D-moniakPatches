@@ -1,36 +1,319 @@
 package com.dmoniak.patches.silt
 
+import app.morphe.patcher.dex.BytecodeMode
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.instructions
+import app.morphe.patcher.extensions.InstructionExtensions.instructionsOrNull
+import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
+import app.morphe.patcher.extensions.InstructionExtensions.removeInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.BytecodePatchContext
+import app.morphe.patcher.patch.ResourcePatchContext
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.patch.rawResourcePatch
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.BuilderInstruction
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction3rc
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.dmoniak.patches.shared.BillingHookHelper.executeGooglePlayBillingBypass
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SILT
 import com.dmoniak.patches.shared.replaceMethod
+import java.io.File
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
 import java.util.logging.Logger
 
+private const val PAIRIP_PREFIX = "Lcom/pairip/"
+private const val APPLICATION_CLASS = "Lcom/pairip/application/Application;"
+private const val STARTUP_LAUNCHER_CLASS = "Lcom/pairip/StartupLauncher;"
+private const val VMRUNNER_CLASS = "Lcom/pairip/VMRunner;"
+private const val RESTORE_STRING_METHOD = "restoreString"
+private val STRING_SOURCE_CLASSES = setOf(APPLICATION_CLASS, STARTUP_LAUNCHER_CLASS)
+private val WRAPPER_NAME_REGEX = Regex("""\$\d+$""")
 
-@Suppress("unused")
-val siltUnlockFullGamePatch = bytecodePatch(
-    name = "Unlock Full Game - Silt",
-    description = "Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt (v1.0.10). Note: Must be applied to a clean/decrypted base APK (e.g. from APKVision) because raw Google Play binaries contain native ELF PairIP encryption that crashes when re-signed.",
+private val INVOKE_OPCODES = setOf(
+    Opcode.INVOKE_VIRTUAL, Opcode.INVOKE_VIRTUAL_RANGE,
+    Opcode.INVOKE_SUPER, Opcode.INVOKE_SUPER_RANGE,
+    Opcode.INVOKE_DIRECT, Opcode.INVOKE_DIRECT_RANGE,
+    Opcode.INVOKE_STATIC, Opcode.INVOKE_STATIC_RANGE,
+    Opcode.INVOKE_INTERFACE, Opcode.INVOKE_INTERFACE_RANGE,
+)
+private val MOVE_RESULT_OPCODES = setOf(
+    Opcode.MOVE_RESULT, Opcode.MOVE_RESULT_WIDE, Opcode.MOVE_RESULT_OBJECT,
+)
+private val RETURN_OPCODES = setOf(
+    Opcode.RETURN, Opcode.RETURN_WIDE, Opcode.RETURN_OBJECT, Opcode.RETURN_VOID,
+)
+
+private fun String.toSmaliLiteral(): String = buildString {
+    for (c in this@toSmaliLiteral) when (c) {
+        '\\' -> append("\\\\")
+        34.toChar() -> append("\\\"")
+        '\n' -> append("\\n")
+        '\r' -> append("\\r")
+        '\t' -> append("\\t")
+        else -> append(c)
+    }
+}
+
+private fun minimalReturnFor(returnType: String): String = when (returnType) {
+    "V" -> "return-void"
+    "Z", "B", "C", "S", "I", "F" -> "const/4 v0, 0x0\nreturn v0"
+    "J", "D" -> "const-wide/16 v0, 0x0\nreturn-wide v0"
+    else -> "const/4 v0, 0x0\nreturn-object v0"
+}
+
+@Suppress("UNCHECKED_CAST")
+private fun BytecodePatchContext.internalClassMap(): MutableMap<String, *> {
+    val patchClasses = BytecodePatchContext::class.java
+        .getDeclaredField("patchClasses")
+        .apply { isAccessible = true }
+        .get(this)
+    return patchClasses.javaClass
+        .getDeclaredField("classMap")
+        .apply { isAccessible = true }
+        .get(patchClasses) as MutableMap<String, *>
+}
+
+private fun BytecodePatchContext.forceFullBytecodeMode() {
+    val config = BytecodePatchContext::class.java
+        .getDeclaredField("config")
+        .apply { isAccessible = true }
+        .get(this)
+    config.javaClass
+        .getDeclaredField("bytecodeMode")
+        .apply { isAccessible = true }
+        .set(config, BytecodeMode.FULL)
+}
+
+private fun realOpcodeFor(stubInvoke: Opcode, callSiteRange: Boolean): Opcode? {
+    val (base, range) = when (stubInvoke) {
+        Opcode.INVOKE_VIRTUAL, Opcode.INVOKE_VIRTUAL_RANGE -> Opcode.INVOKE_VIRTUAL to Opcode.INVOKE_VIRTUAL_RANGE
+        Opcode.INVOKE_SUPER, Opcode.INVOKE_SUPER_RANGE -> Opcode.INVOKE_SUPER to Opcode.INVOKE_SUPER_RANGE
+        Opcode.INVOKE_DIRECT, Opcode.INVOKE_DIRECT_RANGE -> Opcode.INVOKE_DIRECT to Opcode.INVOKE_DIRECT_RANGE
+        Opcode.INVOKE_STATIC, Opcode.INVOKE_STATIC_RANGE -> Opcode.INVOKE_STATIC to Opcode.INVOKE_STATIC_RANGE
+        Opcode.INVOKE_INTERFACE, Opcode.INVOKE_INTERFACE_RANGE -> Opcode.INVOKE_INTERFACE to Opcode.INVOKE_INTERFACE_RANGE
+        else -> return null
+    }
+    return if (callSiteRange) range else base
+}
+
+private class ParsedWrapper(val realOpcode: Opcode, val realTarget: MethodReference)
+
+private fun BytecodePatchContext.parseWrapper(ref: MethodReference): ParsedWrapper? {
+    val classDef = classDefByOrNull(ref.definingClass) ?: return null
+    val method = classDef.methods.firstOrNull { m ->
+        m.name == ref.name &&
+            m.returnType == ref.returnType &&
+            m.parameterTypes.map { it.toString() } == ref.parameterTypes.map { it.toString() }
+    } ?: return null
+    if (!AccessFlags.STATIC.isSet(method.accessFlags)) return null
+    val insns = method.implementation?.instructions?.toList() ?: return null
+    val invokes = insns.filter { it.opcode in INVOKE_OPCODES }
+    if (invokes.size != 1) return null
+    val realInvoke = invokes[0]
+    if (!insns.all { it === realInvoke || it.opcode in MOVE_RESULT_OPCODES || it.opcode in RETURN_OPCODES }) return null
+    val realTarget = (realInvoke as? ReferenceInstruction)?.reference as? MethodReference ?: return null
+    return ParsedWrapper(realInvoke.opcode, realTarget)
+}
+
+private fun buildInlined(callSite: Instruction, parsed: ParsedWrapper): BuilderInstruction? {
+    val newOpcode = realOpcodeFor(parsed.realOpcode, callSite.opcode == Opcode.INVOKE_STATIC_RANGE) ?: return null
+    return when (callSite) {
+        is BuilderInstruction35c -> BuilderInstruction35c(
+            newOpcode,
+            callSite.registerCount,
+            callSite.register1,
+            callSite.register2,
+            callSite.register3,
+            callSite.register4,
+            callSite.register5,
+            parsed.realTarget,
+        )
+        is BuilderInstruction3rc -> BuilderInstruction3rc(
+            newOpcode,
+            callSite.startRegister,
+            callSite.registerCount,
+            parsed.realTarget,
+        )
+        else -> null
+    }
+}
+
+val siltUnlockFullGameBytecodePatch = bytecodePatch(
+    name = "Unlock Full Game Bytecode - Silt",
+    description = "Bytecode de-obfuscation and unlock engine for Silt",
 ) {
     compatibleWith(COMPATIBILITY_SILT)
 
     execute {
         val logger = Logger.getLogger(this::class.java.name)
-        executeSiltUnlockFullGameLogic(logger)
+        executeSiltUnlockFullGameBytecodeLogic(logger)
     }
 }
 
-fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
-    logger.info("Executing Unlock Full Game patch for Silt (com.snapbreak.silt)...")
+@Suppress("unused")
+val siltUnlockFullGamePatch = rawResourcePatch(
+    name = "Unlock Full Game - Silt",
+    description = "Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt (v1.0.10). Automatically neutralizes PairIP native DRM in Google Play installations.",
+) {
+    compatibleWith(COMPATIBILITY_SILT)
+    dependsOn(siltUnlockFullGameBytecodePatch)
+
+    execute {
+        val logger = Logger.getLogger(this::class.java.name)
+        executeSiltNativeDrmNeutralization(logger)
+    }
+}
+
+fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) {
+    logger.info("Executing Unlock Full Game bytecode patch for Silt (com.snapbreak.silt)...")
     var hookedPoints = 0
 
-    // 1. Hook Google Play Billing Client SDK and local purchase listeners
+    // 1. Google Play Billing Client SDK bypass
     hookedPoints += executeGooglePlayBillingBypass(logger, "Silt")
 
-    // 2. Neutralize Google Play App Signing & Play Integrity PAIRIP Protection
-    // (PairIP is Google Play's injected protector that triggers the "To continue using SILT, get it on Google Play..." overlay)
+    // 2. PairIP Bytecode String De-obfuscation
+    val stringMap = HashMap<String, String>()
+    val placeholderClasses = HashSet<String>()
+
+    classDefForEach { classDef ->
+        if (classDef.type !in STRING_SOURCE_CLASSES) return@classDefForEach
+        classDef.methods.forEach methods@{ method ->
+            if (classDef.type == STARTUP_LAUNCHER_CLASS && method.name != RESTORE_STRING_METHOD) return@methods
+            val insns = method.instructionsOrNull?.toList() ?: return@methods
+            insns.forEachIndexed { i, insn ->
+                if (insn.opcode == Opcode.SPUT_OBJECT) {
+                    val ref = (insn as ReferenceInstruction).reference
+                    if (ref is FieldReference) placeholderClasses += ref.definingClass
+                }
+                if (insn.opcode == Opcode.CONST_STRING && i + 1 < insns.size) {
+                    val next = insns[i + 1]
+                    if (next.opcode == Opcode.SPUT_OBJECT) {
+                        val value = ((insn as ReferenceInstruction).reference as StringReference).string
+                        val fieldRef = (next as ReferenceInstruction).reference.toString()
+                        stringMap[fieldRef] = value
+                    }
+                }
+            }
+        }
+        placeholderClasses += classDef.type
+    }
+
+    logger.info("[Silt PairIP] Found ${stringMap.size} obfuscated strings across ${placeholderClasses.size} placeholder classes")
+
+    // Inlining obfuscated strings into call sites
+    if (stringMap.isNotEmpty()) {
+        var restoredStrings = 0
+        classDefForEach { classDef ->
+            if (classDef.type.startsWith(PAIRIP_PREFIX)) return@classDefForEach
+            if (classDef.type in placeholderClasses) return@classDefForEach
+            classDef.methods.forEach methods@{ method ->
+                val insns = method.instructionsOrNull?.toList() ?: return@methods
+                val edits = ArrayList<Triple<Int, Int, String>>()
+                insns.forEachIndexed { index, insn ->
+                    if (insn.opcode != Opcode.SGET_OBJECT) return@forEachIndexed
+                    val fieldRef = (insn as ReferenceInstruction).reference.toString()
+                    val value = stringMap[fieldRef] ?: return@forEachIndexed
+                    if (index == 0) return@forEachIndexed
+                    val prev = insns[index - 1]
+                    if (prev.opcode != Opcode.CONST_4 && prev.opcode != Opcode.CONST_16) return@forEachIndexed
+                    val reg = (insn as OneRegisterInstruction).registerA
+                    edits += Triple(index - 1, index, "const-string v$reg, \"${value.toSmaliLiteral()}\"")
+                }
+                if (edits.isEmpty()) return@methods
+                val mutableClass = mutableClassDefByOrNull(classDef.type) ?: return@methods
+                val mutableMethod = mutableClass.methods.firstOrNull { m ->
+                    m.name == method.name &&
+                        m.returnType == method.returnType &&
+                        m.parameterTypes.map { it.toString() } == method.parameterTypes.map { it.toString() }
+                } ?: return@methods
+                edits.sortedByDescending { it.second }.forEach { (constIndex, sgetIndex, smali) ->
+                    mutableMethod.replaceInstruction(sgetIndex, smali)
+                    mutableMethod.removeInstruction(constIndex)
+                    restoredStrings++
+                }
+            }
+        }
+        logger.info("[Silt PairIP] Inlined $restoredStrings string references into bytecode call sites")
+        hookedPoints += restoredStrings
+    }
+
+    // 3. Inlining Call Wrappers in UnityPlayerActivity and host classes
+    var inlinedWrappers = 0
+    val stubsToDelete = ArrayList<Pair<String, MethodReference>>()
+    classDefForEach { classDef ->
+        if (classDef.type.startsWith(PAIRIP_PREFIX)) return@classDefForEach
+        classDef.methods.forEach methods@{ method ->
+            val insns = method.instructionsOrNull?.toList() ?: return@methods
+            val replacements = ArrayList<Pair<Int, BuilderInstruction>>()
+            insns.forEachIndexed { index, insn ->
+                if (insn.opcode != Opcode.INVOKE_STATIC && insn.opcode != Opcode.INVOKE_STATIC_RANGE) return@forEachIndexed
+                val targetRef = (insn as? ReferenceInstruction)?.reference as? MethodReference ?: return@forEachIndexed
+                if (!WRAPPER_NAME_REGEX.containsMatchIn(targetRef.name)) return@forEachIndexed
+                val parsed = parseWrapper(targetRef) ?: return@forEachIndexed
+                val inlined = buildInlined(insn, parsed) ?: return@forEachIndexed
+                replacements += index to inlined
+                stubsToDelete += targetRef.definingClass to targetRef
+            }
+            if (replacements.isEmpty()) return@methods
+            val mutableClass = mutableClassDefByOrNull(classDef.type) ?: return@methods
+            val mutableMethod = mutableClass.methods.firstOrNull { m ->
+                m.name == method.name &&
+                    m.returnType == method.returnType &&
+                    m.parameterTypes.map { it.toString() } == method.parameterTypes.map { it.toString() }
+            } ?: return@methods
+            replacements.forEach { (index, newInsn) ->
+                mutableMethod.replaceInstruction(index, newInsn)
+                inlinedWrappers++
+            }
+        }
+    }
+    // Delete wrapper stubs
+    stubsToDelete.distinct().forEach { (definingClass, ref) ->
+        val mutableClass = mutableClassDefByOrNull(definingClass) ?: return@forEach
+        val stub = mutableClass.methods.firstOrNull { m ->
+            m.name == ref.name &&
+                m.returnType == ref.returnType &&
+                m.parameterTypes.map { it.toString() } == ref.parameterTypes.map { it.toString() }
+        } ?: return@forEach
+        mutableClass.methods.remove(stub)
+    }
+    logger.info("[Silt PairIP] Inlined $inlinedWrappers call wrapper stubs")
+    hookedPoints += inlinedWrappers
+
+    // 4. Wipe methods invoking VMRunner and remove PairIP calls
+    classDefForEach { classDef ->
+        if (classDef.type.startsWith(PAIRIP_PREFIX)) return@classDefForEach
+        val vmTargets = classDef.methods.filter { method ->
+            method.instructionsOrNull?.any { insn ->
+                insn.opcode == Opcode.INVOKE_STATIC &&
+                    (insn as? ReferenceInstruction)?.reference?.toString()?.contains(VMRUNNER_CLASS) == true
+            } == true
+        }
+        if (vmTargets.isEmpty()) return@classDefForEach
+        val mutableClass = mutableClassDefByOrNull(classDef.type) ?: return@classDefForEach
+        vmTargets.forEach { method ->
+            val mutableMethod = mutableClass.methods.firstOrNull { m ->
+                m.name == method.name &&
+                    m.returnType == method.returnType &&
+                    m.parameterTypes.map { it.toString() } == method.parameterTypes.map { it.toString() }
+            } ?: return@forEach
+            val count = mutableMethod.instructions.size
+            mutableMethod.removeInstructions(0, count)
+            mutableMethod.addInstructions(0, minimalReturnFor(method.returnType))
+            hookedPoints++
+        }
+    }
+
+    // 5. Neutralize PairIP DRM verification classes
     classDefForEach { classDef ->
         val type = classDef.type
         val tl = type.lowercase()
@@ -44,230 +327,61 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                 val mn = mName.lowercase()
                 val retType = method.returnType
 
-                // 2a. SignatureCheck (verifyIntegrity / verifySignatureMatches)
                 if (tl.contains("signaturecheck") && (mn.contains("verify") || mn.contains("check"))) {
-                    if (retType == "V") {
-                        try {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 3,
-                                smaliCode = "return-void"
-                            )
-                            hookedPoints++
-                            logger.info("[Silt PairIP] Neutralized SignatureCheck->$mName (void)")
-                        } catch (e: Exception) {
-                            logger.fine("[Silt PairIP] Failed to hook $mName: ${e.message}")
+                    try {
+                        if (retType == "V") {
+                            replaceMethod(method = method, registerCount = 3, smaliCode = "return-void")
+                        } else if (retType == "Z") {
+                            replaceMethod(method = method, registerCount = 3, smaliCode = "const/4 v0, 0x1\nreturn v0")
                         }
-                    } else if (retType == "Z") {
-                        try {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 3,
-                                smaliCode = """
-                                const/4 v0, 0x1
-                                return v0
-                                """.trimIndent()
-                            )
-                            hookedPoints++
-                            logger.info("[Silt PairIP] Spoofed SignatureCheck->$mName -> true")
-                        } catch (e: Exception) {
-                            logger.fine("[Silt PairIP] Failed to hook $mName: ${e.message}")
-                        }
-                    }
+                        hookedPoints++
+                    } catch (_: Exception) {}
                 }
 
-                // 2b. LicenseContentProvider.onCreate -> return true without initializing LicenseClient
                 if (tl.contains("licensecontentprovider") && mn == "oncreate") {
                     try {
-                        replaceMethod(
-                            method = method,
-                            registerCount = 3,
-                            smaliCode = """
-                            const/4 v0, 0x1
-                            return v0
-                            """.trimIndent()
-                        )
+                        replaceMethod(method = method, registerCount = 3, smaliCode = "const/4 v0, 0x1\nreturn v0")
                         hookedPoints++
-                        logger.info("[Silt PairIP] Neutralized LicenseContentProvider.onCreate -> true (suppressed client init)")
-                    } catch (e: Exception) {
-                        logger.fine("[Silt PairIP] Failed to hook provider onCreate: ${e.message}")
-                    }
+                    } catch (_: Exception) {}
                 }
 
-                // 2c. LicenseClient (initializeLicenseCheck, startPaywallActivity, etc.)
                 if (tl.contains("licenseclient")) {
-                    if (mn in listOf(
-                        "initializelicensecheck",
-                        "connecttolicensingservice",
-                        "checklicenseinternal",
-                        "startpaywallactivity",
-                        "starterrordialogactivity",
-                        "processresponse",
-                        "reportsuccessfullicensecheck",
-                        "handleerror",
-                        "retryorthrow"
-                    )) {
-                        try {
-                            if (retType == "V") {
-                                replaceMethod(
-                                    method = method,
-                                    registerCount = 3,
-                                    smaliCode = "return-void"
-                                )
-                                hookedPoints++
-                                logger.info("[Silt PairIP] Neutralized LicenseClient->$mName (void)")
-                            }
-                        } catch (e: Exception) {
-                            logger.fine("[Silt PairIP] Failed to hook LicenseClient->$mName: ${e.message}")
-                        }
-                    } else if (mn == "performlocalinstallercheck") {
-                        try {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 3,
-                                smaliCode = """
-                                const/4 v0, 0x1
-                                return v0
-                                """.trimIndent()
-                            )
-                            hookedPoints++
-                            logger.info("[Silt PairIP] Spoofed LicenseClient.performLocalInstallerCheck -> true")
-                        } catch (e: Exception) {
-                            logger.fine("[Silt PairIP] Failed to hook performLocalInstallerCheck: ${e.message}")
-                        }
-                    } else if (mn == "createcloseappintentorexitifappinbackground") {
-                        try {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 3,
-                                smaliCode = """
-                                const/4 v0, 0x0
-                                return-object v0
-                                """.trimIndent()
-                            )
-                            hookedPoints++
-                            logger.info("[Silt PairIP] Suppressed close app intent")
-                        } catch (e: Exception) {
-                            logger.fine("[Silt PairIP] Failed close app intent hook: ${e.message}")
-                        }
-                    }
-                }
-
-                // 2d. LicenseActivity (onStart, showPaywallAndCloseApp, closeApp, etc.)
-                if (tl.contains("licenseactivity")) {
-                    if (mn in listOf(
-                        "onstart",
-                        "showpaywallandcloseapp",
-                        "showerrordialog",
-                        "logandshowerrordialog",
-                        "closeapp",
-                        "finishandremovetask"
-                    )) {
-                        try {
-                            if (retType == "V") {
-                                replaceMethod(
-                                    method = method,
-                                    registerCount = 3,
-                                    smaliCode = "return-void"
-                                )
-                                hookedPoints++
-                                logger.info("[Silt PairIP] Neutralized LicenseActivity->$mName (void)")
-                            }
-                        } catch (e: Exception) {
-                            logger.fine("[Silt PairIP] Failed to hook LicenseActivity->$mName: ${e.message}")
-                        }
-                    }
-                }
-
-                // 2e. PairIP Application.attachBaseContext (sanitize to invoke-super and bypass VMRunner)
-                if (tl.contains("pairip") && tl.contains("application") && mn == "attachbasecontext") {
                     try {
-                        replaceMethod(
-                            method = method,
-                            registerCount = 2,
-                            smaliCode = """
-                            invoke-super {p0, p1}, Landroid/app/Application;->attachBaseContext(Landroid/content/Context;)V
-                            return-void
-                            """.trimIndent()
-                        )
-                        hookedPoints++
-                        logger.info("[Silt PairIP] Sanitized Application.attachBaseContext -> invoke-super")
-                    } catch (e: Exception) {
-                        logger.fine("[Silt PairIP] Failed to hook Application.attachBaseContext: ${e.message}")
-                    }
+                        if (mn == "performlocalinstallercheck") {
+                            replaceMethod(method = method, registerCount = 3, smaliCode = "const/4 v0, 0x1\nreturn v0")
+                            hookedPoints++
+                        } else if (retType == "V") {
+                            replaceMethod(method = method, registerCount = 3, smaliCode = "return-void")
+                            hookedPoints++
+                        }
+                    } catch (_: Exception) {}
                 }
 
-                // 2f. PairIP StartupLauncher & VMRunner (suppress native DRM initialization)
+                if (tl.contains("licenseactivity") && retType == "V") {
+                    try {
+                        replaceMethod(method = method, registerCount = 3, smaliCode = "return-void")
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                }
+
                 if (tl.contains("startuplauncher") && mn in listOf("launch", "launchinternal")) {
                     try {
-                        replaceMethod(
-                            method = method,
-                            registerCount = 3,
-                            smaliCode = "return-void"
-                        )
+                        replaceMethod(method = method, registerCount = 3, smaliCode = "return-void")
                         hookedPoints++
-                        logger.info("[Silt PairIP] Neutralized StartupLauncher->$mName (void)")
-                    } catch (e: Exception) {
-                        logger.fine("[Silt PairIP] Failed to hook StartupLauncher->$mName: ${e.message}")
-                    }
+                    } catch (_: Exception) {}
                 }
 
                 if (tl.contains("vmrunner") && mName == "<clinit>") {
                     try {
-                        replaceMethod(
-                            method = method,
-                            registerCount = 1,
-                            smaliCode = "return-void"
-                        )
+                        replaceMethod(method = method, registerCount = 1, smaliCode = "return-void")
                         hookedPoints++
-                        logger.info("[Silt PairIP] Neutralized VMRunner.<clinit> (prevented System.loadLibrary pairipcore)")
-                    } catch (e: Exception) {
-                        logger.fine("[Silt PairIP] Failed to hook VMRunner.<clinit>: ${e.message}")
-                    }
-                }
-
-                if (tl.contains("vmrunner") && mn in listOf("invoke", "executevm", "setcontext", "setjob", "run")) {
-                    try {
-                        if (retType == "V") {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 3,
-                                smaliCode = "return-void"
-                            )
-                            hookedPoints++
-                            logger.info("[Silt PairIP] Neutralized VMRunner->$mName (void)")
-                        } else if (retType in listOf("Z", "I", "S", "B", "C")) {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 3,
-                                smaliCode = """
-                                const/4 v0, 0x0
-                                return v0
-                                """.trimIndent()
-                            )
-                            hookedPoints++
-                            logger.info("[Silt PairIP] Neutralized VMRunner->$mName (0)")
-                        } else {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 3,
-                                smaliCode = """
-                                const/4 v0, 0x0
-                                return-object v0
-                                """.trimIndent()
-                            )
-                            hookedPoints++
-                            logger.info("[Silt PairIP] Neutralized VMRunner->$mName (null)")
-                        }
-                    } catch (e: Exception) {
-                        logger.fine("[Silt PairIP] Failed to hook VMRunner->$mName: ${e.message}")
-                    }
+                    } catch (_: Exception) {}
                 }
             }
         }
     }
 
-    // 2g. Neutralize BroadcastReceivers hijacked by PairIP to invoke VMRunner
+    // Neutralize BroadcastReceivers hijacked by PairIP
     val pairipReceivers = setOf(
         "Landroidx/core/content/pm/ShortcutManagerCompat\$1;",
         "Lcom/android/billingclient/api/zzr;",
@@ -275,236 +389,50 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
         "Lcom/google/android/gms/common/api/internal/zabx;",
         "Lcom/google/android/play/core/assetpacks/internal/m;",
         "Lcom/unity3d/player/HFPStatus\$1;",
-        "Lorg/fmod/FMOD\$PluginBroadcastReceiver;"
+        "Lorg/fmod/FMOD\$PluginBroadcastReceiver;",
     )
     classDefForEach { classDef ->
         if (classDef.type in pairipReceivers) {
             for (method in classDef.methods.toList()) {
                 if (method.name == "onReceive" && method.implementation != null) {
                     try {
-                        replaceMethod(
-                            method = method,
-                            registerCount = 3,
-                            smaliCode = "return-void"
-                        )
+                        replaceMethod(method = method, registerCount = 3, smaliCode = "return-void")
                         hookedPoints++
-                        logger.info("[Silt PairIP] Neutralized ${classDef.type}->onReceive (void)")
-                    } catch (e: Exception) {
-                        logger.fine("[Silt PairIP] Failed to hook ${classDef.type}->onReceive: ${e.message}")
-                    }
+                    } catch (_: Exception) {}
                 }
             }
         }
     }
 
-    // 2g. De-obfuscate UnityPlayerActivity lifecycle methods hijacked by PairIP
-    classDefForEach { classDef ->
-        if (classDef.type == "Lcom/unity3d/player/UnityPlayerActivity;") {
-            for (method in classDef.methods.toList()) {
-                val mName = method.name
-                when (mName) {
-                    "onCreate" -> {
-                        try {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 6,
-                                smaliCode = """
-                                const/4 v0, 0x1
-                                invoke-virtual {p0, v0}, Landroid/app/Activity;->requestWindowFeature(I)Z
-                                invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
-                                invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
-                                move-result-object v0
-                                if-eqz v0, :init_player
-                                const-string v1, "unity"
-                                invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-                                move-result-object v0
-                                invoke-virtual {p0, v0}, Lcom/unity3d/player/UnityPlayerActivity;->updateUnityCommandLineArguments(Ljava/lang/String;)Ljava/lang/String;
-                                move-result-object v0
-                                invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
-                                move-result-object v1
-                                if-eqz v1, :init_player
-                                const-string v2, "unity"
-                                invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-                                :init_player
-                                new-instance v0, Lcom/unity3d/player/UnityPlayer;
-                                invoke-direct {v0, p0, p0}, Lcom/unity3d/player/UnityPlayer;-><init>(Landroid/content/Context;Lcom/unity3d/player/IUnityPlayerLifecycleEvents;)V
-                                iput-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
-                                invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(Landroid/view/View;)V
-                                iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
-                                if-eqz v0, :return_void
-                                invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
-                                :return_void
-                                return-void
-                                """.trimIndent()
-                            )
-                            hookedPoints++
-                            logger.info("[Silt Unity] Restored direct UnityPlayerActivity.onCreate")
-                        } catch (e: Exception) {
-                            logger.fine("[Silt Unity] Failed to restore onCreate: ${e.message}")
-                        }
-                    }
-                    "onDestroy" -> {
-                        try {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 3,
-                                smaliCode = """
-                                iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
-                                if-eqz v0, :skip_destroy
-                                invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->destroy()V
-                                :skip_destroy
-                                invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
-                                return-void
-                                """.trimIndent()
-                            )
-                            hookedPoints++
-                            logger.info("[Silt Unity] Restored direct UnityPlayerActivity.onDestroy")
-                        } catch (e: Exception) {
-                            logger.fine("[Silt Unity] Failed to restore onDestroy: ${e.message}")
-                        }
-                    }
-                    "onStart" -> {
-                        try {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 3,
-                                smaliCode = """
-                                invoke-super {p0}, Landroid/app/Activity;->onStart()V
-                                iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
-                                if-eqz v0, :skip_start
-                                invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->onStart()V
-                                :skip_start
-                                return-void
-                                """.trimIndent()
-                            )
-                            hookedPoints++
-                            logger.info("[Silt Unity] Restored direct UnityPlayerActivity.onStart")
-                        } catch (e: Exception) {
-                            logger.fine("[Silt Unity] Failed to restore onStart: ${e.message}")
-                        }
-                    }
-                    "onStop" -> {
-                        try {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 3,
-                                smaliCode = """
-                                invoke-super {p0}, Landroid/app/Activity;->onStop()V
-                                iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
-                                if-eqz v0, :skip_stop
-                                invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->onStop()V
-                                :skip_stop
-                                return-void
-                                """.trimIndent()
-                            )
-                            hookedPoints++
-                            logger.info("[Silt Unity] Restored direct UnityPlayerActivity.onStop")
-                        } catch (e: Exception) {
-                            logger.fine("[Silt Unity] Failed to restore onStop: ${e.message}")
-                        }
-                    }
-                    "onResume" -> {
-                        try {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 3,
-                                smaliCode = """
-                                invoke-super {p0}, Landroid/app/Activity;->onResume()V
-                                iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
-                                if-eqz v0, :skip_resume
-                                invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->onResume()V
-                                :skip_resume
-                                return-void
-                                """.trimIndent()
-                            )
-                            hookedPoints++
-                            logger.info("[Silt Unity] Restored direct UnityPlayerActivity.onResume")
-                        } catch (e: Exception) {
-                            logger.fine("[Silt Unity] Failed to restore onResume: ${e.message}")
-                        }
-                    }
-                    "onPause" -> {
-                        try {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 3,
-                                smaliCode = """
-                                invoke-super {p0}, Landroid/app/Activity;->onPause()V
-                                iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
-                                if-eqz v0, :skip_pause
-                                invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->onPause()V
-                                :skip_pause
-                                return-void
-                                """.trimIndent()
-                            )
-                            hookedPoints++
-                            logger.info("[Silt Unity] Restored direct UnityPlayerActivity.onPause")
-                        } catch (e: Exception) {
-                            logger.fine("[Silt Unity] Failed to restore onPause: ${e.message}")
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    // 2h. Neutralize UnityPlayer.preloadJavaPlugins and GetGlViewContentDescription (avoids NullPointerException from uninitialized vendor plugin strings)
+    // 6. Neutralize UnityPlayer.preloadJavaPlugins and GetGlViewContentDescription
     classDefForEach { classDef ->
         if (classDef.type == "Lcom/unity3d/player/UnityPlayer;") {
             for (method in classDef.methods.toList()) {
                 if (method.name == "preloadJavaPlugins") {
                     try {
-                        replaceMethod(
-                            method = method,
-                            registerCount = 1,
-                            smaliCode = "return-void"
-                        )
+                        replaceMethod(method = method, registerCount = 1, smaliCode = "return-void")
                         hookedPoints++
-                        logger.info("[Silt Unity] Neutralized UnityPlayer.preloadJavaPlugins")
-                    } catch (e: Exception) {
-                        logger.fine("[Silt Unity] Failed to neutralize preloadJavaPlugins: ${e.message}")
-                    }
+                    } catch (_: Exception) {}
                 }
                 if (method.name == "GetGlViewContentDescription") {
                     try {
-                        replaceMethod(
-                            method = method,
-                            registerCount = 2,
-                            smaliCode = """
-                            const-string v0, "GameView"
-                            return-object v0
-                            """.trimIndent()
-                        )
+                        replaceMethod(method = method, registerCount = 2, smaliCode = "const-string v0, \"GameView\"\nreturn-object v0")
                         hookedPoints++
-                        logger.info("[Silt Unity] Neutralized UnityPlayer.GetGlViewContentDescription -> 'GameView'")
-                    } catch (e: Exception) {
-                        logger.fine("[Silt Unity] Failed to hook GetGlViewContentDescription: ${e.message}")
-                    }
+                    } catch (_: Exception) {}
                 }
             }
         }
     }
 
-    // 3. Hook Play Integrity API Remediation Dialogs (bypasses "Get this game from Play" prompt)
+    // 7. Play Integrity API dialog bypass
     classDefForEach { classDef ->
-        val type = classDef.type
-        val tl = type.lowercase()
-
-        val isIntegrityClass = tl.contains("play/core/integrity") ||
-            tl.contains("play/integrity") ||
-            tl.contains("integritydialog") ||
-            tl.contains("standardintegrity") ||
-            tl.contains("integritytoken")
-
-        if (isIntegrityClass) {
+        val tl = classDef.type.lowercase()
+        if (tl.contains("play/core/integrity") || tl.contains("play/integrity") || tl.contains("integritydialog")) {
             for (method in classDef.methods.toList()) {
                 if (method.implementation == null) continue
-                val mNameLower = method.name.lowercase()
-
-                if (mNameLower.contains("showdialog")) {
+                if (method.name.lowercase().contains("showdialog")) {
                     try {
                         if (method.returnType == "Lcom/google/android/gms/tasks/Task;") {
-                            // Returns Task<Integer> with result 0 (INTEGRITY_DIALOG_RESPONSE_CODE_SUCCESS)
                             replaceMethod(
                                 method = method,
                                 registerCount = 4,
@@ -515,182 +443,20 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                                 invoke-static {v0}, Lcom/google/android/gms/tasks/Tasks;->forResult(Ljava/lang/Object;)Lcom/google/android/gms/tasks/Task;
                                 move-result-object v0
                                 return-object v0
-                                """.trimIndent()
+                                """.trimIndent(),
                             )
                             hookedPoints++
-                            logger.info("[Silt Integrity] Neutralized showDialog (Task<Integer>) in: $type->${method.name}")
                         } else if (method.returnType == "V") {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 3,
-                                smaliCode = "return-void"
-                            )
+                            replaceMethod(method = method, registerCount = 3, smaliCode = "return-void")
                             hookedPoints++
-                            logger.info("[Silt Integrity] Neutralized showDialog (void) in: $type->${method.name}")
-                        } else if (method.returnType == "I") {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 3,
-                                smaliCode = """
-                                const/4 v0, 0x0
-                                return v0
-                                """.trimIndent()
-                            )
-                            hookedPoints++
-                            logger.info("[Silt Integrity] Neutralized showDialog (int) in: $type->${method.name}")
                         }
-                    } catch (e: Exception) {
-                        logger.fine("[Silt Integrity] Failed showDialog hook: ${e.message}")
-                    }
+                    } catch (_: Exception) {}
                 }
             }
         }
     }
 
-    // 3b. Neutralize Play Games v2 AppShortcuts initialization crash
-    classDefForEach { classDef ->
-        val type = classDef.type
-        val tl = type.lowercase()
-
-        if (tl.contains("playgamesinitprovider")) {
-            for (method in classDef.methods.toList()) {
-                if (method.implementation == null) continue
-                val mName = method.name
-                if (mName == "<init>" || mName == "<clinit>") continue
-                if (mName.lowercase() == "oncreate") {
-                    try {
-                        replaceMethod(
-                            method = method,
-                            registerCount = 3,
-                            smaliCode = """
-                            const/4 v0, 0x1
-                            return v0
-                            """.trimIndent()
-                        )
-                        hookedPoints++
-                        logger.info("[Silt PlayGames] Neutralized PlayGamesInitProvider.onCreate -> true")
-                    } catch (e: Exception) {
-                        logger.fine("[Silt PlayGames] Failed to hook PlayGamesInitProvider: ${e.message}")
-                    }
-                }
-            }
-        }
-
-        if (tl.contains("games/internal/v2/appshortcuts") || tl.contains("appshortcuts")) {
-            for (method in classDef.methods.toList()) {
-                if (method.implementation == null) continue
-                val mName = method.name
-                if (mName == "<init>" || mName == "<clinit>") continue
-                val mn = mName.lowercase()
-                if (mn in listOf("run", "zzb", "zza") && method.returnType == "V") {
-                    try {
-                        replaceMethod(
-                            method = method,
-                            registerCount = 3,
-                            smaliCode = "return-void"
-                        )
-                        hookedPoints++
-                        logger.info("[Silt PlayGames] Neutralized AppShortcuts->$mName (void)")
-                    } catch (e: Exception) {
-                        logger.fine("[Silt PlayGames] Failed to hook AppShortcuts->$mName: ${e.message}")
-                    }
-                }
-            }
-        }
-    }
-
-    // 3. Hook Google Play License Verification Library (LVL) & Installer Verification
-    classDefForEach { classDef ->
-        val type = classDef.type
-        val tl = type.lowercase()
-
-        // Google Play LVL Licensing (LicenseChecker / LicenseCheckerCallback)
-        val implementsCallback = classDef.interfaces.any { it.contains("LicenseCheckerCallback") }
-        if (implementsCallback || tl.contains("licensing") || tl.contains("licensechecker")) {
-            for (method in classDef.methods.toList()) {
-                if (method.implementation == null) continue
-                val mName = method.name
-
-                // Hook checkAccess(LicenseCheckerCallback) -> force immediate allow(256)
-                if (mName == "checkAccess" && method.parameterTypes.size == 1) {
-                    val cbType = method.parameterTypes[0]
-                    if (cbType.contains("Callback") || cbType.contains("Listener")) {
-                        try {
-                            replaceMethod(
-                                method = method,
-                                registerCount = 4,
-                                smaliCode = """
-                                const/16 v0, 0x100
-                                invoke-interface {p1, v0}, $cbType->allow(I)V
-                                return-void
-                                """.trimIndent()
-                            )
-                            hookedPoints++
-                            logger.info("[Silt LVL] Hooked checkAccess to force allow(0x100) in: $type->$mName")
-                        } catch (e: Exception) {
-                            logger.fine("[Silt LVL] Failed to hook checkAccess: ${e.message}")
-                        }
-                    }
-                }
-
-                // Neutralize dontAllow(int reason) to prevent license denial
-                if (mName == "dontAllow" && method.returnType == "V") {
-                    try {
-                        replaceMethod(
-                            method = method,
-                            registerCount = 3,
-                            smaliCode = "return-void"
-                        )
-                        hookedPoints++
-                        logger.info("[Silt LVL] Neutralized dontAllow check in: $type->$mName")
-                    } catch (e: Exception) {
-                        logger.fine("[Silt LVL] Failed to hook dontAllow: ${e.message}")
-                    }
-                }
-
-                // Neutralize applicationError(int errorCode)
-                if (mName == "applicationError" && method.returnType == "V") {
-                    try {
-                        replaceMethod(
-                            method = method,
-                            registerCount = 3,
-                            smaliCode = "return-void"
-                        )
-                        hookedPoints++
-                        logger.info("[Silt LVL] Neutralized applicationError in: $type->$mName")
-                    } catch (e: Exception) {
-                        logger.fine("[Silt LVL] Failed to hook applicationError: ${e.message}")
-                    }
-                }
-            }
-        }
-
-        // Spoof installer source to Google Play (com.android.vending)
-        for (method in classDef.methods.toList()) {
-            if (method.implementation == null) continue
-            val mName = method.name.lowercase()
-            if ((mName == "getinstallerpackagename" || mName == "getinstallsource") &&
-                method.returnType == "Ljava/lang/String;" && method.parameterTypes.size <= 1
-            ) {
-                try {
-                    replaceMethod(
-                        method = method,
-                        registerCount = 3,
-                        smaliCode = """
-                        const-string v0, "com.android.vending"
-                        return-object v0
-                        """.trimIndent()
-                    )
-                    hookedPoints++
-                    logger.info("[Silt Installer] Spoofed installer package name to com.android.vending in: $type->${method.name}")
-                } catch (e: Exception) {
-                    logger.fine("[Silt Installer] Failed installer hook: ${e.message}")
-                }
-            }
-        }
-    }
-
-    // 4. Hook game unlock, Play Pass, and chapter access checks
+    // 8. Game Unlock & Play Pass checks
     classDefForEach { classDef ->
         val tl = classDef.type.lowercase()
         if (tl.contains("androidx") || tl.contains("android/support") || tl.contains("com/google")) return@classDefForEach
@@ -702,7 +468,6 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
             val retType = method.returnType
             val pTypes = method.parameterTypes
 
-            // Full game license checks & Play Pass entitlement
             if (!isStatic && (
                 mName == "isfullgameunlocked" ||
                 mName == "isgameunlocked" ||
@@ -718,22 +483,12 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                 mName == "isplaypass"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    replaceMethod(
-                        method = method,
-                        registerCount = 3,
-                        smaliCode = """
-                        const/4 v0, 0x1
-                        return v0
-                        """.trimIndent()
-                    )
+                    replaceMethod(method = method, registerCount = 3, smaliCode = "const/4 v0, 0x1\nreturn v0")
                     hookedPoints++
-                    logger.info("[Silt Full Game] Unlocked full game / Play Pass check in: ${classDef.type}->${method.name}")
-                } catch (e: Exception) {
-                    logger.fine("[Silt Full Game] Failed to hook ${method.name}: ${e.message}")
-                }
+                    logger.info("[Silt Unlock] Unlocked full game check in: ${classDef.type}->${method.name}")
+                } catch (_: Exception) {}
             }
 
-            // Suppress trial / demo mode flags
             if (!isStatic && (
                 mName == "istrial" ||
                 mName == "isdemo" ||
@@ -742,44 +497,278 @@ fun BytecodePatchContext.executeSiltUnlockFullGameLogic(logger: Logger) {
                 mName == "requiretrial"
             ) && retType == "Z" && pTypes.isEmpty()) {
                 try {
-                    replaceMethod(
-                        method = method,
-                        registerCount = 3,
-                        smaliCode = """
-                        const/4 v0, 0x0
-                        return v0
-                        """.trimIndent()
-                    )
+                    replaceMethod(method = method, registerCount = 3, smaliCode = "const/4 v0, 0x0\nreturn v0")
                     hookedPoints++
-                    logger.info("[Silt Full Game] Suppressed trial/demo flag in: ${classDef.type}->${method.name}")
-                } catch (e: Exception) {
-                    logger.fine("[Silt Full Game] Failed to hook ${method.name}: ${e.message}")
-                }
+                    logger.info("[Silt Unlock] Suppressed trial/demo flag in: ${classDef.type}->${method.name}")
+                } catch (_: Exception) {}
             }
 
-            // Chapter / level access checks (with int chapter index or no params)
             if (!isStatic && (
                 mName == "ischapterunlocked" ||
                 mName == "islevelunlocked" ||
                 mName == "canplaychapter"
             ) && retType == "Z" && pTypes.size <= 1) {
                 try {
-                    replaceMethod(
-                        method = method,
-                        registerCount = 4,
-                        smaliCode = """
-                        const/4 v0, 0x1
-                        return v0
-                        """.trimIndent()
-                    )
+                    replaceMethod(method = method, registerCount = 4, smaliCode = "const/4 v0, 0x1\nreturn v0")
                     hookedPoints++
-                    logger.info("[Silt Full Game] Unlocked chapter check in: ${classDef.type}->${method.name}")
-                } catch (e: Exception) {
-                    logger.fine("[Silt Full Game] Failed chapter hook ${method.name}: ${e.message}")
-                }
+                    logger.info("[Silt Unlock] Unlocked chapter check in: ${classDef.type}->${method.name}")
+                } catch (_: Exception) {}
             }
         }
     }
 
-    logger.info("[Silt Full Game] Total hooks applied: $hookedPoints")
+    // 9. Force FULL mode and clean PairIP placeholder classes
+    forceFullBytecodeMode()
+    val classMap = internalClassMap()
+    var removedClasses = 0
+    classDefForEach { classDef ->
+        if (classDef.type.startsWith(PAIRIP_PREFIX) || classDef.type in placeholderClasses) {
+            if (classMap.remove(classDef.type) != null) removedClasses++
+        }
+    }
+    logger.info("[Silt PairIP] Purged $removedClasses PairIP internal and placeholder classes from DEX")
+    logger.info("[Silt Bytecode] Total bytecode hooks applied: $hookedPoints")
+}
+
+fun ResourcePatchContext.executeSiltNativeDrmNeutralization(logger: Logger) {
+    logger.info("[Silt Native DRM] Inspecting APK entries for native PairIP binary encryption...")
+
+    // Check for native libraries
+    val libEntries = listApkEntries("lib/")
+    val pairipCoreEntries = libEntries.filter { it.endsWith("libpairipcore.so") }
+
+    if (pairipCoreEntries.isEmpty()) {
+        logger.info("[Silt Native DRM] No libpairipcore.so found in APK (base APK only or clean build). Bytecode patch active.")
+    } else {
+        for (entry in pairipCoreEntries) {
+            try {
+                val soFile = get(entry, true)
+                val bytes = soFile.readBytes()
+                val modified = stubPairipCoreElf(bytes, logger, entry)
+                if (modified) {
+                    soFile.writeBytes(bytes)
+                    logger.info("[Silt Native DRM] Successfully neutralized native anti-tamper in $entry")
+                }
+            } catch (e: Exception) {
+                logger.warning("[Silt Native DRM] Failed to stub $entry: ${e.message}")
+            }
+        }
+    }
+
+    // Delete stamp-cert-sha256 if present to avoid Play signature checks
+    val stampEntries = listApkEntries("stamp-cert-sha256")
+    for (stamp in stampEntries) {
+        try {
+            delete(stamp)
+            logger.info("[Silt Native DRM] Removed signature stamp: $stamp")
+        } catch (_: Exception) {}
+    }
+}
+
+/**
+ * Dynamically parses ELF32 / ELF64 shared libraries and neutralizes:
+ * - ExecuteProgram (instant return 0)
+ * - JNI_OnLoad (instant return JNI_VERSION_1_6 = 0x10006)
+ * - JNI_OnUnload (instant return)
+ * - DT_INIT_ARRAY function pointers (instant return)
+ */
+private fun stubPairipCoreElf(data: ByteArray, logger: Logger, entryName: String): Boolean {
+    if (data.size < 52 || data[0] != 0x7f.toByte() || data[1] != 'E'.code.toByte() || data[2] != 'L'.code.toByte() || data[3] != 'F'.code.toByte()) {
+        return false
+    }
+    val eiClass = data[4].toInt() // 1 = 32-bit, 2 = 64-bit
+    val buf = ByteBuffer.wrap(data).order(ByteOrder.LITTLE_ENDIAN)
+
+    if (eiClass == 1) { // ELF32 (armeabi-v7a / x86)
+        val phOff = buf.getInt(0x1c)
+        val phNum = buf.getShort(0x2c).toInt()
+        val phList = ArrayList<IntArray>() // [p_type, p_offset, p_vaddr, p_filesz]
+        for (i in 0 until phNum) {
+            val base = phOff + i * 32
+            val pType = buf.getInt(base)
+            val pOff = buf.getInt(base + 4)
+            val pVaddr = buf.getInt(base + 8)
+            val pFilesz = buf.getInt(base + 16)
+            phList.add(intArrayOf(pType, pOff, pVaddr, pFilesz))
+        }
+
+        fun va2off(va: Int): Int {
+            for (p in phList) {
+                if (p[0] == 1 && va >= p[2] && va < p[2] + p[3]) { // PT_LOAD
+                    return p[1] + (va - p[2])
+                }
+            }
+            return va
+        }
+
+        val dynPh = phList.firstOrNull { it[0] == 2 } ?: return false // PT_DYNAMIC
+        val dynOff = dynPh[1]
+        val dynSz = dynPh[3]
+
+        var symtabVa = 0
+        var strtabVa = 0
+        var initArrayVa = 0
+        var initArraySz = 0
+
+        var dOff = 0
+        while (dOff < dynSz) {
+            val tag = buf.getInt(dynOff + dOff)
+            val dVal = buf.getInt(dynOff + dOff + 4)
+            if (tag == 0) break
+            when (tag) {
+                6 -> symtabVa = dVal // DT_SYMTAB
+                5 -> strtabVa = dVal // DT_STRTAB
+                0x19 -> initArrayVa = dVal // DT_INIT_ARRAY
+                0x1b -> initArraySz = dVal // DT_INIT_ARRAYSZ
+            }
+            dOff += 8
+        }
+
+        val symtabOff = va2off(symtabVa)
+        val strtabOff = va2off(strtabVa)
+        if (symtabOff == 0 || strtabOff == 0) return false
+
+        var idx = 0
+        while (symtabOff + idx * 16 + 16 <= data.size && idx < 3000) {
+            val base = symtabOff + idx * 16
+            val stName = buf.getInt(base)
+            val stValue = buf.getInt(base + 4)
+            if (strtabOff + stName < data.size) {
+                var end = strtabOff + stName
+                while (end < data.size && data[end] != 0.toByte()) end++
+                val sName = String(data, strtabOff + stName, end - (strtabOff + stName), Charsets.UTF_8)
+                val targetOff = va2off(stValue)
+
+                if (sName == "ExecuteProgram" && targetOff + 8 <= data.size) {
+                    // ARM32: mov r0, #0; bx lr (00 00 a0 e3 1e ff 2f e1)
+                    val armMov0BxLr = byteArrayOf(0x00, 0x00, 0xa0.toByte(), 0xe3.toByte(), 0x1e, 0xff.toByte(), 0x2f, 0xe1.toByte())
+                    System.arraycopy(armMov0BxLr, 0, data, targetOff, armMov0BxLr.size)
+                    logger.info("  [ARM32] Neutralized ExecuteProgram at offset 0x${targetOff.toString(16)}")
+                } else if (sName == "JNI_OnLoad" && targetOff + 12 <= data.size) {
+                    // ARM32: movw r0, #6; movt r0, #1; bx lr
+                    val armJniOnLoad = byteArrayOf(0x06, 0x00, 0x00, 0xe3.toByte(), 0x01, 0x00, 0x40, 0xe3.toByte(), 0x1e, 0xff.toByte(), 0x2f, 0xe1.toByte())
+                    System.arraycopy(armJniOnLoad, 0, data, targetOff, armJniOnLoad.size)
+                    logger.info("  [ARM32] Neutralized JNI_OnLoad at offset 0x${targetOff.toString(16)}")
+                } else if (sName == "JNI_OnUnload" && targetOff + 4 <= data.size) {
+                    // ARM32: bx lr
+                    val armBxLr = byteArrayOf(0x1e, 0xff.toByte(), 0x2f, 0xe1.toByte())
+                    System.arraycopy(armBxLr, 0, data, targetOff, armBxLr.size)
+                    logger.info("  [ARM32] Neutralized JNI_OnUnload at offset 0x${targetOff.toString(16)}")
+                }
+            }
+            idx++
+        }
+
+        if (initArrayVa != 0 && initArraySz > 0) {
+            val initArrayOff = va2off(initArrayVa)
+            for (i in 0 until initArraySz step 4) {
+                if (initArrayOff + i + 4 <= data.size) {
+                    val fnVa = buf.getInt(initArrayOff + i)
+                    val fnOff = va2off(fnVa)
+                    if (fnOff + 4 <= data.size) {
+                        val armBxLr = byteArrayOf(0x1e, 0xff.toByte(), 0x2f, 0xe1.toByte())
+                        System.arraycopy(armBxLr, 0, data, fnOff, armBxLr.size)
+                        logger.fine("  [ARM32] Neutralized .init_array function at offset 0x${fnOff.toString(16)}")
+                    }
+                }
+            }
+        }
+        return true
+    } else if (eiClass == 2) { // ELF64 (arm64-v8a / x86_64)
+        val phOff = buf.getLong(0x20).toInt()
+        val phNum = buf.getShort(0x38).toInt()
+        val phList = ArrayList<LongArray>() // [p_type, p_offset, p_vaddr, p_filesz]
+        for (i in 0 until phNum) {
+            val base = phOff + i * 56
+            val pType = buf.getInt(base).toLong()
+            val pOff = buf.getLong(base + 8)
+            val pVaddr = buf.getLong(base + 16)
+            val pFilesz = buf.getLong(base + 32)
+            phList.add(longArrayOf(pType, pOff, pVaddr, pFilesz))
+        }
+
+        fun va2off64(va: Long): Int {
+            for (p in phList) {
+                if (p[0] == 1L && va >= p[2] && va < p[2] + p[3]) {
+                    return (p[1] + (va - p[2])).toInt()
+                }
+            }
+            return va.toInt()
+        }
+
+        val dynPh = phList.firstOrNull { it[0] == 2L } ?: return false
+        val dynOff = dynPh[1].toInt()
+        val dynSz = dynPh[3].toInt()
+
+        var symtabVa = 0L
+        var strtabVa = 0L
+        var initArrayVa = 0L
+        var initArraySz = 0L
+
+        var dOff = 0
+        while (dOff < dynSz) {
+            val tag = buf.getLong(dynOff + dOff)
+            val dVal = buf.getLong(dynOff + dOff + 8)
+            if (tag == 0L) break
+            when (tag) {
+                6L -> symtabVa = dVal
+                5L -> strtabVa = dVal
+                0x19L -> initArrayVa = dVal
+                0x1bL -> initArraySz = dVal
+            }
+            dOff += 16
+        }
+
+        val symtabOff = va2off64(symtabVa)
+        val strtabOff = va2off64(strtabVa)
+        if (symtabOff == 0 || strtabOff == 0) return false
+
+        var idx = 0
+        while (symtabOff + idx * 24 + 24 <= data.size && idx < 3000) {
+            val base = symtabOff + idx * 24
+            val stName = buf.getInt(base)
+            val stValue = buf.getLong(base + 8)
+            if (strtabOff + stName < data.size) {
+                var end = strtabOff + stName
+                while (end < data.size && data[end] != 0.toByte()) end++
+                val sName = String(data, strtabOff + stName, end - (strtabOff + stName), Charsets.UTF_8)
+                val targetOff = va2off64(stValue)
+
+                if (sName == "ExecuteProgram" && targetOff + 8 <= data.size) {
+                    // ARM64: mov x0, #0; ret (00 00 80 d2 c0 03 5f d6)
+                    val arm64Mov0Ret = byteArrayOf(0x00, 0x00, 0x80.toByte(), 0xd2.toByte(), 0xc0.toByte(), 0x03, 0x5f, 0xd6.toByte())
+                    System.arraycopy(arm64Mov0Ret, 0, data, targetOff, arm64Mov0Ret.size)
+                    logger.info("  [ARM64] Neutralized ExecuteProgram at offset 0x${targetOff.toString(16)}")
+                } else if (sName == "JNI_OnLoad" && targetOff + 12 <= data.size) {
+                    // ARM64: mov x0, #6; movk x0, #1, lsl 16; ret
+                    val arm64JniOnLoad = byteArrayOf(0xc0.toByte(), 0x00, 0x80.toByte(), 0xd2.toByte(), 0x20, 0x00, 0xa0.toByte(), 0xf2.toByte(), 0xc0.toByte(), 0x03, 0x5f, 0xd6.toByte())
+                    System.arraycopy(arm64JniOnLoad, 0, data, targetOff, arm64JniOnLoad.size)
+                    logger.info("  [ARM64] Neutralized JNI_OnLoad at offset 0x${targetOff.toString(16)}")
+                } else if (sName == "JNI_OnUnload" && targetOff + 4 <= data.size) {
+                    // ARM64: ret
+                    val arm64Ret = byteArrayOf(0xc0.toByte(), 0x03, 0x5f, 0xd6.toByte())
+                    System.arraycopy(arm64Ret, 0, data, targetOff, arm64Ret.size)
+                    logger.info("  [ARM64] Neutralized JNI_OnUnload at offset 0x${targetOff.toString(16)}")
+                }
+            }
+            idx++
+        }
+
+        if (initArrayVa != 0L && initArraySz > 0L) {
+            val initArrayOff = va2off64(initArrayVa)
+            for (i in 0 until initArraySz.toInt() step 8) {
+                if (initArrayOff + i + 8 <= data.size) {
+                    val fnVa = buf.getLong(initArrayOff + i)
+                    val fnOff = va2off64(fnVa)
+                    if (fnOff + 4 <= data.size) {
+                        val arm64Ret = byteArrayOf(0xc0.toByte(), 0x03, 0x5f, 0xd6.toByte())
+                        System.arraycopy(arm64Ret, 0, data, fnOff, arm64Ret.size)
+                        logger.fine("  [ARM64] Neutralized .init_array function at offset 0x${fnOff.toString(16)}")
+                    }
+                }
+            }
+        }
+        return true
+    }
+    return false
 }

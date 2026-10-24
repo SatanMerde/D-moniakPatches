@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-24T09:37:39",
-  "description": "## [1.52.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.1...v1.52.2) (2026-10-24)\n\n### 🐛 Bug Fixes\n\n* finalize Silt DRM hooks and refine Shazam adblock logging ([617cece](https://github.com/SatanMerde/D-moniakPatches/commit/617cece9ed4c109f65ed51a1fd961101fc13a519))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.52.2/patches-1.52.2.mpp",
+  "created_at": "2026-10-24T10:25:39",
+  "description": "## [1.52.3](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.2...v1.52.3) (2026-10-24)\n\n### 🐛 Bug Fixes\n\n* **silt:** set target version to 1.0.10 and document decrypted base requirement ([90b538f](https://github.com/SatanMerde/D-moniakPatches/commit/90b538f52343ef41d4d724359bcf2256f7dc19a8))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.52.3/patches-1.52.3.mpp",
   "signature_download_url": "",
-  "version": "1.52.2"
+  "version": "1.52.3"
 }

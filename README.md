@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.52.2](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.52.2)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**461 patchs au total** (20 validés & fonctionnels • 441 expérimentaux)
+> **[v1.52.3](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.52.3)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**461 patchs au total** (20 validés & fonctionnels • 441 expérimentaux)
 
 ---
 
@@ -285,9 +285,14 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 <summary>📦 Silt&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
+**🎯 Supported versions:**
+
+| 1.0.10 |
+| :---: |
+
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [Unlock Full Game - Silt](#unlock-full-game-silt) | Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt by neutralizing Google Play App Signing PairIP protection, Play Integrity remediation dialogs, and Google Play Billing. |
+| [Unlock Full Game - Silt](#unlock-full-game-silt) | Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt (v1.0.10). Note: Must be applied to a clean/decrypted base APK (e.g. from APKVision) because raw Google Play binaries contain native ELF PairIP encryption that crashes when re-signed. |
 
 </details>
 

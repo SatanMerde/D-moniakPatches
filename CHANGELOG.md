@@ -1,3 +1,9 @@
+## [1.52.3](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.2...v1.52.3) (2026-10-24)
+
+### 🐛 Bug Fixes
+
+* **silt:** set target version to 1.0.10 and document decrypted base requirement ([90b538f](https://github.com/SatanMerde/D-moniakPatches/commit/90b538f52343ef41d4d724359bcf2256f7dc19a8))
+
 ## [1.52.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.1...v1.52.2) (2026-10-24)
 
 ### 🐛 Bug Fixes

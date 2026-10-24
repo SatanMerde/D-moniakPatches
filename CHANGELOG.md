@@ -1,3 +1,9 @@
+## [1.52.13](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.12...v1.52.13) (2026-10-24)
+
+### 🐛 Bug Fixes
+
+* **silt:** retain libpairipcore.so in DT_NEEDED to satisfy ExecuteProgram symbol ([82eb9ec](https://github.com/SatanMerde/D-moniakPatches/commit/82eb9ecad6fed4b142a9bfaa44afaa913580afa5))
+
 ## [1.52.12](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.11...v1.52.12) (2026-10-24)
 
 ### 🐛 Bug Fixes

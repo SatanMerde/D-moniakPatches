@@ -14,10 +14,10 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-liste-des-patchs--patches-list">
-    <img src="https://img.shields.io/badge/Patches-461-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-462-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-patchs-validés--fonctionnels--tested--functional-patches">
-    <img src="https://img.shields.io/badge/Fonctionnels-20-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
+    <img src="https://img.shields.io/badge/Fonctionnels-21-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-patchs-expérimentaux--en-développement--experimental-patches-ai-generated">
     <img src="https://img.shields.io/badge/Expérimentaux-441-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
@@ -116,7 +116,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 ## 🩹 Liste des patchs / Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.52.3](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.52.3)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**461 patchs au total** (20 validés & fonctionnels • 441 expérimentaux)
+> **[v1.52.4](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.52.4)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**462 patchs au total** (21 validés & fonctionnels • 441 expérimentaux)
 
 ---
 
@@ -282,7 +282,7 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 </details>
 
 <details open>
-<summary>📦 Silt&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📦 Silt&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -292,7 +292,8 @@ Un problème constaté ou vous souhaitez qu'un patch expérimental fonctionne en
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [Unlock Full Game - Silt](#unlock-full-game-silt) | Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt (v1.0.10). Note: Must be applied to a clean/decrypted base APK (e.g. from APKVision) because raw Google Play binaries contain native ELF PairIP encryption that crashes when re-signed. |
+| [Unlock Full Game - Silt](#unlock-full-game-silt) | Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt (v1.0.10). Automatically neutralizes PairIP native DRM in Google Play installations. |
+| [Unlock Full Game Bytecode - Silt](#unlock-full-game-bytecode-silt) | Bytecode de-obfuscation and unlock engine for Silt |
 
 </details>
 

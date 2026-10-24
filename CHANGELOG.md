@@ -1,3 +1,9 @@
+## [1.52.8](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.7...v1.52.8) (2026-10-24)
+
+### 🐛 Bug Fixes
+
+* **silt:** neutralize Play Games appshortcuts background crash ([2bf3376](https://github.com/SatanMerde/D-moniakPatches/commit/2bf3376184b69a5a9fb5705933a3b4e59519f4c5))
+
 ## [1.52.7](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.6...v1.52.7) (2026-10-24)
 
 ### 🐛 Bug Fixes

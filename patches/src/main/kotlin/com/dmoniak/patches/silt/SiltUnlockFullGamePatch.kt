@@ -1,6 +1,5 @@
 package com.dmoniak.patches.silt
 
-import app.morphe.patcher.dex.BytecodeMode
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.extensions.InstructionExtensions.instructionsOrNull
@@ -70,28 +69,7 @@ private fun minimalReturnFor(returnType: String): String = when (returnType) {
     else -> "const/4 v0, 0x0\nreturn-object v0"
 }
 
-@Suppress("UNCHECKED_CAST")
-private fun BytecodePatchContext.internalClassMap(): MutableMap<String, *> {
-    val patchClasses = BytecodePatchContext::class.java
-        .getDeclaredField("patchClasses")
-        .apply { isAccessible = true }
-        .get(this)
-    return patchClasses.javaClass
-        .getDeclaredField("classMap")
-        .apply { isAccessible = true }
-        .get(patchClasses) as MutableMap<String, *>
-}
 
-private fun BytecodePatchContext.forceFullBytecodeMode() {
-    val config = BytecodePatchContext::class.java
-        .getDeclaredField("config")
-        .apply { isAccessible = true }
-        .get(this)
-    config.javaClass
-        .getDeclaredField("bytecodeMode")
-        .apply { isAccessible = true }
-        .set(config, BytecodeMode.FULL)
-}
 
 private fun realOpcodeFor(stubInvoke: Opcode, callSiteRange: Boolean): Opcode? {
     val (base, range) = when (stubInvoke) {
@@ -276,17 +254,7 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
             }
         }
     }
-    // Delete wrapper stubs
-    stubsToDelete.distinct().forEach { (definingClass, ref) ->
-        val mutableClass = mutableClassDefByOrNull(definingClass) ?: return@forEach
-        val stub = mutableClass.methods.firstOrNull { m ->
-            m.name == ref.name &&
-                m.returnType == ref.returnType &&
-                m.parameterTypes.map { it.toString() } == ref.parameterTypes.map { it.toString() }
-        } ?: return@forEach
-        mutableClass.methods.remove(stub)
-    }
-    logger.info("[Silt PairIP] Inlined $inlinedWrappers call wrapper stubs")
+    logger.info("[Silt PairIP] Inlined $inlinedWrappers call wrapper stubs (retaining stubs for compatibility)")
     hookedPoints += inlinedWrappers
 
     // 4. Wipe methods invoking VMRunner and remove PairIP calls
@@ -313,19 +281,66 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
         }
     }
 
-    // 5. Neutralize PairIP DRM verification classes
+    // 5. Neutralize PairIP DRM verification classes as safe stubs
     classDefForEach { classDef ->
         val type = classDef.type
         val tl = type.lowercase()
+
+        // Handle PairIP Application specifically: initialize base Android context cleanly and do nothing else
+        if (type == APPLICATION_CLASS) {
+            for (method in classDef.methods.toList()) {
+                if (method.name == "<clinit>") {
+                    try {
+                        replaceMethod(method = method, registerCount = 1, smaliCode = "return-void")
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                } else if (method.name == "attachBaseContext") {
+                    try {
+                        replaceMethod(
+                            method = method,
+                            registerCount = 2,
+                            smaliCode = """
+                            invoke-super {p0, p1}, Landroid/app/Application;->attachBaseContext(Landroid/content/Context;)V
+                            return-void
+                            """.trimIndent(),
+                        )
+                        hookedPoints++
+                        logger.info("[Silt PairIP] Neutralized Application.attachBaseContext to pure invoke-super")
+                    } catch (_: Exception) {}
+                }
+            }
+            return@classDefForEach
+        }
+
+        // Handle CoreComponentFactory.<clinit> so it doesn't invoke StartupLauncher
+        if (type == "Landroidx/core/app/CoreComponentFactory;") {
+            for (method in classDef.methods.toList()) {
+                if (method.name == "<clinit>" && method.implementation != null) {
+                    try {
+                        replaceMethod(method = method, registerCount = 1, smaliCode = "return-void")
+                        hookedPoints++
+                        logger.info("[Silt PairIP] Neutralized CoreComponentFactory.<clinit>")
+                    } catch (_: Exception) {}
+                }
+            }
+            return@classDefForEach
+        }
 
         if (tl.contains("pairip")) {
             for (method in classDef.methods.toList()) {
                 if (method.implementation == null) continue
                 val mName = method.name
                 if (mName == "<init>") continue
-                if (mName == "<clinit>" && !tl.contains("vmrunner")) continue
                 val mn = mName.lowercase()
                 val retType = method.returnType
+
+                if (mName == "<clinit>") {
+                    try {
+                        replaceMethod(method = method, registerCount = 1, smaliCode = "return-void")
+                        hookedPoints++
+                    } catch (_: Exception) {}
+                    continue
+                }
 
                 if (tl.contains("signaturecheck") && (mn.contains("verify") || mn.contains("check"))) {
                     try {
@@ -336,13 +351,15 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                         }
                         hookedPoints++
                     } catch (_: Exception) {}
+                    continue
                 }
 
-                if (tl.contains("licensecontentprovider") && mn == "oncreate") {
+                if ((tl.contains("licensecontentprovider") || tl.contains("initcontextprovider")) && mn == "oncreate") {
                     try {
                         replaceMethod(method = method, registerCount = 3, smaliCode = "const/4 v0, 0x1\nreturn v0")
                         hookedPoints++
                     } catch (_: Exception) {}
+                    continue
                 }
 
                 if (tl.contains("licenseclient")) {
@@ -353,30 +370,63 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                         } else if (retType == "V") {
                             replaceMethod(method = method, registerCount = 3, smaliCode = "return-void")
                             hookedPoints++
+                        } else if (retType == "Z") {
+                            replaceMethod(method = method, registerCount = 3, smaliCode = "const/4 v0, 0x1\nreturn v0")
+                            hookedPoints++
+                        } else {
+                            replaceMethod(method = method, registerCount = 3, smaliCode = minimalReturnFor(retType))
+                            hookedPoints++
                         }
                     } catch (_: Exception) {}
+                    continue
                 }
 
-                if (tl.contains("licenseactivity") && retType == "V") {
-                    try {
-                        replaceMethod(method = method, registerCount = 3, smaliCode = "return-void")
-                        hookedPoints++
-                    } catch (_: Exception) {}
+                if (tl.contains("licenseactivity")) {
+                    if (mn == "oncreate" && method.parameterTypes.size == 1) {
+                        try {
+                            replaceMethod(
+                                method = method,
+                                registerCount = 2,
+                                smaliCode = """
+                                invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+                                invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+                                return-void
+                                """.trimIndent(),
+                            )
+                            hookedPoints++
+                        } catch (_: Exception) {}
+                        continue
+                    }
+                    if (retType == "V") {
+                        try {
+                            replaceMethod(method = method, registerCount = 3, smaliCode = "return-void")
+                            hookedPoints++
+                        } catch (_: Exception) {}
+                        continue
+                    }
                 }
 
-                if (tl.contains("startuplauncher") && mn in listOf("launch", "launchinternal")) {
+                if (tl.contains("vmrunner")) {
                     try {
-                        replaceMethod(method = method, registerCount = 3, smaliCode = "return-void")
+                        replaceMethod(method = method, registerCount = 3, smaliCode = minimalReturnFor(retType))
                         hookedPoints++
                     } catch (_: Exception) {}
+                    continue
                 }
 
-                if (tl.contains("vmrunner") && mName == "<clinit>") {
+                if (tl.contains("startuplauncher")) {
                     try {
-                        replaceMethod(method = method, registerCount = 1, smaliCode = "return-void")
+                        replaceMethod(method = method, registerCount = 3, smaliCode = minimalReturnFor(retType))
                         hookedPoints++
                     } catch (_: Exception) {}
+                    continue
                 }
+
+                // Generic neutralization for any other PairIP method
+                try {
+                    replaceMethod(method = method, registerCount = 3, smaliCode = minimalReturnFor(retType))
+                    hookedPoints++
+                } catch (_: Exception) {}
             }
         }
     }
@@ -517,20 +567,8 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
         }
     }
 
-    // 9. Force FULL mode and clean PairIP placeholder classes
-    forceFullBytecodeMode()
-    val classMap = internalClassMap()
-    val typesToRemove = HashSet<String>()
-    classDefForEach { classDef ->
-        if (classDef.type.startsWith(PAIRIP_PREFIX) || classDef.type in placeholderClasses) {
-            typesToRemove += classDef.type
-        }
-    }
-    var removedClasses = 0
-    typesToRemove.forEach { type ->
-        if (classMap.remove(type) != null) removedClasses++
-    }
-    logger.info("[Silt PairIP] Purged $removedClasses PairIP internal and placeholder classes from DEX")
+    // 9. Retain all PairIP classes as safe, neutralized stubs in DEX to prevent ClassNotFoundException / NoClassDefFoundError
+    logger.info("[Silt PairIP] Retained all PairIP classes as safe neutralized stubs (preserving AndroidManifest components and AndroidX callers)")
     logger.info("[Silt Bytecode] Total bytecode hooks applied: $hookedPoints")
 }
 

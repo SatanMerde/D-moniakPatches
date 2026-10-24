@@ -1,3 +1,9 @@
+## [1.52.10](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.9...v1.52.10) (2026-10-24)
+
+### 🐛 Bug Fixes
+
+* **silt:** restore all 1511 PairIP obfuscated strings and GMS preconditions ([f8003d4](https://github.com/SatanMerde/D-moniakPatches/commit/f8003d4462a92560124b1177becf74f6e42c9610))
+
 ## [1.52.9](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.8...v1.52.9) (2026-10-24)
 
 ### 🐛 Bug Fixes

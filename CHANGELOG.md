@@ -1,3 +1,9 @@
+## [1.52.12](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.11...v1.52.12) (2026-10-24)
+
+### 🐛 Bug Fixes
+
+* **silt:** patch libmain RTLD_NOW, sanitize DT_NEEDED, and zero init_array ([d8c8951](https://github.com/SatanMerde/D-moniakPatches/commit/d8c89518d03e329f11078e3d6f78a0ab06e99824))
+
 ## [1.52.11](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.10...v1.52.11) (2026-10-24)
 
 ### 🐛 Bug Fixes

@@ -841,7 +841,47 @@ fun ResourcePatchContext.executeSiltNativeDrmNeutralization(logger: Logger) {
 
     val libEntries = listApkEntries("lib/")
 
-    // 1. Neutralize libmain.so RTLD_LAZY -> RTLD_NOW (fixes Android 16 / Xiaomi HyperOS lazy binding crash at 0x14f3b0)
+    // 1. Restore official clean DRM-free libil2cpp.so (eliminates encrypted metadata & methodSpecs crash at 0xc351bc)
+    val il2cppEntries = libEntries.filter { it.endsWith("libil2cpp.so") }
+    for (entry in il2cppEntries) {
+        try {
+            if (entry.contains("arm64")) {
+                val soFile = get(entry, true)
+                val bytes = soFile.readBytes()
+                if (bytes.size == SiltNativeDiffs.PLAY_IL2CPP_ARM64_SIZE) {
+                    val cleanBytes = SiltNativeDiffs.applyDiffPatch(bytes, SiltNativeDiffs.getIl2CppArm64DiffBytes())
+                    soFile.writeBytes(cleanBytes)
+                    logger.info("[Silt Native DRM] Successfully restored official DRM-free libil2cpp.so in $entry (${cleanBytes.size} bytes)")
+                } else if (bytes.size == SiltNativeDiffs.CLEAN_IL2CPP_ARM64_SIZE) {
+                    logger.info("[Silt Native DRM] $entry is already clean official binary (${bytes.size} bytes)")
+                }
+            }
+        } catch (e: Exception) {
+            logger.warning("[Silt Native DRM] Failed to restore $entry: ${e.message}")
+        }
+    }
+
+    // 2. Restore official clean DRM-free libunity.so (eliminates MurmurHash SIGILL at 0xc43a74 and PairIP DT_NEEDED)
+    val unityEntries = libEntries.filter { it.endsWith("libunity.so") }
+    for (entry in unityEntries) {
+        try {
+            if (entry.contains("arm64")) {
+                val soFile = get(entry, true)
+                val bytes = soFile.readBytes()
+                if (bytes.size == SiltNativeDiffs.PLAY_UNITY_ARM64_SIZE) {
+                    val cleanBytes = SiltNativeDiffs.applyDiffPatch(bytes, SiltNativeDiffs.getUnityArm64DiffBytes())
+                    soFile.writeBytes(cleanBytes)
+                    logger.info("[Silt Native DRM] Successfully restored official DRM-free libunity.so in $entry (${cleanBytes.size} bytes)")
+                } else if (bytes.size == SiltNativeDiffs.CLEAN_UNITY_ARM64_SIZE) {
+                    logger.info("[Silt Native DRM] $entry is already clean official binary (${bytes.size} bytes)")
+                }
+            }
+        } catch (e: Exception) {
+            logger.warning("[Silt Native DRM] Failed to restore $entry: ${e.message}")
+        }
+    }
+
+    // 3. Neutralize libmain.so RTLD_LAZY -> RTLD_NOW (fixes Android 16 / Xiaomi HyperOS lazy binding crash at 0x14f3b0)
     val libMainEntries = libEntries.filter { it.endsWith("libmain.so") }
     for (entry in libMainEntries) {
         try {
@@ -857,9 +897,7 @@ fun ResourcePatchContext.executeSiltNativeDrmNeutralization(logger: Logger) {
         }
     }
 
-    // 2. Retain libpairipcore.so in DT_NEEDED: libunity.so and libil2cpp.so require symbol "ExecuteProgram" exported by libpairipcore.so
-
-    // 3. Replace libpairipcore.so with custom dynamic GOT resolver
+    // 4. Remove or neutralize libpairipcore.so (clean binaries do not require libpairipcore.so)
     val pairipCoreEntries = libEntries.filter { it.endsWith("libpairipcore.so") }
     if (pairipCoreEntries.isEmpty()) {
         logger.info("[Silt Native DRM] No libpairipcore.so found in APK (base APK only or clean build). Bytecode patch active.")
@@ -867,21 +905,25 @@ fun ResourcePatchContext.executeSiltNativeDrmNeutralization(logger: Logger) {
         val arm64Fix = getPairipArm64FixBytes()
         for (entry in pairipCoreEntries) {
             try {
-                if (entry.contains("arm64")) {
+                delete(entry)
+                logger.info("[Silt Native DRM] Removed unnecessary DRM library: $entry")
+            } catch (_: Exception) {
+                try {
                     val soFile = get(entry, true)
-                    soFile.writeBytes(arm64Fix)
-                    logger.info("[Silt Native DRM] Replaced arm64 $entry with custom dynamic GOT resolver (${arm64Fix.size} bytes)")
-                } else {
-                    val soFile = get(entry, true)
-                    val bytes = soFile.readBytes()
-                    val modified = stubPairipCoreElf(bytes, logger, entry)
-                    if (modified) {
-                        soFile.writeBytes(bytes)
-                        logger.info("[Silt Native DRM] Successfully neutralized native anti-tamper in $entry")
+                    if (entry.contains("arm64")) {
+                        soFile.writeBytes(arm64Fix)
+                        logger.info("[Silt Native DRM] Replaced arm64 $entry with custom dynamic GOT resolver (${arm64Fix.size} bytes)")
+                    } else {
+                        val bytes = soFile.readBytes()
+                        val modified = stubPairipCoreElf(bytes, logger, entry)
+                        if (modified) {
+                            soFile.writeBytes(bytes)
+                            logger.info("[Silt Native DRM] Successfully neutralized native anti-tamper in $entry")
+                        }
                     }
+                } catch (e: Exception) {
+                    logger.warning("[Silt Native DRM] Failed to patch $entry: ${e.message}")
                 }
-            } catch (e: Exception) {
-                logger.warning("[Silt Native DRM] Failed to patch $entry: ${e.message}")
             }
         }
     }

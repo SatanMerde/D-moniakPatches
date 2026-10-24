@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-24T20:10:42",
-  "description": "## [1.52.15](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.14...v1.52.15) (2026-10-24)\n\n### 🐛 Bug Fixes\n\n* **silt:** restore official clean DRM-free native binaries to eliminate il2cpp_init crash ([40884c0](https://github.com/SatanMerde/D-moniakPatches/commit/40884c00e9125c5ede20afd87c00b74b30f439ca))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.52.15/patches-1.52.15.mpp",
+  "created_at": "2026-10-24T20:52:16",
+  "description": "## [1.52.16-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.15...v1.52.16-dev.1) (2026-10-24)\n\n### 🐛 Bug Fixes\n\n* **silt:** hook PlayAssetDeliveryUnityWrapper and sanitize libfmod to fix loading screen freeze ([d2df367](https://github.com/SatanMerde/D-moniakPatches/commit/d2df3671e6a466f28fa12bcd11c8f1ca8671f944))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.52.16-dev.1/patches-1.52.16-dev.1.mpp",
   "signature_download_url": "",
-  "version": "1.52.15"
+  "version": "1.52.16-dev.1"
 }

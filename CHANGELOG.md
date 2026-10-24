@@ -1,3 +1,9 @@
+## [1.52.16-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.15...v1.52.16-dev.1) (2026-10-24)
+
+### 🐛 Bug Fixes
+
+* **silt:** hook PlayAssetDeliveryUnityWrapper and sanitize libfmod to fix loading screen freeze ([d2df367](https://github.com/SatanMerde/D-moniakPatches/commit/d2df3671e6a466f28fa12bcd11c8f1ca8671f944))
+
 ## [1.52.15](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.14...v1.52.15) (2026-10-24)
 
 ### 🐛 Bug Fixes

@@ -854,40 +854,7 @@ fun ResourcePatchContext.executeSiltNativeDrmNeutralization(logger: Logger) {
         }
     }
 
-    // 2. Sanitize DT_NEEDED libpairipcore.so -> libc.so in libunity.so and libil2cpp.so
-    val otherLibEntries = libEntries.filter { it.endsWith("libunity.so") || it.endsWith("libil2cpp.so") }
-    val targetNeed = "libpairipcore.so\u0000".toByteArray(Charsets.US_ASCII)
-    val replaceNeed = "libc.so\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000".toByteArray(Charsets.US_ASCII)
-    for (entry in otherLibEntries) {
-        try {
-            val soFile = get(entry, true)
-            val bytes = soFile.readBytes()
-            var replaced = false
-            var idx = 0
-            while (idx <= bytes.size - targetNeed.size) {
-                var match = true
-                for (k in targetNeed.indices) {
-                    if (bytes[idx + k] != targetNeed[k]) {
-                        match = false
-                        break
-                    }
-                }
-                if (match) {
-                    System.arraycopy(replaceNeed, 0, bytes, idx, replaceNeed.size)
-                    replaced = true
-                    idx += targetNeed.size
-                } else {
-                    idx++
-                }
-            }
-            if (replaced) {
-                soFile.writeBytes(bytes)
-                logger.info("[Silt Native DRM] Sanitized DT_NEEDED in $entry (libpairipcore.so -> libc.so)")
-            }
-        } catch (e: Exception) {
-            logger.warning("[Silt Native DRM] Failed to sanitize $entry: ${e.message}")
-        }
-    }
+    // 2. Retain libpairipcore.so in DT_NEEDED: libunity.so and libil2cpp.so require symbol "ExecuteProgram" exported by libpairipcore.so
 
     // 3. Stub libpairipcore.so if present
     val pairipCoreEntries = libEntries.filter { it.endsWith("libpairipcore.so") }

@@ -1,3 +1,9 @@
+## [1.52.6](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.5...v1.52.6) (2026-10-24)
+
+### 🐛 Bug Fixes
+
+* **silt:** avoid ConcurrentModificationException when purging PairIP classes ([7789977](https://github.com/SatanMerde/D-moniakPatches/commit/778997737cde26ffdfad6b113660d24fa18ab778))
+
 ## [1.52.5](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.4...v1.52.5) (2026-10-24)
 
 ### 🐛 Bug Fixes

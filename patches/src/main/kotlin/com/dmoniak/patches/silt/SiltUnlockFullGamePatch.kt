@@ -12,7 +12,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val siltUnlockFullGamePatch = bytecodePatch(
     name = "Unlock Full Game - Silt",
-    description = "Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt by neutralizing Google Play App Signing PairIP protection, Play Integrity remediation dialogs, and Google Play Billing.",
+    description = "Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt (v1.0.10). Note: Must be applied to a clean/decrypted base APK (e.g. from APKVision) because raw Google Play binaries contain native ELF PairIP encryption that crashes when re-signed.",
 ) {
     compatibleWith(COMPATIBILITY_SILT)
 

@@ -589,8 +589,9 @@ object Constants {
     val COMPATIBILITY_SILT = Compatibility(
         packageName = "com.snapbreak.silt",
         name = "Silt",
-        description = "Silt: Oceanic Puzzle-Adventure by Snapbreak / Spiral Circus",
-        appIconColor = 0x1A2B3C
+        description = "Silt: Oceanic Puzzle-Adventure by Snapbreak / Spiral Circus (v1.0.10 recommandée sur base déchiffrée - les splits bruts Google Play utilisent le chiffrement binaire PairIP)",
+        appIconColor = 0x1A2B3C,
+        targets = listOf(AppTarget("1.0.10"))
     )
 
     val COMPATIBILITY_MOISES = Compatibility(

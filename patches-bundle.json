@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-24T12:25:42",
-  "description": "## [1.52.9](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.8...v1.52.9) (2026-10-24)\n\n### 🐛 Bug Fixes\n\n* **silt:** restore clean UnityPlayerActivity lifecycle to prevent PairIP reflection NPE ([a830a24](https://github.com/SatanMerde/D-moniakPatches/commit/a830a24b77b1d7ef1caa4e7790842cc23ca7bb0b))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.52.9/patches-1.52.9.mpp",
+  "created_at": "2026-10-24T12:51:12",
+  "description": "## [1.52.10-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.9...v1.52.10-dev.1) (2026-10-24)\n\n### 🐛 Bug Fixes\n\n* **silt:** restore all 1511 PairIP obfuscated strings and GMS preconditions ([f8003d4](https://github.com/SatanMerde/D-moniakPatches/commit/f8003d4462a92560124b1177becf74f6e42c9610))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.52.10-dev.1/patches-1.52.10-dev.1.mpp",
   "signature_download_url": "",
-  "version": "1.52.9"
+  "version": "1.52.10-dev.1"
 }

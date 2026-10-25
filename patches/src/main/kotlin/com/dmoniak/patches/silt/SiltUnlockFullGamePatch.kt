@@ -919,15 +919,20 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                             const/4 v2, 0x0
                             invoke-virtual {v0, v2}, Landroid/app/Application;->getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
                             move-result-object v2
-                            if-eqz v2, :cond_empty
+                            if-eqz v2, :cond_check_merged
                             new-instance v3, Ljava/io/File;
                             const-string v4, "split_UnityDataAssetPack.apk"
                             invoke-direct {v3, v2, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
                             invoke-virtual {v3}, Ljava/io/File;->exists()Z
                             move-result v4
-                            if-eqz v4, :cond_empty
+                            if-eqz v4, :cond_check_merged
                             invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
                             move-result-object v0
+                            return-object v0
+                            :cond_check_merged
+                            invoke-virtual {v0}, Landroid/app/Application;->getPackageResourcePath()Ljava/lang/String;
+                            move-result-object v0
+                            if-eqz v0, :cond_empty
                             return-object v0
                             :cond_empty
                             const-string v0, ""
@@ -1128,13 +1133,24 @@ fun ResourcePatchContext.executeSiltNativeDrmNeutralization(logger: Logger) {
         try {
             if (entry.contains("arm64")) {
                 val soFile = get(entry, true)
-                val bytes = soFile.readBytes()
+                var bytes = soFile.readBytes()
+                var modified = false
                 if (bytes.size == SiltNativeDiffs.PLAY_UNITY_ARM64_SIZE) {
-                    val cleanBytes = SiltNativeDiffs.applyDiffPatch(bytes, SiltNativeDiffs.getUnityArm64DiffBytes())
-                    soFile.writeBytes(cleanBytes)
-                    logger.info("[Silt Native DRM] Successfully restored official DRM-free libunity.so in $entry (${cleanBytes.size} bytes)")
+                    bytes = SiltNativeDiffs.applyDiffPatch(bytes, SiltNativeDiffs.getUnityArm64DiffBytes())
+                    modified = true
+                    logger.info("[Silt Native DRM] Successfully restored official DRM-free libunity.so in $entry (${bytes.size} bytes)")
                 } else if (bytes.size == SiltNativeDiffs.CLEAN_UNITY_ARM64_SIZE) {
                     logger.info("[Silt Native DRM] $entry is already clean official binary (${bytes.size} bytes)")
+                }
+
+                if (bytes.size == SiltNativeDiffs.CLEAN_UNITY_ARM64_SIZE) {
+                    if (patchUnityArm64PadFreeze(bytes, logger)) {
+                        modified = true
+                    }
+                }
+
+                if (modified) {
+                    soFile.writeBytes(bytes)
                 }
             }
         } catch (e: Exception) {
@@ -1434,6 +1450,46 @@ private fun stubPairipCoreElf(data: ByteArray, logger: Logger, entryName: String
         return true
     }
     return false
+}
+
+private fun patchUnityArm64PadFreeze(bytes: ByteArray, logger: Logger): Boolean {
+    var patched = false
+    // 1. Bypass AreCoreAssetPacksReady at 0x22f480 -> mov w0, #1; ret
+    val expected1 = byteArrayOf(0xfe.toByte(), 0x0f, 0x1f.toByte(), 0xf8.toByte(), 0xbf.toByte(), 0x8d.toByte(), 0x0f, 0x94.toByte())
+    if (bytes.size > 0x22f488 && bytes.copyOfRange(0x22f480, 0x22f488).contentEquals(expected1)) {
+        val patch1 = byteArrayOf(0x20, 0x00, 0x80.toByte(), 0x52, 0xc0.toByte(), 0x03, 0x5f, 0xd6.toByte())
+        System.arraycopy(patch1, 0, bytes, 0x22f480, patch1.size)
+        patched = true
+        logger.info("[Silt Native DRM] Patched AreCoreAssetPacksReady at 0x22f480 -> true")
+    }
+
+    // 2. Bypass IsAssetPackReady at 0x612a1c -> mov w0, #1; ret
+    val expected2 = byteArrayOf(0xf4.toByte(), 0x0f, 0x1e, 0xf8.toByte(), 0xf3.toByte(), 0x7b, 0x01, 0xa9.toByte())
+    if (bytes.size > 0x612a24 && bytes.copyOfRange(0x612a1c, 0x612a24).contentEquals(expected2)) {
+        val patch2 = byteArrayOf(0x20, 0x00, 0x80.toByte(), 0x52, 0xc0.toByte(), 0x03, 0x5f, 0xd6.toByte())
+        System.arraycopy(patch2, 0, bytes, 0x612a1c, patch2.size)
+        patched = true
+        logger.info("[Silt Native DRM] Patched IsAssetPackReady at 0x612a1c -> true")
+    }
+
+    // 3. Bypass S_IFDIR directory check in 0x61604c -> nop
+    val expected3 = byteArrayOf(0xa1.toByte(), 0x03, 0x00, 0x54)
+    if (bytes.size > 0x616050 && bytes.copyOfRange(0x61604c, 0x616050).contentEquals(expected3)) {
+        val nop = byteArrayOf(0x1f, 0x20, 0x03, 0xd5.toByte())
+        System.arraycopy(nop, 0, bytes, 0x61604c, nop.size)
+        patched = true
+        logger.info("[Silt Native DRM] Patched S_IFDIR check at 0x61604c -> nop")
+    }
+
+    // 4. Bypass assets/bin/Data check in 0x616058 -> nop
+    val expected4 = byteArrayOf(0xa0.toByte(), 0x03, 0x00, 0x36)
+    if (bytes.size > 0x61605c && bytes.copyOfRange(0x616058, 0x61605c).contentEquals(expected4)) {
+        val nop = byteArrayOf(0x1f, 0x20, 0x03, 0xd5.toByte())
+        System.arraycopy(nop, 0, bytes, 0x616058, nop.size)
+        patched = true
+        logger.info("[Silt Native DRM] Patched assets/bin/Data check at 0x616058 -> nop")
+    }
+    return patched
 }
 
 private fun patchLibMainRtldNow(data: ByteArray, logger: Logger, entryName: String): Boolean {

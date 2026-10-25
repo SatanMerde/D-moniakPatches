@@ -1,3 +1,9 @@
+## [1.52.17](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.16...v1.52.17) (2026-10-25)
+
+### 🐛 Bug Fixes
+
+* **silt:** resolve UnityDataAssetPack via ActivityThread and add OBB/external storage fallbacks ([e8e5c25](https://github.com/SatanMerde/D-moniakPatches/commit/e8e5c253cdd76164da824b116b713b5eace749ed))
+
 ## [1.52.16](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.15...v1.52.16) (2026-10-24)
 
 ### 🐛 Bug Fixes

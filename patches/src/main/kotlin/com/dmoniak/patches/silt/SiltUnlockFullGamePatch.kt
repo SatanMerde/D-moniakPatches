@@ -853,11 +853,12 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                             registerCount = 8,
                             smaliCode = """
                             if-nez p1, :cond_empty
-                            sget-object v0, Lcom/unity3d/player/UnityPlayer;->currentActivity:Landroid/app/Activity;
+                            invoke-static {}, Landroid/app/ActivityThread;->currentApplication()Landroid/app/Application;
+                            move-result-object v0
                             if-nez v0, :cond_has_act
                             goto :cond_empty
                             :cond_has_act
-                            invoke-virtual {v0}, Landroid/app/Activity;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+                            invoke-virtual {v0}, Landroid/app/Application;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
                             move-result-object v1
                             if-nez v1, :cond_has_appinfo
                             goto :cond_empty
@@ -892,9 +893,41 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                             add-int/lit8 v3, v3, 0x1
                             goto :loop_splits_2
                             :cond_check_obb
-                            invoke-virtual {v0}, Landroid/app/Activity;->getPackageResourcePath()Ljava/lang/String;
+                            invoke-virtual {v0}, Landroid/app/Application;->getObbDir()Ljava/io/File;
+                            move-result-object v2
+                            if-eqz v2, :cond_check_files
+                            new-instance v3, Ljava/io/File;
+                            const-string v4, "split_UnityDataAssetPack.apk"
+                            invoke-direct {v3, v2, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+                            invoke-virtual {v3}, Ljava/io/File;->exists()Z
+                            move-result v4
+                            if-eqz v4, :cond_check_obb_file
+                            invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
                             move-result-object v0
-                            if-eqz v0, :cond_empty
+                            return-object v0
+                            :cond_check_obb_file
+                            new-instance v3, Ljava/io/File;
+                            const-string v4, "main.75.com.snapbreak.silt.obb"
+                            invoke-direct {v3, v2, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+                            invoke-virtual {v3}, Ljava/io/File;->exists()Z
+                            move-result v4
+                            if-eqz v4, :cond_check_files
+                            invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+                            move-result-object v0
+                            return-object v0
+                            :cond_check_files
+                            const/4 v2, 0x0
+                            invoke-virtual {v0, v2}, Landroid/app/Application;->getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
+                            move-result-object v2
+                            if-eqz v2, :cond_empty
+                            new-instance v3, Ljava/io/File;
+                            const-string v4, "split_UnityDataAssetPack.apk"
+                            invoke-direct {v3, v2, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+                            invoke-virtual {v3}, Ljava/io/File;->exists()Z
+                            move-result v4
+                            if-eqz v4, :cond_empty
+                            invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+                            move-result-object v0
                             return-object v0
                             :cond_empty
                             const-string v0, ""

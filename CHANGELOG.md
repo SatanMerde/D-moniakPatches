@@ -1,3 +1,9 @@
+## [1.52.20](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.19...v1.52.20) (2026-10-25)
+
+### 🐛 Bug Fixes
+
+* **silt:** resolve PAD getAssetPackPath branch check and hook BillingClient startConnection ([b4a11bb](https://github.com/SatanMerde/D-moniakPatches/commit/b4a11bb925334cb55e9ae9341f456293c475060b))
+
 ## [1.52.19](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.18...v1.52.19) (2026-10-25)
 
 ### 🐛 Bug Fixes

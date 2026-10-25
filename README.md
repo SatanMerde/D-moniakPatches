@@ -37,6 +37,10 @@
   <a href="https://morphe.software/add-source?github=SatanMerde/D-moniakPatches">
     <img src="https://img.shields.io/badge/Morphe_Manager-Ajouter_la_source_%2F_Add_Source-007ACC?style=for-the-badge&logo=android" alt="Add Source to Morphe Manager">
   </a>
+  &nbsp;
+  <a href="https://discord.gg/pw9wNbDzMx">
+    <img src="https://img.shields.io/badge/Discord-Rejoindre_la_Communaut%C3%A9-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord Community">
+  </a>
 </p>
 
 ---

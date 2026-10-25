@@ -1,3 +1,9 @@
+## [1.52.19-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.18...v1.52.19-dev.1) (2026-10-25)
+
+### 🐛 Bug Fixes
+
+* **silt:** extract datapack.unity3d to local VFS mount point and bypass MountDataArchive string checks ([8f9d167](https://github.com/SatanMerde/D-moniakPatches/commit/8f9d16753eee81a1381b58e8fc1412757791d782))
+
 ## [1.52.18](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.17...v1.52.18) (2026-10-25)
 
 ### 🐛 Bug Fixes

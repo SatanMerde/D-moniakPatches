@@ -850,90 +850,127 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                     try {
                         replaceMethod(
                             method = method,
-                            registerCount = 8,
+                            registerCount = 14,
                             smaliCode = """
                             if-nez p1, :cond_empty
                             invoke-static {}, Landroid/app/ActivityThread;->currentApplication()Landroid/app/Application;
                             move-result-object v0
-                            if-nez v0, :cond_has_act
+                            if-nez v0, :cond_has_app
                             goto :cond_empty
-                            :cond_has_act
-                            invoke-virtual {v0}, Landroid/app/Application;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+                            :cond_has_app
+                            invoke-virtual {v0}, Landroid/app/Application;->getFilesDir()Ljava/io/File;
                             move-result-object v1
-                            if-nez v1, :cond_has_appinfo
+                            if-nez v1, :cond_has_filesdir
                             goto :cond_empty
-                            :cond_has_appinfo
-                            iget-object v1, v1, Landroid/content/pm/ApplicationInfo;->splitSourceDirs:[Ljava/lang/String;
-                            if-eqz v1, :cond_check_obb
-                            array-length v2, v1
-                            const/4 v3, 0x0
-                            :loop_splits_1
-                            if-ge v3, v2, :cond_loop_splits_2_init
-                            aget-object v4, v1, v3
-                            if-eqz v4, :cond_next_1
-                            invoke-virtual {v4, p1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+                            :cond_has_filesdir
+                            new-instance v2, Ljava/io/File;
+                            const-string v5, "UnityDataAssetPack"
+                            invoke-direct {v2, v1, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+                            new-instance v3, Ljava/io/File;
+                            const-string v5, "assets/bin/Data"
+                            invoke-direct {v3, v2, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+                            new-instance v4, Ljava/io/File;
+                            const-string v5, "datapack.unity3d"
+                            invoke-direct {v4, v3, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+                            invoke-virtual {v4}, Ljava/io/File;->exists()Z
                             move-result v5
-                            if-eqz v5, :cond_next_1
-                            return-object v4
-                            :cond_next_1
-                            add-int/lit8 v3, v3, 0x1
-                            goto :loop_splits_1
-                            :cond_loop_splits_2_init
-                            const/4 v3, 0x0
-                            :loop_splits_2
-                            if-ge v3, v2, :cond_check_obb
-                            aget-object v4, v1, v3
-                            if-eqz v4, :cond_next_2
-                            const-string v5, "UnityData"
-                            invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-                            move-result v5
-                            if-eqz v5, :cond_next_2
-                            return-object v4
-                            :cond_next_2
-                            add-int/lit8 v3, v3, 0x1
-                            goto :loop_splits_2
-                            :cond_check_obb
-                            invoke-virtual {v0}, Landroid/app/Application;->getObbDir()Ljava/io/File;
-                            move-result-object v2
-                            if-eqz v2, :cond_check_files
-                            new-instance v3, Ljava/io/File;
-                            const-string v4, "split_UnityDataAssetPack.apk"
-                            invoke-direct {v3, v2, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-                            invoke-virtual {v3}, Ljava/io/File;->exists()Z
-                            move-result v4
-                            if-eqz v4, :cond_check_obb_file
-                            invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+                            if-eqz v5, :cond_find_apk
+                            invoke-virtual {v4}, Ljava/io/File;->length()J
+                            move-result-wide v5
+                            const-wide/32 v7, 0x23c34600
+                            cmp-long v5, v5, v7
+                            if-lez v5, :cond_find_apk
+                            invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
                             move-result-object v0
                             return-object v0
-                            :cond_check_obb_file
-                            new-instance v3, Ljava/io/File;
-                            const-string v4, "main.75.com.snapbreak.silt.obb"
-                            invoke-direct {v3, v2, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-                            invoke-virtual {v3}, Ljava/io/File;->exists()Z
-                            move-result v4
-                            if-eqz v4, :cond_check_files
-                            invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-                            move-result-object v0
-                            return-object v0
-                            :cond_check_files
-                            const/4 v2, 0x0
-                            invoke-virtual {v0, v2}, Landroid/app/Application;->getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
-                            move-result-object v2
-                            if-eqz v2, :cond_check_merged
-                            new-instance v3, Ljava/io/File;
-                            const-string v4, "split_UnityDataAssetPack.apk"
-                            invoke-direct {v3, v2, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-                            invoke-virtual {v3}, Ljava/io/File;->exists()Z
-                            move-result v4
-                            if-eqz v4, :cond_check_merged
-                            invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-                            move-result-object v0
-                            return-object v0
-                            :cond_check_merged
+
+                            :cond_find_apk
                             invoke-virtual {v0}, Landroid/app/Application;->getPackageResourcePath()Ljava/lang/String;
+                            move-result-object v5
+
+                            invoke-virtual {v0}, Landroid/app/Application;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+                            move-result-object v6
+                            if-eqz v6, :cond_create_dirs
+                            iget-object v6, v6, Landroid/content/pm/ApplicationInfo;->splitSourceDirs:[Ljava/lang/String;
+                            if-eqz v6, :cond_create_dirs
+                            array-length v7, v6
+                            const/4 v8, 0x0
+                            :loop_splits
+                            if-ge v8, v7, :cond_create_dirs
+                            aget-object v9, v6, v8
+                            if-eqz v9, :cond_next_split
+                            const-string v10, "UnityData"
+                            invoke-virtual {v9, v10}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+                            move-result v10
+                            if-eqz v10, :cond_next_split
+                            move-object v5, v9
+                            goto :cond_create_dirs
+                            :cond_next_split
+                            add-int/lit8 v8, v8, 0x1
+                            goto :loop_splits
+
+                            :cond_create_dirs
+                            if-nez v5, :cond_prepare_dest
+                            goto :cond_return_pack
+
+                            :cond_prepare_dest
+                            invoke-virtual {v3}, Ljava/io/File;->mkdirs()Z
+
+                            new-instance v6, Ljava/io/File;
+                            const-string v7, "datapack.unity3d.tmp"
+                            invoke-direct {v6, v3, v7}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+                            invoke-virtual {v6}, Ljava/io/File;->exists()Z
+                            move-result v7
+                            if-eqz v7, :cond_open_zip
+                            invoke-virtual {v6}, Ljava/io/File;->delete()Z
+
+                            :cond_open_zip
+                            new-instance v7, Ljava/util/zip/ZipFile;
+                            invoke-direct {v7, v5}, Ljava/util/zip/ZipFile;-><init>(Ljava/lang/String;)V
+
+                            const-string v8, "assets/bin/Data/datapack.unity3d"
+                            invoke-virtual {v7, v8}, Ljava/util/zip/ZipFile;->getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;
+                            move-result-object v8
+                            if-nez v8, :cond_has_entry
+                            invoke-virtual {v7}, Ljava/util/zip/ZipFile;->close()V
+                            goto :cond_return_pack
+
+                            :cond_has_entry
+                            invoke-virtual {v7, v8}, Ljava/util/zip/ZipFile;->getInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
+                            move-result-object v8
+
+                            new-instance v9, Ljava/io/FileOutputStream;
+                            invoke-direct {v9, v6}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+
+                            const/high16 v10, 0x40000
+                            new-array v10, v10, [B
+
+                            :loop_copy
+                            invoke-virtual {v8, v10}, Ljava/io/InputStream;->read([B)I
+                            move-result v11
+                            if-lez v11, :cond_done_copy
+                            const/4 v12, 0x0
+                            invoke-virtual {v9, v10, v12, v11}, Ljava/io/OutputStream;->write([BII)V
+                            goto :loop_copy
+
+                            :cond_done_copy
+                            invoke-virtual {v9}, Ljava/io/OutputStream;->flush()V
+                            invoke-virtual {v9}, Ljava/io/OutputStream;->close()V
+                            invoke-virtual {v8}, Ljava/io/InputStream;->close()V
+                            invoke-virtual {v7}, Ljava/util/zip/ZipFile;->close()V
+
+                            invoke-virtual {v6, v4}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
+
+                            :cond_return_pack
+                            invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
                             move-result-object v0
-                            if-eqz v0, :cond_empty
                             return-object v0
+
                             :cond_empty
                             const-string v0, ""
                             return-object v0
@@ -1488,6 +1525,15 @@ private fun patchUnityArm64PadFreeze(bytes: ByteArray, logger: Logger): Boolean 
         System.arraycopy(nop, 0, bytes, 0x616058, nop.size)
         patched = true
         logger.info("[Silt Native DRM] Patched assets/bin/Data check at 0x616058 -> nop")
+    }
+
+    // 5. Bypass "UnityDataAssetPack" string check in MountDataArchive at 0x5fe0e0 -> nop
+    val expected5 = byteArrayOf(0x20, 0x07, 0x00, 0x54)
+    if (bytes.size > 0x5fe0e4 && bytes.copyOfRange(0x5fe0e0, 0x5fe0e4).contentEquals(expected5)) {
+        val nop = byteArrayOf(0x1f, 0x20, 0x03, 0xd5.toByte())
+        System.arraycopy(nop, 0, bytes, 0x5fe0e0, nop.size)
+        patched = true
+        logger.info("[Silt Native DRM] Patched MountDataArchive string check at 0x5fe0e0 -> nop")
     }
     return patched
 }

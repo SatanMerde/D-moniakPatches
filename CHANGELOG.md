@@ -1,3 +1,9 @@
+## [1.52.18-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.17...v1.52.18-dev.1) (2026-10-25)
+
+### 🐛 Bug Fixes
+
+* **silt:** resolve PAD loading screen freeze for merged APK bundles in bytecode and native engine ([7054125](https://github.com/SatanMerde/D-moniakPatches/commit/7054125b516b62ceb3c3b28f33f144ab6e99de23))
+
 ## [1.52.17](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.16...v1.52.17) (2026-10-25)
 
 ### 🐛 Bug Fixes

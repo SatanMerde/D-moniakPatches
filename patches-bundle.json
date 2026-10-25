@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-24T20:52:25",
-  "description": "## [1.52.16](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.15...v1.52.16) (2026-10-24)\n\n### 🐛 Bug Fixes\n\n* **silt:** hook PlayAssetDeliveryUnityWrapper and sanitize libfmod to fix loading screen freeze ([d2df367](https://github.com/SatanMerde/D-moniakPatches/commit/d2df3671e6a466f28fa12bcd11c8f1ca8671f944))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.52.16/patches-1.52.16.mpp",
+  "created_at": "2026-10-25T07:06:38",
+  "description": "## [1.52.17-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.16...v1.52.17-dev.1) (2026-10-25)\n\n### 🐛 Bug Fixes\n\n* **silt:** resolve UnityDataAssetPack via ActivityThread and add OBB/external storage fallbacks ([e8e5c25](https://github.com/SatanMerde/D-moniakPatches/commit/e8e5c253cdd76164da824b116b713b5eace749ed))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.52.17-dev.1/patches-1.52.17-dev.1.mpp",
   "signature_download_url": "",
-  "version": "1.52.16"
+  "version": "1.52.17-dev.1"
 }

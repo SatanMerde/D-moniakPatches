@@ -602,7 +602,7 @@ object Constants {
     val COMPATIBILITY_MOISES = Compatibility(
         packageName = "ai.moises",
         name = "Moises",
-        description = "Moises: The Musician's App by Moises Systems Inc. (v2.72.0 recommandée - versions 2.73+ protégées par Google Play PairIP)",
+        description = "Moises: The Musician's App by Moises Systems Inc. (v2.72.0 recommended - v2.73+ protected by Google Play PairIP)",
         appIconColor = 0x6C5CE7,
         targets = listOf(AppTarget("2.72.0"))
     )

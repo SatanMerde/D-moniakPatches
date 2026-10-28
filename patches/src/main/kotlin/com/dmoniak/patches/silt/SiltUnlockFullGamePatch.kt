@@ -852,19 +852,15 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                             method = method,
                             registerCount = 14,
                             smaliCode = """
-                            if-nez p1, :cond_empty
+                            if-eqz p1, :cond_empty
                             invoke-static {}, Landroid/app/ActivityThread;->currentApplication()Landroid/app/Application;
                             move-result-object v0
-                            if-nez v0, :cond_has_app
-                            goto :cond_empty
+                            if-eqz v0, :cond_empty
 
-                            :cond_has_app
                             invoke-virtual {v0}, Landroid/app/Application;->getFilesDir()Ljava/io/File;
                             move-result-object v1
-                            if-nez v1, :cond_has_filesdir
-                            goto :cond_empty
+                            if-eqz v1, :cond_empty
 
-                            :cond_has_filesdir
                             new-instance v2, Ljava/io/File;
                             const-string v5, "UnityDataAssetPack"
                             invoke-direct {v2, v1, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
@@ -880,16 +876,19 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                             invoke-virtual {v4}, Ljava/io/File;->exists()Z
                             move-result v5
                             if-eqz v5, :cond_find_apk
+
                             invoke-virtual {v4}, Ljava/io/File;->length()J
                             move-result-wide v5
                             const-wide/32 v7, 0x23c34600
                             cmp-long v5, v5, v7
                             if-lez v5, :cond_find_apk
+
                             invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
                             move-result-object v0
                             return-object v0
 
                             :cond_find_apk
+                            :try_start
                             invoke-virtual {v0}, Landroid/app/Application;->getPackageResourcePath()Ljava/lang/String;
                             move-result-object v5
 
@@ -900,6 +899,7 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                             if-eqz v6, :cond_create_dirs
                             array-length v7, v6
                             const/4 v8, 0x0
+
                             :loop_splits
                             if-ge v8, v7, :cond_create_dirs
                             aget-object v9, v6, v8
@@ -907,15 +907,16 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                             const-string v10, "UnityData"
                             invoke-virtual {v9, v10}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
                             move-result v10
-                            if-eqz v10, :cond_next_split
-                            move-object v5, v9
-                            goto :cond_create_dirs
+                            if-eqz v10, :cond_found_split
                             :cond_next_split
                             add-int/lit8 v8, v8, 0x1
                             goto :loop_splits
 
+                            :cond_found_split
+                            move-object v5, v9
+
                             :cond_create_dirs
-                            if-nez v5, :cond_prepare_dest
+                            if-eqz v5, :cond_prepare_dest
                             goto :cond_return_pack
 
                             :cond_prepare_dest
@@ -926,7 +927,10 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                             invoke-direct {v6, v3, v7}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
                             invoke-virtual {v6}, Ljava/io/File;->exists()Z
                             move-result v7
-                            if-eqz v7, :cond_open_zip
+                            if-eqz v7, :cond_delete_tmp
+                            goto :cond_open_zip
+
+                            :cond_delete_tmp
                             invoke-virtual {v6}, Ljava/io/File;->delete()Z
 
                             :cond_open_zip
@@ -936,11 +940,7 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                             const-string v8, "assets/bin/Data/datapack.unity3d"
                             invoke-virtual {v7, v8}, Ljava/util/zip/ZipFile;->getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;
                             move-result-object v8
-                            if-nez v8, :cond_has_entry
-                            invoke-virtual {v7}, Ljava/util/zip/ZipFile;->close()V
-                            goto :cond_return_pack
-
-                            :cond_has_entry
+                            if-eqz v8, :cond_close_zip
                             invoke-virtual {v7, v8}, Ljava/util/zip/ZipFile;->getInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
                             move-result-object v8
 
@@ -965,6 +965,12 @@ fun BytecodePatchContext.executeSiltUnlockFullGameBytecodeLogic(logger: Logger) 
                             invoke-virtual {v7}, Ljava/util/zip/ZipFile;->close()V
 
                             invoke-virtual {v6, v4}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
+                            goto :cond_return_pack
+
+                            :cond_close_zip
+                            invoke-virtual {v7}, Ljava/util/zip/ZipFile;->close()V
+                            :try_end
+                            .catch Ljava/lang/Throwable; {:try_start .. :try_end} :cond_return_pack
 
                             :cond_return_pack
                             invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;

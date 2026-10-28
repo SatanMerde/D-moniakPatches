@@ -720,9 +720,16 @@
           "signatures": null,
           "targets": [
             {
-              "version": null,
+              "version": "26.43.32",
               "versionCodes": null,
-              "isExperimental": false,
+              "isExperimental": true,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "14.30.7",
+              "versionCodes": null,
+              "isExperimental": true,
               "minSdk": null,
               "description": null
             }
@@ -747,7 +754,7 @@
           "signatures": null,
           "targets": [
             {
-              "version": null,
+              "version": "16.63.0-261008",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -1503,7 +1510,7 @@
           "signatures": null,
           "targets": [
             {
-              "version": null,
+              "version": "16.63.0-261008",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -11445,9 +11452,16 @@
           "signatures": null,
           "targets": [
             {
-              "version": null,
+              "version": "26.43.32",
               "versionCodes": null,
-              "isExperimental": false,
+              "isExperimental": true,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "14.30.7",
+              "versionCodes": null,
+              "isExperimental": true,
               "minSdk": null,
               "description": null
             }

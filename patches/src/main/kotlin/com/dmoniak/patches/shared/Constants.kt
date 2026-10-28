@@ -130,7 +130,8 @@ object Constants {
         packageName = "com.shazam.android",
         name = "Shazam",
         description = "Shazam: Identify & Discover Music by Apple Inc. / Shazam",
-        appIconColor = 0x0088FF
+        appIconColor = 0x0088FF,
+        targets = listOf(AppTarget("16.63.0-261008"))
     )
 
     val COMPATIBILITY_STRAVA = Compatibility(
@@ -144,7 +145,11 @@ object Constants {
         packageName = "com.truecaller",
         name = "Truecaller",
         description = "Truecaller: Caller ID & Block Spam by Truecaller",
-        appIconColor = 0x0087FF
+        appIconColor = 0x0087FF,
+        targets = listOf(
+            AppTarget("26.43.32", isExperimental = true),
+            AppTarget("14.30.7", isExperimental = true)
+        )
     )
 
     val COMPATIBILITY_MX_PLAYER = Compatibility(

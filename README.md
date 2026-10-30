@@ -13,16 +13,16 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Patches-462-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-465-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-tested--functional-patches">
     <img src="https://img.shields.io/badge/Functional-21-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-experimental-patches-vibe-coded">
-    <img src="https://img.shields.io/badge/Experimental-441-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Experimental-444-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Supported_Apps-96-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Supported_Apps-98-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -46,7 +46,7 @@
 
 ### 📖 Project Overview
 
-**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **462 patches** for **96 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware / emulator: Hungry Shark World, Movix, Moises, FCTV33, BandLab, AllTrails, Fossify Phone) and **experimental patches** (currently under development, vibe-coded).
+**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **465 patches** for **98 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware / emulator: Hungry Shark World, Movix, Moises, FCTV33, BandLab, AllTrails, Fossify Phone) and **experimental patches** (currently under development, vibe-coded).
 
 ---
 
@@ -87,7 +87,7 @@ Experiencing an issue or want an experimental patch to actually work in the next
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.52.21](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.52.21)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**462 total patches** (21 tested & functional • 441 experimental)
+> **[v1.52.21](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.52.21)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**465 total patches** (21 tested & functional • 444 experimental)
 
 ---
 
@@ -443,6 +443,40 @@ Experiencing an issue or want an experimental patch to actually work in the next
 |----------|----------------|
 | [Block Ads & Video Interruptions - Crossy Road (Experimental)](#block-ads-video-interruptions-crossy-road-experimental) | ⚠️ [Experimental / Untested] Strips post-death video commercials, prize machine ads, and banner popups in Crossy Road. |
 | [Free Shopping & Billing Bypass - Crossy Road (Experimental)](#free-shopping-billing-bypass-crossy-road-experimental) | ⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Crossy Road to bypass in-app purchase verification, enabling free shopping for character figurines and coin packs. |
+
+</details>
+
+<details open>
+<summary>📦 Cryptomator&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 🧪&nbsp;2.1.0 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Allow Screenshots & Screen Recording - Cryptomator (Experimental)](#allow-screenshots-screen-recording-cryptomator-experimental) | ⚠️ [Experimental / Untested] Disables Android FLAG_SECURE window protection in Cryptomator, allowing screenshots, screen recordings, and vault previews in the recent tasks overview. |
+| [Pure AMOLED Dark Theme - Cryptomator (Experimental)](#pure-amoled-dark-theme-cryptomator-experimental) | ⚠️ [Experimental / Untested] Enforces dark mode and pure pitch black #000000 surfaces across Cryptomator's vault explorer, settings, and dialogs for maximum OLED battery savings. |
+| [Unlock Full Version & Permanent License - Cryptomator (Experimental)](#unlock-full-version-permanent-license-cryptomator-experimental) | ⚠️ [Experimental / Untested] Unlocks full version capabilities, bypasses 30-day trial expiration, suppresses license check warnings, and unlocks full read/write vault management across all Cryptomator variants. |
+
+</details>
+
+<details open>
+<summary>📦 Cryptomator (Freemium)&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 🧪&nbsp;2.1.0 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Allow Screenshots & Screen Recording - Cryptomator (Experimental)](#allow-screenshots-screen-recording-cryptomator-experimental) | ⚠️ [Experimental / Untested] Disables Android FLAG_SECURE window protection in Cryptomator, allowing screenshots, screen recordings, and vault previews in the recent tasks overview. |
+| [Pure AMOLED Dark Theme - Cryptomator (Experimental)](#pure-amoled-dark-theme-cryptomator-experimental) | ⚠️ [Experimental / Untested] Enforces dark mode and pure pitch black #000000 surfaces across Cryptomator's vault explorer, settings, and dialogs for maximum OLED battery savings. |
+| [Unlock Full Version & Permanent License - Cryptomator (Experimental)](#unlock-full-version-permanent-license-cryptomator-experimental) | ⚠️ [Experimental / Untested] Unlocks full version capabilities, bypasses 30-day trial expiration, suppresses license check warnings, and unlocks full read/write vault management across all Cryptomator variants. |
 
 </details>
 

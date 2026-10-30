@@ -111,600 +111,6 @@
       "options": []
     },
     {
-      "name": "AMOLED Black & Declutter - Google Photos (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into gallery view and hides Google One subscription paywalls and cloud storage upgrade prompts.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.apps.photos",
-          "name": "Google Photos",
-          "description": "Google Photos: Photo & Video Storage by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#EA4335",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Black & Declutter - Proton Drive (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Proton Drive file vaults and hides storage quota warning banners and Proton Unlimited upgrade prompts.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "me.proton.android.drive",
-          "name": "Proton Drive",
-          "description": "Proton Drive: Cloud Storage by Proton AG",
-          "apkFileType": null,
-          "appIconColor": "#6D4AFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Black & Declutter - Proton Pass (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "proton.android.pass",
-          "name": "Proton Pass",
-          "description": "Proton Pass: Password Manager by Proton AG",
-          "apkFileType": null,
-          "appIconColor": "#6D4AFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Black Navigation - Google Maps (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into navigation mode and map exploration screens to minimize battery consumption and glare.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.apps.maps",
-          "name": "Google Maps",
-          "description": "Google Maps: Navigate & Explore by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#34A853",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Black Theme - Proton Mail (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "ch.protonmail.android",
-          "name": "Proton Mail",
-          "description": "Proton Mail: Encrypted Email by Proton AG",
-          "apkFileType": null,
-          "appIconColor": "#6D4AFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Black Theme - Proton VPN (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "ch.protonvpn.android",
-          "name": "Proton VPN",
-          "description": "Proton VPN: Fast & Secure by Proton AG",
-          "apkFileType": null,
-          "appIconColor": "#6D4AFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Black Theme - Tuta Mail (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Tuta Mail's inbox, message reading view, calendar, and contacts for maximum battery savings on AMOLED displays.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "de.tutao.tutanota",
-          "name": "Tuta Mail",
-          "description": "Tuta Mail: Secure & Private Email by Tutao GmbH",
-          "apkFileType": null,
-          "appIconColor": "#C70000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme & Declutter - Canva (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Canva design workspace and dashboard, and hides Canva Pro trial banners and upgrade reminders.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.canva.editor",
-          "name": "Canva",
-          "description": "Canva: Design, Photo & Video by Canva",
-          "apkFileType": null,
-          "appIconColor": "#00C4CC",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme & Declutter - ChatGPT (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Injects pure pitch black (#000000) for OLED screens in ChatGPT conversations and hides 'Upgrade to ChatGPT Plus' marketing banners.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.openai.chatgpt",
-          "name": "ChatGPT",
-          "description": "ChatGPT: The official AI assistant by OpenAI",
-          "apkFileType": null,
-          "appIconColor": "#10A37F",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme & Declutter - Google Drive (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Forces pure OLED pitch black (#000000) across Google Drive file lists, folder navigation, status bars, and navigation bars, eliminating dark gray tint for maximum OLED power savings.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.apps.docs",
-          "name": "Google Drive",
-          "description": "Google Drive: Free Cloud Storage by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#1FA463",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme & Declutter - Google Gemini (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Injects true OLED pitch black (#000000) across Gemini chat surfaces and removes 'Try Gemini Advanced' upgrade suggestions.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.apps.bard",
-          "name": "Google Gemini",
-          "description": "Google Gemini: Your AI Assistant by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#4285F4",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme & Declutter - MEGA (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into MEGA cloud file browser, transfer queue, and settings, and hides Pro upgrade promotion banners.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "mega.privacy.android.app",
-          "name": "MEGA",
-          "description": "MEGA: Cloud Storage & Chat by Mega Ltd",
-          "apkFileType": null,
-          "appIconColor": "#D9272E",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme & Declutter - Perplexity (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Replaces gray backgrounds with pure OLED black (#000000) in Perplexity search threads and removes 'Try Pro' upgrade banners.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "ai.perplexity.app.android",
-          "name": "Perplexity",
-          "description": "Perplexity: Where Knowledge Begins by Perplexity AI",
-          "apkFileType": null,
-          "appIconColor": "#20B2AA",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme & Declutter - Snapchat (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Snapchat chat screens and hides sponsored Discover tiles and intrusive Spotlight ads.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.snapchat.android",
-          "name": "Snapchat",
-          "description": "Snapchat by Snap Inc",
-          "apkFileType": null,
-          "appIconColor": "#FFFC00",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme & Hide Donation Nags - Signal (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Signal chat threads and settings, and suppresses donor badges and 'Support Signal' donation reminders.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "org.thoughtcrime.securesms",
-          "name": "Signal",
-          "description": "Signal Private Messenger by Signal Foundation",
-          "apkFileType": null,
-          "appIconColor": "#3A76F0",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme & Privacy - Undercover (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Enforces dark mode and strips analytics telemetry (Firebase Analytics, App Measurement) in Undercover.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.yanstarstudio.joss.undercover",
-          "name": "Undercover",
-          "description": "Undercover®: Word Party Game by Yanstar Studio OU",
-          "apkFileType": null,
-          "appIconColor": "#2A2E3D",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme - Claude AI (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Forces deep AMOLED pure black theme for Claude AI, optimizing contrast and reducing battery consumption on OLED displays.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.anthropic.claude",
-          "name": "Claude",
-          "description": "Claude: AI Assistant by Anthropic",
-          "apkFileType": null,
-          "appIconColor": "#D97706",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme - Euria AI (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Forces deep AMOLED pure black background in Euria AI dark mode, enhancing battery efficiency and contrast on OLED screens.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.infomaniak.euria",
-          "name": "Euria",
-          "description": "Euria: Sovereign AI Assistant by Infomaniak",
-          "apkFileType": null,
-          "appIconColor": "#4F46E5",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme - Nextcloud (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Replaces dark gray theme with pure pitch black (#000000) for OLED screens in Nextcloud file explorer, uploads monitor, and media gallery.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "org.nextcloud.client",
-          "name": "Nextcloud",
-          "description": "Nextcloud: Open source file sync and share by Nextcloud",
-          "apkFileType": null,
-          "appIconColor": "#0082C9",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme - Session (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Injects true OLED pitch black (#000000) into Session chat threads, community rooms, and message views to maximize battery savings.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "network.loki.messenger",
-          "name": "Session",
-          "description": "Session: Private Messenger by Oxen Privacy Tech / The Session Foundation",
-          "apkFileType": null,
-          "appIconColor": "#00E599",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Dark Theme - SimpleX (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Replaces dark grey backgrounds with pure OLED pitch black (#000000) across SimpleX Chat conversation screens and network status monitors.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "chat.simplex.app",
-          "name": "SimpleX Chat",
-          "description": "SimpleX Chat: Private Messenger with No User IDs by SimpleX Chat Ltd",
-          "apkFileType": null,
-          "appIconColor": "#7E3FF2",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED Pure Black Theme - Bitwarden (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Forces deep AMOLED pure black backgrounds across Bitwarden's vault interface, reducing OLED power draw and eye strain.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.x8bit.bitwarden",
-          "name": "Bitwarden",
-          "description": "Bitwarden: Password Manager & Authenticator by Bitwarden Inc.",
-          "apkFileType": null,
-          "appIconColor": "#175DDC",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
       "name": "Ad-Free & Clean Dialer - Truecaller (Experimental)",
       "description": "⚠️ [Experimental / Untested] Removes intrusive post-call ads, banner ads inside the call history and dialer tabs, and promotional Gold upsells by neutralizing ad SDK calls.",
       "default": true,
@@ -1252,6 +658,50 @@
       "options": []
     },
     {
+      "name": "Allow Screenshots & Screen Recording - Cryptomator (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Disables Android FLAG_SECURE window protection in Cryptomator, allowing screenshots, screen recordings, and vault previews in the recent tasks overview.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.cryptomator",
+          "name": "Cryptomator",
+          "description": "Cryptomator: Client-side encryption for your cloud vaults",
+          "apkFileType": null,
+          "appIconColor": "#247477",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "2.1.0",
+              "versionCodes": null,
+              "isExperimental": true,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "packageName": "org.cryptomator.freemium",
+          "name": "Cryptomator (Freemium)",
+          "description": "Cryptomator: Client-side encryption for your cloud vaults (Google Play Freemium)",
+          "apkFileType": null,
+          "appIconColor": "#247477",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "2.1.0",
+              "versionCodes": null,
+              "isExperimental": true,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Allow Screenshots & Screen Recording - Proton Pass (Experimental)",
       "description": "⚠️ [Experimental / Untested] Bypasses Android WindowManager FLAG_SECURE restrictions in Proton Pass, allowing you to take screenshots or record screens of recovery keys, 2FA QR codes, and credentials.",
       "default": true,
@@ -1534,6 +984,600 @@
           "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
           "apkFileType": null,
           "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black & Declutter - Google Photos (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into gallery view and hides Google One subscription paywalls and cloud storage upgrade prompts.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.photos",
+          "name": "Google Photos",
+          "description": "Google Photos: Photo & Video Storage by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#EA4335",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black & Declutter - Proton Drive (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Proton Drive file vaults and hides storage quota warning banners and Proton Unlimited upgrade prompts.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "me.proton.android.drive",
+          "name": "Proton Drive",
+          "description": "Proton Drive: Cloud Storage by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black & Declutter - Proton Pass (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "proton.android.pass",
+          "name": "Proton Pass",
+          "description": "Proton Pass: Password Manager by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black Navigation - Google Maps (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into navigation mode and map exploration screens to minimize battery consumption and glare.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.maps",
+          "name": "Google Maps",
+          "description": "Google Maps: Navigate & Explore by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#34A853",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black Theme - Proton Mail (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonmail.android",
+          "name": "Proton Mail",
+          "description": "Proton Mail: Encrypted Email by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black Theme - Proton VPN (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ch.protonvpn.android",
+          "name": "Proton VPN",
+          "description": "Proton VPN: Fast & Secure by Proton AG",
+          "apkFileType": null,
+          "appIconColor": "#6D4AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Black Theme - Tuta Mail (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Tuta Mail's inbox, message reading view, calendar, and contacts for maximum battery savings on AMOLED displays.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "de.tutao.tutanota",
+          "name": "Tuta Mail",
+          "description": "Tuta Mail: Secure & Private Email by Tutao GmbH",
+          "apkFileType": null,
+          "appIconColor": "#C70000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme - Claude AI (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Forces deep AMOLED pure black theme for Claude AI, optimizing contrast and reducing battery consumption on OLED displays.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.anthropic.claude",
+          "name": "Claude",
+          "description": "Claude: AI Assistant by Anthropic",
+          "apkFileType": null,
+          "appIconColor": "#D97706",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme - Euria AI (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Forces deep AMOLED pure black background in Euria AI dark mode, enhancing battery efficiency and contrast on OLED screens.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.infomaniak.euria",
+          "name": "Euria",
+          "description": "Euria: Sovereign AI Assistant by Infomaniak",
+          "apkFileType": null,
+          "appIconColor": "#4F46E5",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme - Nextcloud (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Replaces dark gray theme with pure pitch black (#000000) for OLED screens in Nextcloud file explorer, uploads monitor, and media gallery.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.nextcloud.client",
+          "name": "Nextcloud",
+          "description": "Nextcloud: Open source file sync and share by Nextcloud",
+          "apkFileType": null,
+          "appIconColor": "#0082C9",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme - Session (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Injects true OLED pitch black (#000000) into Session chat threads, community rooms, and message views to maximize battery savings.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "network.loki.messenger",
+          "name": "Session",
+          "description": "Session: Private Messenger by Oxen Privacy Tech / The Session Foundation",
+          "apkFileType": null,
+          "appIconColor": "#00E599",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme - SimpleX (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Replaces dark grey backgrounds with pure OLED pitch black (#000000) across SimpleX Chat conversation screens and network status monitors.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "chat.simplex.app",
+          "name": "SimpleX Chat",
+          "description": "SimpleX Chat: Private Messenger with No User IDs by SimpleX Chat Ltd",
+          "apkFileType": null,
+          "appIconColor": "#7E3FF2",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Declutter - Canva (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Canva design workspace and dashboard, and hides Canva Pro trial banners and upgrade reminders.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.canva.editor",
+          "name": "Canva",
+          "description": "Canva: Design, Photo & Video by Canva",
+          "apkFileType": null,
+          "appIconColor": "#00C4CC",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Declutter - ChatGPT (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Injects pure pitch black (#000000) for OLED screens in ChatGPT conversations and hides 'Upgrade to ChatGPT Plus' marketing banners.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.openai.chatgpt",
+          "name": "ChatGPT",
+          "description": "ChatGPT: The official AI assistant by OpenAI",
+          "apkFileType": null,
+          "appIconColor": "#10A37F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Declutter - Google Drive (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Forces pure OLED pitch black (#000000) across Google Drive file lists, folder navigation, status bars, and navigation bars, eliminating dark gray tint for maximum OLED power savings.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.docs",
+          "name": "Google Drive",
+          "description": "Google Drive: Free Cloud Storage by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#1FA463",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Declutter - Google Gemini (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Injects true OLED pitch black (#000000) across Gemini chat surfaces and removes 'Try Gemini Advanced' upgrade suggestions.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.bard",
+          "name": "Google Gemini",
+          "description": "Google Gemini: Your AI Assistant by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#4285F4",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Declutter - MEGA (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into MEGA cloud file browser, transfer queue, and settings, and hides Pro upgrade promotion banners.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "mega.privacy.android.app",
+          "name": "MEGA",
+          "description": "MEGA: Cloud Storage & Chat by Mega Ltd",
+          "apkFileType": null,
+          "appIconColor": "#D9272E",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Declutter - Perplexity (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Replaces gray backgrounds with pure OLED black (#000000) in Perplexity search threads and removes 'Try Pro' upgrade banners.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ai.perplexity.app.android",
+          "name": "Perplexity",
+          "description": "Perplexity: Where Knowledge Begins by Perplexity AI",
+          "apkFileType": null,
+          "appIconColor": "#20B2AA",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Declutter - Snapchat (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Snapchat chat screens and hides sponsored Discover tiles and intrusive Spotlight ads.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.snapchat.android",
+          "name": "Snapchat",
+          "description": "Snapchat by Snap Inc",
+          "apkFileType": null,
+          "appIconColor": "#FFFC00",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Hide Donation Nags - Signal (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into Signal chat threads and settings, and suppresses donor badges and 'Support Signal' donation reminders.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.thoughtcrime.securesms",
+          "name": "Signal",
+          "description": "Signal Private Messenger by Signal Foundation",
+          "apkFileType": null,
+          "appIconColor": "#3A76F0",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Dark Theme & Privacy - Undercover (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Enforces dark mode and strips analytics telemetry (Firebase Analytics, App Measurement) in Undercover.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.yanstarstudio.joss.undercover",
+          "name": "Undercover",
+          "description": "Undercover®: Word Party Game by Yanstar Studio OU",
+          "apkFileType": null,
+          "appIconColor": "#2A2E3D",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "AMOLED Pure Black Theme - Bitwarden (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Forces deep AMOLED pure black backgrounds across Bitwarden's vault interface, reducing OLED power draw and eye strain.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.x8bit.bitwarden",
+          "name": "Bitwarden",
+          "description": "Bitwarden: Password Manager & Authenticator by Bitwarden Inc.",
+          "apkFileType": null,
+          "appIconColor": "#175DDC",
           "signatures": null,
           "targets": [
             {
@@ -2648,6 +2692,33 @@
       "options": []
     },
     {
+      "name": "Bypass image region restrictions - YouTube (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Adds an option to use a different host for user avatar and channel images and can fix missing images that are blocked in some countries.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Bypass Input Length & Upload Limits - Claude AI (Experimental)",
       "description": "⚠️ [Experimental / Untested] Removes client-side message input text length truncation and allows pasting massive codebases or prompts without mobile UI lag in Claude AI.",
       "default": true,
@@ -2660,6 +2731,33 @@
           "description": "Claude: AI Assistant by Anthropic",
           "apkFileType": null,
           "appIconColor": "#D97706",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Bypass link redirects - YouTube (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Adds an option to bypass redirects and open the original link directly.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
           "signatures": null,
           "targets": [
             {
@@ -3053,60 +3151,6 @@
       "options": []
     },
     {
-      "name": "Bypass image region restrictions - YouTube (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Adds an option to use a different host for user avatar and channel images and can fix missing images that are blocked in some countries.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.youtube",
-          "name": "YouTube",
-          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#FF0000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Bypass link redirects - YouTube (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Adds an option to bypass redirects and open the original link directly.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.youtube",
-          "name": "YouTube",
-          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#FF0000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
       "name": "Captions - YouTube (Experimental)",
       "description": "⚠️ [Experimental / Untested] Adds an option to disable captions from being automatically enabled or to set caption cookies.",
       "default": true,
@@ -3458,33 +3502,6 @@
       "options": []
     },
     {
-      "name": "Copy Video URL With Timestamp - YouTube (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Adds a convenient option to copy the current video URL with the exact playback timestamp (?t=...) directly to the clipboard.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.youtube",
-          "name": "YouTube",
-          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#FF0000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
       "name": "Copy comment - Instagram (Experimental)",
       "description": "⚠️ [Experimental / Untested] Adds a button to copy comments on posts and reels.",
       "default": true,
@@ -3539,8 +3556,8 @@
       "options": []
     },
     {
-      "name": "Custom Playback Speed & High-Res Audio - YouTube (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Unlocks speed slider up to 3.0x/5.0x and forces highest audio bitrate (Opus 160kbps / 256kbps) and default highest video resolution (1080p/1440p/4K) on Wi-Fi and Cellular.",
+      "name": "Copy Video URL With Timestamp - YouTube (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Adds a convenient option to copy the current video URL with the exact playback timestamp (?t=...) directly to the clipboard.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -3632,6 +3649,33 @@
           "description": "Reddit: The front page of the internet by reddit Inc.",
           "apkFileType": null,
           "appIconColor": "#FF4500",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Custom Playback Speed & High-Res Audio - YouTube (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Unlocks speed slider up to 3.0x/5.0x and forces highest audio bitrate (Opus 160kbps / 256kbps) and default highest video resolution (1080p/1440p/4K) on Wi-Fi and Cellular.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
           "signatures": null,
           "targets": [
             {
@@ -4025,357 +4069,6 @@
       "options": []
     },
     {
-      "name": "Disable DRC Audio (Dynamic Range Compression) - YouTube (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Disables dynamic range compression (DRC) in YouTube's audio engine, restoring original uncompressed audio dynamics, punchy bass, and full volume without artificial normalization.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.youtube",
-          "name": "YouTube",
-          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#FF0000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Disable DRC audio - YouTube (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Adds an option to disable DRC (Dynamic Range Compression) audio.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.youtube",
-          "name": "YouTube",
-          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#FF0000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Disable Double Tap To Like - Instagram (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Disables accidental double-tap gestures that trigger likes on feed photos, videos, and reels while scrolling or zooming.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.instagram.android",
-          "name": "Instagram",
-          "description": "Instagram by Meta Platforms Inc.",
-          "apkFileType": null,
-          "appIconColor": "#E1306C",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Disable Proximity Sensor - Telegram (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Prevents the proximity sensor from turning off the display or switching audio output while listening to voice and video messages.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "org.telegram.messenger",
-          "name": "Telegram",
-          "description": "Telegram Messenger by Telegram FZ-LLC",
-          "apkFileType": null,
-          "appIconColor": "#24A1DE",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Disable QUIC Protocol - YouTube (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Disables Google's experimental QUIC (HTTP/3) UDP network protocol in YouTube, forcing reliable HTTP/2 TCP streams to bypass carrier and ISP video throttling.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.youtube",
-          "name": "YouTube",
-          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#FF0000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Disable Reels scrolling - Instagram (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Disables the endless scrolling behavior in Instagram Reels, preventing swiping to the next Reel. Note: On a clean install, the 'Tip' animation may appear but will stop on its own after a few seconds.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.instagram.android",
-          "name": "Instagram",
-          "description": "Instagram by Meta Platforms Inc.",
-          "apkFileType": null,
-          "appIconColor": "#E1306C",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Disable Response Haptics - Google Gemini (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Silences excessive continuous vibration buzzing during token streaming and AI response generation in Google Gemini.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.apps.bard",
-          "name": "Google Gemini",
-          "description": "Google Gemini: Your AI Assistant by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#4285F4",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Disable Rewards & Crypto Wallet - Brave (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Disables Brave Rewards (BAT), crypto wallet icon, Web3 onboarding prompts, and token badges for a cleaner UI.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.brave.browser",
-          "name": "Brave Browser",
-          "description": "Brave Browser: Fast, AdBlocker & Private Web Browser by Brave Software",
-          "apkFileType": null,
-          "appIconColor": "#FB542B",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Disable Screenshot Detection & Vanish Alert - Instagram (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Silently disables screenshot notifications in disappearing messages, view-once media, and vanish mode, and unlocks screen recording across all Instagram DMs.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.instagram.android",
-          "name": "Instagram",
-          "description": "Instagram by Meta Platforms Inc.",
-          "apkFileType": null,
-          "appIconColor": "#E1306C",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Disable Shorts resuming on startup - YouTube (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Adds an option to disable Shorts from resuming on app startup when Shorts were last being watched.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.youtube",
-          "name": "YouTube",
-          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#FF0000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Disable Storage Warnings - Google Photos (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Suppresses intrusive cloud storage full popups, Google One subscription reminders, and backup disabled warnings in Google Photos.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.apps.photos",
-          "name": "Google Photos",
-          "description": "Google Photos: Photo & Video Storage by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#EA4335",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Disable Telemetry & Pocket Stories - Firefox (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Completely disables Mozilla telemetry, Glean analytics, sponsored Pocket stories, and sponsored search shortcuts on Firefox mobile.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "org.mozilla.firefox",
-          "name": "Firefox",
-          "description": "Firefox: Fast, Private & Safe Web Browser by Mozilla",
-          "apkFileType": null,
-          "appIconColor": "#FF7139",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Disable Telemetry & Tracking - Claude AI (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Disables client-side analytical telemetry, performance metrics reporting, and tracker SDK calls in Claude AI.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.anthropic.claude",
-          "name": "Claude",
-          "description": "Claude: AI Assistant by Anthropic",
-          "apkFileType": null,
-          "appIconColor": "#D97706",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
       "name": "Disable ads - Instagram (Experimental)",
       "description": "⚠️ [Experimental / Untested] Enhances application behavior and unlocks additional user controls.",
       "default": true,
@@ -4550,6 +4243,87 @@
           "description": "Instagram by Meta Platforms Inc.",
           "apkFileType": null,
           "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Double Tap To Like - Instagram (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Disables accidental double-tap gestures that trigger likes on feed photos, videos, and reels while scrolling or zooming.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable DRC audio - YouTube (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Adds an option to disable DRC (Dynamic Range Compression) audio.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable DRC Audio (Dynamic Range Compression) - YouTube (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Disables dynamic range compression (DRC) in YouTube's audio engine, restoring original uncompressed audio dynamics, punchy bass, and full volume without artificial normalization.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
           "signatures": null,
           "targets": [
             {
@@ -4808,6 +4582,141 @@
       "options": []
     },
     {
+      "name": "Disable Proximity Sensor - Telegram (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Prevents the proximity sensor from turning off the display or switching audio output while listening to voice and video messages.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.telegram.messenger",
+          "name": "Telegram",
+          "description": "Telegram Messenger by Telegram FZ-LLC",
+          "apkFileType": null,
+          "appIconColor": "#24A1DE",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable QUIC Protocol - YouTube (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Disables Google's experimental QUIC (HTTP/3) UDP network protocol in YouTube, forcing reliable HTTP/2 TCP streams to bypass carrier and ISP video throttling.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Reels scrolling - Instagram (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Disables the endless scrolling behavior in Instagram Reels, preventing swiping to the next Reel. Note: On a clean install, the 'Tip' animation may appear but will stop on its own after a few seconds.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Response Haptics - Google Gemini (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Silences excessive continuous vibration buzzing during token streaming and AI response generation in Google Gemini.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.bard",
+          "name": "Google Gemini",
+          "description": "Google Gemini: Your AI Assistant by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#4285F4",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Rewards & Crypto Wallet - Brave (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Disables Brave Rewards (BAT), crypto wallet icon, Web3 onboarding prompts, and token badges for a cleaner UI.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.brave.browser",
+          "name": "Brave Browser",
+          "description": "Brave Browser: Fast, AdBlocker & Private Web Browser by Brave Software",
+          "apkFileType": null,
+          "appIconColor": "#FB542B",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Disable rolling number animations - YouTube (Experimental)",
       "description": "⚠️ [Experimental / Untested] Adds an option to disable rolling number animations of video view count, user likes, and upload time.",
       "default": true,
@@ -4837,6 +4746,33 @@
     {
       "name": "Disable screenshot detection - Instagram (Experimental)",
       "description": "⚠️ [Experimental / Untested] Disables screenshots detection in DM",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Screenshot Detection & Vanish Alert - Instagram (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Silently disables screenshot notifications in disappearing messages, view-once media, and vanish mode, and unlocks screen recording across all Instagram DMs.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -4916,6 +4852,33 @@
       "options": []
     },
     {
+      "name": "Disable Shorts resuming on startup - YouTube (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Adds an option to disable Shorts from resuming on app startup when Shorts were last being watched.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Disable sign in to TV popup - YouTube (Experimental)",
       "description": "⚠️ [Experimental / Untested] Adds options to disable the popups asking to sign into or connect to a TV on the same local network.",
       "default": true,
@@ -4928,6 +4891,33 @@
           "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
           "apkFileType": null,
           "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Storage Warnings - Google Photos (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Suppresses intrusive cloud storage full popups, Google One subscription reminders, and backup disabled warnings in Google Photos.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.photos",
+          "name": "Google Photos",
+          "description": "Google Photos: Photo & Video Storage by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#EA4335",
           "signatures": null,
           "targets": [
             {
@@ -5009,6 +4999,60 @@
           "description": "Instagram by Meta Platforms Inc.",
           "apkFileType": null,
           "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Telemetry & Pocket Stories - Firefox (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Completely disables Mozilla telemetry, Glean analytics, sponsored Pocket stories, and sponsored search shortcuts on Firefox mobile.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.mozilla.firefox",
+          "name": "Firefox",
+          "description": "Firefox: Fast, Private & Safe Web Browser by Mozilla",
+          "apkFileType": null,
+          "appIconColor": "#FF7139",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable Telemetry & Tracking - Claude AI (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Disables client-side analytical telemetry, performance metrics reporting, and tracker SDK calls in Claude AI.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.anthropic.claude",
+          "name": "Claude",
+          "description": "Claude: AI Assistant by Anthropic",
+          "apkFileType": null,
+          "appIconColor": "#D97706",
           "signatures": null,
           "targets": [
             {
@@ -5698,33 +5742,6 @@
       "options": []
     },
     {
-      "name": "Force Original Audio Language (Bypass Auto-Dubbing) - YouTube (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Forces YouTube to automatically play the creator's original authentic audio track, bypassing unwanted AI/human auto-dubbed voiceovers and language translations.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.youtube",
-          "name": "YouTube",
-          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#FF0000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
       "name": "Force fullscreen landscape - YouTube (Experimental)",
       "description": "⚠️ [Experimental / Untested] Adds an option to rotate the player to landscape when entering fullscreen mode on tablets and other large screen devices.",
       "default": true,
@@ -5754,6 +5771,33 @@
     {
       "name": "Force original audio - YouTube (Experimental)",
       "description": "⚠️ [Experimental / Untested] Adds an option to always use the original audio track.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Force Original Audio Language (Bypass Auto-Dubbing) - YouTube (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Forces YouTube to automatically play the creator's original authentic audio track, bypassing unwanted AI/human auto-dubbed voiceovers and language translations.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -5866,276 +5910,6 @@
           "targets": [
             {
               "version": "8.1.6",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Free Shopping & Billing Bypass - Angry Birds (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Angry Birds to bypass in-app purchase verification, unlocking free shopping for Mighty Eagle, power-up bundles, and episode packs.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.rovio.baba",
-          "name": "Angry Birds Classic",
-          "description": "Angry Birds Classic by Rovio Entertainment",
-          "apkFileType": null,
-          "appIconColor": "#D32F2F",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Free Shopping & Billing Bypass - Crossy Road (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Crossy Road to bypass in-app purchase verification, enabling free shopping for character figurines and coin packs.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.yodo1.crossyroad",
-          "name": "Crossy Road",
-          "description": "Crossy Road by Hipster Whale",
-          "apkFileType": null,
-          "appIconColor": "#3F51B5",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Free Shopping & Billing Bypass - Cut the Rope (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Cut the Rope to bypass in-app purchase verification, unlocking free shopping for superpowers, hints, and season box passes.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.zeptolab.ctr.ads",
-          "name": "Cut the Rope",
-          "description": "Cut the Rope by ZeptoLab",
-          "apkFileType": null,
-          "appIconColor": "#7CB342",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Free Shopping & Billing Bypass - Dan The Man (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Dan The Man to bypass in-app purchase verification, unlocking free shopping for coin packs, character bundles, and premium upgrades.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.halfbrick.dantheman",
-          "name": "Dan The Man",
-          "description": "Dan The Man: Action Platformer by Halfbrick Studios",
-          "apkFileType": null,
-          "appIconColor": "#F57C00",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Free Shopping & Billing Bypass - Doodle Jump (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Doodle Jump to bypass in-app purchase verification, enabling free shopping for premium themes, outfits, and power-up packs.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.lima.doodlejump",
-          "name": "Doodle Jump",
-          "description": "Doodle Jump by Lima Sky LLC",
-          "apkFileType": null,
-          "appIconColor": "#CDDC39",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Free Shopping & Billing Bypass - Fruit Ninja (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Fruit Ninja to bypass in-app purchase verification, unlocking free store purchases for starfruit crates, blade packs, and dojo bundles.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.halfbrick.fruitninja",
-          "name": "Fruit Ninja",
-          "description": "Fruit Ninja by Halfbrick Studios",
-          "apkFileType": null,
-          "appIconColor": "#E53935",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Free Shopping & Billing Bypass - Jetpack Joyride (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing purchase verification in Jetpack Joyride to unlock coin packs, permanent coin doubler, jetpacks, costumes, and Stash upgrades for free.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.halfbrick.jetpackjoyride",
-          "name": "Jetpack Joyride",
-          "description": "Jetpack Joyride by Halfbrick Studios",
-          "apkFileType": null,
-          "appIconColor": "#FF9800",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Free Shopping & Billing Bypass - Plants vs. Zombies (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Plants vs. Zombies to bypass in-app purchase verification, enabling free shopping for coin packs, Crazy Dave's shop upgrades, and game mode passes.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.ea.game.pvzfree_row",
-          "name": "Plants vs. Zombies",
-          "description": "Plants vs. Zombies FREE by Electronic Arts / PopCap",
-          "apkFileType": null,
-          "appIconColor": "#8BC34A",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Free Shopping & Billing Bypass - Subway Surfers (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Subway Surfers to bypass in-app purchase verification, enabling free purchases of coin packs, key bundles, and store items.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.kiloo.subwaysurf",
-          "name": "Subway Surfers",
-          "description": "Subway Surfers by SYBO Games / Kiloo",
-          "apkFileType": null,
-          "appIconColor": "#00D26A",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Free Shopping & Billing Bypass - Temple Run 2 (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Temple Run 2 to bypass in-app purchase verification, enabling free shopping for gem packs, coin vaults, and runner bundles.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.imangi.templerun2",
-          "name": "Temple Run 2",
-          "description": "Temple Run 2 by Imangi Studios",
-          "apkFileType": null,
-          "appIconColor": "#00A859",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -6444,6 +6218,276 @@
       "options": []
     },
     {
+      "name": "Free Shopping & Billing Bypass - Angry Birds (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Angry Birds to bypass in-app purchase verification, unlocking free shopping for Mighty Eagle, power-up bundles, and episode packs.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.rovio.baba",
+          "name": "Angry Birds Classic",
+          "description": "Angry Birds Classic by Rovio Entertainment",
+          "apkFileType": null,
+          "appIconColor": "#D32F2F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping & Billing Bypass - Crossy Road (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Crossy Road to bypass in-app purchase verification, enabling free shopping for character figurines and coin packs.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.yodo1.crossyroad",
+          "name": "Crossy Road",
+          "description": "Crossy Road by Hipster Whale",
+          "apkFileType": null,
+          "appIconColor": "#3F51B5",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping & Billing Bypass - Cut the Rope (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Cut the Rope to bypass in-app purchase verification, unlocking free shopping for superpowers, hints, and season box passes.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.zeptolab.ctr.ads",
+          "name": "Cut the Rope",
+          "description": "Cut the Rope by ZeptoLab",
+          "apkFileType": null,
+          "appIconColor": "#7CB342",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping & Billing Bypass - Dan The Man (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Dan The Man to bypass in-app purchase verification, unlocking free shopping for coin packs, character bundles, and premium upgrades.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.halfbrick.dantheman",
+          "name": "Dan The Man",
+          "description": "Dan The Man: Action Platformer by Halfbrick Studios",
+          "apkFileType": null,
+          "appIconColor": "#F57C00",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping & Billing Bypass - Doodle Jump (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Doodle Jump to bypass in-app purchase verification, enabling free shopping for premium themes, outfits, and power-up packs.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.lima.doodlejump",
+          "name": "Doodle Jump",
+          "description": "Doodle Jump by Lima Sky LLC",
+          "apkFileType": null,
+          "appIconColor": "#CDDC39",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping & Billing Bypass - Fruit Ninja (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Fruit Ninja to bypass in-app purchase verification, unlocking free store purchases for starfruit crates, blade packs, and dojo bundles.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.halfbrick.fruitninja",
+          "name": "Fruit Ninja",
+          "description": "Fruit Ninja by Halfbrick Studios",
+          "apkFileType": null,
+          "appIconColor": "#E53935",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping & Billing Bypass - Jetpack Joyride (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing purchase verification in Jetpack Joyride to unlock coin packs, permanent coin doubler, jetpacks, costumes, and Stash upgrades for free.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.halfbrick.jetpackjoyride",
+          "name": "Jetpack Joyride",
+          "description": "Jetpack Joyride by Halfbrick Studios",
+          "apkFileType": null,
+          "appIconColor": "#FF9800",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping & Billing Bypass - Plants vs. Zombies (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Plants vs. Zombies to bypass in-app purchase verification, enabling free shopping for coin packs, Crazy Dave's shop upgrades, and game mode passes.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.ea.game.pvzfree_row",
+          "name": "Plants vs. Zombies",
+          "description": "Plants vs. Zombies FREE by Electronic Arts / PopCap",
+          "apkFileType": null,
+          "appIconColor": "#8BC34A",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping & Billing Bypass - Subway Surfers (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Subway Surfers to bypass in-app purchase verification, enabling free purchases of coin packs, key bundles, and store items.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.kiloo.subwaysurf",
+          "name": "Subway Surfers",
+          "description": "Subway Surfers by SYBO Games / Kiloo",
+          "apkFileType": null,
+          "appIconColor": "#00D26A",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Free Shopping & Billing Bypass - Temple Run 2 (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Temple Run 2 to bypass in-app purchase verification, enabling free shopping for gem packs, coin vaults, and runner bundles.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.imangi.templerun2",
+          "name": "Temple Run 2",
+          "description": "Temple Run 2 by Imangi Studios",
+          "apkFileType": null,
+          "appIconColor": "#00A859",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Friendship status indicator - Instagram (Experimental)",
       "description": "⚠️ [Experimental / Untested] Adds a follows you back status label on the profile page andshows a detailed friendship status breakdown on click",
       "default": true,
@@ -6561,168 +6605,6 @@
       "options": []
     },
     {
-      "name": "Hide Ask button - Reddit (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Adds an option to hide Ask button in the search bar.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.reddit.frontpage",
-          "name": "Reddit",
-          "description": "Reddit: The front page of the internet by reddit Inc.",
-          "apkFileType": null,
-          "appIconColor": "#FF4500",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Hide Endscreen Cards & Suggestions - YouTube (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Hides floating endscreen cards, suggested video boxes, channel stickers, and overlay elements that clutter the end of videos.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.youtube",
-          "name": "YouTube",
-          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#FF0000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Hide Player Overlay Buttons (Cast, Autoplay, Remix) - YouTube (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Hides unwanted player overlay buttons including Chromecast icon (prevents accidental casting), Autoplay toggle, Remix button, and Thanks button.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.youtube",
-          "name": "YouTube",
-          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#FF0000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Hide Reddit search - Reddit (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Permanently hides the Reddit search in the contextual menu. This patch does not work with root mounting",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.reddit.frontpage",
-          "name": "Reddit",
-          "description": "Reddit: The front page of the internet by reddit Inc.",
-          "apkFileType": null,
-          "appIconColor": "#FF4500",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Hide Shorts components - YouTube (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Adds options to hide components related to Shorts.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.youtube",
-          "name": "YouTube",
-          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#FF0000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Hide Trending shelves - Reddit (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Adds an option to hide the Trending shelves from feed and search suggestions.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.reddit.frontpage",
-          "name": "Reddit",
-          "description": "Reddit: The front page of the internet by reddit Inc.",
-          "apkFileType": null,
-          "appIconColor": "#FF4500",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
       "name": "Hide ads - Reddit (Experimental)",
       "description": "⚠️ [Experimental / Untested] Adds options to hide ads.",
       "default": true,
@@ -6762,6 +6644,33 @@
           "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
           "apkFileType": null,
           "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Hide Ask button - Reddit (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Adds an option to hide Ask button in the search bar.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.reddit.frontpage",
+          "name": "Reddit",
+          "description": "Reddit: The front page of the internet by reddit Inc.",
+          "apkFileType": null,
+          "appIconColor": "#FF4500",
           "signatures": null,
           "targets": [
             {
@@ -6860,6 +6769,33 @@
     {
       "name": "Hide end screen suggested video - YouTube (Experimental)",
       "description": "⚠️ [Experimental / Untested] Adds an option to hide the suggested video at the end of videos.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Hide Endscreen Cards & Suggestions - YouTube (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Hides floating endscreen cards, suggested video boxes, channel stickers, and overlay elements that clutter the end of videos.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -7101,6 +7037,60 @@
       "options": []
     },
     {
+      "name": "Hide Player Overlay Buttons (Cast, Autoplay, Remix) - YouTube (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Hides unwanted player overlay buttons including Chromecast icon (prevents accidental casting), Autoplay toggle, Remix button, and Thanks button.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Hide Reddit search - Reddit (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Permanently hides the Reddit search in the contextual menu. This patch does not work with root mounting",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.reddit.frontpage",
+          "name": "Reddit",
+          "description": "Reddit: The front page of the internet by reddit Inc.",
+          "apkFileType": null,
+          "appIconColor": "#FF4500",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Hide related video overlay - YouTube (Experimental)",
       "description": "⚠️ [Experimental / Untested] Adds an option to hide the related video overlay shown when swiping up in fullscreen.",
       "default": true,
@@ -7167,6 +7157,33 @@
           "description": "Instagram by Meta Platforms Inc.",
           "apkFileType": null,
           "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Hide Shorts components - YouTube (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Adds options to hide components related to Shorts.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
           "signatures": null,
           "targets": [
             {
@@ -7302,6 +7319,33 @@
           "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
           "apkFileType": null,
           "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Hide Trending shelves - Reddit (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Adds an option to hide the Trending shelves from feed and search suggestions.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.reddit.frontpage",
+          "name": "Reddit",
+          "description": "Reddit: The front page of the internet by reddit Inc.",
+          "apkFileType": null,
+          "appIconColor": "#FF4500",
           "signatures": null,
           "targets": [
             {
@@ -8072,18 +8116,18 @@
       "options": []
     },
     {
-      "name": "Navigation Supercharged: Speed Cameras & Auto-Zoom Lock - Google Maps (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Forces persistent speed camera & radar audio alerts, prevents high-speed auto-zoom out to keep your chosen map view, and keeps the screen awake during route guidance.",
+      "name": "Navigation bar - YouTube (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Adds options to hide and change the bottom navigation bar (such as the Shorts button) and the upper navigation toolbar.",
       "default": true,
       "category": null,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.google.android.apps.maps",
-          "name": "Google Maps",
-          "description": "Google Maps: Navigate & Explore by Google LLC",
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
           "apkFileType": null,
-          "appIconColor": "#34A853",
+          "appIconColor": "#FF0000",
           "signatures": null,
           "targets": [
             {
@@ -8099,18 +8143,18 @@
       "options": []
     },
     {
-      "name": "Navigation bar - YouTube (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Adds options to hide and change the bottom navigation bar (such as the Shorts button) and the upper navigation toolbar.",
+      "name": "Navigation Supercharged: Speed Cameras & Auto-Zoom Lock - Google Maps (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Forces persistent speed camera & radar audio alerts, prevents high-speed auto-zoom out to keep your chosen map view, and keeps the screen awake during route guidance.",
       "default": true,
       "category": null,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.google.android.youtube",
-          "name": "YouTube",
-          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "packageName": "com.google.android.apps.maps",
+          "name": "Google Maps",
+          "description": "Google Maps: Navigate & Explore by Google LLC",
           "apkFileType": null,
-          "appIconColor": "#FF0000",
+          "appIconColor": "#34A853",
           "signatures": null,
           "targets": [
             {
@@ -8155,60 +8199,6 @@
     {
       "name": "Old Video Quality Menu - YouTube (Experimental)",
       "description": "⚠️ [Experimental / Untested] Restores the classic direct video resolution menu (2160p, 1440p, 1080p, 720p, 480p), bypassing Google's simplified and confusing 'Higher picture quality / Data saver' sub-menus.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.youtube",
-          "name": "YouTube",
-          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#FF0000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Open Links in External Browser - Euria AI (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Opens reference citations and external links directly in the system's default browser rather than an embedded webview.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.infomaniak.euria",
-          "name": "Euria",
-          "description": "Euria: Sovereign AI Assistant by Infomaniak",
-          "apkFileType": null,
-          "appIconColor": "#4F46E5",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Open Shorts in regular player - YouTube (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Adds options to open Shorts in the regular video player.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -8344,6 +8334,60 @@
     {
       "name": "Open links externally - YouTube (Experimental)",
       "description": "⚠️ [Experimental / Untested] Adds an option to always open links in your browser instead of with the in-app browser.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#FF0000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Open Links in External Browser - Euria AI (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Opens reference citations and external links directly in the system's default browser rather than an embedded webview.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.infomaniak.euria",
+          "name": "Euria",
+          "description": "Euria: Sovereign AI Assistant by Infomaniak",
+          "apkFileType": null,
+          "appIconColor": "#4F46E5",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Open Shorts in regular player - YouTube (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Adds options to open Shorts in the regular video player.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -8828,24 +8872,41 @@
       "options": []
     },
     {
-      "name": "Pure AMOLED Dark Theme & Declutter - VLC (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Forces a pitch-black AMOLED dark theme, hides tips and audio/video discovery clutter across the VLC player UI.",
+      "name": "Pure AMOLED Dark Theme - Cryptomator (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Enforces dark mode and pure pitch black #000000 surfaces across Cryptomator's vault explorer, settings, and dialogs for maximum OLED battery savings.",
       "default": true,
       "category": null,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "org.videolan.vlc",
-          "name": "VLC",
-          "description": "VLC for Android: Fast, Open-Source Media Player by VideoLAN",
+          "packageName": "org.cryptomator",
+          "name": "Cryptomator",
+          "description": "Cryptomator: Client-side encryption for your cloud vaults",
           "apkFileType": null,
-          "appIconColor": "#FF8800",
+          "appIconColor": "#247477",
           "signatures": null,
           "targets": [
             {
-              "version": null,
+              "version": "2.1.0",
               "versionCodes": null,
-              "isExperimental": false,
+              "isExperimental": true,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "packageName": "org.cryptomator.freemium",
+          "name": "Cryptomator (Freemium)",
+          "description": "Cryptomator: Client-side encryption for your cloud vaults (Google Play Freemium)",
+          "apkFileType": null,
+          "appIconColor": "#247477",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "2.1.0",
+              "versionCodes": null,
+              "isExperimental": true,
               "minSdk": null,
               "description": null
             }
@@ -8867,6 +8928,33 @@
           "description": "Firefox: Fast, Private & Safe Web Browser by Mozilla",
           "apkFileType": null,
           "appIconColor": "#FF7139",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Pure AMOLED Dark Theme & Declutter - VLC (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Forces a pitch-black AMOLED dark theme, hides tips and audio/video discovery clutter across the VLC player UI.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.videolan.vlc",
+          "name": "VLC",
+          "description": "VLC for Android: Fast, Open-Source Media Player by VideoLAN",
+          "apkFileType": null,
+          "appIconColor": "#FF8800",
           "signatures": null,
           "targets": [
             {
@@ -8963,33 +9051,6 @@
       "options": []
     },
     {
-      "name": "Remember Video Quality - YouTube (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Forces and locks preferred default video resolution (such as 1080p, 1440p, or 4K) separately for Wi-Fi and mobile cellular networks, overriding YouTube's adaptive downscaling.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.youtube",
-          "name": "YouTube",
-          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#FF0000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
       "name": "Remember live stream playback position - YouTube (Experimental)",
       "description": "⚠️ [Experimental / Untested] Adds an option to remember the playback position of an ongoing live stream and resume from there when reopening that live stream.",
       "default": true,
@@ -9017,18 +9078,18 @@
       "options": []
     },
     {
-      "name": "Remove Watermarks on Free Elements - Canva (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Bypasses watermark rendering on Canva freemium design elements, stock photos, and templates, allowing clean export of designs without Pro subscription watermarks.",
+      "name": "Remember Video Quality - YouTube (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Forces and locks preferred default video resolution (such as 1080p, 1440p, or 4K) separately for Wi-Fi and mobile cellular networks, overriding YouTube's adaptive downscaling.",
       "default": true,
       "category": null,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.canva.editor",
-          "name": "Canva",
-          "description": "Canva: Design, Photo & Video by Canva",
+          "packageName": "com.google.android.youtube",
+          "name": "YouTube",
+          "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
           "apkFileType": null,
-          "appIconColor": "#00C4CC",
+          "appIconColor": "#FF0000",
           "signatures": null,
           "targets": [
             {
@@ -9179,6 +9240,33 @@
       "options": []
     },
     {
+      "name": "Remove Watermarks on Free Elements - Canva (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Bypasses watermark rendering on Canva freemium design elements, stock photos, and templates, allowing clean export of designs without Pro subscription watermarks.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.canva.editor",
+          "name": "Canva",
+          "description": "Canva: Design, Photo & Video by Canva",
+          "apkFileType": null,
+          "appIconColor": "#00C4CC",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Restore original titles - YouTube (Experimental)",
       "description": "⚠️ [Experimental / Untested] Adds an option to show the original video titles, video descriptions and channel descriptions instead of the auto-translated ones.",
       "default": true,
@@ -9260,8 +9348,8 @@
       "options": []
     },
     {
-      "name": "Sanitize Share Links & Open in External Browser - Instagram (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Strips telemetry tracking parameters (?igsh=..., ?utm_...) from copied and shared Instagram URLs, and opens external web links directly in the system default browser instead of the in-app browser.",
+      "name": "Sanitize share links - Instagram (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Enhances application behavior and unlocks additional user controls.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -9287,8 +9375,8 @@
       "options": []
     },
     {
-      "name": "Sanitize share links - Instagram (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Enhances application behavior and unlocks additional user controls.",
+      "name": "Sanitize Share Links & Open in External Browser - Instagram (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Strips telemetry tracking parameters (?igsh=..., ?utm_...) from copied and shared Instagram URLs, and opens external web links directly in the system default browser instead of the in-app browser.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -10854,6 +10942,33 @@
       "options": []
     },
     {
+      "name": "Unlock developer options - Instagram (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Unlocks developer option by long pressing home icon",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock Developer Options & Quick Experiments - Instagram (Experimental)",
       "description": "⚠️ [Experimental / Untested] Unlocks Meta internal Employee Developer Options, Debug Mode, and Quick Experiment (QE) override menus in Instagram by long-pressing the home button or opening settings.",
       "default": true,
@@ -10893,6 +11008,33 @@
           "description": "Google Photos: Photo & Video Storage by Google LLC",
           "apkFileType": null,
           "appIconColor": "#EA4335",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock employee options - Instagram (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Unlocks all options using by employee for debugging",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.instagram.android",
+          "name": "Instagram",
+          "description": "Instagram by Meta Platforms Inc.",
+          "apkFileType": null,
+          "appIconColor": "#E1306C",
           "signatures": null,
           "targets": [
             {
@@ -11018,6 +11160,50 @@
       "options": []
     },
     {
+      "name": "Unlock Full Version & Permanent License - Cryptomator (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Unlocks full version capabilities, bypasses 30-day trial expiration, suppresses license check warnings, and unlocks full read/write vault management across all Cryptomator variants.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.cryptomator",
+          "name": "Cryptomator",
+          "description": "Cryptomator: Client-side encryption for your cloud vaults",
+          "apkFileType": null,
+          "appIconColor": "#247477",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "2.1.0",
+              "versionCodes": null,
+              "isExperimental": true,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "packageName": "org.cryptomator.freemium",
+          "name": "Cryptomator (Freemium)",
+          "description": "Cryptomator: Client-side encryption for your cloud vaults (Google Play Freemium)",
+          "apkFileType": null,
+          "appIconColor": "#247477",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "2.1.0",
+              "versionCodes": null,
+              "isExperimental": true,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock Gadgets & Upgrades - Jetpack Joyride (Experimental)",
       "description": "⚠️ [Experimental / Untested] Unlocks all Stash gadgets (Coin Magnet, Gravity Belt, Air Barrys, etc.) and maxes out vehicle coin magnets without spending coins.",
       "default": true,
@@ -11072,33 +11258,6 @@
       "options": []
     },
     {
-      "name": "Unlock HQ Audio & Premium Controls - SoundCloud (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Unlocks High Quality (HQ) audio streaming selector in playback settings, enables variable playback speed, and unlocks premium player controls.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.soundcloud.android",
-          "name": "SoundCloud",
-          "description": "SoundCloud: Play Music & Songs by SoundCloud Global Limited & Co KG",
-          "apkFileType": null,
-          "appIconColor": "#FF5500",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
       "name": "Unlock High Quality Export - Canva (Experimental)",
       "description": "⚠️ [Experimental / Untested] Unlocks maximum export resolution sliders, transparent background PNG option, and bypasses premium element watermark restrictions.",
       "default": true,
@@ -11138,6 +11297,33 @@
           "description": "VPN.lat: Unlimited Fast VPN Proxy",
           "apkFileType": null,
           "appIconColor": "#2979FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock HQ Audio & Premium Controls - SoundCloud (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Unlocks High Quality (HQ) audio streaming selector in playback settings, enables variable playback speed, and unlocks premium player controls.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.soundcloud.android",
+          "name": "SoundCloud",
+          "description": "SoundCloud: Play Music & Songs by SoundCloud Global Limited & Co KG",
+          "apkFileType": null,
+          "appIconColor": "#FF5500",
           "signatures": null,
           "targets": [
             {
@@ -12239,18 +12425,45 @@
       "options": []
     },
     {
-      "name": "Unlock VIP & All Server Locations - Turbo VPN (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Unlocks Turbo VPN VIP subscription status, granting free access to high-speed VIP servers, dedicated streaming locations, and removes server country locks.",
+      "name": "Unlock Video Player Speed & Controls - TeraBox (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Unlocks background video playback, 1080p/original video quality streaming selector, and variable playback speeds without TeraBox Premium.",
       "default": true,
       "category": null,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "free.vpn.unblock.proxy.turbovpn",
-          "name": "Turbo VPN",
-          "description": "Turbo VPN - Secure VPN Proxy by Innovative Connecting",
+          "packageName": "com.dubox.drive",
+          "name": "TeraBox",
+          "description": "TeraBox: Cloud Storage Space by Flextech Inc.",
           "apkFileType": null,
-          "appIconColor": "#FF6D00",
+          "appIconColor": "#0084FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock View-Only Download & Export Restrictions - Google Drive (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Bypasses 'Viewers cannot download, print, or copy' restrictions on shared Google Drive files, re-enabling the download, save, print, and export menu actions for protected documents and PDFs.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.docs",
+          "name": "Google Drive",
+          "description": "Google Drive: Free Cloud Storage by Google LLC",
+          "apkFileType": null,
+          "appIconColor": "#1FA463",
           "signatures": null,
           "targets": [
             {
@@ -12293,45 +12506,18 @@
       "options": []
     },
     {
-      "name": "Unlock Video Player Speed & Controls - TeraBox (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Unlocks background video playback, 1080p/original video quality streaming selector, and variable playback speeds without TeraBox Premium.",
+      "name": "Unlock VIP & All Server Locations - Turbo VPN (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Unlocks Turbo VPN VIP subscription status, granting free access to high-speed VIP servers, dedicated streaming locations, and removes server country locks.",
       "default": true,
       "category": null,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.dubox.drive",
-          "name": "TeraBox",
-          "description": "TeraBox: Cloud Storage Space by Flextech Inc.",
+          "packageName": "free.vpn.unblock.proxy.turbovpn",
+          "name": "Turbo VPN",
+          "description": "Turbo VPN - Secure VPN Proxy by Innovative Connecting",
           "apkFileType": null,
-          "appIconColor": "#0084FF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Unlock View-Only Download & Export Restrictions - Google Drive (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Bypasses 'Viewers cannot download, print, or copy' restrictions on shared Google Drive files, re-enabling the download, save, print, and export menu actions for protected documents and PDFs.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.apps.docs",
-          "name": "Google Drive",
-          "description": "Google Drive: Free Cloud Storage by Google LLC",
-          "apkFileType": null,
-          "appIconColor": "#1FA463",
+          "appIconColor": "#FF6D00",
           "signatures": null,
           "targets": [
             {
@@ -12392,60 +12578,6 @@
               "version": "6.1.2",
               "versionCodes": null,
               "isExperimental": true,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Unlock developer options - Instagram (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Unlocks developer option by long pressing home icon",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.instagram.android",
-          "name": "Instagram",
-          "description": "Instagram by Meta Platforms Inc.",
-          "apkFileType": null,
-          "appIconColor": "#E1306C",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Unlock employee options - Instagram (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Unlocks all options using by employee for debugging",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.instagram.android",
-          "name": "Instagram",
-          "description": "Instagram by Meta Platforms Inc.",
-          "apkFileType": null,
-          "appIconColor": "#E1306C",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
               "minSdk": null,
               "description": null
             }

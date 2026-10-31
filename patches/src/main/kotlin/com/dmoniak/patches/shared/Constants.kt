@@ -886,6 +886,27 @@ object Constants {
         appIconColor = 0x00A859
     )
 
+    val COMPATIBILITY_MT_MANAGER = Compatibility(
+        packageName = "bin.mt.plus",
+        name = "MT Manager",
+        description = "MT Manager: Powerful APK editor & file manager by Lin Jin Bin",
+        appIconColor = 0xF57C00
+    )
+
+    val COMPATIBILITY_VIRTUAL_MASTER = Compatibility(
+        packageName = "com.clone.android.dual.space",
+        name = "Virtual Master",
+        description = "Virtual Master: Android on Android VM & Dual Space by VM Space Tech",
+        appIconColor = 0x6200EE
+    )
+
+    val COMPATIBILITY_VIRTUAL_MASTER_ALT = Compatibility(
+        packageName = "com.virtualmaster",
+        name = "Virtual Master (Alt)",
+        description = "Virtual Master: Android on Android VM & Dual Space (Standalone / Direct)",
+        appIconColor = 0x6200EE
+    )
+
     // Aliases
     val COMPATIBILITY_ANGRY_BIRDS_CLASSIC = COMPATIBILITY_ANGRY_BIRDS
     val COMPATIBILITY_HIDE_ME = COMPATIBILITY_HIDEME

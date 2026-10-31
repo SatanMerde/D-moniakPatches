@@ -13,16 +13,16 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Patches-490-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-494-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-tested--functional-patches">
     <img src="https://img.shields.io/badge/Functional-10-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-experimental-patches-vibe-coded">
-    <img src="https://img.shields.io/badge/Experimental-480-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Experimental-484-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Supported_Apps-122-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Supported_Apps-125-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -46,7 +46,7 @@
 
 ### 📖 Project Overview
 
-**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **490 patches** for **122 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware / emulator: Hungry Shark World, Movix, Moises, FCTV33) and **experimental patches** (currently under development, vibe-coded).
+**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **494 patches** for **125 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware / emulator: Hungry Shark World, Movix, Moises, FCTV33) and **experimental patches** (currently under development, vibe-coded).
 
 ---
 
@@ -89,7 +89,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.57.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.57.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**490 total patches** (10 tested & functional • 480 experimental)
+> **[v1.57.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.57.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**494 total patches** (10 tested & functional • 484 experimental)
 
 ---
 
@@ -949,6 +949,17 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 </details>
 
 <details open>
+<summary>📦 MT Manager&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Remove Ads & Update Prompts - MT Manager (Experimental)](#remove-ads-update-prompts-mt-manager-experimental) | ⚠️ [Experimental / Untested] Removes banner and interstitial advertisements, disables forced update dialogs and upgrade check nags in MT Manager. |
+| [Unlock VIP Features & Themes - MT Manager (Experimental)](#unlock-vip-features-themes-mt-manager-experimental) | ⚠️ [Experimental / Untested] Unlocks MT Manager VIP features (batch rename, DEX/Arsc editor++, syntax highlighting, XML/DEX search & replace, signature verification bypass, VIP theme customization) by hooking VIP privilege getters, expiration checks, and Google Play Billing. |
+
+</details>
+
+<details open>
 <summary>📦 MX Player&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
@@ -1611,6 +1622,28 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | [Free Shopping - Vector 2 (Experimental)](#free-shopping-vector-2-experimental) | ⚠️ [Experimental / Untested] Hooks Google Play Billing in Vector 2 to obtain upgrade chips, research tokens, and accelerator packs for free. (Experimental - Not yet tested on device). |
 | [Infinite Battery & Shields - Vector 2 (Experimental)](#infinite-battery-shields-vector-2-experimental) | ⚠️ [Experimental / Untested] Prevents armor kit battery and shield depletion in Vector 2, keeping protective shields active against lasers, floor mines, and electric hazards. (Experimental - Not yet tested on device). |
 | [Unlock Gear Matrix - Vector 2 (Experimental)](#unlock-gear-matrix-vector-2-experimental) | ⚠️ [Experimental / Untested] Unlocks experimental equipment slots, booster upgrades, and datacore matrices in Vector 2 without research token gating. (Experimental - Not yet tested on device). |
+
+</details>
+
+<details open>
+<summary>📦 Virtual Master&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free & Clean Environment - Virtual Master (Experimental)](#ad-free-clean-environment-virtual-master-experimental) | ⚠️ [Experimental / Untested] Strips all boot interstitials, launcher advertisements, app clone promotion banners, and telemetry popups from Virtual Master. |
+| [Unlock Pro & Multi-Instance - Virtual Master (Experimental)](#unlock-pro-multi-instance-virtual-master-experimental) | ⚠️ [Experimental / Untested] Unlocks Virtual Master Pro edition, allowing unlimited virtual Android instances, root permission toggles, customized device ID spoofing, and advanced backup/restore by hooking VIP/Pro status models and billing interfaces. |
+
+</details>
+
+<details open>
+<summary>📦 Virtual Master (Alt)&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free & Clean Environment - Virtual Master (Experimental)](#ad-free-clean-environment-virtual-master-experimental) | ⚠️ [Experimental / Untested] Strips all boot interstitials, launcher advertisements, app clone promotion banners, and telemetry popups from Virtual Master. |
+| [Unlock Pro & Multi-Instance - Virtual Master (Experimental)](#unlock-pro-multi-instance-virtual-master-experimental) | ⚠️ [Experimental / Untested] Unlocks Virtual Master Pro edition, allowing unlimited virtual Android instances, root permission toggles, customized device ID spoofing, and advanced backup/restore by hooking VIP/Pro status models and billing interfaces. |
 
 </details>
 

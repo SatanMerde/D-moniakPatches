@@ -1,81 +1,93 @@
 package com.dmoniak.patches.capcut
 
-import app.morphe.patcher.annotation.CompatiblePackage
-import app.morphe.patcher.annotation.Patch
-import app.morphe.patcher.fingerprint.Fingerprint
-import app.morphe.patcher.patch.BytecodePatch
-import app.morphe.patcher.patch.PatchException
-import com.dmoniak.patches.capcut.CapCutConstants.COMPATIBILITY_CAPCUT
-import com.dmoniak.patches.capcut.CapCutConstants.COMPATIBILITY_CAPCUT_ALT
+import app.morphe.patcher.patch.BytecodePatchContext
+import app.morphe.patcher.patch.bytecodePatch
+import com.dmoniak.patches.shared.Constants.COMPATIBILITY_CAPCUT
+import com.dmoniak.patches.shared.Constants.COMPATIBILITY_CAPCUT_ALT
+import com.dmoniak.patches.shared.replaceMethod
+import java.util.logging.Logger
 
-@Patch(
+@Suppress("unused")
+val capCutBypassIntegrityPatch = bytecodePatch(
     name = "Bypass Integrity & Update Dialog - CapCut (Experimental)",
     description = "⚠️ [Experimental / Untested] Bypasses CapCut tamper detection, security advisory notice, and force update popups.",
-    compatiblePackages = [
-        CompatiblePackage(COMPATIBILITY_CAPCUT),
-        CompatiblePackage(COMPATIBILITY_CAPCUT_ALT)
-    ]
-)
-@Suppress("unused")
-object CapCutBypassIntegrityPatch : BytecodePatch() {
+) {
+    compatibleWith(COMPATIBILITY_CAPCUT, COMPATIBILITY_CAPCUT_ALT)
 
-    override fun execute() {
+    execute {
+        val logger = Logger.getLogger(this::class.java.name)
+        executeCapCutBypassIntegrityLogic(logger)
+    }
+}
+
+fun BytecodePatchContext.executeCapCutBypassIntegrityLogic(logger: Logger) {
+    logger.info("Executing Bypass Integrity & Update Dialog patch for CapCut...")
+
+    classDefForEach { classDef ->
+        val type = classDef.type
+        val mutableClass by lazy { mutableClassDefBy(classDef) }
+
         // 1. Neutralize VersionUpdateService popup & force update check
-        runCatching {
-            val updateServiceClass = classDefBy("Lcom/vega/main/update/VersionUpdateService;")
-            updateServiceClass.methods.forEach { method ->
-                // Method returning boolean (checks if update/popup is needed) -> return false
+        if (type == "Lcom/vega/main/update/VersionUpdateService;") {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+
+                // Check boolean methods (e.g. isUpdateNeeded, shouldShowPopup) -> return false
                 if (method.returnType == "Z") {
-                    val regCount = maxOf(4, method.parameters.size + 2)
-                    method.toMutable().replaceInstructions("""
-                        const/4 v0, 0x0
-                        return v0
-                    """, regCount)
+                    mutableClass.replaceMethod(
+                        method,
+                        """
+                            const/4 v0, 0x0
+                            return v0
+                        """.trimIndent()
+                    )
+                    logger.info("CapCut: VersionUpdateService.${method.name}() forced to return false")
                 }
-                // Show dialog methods -> return-void
+
+                // Neutralize popup trigger methods
                 if (method.name.startsWith("show") || method.name == "c" || method.name == "d" || method.name == "e") {
                     if (method.returnType == "V") {
-                        method.toMutable().replaceInstructions("return-void", 1)
+                        mutableClass.replaceMethod(
+                            method,
+                            """
+                                return-void
+                            """.trimIndent()
+                        )
+                        logger.info("CapCut: VersionUpdateService.${method.name}() neutralized")
                     }
                 }
             }
         }
 
-        // 2. Neutralize UpdatePopupDialogBuilder if present
-        runCatching {
-            val dialogBuilder = classDefBy("Lcom/vega/main/update/UpdatePopupDialogBuilder;")
-            dialogBuilder.methods.filter { it.returnType == "V" && !it.name.startsWith("<") }.forEach {
-                it.toMutable().replaceInstructions("return-void", 1)
+        // 2. Neutralize UpdatePopupDialogBuilder
+        if (type == "Lcom/vega/main/update/UpdatePopupDialogBuilder;") {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
+                if (method.returnType == "V" && !method.name.startsWith("<")) {
+                    mutableClass.replaceMethod(
+                        method,
+                        """
+                            return-void
+                        """.trimIndent()
+                    )
+                    logger.info("CapCut: UpdatePopupDialogBuilder.${method.name}() neutralized")
+                }
             }
         }
 
         // 3. Bypass SignUtils signature verification
-        runCatching {
-            val signUtils = classDefBy("Lcom/bytedance/common/utility/SignUtils;")
-            signUtils.methods.forEach { method ->
+        if (type == "Lcom/bytedance/common/utility/SignUtils;") {
+            for (method in classDef.methods.toList()) {
+                if (method.implementation == null) continue
                 if (method.name == "checkSignature" && method.returnType == "Z") {
-                    val regCount = maxOf(4, method.parameters.size + 2)
-                    method.toMutable().replaceInstructions("""
-                        const/4 v0, 0x1
-                        return v0
-                    """, regCount)
-                }
-            }
-        }
-
-        // 4. Intercept getInstallerPackageName to return official Play Store package name
-        runCatching {
-            classes.forEach { classDef ->
-                classDef.methods.forEach { method ->
-                    if (method.returnType == "Ljava/lang/String;" && 
-                        (method.name.contains("Installer", ignoreCase = true) || 
-                         method.name.contains("InstallSource", ignoreCase = true))) {
-                        val regCount = maxOf(4, method.parameters.size + 2)
-                        method.toMutable().replaceInstructions("""
-                            const-string v0, "com.android.vending"
-                            return-object v0
-                        """, regCount)
-                    }
+                    mutableClass.replaceMethod(
+                        method,
+                        """
+                            const/4 v0, 0x1
+                            return v0
+                        """.trimIndent()
+                    )
+                    logger.info("CapCut: SignUtils.checkSignature() forced to return true")
                 }
             }
         }

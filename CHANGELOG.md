@@ -1,3 +1,9 @@
+## [1.53.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.53.0...v1.53.1) (2026-10-31)
+
+### 🐛 Bug Fixes
+
+* **patches:** reclassify unverified patches to experimental (AllTrails, BandLab, Fossify Phone, Shazam, Silt, Spotify) ([263155c](https://github.com/SatanMerde/D-moniakPatches/commit/263155c6ec92e1facf1cdd981f8171c4769fe5a9))
+
 ## [1.53.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.21...v1.53.0) (2026-10-30)
 
 ### ✨ New Features

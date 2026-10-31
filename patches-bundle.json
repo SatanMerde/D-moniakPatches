@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-30T19:25:17",
-  "description": "## [1.53.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.52.21...v1.53.0) (2026-10-30)\n\n### ✨ New Features\n\n* **cryptomator:** add full version unlock, screenshots, and AMOLED theme patches ([59bd1fe](https://github.com/SatanMerde/D-moniakPatches/commit/59bd1feba785fa6ba3e385f70144c95308999975))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.53.0/patches-1.53.0.mpp",
+  "created_at": "2026-10-31T08:51:58",
+  "description": "## [1.53.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.53.0...v1.53.1) (2026-10-31)\n\n### 🐛 Bug Fixes\n\n* **patches:** reclassify unverified patches to experimental (AllTrails, BandLab, Fossify Phone, Shazam, Silt, Spotify) ([263155c](https://github.com/SatanMerde/D-moniakPatches/commit/263155c6ec92e1facf1cdd981f8171c4769fe5a9))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.53.1/patches-1.53.1.mpp",
   "signature_download_url": "",
-  "version": "1.53.0"
+  "version": "1.53.1"
 }

@@ -55,3 +55,4 @@ fun BytecodePatchContext.executeMoovitAdFreeTransitLogic(logger: Logger) {
 
     logger.info("[Moovit Ads] Total hooks applied: $hooked")
 }
+

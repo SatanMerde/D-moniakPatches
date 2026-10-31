@@ -781,6 +781,111 @@ object Constants {
         appIconColor = 0xFF6F00
     )
 
+    val COMPATIBILITY_TODOIST = Compatibility(
+        packageName = "com.todoist",
+        name = "Todoist",
+        description = "Todoist: To-Do List & Task Planner by Doist",
+        appIconColor = 0xE44332
+    )
+
+    val COMPATIBILITY_POWERAMP = Compatibility(
+        packageName = "com.maxmpz.audioplayer",
+        name = "Poweramp",
+        description = "Poweramp: Music Player (Equalizer & Hi-Res Audio) by Max MP",
+        appIconColor = 0x222222
+    )
+
+    val COMPATIBILITY_MONEY_MANAGER = Compatibility(
+        packageName = "com.realbyteapps.moneymanager",
+        name = "Money Manager",
+        description = "Money Manager: Expense Tracker & Budget by Realbyte Inc.",
+        appIconColor = 0xE53935
+    )
+
+    val COMPATIBILITY_SWIFTKEY = Compatibility(
+        packageName = "com.touchtype.swiftkey",
+        name = "Microsoft SwiftKey",
+        description = "Microsoft SwiftKey AI Keyboard by Microsoft Corporation",
+        appIconColor = 0x0078D4
+    )
+
+    val COMPATIBILITY_AUTOZEN = Compatibility(
+        packageName = "com.zenoph.autozen",
+        name = "AutoZen",
+        description = "AutoZen: Car Dashboard & Navigation by Zenoph Labs",
+        appIconColor = 0x1E88E5
+    )
+
+    val COMPATIBILITY_BLOCKERHERO = Compatibility(
+        packageName = "com.blockerhero",
+        name = "BlockerHero",
+        description = "BlockerHero: Porn & Adult Content Blocker by BlockerHero Team",
+        appIconColor = 0x2196F3
+    )
+
+    val COMPATIBILITY_NOKOPRINT = Compatibility(
+        packageName = "com.nokoprint",
+        name = "NokoPrint",
+        description = "NokoPrint: Mobile Printing for Android by NokoPrint",
+        appIconColor = 0x4CAF50
+    )
+
+    val COMPATIBILITY_TEACH_ME_ANATOMY = Compatibility(
+        packageName = "info.cloudmed.teachmeanatomy",
+        name = "Teach Me Anatomy",
+        description = "Teach Me Anatomy: 3D Human Anatomy & Clinical Encyclopedia by CloudMed",
+        appIconColor = 0x009688
+    )
+
+    val COMPATIBILITY_BUSUU = Compatibility(
+        packageName = "com.busuu.android.enc",
+        name = "Busuu",
+        description = "Busuu: Learn Languages, Grammar & Vocabulary by Busuu Limited",
+        appIconColor = 0x1976D2
+    )
+
+    val COMPATIBILITY_GOODREADS = Compatibility(
+        packageName = "com.goodreads",
+        name = "Goodreads",
+        description = "Goodreads: Book Reviews & Reading Tracker by Goodreads",
+        appIconColor = 0x553B08
+    )
+
+    val COMPATIBILITY_GENIUS = Compatibility(
+        packageName = "com.genius.android",
+        name = "Genius",
+        description = "Genius: Song Lyrics & Music Knowledge by Genius Media Group",
+        appIconColor = 0xFFFF64
+    )
+
+    val COMPATIBILITY_POCKET_CASTS = Compatibility(
+        packageName = "au.com.shiftyjelly.pocketcasts",
+        name = "Pocket Casts",
+        description = "Pocket Casts: Podcast Player by Automattic / Pocket Casts",
+        appIconColor = 0xF43E37
+    )
+
+    val COMPATIBILITY_TIDAL = Compatibility(
+        packageName = "com.aspiro.tidal",
+        name = "Tidal",
+        description = "TIDAL Music: HiFi Sound & Streaming by TIDAL",
+        appIconColor = 0x000000
+    )
+
+    val COMPATIBILITY_BUMBLE = Compatibility(
+        packageName = "com.bumble.app",
+        name = "Bumble",
+        description = "Bumble: Dating, Friends & Chat by Bumble Holding",
+        appIconColor = 0xFFC629
+    )
+
+    val COMPATIBILITY_MATHWAY = Compatibility(
+        packageName = "com.bagatrix.mathway.android",
+        name = "Mathway",
+        description = "Mathway: Math Problem Solver & Calculator by Chegg",
+        appIconColor = 0x00A859
+    )
+
     // Aliases
     val COMPATIBILITY_ANGRY_BIRDS_CLASSIC = COMPATIBILITY_ANGRY_BIRDS
     val COMPATIBILITY_HIDE_ME = COMPATIBILITY_HIDEME

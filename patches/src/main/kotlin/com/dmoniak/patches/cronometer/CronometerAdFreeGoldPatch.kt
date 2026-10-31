@@ -57,3 +57,4 @@ fun BytecodePatchContext.executeCronometerAdFreeGoldLogic(logger: Logger) {
 
     logger.info("[Cronometer Gold] Total hooks applied: $hooked")
 }
+

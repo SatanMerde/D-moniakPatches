@@ -57,3 +57,4 @@ fun BytecodePatchContext.executeChessAdFreeUnlimitedBotsLogic(logger: Logger) {
 
     logger.info("[Chess.com] Total hooks applied: $hooked")
 }
+

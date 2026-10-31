@@ -55,3 +55,4 @@ fun BytecodePatchContext.executeHevyUnlockProRoutinesLogic(logger: Logger) {
 
     logger.info("[Hevy Pro] Total hooks applied: $hooked")
 }
+

@@ -57,3 +57,4 @@ fun BytecodePatchContext.executeMyFitnessPalAdFreePremiumLogic(logger: Logger) {
 
     logger.info("[MyFitnessPal] Total hooks applied: $hooked")
 }
+

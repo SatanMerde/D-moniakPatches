@@ -13,16 +13,16 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Patches-475-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-490-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-tested--functional-patches">
     <img src="https://img.shields.io/badge/Functional-10-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-experimental-patches-vibe-coded">
-    <img src="https://img.shields.io/badge/Experimental-465-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Experimental-480-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Supported_Apps-107-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Supported_Apps-122-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -46,7 +46,7 @@
 
 ### 📖 Project Overview
 
-**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **475 patches** for **107 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware / emulator: Hungry Shark World, Movix, Moises, FCTV33) and **experimental patches** (currently under development, vibe-coded).
+**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **490 patches** for **122 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware / emulator: Hungry Shark World, Movix, Moises, FCTV33) and **experimental patches** (currently under development, vibe-coded).
 
 ---
 
@@ -89,7 +89,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.56.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.56.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**475 total patches** (10 tested & functional • 465 experimental)
+> **[v1.56.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.56.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**490 total patches** (10 tested & functional • 480 experimental)
 
 ---
 
@@ -258,6 +258,16 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 </details>
 
 <details open>
+<summary>📦 AutoZen&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Unlock Lifetime Premium & Ad-Free - AutoZen (Experimental)](#unlock-lifetime-premium-ad-free-autozen-experimental) | ⚠️ [Experimental / Untested] Removes in-car banner ads, unlocks lifetime premium car dashboard navigation, custom speed cameras alerts, and weather radar overlays in AutoZen. |
+
+</details>
+
+<details open>
 <summary>📦 BandLab&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
@@ -295,6 +305,16 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 </details>
 
 <details open>
+<summary>📦 BlockerHero&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Unlock Premium Custom Blocklists - BlockerHero (Experimental)](#unlock-premium-custom-blocklists-blockerhero-experimental) | ⚠️ [Experimental / Untested] Hooks Google Play Billing to unlock client-side Premium features in BlockerHero, enabling custom URL keywords, strict uninstall protection, and unlimited app locks. |
+
+</details>
+
+<details open>
 <summary>📦 Brave Browser&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
@@ -304,6 +324,26 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | [Disable Rewards & Crypto Wallet - Brave (Experimental)](#disable-rewards-crypto-wallet-brave-experimental) | ⚠️ [Experimental / Untested] Disables Brave Rewards (BAT), crypto wallet icon, Web3 onboarding prompts, and token badges for a cleaner UI. |
 | [Force Aggressive Shields & Anti-Adblock Bypass - Brave (Experimental)](#force-aggressive-shields-anti-adblock-bypass-brave-experimental) | ⚠️ [Experimental / Untested] Forces aggressive ad/tracker blocking mode by default, strips URL tracking query parameters, and bypasses anti-adblock detection scripts in Brave. |
 | [Unlock Brave Origin & Premium Features - Brave (Experimental)](#unlock-brave-origin-premium-features-brave-experimental) | ⚠️ [Experimental / Untested] Unlocks the official Brave Origin license ($59.99), enables bloatware-free minimalist mode, unlocks unlimited Brave Leo Premium AI assistant, and enables Brave VPN entitlements. |
+
+</details>
+
+<details open>
+<summary>📦 Bumble&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free & Clean Dating Interface - Bumble (Experimental)](#ad-free-clean-dating-interface-bumble-experimental) | ⚠️ [Experimental / Untested] Neutralizes sponsored swipe profiles, bottom banner ads, and suppresses repetitive Bumble Premium / Boost upgrade popups across swipe decks. |
+
+</details>
+
+<details open>
+<summary>📦 Busuu&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Unlock Premium Vocabulary & Grammar - Busuu (Experimental)](#unlock-premium-vocabulary-grammar-busuu-experimental) | ⚠️ [Experimental / Untested] Removes lesson banner ads, unlocks client-side Premium grammar units, Smart Review vocabulary practice, and offline lesson downloads in Busuu. |
 
 </details>
 
@@ -574,6 +614,16 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 </details>
 
 <details open>
+<summary>📦 Genius&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free Lyrics & Clean Reader - Genius (Experimental)](#ad-free-lyrics-clean-reader-genius-experimental) | ⚠️ [Experimental / Untested] Strips persistent bottom banner ads, video player interstitials, and cleans up promotional merch cards across Genius song lyrics and annotation screens. |
+
+</details>
+
+<details open>
 <summary>📦 Geometry Dash&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
@@ -581,6 +631,16 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 |----------|----------------|
 | [Practice Music Hack & Bypass - Geometry Dash (Experimental)](#practice-music-hack-bypass-geometry-dash-experimental) | ⚠️ [Experimental / Untested] Plays the real level soundtrack instead of the default repetitive practice loop song when playing in Practice Mode. |
 | [Unlock All Levels & Icons - Geometry Dash (Experimental)](#unlock-all-levels-icons-geometry-dash-experimental) | ⚠️ [Experimental / Untested] Unlocks all official levels (including Demon stages), custom icons, ships, balls, UFOs, waves, trails, and colors in Geometry Dash. |
+
+</details>
+
+<details open>
+<summary>📦 Goodreads&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Pure AMOLED Dark Theme & Ad-Free - Goodreads (Experimental)](#pure-amoled-dark-theme-ad-free-goodreads-experimental) | ⚠️ [Experimental / Untested] Enforces a true pitch-black #000000 AMOLED dark theme across bookshelves, reader reviews, and book details, while stripping banner advertisements in Goodreads. |
 
 </details>
 
@@ -828,6 +888,16 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 </details>
 
 <details open>
+<summary>📦 Mathway&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free & Step-by-Step Solver - Mathway (Experimental)](#ad-free-step-by-step-solver-mathway-experimental) | ⚠️ [Experimental / Untested] Removes interstitial ads after calculating solutions, strips bottom ad banners, and hooks client-side subscription verification for step-by-step problem explanations in Mathway. |
+
+</details>
+
+<details open>
 <summary>📦 MEGA&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
@@ -845,6 +915,26 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Unlock Memrise Pro - Memrise (Experimental)](#unlock-memrise-pro-memrise-experimental) | ⚠️ [Experimental / Untested] Hooks Google Play Billing to bypass in-app purchase verification for Memrise Pro (all language courses, Learn with Locals clips, and grammar bot). |
+
+</details>
+
+<details open>
+<summary>📦 Microsoft SwiftKey&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Disable Telemetry & Clean Onboarding - Microsoft SwiftKey (Experimental)](#disable-telemetry-clean-onboarding-microsoft-swiftkey-experimental) | ⚠️ [Experimental / Untested] Disables telemetry logging, user feedback surveys, and bypasses forced Microsoft cloud account sign-in prompts on initial keyboard setup in SwiftKey. |
+
+</details>
+
+<details open>
+<summary>📦 Money Manager&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Unlock Premium Features & Passcode - Money Manager (Experimental)](#unlock-premium-features-passcode-money-manager-experimental) | ⚠️ [Experimental / Untested] Removes in-app banner ads, unlocks unlimited sub-accounts/categories, biometric passcode protection, and PC manager sync in Money Manager. |
 
 </details>
 
@@ -887,6 +977,16 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 |----------|----------------|
 | [AMOLED Dark Theme - Nextcloud (Experimental)](#amoled-dark-theme-nextcloud-experimental) | ⚠️ [Experimental / Untested] Replaces dark gray theme with pure pitch black (#000000) for OLED screens in Nextcloud file explorer, uploads monitor, and media gallery. |
 | [Allow Screenshots & Bypass Lockout - Nextcloud (Experimental)](#allow-screenshots-bypass-lockout-nextcloud-experimental) | ⚠️ [Experimental / Untested] Removes FLAG_SECURE window protections in Nextcloud to enable screenshots and screen recording even when app passcode lock is configured. |
+
+</details>
+
+<details open>
+<summary>📦 NokoPrint&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free & Unlimited Printing - NokoPrint (Experimental)](#ad-free-unlimited-printing-nokoprint-experimental) | ⚠️ [Experimental / Untested] Removes interstitial ads shown when generating print spools, strips bottom ad banners, and unlocks unlimited multi-page document printing in NokoPrint. |
 
 </details>
 
@@ -997,6 +1097,26 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | [Block Ads & Declutter Menus - Plants vs. Zombies (Experimental)](#block-ads-declutter-menus-plants-vs-zombies-experimental) | ⚠️ [Experimental / Untested] Strips interstitial video ads, bottom banners, and promotional popups in Plants vs. Zombies. |
 | [Free Shopping & Billing Bypass - Plants vs. Zombies (Experimental)](#free-shopping-billing-bypass-plants-vs-zombies-experimental) | ⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Plants vs. Zombies to bypass in-app purchase verification, enabling free shopping for coin packs, Crazy Dave's shop upgrades, and game mode passes. |
 | [Max Sun & Instant Seed Recharge - Plants vs. Zombies (Experimental)](#max-sun-instant-seed-recharge-plants-vs-zombies-experimental) | ⚠️ [Experimental / Untested] Eliminates plant packet cooldown timers for instant replanting and accelerates sun drops across Plants vs. Zombies levels. |
+
+</details>
+
+<details open>
+<summary>📦 Pocket Casts&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Pure AMOLED Dark Theme & Plus Perks - Pocket Casts (Experimental)](#pure-amoled-dark-theme-plus-perks-pocket-casts-experimental) | ⚠️ [Experimental / Untested] Enforces a true #000000 AMOLED Extra Dark theme across podcast player, episode filters, and discovery feed, and unlocks client-side Plus icon customization in Pocket Casts. |
+
+</details>
+
+<details open>
+<summary>📦 Poweramp&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Unlock Full Version & Feature Pack - Poweramp (Experimental)](#unlock-full-version-feature-pack-poweramp-experimental) | ⚠️ [Experimental / Untested] Neutralizes trial expiration timers, unlocks the full version license state, and enables Hi-Res audio output plugins in Poweramp. |
 
 </details>
 
@@ -1337,6 +1457,16 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 </details>
 
 <details open>
+<summary>📦 Teach Me Anatomy&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Unlock Premium 3D Models & Quizzes - Teach Me Anatomy (Experimental)](#unlock-premium-3d-models-quizzes-teach-me-anatomy-experimental) | ⚠️ [Experimental / Untested] Removes in-app banner ads, unlocks full 3D bio-digital anatomy cross-sections, clinical articles, and question bank quizzes in Teach Me Anatomy. |
+
+</details>
+
+<details open>
 <summary>📦 Telegram&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
 
@@ -1371,6 +1501,26 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | [Block Ads & Hide VIP Nags - TeraBox (Experimental)](#block-ads-hide-vip-nags-terabox-experimental) | ⚠️ [Experimental / Untested] Strips video startup ads, cloud storage interstitial banners, and persistent TeraBox Premium VIP subscription nag popups by neutralizing ad SDK calls. |
 | [Unlock Premium & VIP Membership - TeraBox (Experimental)](#unlock-premium-vip-membership-terabox-experimental) | ⚠️ [Experimental / Untested] Unlocks TeraBox Premium & VIP status flags, enabling high-speed multi-threaded download acceleration, cloud archive decompression, and removes video download queues. |
 | [Unlock Video Player Speed & Controls - TeraBox (Experimental)](#unlock-video-player-speed-controls-terabox-experimental) | ⚠️ [Experimental / Untested] Unlocks background video playback, 1080p/original video quality streaming selector, and variable playback speeds without TeraBox Premium. |
+
+</details>
+
+<details open>
+<summary>📦 Tidal&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Declutter Interface & Disable Upsells - Tidal (Experimental)](#declutter-interface-disable-upsells-tidal-experimental) | ⚠️ [Experimental / Untested] Strips recurring HiFi Plus subscription upgrade banners, trial extension dialogs, and declutters promotional artist spotlight carousels in Tidal. |
+
+</details>
+
+<details open>
+<summary>📦 Todoist&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Unlock Pro Features & Layouts - Todoist (Experimental)](#unlock-pro-features-layouts-todoist-experimental) | ⚠️ [Experimental / Untested] Hooks Google Play Billing and subscription status in Todoist to unlock client-side Pro features, custom theme palettes, unlimited task reminders, and full activity logs. |
 
 </details>
 

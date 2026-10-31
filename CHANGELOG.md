@@ -1,3 +1,9 @@
+## [1.60.0-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.59.0...v1.60.0-dev.1) (2026-10-31)
+
+### ✨ New Features
+
+* **capcut:** reverse engineer APK v20.0.0 and refine Pro, Epilogue watermark, and AdMob hooks ([8d00904](https://github.com/SatanMerde/D-moniakPatches/commit/8d009042c62a7a320b353ca986be79cdd67262cd))
+
 ## [1.59.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.58.1...v1.59.0) (2026-10-31)
 
 ### ✨ New Features

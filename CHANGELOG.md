@@ -1,3 +1,9 @@
+## [1.62.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.61.0...v1.62.0) (2026-10-31)
+
+### ✨ New Features
+
+* **spotify:** remove Spicetify and Premium patches for Spotify ([50355d7](https://github.com/SatanMerde/D-moniakPatches/commit/50355d745a81f15eba2506d84a6ad2c894481187))
+
 ## [1.61.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.60.0...v1.61.0) (2026-10-31)
 
 ### 🐛 Bug Fixes

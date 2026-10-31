@@ -23,7 +23,7 @@ import org.w3c.dom.Element
 import java.util.logging.Logger
 
 val spotifyAccentColorBytecodePatch = bytecodePatch(
-    name = "Spicetify Custom Accent Color Bytecode",
+    name = "Spicetify Custom Accent Color Bytecode (Experimental)",
     description = "Bytecode engine for Spicetify Custom Accent Color",
 ) {
     compatibleWith(COMPATIBILITY_SPOTIFY)

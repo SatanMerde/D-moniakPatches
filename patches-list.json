@@ -739,7 +739,7 @@
       "options": []
     },
     {
-      "name": "Ad-Free & Clean Interface - Shazam",
+      "name": "Ad-Free & Clean Interface - Shazam (Experimental)",
       "description": "Strips post-recognition promo cards, Apple Music targeted upsells, in-app survey banners, and announcement sheets in Shazam.",
       "default": true,
       "category": null,
@@ -1539,7 +1539,7 @@
       "options": []
     },
     {
-      "name": "Always-On Auto Shazam - Shazam",
+      "name": "Always-On Auto Shazam - Shazam (Experimental)",
       "description": "Keeps Auto Shazam background listening continuously active without automatic timeout cancellation or sleep limits.",
       "default": true,
       "category": null,
@@ -1836,7 +1836,7 @@
       "options": []
     },
     {
-      "name": "Block Ads & Declutter Feed - BandLab",
+      "name": "Block Ads & Declutter Feed - BandLab (Experimental)",
       "description": "Removes in-app promotional banners, upgrade prompts, sponsored artist cards, and interstitial ads across the BandLab home feed and studio screens.",
       "default": true,
       "category": null,
@@ -8764,7 +8764,7 @@
       "options": []
     },
     {
-      "name": "Pure AMOLED Black Theme - Fossify Phone",
+      "name": "Pure AMOLED Black Theme - Fossify Phone (Experimental)",
       "description": "Applies a pure #000000 AMOLED dark theme across dialpad, in-call screen, contacts list, and call history for optimal OLED battery savings.",
       "default": true,
       "category": null,
@@ -9699,7 +9699,7 @@
       "options": []
     },
     {
-      "name": "Silent & Unrestricted Call Recording - Fossify Phone",
+      "name": "Silent & Unrestricted Call Recording - Fossify Phone (Experimental)",
       "description": "Unlocks call recording across all regions/devices, suppresses carrier/recording warning beeps and disclosure alerts, and automatically enables two-way audio recording directly to local storage.",
       "default": true,
       "category": null,
@@ -9782,7 +9782,7 @@
       "options": []
     },
     {
-      "name": "Spicetify AMOLED Black Theme Bytecode",
+      "name": "Spicetify AMOLED Black Theme Bytecode (Experimental)",
       "description": "Bytecode engine for Spicetify AMOLED Black Theme",
       "default": true,
       "category": null,
@@ -9865,7 +9865,7 @@
       "options": []
     },
     {
-      "name": "Spicetify Custom Accent Color Bytecode",
+      "name": "Spicetify Custom Accent Color Bytecode (Experimental)",
       "description": "Bytecode engine for Spicetify Custom Accent Color",
       "default": true,
       "category": null,
@@ -10422,7 +10422,7 @@
       "options": []
     },
     {
-      "name": "Unlock 3D Maps & Off-Route Alerts - AllTrails",
+      "name": "Unlock 3D Maps & Off-Route Alerts - AllTrails (Experimental)",
       "description": "Unlocks 3D trail maps, real-time off-route audio and wrong-turn notifications, and environmental weather overlays in AllTrails.",
       "default": true,
       "category": null,
@@ -10861,7 +10861,7 @@
       "options": []
     },
     {
-      "name": "Unlock Creator Membership & Audio Tools - BandLab",
+      "name": "Unlock Creator Membership & Audio Tools - BandLab (Experimental)",
       "description": "Hooks Google Play Billing Client and membership state models in BandLab to unlock client-side Creator Membership perks, audio presets, master presets, and removes membership upgrade paywalls.",
       "default": true,
       "category": null,
@@ -11050,7 +11050,7 @@
       "options": []
     },
     {
-      "name": "Unlock Full Game - Silt",
+      "name": "Unlock Full Game - Silt (Experimental)",
       "description": "Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt (v1.0.10). Automatically neutralizes PairIP native DRM in Google Play installations.",
       "default": true,
       "category": null,
@@ -11079,7 +11079,7 @@
       "options": []
     },
     {
-      "name": "Unlock Full Game Bytecode - Silt",
+      "name": "Unlock Full Game Bytecode - Silt (Experimental)",
       "description": "Bytecode de-obfuscation and unlock engine for Silt",
       "default": true,
       "category": null,

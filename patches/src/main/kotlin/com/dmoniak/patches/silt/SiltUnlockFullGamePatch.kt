@@ -129,7 +129,7 @@ private fun buildInlined(callSite: Instruction, parsed: ParsedWrapper): BuilderI
 }
 
 val siltUnlockFullGameBytecodePatch = bytecodePatch(
-    name = "Unlock Full Game Bytecode - Silt",
+    name = "Unlock Full Game Bytecode - Silt (Experimental)",
     description = "Bytecode de-obfuscation and unlock engine for Silt",
 ) {
     compatibleWith(COMPATIBILITY_SILT)
@@ -142,7 +142,7 @@ val siltUnlockFullGameBytecodePatch = bytecodePatch(
 
 @Suppress("unused")
 val siltUnlockFullGamePatch = rawResourcePatch(
-    name = "Unlock Full Game - Silt",
+    name = "Unlock Full Game - Silt (Experimental)",
     description = "Unlocks the full game, all oceanic abyss chapters, and in-app purchase verification in Silt (v1.0.10). Automatically neutralizes PairIP native DRM in Google Play installations.",
 ) {
     compatibleWith(COMPATIBILITY_SILT)

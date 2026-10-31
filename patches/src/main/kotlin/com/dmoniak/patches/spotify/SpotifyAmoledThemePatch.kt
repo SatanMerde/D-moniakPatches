@@ -23,7 +23,7 @@ import org.w3c.dom.Element
 import java.util.logging.Logger
 
 val spotifyAmoledThemeBytecodePatch = bytecodePatch(
-    name = "Spicetify AMOLED Black Theme Bytecode",
+    name = "Spicetify AMOLED Black Theme Bytecode (Experimental)",
     description = "Bytecode engine for Spicetify AMOLED Black Theme",
 ) {
     compatibleWith(COMPATIBILITY_SPOTIFY)

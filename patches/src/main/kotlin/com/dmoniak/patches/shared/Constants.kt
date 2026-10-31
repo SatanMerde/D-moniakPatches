@@ -907,6 +907,20 @@ object Constants {
         appIconColor = 0x6200EE
     )
 
+    val COMPATIBILITY_CAPCUT = Compatibility(
+        packageName = "com.lemon.lvoverseas",
+        name = "CapCut",
+        description = "CapCut: Video Editor & Maker by Bytedance",
+        appIconColor = 0x000000
+    )
+
+    val COMPATIBILITY_CAPCUT_ALT = Compatibility(
+        packageName = "com.lemon.lv",
+        name = "CapCut (Alt)",
+        description = "CapCut: Video Editor & Maker (Domestic / JianYing)",
+        appIconColor = 0x000000
+    )
+
     // Aliases
     val COMPATIBILITY_ANGRY_BIRDS_CLASSIC = COMPATIBILITY_ANGRY_BIRDS
     val COMPATIBILITY_HIDE_ME = COMPATIBILITY_HIDEME

@@ -35,8 +35,8 @@ fun BytecodePatchContext.executeCapCutBypassIntegrityLogic(logger: Logger) {
                 // Check boolean methods (e.g. isUpdateNeeded, shouldShowPopup) -> return false
                 if (method.returnType == "Z") {
                     mutableClass.replaceMethod(
-                        method,
-                        """
+                        method = method,
+                        smaliCode = """
                             const/4 v0, 0x0
                             return v0
                         """.trimIndent()
@@ -48,8 +48,8 @@ fun BytecodePatchContext.executeCapCutBypassIntegrityLogic(logger: Logger) {
                 if (method.name.startsWith("show") || method.name == "c" || method.name == "d" || method.name == "e") {
                     if (method.returnType == "V") {
                         mutableClass.replaceMethod(
-                            method,
-                            """
+                            method = method,
+                            smaliCode = """
                                 return-void
                             """.trimIndent()
                         )
@@ -65,8 +65,8 @@ fun BytecodePatchContext.executeCapCutBypassIntegrityLogic(logger: Logger) {
                 if (method.implementation == null) continue
                 if (method.returnType == "V" && !method.name.startsWith("<")) {
                     mutableClass.replaceMethod(
-                        method,
-                        """
+                        method = method,
+                        smaliCode = """
                             return-void
                         """.trimIndent()
                     )
@@ -81,8 +81,8 @@ fun BytecodePatchContext.executeCapCutBypassIntegrityLogic(logger: Logger) {
                 if (method.implementation == null) continue
                 if (method.name == "checkSignature" && method.returnType == "Z") {
                     mutableClass.replaceMethod(
-                        method,
-                        """
+                        method = method,
+                        smaliCode = """
                             const/4 v0, 0x1
                             return v0
                         """.trimIndent()

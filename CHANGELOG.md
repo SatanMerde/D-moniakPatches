@@ -1,3 +1,9 @@
+## [1.58.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.58.0...v1.58.1) (2026-10-31)
+
+### 🐛 Bug Fixes
+
+* **virtualmaster:** reverse engineer APK v3.2.86, fix Pro entitlement and AdMob hooks ([8eacf9c](https://github.com/SatanMerde/D-moniakPatches/commit/8eacf9c3d7420d553ab2d5da450bf0fcd6e8e6ff))
+
 ## [1.58.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.57.0...v1.58.0) (2026-10-31)
 
 ### ✨ New Features

@@ -55,6 +55,7 @@
 >
 > - 🌊 **Vibe-Coded Project:** The source code, architecture, and bytecode patches in this repository are vibe-coded for rapid innovation and experimentation. Bugs or unexpected behaviors may occur on certain app versions.
 > - 🧪 **Experimental Status & Very High Failure Rate:** Most patches marked `(Experimental)` have **not been tested on real physical devices**. **The chances that they do not work (remain inactive or have no effect) are very high** due to code obfuscation (ProGuard/R8) and server-side subscription validation.
+> - ✅ **Tested an Experimental Patch and it Works?** If you tested an experimental patch and confirmed that it works on your device or emulator, **[submit a validation report on GitHub](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_validation.yml)**! It will be verified and promoted to the **Tested & Functional** table in the next release.
 > - 🙋‍♂️ **Request a Patch to Work in the Next Update:** If you want a specific experimental patch to actually work, you can **[submit a request on GitHub](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_request.yml)**! The APK will be thoroughly reverse-engineered to make the patch fully operational in the next release.
 > - ⚠️ **Ban Risk & Terms of Service:** Modifying third-party applications may violate terms of service and lead to account penalties, restrictions, or bans. Use strictly at your own risk.
 > - ⚖️ **No Liability & Educational Purpose:** This repository is provided **strictly for educational and software security research purposes**. The author and contributors accept no responsibility for misuse, data loss, or account sanctions.
@@ -75,11 +76,12 @@
 
 ---
 
-### 💬 Report a Bug or Request a Patch
+### 💬 Feedback, Validation & Requests
 
-Experiencing an issue or want an experimental patch to actually work in the next release?
+Experiencing an issue, want an experimental patch to work, or tested an experimental patch and confirmed it works?
 
 - 🐛 **[Report a Bug or Issue](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=bug_report.yml)**: if a patch crashes the application or throws errors.
+- ✅ **[Validate an Experimental Patch](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_validation.yml)**: Tested an experimental patch and it works? **Report it here** (device model, app version, confirmation) so we can promote it to **Tested & Functional**!
 - ✨ **[Request a Patch or Make it Functional](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_request.yml)**: Experimental patches have a very high chance of not working out of the box. **Submit a request here** so we can reverse-engineer the APK and make it 100% functional for the next update!
 
 ---
@@ -213,7 +215,10 @@ Experiencing an issue or want an experimental patch to actually work in the next
 ### 🧪 Experimental Patches (Vibe-Coded)
 
 > [!WARNING]
-> **Experimental Notice:** These patches are vibe-coded prototypes and haven't been tested across all physical devices yet. If a patch needs fine-tuning, [submit a request on GitHub](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_request.yml) to prioritize full testing and refinement in the next release!
+> **Experimental Notice:** These patches are vibe-coded prototypes and haven't been tested across all physical devices yet.
+>
+> ✅ **Tested an experimental patch and it works?** [Submit a Validation Report](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_validation.yml) with your device details and app version so we can promote it to the **Tested & Functional** category in the next update!
+>
 > 💡 **Want a patch to work?** [Submit a request on GitHub](https://github.com/SatanMerde/D-moniakPatches/issues/new?template=patch_request.yml) to prioritize reverse-engineering and make it fully functional in the next update!
 
 <details open>

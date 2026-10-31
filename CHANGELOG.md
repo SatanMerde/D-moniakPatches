@@ -1,3 +1,9 @@
+## [1.57.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.56.0...v1.57.0) (2026-10-31)
+
+### ✨ New Features
+
+* **patches:** add 15 community-requested patches for Todoist, Poweramp, SwiftKey, Goodreads, Pocket Casts, and more ([93cfc98](https://github.com/SatanMerde/D-moniakPatches/commit/93cfc98f15124a2e25fc9f0085127da77c7d462e))
+
 ## [1.56.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.55.0...v1.56.0) (2026-10-31)
 
 ### ✨ New Features

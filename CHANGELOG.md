@@ -1,3 +1,9 @@
+## [1.59.0-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.58.1...v1.59.0-dev.1) (2026-10-31)
+
+### ✨ New Features
+
+* **patches:** add CapCut Pro and watermark removal patches ([f2a031f](https://github.com/SatanMerde/D-moniakPatches/commit/f2a031f45763eb39e6f541bec27596ace1340537))
+
 ## [1.58.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.58.0...v1.58.1) (2026-10-31)
 
 ### 🐛 Bug Fixes

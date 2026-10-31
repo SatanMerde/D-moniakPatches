@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-31T11:41:29",
-  "description": "## [1.58.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.58.0...v1.58.1) (2026-10-31)\n\n### 🐛 Bug Fixes\n\n* **virtualmaster:** reverse engineer APK v3.2.86, fix Pro entitlement and AdMob hooks ([8eacf9c](https://github.com/SatanMerde/D-moniakPatches/commit/8eacf9c3d7420d553ab2d5da450bf0fcd6e8e6ff))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.58.1/patches-1.58.1.mpp",
+  "created_at": "2026-10-31T14:22:33",
+  "description": "## [1.59.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.58.1...v1.59.0) (2026-10-31)\n\n### ✨ New Features\n\n* **patches:** add CapCut Pro and watermark removal patches ([f2a031f](https://github.com/SatanMerde/D-moniakPatches/commit/f2a031f45763eb39e6f541bec27596ace1340537))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.59.0/patches-1.59.0.mpp",
   "signature_download_url": "",
-  "version": "1.58.1"
+  "version": "1.59.0"
 }

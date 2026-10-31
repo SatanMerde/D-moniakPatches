@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.58.0",
+  "version": "1.58.1-dev.1",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -781,9 +781,9 @@
           "signatures": null,
           "targets": [
             {
-              "version": "3.2.86",
+              "version": null,
               "versionCodes": null,
-              "isExperimental": true,
+              "isExperimental": false,
               "minSdk": null,
               "description": null
             }
@@ -798,9 +798,9 @@
           "signatures": null,
           "targets": [
             {
-              "version": "3.2.86",
+              "version": null,
               "versionCodes": null,
-              "isExperimental": true,
+              "isExperimental": false,
               "minSdk": null,
               "description": null
             }
@@ -12629,9 +12629,9 @@
           "signatures": null,
           "targets": [
             {
-              "version": "3.2.86",
+              "version": null,
               "versionCodes": null,
-              "isExperimental": true,
+              "isExperimental": false,
               "minSdk": null,
               "description": null
             }
@@ -12646,9 +12646,9 @@
           "signatures": null,
           "targets": [
             {
-              "version": "3.2.86",
+              "version": null,
               "versionCodes": null,
-              "isExperimental": true,
+              "isExperimental": false,
               "minSdk": null,
               "description": null
             }

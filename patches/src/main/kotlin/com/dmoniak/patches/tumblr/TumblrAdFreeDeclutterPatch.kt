@@ -55,3 +55,4 @@ fun BytecodePatchContext.executeTumblrAdFreeDeclutterLogic(logger: Logger) {
 
     logger.info("[Tumblr Ads] Total hooks applied: $hooked")
 }
+

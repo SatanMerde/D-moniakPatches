@@ -746,6 +746,41 @@ object Constants {
         appIconColor = 0x4257B2
     )
 
+    val COMPATIBILITY_CHESS = Compatibility(
+        packageName = "com.chess",
+        name = "Chess.com",
+        description = "Chess.com: Play chess online & offline against bots and friends by Chess.com",
+        appIconColor = 0x7FA650
+    )
+
+    val COMPATIBILITY_MOOVIT = Compatibility(
+        packageName = "com.moovit.android.phone",
+        name = "Moovit",
+        description = "Moovit: Public Transit & Urban Mobility by Moovit",
+        appIconColor = 0xF36F21
+    )
+
+    val COMPATIBILITY_HEVY = Compatibility(
+        packageName = "com.hevy.app",
+        name = "Hevy",
+        description = "Hevy: Gym Workout Tracker & Weight Lifting Log by HevyApp",
+        appIconColor = 0x3B82F6
+    )
+
+    val COMPATIBILITY_MYFITNESSPAL = Compatibility(
+        packageName = "com.myfitnesspal.android",
+        name = "MyFitnessPal",
+        description = "MyFitnessPal: Calorie Counter, Macro & Nutrition Tracker by MyFitnessPal, Inc.",
+        appIconColor = 0x0066EE
+    )
+
+    val COMPATIBILITY_CRONOMETER = Compatibility(
+        packageName = "com.cronometer.android.gold",
+        name = "Cronometer",
+        description = "Cronometer: Nutrition & Calorie Tracker by Cronometer Software Inc.",
+        appIconColor = 0xFF6F00
+    )
+
     // Aliases
     val COMPATIBILITY_ANGRY_BIRDS_CLASSIC = COMPATIBILITY_ANGRY_BIRDS
     val COMPATIBILITY_HIDE_ME = COMPATIBILITY_HIDEME

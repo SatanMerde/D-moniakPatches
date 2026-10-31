@@ -56,3 +56,4 @@ fun BytecodePatchContext.executeLetterboxdAdFreeLogic(logger: Logger) {
 
     logger.info("[Letterboxd Ads] Total hooks applied: $hooked")
 }
+

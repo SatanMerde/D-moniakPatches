@@ -57,3 +57,4 @@ fun BytecodePatchContext.executeQuizletAdFreePlusLogic(logger: Logger) {
 
     logger.info("[Quizlet Plus] Total hooks applied: $hooked")
 }
+

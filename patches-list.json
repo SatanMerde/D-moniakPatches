@@ -847,6 +847,33 @@
       "options": []
     },
     {
+      "name": "Ad-Free & Gold Features - Cronometer (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Removes in-app banner ads, diary promotional banners, and hooks client-side Gold membership status for target scheduler and nutrition charts in Cronometer.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.cronometer.android.gold",
+          "name": "Cronometer",
+          "description": "Cronometer: Nutrition & Calorie Tracker by Cronometer Software Inc.",
+          "apkFileType": null,
+          "appIconColor": "#FF6F00",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Ad-Free & Plus Features - Quizlet (Experimental)",
       "description": "⚠️ [Experimental / Untested] Removes in-app banner ads, study interruption interstitials, and hooks client-side membership verification for Quizlet Plus study features.",
       "default": true,
@@ -874,6 +901,33 @@
       "options": []
     },
     {
+      "name": "Ad-Free & Premium Nutrition - MyFitnessPal (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Removes sponsored food cards, bottom banner ads, and hooks client-side Premium subscription status for custom macronutrient goals in MyFitnessPal.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.myfitnesspal.android",
+          "name": "MyFitnessPal",
+          "description": "MyFitnessPal: Calorie Counter, Macro & Nutrition Tracker by MyFitnessPal, Inc.",
+          "apkFileType": null,
+          "appIconColor": "#0066EE",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Ad-Free & Pure Player - MX Player (Experimental)",
       "description": "⚠️ [Experimental / Untested] Strips all banner ads on the main folder list, full-screen interstitial video ads upon pausing or exiting videos, and online OTT feed promotions by neutralizing ad SDK calls.",
       "default": true,
@@ -886,6 +940,33 @@
           "description": "MX Player: Video Player & Streaming by MX Media / Time Internet",
           "apkFileType": null,
           "appIconColor": "#0078FF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Ad-Free & Unlimited Bot Games - Chess.com (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Removes interstitial popups after chess matches, banner ads, and hooks client-side bot game limits and custom board themes.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.chess",
+          "name": "Chess.com",
+          "description": "Chess.com: Play chess online & offline against bots and friends by Chess.com",
+          "apkFileType": null,
+          "appIconColor": "#7FA650",
           "signatures": null,
           "targets": [
             {
@@ -940,6 +1021,33 @@
           "description": "Speedtest by Ookla by Ookla LLC",
           "apkFileType": null,
           "appIconColor": "#141526",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Ad-Free Transit & Clean Interface - Moovit (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Neutralizes full-screen interstitial ads when viewing schedules, removes bottom banner ads, and declutters live transit map overlays in Moovit.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.moovit.android.phone",
+          "name": "Moovit",
+          "description": "Moovit: Public Transit & Urban Mobility by Moovit",
+          "apkFileType": null,
+          "appIconColor": "#F36F21",
           "signatures": null,
           "targets": [
             {
@@ -11992,6 +12100,33 @@
             },
             {
               "version": "2.5.2",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Pro & Custom Routines - Hevy (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Hooks Google Play Billing and subscription status in Hevy to unlock client-side Pro perks, unlimited custom workout routines, and advanced graph analytics.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.hevy.app",
+          "name": "Hevy",
+          "description": "Hevy: Gym Workout Tracker & Weight Lifting Log by HevyApp",
+          "apkFileType": null,
+          "appIconColor": "#3B82F6",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,

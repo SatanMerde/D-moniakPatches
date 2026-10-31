@@ -56,3 +56,4 @@ fun BytecodePatchContext.executeLetterboxdAmoledThemeLogic(logger: Logger) {
 
     logger.info("[Letterboxd Theme] Total hooks applied: $hooked")
 }
+

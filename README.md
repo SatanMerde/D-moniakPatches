@@ -13,16 +13,16 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Patches-470-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-475-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-tested--functional-patches">
     <img src="https://img.shields.io/badge/Functional-10-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-experimental-patches-vibe-coded">
-    <img src="https://img.shields.io/badge/Experimental-460-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Experimental-465-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Supported_Apps-102-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Supported_Apps-107-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -46,7 +46,7 @@
 
 ### 📖 Project Overview
 
-**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **470 patches** for **102 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware / emulator: Hungry Shark World, Movix, Moises, FCTV33) and **experimental patches** (currently under development, vibe-coded).
+**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **475 patches** for **107 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware / emulator: Hungry Shark World, Movix, Moises, FCTV33) and **experimental patches** (currently under development, vibe-coded).
 
 ---
 
@@ -89,7 +89,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.55.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.55.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**470 total patches** (10 tested & functional • 460 experimental)
+> **[v1.55.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.55.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**475 total patches** (10 tested & functional • 465 experimental)
 
 ---
 
@@ -345,6 +345,16 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 </details>
 
 <details open>
+<summary>📦 Chess.com&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free & Unlimited Bot Games - Chess.com (Experimental)](#ad-free-unlimited-bot-games-chess-com-experimental) | ⚠️ [Experimental / Untested] Removes interstitial popups after chess matches, banner ads, and hooks client-side bot game limits and custom board themes. |
+
+</details>
+
+<details open>
 <summary>📦 Claude&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
@@ -369,6 +379,16 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Unlock VIP (Experimental)](#unlock-vip-experimental) | ⚠️ [Experimental / Untested] Unlocks CoinSnap VIP features including unlimited coin identifications, full grading and valuation, collection storage, and disables startup paywall prompts. (Experimental - Not yet tested on device). |
+
+</details>
+
+<details open>
+<summary>📦 Cronometer&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free & Gold Features - Cronometer (Experimental)](#ad-free-gold-features-cronometer-experimental) | ⚠️ [Experimental / Untested] Removes in-app banner ads, diary promotional banners, and hooks client-side Gold membership status for target scheduler and nutrition charts in Cronometer. |
 
 </details>
 
@@ -615,6 +635,16 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 </details>
 
 <details open>
+<summary>📦 Hevy&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Unlock Pro & Custom Routines - Hevy (Experimental)](#unlock-pro-custom-routines-hevy-experimental) | ⚠️ [Experimental / Untested] Hooks Google Play Billing and subscription status in Hevy to unlock client-side Pro perks, unlimited custom workout routines, and advanced graph analytics. |
+
+</details>
+
+<details open>
 <summary>📦 hide.me VPN&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
@@ -819,6 +849,16 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 </details>
 
 <details open>
+<summary>📦 Moovit&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free Transit & Clean Interface - Moovit (Experimental)](#ad-free-transit-clean-interface-moovit-experimental) | ⚠️ [Experimental / Untested] Neutralizes full-screen interstitial ads when viewing schedules, removes bottom banner ads, and declutters live transit map overlays in Moovit. |
+
+</details>
+
+<details open>
 <summary>📦 MX Player&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
@@ -826,6 +866,16 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 |----------|----------------|
 | [Ad-Free & Pure Player - MX Player (Experimental)](#ad-free-pure-player-mx-player-experimental) | ⚠️ [Experimental / Untested] Strips all banner ads on the main folder list, full-screen interstitial video ads upon pausing or exiting videos, and online OTT feed promotions by neutralizing ad SDK calls. |
 | [Unlock Pro Player Controls - MX Player (Experimental)](#unlock-pro-player-controls-mx-player-experimental) | ⚠️ [Experimental / Untested] Unlocks background video playback with screen off, Picture-in-Picture (PIP) mode, and 200% volume audio boost. |
+
+</details>
+
+<details open>
+<summary>📦 MyFitnessPal&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free & Premium Nutrition - MyFitnessPal (Experimental)](#ad-free-premium-nutrition-myfitnesspal-experimental) | ⚠️ [Experimental / Untested] Removes sponsored food cards, bottom banner ads, and hooks client-side Premium subscription status for custom macronutrient goals in MyFitnessPal. |
 
 </details>
 

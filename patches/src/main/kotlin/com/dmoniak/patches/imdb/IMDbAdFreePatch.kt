@@ -56,3 +56,4 @@ fun BytecodePatchContext.executeIMDbAdFreeLogic(logger: Logger) {
 
     logger.info("[IMDb Ads] Total hooks applied: $hooked")
 }
+

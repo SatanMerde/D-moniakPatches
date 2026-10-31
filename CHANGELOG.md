@@ -1,3 +1,9 @@
+## [1.55.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.54.0...v1.55.0) (2026-10-31)
+
+### ✨ New Features
+
+* **patches:** add community-requested patches for Letterboxd, IMDb, Tumblr, and Quizlet ([ad39ae4](https://github.com/SatanMerde/D-moniakPatches/commit/ad39ae4f2592663abbb1bdea44799bab72019d5c))
+
 ## [1.54.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.53.1...v1.54.0) (2026-10-31)
 
 ### ✨ New Features

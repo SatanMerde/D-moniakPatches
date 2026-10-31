@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-31T08:57:56",
-  "description": "## [1.54.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.53.1...v1.54.0) (2026-10-31)\n\n### ✨ New Features\n\n* **docs:** add experimental patch validation template and report links ([633b09a](https://github.com/SatanMerde/D-moniakPatches/commit/633b09a7453c8ce5e2d5314093b3198a0a2affa8))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.54.0/patches-1.54.0.mpp",
+  "created_at": "2026-10-31T10:17:00",
+  "description": "## [1.55.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.54.0...v1.55.0) (2026-10-31)\n\n### ✨ New Features\n\n* **patches:** add community-requested patches for Letterboxd, IMDb, Tumblr, and Quizlet ([ad39ae4](https://github.com/SatanMerde/D-moniakPatches/commit/ad39ae4f2592663abbb1bdea44799bab72019d5c))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.55.0/patches-1.55.0.mpp",
   "signature_download_url": "",
-  "version": "1.54.0"
+  "version": "1.55.0"
 }

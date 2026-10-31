@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-31T10:33:55",
-  "description": "## [1.57.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.56.0...v1.57.0) (2026-10-31)\n\n### ✨ New Features\n\n* **patches:** add 15 community-requested patches for Todoist, Poweramp, SwiftKey, Goodreads, Pocket Casts, and more ([93cfc98](https://github.com/SatanMerde/D-moniakPatches/commit/93cfc98f15124a2e25fc9f0085127da77c7d462e))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.57.0/patches-1.57.0.mpp",
+  "created_at": "2026-10-31T11:11:33",
+  "description": "## [1.58.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.57.0...v1.58.0) (2026-10-31)\n\n### ✨ New Features\n\n* **patches:** add MT Manager and Virtual Master patches, verify and enhance CoinSnap, Stellarium, and World Map Quiz ([01a4dc4](https://github.com/SatanMerde/D-moniakPatches/commit/01a4dc4bf579fe046a552a4fbe2db5ac02dcb6bf))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.58.0/patches-1.58.0.mpp",
   "signature_download_url": "",
-  "version": "1.57.0"
+  "version": "1.58.0"
 }

@@ -1,3 +1,9 @@
+## [1.58.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.57.0...v1.58.0) (2026-10-31)
+
+### ✨ New Features
+
+* **patches:** add MT Manager and Virtual Master patches, verify and enhance CoinSnap, Stellarium, and World Map Quiz ([01a4dc4](https://github.com/SatanMerde/D-moniakPatches/commit/01a4dc4bf579fe046a552a4fbe2db5ac02dcb6bf))
+
 ## [1.57.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.56.0...v1.57.0) (2026-10-31)
 
 ### ✨ New Features

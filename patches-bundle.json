@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-31T08:51:58",
-  "description": "## [1.53.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.53.0...v1.53.1) (2026-10-31)\n\n### 🐛 Bug Fixes\n\n* **patches:** reclassify unverified patches to experimental (AllTrails, BandLab, Fossify Phone, Shazam, Silt, Spotify) ([263155c](https://github.com/SatanMerde/D-moniakPatches/commit/263155c6ec92e1facf1cdd981f8171c4769fe5a9))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.53.1/patches-1.53.1.mpp",
+  "created_at": "2026-10-31T08:57:56",
+  "description": "## [1.54.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.53.1...v1.54.0) (2026-10-31)\n\n### ✨ New Features\n\n* **docs:** add experimental patch validation template and report links ([633b09a](https://github.com/SatanMerde/D-moniakPatches/commit/633b09a7453c8ce5e2d5314093b3198a0a2affa8))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.54.0/patches-1.54.0.mpp",
   "signature_download_url": "",
-  "version": "1.53.1"
+  "version": "1.54.0"
 }

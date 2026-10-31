@@ -1,3 +1,9 @@
+## [1.54.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.53.1...v1.54.0) (2026-10-31)
+
+### ✨ New Features
+
+* **docs:** add experimental patch validation template and report links ([633b09a](https://github.com/SatanMerde/D-moniakPatches/commit/633b09a7453c8ce5e2d5314093b3198a0a2affa8))
+
 ## [1.53.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.53.0...v1.53.1) (2026-10-31)
 
 ### 🐛 Bug Fixes

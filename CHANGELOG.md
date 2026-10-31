@@ -1,3 +1,9 @@
+## [1.62.1-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.62.0...v1.62.1-dev.1) (2026-10-31)
+
+### 🐛 Bug Fixes
+
+* **silt:** fix PAD asset pack resolution to eliminate infinite loading freeze ([bfc1693](https://github.com/SatanMerde/D-moniakPatches/commit/bfc169316dd65a9cc51c9746c3d78e8e6690a13b))
+
 ## [1.62.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.61.0...v1.62.0) (2026-10-31)
 
 ### ✨ New Features

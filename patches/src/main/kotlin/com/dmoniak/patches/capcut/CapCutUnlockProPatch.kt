@@ -23,14 +23,27 @@ val capCutUnlockProPatch = bytecodePatch(
 }
 
 fun BytecodePatchContext.executeCapCutUnlockProLogic(logger: Logger) {
-    logger.info("Executing Unlock Pro & VIP Effects patch for CapCut...")
+    logger.info("Executing Unlock Pro & VIP Effects patch for CapCut (verified on v20.0.0)...")
     var hookedPoints = executeGooglePlayBillingBypass(logger, "CapCut")
 
     classDefForEach { classDef ->
-        val tl = classDef.type.lowercase()
+        val type = classDef.type
+        val tl = type.lowercase()
         if (tl.startsWith("lkotlin/") || tl.startsWith("landroidx/") || tl.startsWith("landroid/")) return@classDefForEach
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
+
+        // =========================================================================
+        // 1. Direct Architecture Hooks: Root Subscription & Proxy Classes
+        //    - Lcom/vega/subscribe/SubscribeImpl;
+        //    - Lcom/lemon/editor/proxy/SubscribeImpl;
+        //    - Lcom/lemon/editor/proxy/PayVipImpl;
+        //    - Lcn/capcut/ad/api/IUserProvider;
+        // =========================================================================
+        val isCoreSubscriptionClass = type.contains("/SubscribeImpl;") ||
+            type.contains("/PayVipImpl;") ||
+            type.contains("UnifiedAdKMPInit") ||
+            type.contains("IUserProvider;")
 
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
@@ -39,11 +52,75 @@ fun BytecodePatchContext.executeCapCutUnlockProLogic(logger: Logger) {
             val retType = method.returnType
             val pTypes = method.parameterTypes
 
-            // 1. Pro / VIP status checks -> true
+            // Core class specific overrides
+            if (isCoreSubscriptionClass) {
+                // isVip() -> true
+                if (!isStatic && pTypes.isEmpty() && retType == "Z" && mName == "isvip") {
+                    try {
+                        mutableClass.replaceMethod(
+                            method,
+                            registerCount = 2,
+                            smaliCode = """
+                            const/4 v0, 0x1
+                            return v0
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.fine("[CapCut Pro Core] Hooked core VIP getter: $type->${method.name}")
+                        continue
+                    } catch (e: Exception) {
+                        logger.warning("[CapCut Pro Core] Failed to hook $type->${method.name}: ${e.message}")
+                    }
+                }
+
+                // c() -> Boolean.TRUE (boxed Boolean getter in SubscribeImpl / ISubscribe)
+                if (!isStatic && pTypes.isEmpty() && retType == "Ljava/lang/Boolean;" && mName == "c") {
+                    try {
+                        mutableClass.replaceMethod(
+                            method,
+                            registerCount = 2,
+                            smaliCode = """
+                            sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+                            return-object v0
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.fine("[CapCut Pro Core] Hooked boxed Boolean VIP getter: $type->${method.name}")
+                        continue
+                    } catch (e: Exception) {
+                        logger.warning("[CapCut Pro Core] Failed to hook $type->${method.name}: ${e.message}")
+                    }
+                }
+
+                // v() -> Tier level 2 (Pro/VIP member tier in SubscribeImpl / ISubscribe)
+                if (!isStatic && pTypes.isEmpty() && retType == "I" && mName == "v") {
+                    try {
+                        mutableClass.replaceMethod(
+                            method,
+                            registerCount = 2,
+                            smaliCode = """
+                            const/4 v0, 0x2
+                            return v0
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.fine("[CapCut Pro Core] Hooked VIP tier level getter: $type->${method.name}")
+                        continue
+                    } catch (e: Exception) {
+                        logger.warning("[CapCut Pro Core] Failed to hook $type->${method.name}: ${e.message}")
+                    }
+                }
+            }
+
+            // =========================================================================
+            // 2. Universal Pro / VIP Status & Feature Getters
+            // =========================================================================
+            // VIP / Pro status getters returning boolean -> true
             if (!isStatic && pTypes.isEmpty() && retType == "Z" && (
-                mName == "ispro" || mName == "isvip" || mName == "isprouser" ||
-                mName == "isvipuser" || mName == "haspro" || mName == "hasvip" ||
-                mName == "isvipmember" || mName == "ispromember" || mName == "checkvipstatus" ||
+                mName == "isvip" || mName == "isvipuser" || mName == "isvipexport" ||
+                mName == "isvipdraft" || mName == "ispro" || mName == "isprouser" ||
+                mName == "haspro" || mName == "hasvip" || mName == "isvipmember" ||
+                mName == "ispromember" || mName == "checkvipstatus" || mName == "getisvip" ||
                 mName == "issubscriptionactive" || mName == "isproversion" || mName == "isvalidvip"
             )) {
                 try {
@@ -56,13 +133,13 @@ fun BytecodePatchContext.executeCapCutUnlockProLogic(logger: Logger) {
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.fine("[CapCut Pro] Hooked Pro status getter: ${classDef.type}->${method.name}")
+                    logger.fine("[CapCut Pro] Hooked Pro status getter: $type->${method.name}")
                 } catch (e: Exception) {
-                    logger.warning("[CapCut Pro] Failed to hook ${classDef.type}->${method.name}: ${e.message}")
+                    logger.warning("[CapCut Pro] Failed to hook $type->${method.name}: ${e.message}")
                 }
             }
 
-            // 2. VIP / Subscription Expiration -> false
+            // Expiration checks returning boolean -> false
             if (!isStatic && pTypes.isEmpty() && retType == "Z" && (
                 mName == "isexpired" || mName == "isvipexpired" || mName == "isproexpired"
             )) {
@@ -76,13 +153,13 @@ fun BytecodePatchContext.executeCapCutUnlockProLogic(logger: Logger) {
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.fine("[CapCut Pro] Hooked expiration check: ${classDef.type}->${method.name}")
+                    logger.fine("[CapCut Pro] Hooked expiration check: $type->${method.name}")
                 } catch (e: Exception) {
-                    logger.warning("[CapCut Pro] Failed to hook ${classDef.type}->${method.name}: ${e.message}")
+                    logger.warning("[CapCut Pro] Failed to hook $type->${method.name}: ${e.message}")
                 }
             }
 
-            // 3. Pro / VIP Level / Member Type -> 2 (Pro tier)
+            // VIP / Pro tier level returning int -> 2 (Pro tier)
             if (!isStatic && pTypes.isEmpty() && retType == "I" && (
                 mName == "getviplevel" || mName == "getprolevel" || mName == "getusertype" ||
                 mName == "getviptype" || mName == "getmembertype"
@@ -97,13 +174,13 @@ fun BytecodePatchContext.executeCapCutUnlockProLogic(logger: Logger) {
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.fine("[CapCut Pro] Hooked tier level getter: ${classDef.type}->${method.name}")
+                    logger.fine("[CapCut Pro] Hooked tier level getter: $type->${method.name}")
                 } catch (e: Exception) {
-                    logger.warning("[CapCut Pro] Failed to hook ${classDef.type}->${method.name}: ${e.message}")
+                    logger.warning("[CapCut Pro] Failed to hook $type->${method.name}: ${e.message}")
                 }
             }
 
-            // 4. Expiration Timestamp -> Far future (0x7fffffffffffffffL)
+            // Expiration timestamp returning long -> far future (0x7fffffffffffffffL)
             if (!isStatic && pTypes.isEmpty() && retType == "J" && (
                 mName == "getexpiretime" || mName == "getexpiredate" || mName == "getvipexpiretime" ||
                 mName == "getproexpiretime"
@@ -118,16 +195,16 @@ fun BytecodePatchContext.executeCapCutUnlockProLogic(logger: Logger) {
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.fine("[CapCut Pro] Hooked expiration timestamp: ${classDef.type}->${method.name}")
+                    logger.fine("[CapCut Pro] Hooked expiration timestamp: $type->${method.name}")
                 } catch (e: Exception) {
-                    logger.warning("[CapCut Pro] Failed to hook ${classDef.type}->${method.name}: ${e.message}")
+                    logger.warning("[CapCut Pro] Failed to hook $type->${method.name}: ${e.message}")
                 }
             }
 
-            // 5. Pro Feature / Effect access checks -> true
+            // Feature and 4K export checks -> true
             if (!isStatic && retType == "Z" && (
                 mName == "isprofeature" || mName == "isfeatureunlocked" || mName == "canuseproeffect" ||
-                mName == "isprotemplate" || mName == "canexportin4k"
+                mName == "isprotemplate" || mName == "canexportin4k" || mName == "getenablegetdraftjsonwithoutwatermarkasync"
             )) {
                 try {
                     mutableClass.replaceMethod(
@@ -139,9 +216,9 @@ fun BytecodePatchContext.executeCapCutUnlockProLogic(logger: Logger) {
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.fine("[CapCut Pro] Hooked feature access check: ${classDef.type}->${method.name}")
+                    logger.fine("[CapCut Pro] Hooked feature access check: $type->${method.name}")
                 } catch (e: Exception) {
-                    logger.warning("[CapCut Pro] Failed to hook ${classDef.type}->${method.name}: ${e.message}")
+                    logger.warning("[CapCut Pro] Failed to hook $type->${method.name}: ${e.message}")
                 }
             }
         }

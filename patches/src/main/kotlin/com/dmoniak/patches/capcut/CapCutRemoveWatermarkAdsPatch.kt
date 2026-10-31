@@ -23,14 +23,24 @@ val capCutRemoveWatermarkAdsPatch = bytecodePatch(
 }
 
 fun BytecodePatchContext.executeCapCutRemoveWatermarkAdsLogic(logger: Logger) {
-    logger.info("Executing Disable Ending Watermark & Ad Prompts patch for CapCut...")
+    logger.info("Executing Disable Ending Watermark & Ad Prompts patch for CapCut (verified on v20.0.0)...")
     var hookedPoints = executeComprehensiveAdBlock(logger, "CapCut")
 
     classDefForEach { classDef ->
-        val tl = classDef.type.lowercase()
+        val type = classDef.type
+        val tl = type.lowercase()
         if (tl.startsWith("lkotlin/") || tl.startsWith("landroidx/") || tl.startsWith("landroid/")) return@classDefForEach
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
+
+        // =========================================================================
+        // 1. Target Epilogue & Watermark Controllers:
+        //    - Lcom/vega/edit/video/view/MultiTrackLayout;
+        //    - Lcom/vega/edit/video/view/ItemTrackLayout;
+        //    - Lcom/ss/android/vesdk/VEVideoEncodeSettings;
+        // =========================================================================
+        val isTrackLayout = type.contains("MultiTrackLayout;") || type.contains("ItemTrackLayout;")
+        val isEncodeSettings = type.contains("VEVideoEncodeSettings;")
 
         for (method in classDef.methods.toList()) {
             if (method.implementation == null) continue
@@ -38,11 +48,52 @@ fun BytecodePatchContext.executeCapCutRemoveWatermarkAdsLogic(logger: Logger) {
             val mName = method.name.lowercase()
             val retType = method.returnType
 
-            // 1. Ending watermark / logo clip checkers -> false
+            // Neutralize setNeedEpilogue and setEpilogueEnable on track layout
+            if (isTrackLayout && retType == "V" && (mName == "setneedepilogue" || mName == "setepilogueenable")) {
+                try {
+                    mutableClass.replaceMethod(
+                        method,
+                        registerCount = if (isStatic) 1 else 2,
+                        smaliCode = """
+                        return-void
+                        """.trimIndent()
+                    )
+                    hookedPoints++
+                    logger.fine("[CapCut Epilogue] Neutralized epilogue setter: $type->${method.name}")
+                    continue
+                } catch (e: Exception) {
+                    logger.warning("[CapCut Epilogue] Failed to hook $type->${method.name}: ${e.message}")
+                }
+            }
+
+            // Disable invisible watermark on video encode settings
+            if (isEncodeSettings && retType == "Z" && mName == "getenableinvisiblewatermark") {
+                try {
+                    mutableClass.replaceMethod(
+                        method,
+                        registerCount = 2,
+                        smaliCode = """
+                        const/4 v0, 0x0
+                        return v0
+                        """.trimIndent()
+                    )
+                    hookedPoints++
+                    logger.fine("[CapCut Watermark] Disabled invisible watermark in encode settings: $type->${method.name}")
+                    continue
+                } catch (e: Exception) {
+                    logger.warning("[CapCut Watermark] Failed to hook $type->${method.name}: ${e.message}")
+                }
+            }
+
+            // =========================================================================
+            // 2. Ending watermark / Epilogue checkers -> false
+            // =========================================================================
             if (retType == "Z" && (
                 mName == "isdefaultendingenabled" || mName == "shouldaddendingwatermark" ||
                 mName == "isendingwatermarkon" || mName == "hasendingwatermark" ||
-                mName == "iswatermarkenabled"
+                mName == "iswatermarkenabled" || mName == "getshowepilogue" ||
+                mName == "haswatermark" || mName == "hasaigcwatermark" ||
+                mName == "hasaigcwatermarkrespstruct_has_get"
             )) {
                 try {
                     mutableClass.replaceMethod(
@@ -54,16 +105,19 @@ fun BytecodePatchContext.executeCapCutRemoveWatermarkAdsLogic(logger: Logger) {
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.fine("[CapCut Watermark] Neutralized ending watermark getter: ${classDef.type}->${method.name}")
+                    logger.fine("[CapCut Watermark] Neutralized watermark getter: $type->${method.name}")
                 } catch (e: Exception) {
-                    logger.warning("[CapCut Watermark] Failed to hook ${classDef.type}->${method.name}: ${e.message}")
+                    logger.warning("[CapCut Watermark] Failed to hook $type->${method.name}: ${e.message}")
                 }
             }
 
-            // 2. Paywall / Promo readiness and display checkers -> false
+            // =========================================================================
+            // 3. Paywall / Promo readiness and display checkers -> false
+            // =========================================================================
             if (retType == "Z" && (
                 mName == "shouldshowpaywall" || mName == "shouldshowupgradedialog" ||
-                mName == "isadready" || mName == "isadloaded" || mName == "shouldshowad"
+                mName == "isadready" || mName == "isadloaded" || mName == "shouldshowad" ||
+                mName == "needshowad"
             )) {
                 try {
                     mutableClass.replaceMethod(
@@ -75,16 +129,19 @@ fun BytecodePatchContext.executeCapCutRemoveWatermarkAdsLogic(logger: Logger) {
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.fine("[CapCut Ads] Hooked promo/ad check: ${classDef.type}->${method.name}")
+                    logger.fine("[CapCut Ads] Hooked promo/ad check: $type->${method.name}")
                 } catch (e: Exception) {
-                    logger.warning("[CapCut Ads] Failed to hook ${classDef.type}->${method.name}: ${e.message}")
+                    logger.warning("[CapCut Ads] Failed to hook $type->${method.name}: ${e.message}")
                 }
             }
 
-            // 3. Paywall / Ad show methods returning void
+            // =========================================================================
+            // 4. Paywall / Ad show methods returning void
+            // =========================================================================
             if (retType == "V" && (
                 mName == "showpaywall" || mName == "showupgradeprompt" ||
-                mName == "showvipdialog" || mName == "showinterstitialad"
+                mName == "showvipdialog" || mName == "showinterstitialad" ||
+                mName == "showactivitydialog"
             )) {
                 try {
                     mutableClass.replaceMethod(
@@ -95,9 +152,9 @@ fun BytecodePatchContext.executeCapCutRemoveWatermarkAdsLogic(logger: Logger) {
                         """.trimIndent()
                     )
                     hookedPoints++
-                    logger.fine("[CapCut Ads] Neutralized paywall show method: ${classDef.type}->${method.name}")
+                    logger.fine("[CapCut Ads] Neutralized paywall show method: $type->${method.name}")
                 } catch (e: Exception) {
-                    logger.warning("[CapCut Ads] Failed to neutralize ${classDef.type}->${method.name}: ${e.message}")
+                    logger.warning("[CapCut Ads] Failed to neutralize $type->${method.name}: ${e.message}")
                 }
             }
         }

@@ -85,3 +85,4 @@ body:
           required: true
         - label: "La version exacte de l'application et le modèle de l'appareil sont bien renseignés."
           required: true
+

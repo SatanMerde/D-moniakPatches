@@ -718,6 +718,34 @@ object Constants {
         targets = listOf(AppTarget("2.1.0", isExperimental = true))
     )
 
+    val COMPATIBILITY_LETTERBOXD = Compatibility(
+        packageName = "com.letterboxd.letterboxd",
+        name = "Letterboxd",
+        description = "Letterboxd: Social network for film lovers by Letterboxd Limited",
+        appIconColor = 0x00E054
+    )
+
+    val COMPATIBILITY_IMDB = Compatibility(
+        packageName = "com.imdb.mobile",
+        name = "IMDb",
+        description = "IMDb: Movies & TV Shows by IMDb",
+        appIconColor = 0xF5C518
+    )
+
+    val COMPATIBILITY_TUMBLR = Compatibility(
+        packageName = "com.tumblr",
+        name = "Tumblr",
+        description = "Tumblr: Fandom, art, and chaotic social blog feed by Tumblr, Inc.",
+        appIconColor = 0x001935
+    )
+
+    val COMPATIBILITY_QUIZLET = Compatibility(
+        packageName = "com.quizlet",
+        name = "Quizlet",
+        description = "Quizlet: AI-powered Flashcards & Study Sets by Quizlet Inc.",
+        appIconColor = 0x4257B2
+    )
+
     // Aliases
     val COMPATIBILITY_ANGRY_BIRDS_CLASSIC = COMPATIBILITY_ANGRY_BIRDS
     val COMPATIBILITY_HIDE_ME = COMPATIBILITY_HIDEME

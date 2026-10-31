@@ -13,16 +13,16 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Patches-465-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-470-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-tested--functional-patches">
     <img src="https://img.shields.io/badge/Functional-10-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-experimental-patches-vibe-coded">
-    <img src="https://img.shields.io/badge/Experimental-455-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Experimental-460-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Supported_Apps-98-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Supported_Apps-102-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -46,7 +46,7 @@
 
 ### 📖 Project Overview
 
-**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **465 patches** for **98 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware / emulator: Hungry Shark World, Movix, Moises, FCTV33) and **experimental patches** (currently under development, vibe-coded).
+**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **470 patches** for **102 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware / emulator: Hungry Shark World, Movix, Moises, FCTV33) and **experimental patches** (currently under development, vibe-coded).
 
 ---
 
@@ -89,7 +89,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.54.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.54.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**465 total patches** (10 tested & functional • 455 experimental)
+> **[v1.54.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.54.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**470 total patches** (10 tested & functional • 460 experimental)
 
 ---
 
@@ -684,6 +684,16 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 </details>
 
 <details open>
+<summary>📦 IMDb&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free & Clean Interface - IMDb (Experimental)](#ad-free-clean-interface-imdb-experimental) | ⚠️ [Experimental / Untested] Strips banner ads, sponsored recommendation cards, interstitial popups, and video pre-roll advertisements before movie and TV show trailers in IMDb. |
+
+</details>
+
+<details open>
 <summary>📦 Instagram&nbsp;&nbsp;•&nbsp;&nbsp;71 patches</summary>
 <br>
 
@@ -773,6 +783,17 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | [Free Shopping & Billing Bypass - Jetpack Joyride (Experimental)](#free-shopping-billing-bypass-jetpack-joyride-experimental) | ⚠️ [Experimental / Untested] Hooks Google Play Billing purchase verification in Jetpack Joyride to unlock coin packs, permanent coin doubler, jetpacks, costumes, and Stash upgrades for free. |
 | [Infinite Vehicle Shield - Jetpack Joyride (Experimental)](#infinite-vehicle-shield-jetpack-joyride-experimental) | ⚠️ [Experimental / Untested] Keeps Barry's vehicle and gadget shields permanently active in Jetpack Joyride, preventing destruction upon contact with zappers, missiles, and laser fields. |
 | [Unlock Gadgets & Upgrades - Jetpack Joyride (Experimental)](#unlock-gadgets-upgrades-jetpack-joyride-experimental) | ⚠️ [Experimental / Untested] Unlocks all Stash gadgets (Coin Magnet, Gravity Belt, Air Barrys, etc.) and maxes out vehicle coin magnets without spending coins. |
+
+</details>
+
+<details open>
+<summary>📦 Letterboxd&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free & Clean Interface - Letterboxd (Experimental)](#ad-free-clean-interface-letterboxd-experimental) | ⚠️ [Experimental / Untested] Removes in-app banner ads, sponsored film promo carousels, and recurring Pro/Patron subscription prompts across the Letterboxd home feed and film detail screens. |
+| [Pure AMOLED Dark Theme - Letterboxd (Experimental)](#pure-amoled-dark-theme-letterboxd-experimental) | ⚠️ [Experimental / Untested] Applies a pure pitch-black #000000 AMOLED dark theme across Letterboxd film lists, review feeds, diary entries, and member profiles for maximum OLED battery savings. |
 
 </details>
 
@@ -977,6 +998,16 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | [Enhanced Privacy & Telemetry Blocker - Proton VPN (Experimental)](#enhanced-privacy-telemetry-blocker-proton-vpn-experimental) | ⚠️ [Experimental / Untested] Blocks diagnostic telemetry, analytical event reporting (Firebase, Sentry, Mixpanel, Matomo), and crashlytics logging for zero metadata leakage. |
 | [Unlock Custom DNS Settings - Proton VPN (Experimental)](#unlock-custom-dns-settings-proton-vpn-experimental) | ⚠️ [Experimental / Untested] Unlocks custom upstream DNS resolver preferences (NextDNS, AdGuard DNS, Quad9) in Proton VPN settings without subscription restrictions. |
 | [Unlock NetShield DNS Blocker - Proton VPN (Experimental)](#unlock-netshield-dns-blocker-proton-vpn-experimental) | ⚠️ [Experimental / Untested] Unlocks the NetShield DNS ad & malware blocking toggle in Proton VPN preferences without requiring a Plus subscription. |
+
+</details>
+
+<details open>
+<summary>📦 Quizlet&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free & Plus Features - Quizlet (Experimental)](#ad-free-plus-features-quizlet-experimental) | ⚠️ [Experimental / Untested] Removes in-app banner ads, study interruption interstitials, and hooks client-side membership verification for Quizlet Plus study features. |
 
 </details>
 
@@ -1306,6 +1337,16 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 |----------|----------------|
 | [Ad-Free & Clean Dialer - Truecaller (Experimental)](#ad-free-clean-dialer-truecaller-experimental) | ⚠️ [Experimental / Untested] Removes intrusive post-call ads, banner ads inside the call history and dialer tabs, and promotional Gold upsells by neutralizing ad SDK calls. |
 | [Unlock Premium & Gold Features - Truecaller (Experimental)](#unlock-premium-gold-features-truecaller-experimental) | ⚠️ [Experimental / Untested] Hooks Google Play Billing to bypass in-app purchase verification for Truecaller Premium and Gold caller ID themes and spam filtering features. |
+
+</details>
+
+<details open>
+<summary>📦 Tumblr&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Block Ads & Declutter Feed - Tumblr (Experimental)](#block-ads-declutter-feed-tumblr-experimental) | ⚠️ [Experimental / Untested] Neutralizes sponsored blog posts, promoted radar items, interstitial video ads, and declutters recommendation carousels in Tumblr dashboard feeds. |
 
 </details>
 

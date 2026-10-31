@@ -739,6 +739,60 @@
       "options": []
     },
     {
+      "name": "Ad-Free & Clean Interface - IMDb (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Strips banner ads, sponsored recommendation cards, interstitial popups, and video pre-roll advertisements before movie and TV show trailers in IMDb.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.imdb.mobile",
+          "name": "IMDb",
+          "description": "IMDb: Movies & TV Shows by IMDb",
+          "apkFileType": null,
+          "appIconColor": "#F5C518",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Ad-Free & Clean Interface - Letterboxd (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Removes in-app banner ads, sponsored film promo carousels, and recurring Pro/Patron subscription prompts across the Letterboxd home feed and film detail screens.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.letterboxd.letterboxd",
+          "name": "Letterboxd",
+          "description": "Letterboxd: Social network for film lovers by Letterboxd Limited",
+          "apkFileType": null,
+          "appIconColor": "#00E054",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Ad-Free & Clean Interface - Shazam (Experimental)",
       "description": "Strips post-recognition promo cards, Apple Music targeted upsells, in-app survey banners, and announcement sheets in Shazam.",
       "default": true,
@@ -778,6 +832,33 @@
           "description": "Duolingo: Language Lessons by Duolingo",
           "apkFileType": null,
           "appIconColor": "#58CC02",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Ad-Free & Plus Features - Quizlet (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Removes in-app banner ads, study interruption interstitials, and hooks client-side membership verification for Quizlet Plus study features.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.quizlet",
+          "name": "Quizlet",
+          "description": "Quizlet: AI-powered Flashcards & Study Sets by Quizlet Inc.",
+          "apkFileType": null,
+          "appIconColor": "#4257B2",
           "signatures": null,
           "targets": [
             {
@@ -1848,6 +1929,33 @@
           "description": "BandLab: Music Making Studio, DAW, Beat Maker & Audio Recording",
           "apkFileType": null,
           "appIconColor": "#EE3344",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block Ads & Declutter Feed - Tumblr (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Neutralizes sponsored blog posts, promoted radar items, interstitial video ads, and declutters recommendation carousels in Tumblr dashboard feeds.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.tumblr",
+          "name": "Tumblr",
+          "description": "Tumblr: Fandom, art, and chaotic social blog feed by Tumblr, Inc.",
+          "apkFileType": null,
+          "appIconColor": "#001935",
           "signatures": null,
           "targets": [
             {
@@ -8955,6 +9063,33 @@
           "description": "Firefox: Fast, Private & Safe Web Browser by Mozilla",
           "apkFileType": null,
           "appIconColor": "#FF7139",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Pure AMOLED Dark Theme - Letterboxd (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Applies a pure pitch-black #000000 AMOLED dark theme across Letterboxd film lists, review feeds, diary entries, and member profiles for maximum OLED battery savings.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.letterboxd.letterboxd",
+          "name": "Letterboxd",
+          "description": "Letterboxd: Social network for film lovers by Letterboxd Limited",
+          "apkFileType": null,
+          "appIconColor": "#00E054",
           "signatures": null,
           "targets": [
             {

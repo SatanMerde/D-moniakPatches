@@ -1,3 +1,9 @@
+## [1.56.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.55.0...v1.56.0) (2026-10-31)
+
+### ✨ New Features
+
+* **patches:** add community-requested patches for Chess.com, Moovit, Hevy, MyFitnessPal, and Cronometer ([a880cc1](https://github.com/SatanMerde/D-moniakPatches/commit/a880cc1606cf557db5492841ae8f6fca1405492e))
+
 ## [1.55.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.54.0...v1.55.0) (2026-10-31)
 
 ### ✨ New Features

@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-31T10:17:00",
-  "description": "## [1.55.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.54.0...v1.55.0) (2026-10-31)\n\n### ✨ New Features\n\n* **patches:** add community-requested patches for Letterboxd, IMDb, Tumblr, and Quizlet ([ad39ae4](https://github.com/SatanMerde/D-moniakPatches/commit/ad39ae4f2592663abbb1bdea44799bab72019d5c))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.55.0/patches-1.55.0.mpp",
+  "created_at": "2026-10-31T10:26:21",
+  "description": "## [1.56.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.55.0...v1.56.0) (2026-10-31)\n\n### ✨ New Features\n\n* **patches:** add community-requested patches for Chess.com, Moovit, Hevy, MyFitnessPal, and Cronometer ([a880cc1](https://github.com/SatanMerde/D-moniakPatches/commit/a880cc1606cf557db5492841ae8f6fca1405492e))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.56.0/patches-1.56.0.mpp",
   "signature_download_url": "",
-  "version": "1.55.0"
+  "version": "1.56.0"
 }

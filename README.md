@@ -1629,10 +1629,15 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 <summary>📦 Virtual Master&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
+**🎯 Supported versions:**
+
+| 🧪&nbsp;3.2.86 |
+| :---: |
+
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [Ad-Free & Clean Environment - Virtual Master (Experimental)](#ad-free-clean-environment-virtual-master-experimental) | ⚠️ [Experimental / Untested] Strips all boot interstitials, launcher advertisements, app clone promotion banners, and telemetry popups from Virtual Master. |
-| [Unlock Pro & Multi-Instance - Virtual Master (Experimental)](#unlock-pro-multi-instance-virtual-master-experimental) | ⚠️ [Experimental / Untested] Unlocks Virtual Master Pro edition, allowing unlimited virtual Android instances, root permission toggles, customized device ID spoofing, and advanced backup/restore by hooking VIP/Pro status models and billing interfaces. |
+| [Ad-Free & Clean Environment - Virtual Master (Experimental)](#ad-free-clean-environment-virtual-master-experimental) | ⚠️ [Experimental / Untested] Strips all boot interstitials, launcher advertisements, app clone promotion banners, and telemetry popups from Virtual Master by hooking internal AdMob wrappers and ad containers. |
+| [Unlock Pro & Multi-Instance - Virtual Master (Experimental)](#unlock-pro-multi-instance-virtual-master-experimental) | ⚠️ [Experimental / Untested] Unlocks Virtual Master Pro edition, allowing unlimited virtual Android instances, root permission toggles, customized device ID spoofing, and advanced backup/restore by hooking MemberStatusResponse, obfuscated BillingManager gatekeepers, and Google Play Billing. |
 
 </details>
 
@@ -1640,10 +1645,15 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 <summary>📦 Virtual Master (Alt)&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
+**🎯 Supported versions:**
+
+| 🧪&nbsp;3.2.86 |
+| :---: |
+
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
-| [Ad-Free & Clean Environment - Virtual Master (Experimental)](#ad-free-clean-environment-virtual-master-experimental) | ⚠️ [Experimental / Untested] Strips all boot interstitials, launcher advertisements, app clone promotion banners, and telemetry popups from Virtual Master. |
-| [Unlock Pro & Multi-Instance - Virtual Master (Experimental)](#unlock-pro-multi-instance-virtual-master-experimental) | ⚠️ [Experimental / Untested] Unlocks Virtual Master Pro edition, allowing unlimited virtual Android instances, root permission toggles, customized device ID spoofing, and advanced backup/restore by hooking VIP/Pro status models and billing interfaces. |
+| [Ad-Free & Clean Environment - Virtual Master (Experimental)](#ad-free-clean-environment-virtual-master-experimental) | ⚠️ [Experimental / Untested] Strips all boot interstitials, launcher advertisements, app clone promotion banners, and telemetry popups from Virtual Master by hooking internal AdMob wrappers and ad containers. |
+| [Unlock Pro & Multi-Instance - Virtual Master (Experimental)](#unlock-pro-multi-instance-virtual-master-experimental) | ⚠️ [Experimental / Untested] Unlocks Virtual Master Pro edition, allowing unlimited virtual Android instances, root permission toggles, customized device ID spoofing, and advanced backup/restore by hooking MemberStatusResponse, obfuscated BillingManager gatekeepers, and Google Play Billing. |
 
 </details>
 

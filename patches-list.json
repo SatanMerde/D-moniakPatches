@@ -767,7 +767,7 @@
     },
     {
       "name": "Ad-Free & Clean Environment - Virtual Master (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Strips all boot interstitials, launcher advertisements, app clone promotion banners, and telemetry popups from Virtual Master.",
+      "description": "⚠️ [Experimental / Untested] Strips all boot interstitials, launcher advertisements, app clone promotion banners, and telemetry popups from Virtual Master by hooking internal AdMob wrappers and ad containers.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -781,9 +781,9 @@
           "signatures": null,
           "targets": [
             {
-              "version": null,
+              "version": "3.2.86",
               "versionCodes": null,
-              "isExperimental": false,
+              "isExperimental": true,
               "minSdk": null,
               "description": null
             }
@@ -798,9 +798,9 @@
           "signatures": null,
           "targets": [
             {
-              "version": null,
+              "version": "3.2.86",
               "versionCodes": null,
-              "isExperimental": false,
+              "isExperimental": true,
               "minSdk": null,
               "description": null
             }
@@ -12615,7 +12615,7 @@
     },
     {
       "name": "Unlock Pro & Multi-Instance - Virtual Master (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Unlocks Virtual Master Pro edition, allowing unlimited virtual Android instances, root permission toggles, customized device ID spoofing, and advanced backup/restore by hooking VIP/Pro status models and billing interfaces.",
+      "description": "⚠️ [Experimental / Untested] Unlocks Virtual Master Pro edition, allowing unlimited virtual Android instances, root permission toggles, customized device ID spoofing, and advanced backup/restore by hooking MemberStatusResponse, obfuscated BillingManager gatekeepers, and Google Play Billing.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -12629,9 +12629,9 @@
           "signatures": null,
           "targets": [
             {
-              "version": null,
+              "version": "3.2.86",
               "versionCodes": null,
-              "isExperimental": false,
+              "isExperimental": true,
               "minSdk": null,
               "description": null
             }
@@ -12646,9 +12646,9 @@
           "signatures": null,
           "targets": [
             {
-              "version": null,
+              "version": "3.2.86",
               "versionCodes": null,
-              "isExperimental": false,
+              "isExperimental": true,
               "minSdk": null,
               "description": null
             }

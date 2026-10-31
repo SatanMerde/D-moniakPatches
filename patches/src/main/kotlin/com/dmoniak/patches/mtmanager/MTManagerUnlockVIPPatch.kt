@@ -123,3 +123,4 @@ fun BytecodePatchContext.executeMTManagerUnlockVIPLogic(logger: Logger) {
 
     logger.info("[MTManager VIP] Total VIP hooks applied: $hookedPoints")
 }
+

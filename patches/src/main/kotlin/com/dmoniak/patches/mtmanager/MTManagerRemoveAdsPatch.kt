@@ -82,3 +82,4 @@ fun BytecodePatchContext.executeMTManagerRemoveAdsLogic(logger: Logger) {
 
     logger.info("[MTManager Ads/Update] Total hooks applied: $hookedPoints")
 }
+

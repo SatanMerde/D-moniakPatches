@@ -13,13 +13,13 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Patches-496-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-497-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-tested--functional-patches">
     <img src="https://img.shields.io/badge/Functional-10-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-experimental-patches-vibe-coded">
-    <img src="https://img.shields.io/badge/Experimental-486-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Experimental-487-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-patches-list">
     <img src="https://img.shields.io/badge/Supported_Apps-127-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -89,7 +89,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.60.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.60.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**496 total patches** (10 tested & functional • 486 experimental)
+> **[v1.59.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.59.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**497 total patches** (10 tested & functional • 487 experimental)
 
 ---
 
@@ -373,22 +373,24 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 </details>
 
 <details open>
-<summary>📦 CapCut&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 CapCut&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
+| [Bypass Integrity & Update Dialog - CapCut (Experimental)](#bypass-integrity-update-dialog-capcut-experimental) | ⚠️ [Experimental / Untested] Bypasses CapCut tamper detection, security advisory notice, and force update popups. |
 | [Disable Ending Watermark & Ad Prompts - CapCut (Experimental)](#disable-ending-watermark-ad-prompts-capcut-experimental) | ⚠️ [Experimental / Untested] Disables default ending clip watermark insertion, strips in-app advertisements, upgrade subscription banners, and paywall popups in CapCut. |
 | [Unlock Pro & VIP Effects - CapCut (Experimental)](#unlock-pro-vip-effects-capcut-experimental) | ⚠️ [Experimental / Untested] Unlocks CapCut Pro filters, VIP transitions, premium audio effects, high-bitrate export settings, and removes default ending watermark prompts by hooking VIP user entitlements and Google Play Billing. |
 
 </details>
 
 <details open>
-<summary>📦 CapCut (Alt)&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 CapCut (Alt)&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
+| [Bypass Integrity & Update Dialog - CapCut (Experimental)](#bypass-integrity-update-dialog-capcut-experimental) | ⚠️ [Experimental / Untested] Bypasses CapCut tamper detection, security advisory notice, and force update popups. |
 | [Disable Ending Watermark & Ad Prompts - CapCut (Experimental)](#disable-ending-watermark-ad-prompts-capcut-experimental) | ⚠️ [Experimental / Untested] Disables default ending clip watermark insertion, strips in-app advertisements, upgrade subscription banners, and paywall popups in CapCut. |
 | [Unlock Pro & VIP Effects - CapCut (Experimental)](#unlock-pro-vip-effects-capcut-experimental) | ⚠️ [Experimental / Untested] Unlocks CapCut Pro filters, VIP transitions, premium audio effects, high-bitrate export settings, and removes default ending watermark prompts by hooking VIP user entitlements and Google Play Billing. |
 

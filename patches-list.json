@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.59.0",
+  "version": "1.61.0",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -3072,6 +3072,50 @@
           "description": "Claude: AI Assistant by Anthropic",
           "apkFileType": null,
           "appIconColor": "#D97706",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Bypass Integrity & Update Dialog - CapCut (Experimental)",
+      "description": "⚠️ [Experimental / Untested] Bypasses CapCut tamper detection, security advisory notice, and force update popups.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.lemon.lvoverseas",
+          "name": "CapCut",
+          "description": "CapCut: Video Editor & Maker by Bytedance",
+          "apkFileType": null,
+          "appIconColor": "#000000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "packageName": "com.lemon.lv",
+          "name": "CapCut (Alt)",
+          "description": "CapCut: Video Editor & Maker (Domestic / JianYing)",
+          "apkFileType": null,
+          "appIconColor": "#000000",
           "signatures": null,
           "targets": [
             {
@@ -13693,50 +13737,6 @@
           "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
           "apkFileType": null,
           "appIconColor": "#FF0000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Bypass Integrity & Update Dialog - CapCut (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Bypasses CapCut tamper detection, security advisory notice, and force update popups.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.lemon.lvoverseas",
-          "name": "CapCut",
-          "description": "CapCut: Video Editor & Maker by Bytedance",
-          "apkFileType": null,
-          "appIconColor": "#000000",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        },
-        {
-          "packageName": "com.lemon.lv",
-          "name": "CapCut (Alt)",
-          "description": "CapCut: Video Editor & Maker (Domestic / JianYing)",
-          "apkFileType": null,
-          "appIconColor": "#000000",
           "signatures": null,
           "targets": [
             {

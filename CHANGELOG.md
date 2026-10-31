@@ -1,3 +1,14 @@
+## [1.61.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.60.0...v1.61.0) (2026-10-31)
+
+### 🐛 Bug Fixes
+
+* **capcut:** fix API usage in CapCutBypassIntegrityPatch for Morphe DSL ([bfbe928](https://github.com/SatanMerde/D-moniakPatches/commit/bfbe928315c64069783a4dbd651f3f97aece13eb))
+* **capcut:** specify named parameter smaliCode in replaceMethod ([0da3cb4](https://github.com/SatanMerde/D-moniakPatches/commit/0da3cb43a0744b0c9ed47558840ebbddd703893a))
+
+### ✨ New Features
+
+* **capcut:** add integrity and update dialog bypass patch ([3dca6f6](https://github.com/SatanMerde/D-moniakPatches/commit/3dca6f61c873010d5d4ed493a86668516c70b04f))
+
 ## [1.59.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.58.1...v1.59.0) (2026-10-31)
 
 ### ✨ New Features

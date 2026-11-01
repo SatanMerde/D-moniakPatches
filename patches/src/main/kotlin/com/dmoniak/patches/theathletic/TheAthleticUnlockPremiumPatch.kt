@@ -103,3 +103,4 @@ fun BytecodePatchContext.executeTheAthleticUnlockPremiumLogic(logger: Logger) {
 
     logger.info("[The Athletic] Total hooks applied: $hookedPoints")
 }
+

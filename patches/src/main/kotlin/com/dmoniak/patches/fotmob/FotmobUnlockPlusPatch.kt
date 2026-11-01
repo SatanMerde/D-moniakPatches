@@ -101,3 +101,4 @@ fun BytecodePatchContext.executeFotMobUnlockPlusLogic(logger: Logger) {
 
     logger.info("[FotMob+] Total hooks applied: $hookedPoints")
 }
+

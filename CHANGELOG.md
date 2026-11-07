@@ -1,3 +1,9 @@
+## [1.68.0-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.67.0...v1.68.0-dev.1) (2026-11-07)
+
+### ✨ New Features
+
+* **mega:** rewrite AMOLED with Compose token hooks, fix register bug, add promo blocker and keep-awake patches ([0e7bc86](https://github.com/SatanMerde/D-moniakPatches/commit/0e7bc8623b949aeaf385151f38fe682baeb5cbc2))
+
 ## [1.67.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.66.0...v1.67.0) (2026-11-07)
 
 ### ✨ New Features

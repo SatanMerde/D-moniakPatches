@@ -707,7 +707,7 @@ object Constants {
         name = "Cryptomator",
         description = "Cryptomator: Client-side encryption for your cloud vaults",
         appIconColor = 0x247477,
-        targets = listOf(AppTarget("2.1.0", isExperimental = true))
+        targets = listOf(AppTarget("2.1.0"))
     )
 
     val COMPATIBILITY_CRYPTOMATOR_FREEMIUM = Compatibility(
@@ -715,7 +715,7 @@ object Constants {
         name = "Cryptomator (Freemium)",
         description = "Cryptomator: Client-side encryption for your cloud vaults (Google Play Freemium)",
         appIconColor = 0x247477,
-        targets = listOf(AppTarget("2.1.0", isExperimental = true))
+        targets = listOf(AppTarget("2.1.0"))
     )
 
     val COMPATIBILITY_LETTERBOXD = Compatibility(

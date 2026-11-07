@@ -1620,8 +1620,8 @@
       "options": []
     },
     {
-      "name": "Allow Screenshots & Screen Recording - Cryptomator (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Disables Android FLAG_SECURE window protection in Cryptomator, allowing screenshots, screen recordings, and vault previews in the recent tasks overview.",
+      "name": "Allow Screenshots & Screen Recording - Cryptomator",
+      "description": "Disables Android FLAG_SECURE window protection in Cryptomator, allowing screenshots, screen recordings, and vault previews in the recent tasks overview.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -1637,7 +1637,7 @@
             {
               "version": "2.1.0",
               "versionCodes": null,
-              "isExperimental": true,
+              "isExperimental": false,
               "minSdk": null,
               "description": null
             }
@@ -1654,7 +1654,7 @@
             {
               "version": "2.1.0",
               "versionCodes": null,
-              "isExperimental": true,
+              "isExperimental": false,
               "minSdk": null,
               "description": null
             }
@@ -9490,8 +9490,8 @@
       "options": []
     },
     {
-      "name": "Pure AMOLED Dark Theme - Cryptomator (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Enforces dark mode and pure pitch black #000000 surfaces across Cryptomator's vault explorer, settings, and dialogs for maximum OLED battery savings.",
+      "name": "Pure AMOLED Dark Theme - Cryptomator",
+      "description": "Enforces dark mode and pure pitch black #000000 surfaces across Cryptomator's vault explorer, settings, and dialogs for maximum OLED battery savings.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -9507,7 +9507,7 @@
             {
               "version": "2.1.0",
               "versionCodes": null,
-              "isExperimental": true,
+              "isExperimental": false,
               "minSdk": null,
               "description": null
             }
@@ -9524,7 +9524,7 @@
             {
               "version": "2.1.0",
               "versionCodes": null,
-              "isExperimental": true,
+              "isExperimental": false,
               "minSdk": null,
               "description": null
             }
@@ -11612,8 +11612,8 @@
       "options": []
     },
     {
-      "name": "Unlock Full Version & Permanent License - Cryptomator (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Unlocks full version capabilities, bypasses 30-day trial expiration, suppresses license check warnings, and unlocks full read/write vault management across all Cryptomator variants.",
+      "name": "Unlock Full Version & Permanent License - Cryptomator",
+      "description": "Unlocks full version capabilities, bypasses 30-day trial expiration, suppresses license check warnings, and unlocks full read/write vault management across all Cryptomator variants.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -11629,7 +11629,7 @@
             {
               "version": "2.1.0",
               "versionCodes": null,
-              "isExperimental": true,
+              "isExperimental": false,
               "minSdk": null,
               "description": null
             }
@@ -11646,7 +11646,7 @@
             {
               "version": "2.1.0",
               "versionCodes": null,
-              "isExperimental": true,
+              "isExperimental": false,
               "minSdk": null,
               "description": null
             }

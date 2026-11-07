@@ -16,10 +16,10 @@
     <img src="https://img.shields.io/badge/Patches-492-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-tested--functional-patches">
-    <img src="https://img.shields.io/badge/Functional-10-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
+    <img src="https://img.shields.io/badge/Functional-13-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-experimental-patches-vibe-coded">
-    <img src="https://img.shields.io/badge/Experimental-482-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Experimental-479-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-patches-list">
     <img src="https://img.shields.io/badge/Supported_Apps-128-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -89,7 +89,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.64.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.64.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**492 total patches** (10 tested & functional • 482 experimental)
+> **[v1.64.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.64.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**492 total patches** (13 tested & functional • 479 experimental)
 
 ---
 
@@ -97,6 +97,40 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 
 > [!TIP]
 > These patches have been thoroughly tested and confirmed fully functional on real hardware.
+
+<details open>
+<summary>📦 Cryptomator&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 2.1.0 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Allow Screenshots & Screen Recording - Cryptomator](#allow-screenshots-screen-recording-cryptomator) | Disables Android FLAG_SECURE window protection in Cryptomator, allowing screenshots, screen recordings, and vault previews in the recent tasks overview. |
+| [Pure AMOLED Dark Theme - Cryptomator](#pure-amoled-dark-theme-cryptomator) | Enforces dark mode and pure pitch black #000000 surfaces across Cryptomator's vault explorer, settings, and dialogs for maximum OLED battery savings. |
+| [Unlock Full Version & Permanent License - Cryptomator](#unlock-full-version-permanent-license-cryptomator) | Unlocks full version capabilities, bypasses 30-day trial expiration, suppresses license check warnings, and unlocks full read/write vault management across all Cryptomator variants. |
+
+</details>
+
+<details open>
+<summary>📦 Cryptomator (Freemium)&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 2.1.0 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Allow Screenshots & Screen Recording - Cryptomator](#allow-screenshots-screen-recording-cryptomator) | Disables Android FLAG_SECURE window protection in Cryptomator, allowing screenshots, screen recordings, and vault previews in the recent tasks overview. |
+| [Pure AMOLED Dark Theme - Cryptomator](#pure-amoled-dark-theme-cryptomator) | Enforces dark mode and pure pitch black #000000 surfaces across Cryptomator's vault explorer, settings, and dialogs for maximum OLED battery savings. |
+| [Unlock Full Version & Permanent License - Cryptomator](#unlock-full-version-permanent-license-cryptomator) | Unlocks full version capabilities, bypasses 30-day trial expiration, suppresses license check warnings, and unlocks full read/write vault management across all Cryptomator variants. |
+
+</details>
 
 <details open>
 <summary>📦 FCTV33 (Mobile)&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
@@ -464,40 +498,6 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 |----------|----------------|
 | [Block Ads & Video Interruptions - Crossy Road (Experimental)](#block-ads-video-interruptions-crossy-road-experimental) | ⚠️ [Experimental / Untested] Strips post-death video commercials, prize machine ads, and banner popups in Crossy Road. |
 | [Free Shopping & Billing Bypass - Crossy Road (Experimental)](#free-shopping-billing-bypass-crossy-road-experimental) | ⚠️ [Experimental / Untested] Hooks Google Play Billing SDK in Crossy Road to bypass in-app purchase verification, enabling free shopping for character figurines and coin packs. |
-
-</details>
-
-<details open>
-<summary>📦 Cryptomator&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 🧪&nbsp;2.1.0 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description |
-|----------|----------------|
-| [Allow Screenshots & Screen Recording - Cryptomator (Experimental)](#allow-screenshots-screen-recording-cryptomator-experimental) | ⚠️ [Experimental / Untested] Disables Android FLAG_SECURE window protection in Cryptomator, allowing screenshots, screen recordings, and vault previews in the recent tasks overview. |
-| [Pure AMOLED Dark Theme - Cryptomator (Experimental)](#pure-amoled-dark-theme-cryptomator-experimental) | ⚠️ [Experimental / Untested] Enforces dark mode and pure pitch black #000000 surfaces across Cryptomator's vault explorer, settings, and dialogs for maximum OLED battery savings. |
-| [Unlock Full Version & Permanent License - Cryptomator (Experimental)](#unlock-full-version-permanent-license-cryptomator-experimental) | ⚠️ [Experimental / Untested] Unlocks full version capabilities, bypasses 30-day trial expiration, suppresses license check warnings, and unlocks full read/write vault management across all Cryptomator variants. |
-
-</details>
-
-<details open>
-<summary>📦 Cryptomator (Freemium)&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 🧪&nbsp;2.1.0 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description |
-|----------|----------------|
-| [Allow Screenshots & Screen Recording - Cryptomator (Experimental)](#allow-screenshots-screen-recording-cryptomator-experimental) | ⚠️ [Experimental / Untested] Disables Android FLAG_SECURE window protection in Cryptomator, allowing screenshots, screen recordings, and vault previews in the recent tasks overview. |
-| [Pure AMOLED Dark Theme - Cryptomator (Experimental)](#pure-amoled-dark-theme-cryptomator-experimental) | ⚠️ [Experimental / Untested] Enforces dark mode and pure pitch black #000000 surfaces across Cryptomator's vault explorer, settings, and dialogs for maximum OLED battery savings. |
-| [Unlock Full Version & Permanent License - Cryptomator (Experimental)](#unlock-full-version-permanent-license-cryptomator-experimental) | ⚠️ [Experimental / Untested] Unlocks full version capabilities, bypasses 30-day trial expiration, suppresses license check warnings, and unlocks full read/write vault management across all Cryptomator variants. |
 
 </details>
 

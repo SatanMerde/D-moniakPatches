@@ -1,3 +1,9 @@
+## [1.65.0-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.64.0...v1.65.0-dev.1) (2026-11-07)
+
+### ✨ New Features
+
+* **cryptomator:** promote Cryptomator patches to tested and functional ([3c1846e](https://github.com/SatanMerde/D-moniakPatches/commit/3c1846e24f04042213a2c55ed2522cce0e1faec3))
+
 ## [1.64.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.63.0...v1.64.0) (2026-11-07)
 
 ### ✨ New Features

@@ -1,3 +1,9 @@
+## [1.66.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.65.0...v1.66.0) (2026-11-07)
+
+### ✨ New Features
+
+* **patches:** promote Undercover and Virtual Master patches to tested and functional ([5733492](https://github.com/SatanMerde/D-moniakPatches/commit/57334927f04bb9475e2f770e1dd23e2856e8e2a2))
+
 ## [1.65.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.64.0...v1.65.0) (2026-11-07)
 
 ### ✨ New Features

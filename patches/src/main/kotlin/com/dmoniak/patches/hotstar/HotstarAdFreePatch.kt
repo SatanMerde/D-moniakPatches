@@ -107,3 +107,4 @@ fun BytecodePatchContext.executeHotstarAdFreeLogic(logger: Logger) {
 
     logger.info("[JioHotstar AdBlock] Total ad hooks applied: $hookedPoints")
 }
+

@@ -886,13 +886,6 @@ object Constants {
         appIconColor = 0x00A859
     )
 
-    val COMPATIBILITY_MT_MANAGER = Compatibility(
-        packageName = "bin.mt.plus",
-        name = "MT Manager",
-        description = "MT Manager: Powerful APK editor & file manager by Lin Jin Bin",
-        appIconColor = 0xF57C00
-    )
-
     val COMPATIBILITY_VIRTUAL_MASTER = Compatibility(
         packageName = "com.clone.android.dual.space",
         name = "Virtual Master",

@@ -311,7 +311,8 @@ object Constants {
         packageName = "mega.privacy.android.app",
         name = "MEGA",
         description = "MEGA: Cloud Storage & Chat by Mega Ltd",
-        appIconColor = 0xD9272E
+        appIconColor = 0xD9272E,
+        targets = listOf(AppTarget("16.14"))
     )
 
     val COMPATIBILITY_TERABOX = Compatibility(

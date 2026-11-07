@@ -13,13 +13,13 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Patches-494-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-496-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-tested--functional-patches">
-    <img src="https://img.shields.io/badge/Functional-25-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
+    <img src="https://img.shields.io/badge/Functional-29-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-experimental-patches-vibe-coded">
-    <img src="https://img.shields.io/badge/Experimental-469-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Experimental-467-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-patches-list">
     <img src="https://img.shields.io/badge/Supported_Apps-128-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -50,7 +50,7 @@
 
 ### 📖 Project Overview
 
-**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **496 patches** for **127 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware / emulator: Hungry Shark World, Movix, Moises, FCTV33) and **experimental patches** (currently under development, vibe-coded).
+**D-moniak Patches** is a third-party patch library for the **[Morphe](https://github.com/morpheapp)** framework. This project brings together **496 patches** for **128 popular Android apps and games**, clearly separated into **tested & functional patches** (verified on real hardware / emulator: Hungry Shark World, MEGA, Movix, Moises, FCTV33) and **experimental patches** (currently under development, vibe-coded).
 
 ---
 
@@ -93,7 +93,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.67.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.67.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**494 total patches** (25 tested & functional • 469 experimental)
+> **[v1.67.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.67.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**496 total patches** (29 tested & functional • 467 experimental)
 
 ---
 
@@ -199,6 +199,24 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | [Bypass Root & VPN Detection - JioHotstar](#bypass-root-vpn-detection-jiohotstar) | Neutralizes RootBeer and native root detection (su binary, test-keys, Magisk) and disables VPN/Proxy network interface flags (isVpnActive, IsProxy), allowing seamless streaming through VPNs and AdGuard DNS. |
 | [Bypass Signature & Integrity Check - JioHotstar](#bypass-signature-integrity-check-jiohotstar) | Bypasses signature verification and anti-tamper telemetry (IsTampered, package signatures) in JioHotstar, preventing account flagging, session termination, and NET_201 security blocks. |
 | [Unlock Premium & Enhanced Playback - JioHotstar](#unlock-premium-enhanced-playback-jiohotstar) | Unlocks premium UI features, bypasses subscription gates for higher video resolution selections, allows screenshots/screen recording, and enables playback over HDMI and screen mirroring in JioHotstar. |
+
+</details>
+
+<details open>
+<summary>📦 MEGA&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 16.14 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Allow Screenshots & Screen Recording - MEGA](#allow-screenshots-screen-recording-mega) | Disables FLAG_SECURE window restrictions to allow taking screenshots and screen recordings of documents, media, and chat in MEGA, and bypasses local export restrictions. |
+| [Block Promos, Quota Popups & Declutter - MEGA](#block-promos-quota-popups-declutter-mega) | Strips Pro upgrade prompts, cloud storage and transfer quota warning banners, sync upsell bottom sheets, and promotional marketing cards across file explorer, media player, transfer queue, and account settings in MEGA. |
+| [Keep Screen Awake During Transfers & Media - MEGA](#keep-screen-awake-during-transfers-media-mega) | Keeps the device screen turned on during active file/folder upload and download transfers, camera auto-uploads, and audio/video playback in MEGA, preventing transfers from stalling when the device enters sleep mode. |
+| [Pure AMOLED Dark Theme - MEGA](#pure-amoled-dark-theme-mega) | Enforces pure pitch-black (#000000) across MEGA's Jetpack Compose theme system (BackgroundColor, ComponentsColor), navigation bar, status bar, and root Activity windows for maximum OLED battery savings. |
 
 </details>
 
@@ -987,17 +1005,6 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Ad-Free & Step-by-Step Solver - Mathway (Experimental)](#ad-free-step-by-step-solver-mathway-experimental) | ⚠️ [Experimental / Untested] Removes interstitial ads after calculating solutions, strips bottom ad banners, and hooks client-side subscription verification for step-by-step problem explanations in Mathway. |
-
-</details>
-
-<details open>
-<summary>📦 MEGA&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description |
-|----------|----------------|
-| [AMOLED Dark Theme & Declutter - MEGA (Experimental)](#amoled-dark-theme-declutter-mega-experimental) | Forces pure OLED pitch black (#000000) across MEGA cloud file browser, transfer queue, settings, and navigation bars, and suppresses Pro upgrade promotion banners. |
-| [Allow Screenshots & Export - MEGA (Experimental)](#allow-screenshots-export-mega-experimental) | Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions. |
 
 </details>
 

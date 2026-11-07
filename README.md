@@ -13,16 +13,16 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Patches-494-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-492-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-tested--functional-patches">
     <img src="https://img.shields.io/badge/Functional-10-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-experimental-patches-vibe-coded">
-    <img src="https://img.shields.io/badge/Experimental-484-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Experimental-482-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Supported_Apps-129-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
+    <img src="https://img.shields.io/badge/Supported_Apps-128-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
   </a>
   <a href="https://github.com/SatanMerde/D-moniakPatches/releases/latest">
     <img src="https://img.shields.io/github/v/release/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=blueviolet" alt="Latest Release">
@@ -89,7 +89,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.63.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.63.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**494 total patches** (10 tested & functional • 484 experimental)
+> **[v1.64.0-dev.1](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.64.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;**492 total patches** (10 tested & functional • 482 experimental)
 
 ---
 
@@ -990,17 +990,6 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Ad-Free Transit & Clean Interface - Moovit (Experimental)](#ad-free-transit-clean-interface-moovit-experimental) | ⚠️ [Experimental / Untested] Neutralizes full-screen interstitial ads when viewing schedules, removes bottom banner ads, and declutters live transit map overlays in Moovit. |
-
-</details>
-
-<details open>
-<summary>📦 MT Manager&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description |
-|----------|----------------|
-| [Remove Ads & Update Prompts - MT Manager (Experimental)](#remove-ads-update-prompts-mt-manager-experimental) | ⚠️ [Experimental / Untested] Removes banner and interstitial advertisements, disables forced update dialogs and upgrade check nags in MT Manager. |
-| [Unlock VIP Features & Themes - MT Manager (Experimental)](#unlock-vip-features-themes-mt-manager-experimental) | ⚠️ [Experimental / Untested] Unlocks MT Manager VIP features (batch rename, DEX/Arsc editor++, syntax highlighting, XML/DEX search & replace, signature verification bypass, VIP theme customization) by hooking VIP privilege getters, expiration checks, and Google Play Billing. |
 
 </details>
 

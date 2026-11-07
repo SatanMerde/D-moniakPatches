@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.62.1",
+  "version": "1.63.0",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -409,7 +409,7 @@
     },
     {
       "name": "AMOLED Dark Theme & Declutter - MEGA (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Injects pure OLED pitch black (#000000) into MEGA cloud file browser, transfer queue, and settings, and hides Pro upgrade promotion banners.",
+      "description": "Forces pure OLED pitch black (#000000) across MEGA cloud file browser, transfer queue, settings, and navigation bars, and suppresses Pro upgrade promotion banners.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -945,6 +945,33 @@
       "options": []
     },
     {
+      "name": "Ad-Free & Live Sports Ad-Block - JioHotstar (Experimental)",
+      "description": "Strips pre-roll, mid-roll, and ad pods during live cricket and sports streams, and eliminates banner and sponsored recommendation cards in JioHotstar.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "in.startv.hotstar",
+          "name": "JioHotstar",
+          "description": "JioHotstar: Live Cricket, Movies, TV Shows, and Originals by Novi Digital Entertainment",
+          "apkFileType": null,
+          "appIconColor": "#0C203B",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Ad-Free & Plus Features - Quizlet (Experimental)",
       "description": "⚠️ [Experimental / Untested] Removes in-app banner ads, study interruption interstitials, and hooks client-side membership verification for Quizlet Plus study features.",
       "default": true,
@@ -1459,7 +1486,7 @@
     },
     {
       "name": "Allow Screenshots & Export - MEGA (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions.",
+      "description": "Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -11475,6 +11502,33 @@
       "options": []
     },
     {
+      "name": "Unlock FotMob+ & Ad-Free - FotMob (Experimental)",
+      "description": "Enables FotMob+ membership, removes banner and fullscreen advertisements, and unlocks live match notifications and priority updates in FotMob.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.mobilefootie.wc2010",
+          "name": "FotMob",
+          "description": "FotMob: Soccer and Football Live Scores, Stats, and News by FotMob",
+          "apkFileType": null,
+          "appIconColor": "#008000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Unlock Full Add-ons Catalog - Firefox (Experimental)",
       "description": "⚠️ [Experimental / Untested] Unlocks full Mozilla Add-ons (AMO) catalog installation on mobile Firefox without requiring Custom Add-on Collections.",
       "default": true,
@@ -12060,6 +12114,60 @@
           "description": "Instagram by Meta Platforms Inc.",
           "apkFileType": null,
           "appIconColor": "#E1306C",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Premium & Ad-Free - The Athletic (Experimental)",
+      "description": "Unlocks full access to all articles, exclusive sports stories, in-depth analytical reporting, and eliminates banner and sponsored ads in The Athletic.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.theathletic",
+          "name": "The Athletic",
+          "description": "The Athletic: Sports News, Stories, Scores, and Analysis by The New York Times Company",
+          "apkFileType": null,
+          "appIconColor": "#000000",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Premium & Enhanced Playback - JioHotstar (Experimental)",
+      "description": "Unlocks premium UI features, bypasses subscription gates for higher video resolution selections, allows screenshots/screen recording, and enables playback over HDMI and screen mirroring in JioHotstar.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "in.startv.hotstar",
+          "name": "JioHotstar",
+          "description": "JioHotstar: Live Cricket, Movies, TV Shows, and Originals by Novi Digital Entertainment",
+          "apkFileType": null,
+          "appIconColor": "#0C203B",
           "signatures": null,
           "targets": [
             {

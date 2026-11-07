@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-31T16:08:52",
-  "description": "## [1.62.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.62.0...v1.62.1) (2026-10-31)\n\n### 🐛 Bug Fixes\n\n* **silt:** fix PAD asset pack resolution to eliminate infinite loading freeze ([bfc1693](https://github.com/SatanMerde/D-moniakPatches/commit/bfc169316dd65a9cc51c9746c3d78e8e6690a13b))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.62.1/patches-1.62.1.mpp",
+  "created_at": "2026-11-07T07:19:42",
+  "description": "## [1.63.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.62.1...v1.63.0) (2026-11-07)\n\n### 🐛 Bug Fixes\n\n* Fix syntax error in Constants.kt and add JioHotstar Ad-Free & Premium patches (closes [#22](https://github.com/SatanMerde/D-moniakPatches/issues/22)) ([9edc634](https://github.com/SatanMerde/D-moniakPatches/commit/9edc63478f116fb62fe6c2a9a4a342f8883b4542))\n* **mega:** Fix AMOLED Dark Theme and Allow Screenshots patches and set default false on universal patches (closes [#21](https://github.com/SatanMerde/D-moniakPatches/issues/21)) ([b330257](https://github.com/SatanMerde/D-moniakPatches/commit/b330257bb2ffe2e5b1deede93991af44414a3d66))\n\n### ✨ New Features\n\n* Add Unlock Premium patches for The Athletic and FotMob+ ([92f936b](https://github.com/SatanMerde/D-moniakPatches/commit/92f936b57bfc62fdb0ce20f02bb680d82aaea16d))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.63.0/patches-1.63.0.mpp",
   "signature_download_url": "",
-  "version": "1.62.1"
+  "version": "1.63.0"
 }

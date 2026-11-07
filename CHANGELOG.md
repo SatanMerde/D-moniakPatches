@@ -1,3 +1,14 @@
+## [1.63.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.62.1...v1.63.0) (2026-11-07)
+
+### 🐛 Bug Fixes
+
+* Fix syntax error in Constants.kt and add JioHotstar Ad-Free & Premium patches (closes [#22](https://github.com/SatanMerde/D-moniakPatches/issues/22)) ([9edc634](https://github.com/SatanMerde/D-moniakPatches/commit/9edc63478f116fb62fe6c2a9a4a342f8883b4542))
+* **mega:** Fix AMOLED Dark Theme and Allow Screenshots patches and set default false on universal patches (closes [#21](https://github.com/SatanMerde/D-moniakPatches/issues/21)) ([b330257](https://github.com/SatanMerde/D-moniakPatches/commit/b330257bb2ffe2e5b1deede93991af44414a3d66))
+
+### ✨ New Features
+
+* Add Unlock Premium patches for The Athletic and FotMob+ ([92f936b](https://github.com/SatanMerde/D-moniakPatches/commit/92f936b57bfc62fdb0ce20f02bb680d82aaea16d))
+
 ## [1.62.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.62.0...v1.62.1) (2026-10-31)
 
 ### 🐛 Bug Fixes

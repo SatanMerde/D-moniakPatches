@@ -40,6 +40,10 @@
   <a href="https://discord.gg/pw9wNbDzMx">
     <img src="https://img.shields.io/badge/Discord-Join_Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord Community">
   </a>
+  &nbsp;
+  <a href="https://ko-fi.com/satanmerde">
+    <img src="https://img.shields.io/badge/Ko--fi-Support_on_Ko--fi-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white" alt="Support on Ko-fi">
+  </a>
 </p>
 
 ---
@@ -1881,3 +1885,23 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 </details>
 
 <!-- PATCHES_END -->
+
+---
+
+<div align="center">
+
+### 💖 Support & Community
+
+If you enjoy **D-moniak Patches** and appreciate our open-source work, consider supporting development on **Ko-fi** or joining our community:
+
+<p align="center">
+  <a href="https://ko-fi.com/satanmerde">
+    <img src="https://img.shields.io/badge/Ko--fi-Support_on_Ko--fi-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white" alt="Support on Ko-fi" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://discord.gg/pw9wNbDzMx">
+    <img src="https://img.shields.io/badge/Discord-Join_Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord Community" />
+  </a>
+</p>
+
+</div>

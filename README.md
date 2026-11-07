@@ -1,7 +1,7 @@
 # 🦈 D-moniak Patches
 
 <p align="center">
-  <img src="assets/logo.jpg" alt="D-moniak Patches Logo" width="160" style="border-radius: 50%;">
+  <img src="assets/logo.png" alt="D-moniak Patches Logo" width="180">
 </p>
 
 <p align="center">

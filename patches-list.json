@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.63.0",
+  "version": "1.64.0",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -9723,33 +9723,6 @@
       "options": []
     },
     {
-      "name": "Remove Ads & Update Prompts - MT Manager (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Removes banner and interstitial advertisements, disables forced update dialogs and upgrade check nags in MT Manager.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "bin.mt.plus",
-          "name": "MT Manager",
-          "description": "MT Manager: Powerful APK editor & file manager by Lin Jin Bin",
-          "apkFileType": null,
-          "appIconColor": "#F57C00",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
       "name": "Remove Watermarks on Free Elements - Canva (Experimental)",
       "description": "⚠️ [Experimental / Untested] Bypasses watermark rendering on Canva freemium design elements, stock photos, and templates, allowing clean export of designs without Pro subscription watermarks.",
       "default": true,
@@ -13253,33 +13226,6 @@
               "version": "2.10.2",
               "versionCodes": null,
               "isExperimental": true,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Unlock VIP Features & Themes - MT Manager (Experimental)",
-      "description": "⚠️ [Experimental / Untested] Unlocks MT Manager VIP features (batch rename, DEX/Arsc editor++, syntax highlighting, XML/DEX search & replace, signature verification bypass, VIP theme customization) by hooking VIP privilege getters, expiration checks, and Google Play Billing.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "bin.mt.plus",
-          "name": "MT Manager",
-          "description": "MT Manager: Powerful APK editor & file manager by Lin Jin Bin",
-          "apkFileType": null,
-          "appIconColor": "#F57C00",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
               "minSdk": null,
               "description": null
             }

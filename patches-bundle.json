@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-11-07T07:19:42",
-  "description": "## [1.63.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.62.1...v1.63.0) (2026-11-07)\n\n### 🐛 Bug Fixes\n\n* Fix syntax error in Constants.kt and add JioHotstar Ad-Free & Premium patches (closes [#22](https://github.com/SatanMerde/D-moniakPatches/issues/22)) ([9edc634](https://github.com/SatanMerde/D-moniakPatches/commit/9edc63478f116fb62fe6c2a9a4a342f8883b4542))\n* **mega:** Fix AMOLED Dark Theme and Allow Screenshots patches and set default false on universal patches (closes [#21](https://github.com/SatanMerde/D-moniakPatches/issues/21)) ([b330257](https://github.com/SatanMerde/D-moniakPatches/commit/b330257bb2ffe2e5b1deede93991af44414a3d66))\n\n### ✨ New Features\n\n* Add Unlock Premium patches for The Athletic and FotMob+ ([92f936b](https://github.com/SatanMerde/D-moniakPatches/commit/92f936b57bfc62fdb0ce20f02bb680d82aaea16d))",
-  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.63.0/patches-1.63.0.mpp",
+  "created_at": "2026-11-07T07:29:32",
+  "description": "## [1.64.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.63.0...v1.64.0) (2026-11-07)\n\n### ✨ New Features\n\n* **mtmanager:** remove MT Manager patches due to unsupported native anti-tamper and multi-tier signature verification ([4e3a414](https://github.com/SatanMerde/D-moniakPatches/commit/4e3a41428e69f3cbbdc2dd618648cbbbb93e4f12))",
+  "download_url": "https://github.com/SatanMerde/D-moniakPatches/releases/download/v1.64.0/patches-1.64.0.mpp",
   "signature_download_url": "",
-  "version": "1.63.0"
+  "version": "1.64.0"
 }

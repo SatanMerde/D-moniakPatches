@@ -1,3 +1,9 @@
+## [1.64.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.63.0...v1.64.0) (2026-11-07)
+
+### ✨ New Features
+
+* **mtmanager:** remove MT Manager patches due to unsupported native anti-tamper and multi-tier signature verification ([4e3a414](https://github.com/SatanMerde/D-moniakPatches/commit/4e3a41428e69f3cbbdc2dd618648cbbbb93e4f12))
+
 ## [1.63.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.62.1...v1.63.0) (2026-11-07)
 
 ### 🐛 Bug Fixes

@@ -16,10 +16,10 @@
     <img src="https://img.shields.io/badge/Patches-492-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-tested--functional-patches">
-    <img src="https://img.shields.io/badge/Functional-13-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
+    <img src="https://img.shields.io/badge/Functional-21-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-experimental-patches-vibe-coded">
-    <img src="https://img.shields.io/badge/Experimental-479-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Experimental-471-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-patches-list">
     <img src="https://img.shields.io/badge/Supported_Apps-128-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -89,7 +89,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.65.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.65.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**492 total patches** (13 tested & functional • 479 experimental)
+> **[v1.65.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.65.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**492 total patches** (21 tested & functional • 471 experimental)
 
 ---
 
@@ -241,6 +241,43 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 |----------|----------------|
 | [Block Pre-Roll Video Ads & Interstitials - FCTV33 & RBTV+](#block-pre-roll-video-ads-interstitials-fctv33-rbtv) | Completely strips pre-roll video ads, loading countdown shades, direct link popups, and banner ads before live stream playback on FCTV33 & RBTV+ (Mobile & TV). |
 | [Unlock Permanent VIP & Activation - FCTV33 & RBTV+](#unlock-permanent-vip-activation-fctv33-rbtv) | Bypasses activation lock codes, unlocks free VIP status, and lifts channel access restrictions on FCTV33 & RBTV+. |
+
+</details>
+
+<details open>
+<summary>📦 Undercover&nbsp;&nbsp;•&nbsp;&nbsp;6 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [AMOLED Dark Theme & Privacy - Undercover](#amoled-dark-theme-privacy-undercover) | Enforces dark mode and strips analytics telemetry (Firebase Analytics, App Measurement) in Undercover. |
+| [Block Ads & Commercials - Undercover](#block-ads-commercials-undercover) | Strips interstitial video ads between rounds, banner ads in lobby and voting screens, and rewarded video gates by neutralizing ad SDK calls. |
+| [Block Cookie & Consent Banner - Undercover](#block-cookie-consent-banner-undercover) | Blocks and removes the GDPR / Google UMP Cookie consent dialog on first launch by spoofing consent status as OBTAINED and neutralizing consent form presentation. |
+| [Unlock Advanced Game Settings - Undercover](#unlock-advanced-game-settings-undercover) | Unlocks advanced game configuration (custom player counts, exact role distribution sliders for Civilians, Undercover agents, and Mr. White, custom discussion timers, and voting rules). |
+| [Unlock All Word Packs & Premium - Undercover](#unlock-all-word-packs-premium-undercover) | Hooks in-app purchase verification, pack enums, and preference stores to unlock all premium word packs (Adult 18+, Pop Culture, Geek, Cinema, Science & History, 50+ languages) and remove all paywalls. |
+| [Unlock Custom Words Creator - Undercover](#unlock-custom-words-creator-undercover) | Unlocks the custom word pack creator allowing players to create, save, and edit unlimited secret word pairs and custom clue databases without subscription restrictions. |
+
+</details>
+
+<details open>
+<summary>📦 Virtual Master&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free & Clean Environment - Virtual Master](#ad-free-clean-environment-virtual-master) | Strips all boot interstitials, launcher advertisements, app clone promotion banners, and telemetry popups from Virtual Master by hooking internal AdMob wrappers and ad containers. |
+| [Unlock Pro & Multi-Instance - Virtual Master](#unlock-pro-multi-instance-virtual-master) | Unlocks Virtual Master Pro edition, allowing unlimited virtual Android instances, root permission toggles, customized device ID spoofing, and advanced backup/restore by hooking MemberStatusResponse, obfuscated BillingManager gatekeepers, and Google Play Billing. |
+
+</details>
+
+<details open>
+<summary>📦 Virtual Master (Alt)&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free & Clean Environment - Virtual Master](#ad-free-clean-environment-virtual-master) | Strips all boot interstitials, launcher advertisements, app clone promotion banners, and telemetry popups from Virtual Master by hooking internal AdMob wrappers and ad containers. |
+| [Unlock Pro & Multi-Instance - Virtual Master](#unlock-pro-multi-instance-virtual-master) | Unlocks Virtual Master Pro edition, allowing unlimited virtual Android instances, root permission toggles, customized device ID spoofing, and advanced backup/restore by hooking MemberStatusResponse, obfuscated BillingManager gatekeepers, and Google Play Billing. |
 
 </details>
 
@@ -1621,21 +1658,6 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 </details>
 
 <details open>
-<summary>📦 Undercover&nbsp;&nbsp;•&nbsp;&nbsp;6 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description |
-|----------|----------------|
-| [AMOLED Dark Theme & Privacy - Undercover (Experimental)](#amoled-dark-theme-privacy-undercover-experimental) | ⚠️ [Experimental / Untested] Enforces dark mode and strips analytics telemetry (Firebase Analytics, App Measurement) in Undercover. |
-| [Block Ads & Commercials - Undercover (Experimental)](#block-ads-commercials-undercover-experimental) | ⚠️ [Experimental / Untested] Strips interstitial video ads between rounds, banner ads in lobby and voting screens, and rewarded video gates by neutralizing ad SDK calls. |
-| [Block Cookie & Consent Banner - Undercover (Experimental)](#block-cookie-consent-banner-undercover-experimental) | ⚠️ [Experimental / Untested] Blocks and removes the GDPR / Google UMP Cookie consent dialog on first launch by spoofing consent status as OBTAINED and neutralizing consent form presentation. |
-| [Unlock Advanced Game Settings - Undercover (Experimental)](#unlock-advanced-game-settings-undercover-experimental) | ⚠️ [Experimental / Untested] Unlocks advanced game configuration (custom player counts, exact role distribution sliders for Civilians, Undercover agents, and Mr. White, custom discussion timers, and voting rules). |
-| [Unlock All Word Packs & Premium - Undercover (Experimental)](#unlock-all-word-packs-premium-undercover-experimental) | ⚠️ [Experimental / Untested] Hooks in-app purchase verification, pack enums, and preference stores to unlock all premium word packs (Adult 18+, Pop Culture, Geek, Cinema, Science & History, 50+ languages) and remove all paywalls. |
-| [Unlock Custom Words Creator - Undercover (Experimental)](#unlock-custom-words-creator-undercover-experimental) | ⚠️ [Experimental / Untested] Unlocks the custom word pack creator allowing players to create, save, and edit unlimited secret word pairs and custom clue databases without subscription restrictions. |
-
-</details>
-
-<details open>
 <summary>📦 Vector 2&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
 
@@ -1645,28 +1667,6 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | [Free Shopping - Vector 2 (Experimental)](#free-shopping-vector-2-experimental) | ⚠️ [Experimental / Untested] Hooks Google Play Billing in Vector 2 to obtain upgrade chips, research tokens, and accelerator packs for free. (Experimental - Not yet tested on device). |
 | [Infinite Battery & Shields - Vector 2 (Experimental)](#infinite-battery-shields-vector-2-experimental) | ⚠️ [Experimental / Untested] Prevents armor kit battery and shield depletion in Vector 2, keeping protective shields active against lasers, floor mines, and electric hazards. (Experimental - Not yet tested on device). |
 | [Unlock Gear Matrix - Vector 2 (Experimental)](#unlock-gear-matrix-vector-2-experimental) | ⚠️ [Experimental / Untested] Unlocks experimental equipment slots, booster upgrades, and datacore matrices in Vector 2 without research token gating. (Experimental - Not yet tested on device). |
-
-</details>
-
-<details open>
-<summary>📦 Virtual Master&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description |
-|----------|----------------|
-| [Ad-Free & Clean Environment - Virtual Master (Experimental)](#ad-free-clean-environment-virtual-master-experimental) | ⚠️ [Experimental / Untested] Strips all boot interstitials, launcher advertisements, app clone promotion banners, and telemetry popups from Virtual Master by hooking internal AdMob wrappers and ad containers. |
-| [Unlock Pro & Multi-Instance - Virtual Master (Experimental)](#unlock-pro-multi-instance-virtual-master-experimental) | ⚠️ [Experimental / Untested] Unlocks Virtual Master Pro edition, allowing unlimited virtual Android instances, root permission toggles, customized device ID spoofing, and advanced backup/restore by hooking MemberStatusResponse, obfuscated BillingManager gatekeepers, and Google Play Billing. |
-
-</details>
-
-<details open>
-<summary>📦 Virtual Master (Alt)&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description |
-|----------|----------------|
-| [Ad-Free & Clean Environment - Virtual Master (Experimental)](#ad-free-clean-environment-virtual-master-experimental) | ⚠️ [Experimental / Untested] Strips all boot interstitials, launcher advertisements, app clone promotion banners, and telemetry popups from Virtual Master by hooking internal AdMob wrappers and ad containers. |
-| [Unlock Pro & Multi-Instance - Virtual Master (Experimental)](#unlock-pro-multi-instance-virtual-master-experimental) | ⚠️ [Experimental / Untested] Unlocks Virtual Master Pro edition, allowing unlimited virtual Android instances, root permission toggles, customized device ID spoofing, and advanced backup/restore by hooking MemberStatusResponse, obfuscated BillingManager gatekeepers, and Google Play Billing. |
 
 </details>
 

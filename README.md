@@ -89,7 +89,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.66.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.66.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**494 total patches** (25 tested & functional • 469 experimental)
+> **[v1.67.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.67.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**494 total patches** (25 tested & functional • 469 experimental)
 
 ---
 

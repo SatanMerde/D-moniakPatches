@@ -1,3 +1,9 @@
+## [1.67.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.66.0...v1.67.0) (2026-11-07)
+
+### ✨ New Features
+
+* **hotstar:** add signature bypass, root/vpn bypass, and promote JioHotstar patches ([4fd0ca3](https://github.com/SatanMerde/D-moniakPatches/commit/4fd0ca34d960ba45e625b7e591b81f726921718c))
+
 ## [1.66.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.65.0...v1.66.0) (2026-11-07)
 
 ### ✨ New Features

@@ -932,7 +932,8 @@ object Constants {
         packageName = "in.startv.hotstar",
         name = "JioHotstar",
         description = "JioHotstar: Live Cricket, Movies, TV Shows, and Originals by Novi Digital Entertainment",
-        appIconColor = 0x0C203B
+        appIconColor = 0x0C203B,
+        targets = listOf(AppTarget("26.10.26.0"))
     )
 
 

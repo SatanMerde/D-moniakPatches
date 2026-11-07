@@ -13,13 +13,13 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Patches-492-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-494-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-tested--functional-patches">
-    <img src="https://img.shields.io/badge/Functional-21-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
+    <img src="https://img.shields.io/badge/Functional-25-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-experimental-patches-vibe-coded">
-    <img src="https://img.shields.io/badge/Experimental-471-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Experimental-469-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-patches-list">
     <img src="https://img.shields.io/badge/Supported_Apps-128-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -89,7 +89,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.66.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.66.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**492 total patches** (21 tested & functional • 471 experimental)
+> **[v1.66.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.66.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**494 total patches** (25 tested & functional • 469 experimental)
 
 ---
 
@@ -177,6 +177,24 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 |----------|----------------|
 | [Bypass Rewarded Ads](#bypass-rewarded-ads) | Bypasses rewarded video ads in Hungry Shark World by emulating ad completion events. |
 | [Free Shopping](#free-shopping) | Unlocks shop items and in-app purchases in Hungry Shark World by cleanly replacing GoogleBillingService purchase methods and receipt validation. |
+
+</details>
+
+<details open>
+<summary>📦 JioHotstar&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 26.10.26.0 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Ad-Free & Live Sports Ad-Block - JioHotstar](#ad-free-live-sports-ad-block-jiohotstar) | Strips pre-roll, mid-roll, and ad pods during live cricket and sports streams, and eliminates banner and sponsored recommendation cards in JioHotstar. |
+| [Bypass Root & VPN Detection - JioHotstar](#bypass-root-vpn-detection-jiohotstar) | Neutralizes RootBeer and native root detection (su binary, test-keys, Magisk) and disables VPN/Proxy network interface flags (isVpnActive, IsProxy), allowing seamless streaming through VPNs and AdGuard DNS. |
+| [Bypass Signature & Integrity Check - JioHotstar](#bypass-signature-integrity-check-jiohotstar) | Bypasses signature verification and anti-tamper telemetry (IsTampered, package signatures) in JioHotstar, preventing account flagging, session termination, and NET_201 security blocks. |
+| [Unlock Premium & Enhanced Playback - JioHotstar](#unlock-premium-enhanced-playback-jiohotstar) | Unlocks premium UI features, bypasses subscription gates for higher video resolution selections, allows screenshots/screen recording, and enables playback over HDMI and screen mirroring in JioHotstar. |
 
 </details>
 
@@ -944,17 +962,6 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | [Free Shopping & Billing Bypass - Jetpack Joyride (Experimental)](#free-shopping-billing-bypass-jetpack-joyride-experimental) | ⚠️ [Experimental / Untested] Hooks Google Play Billing purchase verification in Jetpack Joyride to unlock coin packs, permanent coin doubler, jetpacks, costumes, and Stash upgrades for free. |
 | [Infinite Vehicle Shield - Jetpack Joyride (Experimental)](#infinite-vehicle-shield-jetpack-joyride-experimental) | ⚠️ [Experimental / Untested] Keeps Barry's vehicle and gadget shields permanently active in Jetpack Joyride, preventing destruction upon contact with zappers, missiles, and laser fields. |
 | [Unlock Gadgets & Upgrades - Jetpack Joyride (Experimental)](#unlock-gadgets-upgrades-jetpack-joyride-experimental) | ⚠️ [Experimental / Untested] Unlocks all Stash gadgets (Coin Magnet, Gravity Belt, Air Barrys, etc.) and maxes out vehicle coin magnets without spending coins. |
-
-</details>
-
-<details open>
-<summary>📦 JioHotstar&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description |
-|----------|----------------|
-| [Ad-Free & Live Sports Ad-Block - JioHotstar (Experimental)](#ad-free-live-sports-ad-block-jiohotstar-experimental) | Strips pre-roll, mid-roll, and ad pods during live cricket and sports streams, and eliminates banner and sponsored recommendation cards in JioHotstar. |
-| [Unlock Premium & Enhanced Playback - JioHotstar (Experimental)](#unlock-premium-enhanced-playback-jiohotstar-experimental) | Unlocks premium UI features, bypasses subscription gates for higher video resolution selections, allows screenshots/screen recording, and enables playback over HDMI and screen mirroring in JioHotstar. |
 
 </details>
 

@@ -12,7 +12,7 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val hotstarUnlockPremiumPatch = bytecodePatch(
-    name = "Unlock Premium & Enhanced Playback - JioHotstar (Experimental)",
+    name = "Unlock Premium & Enhanced Playback - JioHotstar",
     description = "Unlocks premium UI features, bypasses subscription gates for higher video resolution selections, allows screenshots/screen recording, and enables playback over HDMI and screen mirroring in JioHotstar.",
 ) {
     compatibleWith(COMPATIBILITY_HOTSTAR)
@@ -37,15 +37,16 @@ fun BytecodePatchContext.executeHotstarUnlockPremiumLogic(logger: Logger) {
         if (tl.startsWith("landroidx/") || tl.startsWith("lkotlin/") || tl.startsWith("ljava/")) return@classDefForEach
 
         val superType = classDef.superclass ?: ""
-        val isActivity = superType.endsWith("Activity;") ||
-                type.endsWith("Activity;") ||
-                type.contains("Activity$") ||
-                superType.contains("Activity")
+        val isConcreteHotstarActivity = type == "Lcom/hotstar/MainActivity;" ||
+                type == "Lcom/hotstar/MainActivityJv;" ||
+                type == "Lcom/hotstar/payment_lib_webview/main/HSWebPaymentActivity;" ||
+                (tl.startsWith("lcom/hotstar/") && !type.contains("$") &&
+                        (superType.endsWith("Activity;") || superType.contains("Activity")))
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
         // 2. Inject Window.clearFlags(0x2000) into every Activity to allow screenshots & screen mirroring
-        if (isActivity && (tl.contains("hotstar") || !tl.startsWith("lcom/google/"))) {
+        if (isConcreteHotstarActivity) {
             for (method in classDef.methods.toList()) {
                 if (method.implementation == null) continue
                 val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)

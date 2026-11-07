@@ -945,7 +945,7 @@
       "options": []
     },
     {
-      "name": "Ad-Free & Live Sports Ad-Block - JioHotstar (Experimental)",
+      "name": "Ad-Free & Live Sports Ad-Block - JioHotstar",
       "description": "Strips pre-roll, mid-roll, and ad pods during live cricket and sports streams, and eliminates banner and sponsored recommendation cards in JioHotstar.",
       "default": true,
       "category": null,
@@ -960,7 +960,7 @@
           "signatures": null,
           "targets": [
             {
-              "version": null,
+              "version": "26.10.26.0",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -3525,6 +3525,60 @@
           "targets": [
             {
               "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Bypass Root & VPN Detection - JioHotstar",
+      "description": "Neutralizes RootBeer and native root detection (su binary, test-keys, Magisk) and disables VPN/Proxy network interface flags (isVpnActive, IsProxy), allowing seamless streaming through VPNs and AdGuard DNS.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "in.startv.hotstar",
+          "name": "JioHotstar",
+          "description": "JioHotstar: Live Cricket, Movies, TV Shows, and Originals by Novi Digital Entertainment",
+          "apkFileType": null,
+          "appIconColor": "#0C203B",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "26.10.26.0",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Bypass Signature & Integrity Check - JioHotstar",
+      "description": "Bypasses signature verification and anti-tamper telemetry (IsTampered, package signatures) in JioHotstar, preventing account flagging, session termination, and NET_201 security blocks.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "in.startv.hotstar",
+          "name": "JioHotstar",
+          "description": "JioHotstar: Live Cricket, Movies, TV Shows, and Originals by Novi Digital Entertainment",
+          "apkFileType": null,
+          "appIconColor": "#0C203B",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "26.10.26.0",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -12129,7 +12183,7 @@
       "options": []
     },
     {
-      "name": "Unlock Premium & Enhanced Playback - JioHotstar (Experimental)",
+      "name": "Unlock Premium & Enhanced Playback - JioHotstar",
       "description": "Unlocks premium UI features, bypasses subscription gates for higher video resolution selections, allows screenshots/screen recording, and enables playback over HDMI and screen mirroring in JioHotstar.",
       "default": true,
       "category": null,
@@ -12144,7 +12198,7 @@
           "signatures": null,
           "targets": [
             {
-              "version": null,
+              "version": "26.10.26.0",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,

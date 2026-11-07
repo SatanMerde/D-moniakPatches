@@ -10,7 +10,7 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val hotstarAdFreePatch = bytecodePatch(
-    name = "Ad-Free & Live Sports Ad-Block - JioHotstar (Experimental)",
+    name = "Ad-Free & Live Sports Ad-Block - JioHotstar",
     description = "Strips pre-roll, mid-roll, and ad pods during live cricket and sports streams, and eliminates banner and sponsored recommendation cards in JioHotstar.",
 ) {
     compatibleWith(COMPATIBILITY_HOTSTAR)
@@ -35,7 +35,8 @@ fun BytecodePatchContext.executeHotstarAdFreeLogic(logger: Logger) {
         // Target Hotstar video ad controllers, live match ad insertion, and interstitial pods
         val isAdRelated = tl.contains("ad") || tl.contains("ads") || tl.contains("preroll") ||
                 tl.contains("midroll") || tl.contains("adpod") || tl.contains("freewheel") ||
-                tl.contains("ima") || tl.contains("sponsored") || tl.contains("videoplayer")
+                tl.contains("ima") || tl.contains("sponsored") || tl.contains("videoplayer") ||
+                tl.contains("contentmetadata") || tl.contains("feedwidget")
 
         if (isAdRelated) {
             for (method in classDef.methods.toList()) {

@@ -916,7 +916,10 @@ object Constants {
 
     val COMPATIBILITY_CAPCUT_ALT = Compatibility(
         packageName = "com.lemon.lv",
-        name = "CapCut (Alt)
+        name = "CapCut (Alt)",
+        description = "CapCut: Video Editor & Maker (Domestic / JianYing)",
+        appIconColor = 0x000000
+    )
 
     val COMPATIBILITY_THE_ATHLETIC = Compatibility(
         packageName = "com.theathletic",
@@ -930,10 +933,15 @@ object Constants {
         name = "FotMob",
         description = "FotMob: Soccer and Football Live Scores, Stats, and News by FotMob",
         appIconColor = 0x008000
-    )",
-        description = "CapCut: Video Editor & Maker (Domestic / JianYing)",
-        appIconColor = 0x000000
     )
+
+    val COMPATIBILITY_HOTSTAR = Compatibility(
+        packageName = "in.startv.hotstar",
+        name = "JioHotstar",
+        description = "JioHotstar: Live Cricket, Movies, TV Shows, and Originals by Novi Digital Entertainment",
+        appIconColor = 0x0C203B
+    )
+
 
     // Aliases
     val COMPATIBILITY_ANGRY_BIRDS_CLASSIC = COMPATIBILITY_ANGRY_BIRDS

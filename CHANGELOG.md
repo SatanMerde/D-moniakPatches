@@ -1,3 +1,9 @@
+## [1.68.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.68.1...v1.68.2) (2026-11-08)
+
+### 🐛 Bug Fixes
+
+* **hotstar:** implement Paresh-tested SSAI AdMetadata, SurfaceView and Compose screenshot bypass, and signature spoofing ([9a598f8](https://github.com/SatanMerde/D-moniakPatches/commit/9a598f88caf6d6c59e76f15845a4e65998b4d496))
+
 ## [1.68.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.68.0...v1.68.1) (2026-11-08)
 
 ### 🐛 Bug Fixes

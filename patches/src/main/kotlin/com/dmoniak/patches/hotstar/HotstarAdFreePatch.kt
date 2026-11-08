@@ -32,10 +32,10 @@ fun BytecodePatchContext.executeHotstarAdFreeLogic(logger: Logger) {
 
         val mutableClass by lazy { mutableClassDefBy(classDef) }
 
-        // Target Hotstar video ad controllers, live match ad insertion, and interstitial pods
+        // Target Hotstar video ad controllers, Google IMA SDK, FreeWheel, live match ad insertion, and interstitial pods
         val isAdRelated = tl.contains("ad") || tl.contains("ads") || tl.contains("preroll") ||
                 tl.contains("midroll") || tl.contains("adpod") || tl.contains("freewheel") ||
-                tl.contains("ima") || tl.contains("sponsored") || tl.contains("videoplayer") ||
+                tl.contains("interactivemedia") || tl.contains("sponsored") || tl.contains("videoplayer") ||
                 tl.contains("contentmetadata") || tl.contains("feedwidget")
 
         if (isAdRelated) {
@@ -44,23 +44,55 @@ fun BytecodePatchContext.executeHotstarAdFreeLogic(logger: Logger) {
                 val isStatic = AccessFlags.STATIC.isSet(method.accessFlags)
                 val mName = method.name.lowercase()
                 val retType = method.returnType
-                val pTypes = method.parameterTypes
 
-                // 1. Intercept ad status checks -> return false
+                // 1. Force Ad-Free status checks -> return true
+                val isAdFreeCheck = !isStatic && (
+                    mName == "isadfree" ||
+                    mName == "isadfreeuser" ||
+                    mName == "hasadfreeexperience" ||
+                    mName == "hasadfreesubscription" ||
+                    mName == "isadhocadfree"
+                ) && retType == "Z"
+
+                if (isAdFreeCheck) {
+                    try {
+                        mutableClass.replaceMethod(
+                            method,
+                            registerCount = 2,
+                            smaliCode = """
+                                const/4 v0, 0x1
+                                return v0
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.fine("[Hotstar AdBlock] Hooked ad-free check: ${type}->${method.name} -> true")
+                    } catch (e: Exception) {
+                        logger.fine("[Hotstar AdBlock] Skip ad-free check hook: ${e.message}")
+                    }
+                }
+
+                // 2. Intercept ad status checks & ad enablement -> return false
                 val isAdStatusCheck = !isStatic && (
                     mName == "isad" ||
                     mName == "isadplaying" ||
                     mName == "isadshowing" ||
                     mName == "isliveadplaying" ||
+                    mName == "isadbreakplaying" ||
                     mName == "shouldshowads" ||
                     mName == "shouldplayad" ||
                     mName == "canplayad" ||
                     mName == "hasad" ||
                     mName == "hasadpod" ||
+                    mName == "hasadbreak" ||
                     mName == "isprerollad" ||
                     mName == "ismidrollad" ||
-                    mName == "islinearad"
-                ) && retType == "Z" && pTypes.isEmpty()
+                    mName == "islinearad" ||
+                    mName == "isadsupported" ||
+                    mName == "isadsupporteduser" ||
+                    mName == "isadsenabled" ||
+                    mName == "areadsenabled" ||
+                    mName == "isadenabled"
+                ) && retType == "Z"
 
                 if (isAdStatusCheck) {
                     try {
@@ -79,14 +111,22 @@ fun BytecodePatchContext.executeHotstarAdFreeLogic(logger: Logger) {
                     }
                 }
 
-                // 2. Intercept ad trigger / load / show methods -> return-void
+                // 3. Intercept ad trigger / load / show / request methods -> return-void
                 val isAdTrigger = !isStatic && (
                     mName == "loadad" ||
                     mName == "showad" ||
                     mName == "playad" ||
                     mName == "schedulead" ||
                     mName == "requestadpod" ||
-                    mName == "startadplayback"
+                    mName == "requestads" ||
+                    mName == "submitrequest" ||
+                    mName == "startadplayback" ||
+                    mName == "onadbreakstarted" ||
+                    mName == "onadstarted" ||
+                    mName == "handleadplayback" ||
+                    mName == "insertad" ||
+                    mName == "insertlivead" ||
+                    mName == "triggerad"
                 ) && retType == "V"
 
                 if (isAdTrigger) {
@@ -100,6 +140,31 @@ fun BytecodePatchContext.executeHotstarAdFreeLogic(logger: Logger) {
                         logger.fine("[Hotstar AdBlock] Neutralized ad presentation: ${type}->${method.name}")
                     } catch (e: Exception) {
                         logger.fine("[Hotstar AdBlock] Skip trigger hook: ${e.message}")
+                    }
+                }
+
+                // 4. Intercept ad metadata / cue points / ad tag uri getters -> return null
+                val isAdMetadataGetter = !isStatic && (
+                    mName == "getadpod" ||
+                    mName == "getadbreaks" ||
+                    mName == "getadcuepoints" ||
+                    mName == "getadtaguri"
+                ) && retType.startsWith("L")
+
+                if (isAdMetadataGetter) {
+                    try {
+                        mutableClass.replaceMethod(
+                            method,
+                            registerCount = 2,
+                            smaliCode = """
+                                const/4 v0, 0x0
+                                return-object v0
+                            """.trimIndent()
+                        )
+                        hookedPoints++
+                        logger.fine("[Hotstar AdBlock] Neutralized ad metadata getter: ${type}->${method.name} -> null")
+                    } catch (e: Exception) {
+                        logger.fine("[Hotstar AdBlock] Skip metadata getter hook: ${e.message}")
                     }
                 }
             }

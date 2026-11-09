@@ -1,3 +1,13 @@
+## [1.71.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.70.0...v1.71.0) (2026-11-09)
+
+### 🐛 Bug Fixes
+
+* **fctv:** escape inner class dollar signs in smali bytecode strings ([15201ec](https://github.com/SatanMerde/D-moniakPatches/commit/15201ec5483070d20cd4eda15e548ea3953c7761))
+
+### ✨ New Features
+
+* **fctv:** add Enhanced Playback & PiP patch and fix shade overlay and fullscreen controls ([78a6033](https://github.com/SatanMerde/D-moniakPatches/commit/78a6033a88042916891a631b4496d382f4103fed))
+
 ## [1.70.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.69.0...v1.70.0) (2026-11-09)
 
 ### ✨ New Features

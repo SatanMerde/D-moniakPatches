@@ -101,7 +101,7 @@ fun BytecodePatchContext.executeFCTVPlaybackPipLogic(logger: Logger) {
                                     new-instance v2, Lta/g;
                                     const/4 v3, 0
                                     invoke-direct {v2, p0, v3}, Lta/g;-><init>(Lcom/rblive/app/ui/player/PlayerActivity;I)V
-                                    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+                                    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View${'$'}OnClickListener;)V
                                     if-eqz p1, :cond_pip_gone
                                     const/4 v2, 0
                                     goto :cond_pip_vis
@@ -229,7 +229,7 @@ fun BytecodePatchContext.executeFCTVPlaybackPipLogic(logger: Logger) {
                                 method,
                                 registerCount = 5,
                                 smaliCode = """
-                                    sget v0, Landroid/os/Build$VERSION;->SDK_INT
+                                    sget v0, Landroid/os/Build${'$'}VERSION;->SDK_INT
                                     const/16 v1, 26
                                     if-lt v0, v1, :cond_pause_super
                                     invoke-virtual {p0}, Landroid/app/Activity;->isFinishing()Z
@@ -253,15 +253,15 @@ fun BytecodePatchContext.executeFCTVPlaybackPipLogic(logger: Logger) {
                                     const/4 v1, 7
                                     if-eq v0, v1, :cond_pause_super
                                     :try_start_pip
-                                    invoke-static {}, Lre/o;->c()Landroid/app/PictureInPictureParams$Builder;
+                                    invoke-static {}, Lre/o;->c()Landroid/app/PictureInPictureParams${'$'}Builder;
                                     move-result-object v0
                                     new-instance v1, Landroid/util/Rational;
                                     const/16 v2, 16
                                     const/16 v3, 9
                                     invoke-direct {v1, v2, v3}, Landroid/util/Rational;-><init>(II)V
-                                    invoke-static {v0, v1}, Lre/o;->d(Landroid/app/PictureInPictureParams$Builder;Landroid/util/Rational;)Landroid/app/PictureInPictureParams$Builder;
+                                    invoke-static {v0, v1}, Lre/o;->d(Landroid/app/PictureInPictureParams${'$'}Builder;Landroid/util/Rational;)Landroid/app/PictureInPictureParams${'$'}Builder;
                                     move-result-object v0
-                                    invoke-static {v0}, Lre/o;->e(Landroid/app/PictureInPictureParams$Builder;)Landroid/app/PictureInPictureParams;
+                                    invoke-static {v0}, Lre/o;->e(Landroid/app/PictureInPictureParams${'$'}Builder;)Landroid/app/PictureInPictureParams;
                                     move-result-object v0
                                     invoke-static {p0, v0}, Lre/o;->p(Lcom/rblive/app/ui/player/PlayerActivity;Landroid/app/PictureInPictureParams;)V
                                     const/4 v0, 0x1
@@ -271,7 +271,7 @@ fun BytecodePatchContext.executeFCTVPlaybackPipLogic(logger: Logger) {
                                     
                                     :cond_pause_super
                                     invoke-super {p0}, Lcom/rblive/common/base/BaseActivity;->onPause()V
-                                    sget v0, Landroid/os/Build$VERSION;->SDK_INT
+                                    sget v0, Landroid/os/Build${'$'}VERSION;->SDK_INT
                                     const/16 v1, 26
                                     if-lt v0, v1, :cond_pause_player
                                     invoke-static {p0}, Lq4/b2;->n(Lcom/rblive/app/ui/player/PlayerActivity;)Z

@@ -1,3 +1,9 @@
+## [1.71.1-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.71.0...v1.71.1-dev.1) (2026-11-09)
+
+### 🐛 Bug Fixes
+
+* **hotstar:** resolve app crash by removing fatal blacklist nulling and experimental codec overrides ([cb5ab25](https://github.com/SatanMerde/D-moniakPatches/commit/cb5ab25304e778d25e74e7f1f3857f7526be17f9))
+
 ## [1.71.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.70.0...v1.71.0) (2026-11-09)
 
 ### 🐛 Bug Fixes

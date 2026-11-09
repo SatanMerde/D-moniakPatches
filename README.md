@@ -13,13 +13,13 @@
     <img src="https://img.shields.io/github/stars/SatanMerde/D-moniakPatches?style=for-the-badge&logo=github&color=EAC54F" alt="GitHub Stars">
   </a>
   <a href="#-patches-list">
-    <img src="https://img.shields.io/badge/Patches-496-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
+    <img src="https://img.shields.io/badge/Patches-497-8A2BE2?style=for-the-badge&logo=android&logoColor=white" alt="Total Patches">
   </a>
   <a href="#-tested--functional-patches">
     <img src="https://img.shields.io/badge/Functional-31-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Functional Patches">
   </a>
   <a href="#-experimental-patches-vibe-coded">
-    <img src="https://img.shields.io/badge/Experimental-465-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
+    <img src="https://img.shields.io/badge/Experimental-466-FFA000?style=for-the-badge&logo=probot&logoColor=white" alt="Experimental Patches">
   </a>
   <a href="#-patches-list">
     <img src="https://img.shields.io/badge/Supported_Apps-128-3388FF?style=for-the-badge&logo=googleplay&logoColor=white" alt="Supported Apps">
@@ -137,7 +137,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 </details>
 
 <details open>
-<summary>📦 FCTV33 (Mobile)&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 FCTV33 (Mobile)&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -148,12 +148,13 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Block Pre-Roll Video Ads & Interstitials - FCTV33 & RBTV+](#block-pre-roll-video-ads-interstitials-fctv33-rbtv) | Completely strips pre-roll video ads, loading countdown shades, direct link popups, and banner ads before live stream playback on FCTV33 & RBTV+ (Mobile & TV). |
+| [Enhanced Playback & Picture-in-Picture - FCTV33 & RBTV+](#enhanced-playback-picture-in-picture-fctv33-rbtv) | Enables Picture-in-Picture (PiP) on all streams, activates portrait PiP controls, adds background PiP support, and stabilizes fullscreen orientation switching on FCTV33 & RBTV+. |
 | [Unlock Permanent VIP & Activation - FCTV33 & RBTV+](#unlock-permanent-vip-activation-fctv33-rbtv) | Bypasses activation lock codes, unlocks free VIP status, and lifts channel access restrictions on FCTV33 & RBTV+. |
 
 </details>
 
 <details open>
-<summary>📦 FCTV33 (TV)&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 FCTV33 (TV)&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -164,6 +165,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Block Pre-Roll Video Ads & Interstitials - FCTV33 & RBTV+](#block-pre-roll-video-ads-interstitials-fctv33-rbtv) | Completely strips pre-roll video ads, loading countdown shades, direct link popups, and banner ads before live stream playback on FCTV33 & RBTV+ (Mobile & TV). |
+| [Enhanced Playback & Picture-in-Picture - FCTV33 & RBTV+](#enhanced-playback-picture-in-picture-fctv33-rbtv) | Enables Picture-in-Picture (PiP) on all streams, activates portrait PiP controls, adds background PiP support, and stabilizes fullscreen orientation switching on FCTV33 & RBTV+. |
 | [Unlock Permanent VIP & Activation - FCTV33 & RBTV+](#unlock-permanent-vip-activation-fctv33-rbtv) | Bypasses activation lock codes, unlocks free VIP status, and lifts channel access restrictions on FCTV33 & RBTV+. |
 
 </details>
@@ -253,7 +255,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 </details>
 
 <details open>
-<summary>📦 RBTV+ / RBLive (Mobile)&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 RBTV+ / RBLive (Mobile)&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -264,12 +266,13 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Block Pre-Roll Video Ads & Interstitials - FCTV33 & RBTV+](#block-pre-roll-video-ads-interstitials-fctv33-rbtv) | Completely strips pre-roll video ads, loading countdown shades, direct link popups, and banner ads before live stream playback on FCTV33 & RBTV+ (Mobile & TV). |
+| [Enhanced Playback & Picture-in-Picture - FCTV33 & RBTV+](#enhanced-playback-picture-in-picture-fctv33-rbtv) | Enables Picture-in-Picture (PiP) on all streams, activates portrait PiP controls, adds background PiP support, and stabilizes fullscreen orientation switching on FCTV33 & RBTV+. |
 | [Unlock Permanent VIP & Activation - FCTV33 & RBTV+](#unlock-permanent-vip-activation-fctv33-rbtv) | Bypasses activation lock codes, unlocks free VIP status, and lifts channel access restrictions on FCTV33 & RBTV+. |
 
 </details>
 
 <details open>
-<summary>📦 RBTV+ / RBLive (TV)&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 RBTV+ / RBLive (TV)&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -280,6 +283,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Block Pre-Roll Video Ads & Interstitials - FCTV33 & RBTV+](#block-pre-roll-video-ads-interstitials-fctv33-rbtv) | Completely strips pre-roll video ads, loading countdown shades, direct link popups, and banner ads before live stream playback on FCTV33 & RBTV+ (Mobile & TV). |
+| [Enhanced Playback & Picture-in-Picture - FCTV33 & RBTV+](#enhanced-playback-picture-in-picture-fctv33-rbtv) | Enables Picture-in-Picture (PiP) on all streams, activates portrait PiP controls, adds background PiP support, and stabilizes fullscreen orientation switching on FCTV33 & RBTV+. |
 | [Unlock Permanent VIP & Activation - FCTV33 & RBTV+](#unlock-permanent-vip-activation-fctv33-rbtv) | Bypasses activation lock codes, unlocks free VIP status, and lifts channel access restrictions on FCTV33 & RBTV+. |
 
 </details>

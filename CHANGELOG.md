@@ -1,3 +1,9 @@
+## [1.69.0-dev.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.68.2...v1.69.0-dev.1) (2026-11-09)
+
+### ✨ New Features
+
+* **hotstar:** deep SSAI live stream ad neutralization, AV1 DAV1D codec unlock, and Dolby audio enhancements ([64bc70b](https://github.com/SatanMerde/D-moniakPatches/commit/64bc70b14f51fe8dcb9c7b06f2e266f87068fdfc))
+
 ## [1.68.2](https://github.com/SatanMerde/D-moniakPatches/compare/v1.68.1...v1.68.2) (2026-11-08)
 
 ### 🐛 Bug Fixes

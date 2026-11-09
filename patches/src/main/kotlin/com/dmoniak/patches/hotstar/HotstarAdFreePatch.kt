@@ -25,7 +25,7 @@ val hotstarAdFreePatch = bytecodePatch(
 fun BytecodePatchContext.executeHotstarAdFreeLogic(logger: Logger) {
     logger.info("Executing battle-tested Ad-Free & Live Sports Ad-Block patch for JioHotstar (in.startv.hotstar)...")
 
-    // 1. Battle-tested SSAI & AdMetadata constructor hook
+    // 1. SSAI & AdMetadata constructor hook
     // Force: disablePreRoll=true(p1), disableMidRoll=true(p2),
     //        hasPreRoll=false(p3), hasPlayablePreRoll=false(p4), enableMidRollLoad=false(p5)
     // Clear ssaiTag (p6) to completely eliminate live match SSAI (Server-Side Ad Insertion) ads
@@ -101,10 +101,104 @@ fun BytecodePatchContext.executeHotstarAdFreeLogic(logger: Logger) {
         logger.warning("[Hotstar AdBlock] LiveAdsManagerProcessFingerprint failed: ${e.message}")
     }
 
-    // 6. Comprehensive Google IMA SDK & FreeWheel suppression
+    // 6. CapabilitiesConfig: Disable SSAI and SGAI at the client capability discovery layer
+    try {
+        CapabilitiesConfigEnableSsaiFingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x0
+            return v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar AdBlock] CapabilitiesConfig.getEnableSsai() forced to false")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar AdBlock] CapabilitiesConfigEnableSsaiFingerprint: ${e.message}")
+    }
+
+    try {
+        CapabilitiesConfigEnableSgaiFingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x0
+            return v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar AdBlock] CapabilitiesConfig.getEnableSgai() forced to false")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar AdBlock] CapabilitiesConfigEnableSgaiFingerprint: ${e.message}")
+    }
+
+    // 7. PlayerConfig: Disable SSAI stream live check & cohort switching
+    try {
+        PlayerConfigLiveCheckSsaiFingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x0
+            return v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar AdBlock] PlayerConfig.getEnableLiveCheckForSSAIStream() forced to false")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar AdBlock] PlayerConfigLiveCheckSsaiFingerprint: ${e.message}")
+    }
+
+    try {
+        PlayerConfigCohortSwitchingLiveSsaiFingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x0
+            return v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar AdBlock] PlayerConfig.getEnableCohortSwitchingWithNoPcRetryForLiveSsai() forced to false")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar AdBlock] PlayerConfigCohortSwitchingLiveSsaiFingerprint: ${e.message}")
+    }
+
+    // 8. Neutralize Protobuf SSAI tags (LiveStreamAdData, Midroll, UnifiedCacheMetadata)
+    try {
+        LiveStreamAdDataSsaiTagFingerprint.method.addInstructions(
+            0,
+            """
+            const-string v0, ""
+            return-object v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar AdBlock] LiveStreamAdData.getSsaiTag() forced to empty string")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar AdBlock] LiveStreamAdDataSsaiTagFingerprint: ${e.message}")
+    }
+
+    try {
+        MidrollSsaiTagFingerprint.method.addInstructions(
+            0,
+            """
+            const-string v0, ""
+            return-object v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar AdBlock] Midroll.getSsaiTag() forced to empty string")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar AdBlock] MidrollSsaiTagFingerprint: ${e.message}")
+    }
+
+    try {
+        UnifiedCacheMetadataSsaiTagFingerprint.method.addInstructions(
+            0,
+            """
+            const-string v0, ""
+            return-object v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar AdBlock] UnifiedCacheMetadata.getSsaiTag() forced to empty string")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar AdBlock] UnifiedCacheMetadataSsaiTagFingerprint: ${e.message}")
+    }
+
+    // 9. Comprehensive Google IMA SDK & FreeWheel suppression
     var hookedPoints = executeComprehensiveAdBlock(logger, "JioHotstar")
 
-    // 7. Generic heuristics for any remaining ad widgets & state getters
+    // 10. Generic heuristics for any remaining ad widgets & state getters
     classDefForEach { classDef ->
         val type = classDef.type
         val tl = type.lowercase()

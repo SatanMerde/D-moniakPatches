@@ -68,6 +68,69 @@ object LiveAdsManagerProcessFingerprint : Fingerprint(
     )
 )
 
+/**
+ * CapabilitiesConfig.getEnableSsai() — Controls whether Server-Side Ad Insertion is enabled.
+ */
+object CapabilitiesConfigEnableSsaiFingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/capabilities/CapabilitiesConfig;",
+    name = "getEnableSsai",
+    returnType = "Z"
+)
+
+/**
+ * CapabilitiesConfig.getEnableSgai() — Controls whether Server-Guided Ad Insertion is enabled.
+ */
+object CapabilitiesConfigEnableSgaiFingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/capabilities/CapabilitiesConfig;",
+    name = "getEnableSgai",
+    returnType = "Z"
+)
+
+/**
+ * PlayerConfig.getEnableLiveCheckForSSAIStream() — Live check for SSAI stream insertion.
+ */
+object PlayerConfigLiveCheckSsaiFingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/config/PlayerConfig;",
+    name = "getEnableLiveCheckForSSAIStream",
+    returnType = "Z"
+)
+
+/**
+ * PlayerConfig.getEnableCohortSwitchingWithNoPcRetryForLiveSsai() — Cohort switching for live SSAI.
+ */
+object PlayerConfigCohortSwitchingLiveSsaiFingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/config/PlayerConfig;",
+    name = "getEnableCohortSwitchingWithNoPcRetryForLiveSsai",
+    returnType = "Z"
+)
+
+/**
+ * PlayerWidget$LiveStreamAdData.getSsaiTag() — Returns live match SSAI tag string.
+ */
+object LiveStreamAdDataSsaiTagFingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/ui/model/widget/PlayerWidget\$LiveStreamAdData;",
+    name = "getSsaiTag",
+    returnType = "Ljava/lang/String;"
+)
+
+/**
+ * Midroll.getSsaiTag() — Returns VOD mid-roll SSAI tag string.
+ */
+object MidrollSsaiTagFingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/ui/model/feature/videoads/Midroll;",
+    name = "getSsaiTag",
+    returnType = "Ljava/lang/String;"
+)
+
+/**
+ * UnifiedCacheMetadata.getSsaiTag() — Cache metadata SSAI tag.
+ */
+object UnifiedCacheMetadataSsaiTagFingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/bff/api/v2/enrichment/cachemetadata/UnifiedCacheMetadata;",
+    name = "getSsaiTag",
+    returnType = "Ljava/lang/String;"
+)
+
 // ============================================================================
 // 2. Screenshots & Screen Recording Protection Fingerprints
 // ============================================================================
@@ -164,8 +227,17 @@ object MultipleDisplayCheckFingerprint : Fingerprint(
     )
 )
 
+/**
+ * PlayerConfig.getEnableHdmiBroadcastListener() — Listener that shuts off playback when HDMI is connected.
+ */
+object PlayerConfigHdmiBroadcastFingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/config/PlayerConfig;",
+    name = "getEnableHdmiBroadcastListener",
+    returnType = "Z"
+)
+
 // ============================================================================
-// 6. Playback Codecs, HDR10 & 4K Fingerprints
+// 6. Playback Codecs, HDR10, Dolby Vision & 4K Capabilities Fingerprints
 // ============================================================================
 
 /**
@@ -202,4 +274,103 @@ object IsDolbyVisionSupportedFingerprint : Fingerprint(
         string("dv"),
         string("bklst"),
     )
+)
+
+/**
+ * CapabilitiesConfig.getEnableAv1Support() — Enables AV1 video decoding.
+ */
+object CapabilitiesConfigEnableAv1Fingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/capabilities/CapabilitiesConfig;",
+    name = "getEnableAv1Support",
+    returnType = "Z"
+)
+
+/**
+ * CapabilitiesConfig.getEnableGoogleDav1d() — Enables DAV1D AV1 software decoder fallback.
+ */
+object CapabilitiesConfigEnableGoogleDav1dFingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/capabilities/CapabilitiesConfig;",
+    name = "getEnableGoogleDav1d",
+    returnType = "Z"
+)
+
+/**
+ * CapabilitiesConfig.getEnableDolby51ForMobile() — Enables Dolby 5.1 surround sound on mobile.
+ */
+object CapabilitiesConfigEnableDolby51Fingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/capabilities/CapabilitiesConfig;",
+    name = "getEnableDolby51ForMobile",
+    returnType = "Z"
+)
+
+/**
+ * CapabilitiesConfig.getEnableEC3Dolby51ForMobileLive() — Enables E-AC3 Dolby 5.1 for live streams.
+ */
+object CapabilitiesConfigEnableEC3Dolby51Fingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/capabilities/CapabilitiesConfig;",
+    name = "getEnableEC3Dolby51ForMobileLive",
+    returnType = "Z"
+)
+
+/**
+ * CapabilitiesConfig.getForceDetectAllAudioCapabilities() — Forces full audio capability discovery.
+ */
+object CapabilitiesConfigForceDetectAudioFingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/capabilities/CapabilitiesConfig;",
+    name = "getForceDetectAllAudioCapabilities",
+    returnType = "Z"
+)
+
+/**
+ * CapabilitiesConfig.getEnableNonSecureVideoCodecs() — Allows non-secure video decoders (prevents DRM level downgrade lock).
+ */
+object CapabilitiesConfigEnableNonSecureVideoCodecsFingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/capabilities/CapabilitiesConfig;",
+    name = "getEnableNonSecureVideoCodecs",
+    returnType = "Z"
+)
+
+/**
+ * CapabilitiesConfig.getEnableHevcCheckFor4KResolution() — Enables HEVC 4K resolution check.
+ */
+object CapabilitiesConfigEnableHevcCheck4kFingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/capabilities/CapabilitiesConfig;",
+    name = "getEnableHevcCheckFor4KResolution",
+    returnType = "Z"
+)
+
+/**
+ * CapabilitiesConfig.getBlackListConfig() — Device blacklist for resolution, codecs, and HDR.
+ */
+object CapabilitiesConfigBlackListConfigFingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/capabilities/CapabilitiesConfig;",
+    name = "getBlackListConfig",
+    returnType = "Lcom/hotstar/player/models/config/BlackListConfig;"
+)
+
+/**
+ * CapabilitiesConfig.isFhdLayerOutputProtected() — FHD layer HDCP protection flag.
+ */
+object CapabilitiesConfigIsFhdLayerProtectedFingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/capabilities/CapabilitiesConfig;",
+    name = "isFhdLayerOutputProtected",
+    returnType = "Z"
+)
+
+/**
+ * CapabilitiesConfig.getUseCodecCheckForDV() — Dolby Vision codec profile check.
+ */
+object CapabilitiesConfigUseCodecCheckDVFingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/capabilities/CapabilitiesConfig;",
+    name = "getUseCodecCheckForDV",
+    returnType = "Z"
+)
+
+/**
+ * CapabilitiesConfig.getUseCodecCheckForHdr10() — HDR10 codec profile check.
+ */
+object CapabilitiesConfigUseCodecCheckHdr10Fingerprint : Fingerprint(
+    definingClass = "Lcom/hotstar/player/models/capabilities/CapabilitiesConfig;",
+    name = "getUseCodecCheckForHdr10",
+    returnType = "Z"
 )

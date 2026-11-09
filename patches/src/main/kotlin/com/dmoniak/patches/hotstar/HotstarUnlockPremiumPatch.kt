@@ -10,13 +10,12 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.dmoniak.patches.shared.BillingHookHelper.executeGooglePlayBillingBypass
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_HOTSTAR
 import com.dmoniak.patches.shared.cloneMethodWithAdditionalRegisters
-import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 @Suppress("unused")
 val hotstarUnlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium, Screenshots & Enhanced Playback - JioHotstar",
-    description = "Unlocks premium UI features, downloads, 4K/HDR10 codecs, removes screenshot & screen recording blocks, and allows HDMI/screen mirroring in JioHotstar.",
+    description = "Unlocks premium UI features, downloads, AV1/HEVC/VP9 codecs, 4K/HDR10/Dolby Vision, removes screenshot & screen recording blocks, and allows HDMI/screen mirroring in JioHotstar.",
 ) {
     compatibleWith(COMPATIBILITY_HOTSTAR)
 
@@ -59,7 +58,7 @@ fun BytecodePatchContext.executeHotstarUnlockPremiumLogic(logger: Logger) {
         logger.fine("[Hotstar Screenshots] UseSecureViewFingerprint not matched: ${e.message}")
     }
 
-    // 4. Multiple display check (HDMI & screen mirroring) neutralization
+    // 4. Multiple display check & HDMI broadcast listener neutralization
     try {
         MultipleDisplayCheckFingerprint.method.addInstructions(
             0,
@@ -70,6 +69,19 @@ fun BytecodePatchContext.executeHotstarUnlockPremiumLogic(logger: Logger) {
         logger.info("[Hotstar ScreenMirroring] Neutered MultipleDisplayCheck")
     } catch (e: Exception) {
         logger.warning("[Hotstar ScreenMirroring] MultipleDisplayCheckFingerprint failed: ${e.message}")
+    }
+
+    try {
+        PlayerConfigHdmiBroadcastFingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x0
+            return v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar ScreenMirroring] PlayerConfig.getEnableHdmiBroadcastListener() forced to false")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar ScreenMirroring] PlayerConfigHdmiBroadcastFingerprint: ${e.message}")
     }
 
     // 5. Protobuf subscribed state (MyPageData.getIsSubscribed() -> true)
@@ -113,7 +125,7 @@ fun BytecodePatchContext.executeHotstarUnlockPremiumLogic(logger: Logger) {
         logger.fine("[Hotstar Premium] SubscriptionNudgeFingerprint failed: ${e.message}")
     }
 
-    // 8. 4K resolution unlock
+    // 8. 4K resolution unlock & HEVC 4K check
     try {
         Is4kSupportedFingerprint.method.addInstructions(
             0,
@@ -127,7 +139,20 @@ fun BytecodePatchContext.executeHotstarUnlockPremiumLogic(logger: Logger) {
         logger.fine("[Hotstar Playback] Is4kSupportedFingerprint failed: ${e.message}")
     }
 
-    // 9. All video codecs unlock (H265, VP9, AV1)
+    try {
+        CapabilitiesConfigEnableHevcCheck4kFingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x1
+            return v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar Playback] CapabilitiesConfig.getEnableHevcCheckFor4KResolution() forced to true")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar Playback] CapabilitiesConfigEnableHevcCheck4kFingerprint: ${e.message}")
+    }
+
+    // 9. All video codecs unlock (H265, VP9, AV1 + DAV1D software decoder fallback)
     try {
         IsCodecSupportedFingerprint.method.addInstructions(
             0,
@@ -141,7 +166,46 @@ fun BytecodePatchContext.executeHotstarUnlockPremiumLogic(logger: Logger) {
         logger.fine("[Hotstar Playback] IsCodecSupportedFingerprint failed: ${e.message}")
     }
 
-    // 10. Dolby Vision & HDR10/HDR10+ unlock
+    try {
+        CapabilitiesConfigEnableAv1Fingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x1
+            return v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar Playback] CapabilitiesConfig.getEnableAv1Support() forced to true")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar Playback] CapabilitiesConfigEnableAv1Fingerprint: ${e.message}")
+    }
+
+    try {
+        CapabilitiesConfigEnableGoogleDav1dFingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x1
+            return v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar Playback] CapabilitiesConfig.getEnableGoogleDav1d() forced to true")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar Playback] CapabilitiesConfigEnableGoogleDav1dFingerprint: ${e.message}")
+    }
+
+    try {
+        CapabilitiesConfigEnableNonSecureVideoCodecsFingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x1
+            return v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar Playback] CapabilitiesConfig.getEnableNonSecureVideoCodecs() forced to true")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar Playback] CapabilitiesConfigEnableNonSecureVideoCodecsFingerprint: ${e.message}")
+    }
+
+    // 10. Dolby Vision, HDR10, and Dolby Audio 5.1 / E-AC3 enhancements
     try {
         IsDolbyVisionSupportedFingerprint.method.addInstructions(
             0,
@@ -155,7 +219,99 @@ fun BytecodePatchContext.executeHotstarUnlockPremiumLogic(logger: Logger) {
         logger.fine("[Hotstar Playback] IsDolbyVisionSupportedFingerprint failed: ${e.message}")
     }
 
-    // 11. Activity window lifecycle injection & SurfaceView.setSecure interception
+    try {
+        CapabilitiesConfigUseCodecCheckDVFingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x1
+            return v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar Playback] CapabilitiesConfig.getUseCodecCheckForDV() forced to true")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar Playback] CapabilitiesConfigUseCodecCheckDVFingerprint: ${e.message}")
+    }
+
+    try {
+        CapabilitiesConfigUseCodecCheckHdr10Fingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x1
+            return v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar Playback] CapabilitiesConfig.getUseCodecCheckForHdr10() forced to true")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar Playback] CapabilitiesConfigUseCodecCheckHdr10Fingerprint: ${e.message}")
+    }
+
+    try {
+        CapabilitiesConfigEnableDolby51Fingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x1
+            return v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar Playback] CapabilitiesConfig.getEnableDolby51ForMobile() forced to true")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar Playback] CapabilitiesConfigEnableDolby51Fingerprint: ${e.message}")
+    }
+
+    try {
+        CapabilitiesConfigEnableEC3Dolby51Fingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x1
+            return v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar Playback] CapabilitiesConfig.getEnableEC3Dolby51ForMobileLive() forced to true")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar Playback] CapabilitiesConfigEnableEC3Dolby51Fingerprint: ${e.message}")
+    }
+
+    try {
+        CapabilitiesConfigForceDetectAudioFingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x1
+            return v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar Playback] CapabilitiesConfig.getForceDetectAllAudioCapabilities() forced to true")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar Playback] CapabilitiesConfigForceDetectAudioFingerprint: ${e.message}")
+    }
+
+    // 11. Neutralize device blacklist and FHD layer HDCP protection
+    try {
+        CapabilitiesConfigBlackListConfigFingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x0
+            return-object v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar Playback] CapabilitiesConfig.getBlackListConfig() forced to null (neutralizes device blacklist)")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar Playback] CapabilitiesConfigBlackListConfigFingerprint: ${e.message}")
+    }
+
+    try {
+        CapabilitiesConfigIsFhdLayerProtectedFingerprint.method.addInstructions(
+            0,
+            """
+            const/4 v0, 0x0
+            return v0
+            """.trimIndent()
+        )
+        logger.info("[Hotstar Playback] CapabilitiesConfig.isFhdLayerOutputProtected() forced to false")
+    } catch (e: Exception) {
+        logger.fine("[Hotstar Playback] CapabilitiesConfigIsFhdLayerProtectedFingerprint: ${e.message}")
+    }
+
+    // 12. Activity window lifecycle injection & SurfaceView.setSecure interception
     var hookedActivities = 0
     var hookedSurfaceCalls = 0
 

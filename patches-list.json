@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.69.0",
+  "version": "1.70.0",
   "patches": [
     {
       "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
@@ -837,7 +837,7 @@
       "options": []
     },
     {
-      "name": "Ad-Free & Clean Interface - Shazam (Experimental)",
+      "name": "Ad-Free & Clean Interface - Shazam",
       "description": "Strips post-recognition promo cards, Apple Music targeted upsells, in-app survey banners, and announcement sheets in Shazam.",
       "default": true,
       "category": null,
@@ -1887,7 +1887,7 @@
       "options": []
     },
     {
-      "name": "Always-On Auto Shazam - Shazam (Experimental)",
+      "name": "Always-On Auto Shazam - Shazam",
       "description": "Keeps Auto Shazam background listening continuously active without automatic timeout cancellation or sleep limits.",
       "default": true,
       "category": null,

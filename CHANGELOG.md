@@ -1,3 +1,9 @@
+## [1.70.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.69.0...v1.70.0) (2026-11-09)
+
+### ✨ New Features
+
+* **shazam:** promote Shazam patches to tested and functional and update README ([32c7704](https://github.com/SatanMerde/D-moniakPatches/commit/32c770464aec77fefd8ca2a3e54f9779683e64f4))
+
 ## [1.69.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.68.2...v1.69.0) (2026-11-09)
 
 ### ✨ New Features

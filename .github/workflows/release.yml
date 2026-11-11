@@ -46,7 +46,7 @@ jobs:
       # Releases are only triggered manually via workflow_dispatch on request.
       - name: Release
         if: github.event_name == 'workflow_dispatch'
-        uses: cycjimmy/semantic-release-action@v6
+        uses: cycjimmy/semantic-release-action@v8
         id: release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

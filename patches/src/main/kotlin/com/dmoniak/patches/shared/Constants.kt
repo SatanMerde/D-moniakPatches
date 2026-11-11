@@ -636,6 +636,14 @@ object Constants {
         targets = listOf(AppTarget("21.44.539"))
     )
 
+    val COMPATIBILITY_MACRODROID = Compatibility(
+        packageName = "com.arlosoft.macrodroid",
+        name = "MacroDroid",
+        description = "MacroDroid: Device Automation & Task Creator by ArloSoft",
+        appIconColor = 0x1E88E5,
+        targets = listOf(AppTarget("6.1.5"))
+    )
+
     val COMPATIBILITY_REDDIT = Compatibility(
         packageName = "com.reddit.frontpage",
         name = "Reddit",

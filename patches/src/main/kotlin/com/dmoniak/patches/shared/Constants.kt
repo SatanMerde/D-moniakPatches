@@ -604,10 +604,11 @@ object Constants {
     )
 
     val COMPATIBILITY_DEEPL = Compatibility(
-        packageName = "com.deepl.mobile.android",
+        packageName = "com.deepl.mobiletranslator",
         name = "DeepL",
         description = "DeepL Translate: Accurate Multilingual Translator by DeepL SE",
-        appIconColor = 0x0F2B46
+        appIconColor = 0x0F2B46,
+        targets = listOf(AppTarget("26.45"))
     )
 
     val COMPATIBILITY_SILT = Compatibility(

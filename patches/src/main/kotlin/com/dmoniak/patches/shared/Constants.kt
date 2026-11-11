@@ -644,6 +644,14 @@ object Constants {
         targets = listOf(AppTarget("6.1.5"))
     )
 
+    val COMPATIBILITY_MT_MANAGER = Compatibility(
+        packageName = "bin.mt.plus",
+        name = "MT Manager",
+        description = "MT Manager: Powerful APK editor & file manager by Lin Jin Bin",
+        appIconColor = 0xF57C00,
+        targets = listOf(AppTarget("2.26.11", isExperimental = true))
+    )
+
     val COMPATIBILITY_REDDIT = Compatibility(
         packageName = "com.reddit.frontpage",
         name = "Reddit",

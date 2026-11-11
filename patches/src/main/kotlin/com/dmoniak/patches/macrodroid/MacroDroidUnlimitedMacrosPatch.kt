@@ -8,7 +8,7 @@ import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 val macroDroidUnlimitedMacrosPatch = bytecodePatch(
-    name = "Unlimited Macros and Import - MacroDroid",
+    name = "Unlimited Macros and Import - MacroDroid (Experimental)",
     description = "Removes the free-tier restriction limiting users to 5 macros. Enables creating, running, and importing an unlimited number of active automation macros and action blocks.",
 ) {
     compatibleWith(COMPATIBILITY_MACRODROID)

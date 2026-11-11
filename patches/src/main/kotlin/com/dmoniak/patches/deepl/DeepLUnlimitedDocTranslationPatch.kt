@@ -8,7 +8,7 @@ import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 val deepLUnlimitedDocTranslationPatch = bytecodePatch(
-    name = "Unlock Unlimited Document and PDF Translations - DeepL",
+    name = "Unlock Unlimited Document and PDF Translations - DeepL (Experimental)",
     description = "Removes the monthly document translation limit (PDF, DOCX, PPTX), unlocks higher file size thresholds, and enables full document layout preservation in DeepL.",
 ) {
     compatibleWith(COMPATIBILITY_DEEPL)

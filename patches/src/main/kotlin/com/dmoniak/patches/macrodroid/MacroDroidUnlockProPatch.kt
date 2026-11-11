@@ -9,7 +9,7 @@ import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 val macroDroidUnlockProPatch = bytecodePatch(
-    name = "Unlock Pro and Unlimited Features - MacroDroid",
+    name = "Unlock Pro and Unlimited Features - MacroDroid (Experimental)",
     description = "Bypasses Google Play Billing verification for MacroDroid Pro, unlocks all Pro-exclusive actions, triggers, and constraints, and enables full automation features without restriction.",
 ) {
     compatibleWith(COMPATIBILITY_MACRODROID)

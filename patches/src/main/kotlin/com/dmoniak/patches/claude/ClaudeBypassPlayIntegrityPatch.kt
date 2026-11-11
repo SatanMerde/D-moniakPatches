@@ -8,7 +8,7 @@ import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 val claudeBypassPlayIntegrityPatch = bytecodePatch(
-    name = "Bypass Play Integrity & Installer Check - Claude AI",
+    name = "Bypass Play Integrity & Installer Check - Claude AI (Experimental)",
     description = "Spoofs Google Play Store (com.android.vending) installation source and neutralizes client-side Play Integrity attestation during sign-in and session initialization.",
 ) {
     compatibleWith(COMPATIBILITY_CLAUDE)

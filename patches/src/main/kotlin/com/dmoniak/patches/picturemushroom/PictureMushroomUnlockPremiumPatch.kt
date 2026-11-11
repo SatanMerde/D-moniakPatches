@@ -9,7 +9,7 @@ import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 val pictureMushroomUnlockPremiumPatch = bytecodePatch(
-    name = "Unlock Premium & VIP - Picture Mushroom",
+    name = "Unlock Premium & VIP - Picture Mushroom (Experimental)",
     description = "Unlocks Gold and Platinum VIP features in Picture Mushroom, including unlimited mushroom identifications, advanced edibility and toxicity guidance, foraging maps, mushroom book encyclopedia, AI chatbot consultations, removes subscription paywall prompts, and eliminates the startup network connection error trap.",
 ) {
     compatibleWith(COMPATIBILITY_PICTURE_MUSHROOM)

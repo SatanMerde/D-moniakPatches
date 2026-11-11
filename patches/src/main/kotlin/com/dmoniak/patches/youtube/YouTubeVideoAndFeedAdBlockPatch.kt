@@ -9,7 +9,7 @@ import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 val youtubeVideoAndFeedAdBlockPatch = bytecodePatch(
-    name = "Block Video and Feed Ads - YouTube",
+    name = "Block Video and Feed Ads - YouTube (Experimental)",
     description = "Strips pre-roll and mid-roll video advertisements, home feed sponsored cards, search result ads, Shorts ads, and info card promos in YouTube.",
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)

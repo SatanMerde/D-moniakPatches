@@ -7,7 +7,7 @@ import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SHROOMID
 import java.util.logging.Logger
 
 val shroomIDAdFreePatch = bytecodePatch(
-    name = "Ad-Free & Clean Experience - ShroomID",
+    name = "Ad-Free & Clean Experience - ShroomID (Experimental)",
     description = "Removes in-app Google Mobile Ads (interstitial, rewarded, and banner ads) for an uninterrupted mushroom foraging experience.",
 ) {
     compatibleWith(COMPATIBILITY_SHROOMID)

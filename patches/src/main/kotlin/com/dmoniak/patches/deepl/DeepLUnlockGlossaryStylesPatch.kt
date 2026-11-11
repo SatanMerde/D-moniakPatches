@@ -8,7 +8,7 @@ import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 val deepLUnlockGlossaryStylesPatch = bytecodePatch(
-    name = "Unlock Unlimited Glossaries and Writing Styles - DeepL",
+    name = "Unlock Unlimited Glossaries and Writing Styles - DeepL (Experimental)",
     description = "Unlocks unlimited custom glossary terminology pairs and enables advanced professional writing styles (Academic, Technical, Casual, Business) in DeepL.",
 ) {
     compatibleWith(COMPATIBILITY_DEEPL)

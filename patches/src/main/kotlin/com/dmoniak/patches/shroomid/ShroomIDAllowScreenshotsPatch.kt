@@ -7,7 +7,7 @@ import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 val shroomIDAllowScreenshotsPatch = bytecodePatch(
-    name = "Allow Screenshots & Screen Recording - ShroomID",
+    name = "Allow Screenshots & Screen Recording - ShroomID (Experimental)",
     description = "Disables Android FLAG_SECURE window restrictions to allow screenshots and screen recording across all ShroomID mushroom identification and field guide screens.",
 ) {
     compatibleWith(COMPATIBILITY_SHROOMID)
@@ -29,34 +29,24 @@ fun BytecodePatchContext.executeShroomIDAllowScreenshotsLogic(logger: Logger) {
         if (!tl.contains("androidx") && !tl.contains("com/google")) {
             val mutableClass by lazy { mutableClassDefBy(classDef) }
 
-            // 1. Hook MainActivity.onCreate to clear FLAG_SECURE (0x2000)
-            if (type == "Lcom/shroomid/MainActivity;") {
+            // 1. Hook React Native modal host view to prevent FLAG_SECURE enforcement
+            if (type == "Lcom/facebook/react/views/modal/ReactModalHostView;") {
                 for (method in classDef.methods.toList()) {
                     if (method.implementation == null) continue
-                    val mName = method.name
-                    val pTypes = method.parameterTypes
-                    val retType = method.returnType
-
-                    if (mName == "onCreate" && retType == "V" && pTypes.size == 1) {
+                    if (method.name == "isFlagSecureSet" && method.returnType == "Z") {
                         try {
                             mutableClass.replaceMethod(
                                 method,
-                                registerCount = 4,
+                                registerCount = 2,
                                 smaliCode = """
                                     const/4 v0, 0x0
-                                    invoke-static {p0, v0}, Lexpo/modules/splashscreen/SplashScreenManager;->registerOnActivity(Landroid/app/Activity;Lexpo/modules/splashscreen/SplashScreenCustomOptions;)V
-                                    invoke-super {p0, p1}, Lcom/facebook/react/ReactActivity;->onCreate(Landroid/os/Bundle;)V
-                                    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
-                                    move-result-object v0
-                                    const/16 v1, 0x2000
-                                    invoke-virtual {v0, v1}, Landroid/view/Window;->clearFlags(I)V
-                                    return-void
+                                    return v0
                                 """.trimIndent(),
                             )
                             hookedPoints++
-                            logger.info("[ShroomID Screenshots] Cleared FLAG_SECURE on MainActivity.onCreate")
+                            logger.info("[ShroomID Screenshots] Neutralized FLAG_SECURE check in ReactModalHostView")
                         } catch (e: Exception) {
-                            logger.warning("[ShroomID Screenshots] Failed to hook MainActivity.onCreate: ${e.message}")
+                            logger.fine("[ShroomID Screenshots] Failed to hook isFlagSecureSet: ${e.message}")
                         }
                     }
                 }

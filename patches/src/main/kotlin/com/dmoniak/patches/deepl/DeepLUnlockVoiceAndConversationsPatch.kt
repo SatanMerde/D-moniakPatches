@@ -8,7 +8,7 @@ import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 val deepLUnlockVoiceAndConversationsPatch = bytecodePatch(
-    name = "Unlock Voice Conversations and Transcript Pro - DeepL",
+    name = "Unlock Voice Conversations and Transcript Pro - DeepL (Experimental)",
     description = "Unlocks DeepL Voice (real-time speech translation), multi-party Conversation mode, group voice sessions, and Voice Pro transcript features normally gated behind a paid plan.",
 ) {
     compatibleWith(COMPATIBILITY_DEEPL)

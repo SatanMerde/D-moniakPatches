@@ -7,7 +7,7 @@ import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 val pictureMushroomAllowScreenshotsPatch = bytecodePatch(
-    name = "Allow Screenshots & Screen Recording - Picture Mushroom",
+    name = "Allow Screenshots & Screen Recording - Picture Mushroom (Experimental)",
     description = "Disables Android FLAG_SECURE window restrictions to allow screenshots and screen recording across all Picture Mushroom identification screens and guides.",
 ) {
     compatibleWith(COMPATIBILITY_PICTURE_MUSHROOM)

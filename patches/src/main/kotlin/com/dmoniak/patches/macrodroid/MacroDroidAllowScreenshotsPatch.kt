@@ -8,7 +8,7 @@ import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 val macroDroidAllowScreenshotsPatch = bytecodePatch(
-    name = "Allow Screenshots and Scenes Capture - MacroDroid",
+    name = "Allow Screenshots and Scenes Capture - MacroDroid (Experimental)",
     description = "Removes FLAG_SECURE window flags from MacroDroid password prompts, variable value dialogs, and custom scene screens, permitting screen captures and screen recording without black screen blocking.",
 ) {
     compatibleWith(COMPATIBILITY_MACRODROID)

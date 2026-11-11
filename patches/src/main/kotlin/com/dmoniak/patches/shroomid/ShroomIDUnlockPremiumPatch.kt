@@ -3,13 +3,12 @@ package com.dmoniak.patches.shroomid
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.dmoniak.patches.shared.BillingHookHelper.executeGooglePlayBillingBypass
 import com.dmoniak.patches.shared.Constants.COMPATIBILITY_SHROOMID
 import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 val shroomIDUnlockPremiumPatch = bytecodePatch(
-    name = "Unlock Premium & Pro - ShroomID",
+    name = "Unlock Premium & Pro - ShroomID (Experimental)",
     description = "Unlocks full lifetime Premium & Pro subscription features in ShroomID, including AI mushroom identification, detailed edibility guides, spore prints, offline database access, and removes Adapty paywalls.",
 ) {
     compatibleWith(COMPATIBILITY_SHROOMID)
@@ -23,11 +22,8 @@ val shroomIDUnlockPremiumPatch = bytecodePatch(
 fun BytecodePatchContext.executeShroomIDUnlockPremiumLogic(logger: Logger) {
     logger.info("Executing Unlock Premium & Pro patch for ShroomID (com.shroomid)...")
 
-    // 1. Google Play Billing Client bypass
-    executeGooglePlayBillingBypass(logger, "ShroomID")
-
     var adaptyModelCount = 0
-    var adaptyHandlerCount = 0
+    var adaptyBridgeCount = 0
     var generalPremiumCount = 0
 
     classDefForEach { classDef ->
@@ -162,59 +158,105 @@ fun BytecodePatchContext.executeShroomIDUnlockPremiumLogic(logger: Logger) {
             }
 
             // =========================================================================
-            // 2. AdaptyCallHandler Crossplatform Serialization Hook
+            // 2. Adapty React Native Bridge Hook (AdaptyReactModule)
+            // Intercepts all profile data passing from native Adapty SDK into JS Hermes runtime
             // =========================================================================
-            if (type.endsWith("/crossplatform/AdaptyCallHandler;")) {
+            if (type == "Lcom/adapty/react/AdaptyReactModule;") {
                 for (method in classDef.methods.toList()) {
                     if (method.implementation == null) continue
                     val mName = method.name
                     val pTypes = method.parameterTypes
                     val returnType = method.returnType
 
-                    if (mName == "toSuccessJson" && returnType == "Ljava/lang/String;" && pTypes.size == 1 &&
-                        pTypes[0].toString() == "Ljava/lang/Object;"
+                    // handle$lambda$4(Promise, String data)
+                    if (mName == "handle${'$'}lambda${'$'}4" && returnType == "V" && pTypes.size == 2 &&
+                        pTypes[1].toString() == "Ljava/lang/String;"
+                    ) {
+                        try {
+                            mutableClass.replaceMethod(
+                                method,
+                                registerCount = 5,
+                                smaliCode = """
+                                    if-eqz p1, :cond_empty
+                                    const-string v0, "\"access_levels\":{}"
+                                    const-string v1, "\"access_levels\":{\"premium\":{\"id\":\"premium\",\"is_active\":true,\"is_lifetime\":true,\"vendor_product_id\":\"com.shroomid.premium.yearly\",\"store\":\"play_store\",\"activated_at\":\"2024-01-01T00:00:00.000Z\",\"renewed_at\":\"2024-01-01T00:00:00.000Z\",\"expires_at\":\"2099-01-01T00:00:00.000Z\",\"starts_at\":\"2024-01-01T00:00:00.000Z\",\"is_in_grace_period\":false,\"is_refund\":false,\"will_renew\":true},\"all_access\":{\"id\":\"all_access\",\"is_active\":true,\"is_lifetime\":true,\"vendor_product_id\":\"com.shroomid.premium.yearly\",\"store\":\"play_store\",\"activated_at\":\"2024-01-01T00:00:00.000Z\",\"renewed_at\":\"2024-01-01T00:00:00.000Z\",\"expires_at\":\"2099-01-01T00:00:00.000Z\",\"starts_at\":\"2024-01-01T00:00:00.000Z\",\"is_in_grace_period\":false,\"is_refund\":false,\"will_renew\":true}}"
+                                    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                    move-result-object p1
+                                    const-string v0, "\"paid_access_levels\":{}"
+                                    const-string v1, "\"paid_access_levels\":{\"premium\":{\"id\":\"premium\",\"is_active\":true,\"is_lifetime\":true,\"vendor_product_id\":\"com.shroomid.premium.yearly\",\"store\":\"play_store\",\"activated_at\":\"2024-01-01T00:00:00.000Z\",\"renewed_at\":\"2024-01-01T00:00:00.000Z\",\"expires_at\":\"2099-01-01T00:00:00.000Z\",\"starts_at\":\"2024-01-01T00:00:00.000Z\",\"is_in_grace_period\":false,\"is_refund\":false,\"will_renew\":true},\"all_access\":{\"id\":\"all_access\",\"is_active\":true,\"is_lifetime\":true,\"vendor_product_id\":\"com.shroomid.premium.yearly\",\"store\":\"play_store\",\"activated_at\":\"2024-01-01T00:00:00.000Z\",\"renewed_at\":\"2024-01-01T00:00:00.000Z\",\"expires_at\":\"2099-01-01T00:00:00.000Z\",\"starts_at\":\"2024-01-01T00:00:00.000Z\",\"is_in_grace_period\":false,\"is_refund\":false,\"will_renew\":true}}"
+                                    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                    move-result-object p1
+                                    const-string v0, "\"subscriptions\":{}"
+                                    const-string v1, "\"subscriptions\":{\"com.shroomid.premium.yearly\":{\"is_active\":true,\"is_lifetime\":true,\"vendor_product_id\":\"com.shroomid.premium.yearly\",\"store\":\"play_store\",\"activated_at\":\"2024-01-01T00:00:00.000Z\",\"renewed_at\":\"2024-01-01T00:00:00.000Z\",\"expires_at\":\"2099-01-01T00:00:00.000Z\",\"starts_at\":\"2024-01-01T00:00:00.000Z\",\"is_in_grace_period\":false,\"is_refund\":false,\"is_sandbox\":false,\"will_renew\":true}}"
+                                    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                    move-result-object p1
+                                    const-string v0, "\"is_active\":false"
+                                    const-string v1, "\"is_active\":true"
+                                    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                    move-result-object p1
+                                    const-string v0, "\"is_lifetime\":false"
+                                    const-string v1, "\"is_lifetime\":true"
+                                    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                    move-result-object p1
+                                    :cond_empty
+                                    invoke-interface {p0, p1}, Lcom/facebook/react/bridge/Promise;->resolve(Ljava/lang/Object;)V
+                                    return-void
+                                """.trimIndent(),
+                            )
+                            adaptyBridgeCount++
+                            logger.info("[ShroomID Adapty] Hooked AdaptyReactModule->handle${'$'}lambda${'$'}4 to inject active subscription payload")
+                        } catch (e: Exception) {
+                            logger.warning("[ShroomID Adapty] Failed to hook AdaptyReactModule->handle${'$'}lambda${'$'}4: ${e.message}")
+                        }
+                    }
+
+                    // initialize$lambda$1(AdaptyReactModule, String eventName, String eventData)
+                    if (mName == "initialize${'$'}lambda${'$'}1" && returnType == "V" && pTypes.size == 3 &&
+                        pTypes[2].toString() == "Ljava/lang/String;"
                     ) {
                         try {
                             mutableClass.replaceMethod(
                                 method,
                                 registerCount = 6,
                                 smaliCode = """
-                                    const-string v0, "success"
-                                    invoke-static {v0, p1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+                                    if-eqz p2, :cond_no_repl
+                                    const-string v0, "\"access_levels\":{}"
+                                    const-string v1, "\"access_levels\":{\"premium\":{\"id\":\"premium\",\"is_active\":true,\"is_lifetime\":true,\"vendor_product_id\":\"com.shroomid.premium.yearly\",\"store\":\"play_store\",\"activated_at\":\"2024-01-01T00:00:00.000Z\",\"renewed_at\":\"2024-01-01T00:00:00.000Z\",\"expires_at\":\"2099-01-01T00:00:00.000Z\",\"starts_at\":\"2024-01-01T00:00:00.000Z\",\"is_in_grace_period\":false,\"is_refund\":false,\"will_renew\":true},\"all_access\":{\"id\":\"all_access\",\"is_active\":true,\"is_lifetime\":true,\"vendor_product_id\":\"com.shroomid.premium.yearly\",\"store\":\"play_store\",\"activated_at\":\"2024-01-01T00:00:00.000Z\",\"renewed_at\":\"2024-01-01T00:00:00.000Z\",\"expires_at\":\"2099-01-01T00:00:00.000Z\",\"starts_at\":\"2024-01-01T00:00:00.000Z\",\"is_in_grace_period\":false,\"is_refund\":false,\"will_renew\":true}}"
+                                    invoke-virtual {p2, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                    move-result-object p2
+                                    const-string v0, "\"paid_access_levels\":{}"
+                                    const-string v1, "\"paid_access_levels\":{\"premium\":{\"id\":\"premium\",\"is_active\":true,\"is_lifetime\":true,\"vendor_product_id\":\"com.shroomid.premium.yearly\",\"store\":\"play_store\",\"activated_at\":\"2024-01-01T00:00:00.000Z\",\"renewed_at\":\"2024-01-01T00:00:00.000Z\",\"expires_at\":\"2099-01-01T00:00:00.000Z\",\"starts_at\":\"2024-01-01T00:00:00.000Z\",\"is_in_grace_period\":false,\"is_refund\":false,\"will_renew\":true},\"all_access\":{\"id\":\"all_access\",\"is_active\":true,\"is_lifetime\":true,\"vendor_product_id\":\"com.shroomid.premium.yearly\",\"store\":\"play_store\",\"activated_at\":\"2024-01-01T00:00:00.000Z\",\"renewed_at\":\"2024-01-01T00:00:00.000Z\",\"expires_at\":\"2099-01-01T00:00:00.000Z\",\"starts_at\":\"2024-01-01T00:00:00.000Z\",\"is_in_grace_period\":false,\"is_refund\":false,\"will_renew\":true}}"
+                                    invoke-virtual {p2, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                    move-result-object p2
+                                    const-string v0, "\"subscriptions\":{}"
+                                    const-string v1, "\"subscriptions\":{\"com.shroomid.premium.yearly\":{\"is_active\":true,\"is_lifetime\":true,\"vendor_product_id\":\"com.shroomid.premium.yearly\",\"store\":\"play_store\",\"activated_at\":\"2024-01-01T00:00:00.000Z\",\"renewed_at\":\"2024-01-01T00:00:00.000Z\",\"expires_at\":\"2099-01-01T00:00:00.000Z\",\"starts_at\":\"2024-01-01T00:00:00.000Z\",\"is_in_grace_period\":false,\"is_refund\":false,\"is_sandbox\":false,\"will_renew\":true}}"
+                                    invoke-virtual {p2, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                    move-result-object p2
+                                    const-string v0, "\"is_active\":false"
+                                    const-string v1, "\"is_active\":true"
+                                    invoke-virtual {p2, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                    move-result-object p2
+                                    const-string v0, "\"is_lifetime\":false"
+                                    const-string v1, "\"is_lifetime\":true"
+                                    invoke-virtual {p2, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+                                    move-result-object p2
+                                    :cond_no_repl
+                                    invoke-virtual {p0}, Lcom/adapty/react/AdaptyReactModule;->getReactApplicationContext()Lcom/facebook/react/bridge/ReactApplicationContext;
                                     move-result-object v0
-                                    invoke-static {v0}, Lkotlin/collections/MapsKt;->mapOf(Lkotlin/Pair;)Ljava/util/Map;
+                                    if-eqz v0, :cond_done
+                                    const-class v1, Lcom/facebook/react/modules/core/DeviceEventManagerModule${'$'}RCTDeviceEventEmitter;
+                                    invoke-virtual {v0, v1}, Lcom/facebook/react/bridge/ReactApplicationContext;->getJSModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/JavaScriptModule;
                                     move-result-object v0
-                                    invoke-static {v0}, Lcom/adapty/internal/crossplatform/SerializationHelper;->toJson(Ljava/lang/Object;)Ljava/lang/String;
-                                    move-result-object v0
-                                    if-nez v0, :cond_ret
-                                    const-string v1, "\"access_levels\":{}"
-                                    const-string v2, "\"access_levels\":{\"premium\":{\"id\":\"premium\",\"is_active\":true,\"is_lifetime\":true,\"vendor_product_id\":\"com.shroomid.premium.yearly\",\"store\":\"play_store\",\"activated_at\":\"2024-01-01T00:00:00.000Z\",\"renewed_at\":\"2024-01-01T00:00:00.000Z\",\"expires_at\":\"2099-01-01T00:00:00.000Z\",\"starts_at\":\"2024-01-01T00:00:00.000Z\",\"is_in_grace_period\":false,\"is_refund\":false,\"will_renew\":true},\"all_access\":{\"id\":\"all_access\",\"is_active\":true,\"is_lifetime\":true,\"vendor_product_id\":\"com.shroomid.premium.yearly\",\"store\":\"play_store\",\"activated_at\":\"2024-01-01T00:00:00.000Z\",\"renewed_at\":\"2024-01-01T00:00:00.000Z\",\"expires_at\":\"2099-01-01T00:00:00.000Z\",\"starts_at\":\"2024-01-01T00:00:00.000Z\",\"is_in_grace_period\":false,\"is_refund\":false,\"will_renew\":true}}"
-                                    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-                                    move-result-object v0
-                                    const-string v1, "\"paid_access_levels\":{}"
-                                    const-string v2, "\"paid_access_levels\":{\"premium\":{\"id\":\"premium\",\"is_active\":true,\"is_lifetime\":true,\"vendor_product_id\":\"com.shroomid.premium.yearly\",\"store\":\"play_store\",\"activated_at\":\"2024-01-01T00:00:00.000Z\",\"renewed_at\":\"2024-01-01T00:00:00.000Z\",\"expires_at\":\"2099-01-01T00:00:00.000Z\",\"starts_at\":\"2024-01-01T00:00:00.000Z\",\"is_in_grace_period\":false,\"is_refund\":false,\"will_renew\":true},\"all_access\":{\"id\":\"all_access\",\"is_active\":true,\"is_lifetime\":true,\"vendor_product_id\":\"com.shroomid.premium.yearly\",\"store\":\"play_store\",\"activated_at\":\"2024-01-01T00:00:00.000Z\",\"renewed_at\":\"2024-01-01T00:00:00.000Z\",\"expires_at\":\"2099-01-01T00:00:00.000Z\",\"starts_at\":\"2024-01-01T00:00:00.000Z\",\"is_in_grace_period\":false,\"is_refund\":false,\"will_renew\":true}}"
-                                    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-                                    move-result-object v0
-                                    const-string v1, "\"subscriptions\":{}"
-                                    const-string v2, "\"subscriptions\":{\"com.shroomid.premium.yearly\":{\"is_active\":true,\"is_lifetime\":true,\"vendor_product_id\":\"com.shroomid.premium.yearly\",\"store\":\"play_store\",\"activated_at\":\"2024-01-01T00:00:00.000Z\",\"renewed_at\":\"2024-01-01T00:00:00.000Z\",\"expires_at\":\"2099-01-01T00:00:00.000Z\",\"starts_at\":\"2024-01-01T00:00:00.000Z\",\"is_in_grace_period\":false,\"is_refund\":false,\"is_sandbox\":false,\"will_renew\":true}}"
-                                    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-                                    move-result-object v0
-                                    const-string v1, "\"is_active\":false"
-                                    const-string v2, "\"is_active\":true"
-                                    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-                                    move-result-object v0
-                                    const-string v1, "\"is_lifetime\":false"
-                                    const-string v2, "\"is_lifetime\":true"
-                                    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-                                    move-result-object v0
-                                    :cond_ret
-                                    return-object v0
+                                    check-cast v0, Lcom/facebook/react/modules/core/DeviceEventManagerModule${'$'}RCTDeviceEventEmitter;
+                                    invoke-interface {v0, p1, p2}, Lcom/facebook/react/modules/core/DeviceEventManagerModule${'$'}RCTDeviceEventEmitter;->emit(Ljava/lang/String;Ljava/lang/Object;)V
+                                    :cond_done
+                                    return-void
                                 """.trimIndent(),
                             )
-                            adaptyHandlerCount++
-                            logger.info("[ShroomID Adapty] Hooked AdaptyCallHandler->toSuccessJson to inject active access levels")
+                            adaptyBridgeCount++
+                            logger.info("[ShroomID Adapty] Hooked AdaptyReactModule->initialize${'$'}lambda${'$'}1 to inject active event payload")
                         } catch (e: Exception) {
-                            logger.warning("[ShroomID Adapty] Failed to hook AdaptyCallHandler->toSuccessJson: ${e.message}")
+                            logger.warning("[ShroomID Adapty] Failed to hook AdaptyReactModule->initialize${'$'}lambda${'$'}1: ${e.message}")
                         }
                     }
                 }
@@ -277,7 +319,7 @@ fun BytecodePatchContext.executeShroomIDUnlockPremiumLogic(logger: Logger) {
     logger.info(
         "[ShroomID Premium] Patch completed: " +
             "adaptyModelCount=$adaptyModelCount, " +
-            "adaptyHandlerCount=$adaptyHandlerCount, " +
+            "adaptyBridgeCount=$adaptyBridgeCount, " +
             "generalPremiumCount=$generalPremiumCount",
     )
 }

@@ -783,7 +783,7 @@
       "options": []
     },
     {
-      "name": "Ad-Free & Clean Experience - Picture Mushroom",
+      "name": "Ad-Free & Clean Experience - Picture Mushroom (Experimental)",
       "description": "Removes in-app banner ads, interstitials, rewarded ad popups, and sponsored cards in Picture Mushroom.",
       "default": true,
       "category": null,
@@ -810,7 +810,7 @@
       "options": []
     },
     {
-      "name": "Ad-Free & Clean Experience - ShroomID",
+      "name": "Ad-Free & Clean Experience - ShroomID (Experimental)",
       "description": "Removes in-app Google Mobile Ads (interstitial, rewarded, and banner ads) for an uninterrupted mushroom foraging experience.",
       "default": true,
       "category": null,
@@ -1303,7 +1303,7 @@
       "options": []
     },
     {
-      "name": "Ad-Free and Remove Upgrade Nags - MacroDroid",
+      "name": "Ad-Free and Remove Upgrade Nags - MacroDroid (Experimental)",
       "description": "Removes banner and interstitial advertisements, disables Pro upgrade nag screens (AdvertActivity, MacroDroidProAdvertActivity2), and suppresses rewarded advert prompts across MacroDroid.",
       "default": true,
       "category": null,
@@ -1698,7 +1698,7 @@
       "options": []
     },
     {
-      "name": "Allow Screenshots & Screen Recording - Picture Mushroom",
+      "name": "Allow Screenshots & Screen Recording - Picture Mushroom (Experimental)",
       "description": "Disables Android FLAG_SECURE window restrictions to allow screenshots and screen recording across all Picture Mushroom identification screens and guides.",
       "default": true,
       "category": null,
@@ -1752,7 +1752,7 @@
       "options": []
     },
     {
-      "name": "Allow Screenshots & Screen Recording - ShroomID",
+      "name": "Allow Screenshots & Screen Recording - ShroomID (Experimental)",
       "description": "Disables Android FLAG_SECURE window restrictions to allow screenshots and screen recording across all ShroomID mushroom identification and field guide screens.",
       "default": true,
       "category": null,
@@ -1941,7 +1941,7 @@
       "options": []
     },
     {
-      "name": "Allow Screenshots and Scenes Capture - MacroDroid",
+      "name": "Allow Screenshots and Scenes Capture - MacroDroid (Experimental)",
       "description": "Removes FLAG_SECURE window flags from MacroDroid password prompts, variable value dialogs, and custom scene screens, permitting screen captures and screen recording without black screen blocking.",
       "default": true,
       "category": null,
@@ -3175,7 +3175,7 @@
       "options": []
     },
     {
-      "name": "Block Video and Feed Ads - YouTube",
+      "name": "Block Video and Feed Ads - YouTube (Experimental)",
       "description": "Strips pre-roll and mid-roll video advertisements, home feed sponsored cards, search result ads, Shorts ads, and info card promos in YouTube.",
       "default": true,
       "category": null,
@@ -3381,7 +3381,7 @@
       "options": []
     },
     {
-      "name": "Bypass Play Integrity & Installer Check - Claude AI",
+      "name": "Bypass Play Integrity & Installer Check - Claude AI (Experimental)",
       "description": "Spoofs Google Play Store (com.android.vending) installation source and neutralizes client-side Play Integrity attestation during sign-in and session initialization.",
       "default": true,
       "category": null,
@@ -4826,7 +4826,7 @@
       "options": []
     },
     {
-      "name": "Disable Analytics and Telemetry - DeepL",
+      "name": "Disable Analytics and Telemetry - DeepL (Experimental)",
       "description": "Suppresses DAP (Data Analytics Pipeline), Statsig experimentation client, Sentry crash reporting, and usage tracking in DeepL to reduce data sent to DeepL servers.",
       "default": true,
       "category": null,
@@ -11297,7 +11297,7 @@
       "options": []
     },
     {
-      "name": "Unlimited Macros and Import - MacroDroid",
+      "name": "Unlimited Macros and Import - MacroDroid (Experimental)",
       "description": "Removes the free-tier restriction limiting users to 5 macros. Enables creating, running, and importing an unlimited number of active automation macros and action blocks.",
       "default": true,
       "category": null,
@@ -12721,7 +12721,7 @@
       "options": []
     },
     {
-      "name": "Unlock Premium & Pro - ShroomID",
+      "name": "Unlock Premium & Pro - ShroomID (Experimental)",
       "description": "Unlocks full lifetime Premium & Pro subscription features in ShroomID, including AI mushroom identification, detailed edibility guides, spore prints, offline database access, and removes Adapty paywalls.",
       "default": true,
       "category": null,
@@ -12829,7 +12829,7 @@
       "options": []
     },
     {
-      "name": "Unlock Premium & VIP - Picture Mushroom",
+      "name": "Unlock Premium & VIP - Picture Mushroom (Experimental)",
       "description": "Unlocks Gold and Platinum VIP features in Picture Mushroom, including unlimited mushroom identifications, advanced edibility and toxicity guidance, foraging maps, mushroom book encyclopedia, AI chatbot consultations, and removes subscription paywall prompts.",
       "default": true,
       "category": null,
@@ -13324,7 +13324,7 @@
       "options": []
     },
     {
-      "name": "Unlock Pro - DeepL",
+      "name": "Unlock Pro - DeepL (Experimental)",
       "description": "Hooks Google Play Billing to bypass in-app purchase verification for DeepL Pro. Unlocks tone and formality selection, extended translation limits, and advanced dictionary features.",
       "default": true,
       "category": null,
@@ -13432,7 +13432,7 @@
       "options": []
     },
     {
-      "name": "Unlock Pro and Unlimited Features - MacroDroid",
+      "name": "Unlock Pro and Unlimited Features - MacroDroid (Experimental)",
       "description": "Bypasses Google Play Billing verification for MacroDroid Pro, unlocks all Pro-exclusive actions, triggers, and constraints, and enables full automation features without restriction.",
       "default": true,
       "category": null,
@@ -13692,7 +13692,7 @@
       "options": []
     },
     {
-      "name": "Unlock Unlimited Document and PDF Translations - DeepL",
+      "name": "Unlock Unlimited Document and PDF Translations - DeepL (Experimental)",
       "description": "Removes the monthly document translation limit (PDF, DOCX, PPTX), unlocks higher file size thresholds, and enables full document layout preservation in DeepL.",
       "default": true,
       "category": null,
@@ -13719,7 +13719,7 @@
       "options": []
     },
     {
-      "name": "Unlock Unlimited Glossaries and Writing Styles - DeepL",
+      "name": "Unlock Unlimited Glossaries and Writing Styles - DeepL (Experimental)",
       "description": "Unlocks unlimited custom glossary terminology pairs and enables advanced professional writing styles (Academic, Technical, Casual, Business) in DeepL.",
       "default": true,
       "category": null,
@@ -13908,7 +13908,7 @@
       "options": []
     },
     {
-      "name": "Unlock Voice Conversations and Transcript Pro - DeepL",
+      "name": "Unlock Voice Conversations and Transcript Pro - DeepL (Experimental)",
       "description": "Unlocks DeepL Voice (real-time speech translation), multi-party Conversation mode, group voice sessions, and Voice Pro transcript features normally gated behind a paid plan.",
       "default": true,
       "category": null,

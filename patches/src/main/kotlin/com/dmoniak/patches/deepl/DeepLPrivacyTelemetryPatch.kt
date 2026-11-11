@@ -8,7 +8,7 @@ import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 val deepLPrivacyTelemetryPatch = bytecodePatch(
-    name = "Disable Analytics and Telemetry - DeepL",
+    name = "Disable Analytics and Telemetry - DeepL (Experimental)",
     description = "Suppresses DAP (Data Analytics Pipeline), Statsig experimentation client, Sentry crash reporting, and usage tracking in DeepL to reduce data sent to DeepL servers.",
 ) {
     compatibleWith(COMPATIBILITY_DEEPL)

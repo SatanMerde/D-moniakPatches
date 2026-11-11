@@ -9,7 +9,7 @@ import com.dmoniak.patches.shared.replaceMethod
 import java.util.logging.Logger
 
 val macroDroidAdFreePatch = bytecodePatch(
-    name = "Ad-Free and Remove Upgrade Nags - MacroDroid",
+    name = "Ad-Free and Remove Upgrade Nags - MacroDroid (Experimental)",
     description = "Removes banner and interstitial advertisements, disables Pro upgrade nag screens (AdvertActivity, MacroDroidProAdvertActivity2), and suppresses rewarded advert prompts across MacroDroid.",
 ) {
     compatibleWith(COMPATIBILITY_MACRODROID)

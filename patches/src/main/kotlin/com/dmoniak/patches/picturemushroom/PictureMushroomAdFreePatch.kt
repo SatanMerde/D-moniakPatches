@@ -7,7 +7,7 @@ import com.dmoniak.patches.shared.Constants.COMPATIBILITY_PICTURE_MUSHROOM
 import java.util.logging.Logger
 
 val pictureMushroomAdFreePatch = bytecodePatch(
-    name = "Ad-Free & Clean Experience - Picture Mushroom",
+    name = "Ad-Free & Clean Experience - Picture Mushroom (Experimental)",
     description = "Removes in-app banner ads, interstitials, rewarded ad popups, and sponsored cards in Picture Mushroom.",
 ) {
     compatibleWith(COMPATIBILITY_PICTURE_MUSHROOM)

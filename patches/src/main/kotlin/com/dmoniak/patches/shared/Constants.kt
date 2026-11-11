@@ -632,7 +632,8 @@ object Constants {
         packageName = "com.google.android.youtube",
         name = "YouTube",
         description = "YouTube: Watch, Stream & Discover Videos by Google LLC",
-        appIconColor = 0xFF0000
+        appIconColor = 0xFF0000,
+        targets = listOf(AppTarget("21.44.539"))
     )
 
     val COMPATIBILITY_REDDIT = Compatibility(

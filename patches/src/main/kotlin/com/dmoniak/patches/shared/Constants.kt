@@ -321,7 +321,8 @@ object Constants {
         packageName = "com.snapchat.android",
         name = "Snapchat",
         description = "Snapchat by Snap Inc",
-        appIconColor = 0xFFFC00
+        appIconColor = 0xFFFC00,
+        targets = listOf(AppTarget("14.31.0.56", isExperimental = true))
     )
 
     val COMPATIBILITY_MEGA = Compatibility(

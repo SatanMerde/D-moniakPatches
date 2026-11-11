@@ -93,7 +93,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.73.0](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.73.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**513 total patches** (49 tested & functional • 464 experimental)
+> **[v1.73.1](https://github.com/SatanMerde/D-moniakPatches/releases/tag/v1.73.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;**513 total patches** (49 tested & functional • 464 experimental)
 
 ---
 
@@ -319,7 +319,7 @@ Experiencing an issue, want an experimental patch to work, or tested an experime
 |----------|----------------|
 | [Ad-Free & Clean Experience - Picture Mushroom](#ad-free-clean-experience-picture-mushroom) | Removes in-app banner ads, interstitials, rewarded ad popups, and sponsored cards in Picture Mushroom. |
 | [Allow Screenshots & Screen Recording - Picture Mushroom](#allow-screenshots-screen-recording-picture-mushroom) | Disables Android FLAG_SECURE window restrictions to allow screenshots and screen recording across all Picture Mushroom identification screens and guides. |
-| [Unlock Premium & VIP - Picture Mushroom](#unlock-premium-vip-picture-mushroom) | Unlocks Gold and Platinum VIP features in Picture Mushroom, including unlimited mushroom identifications, advanced edibility and toxicity guidance, foraging maps, mushroom book encyclopedia, AI chatbot consultations, and removes subscription paywall prompts. |
+| [Unlock Premium & VIP - Picture Mushroom](#unlock-premium-vip-picture-mushroom) | Unlocks Gold and Platinum VIP features in Picture Mushroom, including unlimited mushroom identifications, advanced edibility and toxicity guidance, foraging maps, mushroom book encyclopedia, AI chatbot consultations, removes subscription paywall prompts, and eliminates the startup network connection error trap. |
 
 </details>
 

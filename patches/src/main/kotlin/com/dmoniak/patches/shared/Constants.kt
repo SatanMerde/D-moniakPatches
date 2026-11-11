@@ -585,7 +585,8 @@ object Constants {
         packageName = "com.anthropic.claude",
         name = "Claude",
         description = "Claude: AI Assistant by Anthropic",
-        appIconColor = 0xD97706
+        appIconColor = 0xD97706,
+        targets = listOf(AppTarget("1.261109.19"))
     )
 
     val COMPATIBILITY_EURIA = Compatibility(

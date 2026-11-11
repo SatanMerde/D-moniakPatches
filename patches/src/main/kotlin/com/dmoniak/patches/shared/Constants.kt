@@ -35,6 +35,14 @@ object Constants {
         targets = listOf(AppTarget("2.10.2", isExperimental = true))
     )
 
+    val COMPATIBILITY_PICTURE_MUSHROOM = Compatibility(
+        packageName = "com.glority.picturemushroom",
+        name = "Picture Mushroom",
+        description = "Picture Mushroom - Mushroom ID by Glority Global Group",
+        appIconColor = 0x8D6E63,
+        targets = listOf(AppTarget("2.10.0"))
+    )
+
     val COMPATIBILITY_SHADOW_FIGHT_2 = Compatibility(
         packageName = "com.nekki.shadowfight",
         name = "Shadow Fight 2",

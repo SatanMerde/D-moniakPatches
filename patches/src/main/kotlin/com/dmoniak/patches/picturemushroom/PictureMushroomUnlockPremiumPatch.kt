@@ -10,7 +10,7 @@ import java.util.logging.Logger
 
 val pictureMushroomUnlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium & VIP - Picture Mushroom",
-    description = "Unlocks Gold and Platinum VIP features in Picture Mushroom, including unlimited mushroom identifications, advanced edibility and toxicity guidance, foraging maps, mushroom book encyclopedia, AI chatbot consultations, and removes subscription paywall prompts.",
+    description = "Unlocks Gold and Platinum VIP features in Picture Mushroom, including unlimited mushroom identifications, advanced edibility and toxicity guidance, foraging maps, mushroom book encyclopedia, AI chatbot consultations, removes subscription paywall prompts, and eliminates the startup network connection error trap.",
 ) {
     compatibleWith(COMPATIBILITY_PICTURE_MUSHROOM)
 
@@ -31,6 +31,8 @@ fun BytecodePatchContext.executePictureMushroomUnlockPremiumLogic(logger: Logger
     var routerHandlerCount = 0
     var billingManagerCount = 0
     var paywallSuppressedCount = 0
+    var splashBypassCount = 0
+    var networkEnforcerCount = 0
 
     classDefForEach { classDef ->
         val type = classDef.type
@@ -368,6 +370,103 @@ fun BytecodePatchContext.executePictureMushroomUnlockPremiumLogic(logger: Logger
                     }
                 }
             }
+
+            // =========================================================================
+            // 6. Splash Screen Startup & Network Error Trap Bypass (SplashFragment & PolicyUtils)
+            // =========================================================================
+            if (type.endsWith("/SplashFragment;")) {
+                for (method in classDef.methods.toList()) {
+                    if (method.implementation == null) continue
+                    val mName = method.name
+                    val returnType = method.returnType
+
+                    if ((mName == "handlerError" || mName == "setErrorView") && returnType == "V") {
+                        try {
+                            mutableClass.replaceMethod(
+                                method,
+                                registerCount = 4,
+                                smaliCode = """
+                                    invoke-virtual {p0}, Lcom/glority/android/picturexx/splash/fragment/splash/SplashFragment;->jumpAccordingly()V
+                                    return-void
+                                """.trimIndent(),
+                            )
+                            splashBypassCount++
+                            logger.info("[PictureMushroom VIP] Redirected ${type}->${mName} to jumpAccordingly() to bypass 'Pas de connexion' trap")
+                        } catch (e: Exception) {
+                            logger.warning("[PictureMushroom VIP] Failed to redirect ${type}->${mName}: ${e.message}")
+                        }
+                    }
+                }
+            }
+
+            if (type.contains("SplashActivity") || type.contains("PolicyUtils")) {
+                for (method in classDef.methods.toList()) {
+                    if (method.implementation == null) continue
+                    val mName = method.name
+                    val returnType = method.returnType
+
+                    if ((mName == "getHasAgreed" || mName == "isAgreed") && returnType == "Z") {
+                        try {
+                            mutableClass.replaceMethod(
+                                method,
+                                registerCount = 2,
+                                smaliCode = """
+                                    const/4 v0, 0x1
+                                    return v0
+                                """.trimIndent(),
+                            )
+                            splashBypassCount++
+                            logger.info("[PictureMushroom VIP] Hooked ${type}->${mName}() -> true")
+                        } catch (e: Exception) {
+                            logger.warning("[PictureMushroom VIP] Failed to hook ${type}->${mName}: ${e.message}")
+                        }
+                    }
+                }
+            }
+
+            // =========================================================================
+            // 7. Universal Network Connectivity Enforcer (NetworkUtils & NetworkTracker)
+            // =========================================================================
+            if (type.contains("NetworkUtils") || type.contains("NetworkTracker")) {
+                for (method in classDef.methods.toList()) {
+                    if (method.implementation == null) continue
+                    val mName = method.name
+                    val returnType = method.returnType
+
+                    val isNetworkCheck = (
+                        mName == "isConnected" ||
+                        mName == "isAvailableByPing" ||
+                        mName == "isWifiConnected" ||
+                        mName == "isWifiAvailable" ||
+                        mName == "isMobileData" ||
+                        mName == "isMobileDataEnabled" ||
+                        mName == "isWifiEnabled" ||
+                        mName == "is4G" ||
+                        mName == "isNetworkAvailable" ||
+                        mName == "isNetworkConnected" ||
+                        mName == "isApiAvailable" ||
+                        mName == "isServerAvailable" ||
+                        mName == "isPingAvailable"
+                    ) && returnType == "Z"
+
+                    if (isNetworkCheck) {
+                        try {
+                            mutableClass.replaceMethod(
+                                method,
+                                registerCount = 2,
+                                smaliCode = """
+                                    const/4 v0, 0x1
+                                    return v0
+                                """.trimIndent(),
+                            )
+                            networkEnforcerCount++
+                            logger.info("[PictureMushroom VIP] Enforced online status: ${type}->${mName}() -> true")
+                        } catch (e: Exception) {
+                            logger.warning("[PictureMushroom VIP] Failed to hook ${type}->${mName}: ${e.message}")
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -377,6 +476,8 @@ fun BytecodePatchContext.executePictureMushroomUnlockPremiumLogic(logger: Logger
             "appViewModelCount=$appViewModelCount, " +
             "routerHandlerCount=$routerHandlerCount, " +
             "billingManagerCount=$billingManagerCount, " +
-            "paywallSuppressedCount=$paywallSuppressedCount",
+            "paywallSuppressedCount=$paywallSuppressedCount, " +
+            "splashBypassCount=$splashBypassCount, " +
+            "networkEnforcerCount=$networkEnforcerCount",
     )
 }

@@ -1,3 +1,9 @@
+## [1.73.1](https://github.com/SatanMerde/D-moniakPatches/compare/v1.73.0...v1.73.1) (2026-11-11)
+
+### 🐛 Bug Fixes
+
+* **picturemushroom:** bypass splash connection error trap and enforce network readiness ([91dc950](https://github.com/SatanMerde/D-moniakPatches/commit/91dc9501e4f42fbd380c170b99a2b2797436afcb))
+
 ## [1.73.0](https://github.com/SatanMerde/D-moniakPatches/compare/v1.72.0...v1.73.0) (2026-11-11)
 
 ### 🐛 Bug Fixes

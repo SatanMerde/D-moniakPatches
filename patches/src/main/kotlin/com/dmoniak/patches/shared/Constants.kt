@@ -43,6 +43,14 @@ object Constants {
         targets = listOf(AppTarget("2.10.0"))
     )
 
+    val COMPATIBILITY_SHROOMID = Compatibility(
+        packageName = "com.shroomid",
+        name = "ShroomID",
+        description = "ShroomID - Mushroom Identifier",
+        appIconColor = 0x4CAF50,
+        targets = listOf(AppTarget("3.52.3"))
+    )
+
     val COMPATIBILITY_SHADOW_FIGHT_2 = Compatibility(
         packageName = "com.nekki.shadowfight",
         name = "Shadow Fight 2",
